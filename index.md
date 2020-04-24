@@ -1,3 +1,3 @@
 ## Welcome to My tech notes
 
-[Link](/leetcode)
+[leetcode](/tech_notes/leetcode)
