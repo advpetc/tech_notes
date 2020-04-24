@@ -6,6 +6,6 @@
 * [iOS](/tech_notes/iOS)
 * [Crypto](/tech_notes/Crypto)
 * [Python](/tech_notes/Python)
-* [Old gitbook](/tech_notes/gitbook)
+* [Old gitbook](https://advpetc-algorithm.gitbook.io/notes/)
 
 

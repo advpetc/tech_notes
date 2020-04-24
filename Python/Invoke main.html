@@ -23,33 +23,17 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Previous: <a href='Invoke main.html'>Invoke main</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='class.html'>class</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>class</h2>
+        <h2>Invoke main</h2>
       </div>
-      <div id="contentarea"><div class="cell markdown-cell"><pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">del</span> <span class="ace_identifier">modname</span>.<span class="ace_identifier">the_answer</span> <span class="ace_comment"># delete the attribute</span>
+      <div id="contentarea"><div class="cell markdown-cell"><pre><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">if</span> <span class="ace_identifier">__name__</span> <span class="ace_keyword ace_operator">==</span> <span class="ace_string">"__main__"</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_comment"># execute only if run as a script</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_identifier">main</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span>
 </div></div></div></pre>
-</div><div class="cell markdown-cell"><blockquote>
-<blockquote>
-<blockquote>
-<p>class Complex:<br>
-...     def <strong>init</strong>(self, realpart, imagpart):<br>
-...         self.r = realpart<br>
-...         self.i = imagpart<br>
-...</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>x = Complex(3.0, -4.5)<br>
-x.r, x.i<br>
-(3.0, -4.5)</p>
-</blockquote>
-</blockquote>
-</blockquote>
 </div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 37) window.location.href = 'Invoke main.html';
+if (e.keyCode === 39) window.location.href = 'class.html';
 }</script>
     </body>
     </html>
