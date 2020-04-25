@@ -23,7 +23,7 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Previous: <a href='32.  Longest Valid Parentheses.html'>32.  Longest Valid Parentheses</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='95. Unique Binary Search Trees II.html'>95. Unique Binary Search Trees II</a>, Previous: <a href='97. Interleaving String.html'>97. Interleaving String</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
         <h2>10. Regular Expression Matching</h2>
       </div>
@@ -50,7 +50,7 @@
 </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_paren ace_rparen">}</span>
 </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_rparen">}</span><span class="ace_punctuation ace_operator">;</span>
 </div></div></div></div><div class="cell markdown-cell"><ol>
-<li>dp[i][j]表示s[0:i] matches p[0:j]</li>
+<li>dp[i][j]: s[0:i] matches p[0:j]</li>
 <li>if p[i] == . then matches everything from s, so dp[i][j] = true</li>
 <li>if p[i] == * then<br>
 if dp[i][j-2] (skip the last one and check if previous one matches)<br>
@@ -60,7 +60,8 @@ set dp[i][j] = true</li>
 </ol>
 </div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 37) window.location.href = '32.  Longest Valid Parentheses.html';
+if (e.keyCode === 39) window.location.href = '95. Unique Binary Search Trees II.html';
+if (e.keyCode === 37) window.location.href = '97. Interleaving String.html';
 }</script>
     </body>
     </html>
