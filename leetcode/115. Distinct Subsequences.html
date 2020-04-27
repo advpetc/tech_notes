@@ -23,7 +23,7 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='97. Interleaving String.html'>97. Interleaving String</a>, Previous: <a href='146. LRU Cache.html'>146. LRU Cache</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='139. Word Break.html'>139. Word Break</a>, Previous: <a href='97. Interleaving String.html'>97. Interleaving String</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
         <h2>115. Distinct Subsequences</h2>
       </div>
@@ -47,16 +47,17 @@ rabbbit<br>
 ^^ ^^^^<br>
 rabbbit<br>
 ^^^ ^^^</p>
+<p><strong>note: can only delete</strong></p>
 </div><div class="cell markdown-cell"><p>dp[i][j]: ways to transform S[0:i] to T[0:j]</p>
 <ol>
 <li>if t is "", then only one way to form t from s (delete all)</li>
-<li>if t[i] == s[j]: dp[i][j] = dp[i-1][j-1]+dp[i][j-1] -&gt;</li>
-<li>if t[i] != s[j]: dp[i][j] = dp[i][j-1] -&gt; the extra one cannot be counted and should use the previous stage result</li>
+<li>if t[i] == s[j]: dp[i][j] = dp[i-1][j-1]+dp[i][j-1] -&gt; t can choose either delete the current one or not, both are valid</li>
+<li>if t[i] != s[j]: dp[i][j] = dp[i][j-1] -&gt; the extra one cannot be counted and should only use the previous stage result (delete current one)</li>
 </ol>
 </div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = '97. Interleaving String.html';
-if (e.keyCode === 37) window.location.href = '146. LRU Cache.html';
+if (e.keyCode === 39) window.location.href = '139. Word Break.html';
+if (e.keyCode === 37) window.location.href = '97. Interleaving String.html';
 }</script>
     </body>
     </html>
