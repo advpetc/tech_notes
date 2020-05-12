@@ -10,4 +10,5 @@
 * [Old gitbook](https://advpetc-algorithm.gitbook.io/notes/)
 * [cnblog](https://www.cnblogs.com/goldenticket)
 * [算法总结](/tech_notes/算法总结.html)
+* [Lai](/tech_notes/Lai)
 

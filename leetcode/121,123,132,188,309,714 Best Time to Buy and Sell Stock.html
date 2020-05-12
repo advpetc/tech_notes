@@ -1,0 +1,135 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-monokai .ace_gutter {background: #2F3129;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {background-color: #272822;color: #F8F8F2}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #fff}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      <div id="nav"><div>Next: <a href='139. Word Break.html'>139. Word Break</a>, Previous: <a href='115. Distinct Subsequences.html'>115. Distinct Subsequences</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="titlearea">
+        <h2>121,123,132,188,309,714 Best Time to Buy and Sell Stock</h2>
+      </div>
+      <div id="contentarea"><div class="cell markdown-cell"><blockquote>
+<p>solution all referenced from:</p>
+</blockquote>
+<p>作者：labuladong<br>
+链接：<a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/yi-ge-tong-yong-fang-fa-tuan-mie-6-dao-gu-piao-wen/">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/yi-ge-tong-yong-fang-fa-tuan-mie-6-dao-gu-piao-wen/</a><br>
+来源：力扣（LeetCode）<br>
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</div><div class="cell markdown-cell"><p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
+<p>Note that you cannot sell a stock before you buy one.</p>
+<p>Example 1:</p>
+<p>Input: [7,1,5,3,6,4]<br>
+Output: 5<br>
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.<br>
+Not 7-1 = 6, as selling price needs to be larger than buying price.<br>
+Example 2:</p>
+<p>Input: [7,6,4,3,1]<br>
+Output: 0<br>
+Explanation: In this case, no transaction is done, i.e. max profit = 0.</p>
+</div><div class="cell markdown-cell"><h2>presumptions</h2>
+</div><div class="cell markdown-cell"><ol>
+<li>there is only one stock to be bought</li>
+<li>no consective buy or sell happens (buy on day one and buy one day two, instead, can only choose rest or sell)</li>
+</ol>
+</div><div class="cell markdown-cell"><h2>state machine</h2>
+</div><div class="cell markdown-cell"><p><img src="resources/99D80789E081E0FCC5FDC25FAA929DB2.jpg" alt="IMAGE" width="794" height="519"></p>
+</div><div class="cell markdown-cell"><p><strong>representation</strong><br>
+dp[i][j][k]</p>
+<ol>
+<li>i: current day from day zero</li>
+<li>j: transections left</li>
+<li>k: {1,0} own (rest) or sold (sell)</li>
+</ol>
+<p>dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])<br>
+max(   选择 rest  ,           选择 sell      )</p>
+<p>解释：今天我没有持有股票，有两种可能：<br>
+要么是我昨天就没有持有，然后今天选择 rest，所以我今天还是没有持有；<br>
+要么是我昨天持有股票，但是今天我 sell 了，所以我今天没有持有股票了。</p>
+<p>dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])<br>
+max(   选择 rest  ,           选择 buy         )</p>
+<p>解释：今天我持有着股票，有两种可能：<br>
+要么我昨天就持有着股票，然后今天选择 rest，所以我今天还持有着股票；<br>
+要么我昨天本没有持有，但今天我选择 buy，所以今天我就持有股票了。</p>
+</div><div class="cell markdown-cell"><p><strong>inital</strong>:<br>
+dp[-1][k][0] = 0<br>
+解释：因为 i 是从 0 开始的，所以 i = -1 意味着还没有开始，这时候的利润当然是 0 。<br>
+dp[-1][k][1] = -infinity<br>
+解释：还没开始的时候，是不可能持有股票的，用负无穷表示这种不可能。<br>
+dp[i][0][0] = 0<br>
+解释：因为 k 是从 1 开始的，所以 k = 0 意味着根本不允许交易，这时候利润当然是 0 。<br>
+dp[i][0][1] = -infinity<br>
+解释：不允许交易的情况下，是不可能持有股票的，用负无穷表示这种不可能。</p>
+</div><div class="cell markdown-cell"><h2>part 1: one transection</h2>
+</div><div class="cell markdown-cell"><p>dp[i][1][0] = max(dp[i-1][1][0], dp[i-1][1][1] + prices[i])<br>
+dp[i][1][1] = max(dp[i-1][1][1], dp[i-1][0][0] - prices[i])<br>
+= max(dp[i-1][1][1], -prices[i])<br>
+解释：k = 0 的 base case，所以 dp[i-1][0][0] = 0。</p>
+<p>现在发现 k 都是 1，不会改变，即 k 对状态转移已经没有影响了。<br>
+可以进行进一步化简去掉所有 k：<br>
+dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])<br>
+dp[i][1] = max(dp[i-1][1], -prices[i])</p>
+</div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword ace_control">for</span> <span class="ace_paren ace_lparen">(</span><span class="ace_storage ace_type">int</span> <span class="ace_identifier">i</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">0</span><span class="ace_punctuation ace_operator">;</span> <span class="ace_identifier">i</span> <span class="ace_keyword ace_operator">&lt;</span> <span class="ace_identifier">n</span><span class="ace_punctuation ace_operator">;</span> <span class="ace_identifier">i</span><span class="ace_keyword ace_operator">++</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword ace_control">if</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">i</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_constant ace_numeric">1</span> <span class="ace_keyword ace_operator">==</span> <span class="ace_constant ace_numeric">-1</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span> <span class="ace_comment">// i==0</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">dp</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">]</span><span class="ace_paren ace_lparen">[</span><span class="ace_constant ace_numeric">0</span><span class="ace_paren ace_rparen">]</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">0</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_comment">// <span class="ace_cjk" style="width:NaNpx">解</span><span class="ace_cjk" style="width:NaNpx">释</span><span class="ace_cjk" style="width:NaNpx">：</span></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_comment">//   dp[i][0] </span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_comment">// = max(dp[-1][0], dp[-1][1] + prices[i])</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_comment">// = max(0, -infinity + prices[i]) = 0</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">dp</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">]</span><span class="ace_paren ace_lparen">[</span><span class="ace_constant ace_numeric">1</span><span class="ace_paren ace_rparen">]</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">prices</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">]</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_comment">//<span class="ace_cjk" style="width:NaNpx">解</span><span class="ace_cjk" style="width:NaNpx">释</span><span class="ace_cjk" style="width:NaNpx">：</span></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_comment">//   dp[i][1] </span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_comment">// = max(dp[-1][1], dp[-1][0] - prices[i])</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_comment">// = max(-infinity, 0 - prices[i]) </span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_comment">// = -prices[i]</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_keyword ace_control">continue</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_identifier">dp</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">]</span><span class="ace_paren ace_lparen">[</span><span class="ace_constant ace_numeric">0</span><span class="ace_paren ace_rparen">]</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">max</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">dp</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_constant ace_numeric">-1</span><span class="ace_paren ace_rparen">]</span><span class="ace_paren ace_lparen">[</span><span class="ace_constant ace_numeric">0</span><span class="ace_paren ace_rparen">]</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">dp</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_constant ace_numeric">-1</span><span class="ace_paren ace_rparen">]</span><span class="ace_paren ace_lparen">[</span><span class="ace_constant ace_numeric">1</span><span class="ace_paren ace_rparen">]</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_identifier">prices</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">])</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_identifier">dp</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">]</span><span class="ace_paren ace_lparen">[</span><span class="ace_constant ace_numeric">1</span><span class="ace_paren ace_rparen">]</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">max</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">dp</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_constant ace_numeric">-1</span><span class="ace_paren ace_rparen">]</span><span class="ace_paren ace_lparen">[</span><span class="ace_constant ace_numeric">1</span><span class="ace_paren ace_rparen">]</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">prices</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">])</span><span class="ace_punctuation ace_operator">;</span> <span class="ace_comment">// now is sell, if last is sold now has to hold</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>    <span class="ace_comment">//              if last is buy, now is rest</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword ace_control">return</span> <span class="ace_identifier">dp</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">n</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_constant ace_numeric">1</span><span class="ace_paren ace_rparen">]</span><span class="ace_paren ace_lparen">[</span><span class="ace_constant ace_numeric">0</span><span class="ace_paren ace_rparen">]</span><span class="ace_punctuation ace_operator">;</span>
+</div></div></div></div><div class="cell markdown-cell"><h2>part 2: k transections</h2>
+</div><div class="cell markdown-cell"><p>dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])<br>
+dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])<br>
+= max(dp[i-1][k][1], dp[i-1][k][0] - prices[i])</p>
+<p>我们发现数组中的 k 已经不会改变了，也就是说不需要记录 k 这个状态了：<br>
+dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])<br>
+dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i])</p>
+</div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_storage ace_type">int</span> <span class="ace_identifier">maxProfit_k_inf</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">vector</span><span class="ace_keyword ace_operator">&lt;</span><span class="ace_storage ace_type">int</span><span class="ace_keyword ace_operator">&gt;</span> <span class="ace_identifier">prices</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_storage ace_type">int</span> <span class="ace_identifier">n</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">prices</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">size</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_storage ace_type">int</span> <span class="ace_identifier">dp_i_0</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">0</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">dp_i_1</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">INT_MIN</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword ace_control">for</span> <span class="ace_paren ace_lparen">(</span><span class="ace_storage ace_type">int</span> <span class="ace_identifier">i</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">0</span><span class="ace_punctuation ace_operator">;</span> <span class="ace_identifier">i</span> <span class="ace_keyword ace_operator">&lt;</span> <span class="ace_identifier">n</span><span class="ace_punctuation ace_operator">;</span> <span class="ace_identifier">i</span><span class="ace_keyword ace_operator">++</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_storage ace_type">int</span> <span class="ace_identifier">temp</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">dp_i_0</span><span class="ace_punctuation ace_operator">;</span> <span class="ace_comment">// last state is </span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">dp_i_0</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">max</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">dp_i_0</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">dp_i_1</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_identifier">prices</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">])</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">dp_i_1</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">max</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">dp_i_1</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">temp</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_identifier">prices</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">i</span><span class="ace_paren ace_rparen">])</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_paren ace_rparen">}</span>   
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword ace_control">return</span> <span class="ace_identifier">dp_i_0</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_rparen">}</span>
+</div></div></div></div><div class="cell markdown-cell"></div><div class="cell markdown-cell"></div></div>
+      <script>document.body.onkeyup = function(e) {
+if (e.keyCode === 39) window.location.href = '139. Word Break.html';
+if (e.keyCode === 37) window.location.href = '115. Distinct Subsequences.html';
+}</script>
+    </body>
+    </html>
+  
