@@ -23,7 +23,7 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Previous: <a href='Find Minimum in Rotated Sorted Array.html'>Find Minimum in Rotated Sorted Array</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='Choose K cards and find the maximum.html'>Choose K cards and find the maximum</a>, Previous: <a href='Sorting Algorithms.html'>Sorting Algorithms</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
         <h2>Lecture 1 | Binary Search</h2>
       </div>
@@ -115,7 +115,34 @@ Complexity: O(log(n) + k)</li>
 leftArray = {3 2 1} rightArray = {4 5}<br>
 then use the method introduced <a href="#kth-smallest-in-two-sorted-arrays">later</a> to find the median. Don't need to preprocess the offset beforehand, but just to update when visited.</li>
 </ol>
-</div><div class="cell markdown-cell"><h2>Smallest element that is greater than target</h2>
+</div><div class="cell markdown-cell"><p>Solution 3:</p>
+</div><div class="cell markdown-cell"><p>Moving the sliding window to get the least sum diff. To get the minimal, it has to be the mid point of the sliding window.<br>
+case 1: x - A[mid] &lt; A[mid + k] - x, need to move window go left<br>
+-------x----A[mid]-----------------A[mid + k]----------</p>
+<p>case 2: x - A[mid] &lt; A[mid + k] - x, need to move window go left again<br>
+-------A[mid]----x-----------------A[mid + k]----------</p>
+<p>case 3: x - A[mid] &gt; A[mid + k] - x, need to move window go right<br>
+-------A[mid]------------------x---A[mid + k]----------</p>
+<p>case 4: x - A[mid] &gt; A[mid + k] - x, need to move window go right<br>
+-------A[mid]---------------------A[mid + k]----x------</p>
+</div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_identifier">vector</span><span class="ace_keyword ace_operator">&lt;</span><span class="ace_storage ace_type">int</span><span class="ace_keyword ace_operator">&gt;</span> <span class="ace_identifier">kClosest</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">vector</span><span class="ace_keyword ace_operator">&lt;</span><span class="ace_storage ace_type">int</span><span class="ace_keyword ace_operator">&gt;</span> <span class="ace_identifier">a</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_storage ace_type">int</span> <span class="ace_identifier">x</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_storage ace_type">int</span> <span class="ace_identifier">k</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_storage ace_type">int</span> <span class="ace_identifier">n</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">a</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">size</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_storage ace_type">int</span> <span class="ace_identifier">l</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">0</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">r</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">n</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_identifier">k</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword ace_control">while</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">l</span> <span class="ace_keyword ace_operator">&lt;</span> <span class="ace_identifier">r</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_storage ace_type">int</span> <span class="ace_identifier">m</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">l</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_constant ace_numeric">0ll</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_identifier">r</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">&gt;&gt;</span> <span class="ace_constant ace_numeric">1</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_keyword ace_control">if</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">x</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_identifier">a</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">m</span><span class="ace_paren ace_rparen">]</span> <span class="ace_keyword ace_operator">&gt;</span> <span class="ace_identifier">a</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">m</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_identifier">k</span><span class="ace_paren ace_rparen">]</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_identifier">x</span><span class="ace_paren ace_rparen">)</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">l</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">m</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_constant ace_numeric">1</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_keyword ace_control">else</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">r</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">m</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_storage ace_type">auto</span> <span class="ace_identifier">res</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">vector</span><span class="ace_keyword ace_operator">&lt;</span><span class="ace_storage ace_type">int</span><span class="ace_keyword ace_operator">&gt;</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">a</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">begin</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_identifier">l</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">a</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">begin</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_identifier">l</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_identifier">k</span> <span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_comment">// this sort is unecessary if there is no requirement for what order to be returned</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_comment">// sort(res.begin(), res.end(), [&amp;](const int l, const int r) {</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_comment">//   return abs(l - x) &lt; abs(r - x);</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_comment">// });</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword ace_control">return</span> <span class="ace_identifier">res</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_paren ace_rparen">}</span>
+</div></div></div></div><div class="cell markdown-cell"><h2>Smallest element that is greater than target</h2>
 </div><div class="cell markdown-cell"><p>sss eee bbb -&gt; same as first target, because we want to find the first b</p>
 </div><div class="cell markdown-cell"><p>case 1: if input[m] &lt; target:<br>
 l = m + 1 // l = m also work<br>
@@ -169,7 +196,8 @@ Why not size = size * 10? Which one is better?</p>
 </div><div class="cell markdown-cell"><p><img src="resources/776118523CF61614F558A218A25EB319.png" alt="Screen Shot 2020-05-01 at 5.51.22 PM.png" width="795" height="719"></p>
 </div><div class="cell markdown-cell"></div><div class="cell markdown-cell"></div><div class="cell markdown-cell"></div><div class="cell markdown-cell"></div><div class="cell markdown-cell"></div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 37) window.location.href = 'Find Minimum in Rotated Sorted Array.html';
+if (e.keyCode === 39) window.location.href = 'Choose K cards and find the maximum.html';
+if (e.keyCode === 37) window.location.href = 'Sorting Algorithms.html';
 }</script>
     </body>
     </html>
