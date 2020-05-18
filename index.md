@@ -7,9 +7,11 @@
 * [Crypto](/tech_notes/Crypto)
 * [Python](/tech_notes/Python)
 * [Machine Learning](/tech_notes/machine%20learning)
+* [Lai](/tech_notes/Lai)
+* [Google Kick Start](tech_notes/Google%20Kick%20Start)
+
+## No Longer Update
 * [Old gitbook](https://advpetc-algorithm.gitbook.io/notes/)
 * [cnblog](https://www.cnblogs.com/goldenticket)
 * [算法总结](/tech_notes/算法总结.html)
-* [Lai](/tech_notes/Lai)
-* [Google Kick Start](tech_notes/Google%20Kick%20Start/)
 
