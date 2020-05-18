@@ -8,7 +8,7 @@
 * [Python](/tech_notes/Python)
 * [Machine Learning](/tech_notes/machine%20learning)
 * [Lai](/tech_notes/Lai)
-* [Google Kick Start](tech_notes/Google%20Kick%20Start)
+* [Google Kick Start](/tech_notes/Google%20Kick%20Start)
 
 ## No Longer Update
 * [Old gitbook](https://advpetc-algorithm.gitbook.io/notes/)
