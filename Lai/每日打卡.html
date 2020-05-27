@@ -23,12 +23,42 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='Sorting Algorithms.html'>Sorting Algorithms</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='Knight Dialer.html'>Knight Dialer</a>, Previous: <a href='Binary Search.html'>Binary Search</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
         <h2>每日打卡</h2>
       </div>
-      <div id="contentarea"><div class="cell markdown-cell"><p>5.17<br>
-Which class does all the Enums directly extend?</p>
+      <div id="contentarea"><div class="cell markdown-cell"><p>5.26<br>
+Consider a hash table of size seven, with starting index zero, and a hash function (7x+3) mod 4. Assuming the hash table is initially empty, which of the following is the contents of the table when the sequence 1, 3, 8, 10 is inserted into the table using closed hashing ? Here “__” denotes an empty location in the table.<br>
+_ _ 1 _ _ _ _<br>
+3 _ 1 _ _ _ _<br>
+3 _ 1 8 _ _ _<br>
+3 10 1 8 _ _ _</p>
+<p>5.25<br>
+To implement Dijkstra’s shortest path algorithm on unweighted graphs so that it runs in linear time, the data structure to be used is？<br>
+Priority Queue</p>
+<p>5.24<br>
+When do we consider using dynamic programming?<br>
+For problem that can be solved by dividing problems to sub problems, where results of sub problems can be reused. It can be solved by recursion method but recursion here is sometimes not ideal in time complexity (too many overlapping a). Since the results can be reused. DP provides a way to record and reuse the results from previous solved sub problems, which greatly reduce the time complexity.</p>
+<p>5.23<br>
+Analysis Complexity</p>
+<p>5.22<br>
+Check output</p>
+<p>5.21<br>
+Let G be a graph with n vertices and m edges. What is the tightest upper bound on the running time on Depth First Search of G? Assume that the graph is represented using adjacency matrix.</p>
+<p>5.20<br>
+What does final mean in Java? What does finally mean in Java?<br>
+final is a keyword that once a field/method/class has been designed, it’s unchangeable and un override-able. Finally is a block that always executed when the try block exits.</p>
+<p>5.19<br>
+What is dependency injection？<br>
+<a href="https://www.freecodecamp.org/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f/">https://www.freecodecamp.org/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f/</a></p>
+<p>5.18<br>
+What are the differences between overload and override?<br>
+1). The real object type in the run-time, not the reference variable's type, determines which overridden method is used at runtime. In contrast, reference type determines which overloaded method will be used at compile time.<br>
+2). Polymorphism applies to overriding, not to overloading.<br>
+3). Overriding is a run-time concept while overloading is a compile-time concept.</p>
+<p>5.17<br>
+Which class does all the Enums directly extend?<br>
+All enums extend java.lang.Enum. Enum cannot extend any other class.</p>
 <p>5.16<br>
 Given an <strong>unsorted</strong> array. The array has this property that every element in array is at most k distance from its position in sorted array where k is a positive integer smaller than that of array.<br>
 Which sorting algorithm can be easily modified for sorting this array and what is the obtainable time complexity?<br>
@@ -53,7 +83,34 @@ tree 的遍历可以用 pre-order, in-order, post-order, level-order, 前三种�
 An unordered list contains n distinct elements. What is number of comparisons to find an element in this list that is neither maximum nor minimum?<br>
 worst case是3次 复杂度是Θ(1)<br>
 需要讨论n!=length的case</p>
-</div><div class="cell markdown-cell"><p>5.17<br>
+</div><div class="cell markdown-cell"><p>5.26<br>
+Alien Dictionary<br>
+<a href="https://app.laicode.io/app/problem/501">https://app.laicode.io/app/problem/501</a></p>
+<p>5.25<br>
+Merge Stones<br>
+<a href="https://app.laicode.io/app/problem/96">https://app.laicode.io/app/problem/96</a></p>
+<p>5.24<br>
+Edit Distance<br>
+<a href="https://app.laicode.io/app/problem/100">https://app.laicode.io/app/problem/100</a></p>
+<p>5.23<br>
+Largest Rectangle Of 1s<br>
+<a href="https://app.laicode.io/app/problem/102">https://app.laicode.io/app/problem/102</a></p>
+<p>5.22<br>
+Depth Of Forest<br>
+<a href="https://app.laicode.io/app/problem/323">https://app.laicode.io/app/problem/323</a></p>
+<p>5.21<br>
+Walls and gates<br>
+<a href="https://app.laicode.io/app/problem/503">https://app.laicode.io/app/problem/503</a></p>
+<p>5.20<br>
+All Permutations II<br>
+<a href="https://app.laicode.io/app/problem/65">https://app.laicode.io/app/problem/65</a></p>
+<p>5.19<br>
+Restore IP Addresses<br>
+<a href="https://app.laicode.io/app/problem/147">https://app.laicode.io/app/problem/147</a></p>
+<p>5.18<br>
+Longest Substring With K Typed Characters<br>
+<a href="https://app.laicode.io/app/problem/285">https://app.laicode.io/app/problem/285</a></p>
+<p>5.17<br>
 Compress String<br>
 <a href="https://app.laicode.io/app/problem/173">https://app.laicode.io/app/problem/173</a><br>
 StringBuilder in Java</p>
@@ -75,9 +132,51 @@ bst</p>
 <p>5.12<br>
 Largest Container<br>
 <a href="https://app.laicode.io/app/problem/201">https://app.laicode.io/app/problem/201</a></p>
-</div><div class="cell markdown-cell"></div></div>
+</div><div class="cell markdown-cell"><h1>Longest Substring With K Typed Characters</h1>
+</div><div class="cell markdown-cell"><p>Given a string, return the longest contiguous substring that contains exactly k type of characters.</p>
+<p>Return null if there does not exist such substring.</p>
+<p>Assumptions:</p>
+<p>The given string is not null and guaranteed to have at least k different characters.<br>
+k &gt; 0.<br>
+Examples:</p>
+<p>input = "aabcc", k = 3, output = "aabcc".<br>
+input = "aabcccc", k = 2, output = "bcccc".</p>
+</div><div class="cell markdown-cell"><h2>Analysis</h2>
+</div><div class="cell markdown-cell"><p>Using sliding window to search and update the current longest string:<br>
+dabaaebac: l = 0, r = 0, cnt = 0, len = 9<br>
+l = 0, r = 7: dabaaeba</p>
+</div><div class="cell markdown-cell"><h2>Code</h2>
+</div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_storage ace_type">class</span> <span class="ace_identifier">Solution</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span> <span class="ace_storage ace_modifier">public</span><span class="ace_punctuation ace_operator">:</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_identifier">string</span> <span class="ace_identifier">longest</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">string</span> <span class="ace_identifier">input</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_storage ace_type">int</span> <span class="ace_identifier">k</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_storage ace_type">int</span> <span class="ace_identifier">n</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">input</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">size</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_storage ace_type">int</span> <span class="ace_identifier">l</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">0</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">r</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">0</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">cnt</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">0</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">len</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">0</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_identifier">string</span> <span class="ace_identifier">res</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_string ace_start">"</span><span class="ace_string ace_end">"</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_storage ace_type">int</span> <span class="ace_identifier">v</span><span class="ace_paren ace_lparen">[</span><span class="ace_constant ace_numeric">26</span><span class="ace_paren ace_rparen">]</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_support ace_function ace_C99 ace_c">memset</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">v</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_constant ace_numeric">0</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_keyword ace_operator">sizeof</span> <span class="ace_identifier">v</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword ace_control">while</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">l</span> <span class="ace_keyword ace_operator">&lt;</span> <span class="ace_identifier">n</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_constant ace_numeric">1</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_keyword ace_control">while</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">cnt</span> <span class="ace_keyword ace_operator">&lt;=</span> <span class="ace_identifier">k</span> <span class="ace_keyword ace_operator">&amp;&amp;</span> <span class="ace_identifier">r</span> <span class="ace_keyword ace_operator">&lt;</span> <span class="ace_identifier">n</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_keyword ace_control">if</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">v</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">input</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">r</span><span class="ace_paren ace_rparen">]</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_string">'a'</span><span class="ace_paren ace_rparen">]</span><span class="ace_keyword ace_operator">++</span> <span class="ace_keyword ace_operator">==</span> <span class="ace_constant ace_numeric">0</span><span class="ace_paren ace_rparen">)</span> <span class="ace_identifier">cnt</span><span class="ace_keyword ace_operator">++</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">r</span><span class="ace_keyword ace_operator">++</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_keyword ace_control">if</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">cnt</span> <span class="ace_keyword ace_operator">&lt;=</span> <span class="ace_identifier">k</span> <span class="ace_keyword ace_operator">&amp;&amp;</span> <span class="ace_identifier">len</span> <span class="ace_keyword ace_operator">&lt;</span> <span class="ace_identifier">r</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_identifier">l</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span> <span class="ace_comment">// cnt is valid</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">len</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">r</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_identifier">l</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">res</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">input</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">substr</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">l</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">len</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_paren ace_rparen">}</span> <span class="ace_keyword ace_control">else</span> <span class="ace_keyword ace_control">if</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">len</span> <span class="ace_keyword ace_operator">&lt;</span> <span class="ace_identifier">r</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_identifier">l</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_constant ace_numeric">1</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span> <span class="ace_comment">// cnt is invalid</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">len</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">r</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_identifier">l</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_constant ace_numeric">1</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">res</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_identifier">input</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">substr</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">l</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">len</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_keyword ace_control">if</span> <span class="ace_paren ace_lparen">(</span><span class="ace_keyword ace_operator">--</span><span class="ace_identifier">v</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">input</span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">l</span><span class="ace_paren ace_rparen">]</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_string">'a'</span><span class="ace_paren ace_rparen">]</span> <span class="ace_keyword ace_operator">==</span> <span class="ace_constant ace_numeric">0</span><span class="ace_paren ace_rparen">)</span> <span class="ace_identifier">cnt</span><span class="ace_keyword ace_operator">--</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_identifier">l</span><span class="ace_keyword ace_operator">++</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword ace_control">return</span> <span class="ace_identifier">res</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_rparen">}</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div></div></div></div><div class="cell markdown-cell"></div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = 'Sorting Algorithms.html';
+if (e.keyCode === 39) window.location.href = 'Knight Dialer.html';
+if (e.keyCode === 37) window.location.href = 'Binary Search.html';
 }</script>
     </body>
     </html>

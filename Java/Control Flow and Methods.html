@@ -23,23 +23,39 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='Noon 1   Recursion Tree.html'>Noon 1 | Recursion Tree</a>, Previous: <a href='Sorting Algorithms.html'>Sorting Algorithms</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='Common Problem.html'>Common Problem</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>Choose K cards and find the maximum</h2>
+        <h2>Control Flow and Methods</h2>
       </div>
-      <div id="contentarea"><div class="cell markdown-cell"><p>There are two players playing alternatively, and there is a deck of cards.<br>
-Each player can pick 1~3 cards from the <strong>top</strong> of the deck. Find the maximum that player one get.</p>
-</div><div class="cell markdown-cell"><p>e.g. [8,1,1,1,1] -&gt; p1 pick 1, p2 picks 1,1,1. finally p1 pick 8 which is the highest point it can get.</p>
-</div><div class="cell markdown-cell"><p>DP[i] = max(<br>
-sum(0, i) - DP[i-1],<br>
-sum(0, i) - DP[i-2],<br>
-sum(0, i) - DP[i-3]<br>
-)<br>
-= sum(0, i) - min(DP[i-1], DP[i-2], DP[i-3])</p>
-</div></div>
+      <div id="contentarea"><div class="cell markdown-cell"><h1>Method overloading</h1>
+</div><div class="cell markdown-cell"><p><strong>method name is the same, but parameter type list is different</strong></p>
+<ol>
+<li>different types</li>
+<li>different num of parameters</li>
+<li>different order</li>
+</ol>
+</div><div class="cell markdown-cell"><h1>Notes</h1>
+</div><div class="cell markdown-cell"><h2>return type cannot be used to identify which function to use</h2>
+</div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">public</span> <span class="ace_keyword">class</span> <span class="ace_identifier">test</span> {
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">public</span> <span class="ace_keyword">static</span> <span class="ace_keyword">int</span> <span class="ace_identifier">add</span>(<span class="ace_keyword">double</span> <span class="ace_identifier">a</span>, <span class="ace_keyword">double</span> <span class="ace_identifier">b</span>) {
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_keyword">return</span> (<span class="ace_keyword">int</span>) (<span class="ace_identifier">a</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_identifier">b</span>);
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    }
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">public</span> <span class="ace_keyword">static</span> <span class="ace_keyword">double</span> <span class="ace_identifier">add</span>(<span class="ace_keyword">double</span> <span class="ace_identifier">a</span>, <span class="ace_keyword">double</span> <span class="ace_identifier">b</span>) {
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_keyword">return</span> (<span class="ace_identifier">a</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_identifier">b</span>);
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    }
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">public</span> <span class="ace_keyword">static</span> <span class="ace_keyword">void</span> <span class="ace_identifier">main</span>(<span class="ace_support ace_function">String</span>[] <span class="ace_identifier">args</span>) {
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_keyword">double</span> <span class="ace_identifier">a</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">1.3</span>, <span class="ace_identifier">b</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">2.4</span>;
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//      int c = add(a, b);</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_support ace_function">System</span>.<span class="ace_identifier">out</span>.<span class="ace_identifier">println</span>(<span class="ace_identifier">add</span>(<span class="ace_identifier">a</span>, <span class="ace_identifier">b</span>));
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    }
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>}
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div></div></div></div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = 'Noon 1   Recursion Tree.html';
-if (e.keyCode === 37) window.location.href = 'Sorting Algorithms.html';
+if (e.keyCode === 39) window.location.href = 'Common Problem.html';
 }</script>
     </body>
     </html>
