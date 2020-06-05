@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://advpetc.github.io/tech_notes/Python/class/">
+        <link rel="canonical" href="https://advpetc.github.io/tech_notes/machine%20learning/cs231n-lecture-5---convolutional-neural-networks/">
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
@@ -17,7 +17,7 @@
     
     
       
-        <title>Class - Tech Notes</title>
+        <title>Cs231n lecture 5 convolutional neural networks - Tech Notes</title>
       
     
     
@@ -58,6 +58,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#filter" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -82,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Class
+              Cs231n lecture 5   convolutional neural networks
             
           </span>
         </div>
@@ -874,12 +879,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Python
@@ -901,18 +904,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Class" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../Python/class/" title="Class" class="md-nav__link">
       Class
     </a>
-    
   </li>
 
         
@@ -922,7 +918,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../invoke-main/" title="Invoke main" class="md-nav__link">
+    <a href="../../Python/invoke-main/" title="Invoke main" class="md-nav__link">
       Invoke main
     </a>
   </li>
@@ -1081,10 +1077,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" checked>
     
     <label class="md-nav__link" for="nav-12">
       Machine learning
@@ -1108,7 +1106,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" title="Cs231n lecture 3 loss function" class="md-nav__link">
+    <a href="../cs231n-lecture-3---loss-function/" title="Cs231n lecture 3 loss function" class="md-nav__link">
       Cs231n lecture 3   loss function
     </a>
   </li>
@@ -1120,7 +1118,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" title="Cs231n lecture 4 introduction to neural networks" class="md-nav__link">
+    <a href="../cs231n-lecture-4---introduction-to-neural-networks/" title="Cs231n lecture 4 introduction to neural networks" class="md-nav__link">
       Cs231n lecture 4   introduction to neural networks
     </a>
   </li>
@@ -1130,11 +1128,90 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" title="Cs231n lecture 5 convolutional neural networks" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Cs231n lecture 5   convolutional neural networks
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Cs231n lecture 5 convolutional neural networks" class="md-nav__link md-nav__link--active">
       Cs231n lecture 5   convolutional neural networks
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    Filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conv-layer" class="md-nav__link">
+    Conv Layer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pooling-layer" class="md-nav__link">
+    Pooling Layer
+  </a>
+  
+    <nav class="md-nav" aria-label="Pooling Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#max-pooling-layer" class="md-nav__link">
+    Max-Pooling Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fully-connected-layer-fc" class="md-nav__link">
+    Fully Connected Layer (FC)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1144,7 +1221,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" title="Overview" class="md-nav__link">
+    <a href="../cs231n-lecture-6---training-neural-networks-i/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -1162,6 +1239,77 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    Filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conv-layer" class="md-nav__link">
+    Conv Layer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pooling-layer" class="md-nav__link">
+    Pooling Layer
+  </a>
+  
+    <nav class="md-nav" aria-label="Pooling Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#max-pooling-layer" class="md-nav__link">
+    Max-Pooling Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fully-connected-layer-fc" class="md-nav__link">
+    Fully Connected Layer (FC)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -1171,20 +1319,57 @@
                   
                 
                 
-                  <h1>Class</h1>
+                  <h1>Cs231n lecture 5   convolutional neural networks</h1>
                 
-                <div class="highlight"><pre><span></span><code><span class="k">del</span> <span class="n">modname</span><span class="o">.</span><span class="n">the_answer</span> <span class="c1"># delete the attribute</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">class</span> <span class="nl">Complex</span><span class="p">:</span>
-<span class="p">...</span>     <span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">realpart</span><span class="p">,</span> <span class="n">imagpart</span><span class="p">)</span><span class="o">:</span>
-<span class="p">...</span>         <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">realpart</span>
-<span class="p">...</span>         <span class="n">self</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">imagpart</span>
-<span class="p">...</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">r</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">i</span>
-<span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">)</span>
-</code></pre></div>
+                <p>CNN is good for spacial structure</p>
+<p><img alt="Screen Shot 2020-04-30 at 3.16.20 PM.png" src="../resources/922A0B6231B7496A918187CC27BE1DF8.png" /></p>
+<h2 id="filter">Filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h2>
+<p><img alt="Screen Shot 2020-04-30 at 3.18.29 PM.png" src="../resources/F2547EEE1E666E119CE67B25694802D2.png" /></p>
+<ol>
+<li>stride (3 in this case): number of steps to move for each progress</li>
+<li>dimentino size: n * n</li>
+<li>filter size: F</li>
+</ol>
+<p>Output size = (N - F)/stride+1 =&gt; e.g. stride size = 3 won't work
+1. To make this case working, adding a border surrounded (padding) will make N divisable (now N is 9 instead of 7)
+2. To make the size remain the same dimentionally, we also use padding.</p>
+<h2 id="conv-layer">Conv Layer<a class="headerlink" href="#conv-layer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Accpets a volume of size <span><span class="MathJax_Preview">W_1\times H_1 \times D_1</span><script type="math/tex">W_1\times H_1 \times D_1</script></span></li>
+<li>Requires four hyperparameters:</li>
+<li>Number of filters K,</li>
+<li>their spatial extent F (or filter dimension),</li>
+<li>the stride S,</li>
+<li>the amount of zero padding P.</li>
+<li>Produces a volume of size <span><span class="MathJax_Preview">W_2</span><script type="math/tex">W_2</script></span> <span><span class="MathJax_Preview">\times</span><script type="math/tex">\times</script></span> <span><span class="MathJax_Preview">H_2</span><script type="math/tex">H_2</script></span> <span><span class="MathJax_Preview">\times</span><script type="math/tex">\times</script></span> <span><span class="MathJax_Preview">D_2</span><script type="math/tex">D_2</script></span></li>
+<li><span><span class="MathJax_Preview">W_2 = (W_1 - F + 2P)/S + 1</span><script type="math/tex">W_2 = (W_1 - F + 2P)/S + 1</script></span> </li>
+<li><span><span class="MathJax_Preview">H_2 = (H_1 - F + 2P)/s + 1</span><script type="math/tex">H_2 = (H_1 - F + 2P)/s + 1</script></span> (width and height are the same size)</li>
+<li><span><span class="MathJax_Preview">D_2 = K</span><script type="math/tex">D_2 = K</script></span></li>
+<li>With parameter sharing, it produces <span><span class="MathJax_Preview">F \times F \times D_1</span><script type="math/tex">F \times F \times D_1</script></span> weights per filter, for a total of <span><span class="MathJax_Preview">(F \cdot F \cdot D_1) * K</span><script type="math/tex">(F \cdot F \cdot D_1) * K</script></span> weights</li>
+<li>In the output volume, the d-th depth slice (of size <span><span class="MathJax_Preview">W_2 \times H_2</span><script type="math/tex">W_2 \times H_2</script></span>) is the result of performing a valid convolution of the d-th filter over the input volume with a stride of <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>, and then offset by d-th bias</li>
+</ul>
+<h2 id="pooling-layer">Pooling Layer<a class="headerlink" href="#pooling-layer" title="Permanent link">&para;</a></h2>
+<p><img alt="Screen Shot 2020-04-30 at 5.41.32 PM.png" src="../resources/98BCE97DA55191702740A5E953B290EE.png" /></p>
+<p>input depth would be the same, and width and height would be shrink down by a factor</p>
+<h3 id="max-pooling-layer">Max-Pooling Layer<a class="headerlink" href="#max-pooling-layer" title="Permanent link">&para;</a></h3>
+<p><img alt="Screen Shot 2020-04-30 at 5.42.45 PM.png" src="../resources/C9064878B8E00661B86A55C23F7C7B26.png" /></p>
+<p>Choosing the maximum within each filter. Find the region that has fired with higher value from the other region.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Accepts a volume of size W1×H1×D1</li>
+<li>Requires two hyperparameters:</li>
+<li>their spatial extent F,</li>
+<li>the stride S,</li>
+<li>Produces a volume of size W2×H2×D2 where:</li>
+<li><span><span class="MathJax_Preview">W_2=(W_1−F)/S+1</span><script type="math/tex">W_2=(W_1−F)/S+1</script></span></li>
+<li><span><span class="MathJax_Preview">H_2=(H_1−F)/S+1</span><script type="math/tex">H_2=(H_1−F)/S+1</script></span></li>
+<li><span><span class="MathJax_Preview">D_2=D_1</span><script type="math/tex">D_2=D_1</script></span></li>
+<li>Introduces zero parameters since it computes a fixed function of the input</li>
+<li>For Pooling layers, it is not common to pad the input using zero-padding.</li>
+</ul>
+<p>It is worth noting that there are only two commonly seen variations of the max pooling layer found in practice: A pooling layer with <span><span class="MathJax_Preview">F=3,S=2</span><script type="math/tex">F=3,S=2</script></span> (also called overlapping pooling), and more commonly <span><span class="MathJax_Preview">F=2,S=2</span><script type="math/tex">F=2,S=2</script></span>. Pooling sizes with larger receptive fields are too destructive.</p>
+<h2 id="fully-connected-layer-fc">Fully Connected Layer (FC)<a class="headerlink" href="#fully-connected-layer-fc" title="Permanent link">&para;</a></h2>
+<p>Stretch out to 1-d array, usually on the last layer.</p>
                 
               
               
@@ -1203,7 +1388,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../LibreOJ/10002/" title="10002" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../cs231n-lecture-4---introduction-to-neural-networks/" title="Cs231n lecture 4 introduction to neural networks" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1212,19 +1397,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                10002
+                Cs231n lecture 4   introduction to neural networks
               </div>
             </div>
           </a>
         
         
-          <a href="../invoke-main/" title="Invoke main" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../cs231n-lecture-6---training-neural-networks-i/" title="Overview" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Invoke main
+                Overview
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

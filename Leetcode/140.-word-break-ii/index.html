@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://advpetc.github.io/tech_notes/machine%20learning/CS231n%20Lecture%205%20%20%20Convolutional%20Neural%20Networks/">
+        <link rel="canonical" href="https://advpetc.github.io/tech_notes/Leetcode/140.-word-break-ii/">
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
@@ -17,7 +17,7 @@
     
     
       
-        <title>CS231n Lecture 5 Convolutional Neural Networks - Tech Notes</title>
+        <title>140. word break ii - Tech Notes</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#filter" class="md-skip">
+        <a href="#dfs-w-memo" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              CS231n Lecture 5   Convolutional Neural Networks
+              140. word break ii
             
           </span>
         </div>
@@ -210,7 +210,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Crypto/RSA%20En%26Decryption/" title="Symbolics" class="md-nav__link">
+    <a href="../../Crypto/rsa-en%26decryption/" title="Symbolics" class="md-nav__link">
       Symbolics
     </a>
   </li>
@@ -252,7 +252,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Google%20Kick%20Start/2020%20-%20Round%20A/" title="Allocation" class="md-nav__link">
+    <a href="../../Google%20Kick%20Start/2020---round-a/" title="Allocation" class="md-nav__link">
       Allocation
     </a>
   </li>
@@ -294,8 +294,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/Array%2C%20Class%20and%20Objects/" title="Array, Class and Objects" class="md-nav__link">
-      Array, Class and Objects
+    <a href="../../Java/array%2C-class-and-objects/" title="Array, class and objects" class="md-nav__link">
+      Array, class and objects
     </a>
   </li>
 
@@ -306,19 +306,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/CSS/" title="CSS" class="md-nav__link">
-      CSS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Java/Common%20Problem/" title="Java pass-by-value" class="md-nav__link">
+    <a href="../../Java/common-problem/" title="Java pass-by-value" class="md-nav__link">
       Java pass-by-value
     </a>
   </li>
@@ -330,7 +318,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/Control%20Flow%20and%20Methods/" title="Method overloading" class="md-nav__link">
+    <a href="../../Java/control-flow-and-methods/" title="Method overloading" class="md-nav__link">
       Method overloading
     </a>
   </li>
@@ -342,7 +330,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/Primitive%20Types%20and%20Basic%20Operations/" title="Primitive Types" class="md-nav__link">
+    <a href="../../Java/css/" title="Css" class="md-nav__link">
+      Css
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/primitive-types-and-basic-operations/" title="Primitive Types" class="md-nav__link">
       Primitive Types
     </a>
   </li>
@@ -354,7 +354,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/Serialization/" title="Serialization" class="md-nav__link">
+    <a href="../../Java/serialization/" title="Serialization" class="md-nav__link">
       Serialization
     </a>
   </li>
@@ -396,116 +396,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Lai/Binary%20Search/" title="Binary Search" class="md-nav__link">
+    <a href="../../Lai/binary-search/" title="Binary Search" class="md-nav__link">
       Binary Search
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Lai/Choose%20K%20cards%20and%20find%20the%20maximum/" title="Choose K cards and find the maximum" class="md-nav__link">
-      Choose K cards and find the maximum
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Lai/Divide%20Two%20Integer/" title="Divide Two Integer" class="md-nav__link">
-      Divide Two Integer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Lai/Find%20Minimum%20in%20Rotated%20Sorted%20Array/" title="LaiCode 23" class="md-nav__link">
-      LaiCode 23
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Lai/Graph/" title="Graph" class="md-nav__link">
-      Graph
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Lai/Knight%20Dialer/" title="Knight Dialer" class="md-nav__link">
-      Knight Dialer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Lai/Maximum%20Product%20Subarray/" title="Maximum Product Subarray" class="md-nav__link">
-      Maximum Product Subarray
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Lai/Noon%201%20%20%20Recursion%20Tree/" title="Is tree symmetric" class="md-nav__link">
-      Is tree symmetric
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Lai/Recursion/" title="Recursion" class="md-nav__link">
-      Recursion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Lai/Sorting%20Algorithms/" title="Overview" class="md-nav__link">
-      Overview
     </a>
   </li>
 
@@ -518,6 +410,114 @@
   <li class="md-nav__item">
     <a href="../../Lai/check/" title="Check" class="md-nav__link">
       Check
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/choose-k-cards-and-find-the-maximum/" title="Choose k cards and find the maximum" class="md-nav__link">
+      Choose k cards and find the maximum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/divide-two-integer/" title="Divide two integer" class="md-nav__link">
+      Divide two integer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/find-minimum-in-rotated-sorted-array/" title="LaiCode 23" class="md-nav__link">
+      LaiCode 23
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/graph/" title="Graph" class="md-nav__link">
+      Graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/knight-dialer/" title="Knight dialer" class="md-nav__link">
+      Knight dialer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/maximum-product-subarray/" title="Maximum product subarray" class="md-nav__link">
+      Maximum product subarray
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/noon-1---recursion-tree/" title="Is tree symmetric" class="md-nav__link">
+      Is tree symmetric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
+      Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/sorting-algorithms/" title="Overview" class="md-nav__link">
+      Overview
     </a>
   </li>
 
@@ -543,10 +543,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       Leetcode
@@ -570,8 +572,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/10.%20Regular%20Expression%20Matching/" title="10. Regular Expression Matching" class="md-nav__link">
-      10. Regular Expression Matching
+    <a href="../10.-regular-expression-matching/" title="10. regular expression matching" class="md-nav__link">
+      10. regular expression matching
     </a>
   </li>
 
@@ -582,8 +584,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/1057.%20Campus%20Bikes/" title="1057. Campus Bikes" class="md-nav__link">
-      1057. Campus Bikes
+    <a href="../1057.-campus-bikes/" title="1057. campus bikes" class="md-nav__link">
+      1057. campus bikes
     </a>
   </li>
 
@@ -594,8 +596,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/11.%20Container%20With%20Most%20Water/" title="11. Container With Most Water" class="md-nav__link">
-      11. Container With Most Water
+    <a href="../11.-container-with-most-water/" title="11. container with most water" class="md-nav__link">
+      11. container with most water
     </a>
   </li>
 
@@ -606,8 +608,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/115.%20Distinct%20Subsequences/" title="115. Distinct Subsequences" class="md-nav__link">
-      115. Distinct Subsequences
+    <a href="../115.-distinct-subsequences/" title="115. distinct subsequences" class="md-nav__link">
+      115. distinct subsequences
     </a>
   </li>
 
@@ -618,8 +620,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/121%2C123%2C132%2C188%2C309%2C714%20Best%20Time%20to%20Buy%20and%20Sell%20Stock/" title="121,123,132,188,309,714 Best Time to Buy and Sell Stock" class="md-nav__link">
-      121,123,132,188,309,714 Best Time to Buy and Sell Stock
+    <a href="../121%2C123%2C132%2C188%2C309%2C714-best-time-to-buy-and-sell-stock/" title="121,123,132,188,309,714 best time to buy and sell stock" class="md-nav__link">
+      121,123,132,188,309,714 best time to buy and sell stock
     </a>
   </li>
 
@@ -630,8 +632,70 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/139.%20Word%20Break/" title="139. Word Break" class="md-nav__link">
-      139. Word Break
+    <a href="../139.-word-break/" title="139. word break" class="md-nav__link">
+      139. word break
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        140. word break ii
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="140. word break ii" class="md-nav__link md-nav__link--active">
+      140. word break ii
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dfs-w-memo" class="md-nav__link">
+    dfs w/ memo
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../146.-lru-cache/" title="146. lru cache" class="md-nav__link">
+      146. lru cache
     </a>
   </li>
 
@@ -642,8 +706,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/140.%20Word%20Break%20II/" title="140. Word Break II" class="md-nav__link">
-      140. Word Break II
+    <a href="../152.-maximum-product-subarray/" title="152. maximum product subarray" class="md-nav__link">
+      152. maximum product subarray
     </a>
   </li>
 
@@ -654,8 +718,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/146.%20LRU%20Cache/" title="146. LRU Cache" class="md-nav__link">
-      146. LRU Cache
+    <a href="../208.-implement-trie-%28prefix-tree%29/" title="208. implement trie (prefix tree)" class="md-nav__link">
+      208. implement trie (prefix tree)
     </a>
   </li>
 
@@ -666,8 +730,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/152.%20Maximum%20Product%20Subarray/" title="152. Maximum Product Subarray" class="md-nav__link">
-      152. Maximum Product Subarray
+    <a href="../32.-%C2%A0longest-valid-parentheses/" title="32. longest valid parentheses" class="md-nav__link">
+      32.  longest valid parentheses
     </a>
   </li>
 
@@ -678,8 +742,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/208.%20Implement%20Trie%20%28Prefix%20Tree%29/" title="208. Implement Trie (Prefix Tree)" class="md-nav__link">
-      208. Implement Trie (Prefix Tree)
+    <a href="../438%2C-76%2C-3%2C-30%2C-sliding-window/" title="438, 76, 3, 30, sliding window" class="md-nav__link">
+      438, 76, 3, 30, sliding window
     </a>
   </li>
 
@@ -690,8 +754,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/32.%20%C2%A0Longest%20Valid%20Parentheses/" title="32. Longest Valid Parentheses" class="md-nav__link">
-      32.  Longest Valid Parentheses
+    <a href="../72.-edit-distance/" title="72. edit distance" class="md-nav__link">
+      72. edit distance
     </a>
   </li>
 
@@ -702,8 +766,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/438%2C%2076%2C%203%2C%2030%2C%20Sliding%20Window/" title="438, 76, 3, 30, Sliding Window" class="md-nav__link">
-      438, 76, 3, 30, Sliding Window
+    <a href="../85.-maximal-rectangle/" title="85. maximal rectangle" class="md-nav__link">
+      85. maximal rectangle
     </a>
   </li>
 
@@ -714,8 +778,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/72.%20Edit%20Distance/" title="72. Edit Distance" class="md-nav__link">
-      72. Edit Distance
+    <a href="../87.-scramble-string/" title="87. scramble string" class="md-nav__link">
+      87. scramble string
     </a>
   </li>
 
@@ -726,31 +790,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/85.%20Maximal%20Rectangle/" title="85. Maximal Rectangle" class="md-nav__link">
-      85. Maximal Rectangle
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Leetcode/87.%20Scramble%20String/" title="87. Scramble String" class="md-nav__link">
-      87. Scramble String
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Leetcode/91.%20Decode%20Ways/" title="Use array DP" class="md-nav__link">
+    <a href="../91.-decode-ways/" title="Use array DP" class="md-nav__link">
       Use array DP
     </a>
   </li>
@@ -762,8 +802,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/95.%20Unique%20Binary%20Search%20Trees%20II/" title="95. Unique Binary Search Trees II" class="md-nav__link">
-      95. Unique Binary Search Trees II
+    <a href="../95.-unique-binary-search-trees-ii/" title="95. unique binary search trees ii" class="md-nav__link">
+      95. unique binary search trees ii
     </a>
   </li>
 
@@ -774,8 +814,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/96.%20Unique%20Binary%20Search%20Trees/" title="96. Unique Binary Search Trees" class="md-nav__link">
-      96. Unique Binary Search Trees
+    <a href="../96.-unique-binary-search-trees/" title="96. unique binary search trees" class="md-nav__link">
+      96. unique binary search trees
     </a>
   </li>
 
@@ -786,8 +826,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/97.%20Interleaving%20String/" title="97. Interleaving String" class="md-nav__link">
-      97. Interleaving String
+    <a href="../97.-interleaving-string/" title="97. interleaving string" class="md-nav__link">
+      97. interleaving string
     </a>
   </li>
 
@@ -798,8 +838,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/DP%20Pattern/" title="DP Pattern" class="md-nav__link">
-      DP Pattern
+    <a href="../dp-pattern/" title="Dp pattern" class="md-nav__link">
+      Dp pattern
     </a>
   </li>
 
@@ -906,8 +946,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Python/Invoke%20main/" title="Invoke main" class="md-nav__link">
-      Invoke main
+    <a href="../../Python/class/" title="Class" class="md-nav__link">
+      Class
     </a>
   </li>
 
@@ -918,8 +958,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Python/class/" title="Class" class="md-nav__link">
-      Class
+    <a href="../../Python/invoke-main/" title="Invoke main" class="md-nav__link">
+      Invoke main
     </a>
   </li>
 
@@ -960,7 +1000,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../c/Malloc%20lab/" title="Malloc lab" class="md-nav__link">
+    <a href="../../c/malloc-lab/" title="Malloc lab" class="md-nav__link">
       Malloc lab
     </a>
   </li>
@@ -972,7 +1012,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../c/Parse%20string%20to%20int/" title="Parse string to int" class="md-nav__link">
+    <a href="../../c/parse-string-to-int/" title="Parse string to int" class="md-nav__link">
       Parse string to int
     </a>
   </li>
@@ -1014,8 +1054,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../iOS/Dialog%20Flow/" title="Dialog Flow" class="md-nav__link">
-      Dialog Flow
+    <a href="../../iOS/dialog-flow/" title="Dialog flow" class="md-nav__link">
+      Dialog flow
     </a>
   </li>
 
@@ -1026,8 +1066,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../iOS/Exam%20II%20review%20Part%20One/" title="Exam II review Part One" class="md-nav__link">
-      Exam II review Part One
+    <a href="../../iOS/exam-ii-review-part-one/" title="Exam ii review part one" class="md-nav__link">
+      Exam ii review part one
     </a>
   </li>
 
@@ -1038,8 +1078,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../iOS/Exam%20II%20review%20Part%20Two/" title="Exam II review Part Two" class="md-nav__link">
-      Exam II review Part Two
+    <a href="../../iOS/exam-ii-review-part-two/" title="Exam ii review part two" class="md-nav__link">
+      Exam ii review part two
     </a>
   </li>
 
@@ -1050,20 +1090,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../iOS/Some%20tools/" title="Some tools" class="md-nav__link">
+    <a href="../../iOS/ios-api/" title="Ios api" class="md-nav__link">
+      Ios api
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../iOS/some-tools/" title="Some tools" class="md-nav__link">
       Some tools
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../iOS/iOS%20API/" title="iOS API" class="md-nav__link">
-      iOS API
     </a>
   </li>
 
@@ -1077,12 +1117,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
     <label class="md-nav__link" for="nav-12">
       Machine learning
@@ -1106,8 +1144,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../CS231n%20Lecture%203%20%20%20Loss%20Function/" title="CS231n Lecture 3 Loss Function" class="md-nav__link">
-      CS231n Lecture 3   Loss Function
+    <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" title="Cs231n lecture 3 loss function" class="md-nav__link">
+      Cs231n lecture 3   loss function
     </a>
   </li>
 
@@ -1118,100 +1156,9 @@
 
 
   <li class="md-nav__item">
-    <a href="../CS231n%20Lecture%204%20%20%20Introduction%20to%20Neural%20Networks/" title="CS231n Lecture 4 Introduction to Neural Networks" class="md-nav__link">
-      CS231n Lecture 4   Introduction to Neural Networks
+    <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" title="Cs231n lecture 4 introduction to neural networks" class="md-nav__link">
+      Cs231n lecture 4   introduction to neural networks
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        CS231n Lecture 5   Convolutional Neural Networks
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="CS231n Lecture 5 Convolutional Neural Networks" class="md-nav__link md-nav__link--active">
-      CS231n Lecture 5   Convolutional Neural Networks
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#filter" class="md-nav__link">
-    Filter
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conv-layer" class="md-nav__link">
-    Conv Layer
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pooling-layer" class="md-nav__link">
-    Pooling Layer
-  </a>
-  
-    <nav class="md-nav" aria-label="Pooling Layer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#max-pooling-layer" class="md-nav__link">
-    Max-Pooling Layer
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    Summary
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fully-connected-layer-fc" class="md-nav__link">
-    Fully Connected Layer (FC)
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1221,7 +1168,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../CS231n%20Lecture%206%20%20%20Training%20Neural%20Networks%20I/" title="Overview" class="md-nav__link">
+    <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" title="Cs231n lecture 5 convolutional neural networks" class="md-nav__link">
+      Cs231n lecture 5   convolutional neural networks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -1256,49 +1215,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#filter" class="md-nav__link">
-    Filter
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conv-layer" class="md-nav__link">
-    Conv Layer
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pooling-layer" class="md-nav__link">
-    Pooling Layer
-  </a>
-  
-    <nav class="md-nav" aria-label="Pooling Layer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#max-pooling-layer" class="md-nav__link">
-    Max-Pooling Layer
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    Summary
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fully-connected-layer-fc" class="md-nav__link">
-    Fully Connected Layer (FC)
+  <a href="#dfs-w-memo" class="md-nav__link">
+    dfs w/ memo
   </a>
   
 </li>
@@ -1319,57 +1237,74 @@
                   
                 
                 
-                  <h1>CS231n Lecture 5   Convolutional Neural Networks</h1>
+                  <h1>140. word break ii</h1>
                 
-                <p>CNN is good for spacial structure</p>
-<p><img alt="Screen Shot 2020-04-30 at 3.16.20 PM.png" src="../resources/922A0B6231B7496A918187CC27BE1DF8.png" /></p>
-<h2 id="filter">Filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h2>
-<p><img alt="Screen Shot 2020-04-30 at 3.18.29 PM.png" src="../resources/F2547EEE1E666E119CE67B25694802D2.png" /></p>
+                <p>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences.</p>
+<p>Note:</p>
+<p>The same word in the dictionary may be reused multiple times in the segmentation.
+You may assume the dictionary does not contain duplicate words.
+Example 1:</p>
+<p>Input:
+s = "catsanddog"
+wordDict = ["cat", "cats", "and", "sand", "dog"]
+Output:
+[
+  "cats and dog",
+  "cat sand dog"
+]
+Example 2:</p>
+<p>Input:
+s = "pineapplepenapple"
+wordDict = ["apple", "pen", "applepen", "pine", "pineapple"]
+Output:
+[
+  "pine apple pen apple",
+  "pineapple pen apple",
+  "pine applepen apple"
+]
+Explanation: Note that you are allowed to reuse a dictionary word.
+Example 3:</p>
+<p>Input:
+s = "catsandog"
+wordDict = ["cats", "dog", "sand", "and", "cat"]
+Output:
+[]</p>
+<h2 id="dfs-w-memo">dfs w/ memo<a class="headerlink" href="#dfs-w-memo" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="nf">combine</span><span class="p">(</span><span class="n">string</span> <span class="n">word</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">prev</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">prev</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="o">++</span><span class="n">i</span><span class="p">){</span>
+            <span class="n">prev</span><span class="o">[</span><span class="n">i</span><span class="o">]+=</span><span class="s">&quot; &quot;</span><span class="o">+</span><span class="n">word</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">prev</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="nl">public:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="nf">wordBreak</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&amp;</span> <span class="n">dict</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="k">return</span> <span class="n">m</span><span class="o">[</span><span class="n">s</span><span class="o">]</span><span class="p">;</span> <span class="c1">//take from memory</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">dict</span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">s</span><span class="p">)){</span> <span class="c1">//a whole string is a word</span>
+            <span class="n">result</span><span class="p">.</span><span class="na">push_back</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">s</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="o">++</span><span class="n">i</span><span class="p">){</span>
+            <span class="n">string</span> <span class="n">word</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="na">substr</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">dict</span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">word</span><span class="p">)){</span><span class="c1">//s[0:i] and s[i:], s[i:] is checked, now check s[0:i]</span>
+                <span class="n">string</span> <span class="n">rem</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="na">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">prev</span><span class="o">=</span><span class="n">combine</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="n">wordBreak</span><span class="p">(</span><span class="n">rem</span><span class="p">,</span><span class="n">dict</span><span class="p">));</span>
+                <span class="n">result</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">end</span><span class="p">(),</span><span class="n">prev</span><span class="p">.</span><span class="na">begin</span><span class="p">(),</span> <span class="n">prev</span><span class="p">.</span><span class="na">end</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">m</span><span class="o">[</span><span class="n">s</span><span class="o">]=</span><span class="n">result</span><span class="p">;</span> <span class="c1">//memorize</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
 <ol>
-<li>stride (3 in this case): number of steps to move for each progress</li>
-<li>dimentino size: n * n</li>
-<li>filter size: F</li>
+<li>dfs always takes in from s[0:i], and check s[i:] for current branch</li>
+<li>cache is the map of current s[0:i] to all the combination for this substring, so for s[0:i+1], to check s[0:i], just uses the cached one and combine with s[:i]</li>
 </ol>
-<p>Output size = (N - F)/stride+1 =&gt; e.g. stride size = 3 won't work
-1. To make this case working, adding a border surrounded (padding) will make N divisable (now N is 9 instead of 7)
-2. To make the size remain the same dimentionally, we also use padding.</p>
-<h2 id="conv-layer">Conv Layer<a class="headerlink" href="#conv-layer" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Accpets a volume of size <span><span class="MathJax_Preview">W_1\times H_1 \times D_1</span><script type="math/tex">W_1\times H_1 \times D_1</script></span></li>
-<li>Requires four hyperparameters:</li>
-<li>Number of filters K,</li>
-<li>their spatial extent F (or filter dimension),</li>
-<li>the stride S,</li>
-<li>the amount of zero padding P.</li>
-<li>Produces a volume of size <span><span class="MathJax_Preview">W_2</span><script type="math/tex">W_2</script></span> <span><span class="MathJax_Preview">\times</span><script type="math/tex">\times</script></span> <span><span class="MathJax_Preview">H_2</span><script type="math/tex">H_2</script></span> <span><span class="MathJax_Preview">\times</span><script type="math/tex">\times</script></span> <span><span class="MathJax_Preview">D_2</span><script type="math/tex">D_2</script></span></li>
-<li><span><span class="MathJax_Preview">W_2 = (W_1 - F + 2P)/S + 1</span><script type="math/tex">W_2 = (W_1 - F + 2P)/S + 1</script></span> </li>
-<li><span><span class="MathJax_Preview">H_2 = (H_1 - F + 2P)/s + 1</span><script type="math/tex">H_2 = (H_1 - F + 2P)/s + 1</script></span> (width and height are the same size)</li>
-<li><span><span class="MathJax_Preview">D_2 = K</span><script type="math/tex">D_2 = K</script></span></li>
-<li>With parameter sharing, it produces <span><span class="MathJax_Preview">F \times F \times D_1</span><script type="math/tex">F \times F \times D_1</script></span> weights per filter, for a total of <span><span class="MathJax_Preview">(F \cdot F \cdot D_1) * K</span><script type="math/tex">(F \cdot F \cdot D_1) * K</script></span> weights</li>
-<li>In the output volume, the d-th depth slice (of size <span><span class="MathJax_Preview">W_2 \times H_2</span><script type="math/tex">W_2 \times H_2</script></span>) is the result of performing a valid convolution of the d-th filter over the input volume with a stride of <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>, and then offset by d-th bias</li>
-</ul>
-<h2 id="pooling-layer">Pooling Layer<a class="headerlink" href="#pooling-layer" title="Permanent link">&para;</a></h2>
-<p><img alt="Screen Shot 2020-04-30 at 5.41.32 PM.png" src="../resources/98BCE97DA55191702740A5E953B290EE.png" /></p>
-<p>input depth would be the same, and width and height would be shrink down by a factor</p>
-<h3 id="max-pooling-layer">Max-Pooling Layer<a class="headerlink" href="#max-pooling-layer" title="Permanent link">&para;</a></h3>
-<p><img alt="Screen Shot 2020-04-30 at 5.42.45 PM.png" src="../resources/C9064878B8E00661B86A55C23F7C7B26.png" /></p>
-<p>Choosing the maximum within each filter. Find the region that has fired with higher value from the other region.</p>
-<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Accepts a volume of size W1×H1×D1</li>
-<li>Requires two hyperparameters:</li>
-<li>their spatial extent F,</li>
-<li>the stride S,</li>
-<li>Produces a volume of size W2×H2×D2 where:</li>
-<li><span><span class="MathJax_Preview">W_2=(W_1−F)/S+1</span><script type="math/tex">W_2=(W_1−F)/S+1</script></span></li>
-<li><span><span class="MathJax_Preview">H_2=(H_1−F)/S+1</span><script type="math/tex">H_2=(H_1−F)/S+1</script></span></li>
-<li><span><span class="MathJax_Preview">D_2=D_1</span><script type="math/tex">D_2=D_1</script></span></li>
-<li>Introduces zero parameters since it computes a fixed function of the input</li>
-<li>For Pooling layers, it is not common to pad the input using zero-padding.</li>
-</ul>
-<p>It is worth noting that there are only two commonly seen variations of the max pooling layer found in practice: A pooling layer with <span><span class="MathJax_Preview">F=3,S=2</span><script type="math/tex">F=3,S=2</script></span> (also called overlapping pooling), and more commonly <span><span class="MathJax_Preview">F=2,S=2</span><script type="math/tex">F=2,S=2</script></span>. Pooling sizes with larger receptive fields are too destructive.</p>
-<h2 id="fully-connected-layer-fc">Fully Connected Layer (FC)<a class="headerlink" href="#fully-connected-layer-fc" title="Permanent link">&para;</a></h2>
-<p>Stretch out to 1-d array, usually on the last layer.</p>
                 
               
               
@@ -1388,7 +1323,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../CS231n%20Lecture%204%20%20%20Introduction%20to%20Neural%20Networks/" title="CS231n Lecture 4 Introduction to Neural Networks" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../139.-word-break/" title="139. word break" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1397,19 +1332,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                CS231n Lecture 4   Introduction to Neural Networks
+                139. word break
               </div>
             </div>
           </a>
         
         
-          <a href="../CS231n%20Lecture%206%20%20%20Training%20Neural%20Networks%20I/" title="Overview" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../146.-lru-cache/" title="146. lru cache" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Overview
+                146. lru cache
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
