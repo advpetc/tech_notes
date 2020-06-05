@@ -6,3 +6,6 @@ mkdocs-material/
 .env
 .well-known/
 node_modules/
+py3/
+test/
+raw/

@@ -8,11 +8,10 @@ theme:
   include_search_page: false
   search_index_only: true
 
-extra_javascript:
-  # other extra java script
-  - mathjax-config.js
-  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 markdown_extensions:
+  - mdx_math
   - admonition
   - codehilite:
       guess_lang: false
