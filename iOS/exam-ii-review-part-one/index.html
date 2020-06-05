@@ -1,0 +1,1739 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://advpetc.github.io/tech_notes/iOS/exam-ii-review-part-one/">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
+    
+    
+      
+        <title>Exam ii review part one - Tech Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a2408e81.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gesture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tech Notes
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Exam ii review part one
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tech Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Welcome to Haoyang's Tech Notes" class="md-nav__link">
+      Welcome to Haoyang's Tech Notes
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Crypto
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Crypto" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Crypto
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Crypto/rsa-en%26decryption/" title="Symbolics" class="md-nav__link">
+      Symbolics
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Google Kick Start
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Google Kick Start" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Google Kick Start
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Google%20Kick%20Start/2020---round-a/" title="Allocation" class="md-nav__link">
+      Allocation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Java
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Java" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Java
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/array%2C-class-and-objects/" title="Array, class and objects" class="md-nav__link">
+      Array, class and objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/common-problem/" title="Java pass-by-value" class="md-nav__link">
+      Java pass-by-value
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/control-flow-and-methods/" title="Method overloading" class="md-nav__link">
+      Method overloading
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/css/" title="Css" class="md-nav__link">
+      Css
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/primitive-types-and-basic-operations/" title="Primitive Types" class="md-nav__link">
+      Primitive Types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/serialization/" title="Serialization" class="md-nav__link">
+      Serialization
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Lai
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Lai" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Lai
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/binary-search/" title="Binary Search" class="md-nav__link">
+      Binary Search
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/check/" title="Check" class="md-nav__link">
+      Check
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/choose-k-cards-and-find-the-maximum/" title="Choose k cards and find the maximum" class="md-nav__link">
+      Choose k cards and find the maximum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/divide-two-integer/" title="Divide two integer" class="md-nav__link">
+      Divide two integer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/find-minimum-in-rotated-sorted-array/" title="LaiCode 23" class="md-nav__link">
+      LaiCode 23
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/graph/" title="Graph" class="md-nav__link">
+      Graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/knight-dialer/" title="Knight dialer" class="md-nav__link">
+      Knight dialer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/maximum-product-subarray/" title="Maximum product subarray" class="md-nav__link">
+      Maximum product subarray
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/noon-1---recursion-tree/" title="Is tree symmetric" class="md-nav__link">
+      Is tree symmetric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
+      Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/sorting-algorithms/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1/" title="每日打卡" class="md-nav__link">
+      每日打卡
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Leetcode
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Leetcode" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Leetcode
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/10.-regular-expression-matching/" title="10. regular expression matching" class="md-nav__link">
+      10. regular expression matching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/1057.-campus-bikes/" title="1057. campus bikes" class="md-nav__link">
+      1057. campus bikes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/11.-container-with-most-water/" title="11. container with most water" class="md-nav__link">
+      11. container with most water
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/115.-distinct-subsequences/" title="115. distinct subsequences" class="md-nav__link">
+      115. distinct subsequences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/121%2C123%2C132%2C188%2C309%2C714-best-time-to-buy-and-sell-stock/" title="121,123,132,188,309,714 best time to buy and sell stock" class="md-nav__link">
+      121,123,132,188,309,714 best time to buy and sell stock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/139.-word-break/" title="139. word break" class="md-nav__link">
+      139. word break
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/140.-word-break-ii/" title="140. word break ii" class="md-nav__link">
+      140. word break ii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/146.-lru-cache/" title="146. lru cache" class="md-nav__link">
+      146. lru cache
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/152.-maximum-product-subarray/" title="152. maximum product subarray" class="md-nav__link">
+      152. maximum product subarray
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/208.-implement-trie-%28prefix-tree%29/" title="208. implement trie (prefix tree)" class="md-nav__link">
+      208. implement trie (prefix tree)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/32.-longest-valid-parentheses/" title="32. longest valid parentheses" class="md-nav__link">
+      32. longest valid parentheses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/438%2C-76%2C-3%2C-30%2C-sliding-window/" title="438, 76, 3, 30, sliding window" class="md-nav__link">
+      438, 76, 3, 30, sliding window
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/72.-edit-distance/" title="72. edit distance" class="md-nav__link">
+      72. edit distance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/85.-maximal-rectangle/" title="85. maximal rectangle" class="md-nav__link">
+      85. maximal rectangle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/87.-scramble-string/" title="87. scramble string" class="md-nav__link">
+      87. scramble string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/91.-decode-ways/" title="Use array DP" class="md-nav__link">
+      Use array DP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/95.-unique-binary-search-trees-ii/" title="95. unique binary search trees ii" class="md-nav__link">
+      95. unique binary search trees ii
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/96.-unique-binary-search-trees/" title="96. unique binary search trees" class="md-nav__link">
+      96. unique binary search trees
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/97.-interleaving-string/" title="97. interleaving string" class="md-nav__link">
+      97. interleaving string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Leetcode/dp-pattern/" title="Dp pattern" class="md-nav__link">
+      Dp pattern
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      LibreOJ
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="LibreOJ" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        LibreOJ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LibreOJ/10000/" title="10000" class="md-nav__link">
+      10000
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LibreOJ/10001/" title="10001" class="md-nav__link">
+      10001
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LibreOJ/10002/" title="10002" class="md-nav__link">
+      10002
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Python
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/class/" title="Class" class="md-nav__link">
+      Class
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/invoke-main/" title="Invoke main" class="md-nav__link">
+      Invoke main
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      C
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="C" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        C
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../c/malloc-lab/" title="Malloc lab" class="md-nav__link">
+      Malloc lab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../c/parse-string-to-int/" title="Parse string to int" class="md-nav__link">
+      Parse string to int
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+    
+    <label class="md-nav__link" for="nav-11">
+      iOS
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="iOS" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        iOS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dialog-flow/" title="Dialog flow" class="md-nav__link">
+      Dialog flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Exam ii review part one
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Exam ii review part one" class="md-nav__link md-nav__link--active">
+      Exam ii review part one
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gesture" class="md-nav__link">
+    Gesture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation-core-animation" class="md-nav__link">
+    Animation: Core Animation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accelerometer-gyroscope" class="md-nav__link">
+    Accelerometer Gyroscope
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio" class="md-nav__link">
+    Audio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delegates" class="md-nav__link">
+    Delegates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-views" class="md-nav__link">
+    Table Views
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../exam-ii-review-part-two/" title="Exam ii review part two" class="md-nav__link">
+      Exam ii review part two
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ios-api/" title="Ios api" class="md-nav__link">
+      Ios api
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../some-tools/" title="Some tools" class="md-nav__link">
+      Some tools
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      Machine learning
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Machine learning" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Machine learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" title="Cs231n lecture 3 loss function" class="md-nav__link">
+      Cs231n lecture 3   loss function
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" title="Cs231n lecture 4 introduction to neural networks" class="md-nav__link">
+      Cs231n lecture 4   introduction to neural networks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" title="Cs231n lecture 5 convolutional neural networks" class="md-nav__link">
+      Cs231n lecture 5   convolutional neural networks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gesture" class="md-nav__link">
+    Gesture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation-core-animation" class="md-nav__link">
+    Animation: Core Animation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accelerometer-gyroscope" class="md-nav__link">
+    Accelerometer Gyroscope
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audio" class="md-nav__link">
+    Audio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delegates" class="md-nav__link">
+    Delegates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-views" class="md-nav__link">
+    Table Views
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>Exam ii review part one</h1>
+                
+                <h2 id="gesture">Gesture<a class="headerlink" href="#gesture" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Tap</li>
+<li>Double Tap</li>
+<li>Drag</li>
+<li>Flick</li>
+<li>Pinch</li>
+<li>Spread</li>
+<li>Press</li>
+<li>Press and tap</li>
+</ol>
+<p><strong>Add gesture recognizer in code</strong></p>
+<p>Single Tap
+<div class="highlight"><pre><span></span><code><span class="c1">// ViewController.m: Single Tap</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+<span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+<span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="n">singleTap</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UITapGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span>
+<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">singleTapRecognized</span><span class="p">:)];</span>
+<span class="cm">/* if double click</span>
+<span class="cm">doubleTap.numberOfTapsRequired = 2;</span>
+<span class="cm">*/</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span><span class="n">singleTap</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">singleTapRecognized:</span> <span class="p">(</span><span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="p">)</span> <span class="nv">recognizer</span> <span class="p">{</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">msgLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">@&quot;You single tapped me!&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Single &amp; Double Tap
+<div class="highlight"><pre><span></span><code><span class="c1">// double tap</span>
+<span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="n">singleTap</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UITapGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span>
+<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">singleTapRecognized</span><span class="p">:)];</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span> <span class="n">singleTap</span><span class="p">];</span>
+<span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="n">doubleTap</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UITapGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span>
+<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">doubleTapRecognized</span><span class="p">:)];</span>
+<span class="n">doubleTap</span><span class="p">.</span><span class="n">numberOfTapsRequired</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span> <span class="n">doubleTap</span><span class="p">];</span>
+<span class="c1">// Only recognize single taps if they&#39;re not the first of two</span>
+<span class="p">[</span><span class="n">singleTap</span> <span class="nl">requireGestureRecognizerToFail</span><span class="p">:</span> <span class="n">doubleTap</span><span class="p">];</span>
+</code></pre></div></p>
+<p>Swipe: should add left and right separately
+<div class="highlight"><pre><span></span><code><span class="bp">UISwipeGestureRecognizer</span> <span class="o">*</span><span class="n">swipeLeft</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UISwipeGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span>
+<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">swipeGestureRecognized</span><span class="p">:)];</span>
+<span class="n">swipeLeft</span><span class="p">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">UISwipeGestureRecognizerDirectionLeft</span><span class="p">;</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span><span class="n">swipeLeft</span><span class="p">];</span>
+<span class="bp">UISwipeGestureRecognizer</span> <span class="o">*</span><span class="n">swipeRight</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UISwipeGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span>
+<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">swipeGestureRecognized</span><span class="p">:)];</span>
+<span class="n">swipeRight</span><span class="p">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">UISwipeGestureRecognizerDirectionRight</span><span class="p">;</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span><span class="n">swipeRight</span><span class="p">];</span>
+</code></pre></div></p>
+<p><strong><em>Selector</em></strong>
+* accept a method name
+* not explicit call</p>
+<h2 id="animation-core-animation">Animation: Core Animation<a class="headerlink" href="#animation-core-animation" title="Permanent link">&para;</a></h2>
+<p><strong>View Properties</strong>
+* frame (position and size)
+* transform
+* alpha (transparency)
+* color
+* background color</p>
+<p><strong>Block properties</strong>
+1. can be pass around to methods or functions as if they were values.
+2. is OC object, so can be added to collections like NSArray or NSDictionary
+3. capture values from enclosing scope
+4. used for callback function: code to be exec when finish task</p>
+<p>Syntax
+<div class="highlight"><pre><span></span><code><span class="o">^</span><span class="p">{</span>
+<span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;This is a block&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">multiplier</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="kt">int</span> <span class="p">(</span><span class="o">^</span><span class="n">myBlock</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="o">^</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">num</span> <span class="o">*</span> <span class="n">multiplier</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+
+<p>fade-in example
+<div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">fadeInStudent:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">name</span><span class="p">{</span>
+<span class="c1">// Alpha = 0 means the text is transparent</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+<span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">1.0</span> <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+<span class="c1">// Fade in the text of the label</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}];</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>more examples:
+<div class="highlight"><pre><span></span><code><span class="c1">// fade in nameLabel</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">animateStudent:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span><span class="p">{</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+<span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">1.0</span> <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}];</span>
+<span class="p">}</span>
+
+<span class="c1">// fade out then fade in</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">displayStudent:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span><span class="p">{</span>
+<span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">1.0</span> <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+<span class="c1">// Fade out old text of label</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">finished</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// Upon completion, call animateStudent</span>
+<span class="p">[</span><span class="nb">self</span> <span class="nl">animateStudent</span><span class="p">:</span><span class="n">name</span><span class="p">];</span>
+<span class="p">}];</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h2 id="accelerometer-gyroscope">Accelerometer Gyroscope<a class="headerlink" href="#accelerometer-gyroscope" title="Permanent link">&para;</a></h2>
+<p><strong>Motion Events</strong>
+* move
+* shake
+* tilt the device</p>
+<p><strong>Some Properties*<em>
+1. made up of three accelerometers
+2. give measurements in g-forces
+  * no movement -- 1g
+3. Shake: </em></strong>UIEvent<strong><em>
+4. General Orientation: </em></strong>UIDevice<strong><em>
+5. Cancel a motion event: An event is canceled if the shake motion is interrupted or if iOS determines that the motion is not valid after all – for example, if the shaking lasts too long. Use </em></strong>motionCancelled:withEvent:***</p>
+<p>Handle Shake Event
+<div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">canBecomeFirstResponder</span><span class="p">{</span>
+<span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidAppear:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span><span class="p">{</span>
+<span class="p">[</span><span class="nb">super</span> <span class="nl">viewDidAppear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
+<span class="p">[</span><span class="nb">self</span> <span class="n">becomeFirstResponder</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">motionEnded:</span><span class="p">(</span><span class="n">UIEventSubtype</span><span class="p">)</span><span class="nv">motion</span> <span class="nf">withEvent:</span><span class="p">(</span><span class="bp">UIEvent</span> <span class="o">*</span><span class="p">)</span><span class="nv">event</span><span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">motion</span> <span class="o">==</span> <span class="n">UIEventSubtypeMotionShake</span><span class="p">){</span>
+<span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;You shook me!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Responding Changes in Orientation
+<div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">viewDidLoad</span><span class="p">{</span>
+<span class="c1">// Request to turn on accelerometer and begin receiving accelerometer events</span>
+<span class="p">[[</span><span class="bp">UIDevice</span> <span class="n">currentDevice</span><span class="p">]</span> <span class="n">beginGeneratingDeviceOrientationNotifications</span><span class="p">];</span>
+<span class="p">[[</span><span class="bp">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span>
+<span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">orientationChanged</span><span class="p">:)</span> <span class="nl">name</span><span class="p">:</span><span class="n">UIDeviceOrientationDidChangeNotification</span>
+<span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">orientationChanged:</span> <span class="p">(</span><span class="bp">NSNotification</span> <span class="o">*</span><span class="p">)</span> <span class="nv">notification</span><span class="p">{</span>
+<span class="c1">// Respond to changes in device orientation</span>
+<span class="n">UIDeviceOrientation</span> <span class="n">currentOrientation</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UIDevice</span> <span class="n">currentDevice</span><span class="p">]</span> <span class="n">orientation</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidDisappear:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span><span class="p">{</span>
+<span class="c1">// Request to stop receiving accelerometer events and turn off accelerometer</span>
+<span class="p">[[</span><span class="bp">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">removeObserver</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+<span class="p">[[</span><span class="bp">UIDevice</span> <span class="n">currentDevice</span><span class="p">]</span> <span class="n">endGeneratingDeviceOrientationNotifications</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>CMMotionManager obtain data</strong>
+* Pull: An app requests that updates start and then periodically
+samples the most recent measurement of motion data.
+* Push: An app specifies an update interval and implements a block for
+handling the data. Then, it requests that updates start, and passes
+Core Motion an operation queue and the block. Core Motion delivers
+each update to the block, which executes as a task in the operation
+queue.</p>
+<ul>
+<li>Pull is the recommended approach for most apps, especially
+games. It is generally more efficient and requires less code.</li>
+<li>Push is appropriate for data-collection apps and similar apps that
+cannot miss a single sample measurement.</li>
+</ul>
+<p><code>startDeviceMotionUpdates</code> – the pull approach
+* After you call this method, Core Motion continuously updates the
+deviceMotion property of <strong><em>CMMotionManager</em></strong> with the latest refined
+measurements of accelerometer and gyroscope activity, as
+encapsulated in a <strong><em>CMDeviceMotion</em></strong> object.</p>
+<p><code>startDeviceMotionUpdatesToQueue:withHandler:</code> – the push approach
+* Before you call this method, assign an update interval to the
+<strong><em>deviceMotionUpdateInterval</em></strong> property, create an instance of <strong><em>NSOperationQueue</em></strong>, and implement a block of the <strong><em>CMDeviceMotionHandler</em></strong> type that handles the accelerometer
+updates.
+* Then, call the <code>startDeviceMotionUpdatesToQueue: withHandler:</code> method on the motion-manager object, passing in
+the operation queue and the block.</p>
+<h2 id="audio">Audio<a class="headerlink" href="#audio" title="Permanent link">&para;</a></h2>
+<p><strong>File Formats (audio container) and Data Format (audio encoding)</strong>
+* AAC, HE-AAC, AMR, ALAC, iLBC, iMA4...: df
+* If space is not an issue, just encode everything with linear PCM.
+  * Not only is this the fastest way for your audio to play, but you can play multiple sounds simultaneously without running into any CPU resource issues.
+* If space is an issue, most likely you’ll want to use AAC encoding for your background music and IMA4 encoding for your sound
+effects.</p>
+<p><strong>Bit Rate</strong>
+* When you lower the bytes per second, you lose quality as well.
+* If your file is mostly speech, you can probably get
+away with a lower bit rate.</p>
+<p><strong>Sample Rates</strong>
+* usually 44,100Hz, because it's the same for CD audio.</p>
+<p><strong>Audio Session</strong>
+* Playback is enabled and recording is disabled.
+  – When the user moves the Silent switch (or Ring/Silent switch on iPhone) to the “silent” position, your audio is silenced.
+  – When the user presses the Sleep/Wake button to lock the screen, or when the Auto-Lock period expires, your audio is silenced.
+  – When your audio starts, other audio on the device – such as iPod audio that was already playing – is silenced.</p>
+<p><strong>System Sound Service</strong>
+* System Sound Services is intended for user-interface sound effects and user alerts
+  – It is not intended for sound effects in games
+* Alert sounds work best when kept short
+  – According to Apple, preferably 2 seconds or less</p>
+<p><strong>AVAudioPlayer</strong>
+* Play background music
+* Extremely slow: will be a noticeable delay
+* If play in bg, check no other sound is playing to prevent two layers of musics going at once
+* Phone call will interrupt the music</p>
+<p><em>Add Audio Framework</em>
+* Add <code>AudioToolbox.framework</code> in project targets
+* Import</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// QuoteViewController.m</span>
+<span class="cp">#import &lt;AudioToolbox/AudioToolbox.h&gt;</span>
+<span class="cp">#import &quot;QuoteViewController.h&quot;</span>
+<span class="k">@interface</span> <span class="nc">QuoteViewController</span> <span class="p">()</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">readonly</span><span class="p">)</span> <span class="n">SystemSoundID</span> <span class="n">soundFileID</span><span class="p">;</span>
+</code></pre></div>
+
+<p><strong>Examples</strong></p>
+<p>Setup for Sound</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// QuoteViewController.m</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">soundFilePath</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">pathForResource</span><span class="p">:</span><span class="s">@&quot;Tada&quot;</span> <span class="nl">ofType</span><span class="p">:</span><span class="s">@&quot;wav&quot;</span><span class="p">];</span>
+<span class="bp">NSURL</span> <span class="o">*</span><span class="n">soundURL</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSURL</span> <span class="nl">fileURLWithPath</span><span class="p">:</span><span class="n">soundFilePath</span><span class="p">];</span>
+<span class="n">AudioServicesCreateSystemSoundID</span><span class="p">((</span><span class="k">__bridge</span> <span class="n">CFURLRef</span> <span class="n">_Nonnull</span><span class="p">)(</span><span class="n">soundURL</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">_soundFileID</span><span class="p">);</span>
+
+<span class="c1">// QuoteViewController.m</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">singleTapRecognized:</span> <span class="p">(</span><span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="p">)</span><span class="nv">recognizer</span><span class="p">{</span>
+<span class="c1">// Play sound file</span>
+<span class="n">AudioServicesPlaySystemSound</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">soundFileID</span><span class="p">);</span>
+<span class="p">[</span><span class="nb">self</span> <span class="nl">displayQuote</span><span class="p">:[</span><span class="nb">self</span><span class="p">.</span><span class="n">model</span> <span class="n">randomQuote</span><span class="p">]];</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Setup for Vibration</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// QuoteViewController.m</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">doubleTapRecognized:</span> <span class="p">(</span><span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="p">)</span><span class="nv">recognizer</span><span class="p">{</span>
+<span class="c1">// Vibrate</span>
+<span class="n">AudioServicesPlaySystemSound</span><span class="p">(</span><span class="n">kSystemSoundID_Vibrate</span><span class="p">);</span>
+<span class="p">[</span><span class="nb">self</span> <span class="nl">displayQuote</span><span class="p">:[</span><span class="nb">self</span><span class="p">.</span><span class="n">model</span> <span class="n">randomQuote</span><span class="p">]];</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Create property using <strong>AVFoundation</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// QuoteViewController.m</span>
+<span class="cp">#import &lt;AVFoundation/AVFoundation.h&gt;</span>
+<span class="c1">// Other imports…</span>
+<span class="k">@interface</span> <span class="nc">QuoteViewController</span> <span class="p">()</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">strong</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">)</span> <span class="bp">AVAudioPlayer</span> <span class="o">*</span><span class="n">audioPlayer</span><span class="p">;</span>
+
+<span class="c1">// QuoteViewController.m</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&quot;%@/tone.mp3&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="bp">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span>
+<span class="n">resourcePath</span><span class="p">]];</span>
+<span class="bp">NSURL</span> <span class="o">*</span><span class="n">soundURL</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSURL</span> <span class="nl">fileURLWithPath</span><span class="p">:</span><span class="n">path</span><span class="p">];</span>
+<span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">audioPlayer</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">AVAudioPlayer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithContentsOfURL</span><span class="p">:</span><span class="n">soundURL</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">audioPlayer</span> <span class="n">prepareToPlay</span><span class="p">];</span>
+
+<span class="c1">// QuoteViewController.m</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">singleTapRecognized:</span> <span class="p">(</span><span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="p">)</span><span class="nv">recognizer</span><span class="p">{</span>
+<span class="c1">// Play audio</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">audioPlayer</span> <span class="n">play</span><span class="p">];</span>
+<span class="p">[</span><span class="nb">self</span> <span class="nl">displayQuote</span><span class="p">:[</span><span class="nb">self</span><span class="p">.</span><span class="n">model</span> <span class="n">randomQuote</span><span class="p">]];</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="delegates">Delegates<a class="headerlink" href="#delegates" title="Permanent link">&para;</a></h2>
+<p><strong>Protocol</strong>
+* Is a declaration of a list of methods
+* Two kinds of methods: <strong>optional</strong> and <strong>required</strong></p>
+<p><strong>Delegation</strong>
+* Allow for one to one communication between two instances: the <strong>delegate</strong> and <strong>delegator</strong>
+  * Delegator: Instance that send events to delegate
+  * Delegate: Process events sent from the delegator
+  * The delegator is typically a framework object (i.e. textfield, tableview, etc.), and the delegate is typically a custom controller object.</p>
+<p><strong>Three Steps Processes</strong>
+1. In your custom class, adopt the delegate's protocol.
+2. Implement the appropriate protocol methods.
+3. Connect the <code>delegate</code> outlet of the delegator (i.e. textfield, tableview, etc.) to your custom class.</p>
+<p><strong>Summary</strong>
+* Allowing some objects to be relatively fixed and others highly customized.
+* Maximum software reuse and MVC design pattern.</p>
+<p>Demo: or but not both</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ViewController.h</span>
+<span class="k">@interface</span> <span class="nc">ViewController</span> <span class="o">&lt;</span><span class="n">ProtocolName</span><span class="o">&gt;</span>
+<span class="k">@end</span>
+
+<span class="c1">// ViewController.m</span>
+<span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span> <span class="o">&lt;</span><span class="n">ProtocolName</span><span class="o">&gt;</span>
+<span class="k">@end</span>
+<span class="k">@implementation</span> <span class="nc">ViewController</span>
+<span class="k">@end</span>
+</code></pre></div>
+
+<h2 id="table-views">Table Views<a class="headerlink" href="#table-views" title="Permanent link">&para;</a></h2>
+<ol>
+<li>iOS can have an unlimited # of rows</li>
+<li>iOS tables can only be one col wide</li>
+</ol>
+<p><strong>Plain Table View</strong>
+* Row seperated into labeled sections and index appears vertically on right (index list)
+* Header and footer: row are grouped, doesn't include index
+* Highlight:
+  * In both styles, a table row becomes highlighted briefly when a user taps a selectable item.
+  * If a row selection results in navigation to a new screen, the selected row becomes highlighted briefly as the new screen slides into place.
+  * When the user navigates back to the previous screen, the originally selected row again becomes highlighted briefly to remind the user of the earlier selection (it doesn’t remain highlighted).
+* <strong>Four Predefined Styles</strong>
+  1. <code>UITableViewCellStyleDefault</code>: The default cell style includes an optional image in the left end of the row, followed by a left-aligned title.
+  2. <code>UITableViewCellStyleSubtitle</code>: The subtitle style includes an optional image in the left end <code>of the row, followed by a left- aligned title on one line and a left- aligned subtitle on the line below.
+  3.</code>UITableViewCellStyleValue1<code>: The value 1 style displays a left-aligned title with, on the same line, a rightaligned subtitle in a lighter font.
+  4.</code>UITableViewCellStyleValue2`: The value 2 style displays a right-aligned title in a blue font, followed on the same line by a left-aligned subtitle in a black font. Images don’t fit well in this style.</p>
+<p><strong>Reusing Cell</strong>
+* When you call <code>[tableView dequeuereusablecellwithidentifier:]</code> you either:
+    A. Get a cell that has previously been created and isn't currently being used
+    OR
+    B. Create a new cell of the class you specified</p>
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ExampleTableViewController.m</span>
+<span class="c1">// Return the number of sections</span>
+<span class="p">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">numberOfSectionsInTableView:</span><span class="p">(</span><span class="bp">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span><span class="p">{</span>
+<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Return number of rows in the section</span>
+<span class="p">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="bp">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">numberOfRowsInSection:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">section</span><span class="p">{</span>
+<span class="k">return</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Configuring Rows (cell)</span>
+<span class="p">-</span> <span class="p">(</span><span class="bp">UITableViewCell</span> <span class="o">*</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="bp">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">cellForRowAtIndexPath:</span>
+<span class="p">(</span><span class="bp">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span><span class="p">{</span>
+<span class="k">static</span> <span class="bp">NSString</span> <span class="o">*</span><span class="n">cellIdentifier</span> <span class="o">=</span> <span class="s">@&quot;TableCell&quot;</span><span class="p">;</span>
+<span class="bp">UITableViewCell</span> <span class="o">*</span><span class="n">cell</span> <span class="o">=</span> <span class="p">[</span><span class="n">tableView</span> <span class="nl">dequeueReusableCellWithIdentifier</span><span class="p">:</span><span class="n">cellIdentifier</span><span class="p">];</span>
+<span class="c1">// Configure the cell</span>
+<span class="n">cell</span><span class="p">.</span><span class="n">textLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&quot;Row %d&quot;</span><span class="p">,</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span>
+<span class="k">return</span> <span class="n">cell</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Relationships btw View Controllers</strong>
+* If the relationship is a <em>segue</em>, the destination view controller is instantiated when the segue is triggered.
+* If the relationship represents <em>containment</em>, the child view controller is instantiated when its parent is instantiated.
+* If the controller is not the destination or child of another controller, it is never instantiated automatically. You must instantiate it from the storyboard programmatically.
+  * Segues: When a segue is triggered, iOS takes the following actions:
+    1. It instantiates the destination view controller
+    using the attribute values you provided in the
+    storyboard.
+    2. It gives the source view controller an opportunity
+    to configure the new controller.
+    3. It performs the transition configured in the segue.
+* Summary: containment for parent-child connection; segues for two views.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../dialog-flow/" title="Dialog flow" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Dialog flow
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../exam-ii-review-part-two/" title="Exam ii review part two" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Exam ii review part two
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
