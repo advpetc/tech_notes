@@ -17,7 +17,7 @@
     
     
       
-        <title>Java pass-by-value - Tech Notes</title>
+        <title>Common problem - Tech Notes</title>
       
     
     
@@ -51,7 +51,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Java pass-by-value
+              Common problem
             
           </span>
         </div>
@@ -210,8 +210,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Crypto/rsa-en%26decryption/" title="Symbolics" class="md-nav__link">
-      Symbolics
+    <a href="../../Crypto/rsa-en%26decryption/" title="Rsa en&decryption" class="md-nav__link">
+      Rsa en&decryption
     </a>
   </li>
 
@@ -252,8 +252,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Google%20Kick%20Start/2020---round-a/" title="Allocation" class="md-nav__link">
-      Allocation
+    <a href="../../Google%20Kick%20Start/2020---round-a/" title="2020 round a" class="md-nav__link">
+      2020   round a
     </a>
   </li>
 
@@ -313,25 +313,21 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Java pass-by-value
+        Common problem
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="Java pass-by-value" class="md-nav__link md-nav__link--active">
-      Java pass-by-value
+    <a href="./" title="Common problem" class="md-nav__link md-nav__link--active">
+      Common problem
     </a>
     
       
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -343,8 +339,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#java-pass-by-value" class="md-nav__link">
+    Java pass-by-value
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     debug
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    Misc
   </a>
   
 </li>
@@ -362,8 +372,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../control-flow-and-methods/" title="Method overloading" class="md-nav__link">
-      Method overloading
+    <a href="../control-flow-and-methods/" title="Control flow and methods" class="md-nav__link">
+      Control flow and methods
     </a>
   </li>
 
@@ -386,8 +396,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../primitive-types-and-basic-operations/" title="Primitive Types" class="md-nav__link">
-      Primitive Types
+    <a href="../primitive-types-and-basic-operations/" title="Primitive types and basic operations" class="md-nav__link">
+      Primitive types and basic operations
     </a>
   </li>
 
@@ -440,20 +450,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Lai/binary-search/" title="Binary Search" class="md-nav__link">
-      Binary Search
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Lai/check/" title="Check" class="md-nav__link">
-      Check
+    <a href="../../Lai/binary-search/" title="Binary search" class="md-nav__link">
+      Binary search
     </a>
   </li>
 
@@ -488,8 +486,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Lai/find-minimum-in-rotated-sorted-array/" title="LaiCode 23" class="md-nav__link">
-      LaiCode 23
+    <a href="../../Lai/find-minimum-in-rotated-sorted-array/" title="Find minimum in rotated sorted array" class="md-nav__link">
+      Find minimum in rotated sorted array
     </a>
   </li>
 
@@ -548,6 +546,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Lai/noon-1-recursion-tree/" title="Noon 1 recursion tree" class="md-nav__link">
+      Noon 1 recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
     </a>
@@ -560,8 +570,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Lai/sorting-algorithms/" title="Overview" class="md-nav__link">
-      Overview
+    <a href="../../Lai/sorting-algorithms/" title="Sorting algorithms" class="md-nav__link">
+      Sorting algorithms
     </a>
   </li>
 
@@ -1184,8 +1194,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" title="Overview" class="md-nav__link">
-      Overview
+    <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" title="Cs231n lecture 6 training neural networks i" class="md-nav__link">
+      Cs231n lecture 6   training neural networks i
     </a>
   </li>
 
@@ -1209,8 +1219,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -1221,8 +1229,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#java-pass-by-value" class="md-nav__link">
+    Java pass-by-value
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     debug
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    Misc
   </a>
   
 </li>
@@ -1243,7 +1265,9 @@
                   
                 
                 
-                <h1 id="java-pass-by-value">Java pass-by-value<a class="headerlink" href="#java-pass-by-value" title="Permanent link">&para;</a></h1>
+                  <h1>Common problem</h1>
+                
+                <h2 id="java-pass-by-value">Java pass-by-value<a class="headerlink" href="#java-pass-by-value" title="Permanent link">&para;</a></h2>
 <ol>
 <li>reassignment</li>
 </ol>
@@ -1327,7 +1351,7 @@ list = {1,2,3} → returns 14 (14=1<em>1+2</em>2+3*3)</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<h1 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h1>
+<h2 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h2>
 <ol>
 <li>String s = 4 + "aa"; // will print 4aa, because 4.toString() + "aa", however it won't work in c++</li>
 <li>low -&gt; high precision: will cast implicitly (no need to add (long) for example).</li>
@@ -1366,13 +1390,13 @@ list = {1,2,3} → returns 14 (14=1<em>1+2</em>2+3*3)</p>
           </a>
         
         
-          <a href="../control-flow-and-methods/" title="Method overloading" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../control-flow-and-methods/" title="Control flow and methods" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Method overloading
+                Control flow and methods
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
