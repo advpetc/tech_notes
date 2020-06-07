@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,7 +80,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -164,7 +166,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -534,8 +536,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Lai/recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/reviews/" title="Reviews" class="md-nav__link">
+      Reviews
     </a>
   </li>
 
@@ -1307,74 +1333,77 @@
                 
                 <h1 id="use-array-dp">Use array DP<a class="headerlink" href="#use-array-dp" title="Permanent link">&para;</a></h1>
 <h2 id="java">java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">public</span> <span class="n">class</span> <span class="n">Solution</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="kt">int</span> <span class="n">numDecodings</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">null</span> <span class="o">||</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
-        <span class="kt">int</span><span class="p">[]</span> <span class="n">dp</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
-        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// # of ways to decode for empty s</span>
-        <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="sc">&#39;0&#39;</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 0 cannot be leading element for a number</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kt">int</span> <span class="n">first</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">));</span> <span class="c1">// s[i-1:i]</span>
-            <span class="kt">int</span> <span class="n">second</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">));</span><span class="c1">// s[i-2:i]</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">first</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">first</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">)</span> <span class="p">{</span>
-               <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>  
-            <span class="p">}</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">second</span> <span class="o">&gt;=</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="n">second</span> <span class="o">&lt;=</span> <span class="mi">26</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">];</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">public</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">numDecodings(String</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">s.length()</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.length();</span>
+        <span style="color: #66d9ef">int</span><span style="color: #f8f8f2">[]</span> <span style="color: #f8f8f2">dp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #66d9ef">int</span><span style="color: #f8f8f2">[n</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
+        <span style="color: #f8f8f2">dp[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// # of ways to decode for empty s</span>
+        <span style="color: #f8f8f2">dp[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.charAt(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">!=</span> <span style="color: #e6db74">&#39;0&#39;</span> <span style="color: #f92672">?</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// 0 cannot be leading element for a number</span>
+        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">first</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Integer.valueOf(s.substring(i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i));</span> <span style="color: #75715e">// s[i-1:i]</span>
+            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">second</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Integer.valueOf(s.substring(i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i));</span><span style="color: #75715e">// s[i-2:i]</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(first</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">first</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">9</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+               <span style="color: #f8f8f2">dp[i]</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>  
+            <span style="color: #f8f8f2">}</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(second</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">10</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">second</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">26</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #f8f8f2">dp[i]</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">];</span>
+            <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dp[n];</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p>dp[i]: number of ways to decode
 1. dp[i] += dp[i-1] if s[i-1:i] is valid (single digit: range from 0-9)
 2. dp[i] += dp[i-2] if s[i-2:i] is valid (two digits: range from 10-26)</p>
 <h2 id="cpp">cpp<a class="headerlink" href="#cpp" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">numDecodings</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dp</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-    <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// from back to front</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;1&#39;</span><span class="o">||</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;2&#39;</span><span class="o">&amp;&amp;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;</span><span class="sc">&#39;7&#39;</span><span class="p">))</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">];</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">numDecodings</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.size();</span>
+    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dp(n</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">dp[n]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;i</span><span style="color: #f92672">&gt;=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;i</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// from back to front</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">dp[i]</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">dp[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">(s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;2&#39;</span><span style="color: #f92672">&amp;&amp;</span><span style="color: #f8f8f2">s[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">&lt;</span><span style="color: #e6db74">&#39;7&#39;</span><span style="color: #f8f8f2">))</span> <span style="color: #f8f8f2">dp[i]</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">dp[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">];</span>
+        <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s.empty()</span><span style="color: #f92672">?</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">dp[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p>dp[i] += dp[i+2] if
 1. s[i] == 1, so that any s[i+2] is valid, s[i:i+1] is in range 10-19
 2. s[i] == 2 and s[i+1] &lt; 7, so that s[i:i+1] is in range 20-26</p>
 <p>if s[i] == 0, then dp[i] = 0, because 0 cannot be leading</p>
 <h2 id="optimize-with-constant-space">optimize with constant space<a class="headerlink" href="#optimize-with-constant-space" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">class</span> <span class="n">Solution</span> <span class="p">{</span>
-<span class="nl">public</span><span class="p">:</span>
-    <span class="kt">int</span> <span class="n">numDecodings</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-        <span class="kt">int</span> <span class="n">pre</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">prepre</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">curr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// from back to front</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="n">curr</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-            <span class="k">else</span> <span class="p">{</span>
-                <span class="n">curr</span><span class="o">=</span><span class="n">pre</span><span class="p">;</span>
-                <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;1&#39;</span><span class="o">||</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;2&#39;</span><span class="o">&amp;&amp;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;</span><span class="sc">&#39;7&#39;</span><span class="p">))</span> 
-                    <span class="n">curr</span><span class="o">+=</span><span class="n">prepre</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">prepre</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
-            <span class="n">pre</span> <span class="o">=</span> <span class="n">curr</span><span class="p">;</span>
-            <span class="n">curr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">pre</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">numDecodings(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.size();</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">prepre</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;i</span><span style="color: #f92672">&gt;=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;i</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// from back to front</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">curr</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #f8f8f2">curr</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">pre;</span>
+                <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">(s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;2&#39;</span><span style="color: #f92672">&amp;&amp;</span><span style="color: #f8f8f2">s[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">&lt;</span><span style="color: #e6db74">&#39;7&#39;</span><span style="color: #f8f8f2">))</span> 
+                    <span style="color: #f8f8f2">curr</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">prepre;</span>
+            <span style="color: #f8f8f2">}</span>
+            <span style="color: #f8f8f2">prepre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pre;</span>
+            <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">curr;</span>
+            <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s.empty()</span><span style="color: #f92672">?</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">pre;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
 </code></pre></div>
+
 
 <p>only needs two more states from current state, so
 1. pre: s[i:i+1]

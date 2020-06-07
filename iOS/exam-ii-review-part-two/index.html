@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,7 +80,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -164,7 +166,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -534,8 +536,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Lai/recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/reviews/" title="Reviews" class="md-nav__link">
+      Reviews
     </a>
   </li>
 
@@ -1482,18 +1508,19 @@
 <li>No complex structure</li>
 <li>Not searchable</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="bp">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">kCurrentIndexKey</span> <span class="o">=</span> <span class="s">@&quot;CurrentIndex&quot;</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">save</span><span class="p">{</span>
-    <span class="bp">NSUserDefaults</span> <span class="o">*</span><span class="n">defaults</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSUserDefaults</span> <span class="n">standardUserDefaults</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">defaults</span> <span class="nl">setObject</span><span class="p">:[</span><span class="bp">NSNumber</span> <span class="nl">numberWithInt</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">currentIndex</span><span class="p">]</span> <span class="nl">forKey</span><span class="p">:</span><span class="n">kCurrentIndexKey</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">defaults</span> <span class="n">synchronize</span><span class="p">];</span>
-<span class="p">}</span>  
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">NSString</span> <span style="color: #f92672">*</span><span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">kCurrentIndexKey</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">@&quot;CurrentIndex&quot;</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span> <span style="color: #a6e22e">save</span><span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">NSUserDefaults</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">defaults</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[NSUserDefaults</span> <span style="color: #f8f8f2">standardUserDefaults];</span>
+    <span style="color: #f8f8f2">[defaults</span> <span style="color: #f8f8f2">setObject:[NSNumber</span> <span style="color: #f8f8f2">numberWithInt:self.currentIndex]</span> <span style="color: #f8f8f2">forKey:kCurrentIndexKey];</span>
+    <span style="color: #f8f8f2">[defaults</span> <span style="color: #f8f8f2">synchronize];</span>
+<span style="color: #f8f8f2">}</span>  
 
-<span class="p">-</span> <span class="p">(</span><span class="bp">NSNumber</span><span class="p">)</span> <span class="nf">read</span> <span class="p">{</span>
-  <span class="bp">NSNumber</span> <span class="o">*</span><span class="n">readData</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSUserDefaults</span> <span class="n">standardUserDefaults</span><span class="p">]</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="n">kCurrentIndexKey</span><span class="p">];</span>
-  <span class="k">return</span> <span class="n">readData</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(NSNumber)</span> <span style="color: #a6e22e">read</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">NSNumber</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">readData</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[NSUserDefaults</span> <span style="color: #f8f8f2">standardUserDefaults]</span> <span style="color: #f8f8f2">objectForKey:kCurrentIndexKey];</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">readData;</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p><em>Use of const</em>
 1. Prevent mistype
@@ -1506,16 +1533,17 @@
 <li>Text Files</li>
 <li>Archiving Objects -- <code>NSCoding</code> protocol</li>
 </ul>
-<div class="highlight"><pre><span></span><code> <span class="bp">NSString</span> <span class="o">*</span><span class="n">documentsDirPath</span> <span class="o">=</span> <span class="n">NSSearchPathForDirectoriesInDomains</span><span class="p">(</span><span class="n">NSDocumentDirectory</span><span class="p">,</span> <span class="n">NSUserDomainMask</span><span class="p">,</span> <span class="nb">YES</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
- <span class="c1">// Create a file name for your file</span>
- <span class="bp">NSString</span> <span class="o">*</span><span class="n">filename</span> <span class="o">=</span> <span class="s">@&quot;flashcards.plist&quot;</span><span class="p">;</span>
- <span class="c1">// Generate the full file path</span>
- <span class="n">_filePath</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&quot;%@/%@&quot;</span><span class="p">,</span> <span class="n">documentsDirPath</span><span class="p">,</span> <span class="n">filename</span><span class="p">];</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code> <span style="color: #f8f8f2">NSString</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">documentsDirPath</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,</span> <span style="color: #f8f8f2">NSUserDomainMask,</span> <span style="color: #f8f8f2">YES)[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
+ <span style="color: #75715e">// Create a file name for your file</span>
+ <span style="color: #f8f8f2">NSString</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">filename</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">@&quot;flashcards.plist&quot;</span><span style="color: #f8f8f2">;</span>
+ <span style="color: #75715e">// Generate the full file path</span>
+ <span style="color: #f8f8f2">_filePath</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[NSString</span> <span style="color: #f8f8f2">stringWithFormat:</span><span style="color: #e6db74">@&quot;%@/%@&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">documentsDirPath,</span> <span style="color: #f8f8f2">filename];</span>
 
- <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;file path %@&quot;</span><span class="p">,</span> <span class="n">_filePath</span><span class="p">);</span>
+ <span style="color: #f8f8f2">NSLog(</span><span style="color: #e6db74">@&quot;file path %@&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">_filePath);</span>
 
- <span class="bp">NSArray</span> <span class="o">*</span><span class="n">flashcardsFromDocumentsDir</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSArray</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithContentsOfFile</span><span class="p">:</span><span class="n">_filePath</span><span class="p">];</span>
+ <span style="color: #f8f8f2">NSArray</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">flashcardsFromDocumentsDir</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[NSArray</span> <span style="color: #f8f8f2">alloc]</span> <span style="color: #f8f8f2">initWithContentsOfFile:_filePath];</span>
 </code></pre></div>
+
 
 <h2 id="app-life-cycle">App life cycle<a class="headerlink" href="#app-life-cycle" title="Permanent link">&para;</a></h2>
 <p><strong>App States</strong>
@@ -1560,45 +1588,49 @@
 * App Transport Security force to connect with web service through HTTPS</p>
 <p>Example:</p>
 <p>Read a pdf file</p>
-<div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
-<span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
-<span class="bp">NSString</span> <span class="o">*</span><span class="n">path</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">pathForResource</span><span class="p">:</span><span class="s">@&quot;HIG&quot;</span> <span class="nl">ofType</span><span class="p">:</span><span class="s">@&quot;pdf&quot;</span><span class="p">];</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="p">){</span>
-<span class="bp">NSData</span> <span class="o">*</span><span class="n">pdfData</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSData</span> <span class="nl">dataWithContentsOfFile</span><span class="p">:</span><span class="n">path</span><span class="p">];</span>
-<span class="p">[(</span><span class="bp">UIWebView</span> <span class="o">*</span><span class="p">)</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">loadData</span><span class="p">:</span><span class="n">pdfData</span> <span class="nl">MIMEType</span><span class="p">:</span><span class="s">@&quot;application/pdf&quot;</span>
-<span class="nl">textEncodingName</span><span class="p">:</span><span class="s">@&quot;utf-8&quot;</span> <span class="nl">baseURL</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-<span class="p">}</span>
-<span class="p">}</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">viewDidLoad</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">[super</span> <span style="color: #f8f8f2">viewDidLoad];</span>
+<span style="color: #f8f8f2">NSString</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">path</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[NSBundle</span> <span style="color: #f8f8f2">mainBundle]</span> <span style="color: #f8f8f2">pathForResource:</span><span style="color: #e6db74">@&quot;HIG&quot;</span> <span style="color: #f8f8f2">ofType:</span><span style="color: #e6db74">@&quot;pdf&quot;</span><span style="color: #f8f8f2">];</span>
+<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(path){</span>
+<span style="color: #f8f8f2">NSData</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">pdfData</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[NSData</span> <span style="color: #f8f8f2">dataWithContentsOfFile:path];</span>
+<span style="color: #f8f8f2">[(UIWebView</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)self.view</span> <span style="color: #f8f8f2">loadData:pdfData</span> <span style="color: #f8f8f2">MIMEType:</span><span style="color: #e6db74">@&quot;application/pdf&quot;</span>
+<span style="color: #f8f8f2">textEncodingName:</span><span style="color: #e6db74">@&quot;utf-8&quot;</span> <span style="color: #f8f8f2">baseURL:nil];</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p>Read a url</p>
-<div class="highlight"><pre><span></span><code><span class="bp">NSURL</span> <span class="o">*</span><span class="n">url</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&quot;https://www.apple.com&quot;</span><span class="p">];</span>
-<span class="bp">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">url</span><span class="p">];</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">myWebView</span> <span class="nl">loadRequest</span><span class="p">:</span> <span class="n">request</span><span class="p">];</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">NSURL</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">url</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[NSURL</span> <span style="color: #f8f8f2">URLWithString:</span><span style="color: #e6db74">@&quot;https://www.apple.com&quot;</span><span style="color: #f8f8f2">];</span>
+<span style="color: #f8f8f2">NSURLRequest</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">request</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[NSURLRequest</span> <span style="color: #f8f8f2">requestWithURL:url];</span>
+<span style="color: #f8f8f2">[self.myWebView</span> <span style="color: #f8f8f2">loadRequest:</span> <span style="color: #f8f8f2">request];</span>
 </code></pre></div>
+
 
 <p>Cancel a loading request</p>
-<div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewWillDisappear:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span><span class="p">{</span>
-<span class="p">[</span><span class="nb">super</span> <span class="nl">viewWillDisappear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
-<span class="k">if</span> <span class="p">([</span><span class="nb">self</span><span class="p">.</span><span class="n">myWebView</span> <span class="n">isLoading</span><span class="p">]){</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">myWebView</span> <span class="n">stopLoading</span><span class="p">];</span>
-<span class="p">}</span>
-<span class="c1">// Disconnect the delegate as the webview is hidden</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">myWebView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">viewWillDisappear:</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">BOOL</span><span style="color: #f8f8f2">)animated{</span>
+<span style="color: #f8f8f2">[super</span> <span style="color: #f8f8f2">viewWillDisappear:animated];</span>
+<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">([self.myWebView</span> <span style="color: #f8f8f2">isLoading]){</span>
+<span style="color: #f8f8f2">[self.myWebView</span> <span style="color: #f8f8f2">stopLoading];</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #75715e">// Disconnect the delegate as the webview is hidden</span>
+<span style="color: #f8f8f2">self.myWebView.delegate</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nil;</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
 
+
 <p>Animation loading in WebView</p>
-<div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">webViewDidStartLoad:</span><span class="p">(</span><span class="bp">UIWebView</span> <span class="o">*</span><span class="p">)</span><span class="nv">webView</span><span class="p">{</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">activityIndicator</span> <span class="n">startAnimating</span><span class="p">];</span>
-<span class="p">}</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">webViewDidFinishLoad:</span><span class="p">(</span><span class="bp">UIWebView</span> <span class="o">*</span><span class="p">)</span><span class="nv">webView</span><span class="p">{</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">activityIndicator</span> <span class="n">stopAnimating</span><span class="p">];</span>
-<span class="p">}</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">webView:</span><span class="p">(</span><span class="bp">UIWebView</span> <span class="o">*</span><span class="p">)</span><span class="nv">webView</span> <span class="nf">didFailLoadWithError:</span><span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">{</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">activityIndicator</span> <span class="n">stopAnimating</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">webViewDidStartLoad:</span><span style="color: #f8f8f2">(UIWebView</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)webView{</span>
+<span style="color: #f8f8f2">[self.activityIndicator</span> <span style="color: #f8f8f2">startAnimating];</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">webViewDidFinishLoad:</span><span style="color: #f8f8f2">(UIWebView</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)webView{</span>
+<span style="color: #f8f8f2">[self.activityIndicator</span> <span style="color: #f8f8f2">stopAnimating];</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">webView:</span><span style="color: #f8f8f2">(UIWebView</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)webView</span> <span style="color: #a6e22e">didFailLoadWithError:</span><span style="color: #f8f8f2">(NSError</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)error{</span>
+<span style="color: #f8f8f2">[self.activityIndicator</span> <span style="color: #f8f8f2">stopAnimating];</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p><em>Notes</em></p>
 <ol>
@@ -1612,7 +1644,7 @@
 * Enable edit button in <code>viewDidLoad</code> method
 * Use the public remove method in the model
 * Implement <code>tableView: commitEditingStyle: forRowAtIndexPath</code> method</p>
-<div class="highlight"><pre><span></span><code>- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [self.model removeFlashcardAtIndex:indexPath.row];

@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,7 +80,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -164,7 +166,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -534,8 +536,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Lai/recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/reviews/" title="Reviews" class="md-nav__link">
+      Reviews
     </a>
   </li>
 
@@ -1428,18 +1454,19 @@ max(0, cat score - car score + 1) + max(0,  frog score - car score + 1) = max(0,
 <li>find the slope (using gradient: numberic for debugging and analytic for calculating)</li>
 </ol>
 <h3 id="gradient-descent">Gradient Descent<a class="headerlink" href="#gradient-descent" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">weights_grad</span> <span class="o">=</span> <span class="n">evaluate_gradient</span><span class="p">(</span><span class="n">loss_fun</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
-    <span class="n">weights</span> <span class="o">+=</span> <span class="o">-</span> <span class="n">step_size</span> <span class="o">*</span> <span class="n">weights_grad</span> <span class="c1"># perform parameter update</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">while</span> <span style="color: #66d9ef">True</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #f8f8f2">weights_grad</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">evaluate_gradient(loss_fun,</span> <span style="color: #f8f8f2">data,</span> <span style="color: #f8f8f2">weights)</span>
+    <span style="color: #f8f8f2">weights</span> <span style="color: #f92672">+=</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">step_size</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">weights_grad</span> <span style="color: #75715e"># perform parameter update</span>
 </code></pre></div>
+
 
 <p><strong>step_size is also the learning rate, it's the first thing to set</strong></p>
 <h3 id="stochastic-gradient-descent-sgd">Stochastic Gradient Descent (SGD)<a class="headerlink" href="#stochastic-gradient-descent-sgd" title="Permanent link">&para;</a></h3>
 <p>Use when there are a lot of training set, in each iteraion, take a samples data from the training set (typically 32/64/128/256) called <strong>minibatch</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">data_batch</span> <span class="o">=</span> <span class="n">sample_training_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
-    <span class="n">weights_grad</span> <span class="o">=</span> <span class="n">evaluate_gradient</span><span class="p">(</span><span class="n">loss_fun</span><span class="p">,</span> <span class="n">data_batch</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
-    <span class="n">weights</span> <span class="o">+=</span> <span class="o">-</span> <span class="n">step_size</span> <span class="o">*</span> <span class="n">weights_grad</span> <span class="c1"># perform parameter update</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">while</span> <span style="color: #66d9ef">True</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #f8f8f2">data_batch</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">sample_training_data(data,</span> <span style="color: #ae81ff">256</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">weights_grad</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">evaluate_gradient(loss_fun,</span> <span style="color: #f8f8f2">data_batch,</span> <span style="color: #f8f8f2">weights)</span>
+    <span style="color: #f8f8f2">weights</span> <span style="color: #f92672">+=</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">step_size</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">weights_grad</span> <span style="color: #75715e"># perform parameter update</span>
 </code></pre></div>
                 
               

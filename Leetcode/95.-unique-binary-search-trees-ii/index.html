@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,7 +80,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -164,7 +166,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -534,8 +536,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Lai/recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/reviews/" title="Reviews" class="md-nav__link">
+      Reviews
     </a>
   </li>
 
@@ -1288,51 +1314,52 @@
                   <h1>95. unique binary search trees ii</h1>
                 
                 <h2 id="java">java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">public</span> <span class="n">class</span> <span class="n">Solution</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span> <span class="n">generateTrees</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">generateTrees(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
 
-        <span class="k">return</span> <span class="n">genTrees</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
-    <span class="p">}</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">genTrees(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,n);</span>
+    <span style="color: #f8f8f2">}</span>
 
-    <span class="n">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span> <span class="n">genTrees</span> <span class="p">(</span><span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="n">end</span><span class="p">)</span>
-    <span class="p">{</span>
+    <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">genTrees</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">start,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">end)</span>
+    <span style="color: #f8f8f2">{</span>
 
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span><span class="p">();</span>
+        <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">list</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ArrayList</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">();</span>
 
-        <span class="k">if</span><span class="p">(</span><span class="n">start</span><span class="o">&gt;</span><span class="n">end</span><span class="p">)</span> <span class="c1">// invalid</span>
-        <span class="p">{</span>
-            <span class="n">list</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">null</span><span class="p">);</span>
-            <span class="k">return</span> <span class="n">list</span><span class="p">;</span>
-        <span class="p">}</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(start</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">end)</span> <span style="color: #75715e">// invalid</span>
+        <span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">list.add(null);</span>
+            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">list;</span>
+        <span style="color: #f8f8f2">}</span>
 
-        <span class="k">if</span><span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">){</span>
-            <span class="n">list</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">start</span><span class="p">));</span>
-            <span class="k">return</span> <span class="n">list</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="c1">// start &lt; end</span>
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span> <span class="n">left</span><span class="p">,</span><span class="n">right</span><span class="p">;</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">start</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">end</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">left</span> <span class="o">=</span> <span class="n">genTrees</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-            <span class="n">right</span> <span class="o">=</span> <span class="n">genTrees</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">end</span><span class="p">);</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(start</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">end){</span>
+            <span style="color: #f8f8f2">list.add(new</span> <span style="color: #f8f8f2">TreeNode(start));</span>
+            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">list;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #75715e">// start &lt; end</span>
+        <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">left,right;</span>
+        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">start;i</span><span style="color: #f92672">&lt;=</span><span style="color: #f8f8f2">end;i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">genTrees(start,</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">genTrees(i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,end);</span>
 
-            <span class="k">for</span><span class="p">(</span><span class="n">TreeNode</span> <span class="nl">lnode</span><span class="p">:</span> <span class="n">left</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="k">for</span><span class="p">(</span><span class="n">TreeNode</span> <span class="nl">rnode</span><span class="p">:</span> <span class="n">right</span><span class="p">)</span>
-                <span class="p">{</span>
-                    <span class="n">TreeNode</span> <span class="n">root</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-                    <span class="n">root</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">lnode</span><span class="p">;</span>
-                    <span class="n">root</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">rnode</span><span class="p">;</span>
-                    <span class="n">list</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">root</span><span class="p">);</span> <span class="c1">// root can choose any one from left or right</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
+            <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(TreeNode</span> <span style="color: #f8f8f2">lnode:</span> <span style="color: #f8f8f2">left)</span>
+            <span style="color: #f8f8f2">{</span>
+                <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(TreeNode</span> <span style="color: #f8f8f2">rnode:</span> <span style="color: #f8f8f2">right)</span>
+                <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">TreeNode</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNode(i);</span>
+                    <span style="color: #f8f8f2">root.left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">lnode;</span>
+                    <span style="color: #f8f8f2">root.right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rnode;</span>
+                    <span style="color: #f8f8f2">list.add(root);</span> <span style="color: #75715e">// root can choose any one from left or right</span>
+                <span style="color: #f8f8f2">}</span>
+            <span style="color: #f8f8f2">}</span>
 
-        <span class="p">}</span>
+        <span style="color: #f8f8f2">}</span>
 
-        <span class="k">return</span> <span class="n">list</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">list;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p>start.... i .....end
 for all left from start to i - 1:
@@ -1340,58 +1367,60 @@ for all left from start to i - 1:
     root -&gt; left = choose one from all left
     root -&gt; right = choose one from all right</p>
 <h2 id="c">c++<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">class</span> <span class="n">Solution</span> <span class="p">{</span>
-<span class="nl">public</span><span class="p">:</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">generateTrees</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="p">{};</span>
-        <span class="k">return</span> <span class="nf">helper</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">helper</span><span class="p">(</span><span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">)</span> <span class="k">return</span> <span class="p">{</span><span class="n">nullptr</span><span class="p">};</span>
-        <span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">res</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">auto</span> <span class="n">left</span> <span class="o">=</span> <span class="n">helper</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">right</span> <span class="o">=</span> <span class="n">helper</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">);</span>
-            <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">left</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">b</span> <span class="p">:</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">TreeNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-                    <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-                    <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-                    <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">generateTrees(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{};</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">n);</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">helper(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">start,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">end)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(start</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">end)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{nullptr};</span>
+        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">res;</span>
+        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">start;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">end;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(start,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">),</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">end);</span>
+            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">left)</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">b</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">TreeNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNode(i);</span>
+                    <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a;</span>
+                    <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b;</span>
+                    <span style="color: #f8f8f2">res.push_back(node);</span>
+                <span style="color: #f8f8f2">}</span>
+            <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
 </code></pre></div>
 
+
 <p>with MEMO + DP</p>
-<div class="highlight"><pre><span></span><code><span class="n">class</span> <span class="n">Solution</span> <span class="p">{</span>
-<span class="nl">public</span><span class="p">:</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">generateTrees</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="p">{};</span>
-        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;&gt;&gt;</span> <span class="n">memo</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;&gt;</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
-        <span class="k">return</span> <span class="nf">helper</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">memo</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">helper</span><span class="p">(</span><span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="n">end</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;&gt;&gt;&amp;</span> <span class="n">memo</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">)</span> <span class="k">return</span> <span class="p">{</span><span class="n">nullptr</span><span class="p">};</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">memo</span><span class="p">[</span><span class="n">start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
-        <span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">res</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">auto</span> <span class="n">left</span> <span class="o">=</span> <span class="n">helper</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">memo</span><span class="p">),</span> <span class="n">right</span> <span class="o">=</span> <span class="n">helper</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">memo</span><span class="p">);</span>
-            <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">left</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">b</span> <span class="p">:</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">TreeNode</span> <span class="o">*</span><span class="n">node</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-                    <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-                    <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-                    <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">generateTrees(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{};</span>
+        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;&gt;&gt;</span> <span style="color: #f8f8f2">memo(n,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;&gt;</span><span style="color: #f8f8f2">(n));</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">memo);</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">helper(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">start,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">end,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;&gt;&gt;&amp;</span> <span style="color: #f8f8f2">memo)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(start</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">end)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{nullptr};</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">memo[start</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][end</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].empty())</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">memo[start</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][end</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
+        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">res;</span>
+        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">start;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">end;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(start,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">memo),</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">end,</span> <span style="color: #f8f8f2">memo);</span>
+            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">left)</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">b</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">TreeNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNode(i);</span>
+                    <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a;</span>
+                    <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b;</span>
+                    <span style="color: #f8f8f2">res.push_back(node);</span>
+                <span style="color: #f8f8f2">}</span>
+            <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">memo[start</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][end</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">res;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
 </code></pre></div>
+
 
 <p>memo[i][j][k]: save current tree (root) with left starts from i - 1, right starts from j - 1</p>
                 

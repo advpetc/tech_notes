@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -73,7 +75,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -159,7 +161,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -538,8 +540,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../recursion/" title="Recursion" class="md-nav__link">
       Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../reviews/" title="Reviews" class="md-nav__link">
+      Reviews
     </a>
   </li>
 
@@ -1351,13 +1377,7 @@ O(1)</p>
 IlegalArumentException
 IlegalStateException
 ArithmeticException ("divisor can not be 0")</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>types of a,b - int, overflow?  the result will never overflow?
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>types of a,b - int, overflow?  the result will never overflow?
     MIN_VALUE = -2^31
     MAX_VALUE = 2^31 - 1
     MIN_VALUE / -1 = ?
@@ -1365,7 +1385,7 @@ What is the result type? int
 positive/negative for a,b?
     -7 / 4 = -1  or   -2
 </code></pre></div>
-</td></tr></table>
+
 
 <p>Result:
     Binary Search Application
@@ -1378,20 +1398,18 @@ positive/negative for a,b?
           min    mid                  max 
                    2*3 =6
          min,max</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>high level - 为什么能用binary search
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>high level - 为什么能用binary search
 </code></pre></div>
-</td></tr></table>
+
 
 <p>把Binary Search的要点讲清楚
         1. search range → [min, max]
         2. search range reduce size each round → while loop()能进得去和跳的出来</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>              [1,       2]
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>              [1,       2]
                min  max
                mid
 </code></pre></div>
-</td></tr></table>
+
 
 <p>case 1    max = mid - 1
   case 2    min = mid</p>

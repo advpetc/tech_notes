@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -73,7 +75,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -159,7 +161,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -529,8 +531,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Lai/recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/reviews/" title="Reviews" class="md-nav__link">
+      Reviews
     </a>
   </li>
 
@@ -1207,31 +1233,32 @@
                 
                   <h1>32. longest valid parentheses</h1>
                 
-                <div class="highlight"><pre><span></span><code> <span class="kt">int</span> <span class="nf">longestValidParentheses</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">curMax</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">longest</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="mi">0</span><span class="p">);</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;)&#39;</span><span class="p">){</span>
-            <span class="cm">/* this block could be ignored because the else block has already calculated it</span>
-<span class="cm">            if(s[i-1] == &#39;(&#39;){ // valid parethese with previous one</span>
-<span class="cm">                longest[i] = (i-2) &gt;= 0 ? (longest[i-2] + 2) : 2;</span>
-<span class="cm">                curMax = max(longest[i],curMax);</span>
-<span class="cm">            }</span>
-<span class="cm">            */</span>
-            <span class="k">else</span><span class="p">{</span> <span class="c1">// if s[i-1] == &#39;)&#39;, combine the previous length.</span>
-                <span class="kt">int</span> <span class="n">prevStart</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">longest</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// the one before the last start valid</span>
-                <span class="k">if</span><span class="p">(</span><span class="n">prevStart</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">[</span><span class="n">prevStart</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;(&#39;</span><span class="p">){</span>
-                    <span class="n">longest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">longest</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">((</span><span class="n">prevStart</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">?</span><span class="n">longest</span><span class="p">[</span><span class="n">prevStart</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">:</span><span class="mi">0</span><span class="p">);</span>
-                    <span class="n">curMax</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">longest</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">curMax</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="c1">//else if s[i] == &#39;(&#39;, skip it, because longest[i] must be 0</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">curMax</span><span class="p">;</span>
-<span class="p">}</span>
+                <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">longestValidParentheses</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s.length()</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">curMax</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">longest(s.size(),</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">s.length();</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">){</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s[i]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;)&#39;</span><span style="color: #f8f8f2">){</span>
+            <span style="color: #75715e">/* this block could be ignored because the else block has already calculated it</span>
+<span style="color: #75715e">            if(s[i-1] == &#39;(&#39;){ // valid parethese with previous one</span>
+<span style="color: #75715e">                longest[i] = (i-2) &gt;= 0 ? (longest[i-2] + 2) : 2;</span>
+<span style="color: #75715e">                curMax = max(longest[i],curMax);</span>
+<span style="color: #75715e">            }</span>
+<span style="color: #75715e">            */</span>
+            <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">{</span> <span style="color: #75715e">// if s[i-1] == &#39;)&#39;, combine the previous length.</span>
+                <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">prevStart</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">longest[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// the one before the last start valid</span>
+                <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(prevStart</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">s[prevStart]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;(&#39;</span><span style="color: #f8f8f2">){</span>
+                    <span style="color: #f8f8f2">longest[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">longest[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">((prevStart</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">?</span><span style="color: #f8f8f2">longest[prevStart</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
+                    <span style="color: #f8f8f2">curMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(longest[i],curMax);</span>
+                <span style="color: #f8f8f2">}</span>
+            <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #75715e">//else if s[i] == &#39;(&#39;, skip it, because longest[i] must be 0</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">curMax;</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p>dp[i]: longest valid parentheses length ending with current [i]
 i - dp[i] + 1: start index of the previous valid one (dp[i-1])

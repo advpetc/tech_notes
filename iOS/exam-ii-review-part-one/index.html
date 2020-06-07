@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,7 +80,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -164,7 +166,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -534,8 +536,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Lai/recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/reviews/" title="Reviews" class="md-nav__link">
+      Reviews
     </a>
   </li>
 
@@ -1355,44 +1381,50 @@
 <li>Press and tap</li>
 </ol>
 <p><strong>Add gesture recognizer in code</strong></p>
-<p>Single Tap
-<div class="highlight"><pre><span></span><code><span class="c1">// ViewController.m: Single Tap</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
-<span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
-<span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="n">singleTap</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UITapGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span>
-<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">singleTapRecognized</span><span class="p">:)];</span>
-<span class="cm">/* if double click</span>
-<span class="cm">doubleTap.numberOfTapsRequired = 2;</span>
-<span class="cm">*/</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span><span class="n">singleTap</span><span class="p">];</span>
-<span class="p">}</span>
+<p>Single Tap</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// ViewController.m: Single Tap</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">viewDidLoad</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">[super</span> <span style="color: #f8f8f2">viewDidLoad];</span>
+<span style="color: #f8f8f2">UITapGestureRecognizer</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">singleTap</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[UITapGestureRecognizer</span> <span style="color: #f8f8f2">alloc]</span> <span style="color: #f8f8f2">initWithTarget:self</span>
+<span style="color: #f8f8f2">action:</span><span style="color: #66d9ef">@selector</span><span style="color: #f8f8f2">(singleTapRecognized:)];</span>
+<span style="color: #75715e">/* if double click</span>
+<span style="color: #75715e">doubleTap.numberOfTapsRequired = 2;</span>
+<span style="color: #75715e">*/</span>
+<span style="color: #f8f8f2">[self.view</span> <span style="color: #f8f8f2">addGestureRecognizer:singleTap];</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">singleTapRecognized:</span> <span class="p">(</span><span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="p">)</span> <span class="nv">recognizer</span> <span class="p">{</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">msgLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">@&quot;You single tapped me!&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p>Single &amp; Double Tap
-<div class="highlight"><pre><span></span><code><span class="c1">// double tap</span>
-<span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="n">singleTap</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UITapGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span>
-<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">singleTapRecognized</span><span class="p">:)];</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span> <span class="n">singleTap</span><span class="p">];</span>
-<span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="n">doubleTap</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UITapGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span>
-<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">doubleTapRecognized</span><span class="p">:)];</span>
-<span class="n">doubleTap</span><span class="p">.</span><span class="n">numberOfTapsRequired</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span> <span class="n">doubleTap</span><span class="p">];</span>
-<span class="c1">// Only recognize single taps if they&#39;re not the first of two</span>
-<span class="p">[</span><span class="n">singleTap</span> <span class="nl">requireGestureRecognizerToFail</span><span class="p">:</span> <span class="n">doubleTap</span><span class="p">];</span>
-</code></pre></div></p>
-<p>Swipe: should add left and right separately
-<div class="highlight"><pre><span></span><code><span class="bp">UISwipeGestureRecognizer</span> <span class="o">*</span><span class="n">swipeLeft</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UISwipeGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span>
-<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">swipeGestureRecognized</span><span class="p">:)];</span>
-<span class="n">swipeLeft</span><span class="p">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">UISwipeGestureRecognizerDirectionLeft</span><span class="p">;</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span><span class="n">swipeLeft</span><span class="p">];</span>
-<span class="bp">UISwipeGestureRecognizer</span> <span class="o">*</span><span class="n">swipeRight</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UISwipeGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span>
-<span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">swipeGestureRecognized</span><span class="p">:)];</span>
-<span class="n">swipeRight</span><span class="p">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">UISwipeGestureRecognizerDirectionRight</span><span class="p">;</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span><span class="n">swipeRight</span><span class="p">];</span>
-</code></pre></div></p>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span> <span style="color: #a6e22e">singleTapRecognized:</span> <span style="color: #f8f8f2">(UITapGestureRecognizer</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">recognizer</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">self.msgLabel.text</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">@&quot;You single tapped me!&quot;</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<p>Single &amp; Double Tap</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// double tap</span>
+<span style="color: #f8f8f2">UITapGestureRecognizer</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">singleTap</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[UITapGestureRecognizer</span> <span style="color: #f8f8f2">alloc]</span> <span style="color: #f8f8f2">initWithTarget:self</span>
+<span style="color: #f8f8f2">action:</span><span style="color: #66d9ef">@selector</span><span style="color: #f8f8f2">(singleTapRecognized:)];</span>
+<span style="color: #f8f8f2">[self.view</span> <span style="color: #f8f8f2">addGestureRecognizer:</span> <span style="color: #f8f8f2">singleTap];</span>
+<span style="color: #f8f8f2">UITapGestureRecognizer</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">doubleTap</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[UITapGestureRecognizer</span> <span style="color: #f8f8f2">alloc]</span> <span style="color: #f8f8f2">initWithTarget:self</span>
+<span style="color: #f8f8f2">action:</span><span style="color: #66d9ef">@selector</span><span style="color: #f8f8f2">(doubleTapRecognized:)];</span>
+<span style="color: #f8f8f2">doubleTap.numberOfTapsRequired</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">[self.view</span> <span style="color: #f8f8f2">addGestureRecognizer:</span> <span style="color: #f8f8f2">doubleTap];</span>
+<span style="color: #75715e">// Only recognize single taps if they&#39;re not the first of two</span>
+<span style="color: #f8f8f2">[singleTap</span> <span style="color: #f8f8f2">requireGestureRecognizerToFail:</span> <span style="color: #f8f8f2">doubleTap];</span>
+</code></pre></div>
+
+
+<p>Swipe: should add left and right separately</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">UISwipeGestureRecognizer</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">swipeLeft</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[UISwipeGestureRecognizer</span> <span style="color: #f8f8f2">alloc]</span> <span style="color: #f8f8f2">initWithTarget:self</span>
+<span style="color: #f8f8f2">action:</span><span style="color: #66d9ef">@selector</span><span style="color: #f8f8f2">(swipeGestureRecognized:)];</span>
+<span style="color: #f8f8f2">swipeLeft.direction</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">UISwipeGestureRecognizerDirectionLeft;</span>
+<span style="color: #f8f8f2">[self.view</span> <span style="color: #f8f8f2">addGestureRecognizer:swipeLeft];</span>
+<span style="color: #f8f8f2">UISwipeGestureRecognizer</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">swipeRight</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[UISwipeGestureRecognizer</span> <span style="color: #f8f8f2">alloc]</span> <span style="color: #f8f8f2">initWithTarget:self</span>
+<span style="color: #f8f8f2">action:</span><span style="color: #66d9ef">@selector</span><span style="color: #f8f8f2">(swipeGestureRecognized:)];</span>
+<span style="color: #f8f8f2">swipeRight.direction</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">UISwipeGestureRecognizerDirectionRight;</span>
+<span style="color: #f8f8f2">[self.view</span> <span style="color: #f8f8f2">addGestureRecognizer:swipeRight];</span>
+</code></pre></div>
+
+
 <p><strong><em>Selector</em></strong>
 * accept a method name
 * not explicit call</p>
@@ -1408,46 +1440,53 @@
 2. is OC object, so can be added to collections like NSArray or NSDictionary
 3. capture values from enclosing scope
 4. used for callback function: code to be exec when finish task</p>
-<p>Syntax
-<div class="highlight"><pre><span></span><code><span class="o">^</span><span class="p">{</span>
-<span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;This is a block&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">multiplier</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
-<span class="kt">int</span> <span class="p">(</span><span class="o">^</span><span class="n">myBlock</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="o">^</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">num</span> <span class="o">*</span> <span class="n">multiplier</span><span class="p">;</span> <span class="p">}</span>
+<p>Syntax</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f92672">^</span><span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">NSLog(</span><span style="color: #e6db74">@&quot;This is a block&quot;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
 
-<p>fade-in example
-<div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">fadeInStudent:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">name</span><span class="p">{</span>
-<span class="c1">// Alpha = 0 means the text is transparent</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
-<span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">1.0</span> <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
-<span class="c1">// Fade in the text of the label</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}];</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p>more examples:
-<div class="highlight"><pre><span></span><code><span class="c1">// fade in nameLabel</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">animateStudent:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span><span class="p">{</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
-<span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">1.0</span> <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}];</span>
-<span class="p">}</span>
 
-<span class="c1">// fade out then fade in</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">displayStudent:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span><span class="p">{</span>
-<span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">1.0</span> <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
-<span class="c1">// Fade out old text of label</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">nameLabel</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">finished</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// Upon completion, call animateStudent</span>
-<span class="p">[</span><span class="nb">self</span> <span class="nl">animateStudent</span><span class="p">:</span><span class="n">name</span><span class="p">];</span>
-<span class="p">}];</span>
-<span class="p">}</span>
-</code></pre></div></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">multiplier</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">7</span><span style="color: #f8f8f2">;</span>
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">^</span><span style="color: #f8f8f2">myBlock)(</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">=</span> <span style="color: #f92672">^</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num)</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">num</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">multiplier;</span> <span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<p>fade-in example</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span> <span style="color: #a6e22e">fadeInStudent:</span><span style="color: #f8f8f2">(NSString</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">name{</span>
+<span style="color: #75715e">// Alpha = 0 means the text is transparent</span>
+<span style="color: #f8f8f2">self.nameLabel.alpha</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">self.nameLabel.text</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">name;</span>
+<span style="color: #f8f8f2">[UIView</span> <span style="color: #f8f8f2">animateWithDuration:</span><span style="color: #ae81ff">1.0</span> <span style="color: #f8f8f2">animations:</span><span style="color: #f92672">^</span><span style="color: #f8f8f2">{</span>
+<span style="color: #75715e">// Fade in the text of the label</span>
+<span style="color: #f8f8f2">self.nameLabel.alpha</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}];</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<p>more examples:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// fade in nameLabel</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span> <span style="color: #a6e22e">animateStudent:</span><span style="color: #f8f8f2">(NSString</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)name{</span>
+<span style="color: #f8f8f2">self.nameLabel.text</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">name;</span>
+<span style="color: #f8f8f2">[UIView</span> <span style="color: #f8f8f2">animateWithDuration:</span><span style="color: #ae81ff">1.0</span> <span style="color: #f8f8f2">animations:</span><span style="color: #f92672">^</span><span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">self.nameLabel.alpha</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}];</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #75715e">// fade out then fade in</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">displayStudent:</span><span style="color: #f8f8f2">(NSString</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)name{</span>
+<span style="color: #f8f8f2">[UIView</span> <span style="color: #f8f8f2">animateWithDuration:</span><span style="color: #ae81ff">1.0</span> <span style="color: #f8f8f2">animations:</span><span style="color: #f92672">^</span><span style="color: #f8f8f2">{</span>
+<span style="color: #75715e">// Fade out old text of label</span>
+<span style="color: #f8f8f2">self.nameLabel.alpha</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span> <span style="color: #f8f8f2">completion:</span><span style="color: #f92672">^</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">BOOL</span> <span style="color: #f8f8f2">finished)</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #75715e">// Upon completion, call animateStudent</span>
+<span style="color: #f8f8f2">[self</span> <span style="color: #f8f8f2">animateStudent:name];</span>
+<span style="color: #f8f8f2">}];</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
 <h2 id="accelerometer-gyroscope">Accelerometer Gyroscope<a class="headerlink" href="#accelerometer-gyroscope" title="Permanent link">&para;</a></h2>
 <p><strong>Motion Events</strong>
 * move
@@ -1460,38 +1499,42 @@
 3. Shake: </em></strong>UIEvent<strong><em>
 4. General Orientation: </em></strong>UIDevice<strong><em>
 5. Cancel a motion event: An event is canceled if the shake motion is interrupted or if iOS determines that the motion is not valid after all – for example, if the shaking lasts too long. Use </em></strong>motionCancelled:withEvent:***</p>
-<p>Handle Shake Event
-<div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">canBecomeFirstResponder</span><span class="p">{</span>
-<span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidAppear:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span><span class="p">{</span>
-<span class="p">[</span><span class="nb">super</span> <span class="nl">viewDidAppear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
-<span class="p">[</span><span class="nb">self</span> <span class="n">becomeFirstResponder</span><span class="p">];</span>
-<span class="p">}</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">motionEnded:</span><span class="p">(</span><span class="n">UIEventSubtype</span><span class="p">)</span><span class="nv">motion</span> <span class="nf">withEvent:</span><span class="p">(</span><span class="bp">UIEvent</span> <span class="o">*</span><span class="p">)</span><span class="nv">event</span><span class="p">{</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">motion</span> <span class="o">==</span> <span class="n">UIEventSubtypeMotionShake</span><span class="p">){</span>
-<span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;You shook me!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p>Responding Changes in Orientation
-<div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">viewDidLoad</span><span class="p">{</span>
-<span class="c1">// Request to turn on accelerometer and begin receiving accelerometer events</span>
-<span class="p">[[</span><span class="bp">UIDevice</span> <span class="n">currentDevice</span><span class="p">]</span> <span class="n">beginGeneratingDeviceOrientationNotifications</span><span class="p">];</span>
-<span class="p">[[</span><span class="bp">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span>
-<span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">orientationChanged</span><span class="p">:)</span> <span class="nl">name</span><span class="p">:</span><span class="n">UIDeviceOrientationDidChangeNotification</span>
-<span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-<span class="p">}</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">orientationChanged:</span> <span class="p">(</span><span class="bp">NSNotification</span> <span class="o">*</span><span class="p">)</span> <span class="nv">notification</span><span class="p">{</span>
-<span class="c1">// Respond to changes in device orientation</span>
-<span class="n">UIDeviceOrientation</span> <span class="n">currentOrientation</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UIDevice</span> <span class="n">currentDevice</span><span class="p">]</span> <span class="n">orientation</span><span class="p">];</span>
-<span class="p">}</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidDisappear:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span><span class="p">{</span>
-<span class="c1">// Request to stop receiving accelerometer events and turn off accelerometer</span>
-<span class="p">[[</span><span class="bp">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">removeObserver</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
-<span class="p">[[</span><span class="bp">UIDevice</span> <span class="n">currentDevice</span><span class="p">]</span> <span class="n">endGeneratingDeviceOrientationNotifications</span><span class="p">];</span>
-<span class="p">}</span>
-</code></pre></div></p>
+<p>Handle Shake Event</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">BOOL</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">canBecomeFirstResponder</span><span style="color: #f8f8f2">{</span>
+<span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">YES;</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">viewDidAppear:</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">BOOL</span><span style="color: #f8f8f2">)animated{</span>
+<span style="color: #f8f8f2">[super</span> <span style="color: #f8f8f2">viewDidAppear:animated];</span>
+<span style="color: #f8f8f2">[self</span> <span style="color: #f8f8f2">becomeFirstResponder];</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">motionEnded:</span><span style="color: #f8f8f2">(UIEventSubtype)motion</span> <span style="color: #a6e22e">withEvent:</span><span style="color: #f8f8f2">(UIEvent</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)event{</span>
+<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(motion</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">UIEventSubtypeMotionShake){</span>
+<span style="color: #f8f8f2">NSLog(</span><span style="color: #e6db74">@&quot;You shook me!&quot;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<p>Responding Changes in Orientation</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span> <span style="color: #a6e22e">viewDidLoad</span><span style="color: #f8f8f2">{</span>
+<span style="color: #75715e">// Request to turn on accelerometer and begin receiving accelerometer events</span>
+<span style="color: #f8f8f2">[[UIDevice</span> <span style="color: #f8f8f2">currentDevice]</span> <span style="color: #f8f8f2">beginGeneratingDeviceOrientationNotifications];</span>
+<span style="color: #f8f8f2">[[NSNotificationCenter</span> <span style="color: #f8f8f2">defaultCenter]</span> <span style="color: #f8f8f2">addObserver:self</span>
+<span style="color: #f8f8f2">selector:</span><span style="color: #66d9ef">@selector</span><span style="color: #f8f8f2">(orientationChanged:)</span> <span style="color: #f8f8f2">name:UIDeviceOrientationDidChangeNotification</span>
+<span style="color: #f8f8f2">object:nil];</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">orientationChanged:</span> <span style="color: #f8f8f2">(NSNotification</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">notification{</span>
+<span style="color: #75715e">// Respond to changes in device orientation</span>
+<span style="color: #f8f8f2">UIDeviceOrientation</span> <span style="color: #f8f8f2">currentOrientation</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[UIDevice</span> <span style="color: #f8f8f2">currentDevice]</span> <span style="color: #f8f8f2">orientation];</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">viewDidDisappear:</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">BOOL</span><span style="color: #f8f8f2">)animated{</span>
+<span style="color: #75715e">// Request to stop receiving accelerometer events and turn off accelerometer</span>
+<span style="color: #f8f8f2">[[NSNotificationCenter</span> <span style="color: #f8f8f2">defaultCenter]</span> <span style="color: #f8f8f2">removeObserver:self];</span>
+<span style="color: #f8f8f2">[[UIDevice</span> <span style="color: #f8f8f2">currentDevice]</span> <span style="color: #f8f8f2">endGeneratingDeviceOrientationNotifications];</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
 <p><strong>CMMotionManager obtain data</strong>
 * Pull: An app requests that updates start and then periodically
 samples the most recent measurement of motion data.
@@ -1548,59 +1591,63 @@ away with a lower bit rate.</p>
 <p><em>Add Audio Framework</em>
 * Add <code>AudioToolbox.framework</code> in project targets
 * Import</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// QuoteViewController.m</span>
-<span class="cp">#import &lt;AudioToolbox/AudioToolbox.h&gt;</span>
-<span class="cp">#import &quot;QuoteViewController.h&quot;</span>
-<span class="k">@interface</span> <span class="nc">QuoteViewController</span> <span class="p">()</span>
-<span class="k">@property</span> <span class="p">(</span><span class="k">readonly</span><span class="p">)</span> <span class="n">SystemSoundID</span> <span class="n">soundFileID</span><span class="p">;</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// QuoteViewController.m</span>
+<span style="color: #75715e">#import &lt;AudioToolbox/AudioToolbox.h&gt;</span>
+<span style="color: #75715e">#import &quot;QuoteViewController.h&quot;</span>
+<span style="color: #66d9ef">@interface</span> <span style="color: #a6e22e">QuoteViewController</span> <span style="color: #f8f8f2">()</span>
+<span style="color: #66d9ef">@property</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">readonly</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">SystemSoundID</span> <span style="color: #f8f8f2">soundFileID;</span>
 </code></pre></div>
+
 
 <p><strong>Examples</strong></p>
 <p>Setup for Sound</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// QuoteViewController.m</span>
-<span class="bp">NSString</span> <span class="o">*</span><span class="n">soundFilePath</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">pathForResource</span><span class="p">:</span><span class="s">@&quot;Tada&quot;</span> <span class="nl">ofType</span><span class="p">:</span><span class="s">@&quot;wav&quot;</span><span class="p">];</span>
-<span class="bp">NSURL</span> <span class="o">*</span><span class="n">soundURL</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSURL</span> <span class="nl">fileURLWithPath</span><span class="p">:</span><span class="n">soundFilePath</span><span class="p">];</span>
-<span class="n">AudioServicesCreateSystemSoundID</span><span class="p">((</span><span class="k">__bridge</span> <span class="n">CFURLRef</span> <span class="n">_Nonnull</span><span class="p">)(</span><span class="n">soundURL</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">_soundFileID</span><span class="p">);</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// QuoteViewController.m</span>
+<span style="color: #f8f8f2">NSString</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">soundFilePath</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[NSBundle</span> <span style="color: #f8f8f2">mainBundle]</span> <span style="color: #f8f8f2">pathForResource:</span><span style="color: #e6db74">@&quot;Tada&quot;</span> <span style="color: #f8f8f2">ofType:</span><span style="color: #e6db74">@&quot;wav&quot;</span><span style="color: #f8f8f2">];</span>
+<span style="color: #f8f8f2">NSURL</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">soundURL</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[NSURL</span> <span style="color: #f8f8f2">fileURLWithPath:soundFilePath];</span>
+<span style="color: #f8f8f2">AudioServicesCreateSystemSoundID((</span><span style="color: #66d9ef">__bridge</span> <span style="color: #f8f8f2">CFURLRef</span> <span style="color: #f8f8f2">_Nonnull)(soundURL),</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">_soundFileID);</span>
 
-<span class="c1">// QuoteViewController.m</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">singleTapRecognized:</span> <span class="p">(</span><span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="p">)</span><span class="nv">recognizer</span><span class="p">{</span>
-<span class="c1">// Play sound file</span>
-<span class="n">AudioServicesPlaySystemSound</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">soundFileID</span><span class="p">);</span>
-<span class="p">[</span><span class="nb">self</span> <span class="nl">displayQuote</span><span class="p">:[</span><span class="nb">self</span><span class="p">.</span><span class="n">model</span> <span class="n">randomQuote</span><span class="p">]];</span>
-<span class="p">}</span>
+<span style="color: #75715e">// QuoteViewController.m</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">singleTapRecognized:</span> <span style="color: #f8f8f2">(UITapGestureRecognizer</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)recognizer{</span>
+<span style="color: #75715e">// Play sound file</span>
+<span style="color: #f8f8f2">AudioServicesPlaySystemSound(self.soundFileID);</span>
+<span style="color: #f8f8f2">[self</span> <span style="color: #f8f8f2">displayQuote:[self.model</span> <span style="color: #f8f8f2">randomQuote]];</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p>Setup for Vibration</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// QuoteViewController.m</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">doubleTapRecognized:</span> <span class="p">(</span><span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="p">)</span><span class="nv">recognizer</span><span class="p">{</span>
-<span class="c1">// Vibrate</span>
-<span class="n">AudioServicesPlaySystemSound</span><span class="p">(</span><span class="n">kSystemSoundID_Vibrate</span><span class="p">);</span>
-<span class="p">[</span><span class="nb">self</span> <span class="nl">displayQuote</span><span class="p">:[</span><span class="nb">self</span><span class="p">.</span><span class="n">model</span> <span class="n">randomQuote</span><span class="p">]];</span>
-<span class="p">}</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// QuoteViewController.m</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">doubleTapRecognized:</span> <span style="color: #f8f8f2">(UITapGestureRecognizer</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)recognizer{</span>
+<span style="color: #75715e">// Vibrate</span>
+<span style="color: #f8f8f2">AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);</span>
+<span style="color: #f8f8f2">[self</span> <span style="color: #f8f8f2">displayQuote:[self.model</span> <span style="color: #f8f8f2">randomQuote]];</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p>Create property using <strong>AVFoundation</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1">// QuoteViewController.m</span>
-<span class="cp">#import &lt;AVFoundation/AVFoundation.h&gt;</span>
-<span class="c1">// Other imports…</span>
-<span class="k">@interface</span> <span class="nc">QuoteViewController</span> <span class="p">()</span>
-<span class="k">@property</span> <span class="p">(</span><span class="k">strong</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">)</span> <span class="bp">AVAudioPlayer</span> <span class="o">*</span><span class="n">audioPlayer</span><span class="p">;</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// QuoteViewController.m</span>
+<span style="color: #75715e">#import &lt;AVFoundation/AVFoundation.h&gt;</span>
+<span style="color: #75715e">// Other imports…</span>
+<span style="color: #66d9ef">@interface</span> <span style="color: #a6e22e">QuoteViewController</span> <span style="color: #f8f8f2">()</span>
+<span style="color: #66d9ef">@property</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">strong</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">nonatomic</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">AVAudioPlayer</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">audioPlayer;</span>
 
-<span class="c1">// QuoteViewController.m</span>
-<span class="bp">NSString</span> <span class="o">*</span><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&quot;%@/tone.mp3&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="bp">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span>
-<span class="n">resourcePath</span><span class="p">]];</span>
-<span class="bp">NSURL</span> <span class="o">*</span><span class="n">soundURL</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSURL</span> <span class="nl">fileURLWithPath</span><span class="p">:</span><span class="n">path</span><span class="p">];</span>
-<span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
-<span class="nb">self</span><span class="p">.</span><span class="n">audioPlayer</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">AVAudioPlayer</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithContentsOfURL</span><span class="p">:</span><span class="n">soundURL</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">audioPlayer</span> <span class="n">prepareToPlay</span><span class="p">];</span>
+<span style="color: #75715e">// QuoteViewController.m</span>
+<span style="color: #f8f8f2">NSString</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">path</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[NSString</span> <span style="color: #f8f8f2">stringWithFormat:</span><span style="color: #e6db74">@&quot;%@/tone.mp3&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[[NSBundle</span> <span style="color: #f8f8f2">mainBundle]</span>
+<span style="color: #f8f8f2">resourcePath]];</span>
+<span style="color: #f8f8f2">NSURL</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">soundURL</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[NSURL</span> <span style="color: #f8f8f2">fileURLWithPath:path];</span>
+<span style="color: #f8f8f2">NSError</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">error;</span>
+<span style="color: #f8f8f2">self.audioPlayer</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[[AVAudioPlayer</span> <span style="color: #f8f8f2">alloc]</span> <span style="color: #f8f8f2">initWithContentsOfURL:soundURL</span> <span style="color: #f8f8f2">error:</span><span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">error];</span>
+<span style="color: #f8f8f2">[self.audioPlayer</span> <span style="color: #f8f8f2">prepareToPlay];</span>
 
-<span class="c1">// QuoteViewController.m</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">singleTapRecognized:</span> <span class="p">(</span><span class="bp">UITapGestureRecognizer</span> <span class="o">*</span><span class="p">)</span><span class="nv">recognizer</span><span class="p">{</span>
-<span class="c1">// Play audio</span>
-<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">audioPlayer</span> <span class="n">play</span><span class="p">];</span>
-<span class="p">[</span><span class="nb">self</span> <span class="nl">displayQuote</span><span class="p">:[</span><span class="nb">self</span><span class="p">.</span><span class="n">model</span> <span class="n">randomQuote</span><span class="p">]];</span>
-<span class="p">}</span>
+<span style="color: #75715e">// QuoteViewController.m</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">singleTapRecognized:</span> <span style="color: #f8f8f2">(UITapGestureRecognizer</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)recognizer{</span>
+<span style="color: #75715e">// Play audio</span>
+<span style="color: #f8f8f2">[self.audioPlayer</span> <span style="color: #f8f8f2">play];</span>
+<span style="color: #f8f8f2">[self</span> <span style="color: #f8f8f2">displayQuote:[self.model</span> <span style="color: #f8f8f2">randomQuote]];</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <h2 id="delegates">Delegates<a class="headerlink" href="#delegates" title="Permanent link">&para;</a></h2>
 <p><strong>Protocol</strong>
@@ -1619,16 +1666,17 @@ away with a lower bit rate.</p>
 * Allowing some objects to be relatively fixed and others highly customized.
 * Maximum software reuse and MVC design pattern.</p>
 <p>Demo: or but not both</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// ViewController.h</span>
-<span class="k">@interface</span> <span class="nc">ViewController</span> <span class="o">&lt;</span><span class="n">ProtocolName</span><span class="o">&gt;</span>
-<span class="k">@end</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// ViewController.h</span>
+<span style="color: #66d9ef">@interface</span> <span style="color: #a6e22e">ViewController</span> <span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">ProtocolName</span><span style="color: #f92672">&gt;</span>
+<span style="color: #66d9ef">@end</span>
 
-<span class="c1">// ViewController.m</span>
-<span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span> <span class="o">&lt;</span><span class="n">ProtocolName</span><span class="o">&gt;</span>
-<span class="k">@end</span>
-<span class="k">@implementation</span> <span class="nc">ViewController</span>
-<span class="k">@end</span>
+<span style="color: #75715e">// ViewController.m</span>
+<span style="color: #66d9ef">@interface</span> <span style="color: #a6e22e">ViewController</span> <span style="color: #f8f8f2">()</span> <span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">ProtocolName</span><span style="color: #f92672">&gt;</span>
+<span style="color: #66d9ef">@end</span>
+<span style="color: #66d9ef">@implementation</span> <span style="color: #a6e22e">ViewController</span>
+<span style="color: #66d9ef">@end</span>
 </code></pre></div>
+
 
 <h2 id="table-views">Table Views<a class="headerlink" href="#table-views" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1653,27 +1701,28 @@ away with a lower bit rate.</p>
     OR
     B. Create a new cell of the class you specified</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1">// ExampleTableViewController.m</span>
-<span class="c1">// Return the number of sections</span>
-<span class="p">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">numberOfSectionsInTableView:</span><span class="p">(</span><span class="bp">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span><span class="p">{</span>
-<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// ExampleTableViewController.m</span>
+<span style="color: #75715e">// Return the number of sections</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(NSInteger)</span><span style="color: #a6e22e">numberOfSectionsInTableView:</span><span style="color: #f8f8f2">(UITableView</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)tableView{</span>
+<span style="color: #66d9ef">return</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="c1">// Return number of rows in the section</span>
-<span class="p">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="bp">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">numberOfRowsInSection:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">section</span><span class="p">{</span>
-<span class="k">return</span> <span class="mi">100</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color: #75715e">// Return number of rows in the section</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(NSInteger)</span><span style="color: #a6e22e">tableView:</span><span style="color: #f8f8f2">(UITableView</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)tableView</span> <span style="color: #a6e22e">numberOfRowsInSection:</span><span style="color: #f8f8f2">(NSInteger)section{</span>
+<span style="color: #66d9ef">return</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="c1">// Configuring Rows (cell)</span>
-<span class="p">-</span> <span class="p">(</span><span class="bp">UITableViewCell</span> <span class="o">*</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="bp">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">cellForRowAtIndexPath:</span>
-<span class="p">(</span><span class="bp">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span><span class="p">{</span>
-<span class="k">static</span> <span class="bp">NSString</span> <span class="o">*</span><span class="n">cellIdentifier</span> <span class="o">=</span> <span class="s">@&quot;TableCell&quot;</span><span class="p">;</span>
-<span class="bp">UITableViewCell</span> <span class="o">*</span><span class="n">cell</span> <span class="o">=</span> <span class="p">[</span><span class="n">tableView</span> <span class="nl">dequeueReusableCellWithIdentifier</span><span class="p">:</span><span class="n">cellIdentifier</span><span class="p">];</span>
-<span class="c1">// Configure the cell</span>
-<span class="n">cell</span><span class="p">.</span><span class="n">textLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&quot;Row %d&quot;</span><span class="p">,</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span>
-<span class="k">return</span> <span class="n">cell</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color: #75715e">// Configuring Rows (cell)</span>
+<span style="color: #f8f8f2">-</span> <span style="color: #f8f8f2">(UITableViewCell</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)</span><span style="color: #a6e22e">tableView:</span><span style="color: #f8f8f2">(UITableView</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)tableView</span> <span style="color: #a6e22e">cellForRowAtIndexPath:</span>
+<span style="color: #f8f8f2">(NSIndexPath</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">)indexPath{</span>
+<span style="color: #66d9ef">static</span> <span style="color: #f8f8f2">NSString</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">cellIdentifier</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">@&quot;TableCell&quot;</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">UITableViewCell</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">cell</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[tableView</span> <span style="color: #f8f8f2">dequeueReusableCellWithIdentifier:cellIdentifier];</span>
+<span style="color: #75715e">// Configure the cell</span>
+<span style="color: #f8f8f2">cell.textLabel.text</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[NSString</span> <span style="color: #f8f8f2">stringWithFormat:</span><span style="color: #e6db74">@&quot;Row %d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">indexPath.row];</span>
+<span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">cell;</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p><strong>Relationships btw View Controllers</strong>
 * If the relationship is a <em>segue</em>, the destination view controller is instantiated when the segue is triggered.

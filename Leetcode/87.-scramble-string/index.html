@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,7 +80,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -164,7 +166,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -534,8 +536,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Lai/recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/reviews/" title="Reviews" class="md-nav__link">
+      Reviews
     </a>
   </li>
 
@@ -1302,39 +1328,40 @@
                   <h1>87. scramble string</h1>
                 
                 <h2 id="using-cache-recursion">Using cache + recursion<a class="headerlink" href="#using-cache-recursion" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">class</span> <span class="n">Solution</span> <span class="p">{</span>
-    <span class="kt">bool</span> <span class="n">DP_helper</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">isScramblePair</span><span class="p">,</span> <span class="n">string</span> <span class="n">s1</span><span class="p">,</span> <span class="n">string</span> <span class="n">s2</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">len</span> <span class="o">=</span> <span class="n">s1</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-        <span class="kt">bool</span> <span class="n">res</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="k">if</span><span class="p">(</span><span class="mi">0</span><span class="o">==</span><span class="n">len</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="mi">1</span><span class="o">==</span><span class="n">len</span><span class="p">)</span> <span class="k">return</span> <span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">;</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">isScramblePair</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">s1</span><span class="o">+</span><span class="n">s2</span><span class="p">))</span> <span class="k">return</span> <span class="n">isScramblePair</span><span class="p">[</span><span class="n">s1</span><span class="o">+</span><span class="n">s2</span><span class="p">];</span> <span class="c1">// checked before, return intermediate result directly</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">s1</span><span class="o">==</span><span class="n">s2</span><span class="p">)</span> <span class="n">res</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span>
-            <span class="k">else</span><span class="p">{</span>
-                <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">len</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">res</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-                <span class="p">{</span>
-    <span class="c1">//check s1[0..i-1] with s2[0..i-1] and s1[i..len-1] and s2[i..len-1]</span>
-                    <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">||</span> <span class="p">(</span><span class="n">DP_helper</span><span class="p">(</span><span class="n">isScramblePair</span><span class="p">,</span> <span class="n">s1</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">),</span> <span class="n">s2</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">))</span> 
-                                <span class="o">&amp;&amp;</span> <span class="n">DP_helper</span><span class="p">(</span><span class="n">isScramblePair</span><span class="p">,</span> <span class="n">s1</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">len</span><span class="o">-</span><span class="n">i</span><span class="p">),</span> <span class="n">s2</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">len</span><span class="o">-</span><span class="n">i</span><span class="p">)));</span>
-    <span class="c1">//if no match, then check s1[0..i-1] with s2[len-k.. len-1] and s1[i..len-1] and s2[0..len-i]</span>
-                   <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">||</span> <span class="p">(</span><span class="n">DP_helper</span><span class="p">(</span><span class="n">isScramblePair</span><span class="p">,</span> <span class="n">s1</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">),</span> <span class="n">s2</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">len</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">))</span> 
-                                <span class="o">&amp;&amp;</span> <span class="n">DP_helper</span><span class="p">(</span><span class="n">isScramblePair</span><span class="p">,</span> <span class="n">s1</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">len</span><span class="o">-</span><span class="n">i</span><span class="p">),</span> <span class="n">s2</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="o">-</span><span class="n">i</span><span class="p">)));</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-            <span class="k">return</span> <span class="n">isScramblePair</span><span class="p">[</span><span class="n">s1</span><span class="o">+</span><span class="n">s2</span><span class="p">]</span><span class="o">=</span> <span class="n">res</span><span class="p">;</span> <span class="c1">//save the intermediate results</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">DP_helper(unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #66d9ef">bool</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">isScramblePair,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s2)</span>
+    <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i,len</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s1.size();</span>
+        <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">len)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
+        <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">len)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s1</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s2;</span>
+        <span style="color: #66d9ef">else</span>
+        <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(isScramblePair.count(s1</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">s2))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">isScramblePair[s1</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">s2];</span> <span style="color: #75715e">// checked before, return intermediate result directly</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s1</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">s2)</span> <span style="color: #f8f8f2">res</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">true;</span>
+            <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">{</span>
+                <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">len</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">res;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
+                <span style="color: #f8f8f2">{</span>
+    <span style="color: #75715e">//check s1[0..i-1] with s2[0..i-1] and s1[i..len-1] and s2[i..len-1]</span>
+                    <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(DP_helper(isScramblePair,</span> <span style="color: #f8f8f2">s1.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,i),</span> <span style="color: #f8f8f2">s2.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,i))</span> 
+                                <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">DP_helper(isScramblePair,</span> <span style="color: #f8f8f2">s1.substr(i,len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">i),</span> <span style="color: #f8f8f2">s2.substr(i,len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">i)));</span>
+    <span style="color: #75715e">//if no match, then check s1[0..i-1] with s2[len-k.. len-1] and s1[i..len-1] and s2[0..len-i]</span>
+                   <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(DP_helper(isScramblePair,</span> <span style="color: #f8f8f2">s1.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,i),</span> <span style="color: #f8f8f2">s2.substr(len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">i,i))</span> 
+                                <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">DP_helper(isScramblePair,</span> <span style="color: #f8f8f2">s1.substr(i,len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">i),</span> <span style="color: #f8f8f2">s2.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">i)));</span>
+                <span style="color: #f8f8f2">}</span>
+            <span style="color: #f8f8f2">}</span>
+            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">isScramblePair[s1</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">s2]</span><span style="color: #f92672">=</span> <span style="color: #f8f8f2">res;</span> <span style="color: #75715e">//save the intermediate results</span>
 
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="nl">public</span><span class="p">:</span>
-        <span class="kt">bool</span> <span class="n">isScramble</span><span class="p">(</span><span class="n">string</span> <span class="n">s1</span><span class="p">,</span> <span class="n">string</span> <span class="n">s2</span><span class="p">)</span> <span class="p">{</span>
-           <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">isScramblePair</span><span class="p">;</span>
-           <span class="k">return</span> <span class="nf">DP_helper</span><span class="p">(</span><span class="n">isScramblePair</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">};</span>
+        <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">public:</span>
+        <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isScramble(string</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s2)</span> <span style="color: #f8f8f2">{</span>
+           <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #66d9ef">bool</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">isScramblePair;</span>
+           <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">DP_helper</span><span style="color: #f8f8f2">(isScramblePair,</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">s2);</span>
+        <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">};</span>
 </code></pre></div>
+
 
 <p>A string can be rotated anyway.</p>
 <p>There are four things to compare between two strings:
@@ -1346,34 +1373,35 @@ s2: 333i444len</p>
 <p>111 &amp;&amp; 444
 222 &amp;&amp; 333</p>
 <h2 id="dp-bottom-up">DP bottom-up<a class="headerlink" href="#dp-bottom-up" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">class</span> <span class="n">Solution</span> <span class="p">{</span>
-<span class="nl">public</span><span class="p">:</span>
-    <span class="kt">bool</span> <span class="n">isScramble</span><span class="p">(</span><span class="n">string</span> <span class="n">s1</span><span class="p">,</span> <span class="n">string</span> <span class="n">s2</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">sSize</span> <span class="o">=</span> <span class="n">s1</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">len</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
-        <span class="k">if</span><span class="p">(</span><span class="mi">0</span><span class="o">==</span><span class="n">sSize</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="k">if</span><span class="p">(</span><span class="mi">1</span><span class="o">==</span><span class="n">sSize</span><span class="p">)</span> <span class="k">return</span> <span class="n">s1</span><span class="o">==</span><span class="n">s2</span><span class="p">;</span>
-        <span class="kt">bool</span> <span class="n">isS</span><span class="p">[</span><span class="n">sSize</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">sSize</span><span class="p">][</span><span class="n">sSize</span><span class="p">];</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isScramble(string</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s2)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sSize</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s1.size(),</span> <span style="color: #f8f8f2">len,</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">j,</span> <span style="color: #f8f8f2">k;</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">sSize)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">sSize)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s1</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">s2;</span>
+        <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isS[sSize</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][sSize][sSize];</span>
 
-        <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">sSize</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-            <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">sSize</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
-                <span class="n">isS</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">sSize;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
+            <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(j</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">sSize;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span>
+                <span style="color: #f8f8f2">isS[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s1[i]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s2[j];</span>
 
-        <span class="k">for</span><span class="p">(</span><span class="n">len</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="n">len</span> <span class="o">&lt;=</span><span class="n">sSize</span><span class="p">;</span> <span class="o">++</span><span class="n">len</span><span class="p">)</span>
-            <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">sSize</span><span class="o">-</span><span class="n">len</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-                <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;=</span><span class="n">sSize</span><span class="o">-</span><span class="n">len</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
-                <span class="p">{</span>
-                    <span class="n">isS</span><span class="p">[</span><span class="n">len</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-                        <span class="k">for</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">len</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">isS</span><span class="p">[</span><span class="n">len</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span> <span class="o">++</span><span class="n">k</span><span class="p">)</span>
-                        <span class="p">{</span>
-                            <span class="n">isS</span><span class="p">[</span><span class="n">len</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">isS</span><span class="p">[</span><span class="n">len</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">||</span> <span class="p">(</span><span class="n">isS</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">isS</span><span class="p">[</span><span class="n">len</span><span class="o">-</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="n">k</span><span class="p">]);</span>
-                            <span class="n">isS</span><span class="p">[</span><span class="n">len</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">isS</span><span class="p">[</span><span class="n">len</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">||</span> <span class="p">(</span><span class="n">isS</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="o">+</span><span class="n">len</span><span class="o">-</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">isS</span><span class="p">[</span><span class="n">len</span><span class="o">-</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="n">k</span><span class="p">]);</span>
-                        <span class="p">}</span>
-                <span class="p">}</span>
-        <span class="k">return</span> <span class="n">isS</span><span class="p">[</span><span class="n">sSize</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>            
+        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(len</span><span style="color: #f92672">=</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">len</span> <span style="color: #f92672">&lt;=</span><span style="color: #f8f8f2">sSize;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">len)</span>
+            <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">&lt;=</span><span style="color: #f8f8f2">sSize</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">len;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
+                <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(j</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">&lt;=</span><span style="color: #f8f8f2">sSize</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">len;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span>
+                <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">isS[len][i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
+                        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(k</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">len</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">isS[len][i][j];</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">k)</span>
+                        <span style="color: #f8f8f2">{</span>
+                            <span style="color: #f8f8f2">isS[len][i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">isS[len][i][j]</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(isS[k][i][j]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">isS[len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">k][i</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">k][j</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">k]);</span>
+                            <span style="color: #f8f8f2">isS[len][i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">isS[len][i][j]</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(isS[k][i</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">k][j]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">isS[len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">k][i][j</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">k]);</span>
+                        <span style="color: #f8f8f2">}</span>
+                <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">isS[sSize][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>            
 
-    <span class="p">}</span>
-<span class="p">};</span> 
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span> 
 </code></pre></div>
+
 
 <p>dp[len][i][j]:
 s1[i..i+len-1] is a scramble of s2[j..j+len-1]

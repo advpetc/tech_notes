@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,7 +80,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -164,7 +166,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -534,8 +536,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Lai/recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/reviews/" title="Reviews" class="md-nav__link">
+      Reviews
     </a>
   </li>
 
@@ -1259,77 +1285,78 @@ All worker and bike locations are distinct.
 3. Bike index</p>
 <p>Using Priority Queue if the input is unbounded.</p>
 <h1 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
-<span class="cm"> * tmp.cpp</span>
-<span class="cm"> * Copyright (C) 2020 Haoyang &lt;me@peterchen.xyz&gt;</span>
-<span class="cm"> *</span>
-<span class="cm"> * Distributed under terms of the MIT license.</span>
-<span class="cm"> */</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * tmp.cpp</span>
+<span style="color: #75715e"> * Copyright (C) 2020 Haoyang &lt;me@peterchen.xyz&gt;</span>
+<span style="color: #75715e"> *</span>
+<span style="color: #75715e"> * Distributed under terms of the MIT license.</span>
+<span style="color: #75715e"> */</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
 
-<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="k">typedef</span> <span class="n">tuple</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">TII</span><span class="p">;</span>
-<span class="kt">int</span> <span class="kr">inline</span> <span class="nf">manhattan</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">p1</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">p2</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">abs</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">abs</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-<span class="p">}</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">assignBikes</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">workers</span><span class="p">,</span>
-                        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">bikes</span><span class="p">)</span> <span class="p">{</span>
-  <span class="cm">/*</span>
-<span class="cm">   *auto cmp = [](const TII&amp; l, const TII&amp; r) {</span>
-<span class="cm">   *  int ld = get&lt;0&gt;(l), rd = get&lt;0&gt;(r), wl = get&lt;1&gt;(l), wr = get&lt;1&gt;(r),</span>
-<span class="cm">   *      bl = get&lt;2&gt;(l), br = get&lt;2&gt;(r);</span>
-<span class="cm">   *  if (ld != rd)</span>
-<span class="cm">   *    return ld &gt; rd;</span>
-<span class="cm">   *  else if (wl != wr)</span>
-<span class="cm">   *    return wl &gt; wr;</span>
-<span class="cm">   *  else</span>
-<span class="cm">   *    return bl &gt; br;</span>
-<span class="cm">   *};</span>
-<span class="cm">   */</span>
-  <span class="c1">//priority_queue&lt;TII, vector&lt;TII&gt;, decltype(cmp)&gt; pq(cmp);</span>
-   <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">TII</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">TII</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">TII</span><span class="o">&gt;&gt;</span> <span class="n">pq</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">workers</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">bikes</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="n">manhattan</span><span class="p">(</span><span class="n">workers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">bikes</span><span class="p">[</span><span class="n">j</span><span class="p">]),</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">});</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">wo</span><span class="p">(</span><span class="n">workers</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">bi</span><span class="p">(</span><span class="n">bikes</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-  <span class="kt">int</span> <span class="n">assigned</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">assigned</span> <span class="o">&lt;</span> <span class="n">workers</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">TII</span> <span class="n">t</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;after: %d, %d, %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
-    <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">wo</span><span class="p">[</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">bi</span><span class="p">[</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// both unassigned</span>
-      <span class="n">wo</span><span class="p">[</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span> <span class="o">=</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-      <span class="n">bi</span><span class="p">[</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span> <span class="o">=</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-      <span class="n">assigned</span><span class="o">++</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">wo</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">typedef</span> <span style="color: #f8f8f2">tuple</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">TII;</span>
+<span style="color: #66d9ef">int</span> <span style="color: #66d9ef">inline</span> <span style="color: #a6e22e">manhattan</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">p1,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">p2)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">abs(p1[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">p2[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">])</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">abs(p1[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">p2[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]);</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">assignBikes(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">workers,</span>
+                        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">bikes)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #75715e">/*</span>
+<span style="color: #75715e">   *auto cmp = [](const TII&amp; l, const TII&amp; r) {</span>
+<span style="color: #75715e">   *  int ld = get&lt;0&gt;(l), rd = get&lt;0&gt;(r), wl = get&lt;1&gt;(l), wr = get&lt;1&gt;(r),</span>
+<span style="color: #75715e">   *      bl = get&lt;2&gt;(l), br = get&lt;2&gt;(r);</span>
+<span style="color: #75715e">   *  if (ld != rd)</span>
+<span style="color: #75715e">   *    return ld &gt; rd;</span>
+<span style="color: #75715e">   *  else if (wl != wr)</span>
+<span style="color: #75715e">   *    return wl &gt; wr;</span>
+<span style="color: #75715e">   *  else</span>
+<span style="color: #75715e">   *    return bl &gt; br;</span>
+<span style="color: #75715e">   *};</span>
+<span style="color: #75715e">   */</span>
+  <span style="color: #75715e">//priority_queue&lt;TII, vector&lt;TII&gt;, decltype(cmp)&gt; pq(cmp);</span>
+   <span style="color: #f8f8f2">priority_queue</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TII,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TII</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">greater</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TII</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">pq;</span>
+  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">workers.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">bikes.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">pq.push({manhattan(workers[i],</span> <span style="color: #f8f8f2">bikes[j]),</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">j});</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">wo(workers.size(),</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">),</span> <span style="color: #f8f8f2">bi(bikes.size(),</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">assigned</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">pq.empty()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">assigned</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">workers.size())</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">TII</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pq.top();</span>
+    <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;after: %d, %d, %d</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">0</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t),</span> <span style="color: #f8f8f2">get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">1</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t),</span> <span style="color: #f8f8f2">get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">2</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t));</span>
+    <span style="color: #f8f8f2">pq.pop();</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(wo[get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">1</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t)]</span> <span style="color: #f92672">==</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">bi[get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">2</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t)]</span> <span style="color: #f92672">==</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>  <span style="color: #75715e">// both unassigned</span>
+      <span style="color: #f8f8f2">wo[get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">1</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t)]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">2</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t);</span>
+      <span style="color: #f8f8f2">bi[get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">2</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t)]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">1</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t);</span>
+      <span style="color: #f8f8f2">assigned</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">wo;</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">w</span><span class="p">;</span>
-  <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">workers</span><span class="p">,</span> <span class="n">bikes</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">workers</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">});</span>
-  <span class="p">}</span>
-  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">y</span><span class="p">;</span>
-    <span class="n">bikes</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">});</span>
-  <span class="p">}</span>
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">main()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">w,</span> <span style="color: #f8f8f2">b;</span>
+  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">w;</span>
+  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">workers,</span> <span style="color: #f8f8f2">bikes;</span>
+  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">w;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">y;</span>
+    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">y;</span>
+    <span style="color: #f8f8f2">workers.push_back({x,</span> <span style="color: #f8f8f2">y});</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">b;</span>
+  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">b;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">y;</span>
+    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">y;</span>
+    <span style="color: #f8f8f2">bikes.push_back({x,</span> <span style="color: #f8f8f2">y});</span>
+  <span style="color: #f8f8f2">}</span>
 
-  <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">res</span> <span class="o">=</span> <span class="n">assignBikes</span><span class="p">(</span><span class="n">workers</span><span class="p">,</span> <span class="n">bikes</span><span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">res</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">assignBikes(workers,</span> <span style="color: #f8f8f2">bikes);</span>
+  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">res)</span> <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <h1 id="variant-1-match-as-much-as-possible">Variant 1: match as much as possible<a class="headerlink" href="#variant-1-match-as-much-as-possible" title="Permanent link">&para;</a></h1>
 <p>Find the assignment such that the most workers can be matched (there are obstacle that <strong>some bikes ain't reachabe by certain cars</strong>).</p>
@@ -1349,75 +1376,76 @@ All worker and bike locations are distinct.
 <h2 id="complete-bipartite-graph">Complete Bipartite graph<a class="headerlink" href="#complete-bipartite-graph" title="Permanent link">&para;</a></h2>
 <p>Since all workers can freely assigned with all the bikes, and bikes can "choose" any of the workers. It's a complete bipartitie graph. We should assume # of bikes != # of workes, or the ans is simply # of bikes or # of workers.</p>
 <p><img alt="IMAGE" src="../resources/8F3376215C804DE00F461F369BB276F6.jpg" /></p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
-<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">510</span> <span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">100010</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">,</span><span class="n">m</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">h</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="n">ne</span><span class="p">[</span><span class="n">M</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="n">M</span><span class="p">],</span><span class="n">idx</span><span class="p">;</span>
-<span class="kt">bool</span> <span class="n">st</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">match</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include&lt;iostream&gt;</span>
+<span style="color: #75715e">#include&lt;cstring&gt;</span>
+<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">510</span> <span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">M</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">100010</span><span style="color: #f8f8f2">;</span>
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n1,n2,m;</span>
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">h[N],ne[M],e[M],idx;</span>
+<span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">st[N];</span>
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">match[N];</span>
 
-<span class="kt">void</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">e</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">ne</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">h</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">idx</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">e[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">ne[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h[a],</span> <span style="color: #f8f8f2">h[a]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">idx</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="kt">void</span> <span class="nf">init</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">memset</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="k">sizeof</span> <span class="n">h</span><span class="p">);</span>
-<span class="p">}</span>
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">init</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">memset(h,</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">h);</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="kt">int</span> <span class="nf">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="c1">//遍历自己喜欢的女孩</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">;</span><span class="n">i</span> <span class="o">=</span> <span class="n">ne</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">st</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="c1">//如果在这一轮模拟匹配中,这个女孩尚未被预定</span>
-        <span class="p">{</span>
-            <span class="n">st</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span><span class="c1">//那x就预定这个女孩了</span>
-            <span class="c1">//如果女孩j没有男朋友，或者她原来的男朋友能够预定其它喜欢的女孩。配对成功</span>
-            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">match</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">||</span><span class="n">find</span><span class="p">(</span><span class="n">match</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
-            <span class="p">{</span>
-                <span class="n">match</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-                <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-            <span class="p">}</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">find</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x)</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #75715e">//遍历自己喜欢的女孩</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h[x]</span> <span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">!=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f8f8f2">;i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">ne[i])</span>
+    <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">e[i];</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">st[j])</span><span style="color: #75715e">//如果在这一轮模拟匹配中,这个女孩尚未被预定</span>
+        <span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">st[j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span><span style="color: #75715e">//那x就预定这个女孩了</span>
+            <span style="color: #75715e">//如果女孩j没有男朋友，或者她原来的男朋友能够预定其它喜欢的女孩。配对成功</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">match[j]</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">find(match[j]))</span>
+            <span style="color: #f8f8f2">{</span>
+                <span style="color: #f8f8f2">match[j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x;</span>
+                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
+            <span style="color: #f8f8f2">}</span>
 
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="c1">//自己中意的全部都被预定了。配对失败。</span>
-    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">init</span><span class="p">();</span>
-    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n1</span><span class="o">&gt;&gt;</span><span class="n">n2</span><span class="o">&gt;&gt;</span><span class="n">m</span><span class="p">;</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">m</span><span class="o">--</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">;</span>
-        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="o">&gt;&gt;</span><span class="n">b</span><span class="p">;</span>
-        <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
-    <span class="p">}</span>
+        <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #75715e">//自己中意的全部都被预定了。配对失败。</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">init();</span>
+    <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">n1</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">n2</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">m;</span>
+    <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(m</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,b;</span>
+        <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">a</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">b;</span>
+        <span style="color: #f8f8f2">add(a,b);</span>
+    <span style="color: #f8f8f2">}</span>
 
 
-    <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n1</span> <span class="p">;</span><span class="n">i</span> <span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>  
-         <span class="c1">//因为每次模拟匹配的预定情况都是不一样的所以每轮模拟都要初始化</span>
-          <span class="n">memset</span><span class="p">(</span><span class="n">st</span><span class="p">,</span><span class="nb">false</span><span class="p">,</span><span class="k">sizeof</span> <span class="n">st</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">find</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> 
-          <span class="n">res</span><span class="o">++</span><span class="p">;</span>
-    <span class="p">}</span>  
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n1</span> <span style="color: #f8f8f2">;i</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>  
+         <span style="color: #75715e">//因为每次模拟匹配的预定情况都是不一样的所以每轮模拟都要初始化</span>
+          <span style="color: #f8f8f2">memset(st,false,</span><span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">st);</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(find(i))</span> 
+          <span style="color: #f8f8f2">res</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>  
 
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">res</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
+    <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">res</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="err">作者：在线白给</span>
-<span class="err">链接：</span><span class="nl">https</span><span class="p">:</span><span class="c1">//www.acwing.com/solution/content/5334/</span>
-<span class="err">来源：</span><span class="n">AcWing</span>
-<span class="err">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+<span style="color: #960050; background-color: #1e0010">作者：在线白给</span>
+<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/solution/content/5334/</span>
+<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
+<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
+
 
 <h2 id="variant-2-find-the-minimal-total-matches-manhattan-distance">Variant 2: find the minimal total matches' manhattan distance<a class="headerlink" href="#variant-2-find-the-minimal-total-matches-manhattan-distance" title="Permanent link">&para;</a></h2>
 <h2 id="variant-3-find-the-max-manhattan-to-be-the-smallest">Variant 3: find the max manhattan to be the smallest<a class="headerlink" href="#variant-3-find-the-max-manhattan-to-be-the-smallest" title="Permanent link">&para;</a></h2>
@@ -1430,81 +1458,81 @@ All worker and bike locations are distinct.
 <p>Use binary search for finding the biggest distance where the graph is still bipartite
 Use dfs to check if all the other can have the coloring</p>
 <p><strong>Now we have a different problem: find the if the graph is bipartitie if max = ?, and we find the smallest max</strong></p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;cstdio&gt;</span>
+<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;cstring&gt;</span>
+<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
+<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;algorithm&gt;</span>
 
-<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
 
-<span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">20010</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">200010</span><span class="p">;</span>
+<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">20010</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">M</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">200010</span><span style="color: #f8f8f2">;</span>
 
-<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">h</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="n">M</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="n">M</span><span class="p">],</span> <span class="n">ne</span><span class="p">[</span><span class="n">M</span><span class="p">],</span> <span class="n">idx</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">color</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">m;</span>
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">h[N],</span> <span style="color: #f8f8f2">e[M],</span> <span style="color: #f8f8f2">w[M],</span> <span style="color: #f8f8f2">ne[M],</span> <span style="color: #f8f8f2">idx;</span>
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">color[N];</span>
 
-<span class="kt">void</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">e</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">w</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">ne</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">h</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">++</span> <span class="p">;</span>
-<span class="p">}</span>
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">c)</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">e[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">w[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">c,</span> <span style="color: #f8f8f2">ne[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h[a],</span> <span style="color: #f8f8f2">h[a]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="kt">bool</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">color</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span> <span class="c1">// color current node to c</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">u</span><span class="p">];</span> <span class="o">~</span><span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">ne</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">limit</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span> <span class="c1">// weight is less than current found max wight</span>
-        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-        <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// in the same group</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span> <span class="o">-</span> <span class="n">c</span><span class="p">,</span> <span class="n">limit</span><span class="p">))</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// check alternative coloring =&gt; place j to another group</span>
-    <span class="p">}</span>
+<span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">u,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">c,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">limit)</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">color[u]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">c;</span> <span style="color: #75715e">// color current node to c</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h[u];</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">i;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">ne[i])</span>
+    <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(w[i]</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">limit)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// weight is less than current found max wight</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">e[i];</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(color[j])</span>
+        <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(color[j]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">c)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span> <span style="color: #75715e">// in the same group</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">dfs(j,</span> <span style="color: #ae81ff">3</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">c,</span> <span style="color: #f8f8f2">limit))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span> <span style="color: #75715e">// check alternative coloring =&gt; place j to another group</span>
+    <span style="color: #f8f8f2">}</span>
 
-    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-<span class="p">}</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="kt">bool</span> <span class="nf">check</span><span class="p">(</span><span class="kt">int</span> <span class="n">limit</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">memset</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">color</span><span class="p">);</span>
+<span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">check</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">limit)</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">memset(color,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">color);</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="p">))</span> <span class="c1">// start with coloring current node with 1, any that couldn&#39;t make it work will return false</span>
-                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-<span class="p">}</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(color[i]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
+            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">dfs(i,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">limit))</span> <span style="color: #75715e">// start with coloring current node with 1, any that couldn&#39;t make it work will return false</span>
+                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">m</span><span class="p">);</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">n,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">m);</span>
 
-    <span class="n">memset</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">h</span><span class="p">);</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">m</span> <span class="o">--</span> <span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span> <span class="c1">// a: bike id, b: worker id, c: weight</span>
-        <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-        <span class="n">add</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-    <span class="p">}</span>
+    <span style="color: #f8f8f2">memset(h,</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">h);</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(m</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">c;</span>
+        <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d%d%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">a,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">b,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">c);</span> <span style="color: #75715e">// a: bike id, b: worker id, c: weight</span>
+        <span style="color: #f8f8f2">add(a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">c);</span>
+        <span style="color: #f8f8f2">add(b,</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">c);</span>
+    <span style="color: #f8f8f2">}</span>
 
-    <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mf">1e9</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="n">r</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">mid</span><span class="p">))</span> <span class="n">r</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
-        <span class="k">else</span> <span class="n">l</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1e9</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span>
+    <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(check(mid))</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid;</span>
+        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">l</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;%d</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">l);</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
 
-<span class="err">作者：</span><span class="n">yxc</span>
-<span class="err">链接：</span><span class="nl">https</span><span class="p">:</span><span class="c1">//www.acwing.com/solution/content/3042/</span>
-<span class="err">来源：</span><span class="n">AcWing</span>
-<span class="err">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+<span style="color: #960050; background-color: #1e0010">作者：</span><span style="color: #f8f8f2">yxc</span>
+<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/solution/content/3042/</span>
+<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
+<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
                 
               

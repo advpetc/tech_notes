@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,7 +80,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -164,7 +166,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -574,8 +576,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Lai/recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Lai/reviews/" title="Reviews" class="md-nav__link">
+      Reviews
     </a>
   </li>
 
@@ -1279,34 +1305,35 @@
 from the input file, compare them, and write true or false into the output file based on
 whether the values are the same or not.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="c1">// inputFile: path to input file; outputFile: path to output file</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">compareValues</span><span class="p">(</span><span class="n">String</span> <span class="n">inputFile</span><span class="p">,</span> <span class="n">String</span> <span class="n">outputFile</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Scanner</span> <span class="n">scan</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="n">PrintWriter</span> <span class="n">pw</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="n">scan</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="n">inputFile</span><span class="p">));</span>
-    <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="n">scan</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
-    <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="n">scan</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
-    <span class="n">pw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="p">(</span><span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="n">outputFile</span><span class="p">));</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">num1</span> <span class="o">==</span> <span class="n">num2</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">pw</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;true&quot;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="n">pw</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;false&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">FileNotFoundException</span> <span class="n">fnfe</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;fnfe: &quot;</span> <span class="o">+</span> <span class="n">fnfe</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">ioe</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;ioe: &quot;</span> <span class="o">+</span> <span class="n">ioe</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-  <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">pw</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">pw</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">scan</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">scan</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// inputFile: path to input file; outputFile: path to output file</span>
+<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">compareValues</span><span style="color: #f8f8f2">(String</span> <span style="color: #f8f8f2">inputFile,</span> <span style="color: #f8f8f2">String</span> <span style="color: #f8f8f2">outputFile)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">Scanner</span> <span style="color: #f8f8f2">scan</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">PrintWriter</span> <span style="color: #f8f8f2">pw</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #66d9ef">try</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">scan</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Scanner(</span><span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">FileReader(inputFile));</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">scan.</span><span style="color: #a6e22e">nextInt</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">scan.</span><span style="color: #a6e22e">nextInt</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #f8f8f2">pw</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">PrintWriter(</span><span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">FileWriter(outputFile));</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(num1</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">num2)</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">pw.</span><span style="color: #a6e22e">println</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;true&quot;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">pw.</span><span style="color: #a6e22e">println</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;false&quot;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">catch</span> <span style="color: #f8f8f2">(FileNotFoundException</span> <span style="color: #f8f8f2">fnfe)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">System.</span><span style="color: #a6e22e">out</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">println</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;fnfe: &quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">fnfe.</span><span style="color: #a6e22e">getMessage</span><span style="color: #f8f8f2">());</span>
+  <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">catch</span> <span style="color: #f8f8f2">(IOException</span> <span style="color: #f8f8f2">ioe)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">System.</span><span style="color: #a6e22e">out</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">println</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;ioe: &quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">ioe.</span><span style="color: #a6e22e">getMessage</span><span style="color: #f8f8f2">());</span>
+  <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">finally</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(pw</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">pw.</span><span style="color: #a6e22e">close</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(scan</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">scan.</span><span style="color: #a6e22e">close</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
 
 <p><strong>Scanner</strong> takes in a <strong>FileReader</strong> instannce
 <strong>FileReader</strong> takes in a path string</p>

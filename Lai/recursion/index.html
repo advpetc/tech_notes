@@ -16,7 +16,7 @@
       
         <meta name="author" content="Haoyang">
       
-      <link rel="shortcut icon" href="../..">
+      <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
@@ -32,7 +32,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#4caf50">
       
     
     
@@ -44,8 +44,10 @@
       
     
     
-      <link rel="manifest" href="../../assets/site.webmanifest" crossorigin="use-credentials">
+      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
+    
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -57,7 +59,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="green">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,7 +80,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -164,7 +166,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://advpetc.github.io/tech_notes/" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     Tech Notes
@@ -534,6 +536,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../recursion-tree/" title="Recursion tree" class="md-nav__link">
+      Recursion tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -571,12 +585,71 @@
     Fibonacci Sequence
   </a>
   
+    <nav class="md-nav" aria-label="Fibonacci Sequence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naive-approach" class="md-nav__link">
+    Naive Approach
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powa-b" class="md-nav__link">
+    pow(a, b)
+  </a>
+  
+    <nav class="md-nav" aria-label="pow(a, b)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naive-approach_1" class="md-nav__link">
+    Naive Approach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimize-space" class="md-nav__link">
+    Optimize Space
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../reviews/" title="Reviews" class="md-nav__link">
+      Reviews
+    </a>
   </li>
 
         
@@ -1249,6 +1322,53 @@
     Fibonacci Sequence
   </a>
   
+    <nav class="md-nav" aria-label="Fibonacci Sequence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naive-approach" class="md-nav__link">
+    Naive Approach
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powa-b" class="md-nav__link">
+    pow(a, b)
+  </a>
+  
+    <nav class="md-nav" aria-label="pow(a, b)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naive-approach_1" class="md-nav__link">
+    Naive Approach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimize-space" class="md-nav__link">
+    Optimize Space
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1280,7 +1400,55 @@ Result
 Test</p>
 <p>Time Complexity: total nodes of the recursion tree
 Space Complexity: call stack (typically equals to the height of the recursion tree)</p>
-<p><span><span class="MathJax_Preview">2^0+2^1+2^2...+2^n \simeq 2^n</span><script type="math/tex">2^0+2^1+2^2...+2^n \simeq 2^n</script></span></p>
+<h3 id="naive-approach">Naive Approach<a class="headerlink" href="#naive-approach" title="Permanent link">&para;</a></h3>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">fib</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">n;</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">fib(n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">fib(n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<p>Time: <span><span class="MathJax_Preview">2^0+2^1+2^2...+2^n \approx 2^n</span><script type="math/tex">2^0+2^1+2^2...+2^n \approx 2^n</script></span>
+Space: n</p>
+<h2 id="powa-b">pow(a, b)<a class="headerlink" href="#powa-b" title="Permanent link">&para;</a></h2>
+<p>don't care the case for a == 0 or b &lt; 0 for now</p>
+<h3 id="naive-approach_1">Naive Approach<a class="headerlink" href="#naive-approach_1" title="Permanent link">&para;</a></h3>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">pow</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(b</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">pow(a,</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">a;</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<h3 id="analysis">analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
+<p>recursion tree:
+2^999
+|
+2^998
+|
+2^997
+|
+2^996
+...
+there are b nodes and the longest path is b
+Time: O(b)
+Space: O(b)</p>
+<h3 id="optimize-space">Optimize Space<a class="headerlink" href="#optimize-space" title="Permanent link">&para;</a></h3>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">pow</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(b</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">pow(a,</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span>  <span style="color: #f92672">*</span> <span style="color: #f8f8f2">pow(a,</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// why not using b/2? because 3/2 = 1.5 = 1</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<p>2^999
+ | |
+ 2^500 2^499
+ | | | |
+ 250 250 250 249
+ ...
+ there are 1 + 2 + 4 + ... 2^log(b) = b => time: O(b)</p>
+<p>Space: O(log(b))</p>
                 
               
               
@@ -1299,7 +1467,7 @@ Space Complexity: call stack (typically equals to the height of the recursion tr
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../noon-1-recursion-tree/" title="Noon 1 recursion tree" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../recursion-tree/" title="Recursion tree" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1308,19 +1476,19 @@ Space Complexity: call stack (typically equals to the height of the recursion tr
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Noon 1 recursion tree
+                Recursion tree
               </div>
             </div>
           </a>
         
         
-          <a href="../sorting-algorithms/" title="Sorting algorithms" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../reviews/" title="Reviews" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Sorting algorithms
+                Reviews
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
