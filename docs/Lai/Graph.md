@@ -1,4 +1,4 @@
-DFS vs BFS: space less than BFS
+## DFS vs BFS: space less than BFS
 
 1.5 Given an input array with integers, how to split the array into k subarray, such that each subarray shares the same sum.
 e.g. input[N] = {3,-1,4,6,-8,1,1}, and k = 3

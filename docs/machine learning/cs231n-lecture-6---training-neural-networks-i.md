@@ -1,9 +1,9 @@
-# Overview
+## Overview
 1. One time setup: activation functions, preprocessing, weight initialization, regularization, gradient checking
 2. Training dynamics: babysitting the learning process, parameter updates, hyperparameter optimization
 3. Evaluation: model ensembles
 
-# Part 1
+## Part 1
 
 - Activation functions
 - Data preprocessing
@@ -12,9 +12,9 @@
 - Babysitting the learning process
 - Hyperparameter Optimization
 
-## Activation Function
+### Activation Function
 
-### Sigmoid
+#### Sigmoid
 
 \[\sigma(x)=\frac{1}{1+e^{-x}}\]
 
@@ -25,7 +25,7 @@
 - problem 2: not zero-centered (gradient on w is always all positive or negative) which makes the parameter update inefficient
 - problem 3: $e^{-x}$ is computation expensive
 
-### tanh
+#### tanh
 
 \[tanh(x)\]
 
@@ -35,7 +35,7 @@
 - it's now zero centered (flip between - and + for same weight)
 - problem 1: still kill gradient when saturated
 
-### ReLU
+#### ReLU
 
 \[f(x)=max(0,x)\]
 
@@ -48,7 +48,7 @@
 - problem 1: not zero-centered
 - problem 2: negative still saturated (annoyance, dead relu region)
 
-### Leaky ReLU and Parametric Rectifier
+#### Leaky ReLU and Parametric Rectifier
 
 \[f(x)=max(0.01x, x)\] and \[f(x)=max(\alpha x, x)\]
 
@@ -59,7 +59,7 @@
 - Converge much faster than sigmoid/tanh in practice
 - will not "die"  (no platu)
 
-### Exponential Linear Unit (ELU)
+#### Exponential Linear Unit (ELU)
 
 f(x)=x if x > 0
 f(x)= alpha (exp(x)-1) if x <= 0
@@ -71,14 +71,14 @@ f(x)= alpha (exp(x)-1) if x <= 0
 - negative sarturation regime compared with Leaky ReLU adds some robustness to noise
 - problem 1: computation requires exp()
 
-### Conclusion
+#### Conclusion
 
 - Use ReLU
 - Try out Leaky ReLU/Maxout/ELU
 - Try tanh but don't expect too much
 - Don't use sigmoid
 
-## Data Preprocessing
+### Data Preprocessing
 
 for image, stick with zero-mean
 

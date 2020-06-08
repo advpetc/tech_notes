@@ -1,4 +1,4 @@
-# Java pass-by-value
+## Java pass-by-value
 
 1. reassignment
 
@@ -95,7 +95,7 @@ public class Solution {
 }
 ```
 
-# Misc
+## Misc
 
 1. String s = 4 + "aa"; // will print 4aa, because 4.toString() + "aa", however it won't work in c++
 2. low -> high precision: will cast implicitly (no need to add (long) for example).

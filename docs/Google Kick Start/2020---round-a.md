@@ -1,4 +1,4 @@
-# Allocation
+## Allocation
 
 There are N houses for sale. The i-th house costs Ai dollars to buy. You have a budget of B dollars to spend.
 
@@ -47,7 +47,7 @@ In Sample Case #1, you have a budget of 100 dollars. You can buy the 1st and 3rd
 In Sample Case #2, you have a budget of 50 dollars. You can buy the 1st, 3rd and 4th houses for 30 + 10 + 10 = 50 dollars.
 In Sample Case #3, you have a budget of 300 dollars. You cannot buy any houses (so the answer is 0).
 
-# Analysis
+## Analysis
 
 To buy the maxmimum amount of houses, we can greedy buy the ones with the smallest cost first, and until we reach to the point when there is no money left to buy the next higher cost house, we can stop.
 
@@ -59,9 +59,9 @@ we want to prove that A == O
 
 pick an ai that is in A, and replace it with oj. oj is not in A, so oj is less than ai. since size of B is the same, the solution is still the most optimal one. keep doing this until there is A == O.
 
-# Code
+## Code
 
-## sort with nlog n
+### sort with nlog n
 
 ```c
 /*
@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
 
 ```
 
-## count sort with n
+### count sort with n
 
 because 1 ≤ Ai ≤ 1000, we can use count sort
 
@@ -141,7 +141,7 @@ int main(int argc, char* argv[])
 
 ```
 
-# Plates
+## Plates
 
 Dr. Patel has N stacks of plates. Each stack contains K plates. Each plate has a positive beauty value, describing how beautiful it looks.
 
@@ -200,7 +200,7 @@ He can pick no plates from the second stack.
 He can pick the top plate from the third stack (20).
 In total, the sum of beauty values is 180.
 
-# Analysis
+## Analysis
 
 dp[N][P]: from first n stacks, with p plates, the maximum beauty values
 dp[i][j] = max(dp[i][j], val[k] + dp[i - 1][p - k])
@@ -208,7 +208,7 @@ dp[i][j] = max(dp[i][j], val[k] + dp[i - 1][p - k])
 for choosing current stack's top k plates, you need to give up the previous stacks k plates, so the previous state is dp[i - 1][p - k]
 the answer is dp[N][P]
 
-# Code
+## Code
 
 ```c
 /*
@@ -254,7 +254,7 @@ int main(int argc, char* argv[])
 
 ```
 
-# Workout
+## Workout
 
 Tambourine has prepared a fitness program so that she can become more fit! The program is made of N sessions. During the i-th session, Tambourine will exercise for Mi minutes. The number of minutes she exercises in each session are strictly increasing.
 
@@ -322,14 +322,14 @@ In Case #2: Tambourine can add up to six sessions. The added sessions are marked
 
 In Case #3: Tambourine can add up to three sessions. The added sessions are marked in bold: 1 2 3 4 5 6 7 8 9 10. The difficulty is now 1. Note that Tambourine only added two sessions.
 
-# Analysis
+## Analysis
 
 1. **Priority Queue**: Find an array that record the gaps every two sessions. Call it gaps[N-1]. To add one session, the new one should be between the one that has the greatest gap. However, we cannot do that all at once for the first greatest gap. Instead, we should do it "greedily". When adding the one, we need to find a way to get the **updated** max gap from the total gaps. In order to do so, we need to use priority queue. The top of the queue will store the maxmium gap. To keep update the gap, we don't want to manually modify the default gap, but to add a "cnt" which will be divied by the gap. When making the comparsion, the real gap value is gap default value / cnt.
 2. **Binary Search**: Our goal is to find the most difficult gap, and try to minimize it as much as possible. It now becomes a search problem. The gap is in between 1 ~ a[n-1]-a[0], and for each gap, we calculate the desire "cuts" to satisfy k. To calculate the desire "cuts", we should find the gap between each one, and then ceil(gap / most difficult gap) - 1 (check line 21 from solution 2). If the "cuts" is less than K, that means we have room to lower our difficulty by using the unused "cuts", so our search range is decreased by half from 1 ~ mb, else it will be mb + 1 ~ rb.
 
-# Code
+## Code
 
-## Priority Queue
+### Priority Queue
 
 ```c
 #include <bits/stdc++.h>
@@ -394,7 +394,7 @@ int main(int argc, char* argv[])
 
 ```
 
-## Binary search
+### Binary search
 
 ```c
 #include <bits/stdc++.h>
@@ -442,7 +442,7 @@ int main()
 }
 ```
 
-# Bundling
+## Bundling
 
 Pip has N strings. Each string consists only of letters from A to Z. Pip would like to bundle their strings into groups of size K. Each string must belong to exactly one group.
 
@@ -529,11 +529,11 @@ In Case #1, Pip can achieve a total score of 6 by make the groups:
 {RAINBOW, RANK, RANDOM}, with a score of 2.
 {FIREBALL, FIREWALL, FIREFIGHTER}, with a score of 4.
 
-# Analysis
+## Analysis
 
 Use Trie tree to store all the strings. Ue
 
-# Code
+## Code
 
 ```c
 #include <bits/stdc++.h>

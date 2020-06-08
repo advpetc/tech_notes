@@ -35,7 +35,7 @@ for path, _, files in os.walk('raw'):
             shutil.copy(path + "/" + fname, resouces_dir)
         if not fname.endswith(ftype):
             continue
-        with open(os.path.join(sub_dir, fname), 'w') as o:
+        with open(os.path.join(sub_dir, fname.replace(' ', '-').lower()), 'w') as o:
             with open(os.path.join(path, fname), 'r') as f:
                 for line in f:
                     o.write(re.sub(regex, subst, line, 0, re.MULTILINE))

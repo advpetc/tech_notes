@@ -1,8 +1,8 @@
-# Overview
+## Overview
 
 ![Screen Shot 2020-05-17 at 10.35.19 AM.png](resources/1B8A40176D2D41B4F2CD44BB40E29E5A.png)
 
-# Selection Sort
+## Selection Sort
 
 arr[] = 64 25 12 22 11
 
@@ -53,17 +53,23 @@ for (i = 0; i < aLength-1; i++)
 }
 ```
 
-## Complexity
+### Complexity
 
 $O(\frac{(n-1)+1}{2} \times (n-1))$ = $O(n^2)$ -- no matter if is pre-sorted or not
 
-## Q1: sort with three stack
+### Q1: sort with three stack
+
+given three stack: stack1 is unsorted, stack2 is a buffer, stack3 store sorted array.
 
 stack 1: [3 2 4 1
 stack 2: [1 4 2 3 global min: 1
 stack 3(res): keep push the global min
 
-# Insertion Sort
+sort with two stack:
+
+<script src="https://gist.github.com/lawliet89/8658109.js"></script>
+
+## Insertion Sort
 
 ```c
 for (int i = 0; i < A.size(); ++i) {
@@ -85,7 +91,7 @@ for (int i = 0; i < A.size(); ++i) {
 
 if the origional array is pre-sorted, then the complexity is $O(n)$, if not, it will be $O(n^2)$
 
-# Counting Sort
+## Counting Sort
 
 ![Screen Shot 2020-05-17 at 3.39.58 PM.png](resources/ADFD2A1A4830AB37DFB9B5C8179B6719.png)
 
@@ -95,19 +101,19 @@ C[] is pre-sum for counting the frequency of each element (element is the index)
 
 on line 11, it keep "filling" the element from right to the left (greater to less) to B[].
 
-## initial
+### initial
 
 ![Screen Shot 2020-05-17 at 3.45.35 PM.png](resources/69B16456768DE4F2A9C8313231CE355F.png)
 
-## after pre-sum
+### after pre-sum
 
 ![Screen Shot 2020-05-17 at 3.46.11 PM.png](resources/9BA6DAAC7613B504B3B05B2890656A58.png)
 
-## Complexity
+### Complexity
 
 Time: $O(n)$, Space: $O(|max - min|)$
 
-# Merge Sort: stable
+## Merge Sort: stable
 
 ```c
 int tmp[1010];
@@ -136,17 +142,17 @@ vector<int> mergeSort(vector<int> array) {
 }
 ```
 
-## Use merge sort to find Inversion Count
+### Use merge sort to find Inversion Count
 
 Inversion Count: $a_i > a_j$ and $i < j$, to do so, just uncomment line 12.
 
-## Complexity}
+### Complexity
 
 space:
 - call stack: $O(log(n))$
 - heap: $O(n)$
 
-# Quick Sort: not stable
+## Quick Sort: not stable
 
 ```c
 class Solution {

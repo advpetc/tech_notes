@@ -1,4 +1,4 @@
-# Binary Search
+## Binary Search
 
 **2 Principles:**
 1. Guarantee that the search space decreases over time (after each iteration). // prevent while "true"
@@ -9,6 +9,21 @@ while (l < r): 1 element **cannot** get in
 
 l = l + 1: eleminate l for next iteration
 l = l: check if 1 element will cause inf
+
+## Classic Binary Search
+
+```c
+int binarySearch(vector<int>& a, int target) {
+    int left = 0, right = a.size() - 1;
+    while (left <= right) { // <=
+        int mid = left + right >> 1;
+        if (a[mid] == target) return mid;
+        else if (a[mid] < target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
+}
+```
 
 ## 2D Space Binary Search
 
@@ -110,20 +125,37 @@ k = 3, target = 5, a = [1,2,3,8,9]
 return 2,3,8
 
 Solution 1:
-1. run binary search to find L and R.
+1. run binary search to find L and R, where L is the** largest value that is smaller than target**
 2. if l is close to target, l--; else r++
-Complexity: O(log(n) + k)
+Complexity: O(log(n) + k), what if k $\approx$ n? Complexity will be O(n)
 
 ```c
-while (l < r - 1) { // only two (or one) element left [l, l+1] or [l]
-    int m = l + (r - l) / 2;
-    if (a[m] == target) {
-        r = m;
-    } else if (a[m] < target) {
-        l = m;
-    } else {
-        r = m;
+int largestSmallerEqual(vector<int> arr, int target) {
+    int left = 0, right = arr.size() - 1;
+    while (left < right - 1) {
+        int mid = left + right >> 1;
+        if (arr[mid] <= target) {
+            left = mid;
+        } else {
+            right = mid;
+        }
     }
+    if (arr[right] <= target) return right;
+    if (arr[left] <= target) return left;
+    return -1;
+}
+vector<int> kClosest(vector<int> arr, int target, int k) {
+    int left = largestSmallerEqual(arr, target);
+    int right = left + 1;
+    vector<int> res(k);
+    for (int i = 0; i < k; ++i) {
+        if (right >= arr.size() || left >= 0 && target - arr[left] <= arr[right] - target) {
+            res[i] = arr[left--];
+        } else {
+            res[i] = arr[right++];
+        }
+    }
+    return res;
 }
 ```
 
@@ -208,7 +240,7 @@ solution 1: two pointer, i++ if a[i] < b[j] else j++, stop until k steps -> O(k)
 
 solution 2: binary search
 
-![Screen Shot 2020-05-01 at 5.16.57 PM.png](resources/D4FC9F2FC6398372660E4C52A1A98BA4.png =840x575)
+![Screen Shot 2020-05-01 at 5.16.57 PM.png](resources/D4FC9F2FC6398372660E4C52A1A98BA4.png)
 
 ## Binary Search with Unknown Size
 
