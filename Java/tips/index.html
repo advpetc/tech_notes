@@ -11,7 +11,7 @@
         <meta name="description" content="Keep track of all the learning">
       
       
-        <link rel="canonical" href="https://advpetc.github.io/tech_notes/Lai/recursion-tree/">
+        <link rel="canonical" href="https://advpetc.github.io/tech_notes/Java/tips/">
       
       
         <meta name="author" content="Haoyang">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Recursion tree - Tech Notes</title>
+        <title>Tips - Tech Notes</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#is-tree-symmetric" class="md-skip">
+        <a href="#min-and-max-value" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Recursion tree
+              Tips
             
           </span>
         </div>
@@ -304,10 +304,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Java
@@ -331,7 +333,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/array%2C-class-and-objects/" title="Array, class and objects" class="md-nav__link">
+    <a href="../array%2C-class-and-objects/" title="Array, class and objects" class="md-nav__link">
       Array, class and objects
     </a>
   </li>
@@ -343,7 +345,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/common-problem/" title="Common problem" class="md-nav__link">
+    <a href="../common-problem/" title="Common problem" class="md-nav__link">
       Common problem
     </a>
   </li>
@@ -355,7 +357,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/control-flow-and-methods/" title="Control flow and methods" class="md-nav__link">
+    <a href="../control-flow-and-methods/" title="Control flow and methods" class="md-nav__link">
       Control flow and methods
     </a>
   </li>
@@ -367,7 +369,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/css/" title="Css" class="md-nav__link">
+    <a href="../css/" title="Css" class="md-nav__link">
       Css
     </a>
   </li>
@@ -379,7 +381,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/primitive-types-and-basic-operations/" title="Primitive types and basic operations" class="md-nav__link">
+    <a href="../primitive-types-and-basic-operations/" title="Primitive types and basic operations" class="md-nav__link">
       Primitive types and basic operations
     </a>
   </li>
@@ -391,7 +393,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Java/serialization/" title="Serialization" class="md-nav__link">
+    <a href="../serialization/" title="Serialization" class="md-nav__link">
       Serialization
     </a>
   </li>
@@ -401,11 +403,49 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../Java/tips/" title="Tips" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Tips
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Tips" class="md-nav__link md-nav__link--active">
       Tips
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#min-and-max-value" class="md-nav__link">
+    Min and Max value
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -418,12 +458,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       Lai
@@ -447,7 +485,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../binary-search/" title="Binary search" class="md-nav__link">
+    <a href="../../Lai/binary-search/" title="Binary search" class="md-nav__link">
       Binary search
     </a>
   </li>
@@ -459,7 +497,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../choose-k-cards-and-find-the-maximum/" title="Choose k cards and find the maximum" class="md-nav__link">
+    <a href="../../Lai/choose-k-cards-and-find-the-maximum/" title="Choose k cards and find the maximum" class="md-nav__link">
       Choose k cards and find the maximum
     </a>
   </li>
@@ -471,7 +509,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../divide-two-integer/" title="Divide two integer" class="md-nav__link">
+    <a href="../../Lai/divide-two-integer/" title="Divide two integer" class="md-nav__link">
       Divide two integer
     </a>
   </li>
@@ -483,7 +521,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../dynamic-programming/" title="Dynamic programming" class="md-nav__link">
+    <a href="../../Lai/dynamic-programming/" title="Dynamic programming" class="md-nav__link">
       Dynamic programming
     </a>
   </li>
@@ -495,7 +533,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../find-minimum-in-rotated-sorted-array/" title="Find minimum in rotated sorted array" class="md-nav__link">
+    <a href="../../Lai/find-minimum-in-rotated-sorted-array/" title="Find minimum in rotated sorted array" class="md-nav__link">
       Find minimum in rotated sorted array
     </a>
   </li>
@@ -507,7 +545,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../graph/" title="Graph" class="md-nav__link">
+    <a href="../../Lai/graph/" title="Graph" class="md-nav__link">
       Graph
     </a>
   </li>
@@ -519,7 +557,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../knight-dialer/" title="Knight dialer" class="md-nav__link">
+    <a href="../../Lai/knight-dialer/" title="Knight dialer" class="md-nav__link">
       Knight dialer
     </a>
   </li>
@@ -531,7 +569,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../linkedlist/" title="Linkedlist" class="md-nav__link">
+    <a href="../../Lai/linkedlist/" title="Linkedlist" class="md-nav__link">
       Linkedlist
     </a>
   </li>
@@ -543,7 +581,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../maximum-product-subarray/" title="Maximum product subarray" class="md-nav__link">
+    <a href="../../Lai/maximum-product-subarray/" title="Maximum product subarray" class="md-nav__link">
       Maximum product subarray
     </a>
   </li>
@@ -555,7 +593,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../noon-1---recursion-tree/" title="Is tree symmetric" class="md-nav__link">
+    <a href="../../Lai/noon-1---recursion-tree/" title="Is tree symmetric" class="md-nav__link">
       Is tree symmetric
     </a>
   </li>
@@ -567,7 +605,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../noon-1-recursion-tree/" title="Noon 1 recursion tree" class="md-nav__link">
+    <a href="../../Lai/noon-1-recursion-tree/" title="Noon 1 recursion tree" class="md-nav__link">
       Noon 1 recursion tree
     </a>
   </li>
@@ -577,69 +615,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Recursion tree
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Recursion tree" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../Lai/recursion-tree/" title="Recursion tree" class="md-nav__link">
       Recursion tree
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#is-tree-symmetric" class="md-nav__link">
-    Is tree symmetric
-  </a>
-  
-    <nav class="md-nav" aria-label="Is tree symmetric">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recurison-tree" class="md-nav__link">
-    Recurison Tree
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    Solution
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -649,7 +629,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../recursion/" title="Recursion" class="md-nav__link">
+    <a href="../../Lai/recursion/" title="Recursion" class="md-nav__link">
       Recursion
     </a>
   </li>
@@ -661,7 +641,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../reviews/" title="Reviews" class="md-nav__link">
+    <a href="../../Lai/reviews/" title="Reviews" class="md-nav__link">
       Reviews
     </a>
   </li>
@@ -673,7 +653,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../sorting-algorithms/" title="Sorting algorithms" class="md-nav__link">
+    <a href="../../Lai/sorting-algorithms/" title="Sorting algorithms" class="md-nav__link">
       Sorting algorithms
     </a>
   </li>
@@ -685,7 +665,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1/" title="每日打卡" class="md-nav__link">
+    <a href="../../Lai/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1/" title="每日打卡" class="md-nav__link">
       每日打卡
     </a>
   </li>
@@ -1368,29 +1348,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#is-tree-symmetric" class="md-nav__link">
-    Is tree symmetric
+  <a href="#min-and-max-value" class="md-nav__link">
+    Min and Max value
   </a>
-  
-    <nav class="md-nav" aria-label="Is tree symmetric">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recurison-tree" class="md-nav__link">
-    Recurison Tree
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    Solution
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1406,7 +1366,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Lai/recursion-tree.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Java/tips.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1414,26 +1374,10 @@
                   
                 
                 
-                  <h1>Recursion tree</h1>
+                  <h1>Tips</h1>
                 
-                <h2 id="is-tree-symmetric">Is tree symmetric<a class="headerlink" href="#is-tree-symmetric" title="Permanent link">&para;</a></h2>
-<p><img alt="Screen Shot 2020-05-12 at 3.31.27 PM.png" src="../resources/30BFA1DEDAEC5089DDEDD12ED1EF379D.png" /></p>
-<h3 id="recurison-tree">Recurison Tree<a class="headerlink" href="#recurison-tree" title="Permanent link">&para;</a></h3>
-<p><img alt="Screen Shot 2020-05-12 at 3.32.11 PM.png" src="../resources/696E8DE4BA0667EC6199D5EB8444EC61.png" /></p>
-<h3 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isSymmetric(left,</span> <span style="color: #f8f8f2">right)</span>
-  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span> <span style="color: #f8f8f2">and</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true</span>
-  <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false</span>
-  <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">left.val</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">right.val</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false</span>
-  <span style="color: #66d9ef">else</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">isSymmetric(left.left,</span> <span style="color: #f8f8f2">right.right)</span> <span style="color: #f8f8f2">and</span> <span style="color: #f8f8f2">isSymmetric(left.right,</span> <span style="color: #f8f8f2">right.left)</span>
-</code></pre></div>
-
-
-<p>Time = O(n/2)=O(n)</p>
+                <h2 id="min-and-max-value">Min and Max value<a class="headerlink" href="#min-and-max-value" title="Permanent link">&para;</a></h2>
+<p>int: Integer.MAX_VALUE (<span><span class="MathJax_Preview">2^{31} - 1</span><script type="math/tex">2^{31} - 1</script></span>), Integer.MIN_VALUE (<span><span class="MathJax_Preview">-2^{31}</span><script type="math/tex">-2^{31}</script></span>)</p>
                 
               
               
@@ -1452,7 +1396,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../noon-1-recursion-tree/" title="Noon 1 recursion tree" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../serialization/" title="Serialization" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1461,19 +1405,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Noon 1 recursion tree
+                Serialization
               </div>
             </div>
           </a>
         
         
-          <a href="../recursion/" title="Recursion" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../Lai/binary-search/" title="Binary search" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Recursion
+                Binary search
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

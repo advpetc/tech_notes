@@ -11,7 +11,7 @@
         <meta name="description" content="Keep track of all the learning">
       
       
-        <link rel="canonical" href="https://advpetc.github.io/tech_notes/Lai/recursion-tree/">
+        <link rel="canonical" href="https://advpetc.github.io/tech_notes/Lai/linkedlist/">
       
       
         <meta name="author" content="Haoyang">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Recursion tree - Tech Notes</title>
+        <title>Linkedlist - Tech Notes</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#is-tree-symmetric" class="md-skip">
+        <a href="#define" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Recursion tree
+              Linkedlist
             
           </span>
         </div>
@@ -529,11 +529,90 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../linkedlist/" title="Linkedlist" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Linkedlist
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Linkedlist" class="md-nav__link md-nav__link--active">
       Linkedlist
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#define" class="md-nav__link">
+    Define
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q1-reverse-linkedlist" class="md-nav__link">
+    Q1: reverse Linkedlist
+  </a>
+  
+    <nav class="md-nav" aria-label="Q1: reverse Linkedlist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursion" class="md-nav__link">
+    Recursion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q2-insert-into-sorted-linkedlist" class="md-nav__link">
+    Q2: insert into sorted linkedlist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q3-reorganize-linkedlist" class="md-nav__link">
+    Q3: reorganize linkedlist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q4-partition-list" class="md-nav__link">
+    Q4: partition list
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -577,69 +656,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Recursion tree
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Recursion tree" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../recursion-tree/" title="Recursion tree" class="md-nav__link">
       Recursion tree
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#is-tree-symmetric" class="md-nav__link">
-    Is tree symmetric
-  </a>
-  
-    <nav class="md-nav" aria-label="Is tree symmetric">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recurison-tree" class="md-nav__link">
-    Recurison Tree
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    Solution
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1368,29 +1389,50 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#is-tree-symmetric" class="md-nav__link">
-    Is tree symmetric
-  </a>
-  
-    <nav class="md-nav" aria-label="Is tree symmetric">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recurison-tree" class="md-nav__link">
-    Recurison Tree
+  <a href="#define" class="md-nav__link">
+    Define
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#q1-reverse-linkedlist" class="md-nav__link">
+    Q1: reverse Linkedlist
+  </a>
+  
+    <nav class="md-nav" aria-label="Q1: reverse Linkedlist">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    Solution
+  <a href="#recursion" class="md-nav__link">
+    Recursion
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q2-insert-into-sorted-linkedlist" class="md-nav__link">
+    Q2: insert into sorted linkedlist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q3-reorganize-linkedlist" class="md-nav__link">
+    Q3: reorganize linkedlist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q4-partition-list" class="md-nav__link">
+    Q4: partition list
+  </a>
   
 </li>
       
@@ -1406,7 +1448,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Lai/recursion-tree.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Lai/linkedlist.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1414,26 +1456,106 @@
                   
                 
                 
-                  <h1>Recursion tree</h1>
+                  <h1>Linkedlist</h1>
                 
-                <h2 id="is-tree-symmetric">Is tree symmetric<a class="headerlink" href="#is-tree-symmetric" title="Permanent link">&para;</a></h2>
-<p><img alt="Screen Shot 2020-05-12 at 3.31.27 PM.png" src="../resources/30BFA1DEDAEC5089DDEDD12ED1EF379D.png" /></p>
-<h3 id="recurison-tree">Recurison Tree<a class="headerlink" href="#recurison-tree" title="Permanent link">&para;</a></h3>
-<p><img alt="Screen Shot 2020-05-12 at 3.32.11 PM.png" src="../resources/696E8DE4BA0667EC6199D5EB8444EC61.png" /></p>
-<h3 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isSymmetric(left,</span> <span style="color: #f8f8f2">right)</span>
-  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span> <span style="color: #f8f8f2">and</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true</span>
-  <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false</span>
-  <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">left.val</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">right.val</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false</span>
-  <span style="color: #66d9ef">else</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">isSymmetric(left.left,</span> <span style="color: #f8f8f2">right.right)</span> <span style="color: #f8f8f2">and</span> <span style="color: #f8f8f2">isSymmetric(left.right,</span> <span style="color: #f8f8f2">right.left)</span>
+                <h2 id="define">Define<a class="headerlink" href="#define" title="Permanent link">&para;</a></h2>
+<p>Logically consecutive list, but physically not consecutive</p>
+<h2 id="q1-reverse-linkedlist">Q1: reverse Linkedlist<a class="headerlink" href="#q1-reverse-linkedlist" title="Permanent link">&para;</a></h2>
+<p>Need two pointers: one for previous, one for curr; reverse is simply change the direction</p>
+<h3 id="recursion">Recursion<a class="headerlink" href="#recursion" title="Permanent link">&para;</a></h3>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">reverse</span><span style="color: #f8f8f2">(ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">head)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">head</span> <span style="color: #f92672">||</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">head;</span>
+    <span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">reverse(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next);</span> <span style="color: #75715e">// this will get the last node from the origional linkedlist</span>
+    <span style="color: #f8f8f2">head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
+    <span style="color: #f8f8f2">head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL;</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
 
 
-<p>Time = O(n/2)=O(n)</p>
+<h2 id="q2-insert-into-sorted-linkedlist">Q2: insert into sorted linkedlist<a class="headerlink" href="#q2-insert-into-sorted-linkedlist" title="Permanent link">&para;</a></h2>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">insert</span><span style="color: #f8f8f2">(ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">head,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">value)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #75715e">// write your solution here</span>
+    <span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ListNode(value);</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">head</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">value</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">value)</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">node</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
+      <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node;</span>
+      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">head;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">ListNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(curr)</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">value</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">value</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">value</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">value)</span> <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next;</span>
+      <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node;</span>
+    <span style="color: #f8f8f2">node</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">curr;</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">head;</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<h2 id="q3-reorganize-linkedlist">Q3: reorganize linkedlist<a class="headerlink" href="#q3-reorganize-linkedlist" title="Permanent link">&para;</a></h2>
+<p>Reorder the given singly-linked list N1 -&gt; N2 -&gt; N3 -&gt; N4 -&gt; … -&gt; Nn -&gt; null to be N1- &gt; Nn -&gt; N2 -&gt; Nn-1 -&gt; N3 -&gt; Nn-2 -&gt; … -&gt; null</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">reorder</span><span style="color: #f8f8f2">(ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">head)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #75715e">// write your solution here</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">head</span> <span style="color: #f92672">||</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">head</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next)</span>
+      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">head;</span>
+    <span style="color: #f8f8f2">ListNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
+    <span style="color: #f8f8f2">ListNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">slow</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">fast</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
+    <span style="color: #75715e">// find mid point</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(fast</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">fast</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next)</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">slow</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">slow</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
+      <span style="color: #f8f8f2">fast</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">fast</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">slow</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
+    <span style="color: #f8f8f2">slow</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL;</span> <span style="color: #75715e">// break the list</span>
+    <span style="color: #75715e">// reverse the mid - end</span>
+    <span style="color: #f8f8f2">ListNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">last</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL;</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(last)</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">last</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
+      <span style="color: #f8f8f2">last</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pre;</span>
+      <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">last;</span>
+      <span style="color: #f8f8f2">last</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">next;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #75715e">// re-combine together</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(head</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">pre)</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
+      <span style="color: #f8f8f2">head</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pre;</span>
+      <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pre</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
+      <span style="color: #f8f8f2">head</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">next;</span>
+      <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">next;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<h2 id="q4-partition-list">Q4: partition list<a class="headerlink" href="#q4-partition-list" title="Permanent link">&para;</a></h2>
+<p>L = 2 -&gt; 4 -&gt; 3 -&gt; 5 -&gt; 1 -&gt; null, T = 3, is partitioned to 2 -&gt; 1 -&gt; 4 -&gt; 3 -&gt; 5 -&gt; null</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">partition</span><span style="color: #f8f8f2">(ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">head,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(head</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">nullptr)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">head;</span>
+
+    <span style="color: #f8f8f2">ListNode</span> <span style="color: #f8f8f2">lesser,</span> <span style="color: #f8f8f2">greater;</span>
+    <span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">p1</span> <span style="color: #f92672">=</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">lesser;</span>
+    <span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">p2</span> <span style="color: #f92672">=</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">greater;</span>
+
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(head)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(head</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">x)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">p1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
+            <span style="color: #f8f8f2">p1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
+        <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">p2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
+            <span style="color: #f8f8f2">p2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
+    <span style="color: #f8f8f2">}</span>
+
+    <span style="color: #f8f8f2">p1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">greater.next;</span>
+    <span style="color: #f8f8f2">p2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nullptr;</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">lesser.next;</span> 
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
                 
               
               
@@ -1452,7 +1574,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../noon-1-recursion-tree/" title="Noon 1 recursion tree" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../knight-dialer/" title="Knight dialer" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1461,19 +1583,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Noon 1 recursion tree
+                Knight dialer
               </div>
             </div>
           </a>
         
         
-          <a href="../recursion/" title="Recursion" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../maximum-product-subarray/" title="Maximum product subarray" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Recursion
+                Maximum product subarray
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
