@@ -447,6 +447,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../behavior-questions/" title="Behavior questions" class="md-nav__link">
+      Behavior questions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../binary-search/" title="Binary search" class="md-nav__link">
       Binary search
     </a>
@@ -555,20 +567,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../noon-1---recursion-tree/" title="Is tree symmetric" class="md-nav__link">
-      Is tree symmetric
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../noon-1-recursion-tree/" title="Noon 1 recursion tree" class="md-nav__link">
-      Noon 1 recursion tree
+    <a href="../ood/" title="Ood" class="md-nav__link">
+      Ood
     </a>
   </li>
 
@@ -742,6 +742,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    Q1:
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -824,6 +831,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#q5-reorder-the-array" class="md-nav__link">
+    Q5: reorder the array
+  </a>
+  
+    <nav class="md-nav" aria-label="Q5: reorder the array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -833,6 +867,30 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stack-and-queue/" title="Stack and queue" class="md-nav__link">
+      Stack and queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tree/" title="Tree" class="md-nav__link">
+      Tree
+    </a>
   </li>
 
         
@@ -1633,6 +1691,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    Q1:
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1712,6 +1777,33 @@
   <a href="#in-place-sort-space-ok-time-on" class="md-nav__link">
     In-place sort: space O(k), time O(n)
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5-reorder-the-array" class="md-nav__link">
+    Q5: reorder the array
+  </a>
+  
+    <nav class="md-nav" aria-label="Q5: reorder the array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1865,6 +1957,7 @@ C[] is pre-sum for counting the frequency of each element (element is the index)
 <p>space:
 - call stack: <span><span class="MathJax_Preview">O(log(n))</span><script type="math/tex">O(log(n))</script></span>
 - heap: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
+<h3 id="q1">Q1:<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
 <h2 id="quick-sort-not-stable">Quick Sort: not stable<a class="headerlink" href="#quick-sort-not-stable" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
  <span style="color: #f8f8f2">public:</span>
@@ -2047,6 +2140,49 @@ if arr[i3] == a: swap(arr[i3++], arr[i2++]), swap(arr[i1++], arr[i2]) , swap(arr
   <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">a;</span>
 <span style="color: #f8f8f2">}</span>
 </code></pre></div>
+
+
+<h3 id="q5-reorder-the-array">Q5: reorder the array<a class="headerlink" href="#q5-reorder-the-array" title="Permanent link">&para;</a></h3>
+<p>An array contains both pos and neg numbers in random order. Order the array elements so that pos and neg are placed alternatively. If there are more pos they appear at the end of the array. If there are more neg, they also appear at the end of the array.</p>
+<p>e.g.
+input: [1,2,3,4,5,-1,-1,-1], 
+output: [1,-1,2,-1,3,-1,4,5] (the ordering of pos/neg number doesn't matter)</p>
+<h4 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h4>
+<p>Use quick sort's partition to split the array into two half, then put them back to the new array alternatively</p>
+<h4 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h4>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+
+<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+
+<span style="color: #75715e">#define N 1010</span>
+
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">nums[N];</span>
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
+    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">nums[i];</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(nums[</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">l]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">x);</span>
+        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(nums[</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">r]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">x);</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">swap(nums[l],</span> <span style="color: #f8f8f2">nums[r]);</span>
+    <span style="color: #f8f8f2">}</span>
+
+    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">nums[l]</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">nums[r]</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span> 
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res[n];</span>
+    <span style="color: #f8f8f2">memset(res,</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">res);</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">r;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #f8f8f2">res[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[idx</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">];</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #f8f8f2">res[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[idx</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">];</span>
+    <span style="color: #f8f8f2">}</span>
+
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">res)</span> <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
                 
               
               
@@ -2080,13 +2216,13 @@ if arr[i3] == a: swap(arr[i3++], arr[i2++]), swap(arr[i1++], arr[i2]) , swap(arr
           </a>
         
         
-          <a href="../%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1/" title="每日打卡" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../stack-and-queue/" title="Stack and queue" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                每日打卡
+                Stack and queue
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

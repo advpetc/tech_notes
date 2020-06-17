@@ -11,7 +11,7 @@
         <meta name="description" content="Keep track of all the learning">
       
       
-        <link rel="canonical" href="https://advpetc.github.io/tech_notes/Lai/graph/">
+        <link rel="canonical" href="https://advpetc.github.io/tech_notes/Lai/ood/">
       
       
         <meta name="author" content="Haoyang">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Graph - Tech Notes</title>
+        <title>Ood - Tech Notes</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tree-vs-graph" class="md-skip">
+        <a href="#vending-machine" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Graph
+              Ood
             
           </span>
         </div>
@@ -517,63 +517,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Graph
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Graph" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../graph/" title="Graph" class="md-nav__link">
       Graph
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tree-vs-graph" class="md-nav__link">
-    Tree vs Graph
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#analyze-time-complexiy" class="md-nav__link">
-    Analyze Time Complexiy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dfs-vs-bfs-space-less-than-bfs" class="md-nav__link">
-    DFS vs BFS: space less than BFS
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -617,11 +565,110 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ood/" title="Ood" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Ood
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Ood" class="md-nav__link md-nav__link--active">
       Ood
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vending-machine" class="md-nav__link">
+    Vending Machine
+  </a>
+  
+    <nav class="md-nav" aria-label="Vending Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    Action
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class" class="md-nav__link">
+    Class
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elevator-simulator" class="md-nav__link">
+    Elevator Simulator
+  </a>
+  
+    <nav class="md-nav" aria-label="Elevator Simulator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-to-determine-attribute" class="md-nav__link">
+    State to determine attribute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data_1" class="md-nav__link">
+    Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_1" class="md-nav__link">
+    Action
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1398,23 +1445,70 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tree-vs-graph" class="md-nav__link">
-    Tree vs Graph
+  <a href="#vending-machine" class="md-nav__link">
+    Vending Machine
   </a>
+  
+    <nav class="md-nav" aria-label="Vending Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    Action
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class" class="md-nav__link">
+    Class
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#analyze-time-complexiy" class="md-nav__link">
-    Analyze Time Complexiy
+  <a href="#elevator-simulator" class="md-nav__link">
+    Elevator Simulator
+  </a>
+  
+    <nav class="md-nav" aria-label="Elevator Simulator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-to-determine-attribute" class="md-nav__link">
+    State to determine attribute
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#dfs-vs-bfs-space-less-than-bfs" class="md-nav__link">
-    DFS vs BFS: space less than BFS
+        
+          <li class="md-nav__item">
+  <a href="#data_1" class="md-nav__link">
+    Data
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_1" class="md-nav__link">
+    Action
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1430,7 +1524,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Lai/graph.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Lai/ood.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1438,26 +1532,60 @@
                   
                 
                 
-                  <h1>Graph</h1>
+                  <h1>Ood</h1>
                 
-                <h2 id="tree-vs-graph">Tree vs Graph<a class="headerlink" href="#tree-vs-graph" title="Permanent link">&para;</a></h2>
+                <h2 id="vending-machine">Vending Machine<a class="headerlink" href="#vending-machine" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Graph can have cycle while tree cannot</li>
-<li>Graph can be <strong>not</strong> connected, which tree cannot</li>
+<li>no need to talk about how <strong>many</strong> user using (distribute system design)</li>
 </ol>
-<h2 id="analyze-time-complexiy">Analyze Time Complexiy<a class="headerlink" href="#analyze-time-complexiy" title="Permanent link">&para;</a></h2>
-<p>G = V + E \
-V: vertex, E: edge \
-min edge = 0 (not connected) \
-max edge = <span><span class="MathJax_Preview">V^2</span><script type="math/tex">V^2</script></span> (each vertex can connect to all the other in directed graph) \
-<span><span class="MathJax_Preview">O(N) = O(V^2)</span><script type="math/tex">O(N) = O(V^2)</script></span></p>
-<h2 id="dfs-vs-bfs-space-less-than-bfs">DFS vs BFS: space less than BFS<a class="headerlink" href="#dfs-vs-bfs-space-less-than-bfs" title="Permanent link">&para;</a></h2>
-<p>1.5 Given an input array with integers, how to split the array into k subarray, such that each subarray shares the same sum.
-e.g. input[N] = {3,-1,4,6,-8,1,1}, and k = 3
-     output = {3,-1} {4,6,-8} {1,1} with all sum is equal to two</p>
-<p>1.6 Given an input array with integers, how to split the array into k subarrays (subarray may NOT be adjacent to each other), such that each subarray shares the same sum</p>
-<p>E.g. input[N] = { 3 -1,1 1 1 2 2 2  4, 6, -8, 1, 1 }. and k == 3.
-Output =  {3,-1}   {4, 6, - 8}  {1, 1}  which all have a sum that is equal to two.</p>
+<h3 id="data">Data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h3>
+<ol>
+<li>item</li>
+<li>vending machine</li>
+</ol>
+<h3 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h3>
+<ul>
+<li>buy/purchase: input (item id, money) and output (item, remain money)</li>
+<li>input and return type: int, Item</li>
+<li>exceptions (could talk later in details): if there is no more items remaining, or there is not enough money</li>
+<li>could talk about use case: assumption (money for change is efficient), <strong>use the most familiar one for your use case.</strong></li>
+</ul>
+<h3 id="class">Class<a class="headerlink" href="#class" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Item (first design the most fundmental class)</li>
+<li>price: int</li>
+<li>name/id: int/string</li>
+<li><strong>type</strong></li>
+<li>Vending Machine</li>
+<li>money remaining: int</li>
+<li>colllection of Item: unordered_map<Item, count> -&gt; unordered_map<type, count><ul>
+<li>Item: should represent type of item instead of specific item -&gt; add a field in item for <strong>type</strong></li>
+</ul>
+</li>
+<li>buy/purchase API</li>
+<li>more: if there are multiple tracks</li>
+</ul>
+<h2 id="elevator-simulator">Elevator Simulator<a class="headerlink" href="#elevator-simulator" title="Permanent link">&para;</a></h2>
+<p>start from use case (discuss with the interviewer):
+1. show level button or just up and down then select inside the elevator
+2. swipe card to validate or not
+3. support for multiple elevator -&gt; design elevator system
+4. how to schedule (it could be discussed later): support different types of requests</p>
+<h3 id="state-to-determine-attribute">State to determine attribute<a class="headerlink" href="#state-to-determine-attribute" title="Permanent link">&para;</a></h3>
+<ul>
+<li>which floor</li>
+<li>move up or move down</li>
+<li>weight/headcount and capacity -&gt; if overload</li>
+<li>what to do when reach a floor</li>
+<li>what to determine to open or not: depends on the request (from outside or inside people)</li>
+<li>after open door: get in and get out -&gt; next requests</li>
+<li>determine whether to change the direction</li>
+</ul>
+<h3 id="data_1">Data<a class="headerlink" href="#data_1" title="Permanent link">&para;</a></h3>
+<h3 id="action_1">Action<a class="headerlink" href="#action_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>open/close door</li>
+</ul>
                 
               
               
@@ -1476,7 +1604,7 @@ Output =  {3,-1}   {4, 6, - 8}  {1, 1}  which all have a sum that is equal to tw
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../find-minimum-in-rotated-sorted-array/" title="Find minimum in rotated sorted array" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../maximum-product-subarray/" title="Maximum product subarray" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1485,19 +1613,19 @@ Output =  {3,-1}   {4, 6, - 8}  {1, 1}  which all have a sum that is equal to tw
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Find minimum in rotated sorted array
+                Maximum product subarray
               </div>
             </div>
           </a>
         
         
-          <a href="../knight-dialer/" title="Knight dialer" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../recursion-tree/" title="Recursion tree" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Knight dialer
+                Recursion tree
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
