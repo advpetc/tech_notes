@@ -980,12 +980,48 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        10001
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="10001" class="md-nav__link md-nav__link--active">
       10001
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -998,6 +1034,18 @@
   <li class="md-nav__item">
     <a href="../10002/" title="10002" class="md-nav__link">
       10002
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../10003/" title="10003" class="md-nav__link">
+      10003
     </a>
   </li>
 
@@ -1309,8 +1357,30 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1330,25 +1400,20 @@
                   
                 
                 
+                  <h1>10001</h1>
+                
                 <p>「一本通 1.1 例 2」种树</p>
 <p><a href="https://loj.ac/problem/10001">https://loj.ac/problem/10001</a></p>
-<h1 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h1>
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>从前往后种树，如果之前种过，那么就可以skip掉。如果还有要求没有达成，那么从后往前继续遍历，添加未种的地方。
 e.g.
-<span><span class="MathJax_Preview">01000</span><script type="math/tex">01000</script></span>010100101001
-在$ <span><span class="MathJax_Preview">中需要种三颗树：b = 0, e = 5, t = 3
-<span><span class="MathJax_Preview">01011</span><script type="math/tex">01011</script></span>010100101001
+x01000x010100101001
+在x x中需要种三颗树：b = 0, e = 5, t = 3
+x01011x010100101001
 b = 1, e = 6, t = 4
-0010100101001
-b = 1, e = 6, t = 4
-0</span><script type="math/tex">中需要种三颗树：b = 0, e = 5, t = 3
-<span><span class="MathJax_Preview">01011</span><script type="math/tex">01011</script></span>010100101001
-b = 1, e = 6, t = 4
-0010100101001
-b = 1, e = 6, t = 4
-0</script></span>10110$10100101001</p>
+0x10110x10100101001</p>
 <p>Time: <span><span class="MathJax_Preview">O(h \times max(e - a))</span><script type="math/tex">O(h \times max(e - a))</script></span></p>
-<h1 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h1>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
 <span style="color: #75715e"> * 种树.cpp</span>
 <span style="color: #75715e"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
