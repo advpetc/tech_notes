@@ -483,6 +483,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../design-heap-priority-queue/" title="Design heap priority queue" class="md-nav__link">
+      Design heap priority queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../divide-two-integer/" title="Divide two integer" class="md-nav__link">
       Divide two integer
     </a>
@@ -768,6 +780,60 @@
   <a href="#post-order" class="md-nav__link">
     Post-order
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-searh-tree" class="md-nav__link">
+    Binary Searh Tree
+  </a>
+  
+    <nav class="md-nav" aria-label="Binary Searh Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    Query
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insertion" class="md-nav__link">
+    Insertion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#form-the-minimal-tree" class="md-nav__link">
+    Form the Minimal Tree
+  </a>
+  
+    <nav class="md-nav" aria-label="Form the Minimal Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis_3" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1590,6 +1656,60 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#binary-searh-tree" class="md-nav__link">
+    Binary Searh Tree
+  </a>
+  
+    <nav class="md-nav" aria-label="Binary Searh Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    Query
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insertion" class="md-nav__link">
+    Insertion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#form-the-minimal-tree" class="md-nav__link">
+    Form the Minimal Tree
+  </a>
+  
+    <nav class="md-nav" aria-label="Form the Minimal Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis_3" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1788,6 +1908,62 @@ Space Compleixty: the worst case would be like a linkedlist and the height is n,
     <span style="color: #f8f8f2">}</span>
     <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
  <span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<h2 id="binary-searh-tree">Binary Searh Tree<a class="headerlink" href="#binary-searh-tree" title="Permanent link">&para;</a></h2>
+<h3 id="query">Query<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
+<p><strong>find min/max:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">x.left</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">x.right</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">null:</span>
+    <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x.left</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">x.right</span>
+<span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">x</span> <span style="color: #75715e">// if using x.left -&gt; min, x.right -&gt; max</span>
+</code></pre></div>
+
+
+<h3 id="insertion">Insertion<a class="headerlink" href="#insertion" title="Permanent link">&para;</a></h3>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+    <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">insertIntoBST(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">root)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNode(val);</span>
+        <span style="color: #f8f8f2">TreeNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">cur</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
+        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(true)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">val)</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left)</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNode(val);</span> 
+                    <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
+                <span style="color: #f8f8f2">}</span>
+                <span style="color: #f8f8f2">cur</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left;</span>
+            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">{</span>
+                    <span style="color: #f8f8f2">cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNode(val);</span> 
+                    <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
+                <span style="color: #f8f8f2">}</span>
+                <span style="color: #f8f8f2">cur</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right;</span>
+            <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+</code></pre></div>
+
+
+<h3 id="form-the-minimal-tree">Form the Minimal Tree<a class="headerlink" href="#form-the-minimal-tree" title="Permanent link">&para;</a></h3>
+<p>Given a sorted (increasing order) array with unique integer elements, write an algorithm to create a bnary search tree with minimal height.</p>
+<h4 id="analysis_3">Analysis<a class="headerlink" href="#analysis_3" title="Permanent link">&para;</a></h4>
+<p>In order to have the shortest height, we need to make left subtree and right subtree as close size as possible. To do so, we can recursively find the middle value of the sorted array and then appoints that as the root node (left subtree and right subtree).</p>
+<h4 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h4>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">h</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">arr,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">r)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">NULL;</span>
+  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNode(arr[mid]);</span>
+  <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h(arr,</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// [l, mid) are less than arr[mid]</span>
+  <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h(arr,</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r);</span> <span style="color: #75715e">// (mid, r] are greater than arr[mid]</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">n;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">createMinimalBST</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">arr)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">h(arr,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">arr.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
 </code></pre></div>
                 
               

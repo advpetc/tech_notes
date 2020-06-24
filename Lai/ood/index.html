@@ -483,6 +483,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../design-heap-priority-queue/" title="Design heap priority queue" class="md-nav__link">
+      Design heap priority queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../divide-two-integer/" title="Divide two integer" class="md-nav__link">
       Divide two integer
     </a>
@@ -656,6 +668,20 @@
           <li class="md-nav__item">
   <a href="#action_1" class="md-nav__link">
     Action
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class_1" class="md-nav__link">
+    Class
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scheduling-final-step" class="md-nav__link">
+    Scheduling (Final Step)
   </a>
   
 </li>
@@ -1507,6 +1533,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#class_1" class="md-nav__link">
+    Class
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scheduling-final-step" class="md-nav__link">
+    Scheduling (Final Step)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1570,10 +1610,12 @@
 1. show level button or just up and down then select inside the elevator
 2. swipe card to validate or not
 3. support for multiple elevator -&gt; design elevator system
-4. how to schedule (it could be discussed later): support different types of requests</p>
+4. how to schedule (it could be discussed later): support different types of requests
+5. What is elevator's state in each "iteration" <strong>(per floor)</strong></p>
 <h3 id="state-to-determine-attribute">State to determine attribute<a class="headerlink" href="#state-to-determine-attribute" title="Permanent link">&para;</a></h3>
 <ul>
 <li>which floor</li>
+<li>first floor: up or down (outstanding request to go up or down), open or close door (people load or unload from the elevator) -&gt; next iteration is on second floor (if go up) -&gt; do the same thing for 1<sup>st</sup> floor</li>
 <li>move up or move down</li>
 <li>weight/headcount and capacity -&gt; if overload</li>
 <li>what to do when reach a floor</li>
@@ -1582,9 +1624,38 @@
 <li>determine whether to change the direction</li>
 </ul>
 <h3 id="data_1">Data<a class="headerlink" href="#data_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>maxCapacity</li>
+<li>maxFloor</li>
+<li>load</li>
+<li>location</li>
+</ul>
 <h3 id="action_1">Action<a class="headerlink" href="#action_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>open/close door</li>
+<li>floor</li>
+<li>going up or down</li>
+</ul>
+<h3 id="class_1">Class<a class="headerlink" href="#class_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>System Management (Building)</li>
+<li>how many elevator</li>
+<li>going up or down</li>
+<li>map<Elevator, vector\<Request>></li>
+<li>Elevator</li>
+<li>vector<Request>: good for encapsulation</li>
+<li>User (no need -&gt; too detailed)</li>
+<li>Floor (no need -&gt; too detailed and not relate to action)</li>
+<li>Request</li>
+<li>up and down</li>
+<li>from which floor make the request</li>
+</ul>
+<h3 id="scheduling-final-step">Scheduling (Final Step)<a class="headerlink" href="#scheduling-final-step" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Each elevator makes its own decision</li>
+<li>check Up/Down requests</li>
+<li>the 1<sup>st</sup> elevator arriving at the floor takes the request with the same direction</li>
+<li>the elevator loads ppl at the floor and handles their requests</li>
 </ul>
                 
               
