@@ -47,7 +47,7 @@ In Sample Case #1, you have a budget of 100 dollars. You can buy the 1st and 3rd
 In Sample Case #2, you have a budget of 50 dollars. You can buy the 1st, 3rd and 4th houses for 30 + 10 + 10 = 50 dollars.
 In Sample Case #3, you have a budget of 300 dollars. You cannot buy any houses (so the answer is 0).
 
-## Analysis
+### Analysis
 
 To buy the maxmimum amount of houses, we can greedy buy the ones with the smallest cost first, and until we reach to the point when there is no money left to buy the next higher cost house, we can stop.
 
@@ -59,9 +59,9 @@ we want to prove that A == O
 
 pick an ai that is in A, and replace it with oj. oj is not in A, so oj is less than ai. since size of B is the same, the solution is still the most optimal one. keep doing this until there is A == O.
 
-## Code
+### Code
 
-### sort with nlog n
+#### sort with nlog n
 
 ```c
 /*
@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
 
 ```
 
-### count sort with n
+#### count sort with n
 
 because 1 ≤ Ai ≤ 1000, we can use count sort
 
@@ -200,7 +200,7 @@ He can pick no plates from the second stack.
 He can pick the top plate from the third stack (20).
 In total, the sum of beauty values is 180.
 
-## Analysis
+### Analysis
 
 dp[N][P]: from first n stacks, with p plates, the maximum beauty values
 dp[i][j] = max(dp[i][j], val[k] + dp[i - 1][p - k])
@@ -208,7 +208,7 @@ dp[i][j] = max(dp[i][j], val[k] + dp[i - 1][p - k])
 for choosing current stack's top k plates, you need to give up the previous stacks k plates, so the previous state is dp[i - 1][p - k]
 the answer is dp[N][P]
 
-## Code
+### Code
 
 ```c
 /*
@@ -322,14 +322,14 @@ In Case #2: Tambourine can add up to six sessions. The added sessions are marked
 
 In Case #3: Tambourine can add up to three sessions. The added sessions are marked in bold: 1 2 3 4 5 6 7 8 9 10. The difficulty is now 1. Note that Tambourine only added two sessions.
 
-## Analysis
+### Analysis
 
 1. **Priority Queue**: Find an array that record the gaps every two sessions. Call it gaps[N-1]. To add one session, the new one should be between the one that has the greatest gap. However, we cannot do that all at once for the first greatest gap. Instead, we should do it "greedily". When adding the one, we need to find a way to get the **updated** max gap from the total gaps. In order to do so, we need to use priority queue. The top of the queue will store the maxmium gap. To keep update the gap, we don't want to manually modify the default gap, but to add a "cnt" which will be divied by the gap. When making the comparsion, the real gap value is gap default value / cnt.
 2. **Binary Search**: Our goal is to find the most difficult gap, and try to minimize it as much as possible. It now becomes a search problem. The gap is in between 1 ~ a[n-1]-a[0], and for each gap, we calculate the desire "cuts" to satisfy k. To calculate the desire "cuts", we should find the gap between each one, and then ceil(gap / most difficult gap) - 1 (check line 21 from solution 2). If the "cuts" is less than K, that means we have room to lower our difficulty by using the unused "cuts", so our search range is decreased by half from 1 ~ mb, else it will be mb + 1 ~ rb.
 
-## Code
+### Code
 
-### Priority Queue
+#### Priority Queue
 
 ```c
 #include <bits/stdc++.h>
@@ -394,7 +394,7 @@ int main(int argc, char* argv[])
 
 ```
 
-### Binary search
+#### Binary search
 
 ```c
 #include <bits/stdc++.h>
@@ -478,8 +478,6 @@ The total number of characters in Pip's strings across all test cases is at most
 Samples
 
 Input 1
- 	
-Output 1
  
 2
 2 2
@@ -495,14 +493,14 @@ GOO
 GOOO
 GOOO
   
+Output 1
+
 Case #1: 0
 Case #2: 10
   
 
 Input 2
  	
-Output 2
- 
 1
 6 3
 RAINBOW
@@ -512,6 +510,8 @@ RANDOM
 FIREWALL
 FIREFIGHTER
   
+Output 2
+ 
 Case #1: 6
   
 Sample #1
@@ -529,46 +529,83 @@ In Case #1, Pip can achieve a total score of 6 by make the groups:
 {RAINBOW, RANK, RANDOM}, with a score of 2.
 {FIREBALL, FIREWALL, FIREFIGHTER}, with a score of 4.
 
-## Analysis
+### Analysis
 
-Use Trie tree to store all the strings. Ue
+Assume each bundle has prefix as $P_i$, and the $CNT_i$ represents the number of strings shares that prefix. 
+Assign k string to the bundle, now we have $CNT_i \% k$ string left. 
+Do the same thing for preifx $P_{i + 1}$ which has a $CNT_{i+1} < CNT_i$, now we have $CNT_{i + 1} \% k$ left. 
+Keep this procedure until $CNT_j \% k == 0$ which means all the string have assigned to a particular bundle.
 
-## Code
+Now the problem becomes finding the total count. 
+Split into n/k groups, and each group has k strings. Use trie to find the common prefix. 
+Each trie node has 26 children nodes, and one cnt int for counting the number of prefix exist by the current node. 
+Insert: insert into trie and update the cnt for each ending character node. 
+Query: just search from the root of the trie and traverse through the last level of the trie, because all the nodes from root has a count that represent the occurance of word that is ended with node character.
+
+### Code
 
 ```c
 #include <bits/stdc++.h>
-
 using namespace std;
-const int N = 2000010;
-int son[N][26], cnt[N * 26], idx = 0, res;
-void insert(string &s) {
-  int p = 0;
-  for (auto ch : s) {
-    cnt[p]++;
-    int j = ch - 'A';
-    if (son[p][j] == 0) son[p][j] = ++idx; // 
-    p = son[p][j];
-  }
-  cnt[p]++;
-}
-int main() {
-  int T;
-  scanf("%d", &T);
-  for (int t = 1; t <= T; t++) {
-    idx = 0, res = 0;
-    memset(son, 0, sizeof(son));
-    memset(cnt, 0, sizeof(cnt));
-    int n, k;
-    scanf("%d %d", &n, &k);
-    string s;
-    for (int i = 0; i < n; i++) {
-      cin >> s;
-      insert(s);
-    }
-    for (int i = 1; i <= idx; i++) res += cnt[i] / k;
-    printf("Case #%d: %d\n", t, res);
-  }
-  return 0;
+ 
+#define endl "\n"
+#define int long long
+
+const int N = 1e5 + 5;
+
+typedef struct data
+{
+	data* bit[26];
+	int cnt = 0;
+}trie;
+
+trie* head;
+
+void insert(string &s)
+{
+	trie* cur = head;
+	for(auto &it:s)
+	{
+		int b = it - 'A';
+		if(!cur->bit[b])
+			cur->bit[b] = new trie(); // create new node if not exist
+		cur = cur->bit[b]; // proceed through next character
+		cur->cnt++; // end with current character
+	}
 }
 
+int n, k;
+string s[N];
+
+int query(trie* cur)
+{
+	if(!cur)
+		return 0;
+	int ans = (cur -> cnt / k); // there are k words each, so there are k times repeat counts
+	for(int i = 0; i <= 25; i++)
+		if(cur -> bit[i])
+			ans += query(cur -> bit[i]); // proceeds to next level and check the count
+	return ans;
+}
+ 
+int main()
+{
+	int t;
+	cin >> t;
+	int tc = 0; 
+	while(t--)
+	{
+		head = new trie();
+		tc++;
+		cin >> n >> k;
+		for(int i = 1; i <= n; i++)
+		{
+			cin >> s[i];
+			insert(s[i]);
+		}
+		int ans = query(head);
+		cout << "Case #" << tc << ": " << ans << endl;
+ 	}	
+	return 0;
+}
 ```

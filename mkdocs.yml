@@ -20,6 +20,10 @@ theme:
   include_search_page: false
   search_index_only: true
   favicon: 'assets/images/favicon.ico'
+  extra:
+    social:
+      - type: "linkedin"
+        link: "https://www.linkedin.com/in/haoyang-chen-113424ab/"
 
   logo: 'assets/images/logo.png'
   feature:

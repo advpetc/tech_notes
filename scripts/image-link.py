@@ -24,6 +24,8 @@ ftype = '.md'
 rtype = ('.png', '.jpeg', '.jpg')
 for path, _, files in os.walk('raw'):
     for fname in files:
+        if len(path.split("/")) == 1:
+            continue
         sub_dir = output_dir + "/" + path.split("/")[1]
         # print(sub_dir)
         if not os.path.exists(sub_dir):
