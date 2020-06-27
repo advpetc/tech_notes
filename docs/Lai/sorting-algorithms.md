@@ -61,7 +61,55 @@ $O(\frac{(n-1)+1}{2} \times (n-1))$ = $O(n^2)$ -- no matter if is pre-sorted or 
 
 sort with two stacks:
 
-<script src="https://gist.github.com/lawliet89/8658109.js"></script>
+```c
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int n;
+	cin >> n;
+	int num[n];
+	for (int i = 0; i < n; ++i) cin >> num[i];
+	stack<int> s1, s2; // s1: buffer; s2: sorted array in ascending order
+	for (int i : num) s1.push(i);
+	while (!s1.empty()) {
+		int curr = s1.top();
+		s1.pop();
+		int cnt = 0;
+		/*
+		s1: C
+		s2: LLL	
+		*/
+		// remove everything that is less than curr in the buffer
+		while (!s2.empty() && s2.top() < curr) {
+			s1.push(s2.top());
+			s2.pop();
+			++cnt;
+		}
+	
+		s2.push(curr);
+		/*
+		s1: LLL
+		s2: C
+		*/
+		// move back
+		for (int i = 0; i < cnt; ++i) {
+			s2.push(s1.top());
+			s1.pop();
+		}
+		/*
+		s1: 
+		s2: CLLL
+		*/
+	}
+	
+	while (!s2.empty()) {
+		cout << s2.top() << " ";
+		s2.pop();
+	}
+	return 0;
+}
+```
 
 counter: count number of element that is less than current top.
 1. compare sorted.top() with item, pop all the elements back to the input stack that are greater than item

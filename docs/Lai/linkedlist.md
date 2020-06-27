@@ -8,6 +8,8 @@ Need two pointers: one for previous, one for curr; reverse is simply change the 
 
 ### Recursion
 
+![Screen Shot 2020-06-24 at 4.42.09 PM.png](resources/2BF10CE1244D84ADE6BB83A9844AF015.png)
+
 ```c
 ListNode* reverse(ListNode* head) {
     if (!head || !head -> next) return head;
