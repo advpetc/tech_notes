@@ -2,15 +2,17 @@
 
 ## What's included
 * Leetcode
-* c
+* C
 * Java
 * iOS
 * Crypto
 * Python
 * Machine Learning
-* Lai
+* Interview
 * Google Kick Start
 * LibreOJ
+* CLRS
+* Acwing
 
 ## No Longer Update
 * [Old gitbook](https://advpetc-algorithm.gitbook.io/notes/)

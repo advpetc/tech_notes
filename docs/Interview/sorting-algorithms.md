@@ -233,6 +233,41 @@ class Solution {
 
 Differ from Merge Sort, Quick sort first split array into two half where the values on the left of x are less than x and values on the right of x are equal or greater than x. 
 
+### Code
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 1010;
+
+int num[N];
+
+int quick_select(int l, int r, int k) {
+  if (l == r) return num[l];
+  int i = l - 1, j = r + 1, x = num[(l + r) >> 1];
+  while (i < j) {
+    while (num[++i] < x) ;
+    while (num[--j] > x) ;
+    if (i < j) swap(num[i], num[j]);
+  }
+  int offset = j - l + 1;
+  if (k <= offset) return quick_select(l, j, k);
+  return quick_select(j + 1, r, k - offset);
+}
+
+int main() {
+  int n, k;
+  cin >> n >> k;
+  for (int i = 0; i < n; ++i) cin >> num[i];
+
+  cout << quick_select(0, n - 1, k);
+
+  return 0;
+}
+```
+
 - Auxiliary Space : Mergesort uses **extra space**, quicksort requires little space and exhibits good cache locality. Quick sort is an in-place sorting algorithm. In-place sorting means no additional storage space is needed to perform sorting. Merge sort requires a temporary array to merge the sorted arrays and hence it is not in-place giving Quick sort the advantage of space.
 - Worst Cases : The worst case of quicksort $O(n^2)$ can be avoided by using **randomized quicksort**. It can be easily avoided with high probability by choosing the right pivot. Obtaining an average case behavior by choosing right pivot element makes it improvise the performance and becoming as efficient as Merge sort.
 - Locality of reference : Quicksort in particular exhibits good **cache locality** and this makes it faster than merge sort in many cases like in virtual memory environment.

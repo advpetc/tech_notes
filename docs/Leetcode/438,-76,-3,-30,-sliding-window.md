@@ -350,3 +350,56 @@ int main() {
 }
 ```
 
+## Variation: with K different words
+
+if the character is in range of 'a' to 'z', then maintain a int array with size of 26.
+
+```c
+class Solution {
+ public:
+  string longest(string input, int k) {
+    int n = input.size();
+    int l = 0, r = 0, cnt = 0, len = 0;
+    string res = "";
+    int v[26];
+    memset(v, 0, sizeof v);
+    while (l < n - 1) {
+      while (cnt < k && r < n) {
+        if (v[input[r] - 'a']++ == 0) cnt++;
+        r++;
+      }
+      if (cnt == k && len < r - l) { // case 1: cnt still in the range so, r doesn't overcount
+        len = r - l;
+        res = input.substr(l, len);
+      } else if (len < r - l - 1) { // case 2: cnt is greater than k by 1, r overcount by 1
+        len = r - l - 1;
+        res = input.substr(l, len);
+      }
+      if (--v[input[l] - 'a'] == 0) cnt--;
+      l++;
+    }
+    return res;
+  }
+};
+
+```
+
+```c
+class Solution {
+public:
+    int lengthOfLongestSubstringKDistinct(string s, int k) {
+        int res = 0, left = 0;
+        unordered_map<char, int> m;
+        for (int i = 0; i < s.size(); ++i) {
+            ++m[s[i]];
+            while (m.size() > k) {
+                if (--m[s[left]] == 0) m.erase(s[left]);
+                ++left;
+            }
+            res = max(res, i - left + 1);
+        }
+        return res;
+    }
+};
+```
+

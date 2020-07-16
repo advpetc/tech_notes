@@ -71,3 +71,77 @@ class Solution {
 };
 
 ```
+
+## String Hashing or RabinKarp Algorithm
+
+* First calculate the hash value for subtring from 0 ~ i in large
+* Second calculate the hash value for substring from i ~ j given hash values of 0 ~ i and 0 ~ j
+
+To Prevent collision, use a large prime for P.
+
+![Screen Shot 2020-06-27 at 6.39.40 PM.png](resources/E06E67A3F5960A8DA0F0D9200286FBCC.png)
+
+1. Why use `unsigned long long`? Because `unsigned long long`'s max is $2^{64}$, if add one more, it will become $0$, which makes sure all the values are in the range of 0 ~ $2^{64}$ -- works like a module operation.
+2. Why `h[i - 1] * p[n]`? Because to find out the hash value for substring of i + n - 1 (right) to i - 1 (left), we need to find p[i + n - 1 (right) - i + 1 (left)], which yields p[n].
+
+### Code
+
+**before Optimization**
+
+```c
+class Solution {
+ public:
+  int strstr(string large, string small) {
+    if (small == "") return 0;
+    int m = large.size(), n = small.size();
+    typedef unsigned long long ULL;
+    int P = 131;
+    vector<ULL> p(m + 1, 1), h(m + 1, 1);
+    for (int i = 1; i <= m; ++i) {
+      h[i] = h[i - 1] * P + large[i - 1];
+      p[i] = p[i - 1] * P;
+    }
+    ULL check = 1;
+    for (int i = 1; i <= n; ++i) {
+      check = check * P + small[i - 1];
+    }
+    check = check - p[n];
+	
+    for (int i = 1; i <= m - n + 1; ++i) {
+	  ULL hash = h[i + n - 1] - h[i - 1] * p[n];
+      if (h[i + n - 1] - h[i - 1] * p[n] == check)
+    	return i - 1;
+    }
+    return -1;
+  }
+};
+```
+
+**after optimization**
+
+```c
+class Solution {
+ public:
+  int strstr(string large, string small) {
+    if (small == "") return 0;
+    int m = large.size(), n = small.size();
+    typedef unsigned long long ULL;
+    int P = 131;
+    vector<ULL> h(m + 1, 1);
+    ULL p = 1, check = 1;
+    for (int i = 1; i <= m; ++i) {
+      h[i] = h[i - 1] * P + large[i - 1];
+      if (i <= n) {
+      	p *= P;
+      	check = check * P + small[i - 1];
+      }
+    }
+    check = check - p;
+    for (int i = 1; i <= m - n + 1; ++i) {
+      if (h[i + n - 1] - h[i - 1] * p == check)
+    	return i - 1;
+    }
+    return -1;
+  }
+};
+```
