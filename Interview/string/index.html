@@ -561,6 +561,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../linked-list/" title="Linked list" class="md-nav__link">
+      Linked list
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../linkedlist/" title="Linkedlist" class="md-nav__link">
       Linkedlist
     </a>
@@ -597,8 +609,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../midterm-java/" title="Midterm java" class="md-nav__link">
+      Midterm java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ood/" title="Ood" class="md-nav__link">
       Ood
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rectangle--2d-dp/" title="Rectangle 2d dp" class="md-nav__link">
+      Rectangle  2d dp
     </a>
   </li>
 
@@ -751,6 +787,19 @@
   <a href="#reverse" class="md-nav__link">
     Reverse
   </a>
+  
+    <nav class="md-nav" aria-label="Reverse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trick" class="md-nav__link">
+    Trick
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1731,6 +1780,19 @@
     Reverse
   </a>
   
+    <nav class="md-nav" aria-label="Reverse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trick" class="md-nav__link">
+    Trick
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1768,6 +1830,28 @@
 <li>reverse entire string: "oohay evol I"</li>
 <li>reverse each word: "yahoo love I"</li>
 </ol>
+<h3 id="trick">Trick<a class="headerlink" href="#trick" title="Permanent link">&para;</a></h3>
+<p>Right shift a given string by n characters.</p>
+<p>Assumptions</p>
+<p>The given string is not null.
+n &gt;= 0.
+Examples</p>
+<p>"abc", 4 -&gt; "cab"</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+ <span style="color: #f8f8f2">public:</span>
+  <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">rightShift(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #75715e">// write your solution here</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">n</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">s</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s;</span>
+    <span style="color: #f8f8f2">reverse(s.begin(),</span> <span style="color: #f8f8f2">s.end());</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">shift</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">s.size();</span>
+    <span style="color: #f8f8f2">reverse(s.begin()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">shift,</span> <span style="color: #f8f8f2">s.end());</span>
+    <span style="color: #f8f8f2">reverse(s.begin(),</span> <span style="color: #f8f8f2">s.begin()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">shift);</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s;</span>
+  <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+</code></pre></div>
+
+
 <h2 id="replacement">Replacement<a class="headerlink" href="#replacement" title="Permanent link">&para;</a></h2>
 <p>Replace "student" to "stuXXt" -&gt; replace all "den" to "XX" Note that replacement may have different size</p>
 <p>Use two pointers method

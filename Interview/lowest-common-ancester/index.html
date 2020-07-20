@@ -561,6 +561,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../linked-list/" title="Linked list" class="md-nav__link">
+      Linked list
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../linkedlist/" title="Linkedlist" class="md-nav__link">
       Linkedlist
     </a>
@@ -623,6 +635,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#variant-2-input-is-a-binary-tree" class="md-nav__link">
+    Variant 2: input is a binary tree
+  </a>
+  
+    <nav class="md-nav" aria-label="Variant 2: input is a binary tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code_1" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -648,8 +680,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../midterm-java/" title="Midterm java" class="md-nav__link">
+      Midterm java
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ood/" title="Ood" class="md-nav__link">
       Ood
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rectangle--2d-dp/" title="Rectangle 2d dp" class="md-nav__link">
+      Rectangle  2d dp
     </a>
   </li>
 
@@ -1752,6 +1808,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#variant-2-input-is-a-binary-tree" class="md-nav__link">
+    Variant 2: input is a binary tree
+  </a>
+  
+    <nav class="md-nav" aria-label="Variant 2: input is a binary tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code_1" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1796,6 +1872,27 @@
     <span style="color: #f8f8f2">}</span>
     <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span>
 <span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<h2 id="variant-2-input-is-a-binary-tree">Variant 2: input is a binary tree<a class="headerlink" href="#variant-2-input-is-a-binary-tree" title="Permanent link">&para;</a></h2>
+<p>If the two nodes are all existed in the binary tree, then if we start from the root of the tree
+1. if find <code>one</code> -&gt; <code>two</code> is somewhere deeper than <code>one</code>, so <code>one</code> is the LCA
+2. if find <code>two</code> -&gt; <code>one</code> is somewhere deeper than <code>two</code>, so <code>two</code> is the LCA</p>
+<p>Now the problem reduced to how to find the two nodes from the binay tree.</p>
+<p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>
+Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="math/tex">O(height)</script></span></p>
+<h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+ <span style="color: #f8f8f2">public:</span>
+  <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">solve(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">one,</span> <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">two)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">root</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">one</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">two</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">root)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span>
+    <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">solve(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">one,</span> <span style="color: #f8f8f2">two);</span>
+    <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">solve(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">one,</span> <span style="color: #f8f8f2">two);</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(left</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">right)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span> <span style="color: #75715e">// both exist, so current root is the LCA</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">left</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">right;</span> <span style="color: #75715e">// return the one that is found</span>
+  <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
 </code></pre></div>
                 
               
