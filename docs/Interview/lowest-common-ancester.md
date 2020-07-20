@@ -30,3 +30,30 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
     return root;
 }
 ```
+
+## Variant 2: input is a binary tree
+
+If the two nodes are all existed in the binary tree, then if we start from the root of the tree
+1. if find `one` -> `two` is somewhere deeper than `one`, so `one` is the LCA
+2. if find `two` -> `one` is somewhere deeper than `two`, so `two` is the LCA
+
+
+Now the problem reduced to how to find the two nodes from the binay tree.
+
+Time: $O(n)$
+Stack Space: $O(height)$
+
+### Code
+
+```c
+class Solution {
+ public:
+  TreeNode* solve(TreeNode* root, TreeNode* one, TreeNode* two) {
+    if (!root || root == one || two == root) return root;
+    TreeNode* left = solve(root -> left, one, two);
+    TreeNode* right = solve(root -> right, one, two);
+    if (left && right) return root; // both exist, so current root is the LCA
+    return left ? left : right; // return the one that is found
+  }
+};
+```
