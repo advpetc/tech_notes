@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vending-machine" class="md-skip">
+        <a href="#design-pattern" class="md-skip">
           Skip to content
         </a>
       
@@ -652,6 +652,40 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#design-pattern" class="md-nav__link">
+    Design Pattern
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#builder" class="md-nav__link">
+    Builder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstract-factory" class="md-nav__link">
+    Abstract Factory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#factory-method" class="md-nav__link">
+    Factory Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#vending-machine" class="md-nav__link">
     Vending Machine
   </a>
@@ -857,6 +891,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../singleton/" title="Singleton" class="md-nav__link">
+      Singleton
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../sorting-algorithms/" title="Sorting algorithms" class="md-nav__link">
       Sorting algorithms
     </a>
@@ -895,6 +941,18 @@
   <li class="md-nav__item">
     <a href="../string/" title="String" class="md-nav__link">
       String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../subset%2C-combination%2C-permutation-problems/" title="Subset, combination, permutation problems" class="md-nav__link">
+      Subset, combination, permutation problems
     </a>
   </li>
 
@@ -1858,6 +1916,40 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#design-pattern" class="md-nav__link">
+    Design Pattern
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#builder" class="md-nav__link">
+    Builder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstract-factory" class="md-nav__link">
+    Abstract Factory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#factory-method" class="md-nav__link">
+    Factory Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#vending-machine" class="md-nav__link">
     Vending Machine
   </a>
@@ -1988,7 +2080,500 @@
                 
                   <h1>Ood</h1>
                 
-                <h2 id="vending-machine">Vending Machine<a class="headerlink" href="#vending-machine" title="Permanent link">&para;</a></h2>
+                <h2 id="design-pattern">Design Pattern<a class="headerlink" href="#design-pattern" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><a href="https://github.com/JakubVojvoda/design-patterns-cpp">https://github.com/JakubVojvoda/design-patterns-cpp</a></p>
+</blockquote>
+<h3 id="builder">Builder<a class="headerlink" href="#builder" title="Permanent link">&para;</a></h3>
+<ol>
+<li>if there are a lot of fields in a class, cannot put them all in as parameters in the constructor.</li>
+<li>solution 0: define <code>final</code> and optional data fields in the class (no need to initialize in the constructor =&gt; bad because it could generate a lot of dfferent types of constructors.</li>
+<li>solution 1: use setter and getter =&gt; bad because if want to create an object, user has to call all the setters and getters (constructor isn't doing what it is supposed to do: dangerous in multi-threading) =&gt; encapsulation is destroyed =&gt; e.g. setters' member field might not want to be changed OR setters are not changed in the desire way </li>
+<li>
+<p>solution 2: encapsulate the related fields into a single function, use an abstract class to manage the top level abstraction and some concrete subclasses to manage the specific constructions.</p>
+</li>
+<li>
+<p>Core: create a builder class for top level abstraction and subclasses for specific constructions. When implementing, don't forget to <code>#include "builder.hpp"</code>.</p>
+</li>
+</ol>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * C++ Design Patterns: Builder</span>
+<span style="color: #75715e"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
+<span style="color: #75715e"> * 2016</span>
+<span style="color: #75715e"> *</span>
+<span style="color: #75715e"> * Source code is licensed under MIT License</span>
+<span style="color: #75715e"> * (for more details see LICENSE)</span>
+<span style="color: #75715e"> *</span>
+<span style="color: #75715e"> */</span>
+
+<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
+<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;string&gt;</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Product</span>
+<span style="color: #75715e"> * the final object that will be created using Builder</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Product</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">makeA(</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">part</span> <span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">partA</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">part;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">makeB(</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">part</span> <span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">partB</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">part;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">makeC(</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">part</span> <span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">partC</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">part;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">get()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">(partA</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot; &quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">partB</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot; &quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">partC);</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+
+<span style="color: #f8f8f2">private:</span>
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">partA;</span>
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">partB;</span>
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">partC;</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Builder</span>
+<span style="color: #75715e"> * abstract interface for creating products</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Builder</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">Builder()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">Product</span> <span style="color: #f8f8f2">get()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">product;</span>
+  <span style="color: #f8f8f2">}</span>
+
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartA()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">buildPartB</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">buildPartC</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #75715e">// ...</span>
+
+<span style="color: #f8f8f2">protected:</span>
+  <span style="color: #f8f8f2">Product</span> <span style="color: #f8f8f2">product;</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Concrete Builder X and Y</span>
+<span style="color: #75715e"> * create real products and stores them in the composite structure</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteBuilderX</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">Builder</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartA()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">product.makeA(</span> <span style="color: #e6db74">&quot;A-X&quot;</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartB()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">product.makeB(</span> <span style="color: #e6db74">&quot;B-X&quot;</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartC()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">product.makeC(</span> <span style="color: #e6db74">&quot;C-X&quot;</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteBuilderY</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">Builder</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartA()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">product.makeA(</span> <span style="color: #e6db74">&quot;A-Y&quot;</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartB()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">product.makeB(</span> <span style="color: #e6db74">&quot;B-Y&quot;</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartC()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">product.makeC(</span> <span style="color: #e6db74">&quot;C-Y&quot;</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Director</span>
+<span style="color: #75715e"> * responsible for managing the correct sequence of object creation</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Director</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f8f8f2">Director()</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">builder()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f92672">~</span><span style="color: #f8f8f2">Director()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">builder</span> <span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">builder;</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">}</span>
+
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">set(</span> <span style="color: #f8f8f2">Builder</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">b</span> <span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">builder</span> <span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+      <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">builder;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">builder</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b;</span>
+  <span style="color: #f8f8f2">}</span>
+
+  <span style="color: #f8f8f2">Product</span> <span style="color: #f8f8f2">get()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">builder</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">get();</span>
+  <span style="color: #f8f8f2">}</span>
+
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">construct()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">builder</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">buildPartA();</span>
+    <span style="color: #f8f8f2">builder</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">buildPartB();</span>
+    <span style="color: #f8f8f2">builder</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">buildPartC();</span>
+    <span style="color: #75715e">// ...</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+
+<span style="color: #f8f8f2">private:</span>
+  <span style="color: #f8f8f2">Builder</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">builder;</span>
+<span style="color: #f8f8f2">};</span>
+
+
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">Director</span> <span style="color: #f8f8f2">director;</span>
+  <span style="color: #f8f8f2">director.set(</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteBuilderX</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">director.construct();</span>
+
+  <span style="color: #f8f8f2">Product</span> <span style="color: #f8f8f2">product1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">director.get();</span>
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;1st product parts: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">product1.get()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
+
+  <span style="color: #f8f8f2">director.set(</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteBuilderY</span> <span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">director.construct();</span>
+
+  <span style="color: #f8f8f2">Product</span> <span style="color: #f8f8f2">product2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">director.get();</span>
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;2nd product parts: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">product2.get()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
+
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<h3 id="abstract-factory">Abstract Factory<a class="headerlink" href="#abstract-factory" title="Permanent link">&para;</a></h3>
+<ol>
+<li>polymorphism: use an abstract class to include the shared method <code>getName()</code> </li>
+<li>multiple different classes create the same type of object with the shared method for creations, update and other <em>CRUD</em> operations.</li>
+<li>it's a easy to extend: if you want to add a new type and add its creation and other <em>CURD</em>, just create a new method in the abstract factory class (implement the details in the subclass).</li>
+<li>example usage: when designing an application on different platforms, methods themselves don't need to change the logic when running on different platform =&gt; create a factory class for initialize different object on different platform</li>
+</ol>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * C++ Design Patterns: Abstract Factory</span>
+<span style="color: #75715e"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
+<span style="color: #75715e"> * 2016</span>
+<span style="color: #75715e"> *</span>
+<span style="color: #75715e"> * Source code is licensed under MIT License</span>
+<span style="color: #75715e"> * (for more details see LICENSE)</span>
+<span style="color: #75715e"> *</span>
+<span style="color: #75715e"> */</span>
+
+<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Product A</span>
+<span style="color: #75715e"> * products implement the same interface so that the classes can refer</span>
+<span style="color: #75715e"> * to the interface not the concrete product</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ProductA</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">ProductA()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * ConcreteProductAX and ConcreteProductAY</span>
+<span style="color: #75715e"> * define objects to be created by concrete factory</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductAX</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">ProductA</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductAX()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;A-X&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductAY</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">ProductA</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductAY()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;A-Y&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Product B</span>
+<span style="color: #75715e"> * same as Product A, Product B declares interface for concrete products</span>
+<span style="color: #75715e"> * where each can produce an entire set of products</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ProductB</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">ProductB()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * ConcreteProductBX and ConcreteProductBY</span>
+<span style="color: #75715e"> * same as previous concrete product classes</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductBX</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">ProductB</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductBX()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;B-X&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductBY</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">ProductB</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductBY()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;B-Y&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Abstract Factory</span>
+<span style="color: #75715e"> * provides an abstract interface for creating a family of products</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">AbstractFactory</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">AbstractFactory()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f8f8f2">ProductA</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">createProductA()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f8f8f2">ProductB</span> <span style="color: #f92672">*</span><span style="color: #a6e22e">createProductB</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Concrete Factory X and Y</span>
+<span style="color: #75715e"> * each concrete factory create a family of products and client uses</span>
+<span style="color: #75715e"> * one of these factories so it never has to instantiate a product object</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteFactoryX</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">AbstractFactory</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteFactoryX()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">ProductA</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">createProductA()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductAX();</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">ProductB</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">createProductB()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductBX();</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteFactoryY</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">AbstractFactory</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteFactoryY()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">ProductA</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">createProductA()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductAY();</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">ProductB</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">createProductB()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductBY();</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">ConcreteFactoryX</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">factoryX</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteFactoryX();</span>
+  <span style="color: #f8f8f2">ConcreteFactoryY</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">factoryY</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteFactoryY();</span>
+
+  <span style="color: #f8f8f2">ProductA</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">factoryX</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">createProductA();</span>
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Product: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">p1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
+
+  <span style="color: #f8f8f2">ProductA</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">factoryY</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">createProductA();</span>
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Product: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">p2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
+
+  <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">p1;</span>
+  <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">p2;</span>
+
+  <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">factoryX;</span>
+  <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">factoryY;</span>
+
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<h3 id="factory-method">Factory Method<a class="headerlink" href="#factory-method" title="Permanent link">&para;</a></h3>
+<p>When to use
+* a class cant anticipate the class of objects it must create
+* a class wants its subclasses to specify the objects it creates
+* classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * C++ Design Patterns: Factory Method</span>
+<span style="color: #75715e"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
+<span style="color: #75715e"> * 2016</span>
+<span style="color: #75715e"> *</span>
+<span style="color: #75715e"> * Source code is licensed under MIT License</span>
+<span style="color: #75715e"> * (for more details see LICENSE)</span>
+<span style="color: #75715e"> *</span>
+<span style="color: #75715e"> */</span>
+
+<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
+<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;string&gt;</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Product</span>
+<span style="color: #75715e"> * products implement the same interface so that the classes can refer</span>
+<span style="color: #75715e"> * to the interface not the concrete product</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Product</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">Product()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Concrete Product</span>
+<span style="color: #75715e"> * define product to be created</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductA</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">Product</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductA()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">getName()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;type A&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Concrete Product</span>
+<span style="color: #75715e"> * define product to be created</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductB</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">Product</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductB()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">getName()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;type B&quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Creator</span>
+<span style="color: #75715e"> * contains the implementation for all of the methods</span>
+<span style="color: #75715e"> * to manipulate products except for the factory method</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Creator</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">Creator()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f8f8f2">Product</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">createProductA()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #f8f8f2">Product</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">createProductB</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+
+  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">removeProduct</span><span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">Product</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">product</span> <span style="color: #f8f8f2">)</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+<span style="color: #75715e">/*</span>
+<span style="color: #75715e"> * Concrete Creator</span>
+<span style="color: #75715e"> * implements factory method that is responsible for creating</span>
+<span style="color: #75715e"> * one or more concrete products ie. it is class that has</span>
+<span style="color: #75715e"> * the knowledge of how to create the products</span>
+<span style="color: #75715e"> */</span>
+<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteCreator</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">Creator</span>
+<span style="color: #f8f8f2">{</span>
+<span style="color: #f8f8f2">public:</span>
+  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteCreator()</span> <span style="color: #f8f8f2">{}</span>
+
+  <span style="color: #f8f8f2">Product</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">createProductA()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductA();</span>
+  <span style="color: #f8f8f2">}</span>
+
+  <span style="color: #f8f8f2">Product</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">createProductB()</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductB();</span>
+  <span style="color: #f8f8f2">}</span>
+
+  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">removeProduct(</span> <span style="color: #f8f8f2">Product</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">product</span> <span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">product;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">// ...</span>
+<span style="color: #f8f8f2">};</span>
+
+
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">Creator</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">creator</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteCreator();</span>
+
+  <span style="color: #f8f8f2">Product</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">creator</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">createProductA();</span>
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Product: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">p1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">creator</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">removeProduct(</span> <span style="color: #f8f8f2">p1</span> <span style="color: #f8f8f2">);</span>
+
+  <span style="color: #f8f8f2">Product</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">creator</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">createProductB();</span>
+  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Product: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">p2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
+  <span style="color: #f8f8f2">creator</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">removeProduct(</span> <span style="color: #f8f8f2">p2</span> <span style="color: #f8f8f2">);</span>
+
+  <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">creator;</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+
+
+<h2 id="vending-machine">Vending Machine<a class="headerlink" href="#vending-machine" title="Permanent link">&para;</a></h2>
 <ol>
 <li>no need to talk about how <strong>many</strong> user using (distribute system design)</li>
 </ol>
