@@ -22,5 +22,12 @@ bool isSymmetric(left, right)
 
 Time = O(n/2)=O(n)
 
+## Calculate Time Complexity
+
+Branch Factor: b
+Height: h
+
+Total Complexity: $b^h$
+
 
 

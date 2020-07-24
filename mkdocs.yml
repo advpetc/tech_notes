@@ -32,6 +32,7 @@ theme:
 extra:
   pagetime: 'on'
   manifest: 'assets/images/site.webmanifest'
+  disqus: 'tech-notes-2'
 extra_css:
   - css/extra.css
 extra_javascript:

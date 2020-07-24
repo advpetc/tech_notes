@@ -1,3 +1,495 @@
+## Design Pattern
+
+> https://github.com/JakubVojvoda/design-patterns-cpp
+
+### Builder
+
+1. if there are a lot of fields in a class, cannot put them all in as parameters in the constructor.
+2. solution 0: define `final` and optional data fields in the class (no need to initialize in the constructor => bad because it could generate a lot of dfferent types of constructors.
+3. solution 1: use setter and getter => bad because if want to create an object, user has to call all the setters and getters (constructor isn't doing what it is supposed to do: dangerous in multi-threading) => encapsulation is destroyed => e.g. setters' member field might not want to be changed OR setters are not changed in the desire way 
+4. solution 2: encapsulate the related fields into a single function, use an abstract class to manage the top level abstraction and some concrete subclasses to manage the specific constructions.
+
+* Core: create a builder class for top level abstraction and subclasses for specific constructions. When implementing, don't forget to `#include "builder.hpp"`.
+
+```c
+/*
+ * C++ Design Patterns: Builder
+ * Author: Jakub Vojvoda [github.com/JakubVojvoda]
+ * 2016
+ *
+ * Source code is licensed under MIT License
+ * (for more details see LICENSE)
+ *
+ */
+
+#include <iostream>
+#include <string>
+
+/*
+ * Product
+ * the final object that will be created using Builder
+ */
+class Product
+{
+public:
+  void makeA( const std::string &part )
+  {
+    partA = part;
+  }
+  void makeB( const std::string &part )
+  {
+    partB = part;
+  }
+  void makeC( const std::string &part )
+  {
+    partC = part;
+  }
+  std::string get()
+  {
+    return (partA + " " + partB + " " + partC);
+  }
+  // ...
+  
+private:
+  std::string partA;
+  std::string partB;
+  std::string partC;
+  // ...
+};
+
+/*
+ * Builder
+ * abstract interface for creating products
+ */
+class Builder
+{
+public:
+  virtual ~Builder() {}
+  
+  Product get()
+  {
+    return product;
+  }
+  
+  virtual void buildPartA() = 0;
+  virtual void buildPartB() = 0;
+  virtual void buildPartC() = 0;
+  // ...
+
+protected:
+  Product product;
+};
+
+/*
+ * Concrete Builder X and Y
+ * create real products and stores them in the composite structure
+ */
+class ConcreteBuilderX : public Builder
+{
+public:
+  void buildPartA()
+  {
+    product.makeA( "A-X" );
+  }
+  void buildPartB()
+  {
+    product.makeB( "B-X" );
+  }
+  void buildPartC()
+  {
+    product.makeC( "C-X" );
+  }
+  // ...
+};
+
+class ConcreteBuilderY : public Builder
+{
+public:
+  void buildPartA()
+  {
+    product.makeA( "A-Y" );
+  }
+  void buildPartB()
+  {
+    product.makeB( "B-Y" );
+  }
+  void buildPartC()
+  {
+    product.makeC( "C-Y" );
+  }
+  // ...
+};
+
+/*
+ * Director
+ * responsible for managing the correct sequence of object creation
+ */
+class Director {
+public:
+  Director() : builder() {}
+  
+  ~Director()
+  {
+    if ( builder )
+    {
+      delete builder;
+    }
+  }
+  
+  void set( Builder *b )
+  {
+    if ( builder )
+    {
+      delete builder;
+    }
+    builder = b;
+  }
+  
+  Product get()
+  {
+    return builder->get();
+  }
+  
+  void construct()
+  {
+    builder->buildPartA();
+    builder->buildPartB();
+    builder->buildPartC();
+    // ...
+  }
+  // ...
+
+private:
+  Builder *builder;
+};
+
+
+int main()
+{
+  Director director;
+  director.set( new ConcreteBuilderX );
+  director.construct();
+  
+  Product product1 = director.get();
+  std::cout << "1st product parts: " << product1.get() << std::endl;
+  
+  director.set( new ConcreteBuilderY );
+  director.construct();
+  
+  Product product2 = director.get();
+  std::cout << "2nd product parts: " << product2.get() << std::endl;
+  
+  return 0;
+}
+```
+
+### Abstract Factory
+
+1. polymorphism: use an abstract class to include the shared method `getName()` 
+2. multiple different classes create the same type of object with the shared method for creations, update and other _CRUD_ operations.
+3. it's a easy to extend: if you want to add a new type and add its creation and other _CURD_, just create a new method in the abstract factory class (implement the details in the subclass).
+4. example usage: when designing an application on different platforms, methods themselves don't need to change the logic when running on different platform => create a factory class for initialize different object on different platform
+
+```c
+/*
+ * C++ Design Patterns: Abstract Factory
+ * Author: Jakub Vojvoda [github.com/JakubVojvoda]
+ * 2016
+ *
+ * Source code is licensed under MIT License
+ * (for more details see LICENSE)
+ *
+ */
+
+#include <iostream>
+
+/*
+ * Product A
+ * products implement the same interface so that the classes can refer
+ * to the interface not the concrete product
+ */
+class ProductA
+{
+public:
+  virtual ~ProductA() {}
+  
+  virtual const char* getName() = 0;
+  // ...
+};
+
+/*
+ * ConcreteProductAX and ConcreteProductAY
+ * define objects to be created by concrete factory
+ */
+class ConcreteProductAX : public ProductA
+{
+public:
+  ~ConcreteProductAX() {}
+  
+  const char* getName()
+  {
+    return "A-X";
+  }
+  // ...
+};
+
+class ConcreteProductAY : public ProductA
+{
+public:
+  ~ConcreteProductAY() {}
+  
+  const char* getName()
+  {
+    return "A-Y";
+  }
+  // ...
+};
+
+/*
+ * Product B
+ * same as Product A, Product B declares interface for concrete products
+ * where each can produce an entire set of products
+ */
+class ProductB
+{
+public:
+  virtual ~ProductB() {}
+  
+  virtual const char* getName() = 0;
+  // ...
+};
+
+/*
+ * ConcreteProductBX and ConcreteProductBY
+ * same as previous concrete product classes
+ */
+class ConcreteProductBX : public ProductB
+{
+public:
+  ~ConcreteProductBX() {}
+  
+  const char* getName()
+  {
+    return "B-X";
+  }
+  // ...
+};
+
+class ConcreteProductBY : public ProductB
+{
+public:
+  ~ConcreteProductBY() {}
+  
+  const char* getName()
+  {
+    return "B-Y";
+  }
+  // ...
+};
+
+/*
+ * Abstract Factory
+ * provides an abstract interface for creating a family of products
+ */
+class AbstractFactory
+{
+public:
+  virtual ~AbstractFactory() {}
+  
+  virtual ProductA *createProductA() = 0;
+  virtual ProductB *createProductB() = 0;
+};
+
+/*
+ * Concrete Factory X and Y
+ * each concrete factory create a family of products and client uses
+ * one of these factories so it never has to instantiate a product object
+ */
+class ConcreteFactoryX : public AbstractFactory
+{
+public:
+  ~ConcreteFactoryX() {}
+  
+  ProductA *createProductA()
+  {
+    return new ConcreteProductAX();
+  }
+  ProductB *createProductB()
+  {
+    return new ConcreteProductBX();
+  }
+  // ...
+};
+
+class ConcreteFactoryY : public AbstractFactory
+{
+public:
+  ~ConcreteFactoryY() {}
+
+  ProductA *createProductA()
+  {
+    return new ConcreteProductAY();
+  }
+  ProductB *createProductB()
+  {
+    return new ConcreteProductBY();
+  }
+  // ...
+};
+
+
+int main()
+{
+  ConcreteFactoryX *factoryX = new ConcreteFactoryX();
+  ConcreteFactoryY *factoryY = new ConcreteFactoryY();
+
+  ProductA *p1 = factoryX->createProductA();
+  std::cout << "Product: " << p1->getName() << std::endl;
+  
+  ProductA *p2 = factoryY->createProductA();
+  std::cout << "Product: " << p2->getName() << std::endl;
+  
+  delete p1;
+  delete p2;
+  
+  delete factoryX;
+  delete factoryY;
+  
+  return 0;
+}
+```
+
+### Factory Method
+
+When to use
+* a class cant anticipate the class of objects it must create
+* a class wants its subclasses to specify the objects it creates
+* classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate
+
+```c
+/*
+ * C++ Design Patterns: Factory Method
+ * Author: Jakub Vojvoda [github.com/JakubVojvoda]
+ * 2016
+ *
+ * Source code is licensed under MIT License
+ * (for more details see LICENSE)
+ *
+ */
+
+#include <iostream>
+#include <string>
+
+/*
+ * Product
+ * products implement the same interface so that the classes can refer
+ * to the interface not the concrete product
+ */
+class Product
+{
+public:
+  virtual ~Product() {}
+  
+  virtual std::string getName() = 0;
+  // ...
+};
+
+/*
+ * Concrete Product
+ * define product to be created
+ */
+class ConcreteProductA : public Product
+{
+public:
+  ~ConcreteProductA() {}
+  
+  std::string getName()
+  {
+    return "type A";
+  }
+  // ...
+};
+
+/*
+ * Concrete Product
+ * define product to be created
+ */
+class ConcreteProductB : public Product
+{
+public:
+  ~ConcreteProductB() {}
+  
+  std::string getName()
+  {
+    return "type B";
+  }
+  // ...
+};
+
+/*
+ * Creator
+ * contains the implementation for all of the methods
+ * to manipulate products except for the factory method
+ */
+class Creator
+{
+public:
+  virtual ~Creator() {}
+  
+  virtual Product* createProductA() = 0;
+  virtual Product* createProductB() = 0;
+  
+  virtual void removeProduct( Product *product ) = 0;
+  
+  // ...
+};
+
+/*
+ * Concrete Creator
+ * implements factory method that is responsible for creating
+ * one or more concrete products ie. it is class that has
+ * the knowledge of how to create the products
+ */
+class ConcreteCreator : public Creator
+{
+public:
+  ~ConcreteCreator() {}
+  
+  Product* createProductA()
+  {
+    return new ConcreteProductA();
+  }
+  
+  Product* createProductB()
+  {
+    return new ConcreteProductB();
+  }
+  
+  void removeProduct( Product *product )
+  {
+    delete product;
+  }
+  // ...
+};
+
+
+int main()
+{
+  Creator *creator = new ConcreteCreator();
+  
+  Product *p1 = creator->createProductA();
+  std::cout << "Product: " << p1->getName() << std::endl;
+  creator->removeProduct( p1 );
+  
+  Product *p2 = creator->createProductB();
+  std::cout << "Product: " << p2->getName() << std::endl;
+  creator->removeProduct( p2 );
+  
+  delete creator;
+  return 0;
+}
+```
+
 ## Vending Machine
 
 1. no need to talk about how **many** user using (distribute system design)

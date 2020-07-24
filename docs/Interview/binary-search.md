@@ -160,23 +160,31 @@ vector<int> kClosest(vector<int> arr, int target, int k) {
 ```
 
 Solution 2:
+
 1. binary search to find L and R
+
 2. using offset to form two more arrays:
   leftArray = {3 2 1} rightArray = {4 5}
   then use the method introduced [later](#kth-smallest-in-two-sorted-arrays) to find the median. Don't need to preprocess the offset beforehand, but just to update when visited.
 
 Solution 3:
+
 Moving the sliding window to get the least sum diff. To get the minimal, it has to be the mid point of the sliding window.
+
 case 1: x - A[mid] < A[mid + k] - x, need to move window go left
+
 -------x----A[mid]-----------------A[mid + k]----------
 
 case 2: x - A[mid] < A[mid + k] - x, need to move window go left again
+
 -------A[mid]----x-----------------A[mid + k]----------
 
 case 3: x - A[mid] > A[mid + k] - x, need to move window go right
+
 -------A[mid]------------------x---A[mid + k]----------
 
 case 4: x - A[mid] > A[mid + k] - x, need to move window go right
+
 -------A[mid]---------------------A[mid + k]----x------
 
 ```c
