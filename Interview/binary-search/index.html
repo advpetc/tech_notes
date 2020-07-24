@@ -417,6 +417,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../all-valid-permutations-of-parentheses/" title="All valid permutations of parentheses" class="md-nav__link">
+      All valid permutations of parentheses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../balanced-search-trees/" title="Balanced search trees" class="md-nav__link">
       Balanced search trees
     </a>
@@ -650,6 +662,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../keep-distance-for-identical-elements/" title="Keep distance for identical elements" class="md-nav__link">
+      Keep distance for identical elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../knight-dialer/" title="Knight dialer" class="md-nav__link">
       Knight dialer
     </a>
@@ -664,18 +688,6 @@
   <li class="md-nav__item">
     <a href="../linked-list/" title="Linked list" class="md-nav__link">
       Linked list
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../linkedlist/" title="Linkedlist" class="md-nav__link">
-      Linkedlist
     </a>
   </li>
 
@@ -746,18 +758,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../rectangle/" title="Rectangle" class="md-nav__link">
-      Rectangle
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../recursion-tree/" title="Recursion tree" class="md-nav__link">
       Recursion tree
     </a>
@@ -772,18 +772,6 @@
   <li class="md-nav__item">
     <a href="../recursion/" title="Recursion" class="md-nav__link">
       Recursion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../reviews/" title="Reviews" class="md-nav__link">
-      Reviews
     </a>
   </li>
 
@@ -2078,21 +2066,27 @@ Complexity: O(log(n) + k), what if k <span><span class="MathJax_Preview">\approx
 </code></pre></div>
 
 
-<p>Solution 2:
-1. binary search to find L and R
-2. using offset to form two more arrays:
+<p>Solution 2:</p>
+<ol>
+<li>
+<p>binary search to find L and R</p>
+</li>
+<li>
+<p>using offset to form two more arrays:
   leftArray = {3 2 1} rightArray = {4 5}
   then use the method introduced <a href="#kth-smallest-in-two-sorted-arrays">later</a> to find the median. Don't need to preprocess the offset beforehand, but just to update when visited.</p>
-<p>Solution 3:
-Moving the sliding window to get the least sum diff. To get the minimal, it has to be the mid point of the sliding window.
-case 1: x - A[mid] &lt; A[mid + k] - x, need to move window go left
--------x----A[mid]-----------------A[mid + k]----------</p>
-<p>case 2: x - A[mid] &lt; A[mid + k] - x, need to move window go left again
--------A[mid]----x-----------------A[mid + k]----------</p>
-<p>case 3: x - A[mid] &gt; A[mid + k] - x, need to move window go right
--------A[mid]------------------x---A[mid + k]----------</p>
-<p>case 4: x - A[mid] &gt; A[mid + k] - x, need to move window go right
--------A[mid]---------------------A[mid + k]----x------</p>
+</li>
+</ol>
+<p>Solution 3:</p>
+<p>Moving the sliding window to get the least sum diff. To get the minimal, it has to be the mid point of the sliding window.</p>
+<p>case 1: x - A[mid] &lt; A[mid + k] - x, need to move window go left</p>
+<p>-------x----A[mid]-----------------A[mid + k]----------</p>
+<p>case 2: x - A[mid] &lt; A[mid + k] - x, need to move window go left again</p>
+<p>-------A[mid]----x-----------------A[mid + k]----------</p>
+<p>case 3: x - A[mid] &gt; A[mid + k] - x, need to move window go right</p>
+<p>-------A[mid]------------------x---A[mid + k]----------</p>
+<p>case 4: x - A[mid] &gt; A[mid + k] - x, need to move window go right</p>
+<p>-------A[mid]---------------------A[mid + k]----x------</p>
 <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">kClosest(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a.size();</span>
     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">k;</span>
@@ -2169,6 +2163,10 @@ Why not size = size * 10? Which one is better?</p>
               
                 
 
+
+  <h2 id="__comments">Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>var disqus_config=function(){this.page.url="https://advpetc.github.io/tech_notes/Interview/binary-search/",this.page.identifier="Interview/binary-search/"};!function(){var e=document,i=e.createElement("script");i.src="//tech-notes-2.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)}()</script>
 
               
             </article>
