@@ -1,0 +1,72 @@
+site_url: https://notes.peterchen.xyz
+site_name: Tech Notes
+site_description: Keep track of all the learning
+site_author: Haoyang
+
+# Repository
+repo_name: 'advpetc/Tech_Notes'
+repo_url: 'https://github.com/advpetc/tech_notes/'
+
+google_analytics:
+  - UA-168812075-1
+  - auto
+
+theme:
+  font:
+    text: Ubuntu Mono
+  name: material
+  palette:
+    scheme: 'slate'
+    primary: 'blue grey'
+    accent: 'teal'
+  include_search_page: false
+  search_index_only: true
+  favicon: 'assets/images/favicon.ico'
+  extra:
+    social:
+      - type: "linkedin"
+        link: "https://www.linkedin.com/in/haoyang-chen-113424ab/"
+
+  logo: 'assets/images/logo.png'
+  feature:
+    tabs: true
+
+extra:
+  pagetime: 'on'
+  manifest: 'assets/images/site.webmanifest'
+  disqus: 'tech-notes-2'
+extra_css:
+  - css/extra.css
+extra_javascript:
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+markdown_extensions:
+  - mdx_math
+  - admonition
+  - codehilite:
+      guess_lang: false
+      use_pygments: true
+      noclasses: true
+      pygments_style: monokai
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.progressbar
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.highlight:
+      linenums_style: pymdownx.table
+

@@ -1,0 +1,1 @@
+1. use atoi(s.c_str()); because it can handle leading zero (drop it). what it does is convert the s to char*.
