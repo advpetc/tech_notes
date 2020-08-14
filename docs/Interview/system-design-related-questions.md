@@ -11,11 +11,15 @@ Use a `priority_queue` to keep track of the smallest value for each array. Use a
 This solution will read and write each element **once** from the disk  (because we are using a pointer to point each array).
 
 
+<<<<<<< HEAD
 Assume the average size of each array is **n**, then the time complexity is $O(k \times log_2{k} \times N)$ 
 
 + Other Common Solution
   1. Iterative Reduction: sort first two O(n) -> first three O(2n) -> ... -> all K O(kn): Time $O(k^2 \times n)$ + Space $O(k \times n)$ because of the aux array
   2. Binary Reduction: merge 1 & 2, merge 3 & 4 ... merge k - 1 & k. -> merge 12 & 34 ... -> merge k-3k-2 & k-1k: Time $O(k \times n \times log_2{k})$: $log_2{k}$: merge ops, for each merge it takes n to merge and there are k arrays + Space $O(k \times n)$. This solution has the same compleixty as the `priority_queue` solution, however if the array size is too big, then we need to read and write multiple times.
+=======
+Assume the average size of each array is **n**, then the time complexity is $O(k \times log_2{k} \times N)$
+>>>>>>> e73d8e21f04a2934c54250997e339f34c4a177cb
 
 #### Code
 
@@ -71,6 +75,7 @@ Historically, instead of a sort, sometimes a replacement-selection algorithm was
 ```
 
 ### Q1.3: External Sort 2
+<<<<<<< HEAD
 #### LC Followup for **Contains Duplicate II**
 
 [link](https://leetcode.com/problems/intersection-of-two-arrays-ii/discuss/82243/Solution-to-3rd-follow-up-question)
@@ -87,12 +92,30 @@ assume duplicate exist.
 
 If we cannot read the entire dataset to memory, then we need to know how to partition the list s.t. we can decrease the search range.
 
+=======
+#### LC Follow for **Contains Duplicate II**
+
+[link](https://leetcode.com/problems/intersection-of-two-arrays-ii/discuss/82243/Solution-to-3rd-follow-up-question)
+
+
+
+### Q2.1: 2Sum on 1TB data
+
+1 GB memory vs 1TB data
+
+### Solution 1: assume sorted and use two pointer to find the target
+
+### Solution 2: unsorted
+
+assume duplicate exist.
+>>>>>>> e73d8e21f04a2934c54250997e339f34c4a177cb
 
 How to partition the list? ans: by doing the sampling of data to find the **pattern**
 
 
 1. do sampling on HD to get the distribution of the values => let's say the distribution is even distributed
 2. scan the HD (1TB data) and put data into correspondng range into a file. (-100-0, 1-100, 101-200...) assume now we have k files.
+<<<<<<< HEAD
 3. load each file into the memory, e.g. for a file of range [1, 100], the only possible other file should be in the range of [101, 200], so we only need to load these two files into the memory.__
 
 ### Q2.1 Find common elements in two arrays
@@ -113,6 +136,9 @@ Assume the size of each array is approx equal to n
 2. Solution 2: binary reduction -> 1,2 common + 3,4 common + .... + (k - 1) + (k) common then merge, 
 
 For implementation: [stackoverflow link](https://stackoverflow.com/a/44069571)
+=======
+3. load each file into the memory, e.g. for a file of range [1, 100], the only possible other file should be in the range of [101, 200], so we only need to load these two files into the memory.
+>>>>>>> e73d8e21f04a2934c54250997e339f34c4a177cb
 
 
 
