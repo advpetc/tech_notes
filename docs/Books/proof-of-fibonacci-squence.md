@@ -1,6 +1,6 @@
 ## What to prove
 
-$F_n \leq \psi^{n - 1} $ where $\psi = (1 + \sqrt{5}) / 2$ 
+$F_n \leq \psi^{n - 1}$ where $\psi = (1 + \sqrt{5}) / 2$ 
 
 and
 
