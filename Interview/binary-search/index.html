@@ -662,8 +662,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../design-heap-priority-queue/" title="Design heap priority queue" class="md-nav__link">
-      Design heap priority queue
+    <a href="../design-heap-or-priority-queue/" title="Design heap or priority queue" class="md-nav__link">
+      Design heap or priority queue
     </a>
   </li>
 
@@ -1622,8 +1622,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/91.-decode-ways/" title="Use array DP" class="md-nav__link">
-      Use array DP
+    <a href="../../Leetcode/91.-decode-ways/" title="91. decode ways" class="md-nav__link">
+      91. decode ways
     </a>
   </li>
 
@@ -1658,8 +1658,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/96.-unique-binary-search-trees-%282%29/" title="96. unique binary search trees (2)" class="md-nav__link">
-      96. unique binary search trees (2)
+    <a href="../../Leetcode/96.-unique-binary-search-trees-%E2%80%94-my-method/" title="96. unique binary search trees — my method" class="md-nav__link">
+      96. unique binary search trees — my method
     </a>
   </li>
 
@@ -2271,9 +2271,11 @@
                   <h1>Binary search</h1>
                 
                 <h2 id="binary-search">Binary Search<a class="headerlink" href="#binary-search" title="Permanent link">&para;</a></h2>
-<p><strong>2 Principles:</strong>
-1. Guarantee that the search space decreases over time (after each iteration). // prevent while "true"
-2. Guarantee that the target (if exist) cannot be ruled out accidentally, when we change the value of Left or Right.</p>
+<p><strong>2 Principles:</strong></p>
+<ol>
+<li>Guarantee that the search space decreases over time (after each iteration). // prevent while "true"</li>
+<li>Guarantee that the target (if exist) cannot be ruled out accidentally, when we change the value of Left or Right.</li>
+</ol>
 <p>while (l &lt;= r): 1 element <strong>can</strong> get in
 while (l &lt; r): 1 element <strong>cannot</strong> get in</p>
 <p>l = l + 1: eleminate l for next iteration

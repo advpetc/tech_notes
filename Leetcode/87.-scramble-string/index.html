@@ -559,8 +559,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Interview/design-heap-priority-queue/" title="Design heap priority queue" class="md-nav__link">
-      Design heap priority queue
+    <a href="../../Interview/design-heap-or-priority-queue/" title="Design heap or priority queue" class="md-nav__link">
+      Design heap or priority queue
     </a>
   </li>
 
@@ -1573,8 +1573,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../91.-decode-ways/" title="Use array DP" class="md-nav__link">
-      Use array DP
+    <a href="../91.-decode-ways/" title="91. decode ways" class="md-nav__link">
+      91. decode ways
     </a>
   </li>
 
@@ -1609,8 +1609,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../96.-unique-binary-search-trees-%282%29/" title="96. unique binary search trees (2)" class="md-nav__link">
-      96. unique binary search trees (2)
+    <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" title="96. unique binary search trees — my method" class="md-nav__link">
+      96. unique binary search trees — my method
     </a>
   </li>
 
@@ -2172,7 +2172,51 @@
                 
                   <h1>87. scramble string</h1>
                 
-                <h2 id="using-cache-recursion">Using cache + recursion<a class="headerlink" href="#using-cache-recursion" title="Permanent link">&para;</a></h2>
+                <p>Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.</p>
+<p>Below is one possible representation of s1 = "great":</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>    great
+   /    \
+  gr    eat
+ / \    /  \
+g   r  e   at
+           / \
+          a   t
+</code></pre></div>
+
+
+<p>To scramble the string, we may choose any non-leaf node and swap its two children.</p>
+<p>For example, if we choose the node "gr" and swap its two children, it produces a scrambled string "rgeat".</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>    rgeat
+   /    \
+  rg    eat
+ / \    /  \
+r   g  e   at
+           / \
+          a   t
+</code></pre></div>
+
+
+<p>We say that "rgeat" is a scrambled string of "great".</p>
+<p>Similarly, if we continue to swap the children of nodes "eat" and "at", it produces a scrambled string "rgtae".</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>    rgtae
+   /    \
+  rg    tae
+ / \    /  \
+r   g  ta  e
+       / \
+      t   a
+</code></pre></div>
+
+
+<p>We say that "rgtae" is a scrambled string of "great".</p>
+<p>Given two strings s1 and s2 of the same length, determine if s2 is a scrambled string of s1.</p>
+<p>Example 1:</p>
+<p>Input: s1 = "great", s2 = "rgeat"
+Output: true
+Example 2:</p>
+<p>Input: s1 = "abcde", s2 = "caebd"
+Output: false</p>
+<h2 id="using-cache-recursion">Using cache + recursion<a class="headerlink" href="#using-cache-recursion" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
     <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">DP_helper(unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #66d9ef">bool</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">isScramblePair,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s2)</span>
     <span style="color: #f8f8f2">{</span>
@@ -2291,13 +2335,13 @@ s1[i..i+len-1] is a scramble of s2[j..j+len-1]
           </a>
         
         
-          <a href="../91.-decode-ways/" title="Use array DP" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../91.-decode-ways/" title="91. decode ways" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Use array DP
+                91. decode ways
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

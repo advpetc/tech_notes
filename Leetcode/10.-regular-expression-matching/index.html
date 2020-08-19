@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#analysis" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -554,8 +559,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Interview/design-heap-priority-queue/" title="Design heap priority queue" class="md-nav__link">
-      Design heap priority queue
+    <a href="../../Interview/design-heap-or-priority-queue/" title="Design heap or priority queue" class="md-nav__link">
+      Design heap or priority queue
     </a>
   </li>
 
@@ -1102,9 +1107,47 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        10. regular expression matching
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="./" title="10. regular expression matching" class="md-nav__link md-nav__link--active">
       10. regular expression matching
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1523,8 +1566,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../91.-decode-ways/" title="Use array DP" class="md-nav__link">
-      Use array DP
+    <a href="../91.-decode-ways/" title="91. decode ways" class="md-nav__link">
+      91. decode ways
     </a>
   </li>
 
@@ -1559,8 +1602,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../96.-unique-binary-search-trees-%282%29/" title="96. unique binary search trees (2)" class="md-nav__link">
-      96. unique binary search trees (2)
+    <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" title="96. unique binary search trees — my method" class="md-nav__link">
+      96. unique binary search trees — my method
     </a>
   </li>
 
@@ -2063,6 +2106,43 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -2078,7 +2158,54 @@
                 
                   <h1>10. regular expression matching</h1>
                 
-                <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
+                <p>Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*'.</p>
+<p>'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
+The matching should cover the entire input string (not partial).</p>
+<p>Note:</p>
+<p>s could be empty and contains only lowercase letters a-z.
+p could be empty and contains only lowercase letters a-z, and characters like . or *.
+Example 1:</p>
+<p>Input:
+s = "aa"
+p = "a"
+Output: false
+Explanation: "a" does not match the entire string "aa".
+Example 2:</p>
+<p>Input:
+s = "aa"
+p = "a<em>"
+Output: true
+Explanation: '</em>' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
+Example 3:</p>
+<p>Input:
+s = "ab"
+p = ".<em>"
+Output: true
+Explanation: ".</em>" means "zero or more (*) of any character (.)".
+Example 4:</p>
+<p>Input:
+s = "aab"
+p = "c<em>a</em>b"
+Output: true
+Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore, it matches "aab".
+Example 5:</p>
+<p>Input:
+s = "mississippi"
+p = "mis<em>is</em>p*."
+Output: false</p>
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
+<ol>
+<li>dp[i][j]: s[0:i] matches p[0:j]</li>
+<li>if p[i] == . then matches everything from s, so dp[i][j] = true</li>
+<li>if p[i] == * then
+  if dp[i][j-2] (skip the last one and check if previous one matches)
+  or s[i] == p[j-1]
+  or p[j-1] (match anything)
+    set dp[i][j] = true</li>
+</ol>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
 <span style="color: #f8f8f2">public:</span>
     <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isMatch(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">p)</span> <span style="color: #f8f8f2">{</span>
         <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.length(),</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p.length();</span>
@@ -2101,17 +2228,6 @@
     <span style="color: #f8f8f2">}</span>
 <span style="color: #f8f8f2">};</span>
 </code></pre></div>
-
-
-<ol>
-<li>dp[i][j]: s[0:i] matches p[0:j]</li>
-<li>if p[i] == . then matches everything from s, so dp[i][j] = true</li>
-<li>if p[i] == * then
-  if dp[i][j-2] (skip the last one and check if previous one matches)
-  or s[i] == p[j-1]
-  or p[j-1] (match anything)
-    set dp[i][j] = true</li>
-</ol>
                 
               
               

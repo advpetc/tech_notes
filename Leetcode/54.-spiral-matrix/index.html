@@ -559,8 +559,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Interview/design-heap-priority-queue/" title="Design heap priority queue" class="md-nav__link">
-      Design heap priority queue
+    <a href="../../Interview/design-heap-or-priority-queue/" title="Design heap or priority queue" class="md-nav__link">
+      Design heap or priority queue
     </a>
   </li>
 
@@ -1454,12 +1454,48 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        54. spiral matrix
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
     
     <a href="./" title="54. spiral matrix" class="md-nav__link md-nav__link--active">
       54. spiral matrix
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1530,8 +1566,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../91.-decode-ways/" title="Use array DP" class="md-nav__link">
-      Use array DP
+    <a href="../91.-decode-ways/" title="91. decode ways" class="md-nav__link">
+      91. decode ways
     </a>
   </li>
 
@@ -1566,8 +1602,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../96.-unique-binary-search-trees-%282%29/" title="96. unique binary search trees (2)" class="md-nav__link">
-      96. unique binary search trees (2)
+    <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" title="96. unique binary search trees — my method" class="md-nav__link">
+      96. unique binary search trees — my method
     </a>
   </li>
 
@@ -2077,8 +2113,30 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2097,6 +2155,8 @@
                 
                   
                 
+                
+                  <h1>54. spiral matrix</h1>
                 
                 <p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.</p>
 <p>Example 1:</p>
@@ -2121,7 +2181,7 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]</p>
 2. down: row can move in the range of [u, d], after finish, --r
 3. left: column can move in the range of [l, r], after finish, ++d
 4. up: row can move in the range of [u, d], after finish, ++l</p>
-<h1 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h1>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
  <span style="color: #f8f8f2">public:</span>
   <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">spiral(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">matrix)</span> <span style="color: #f8f8f2">{</span>

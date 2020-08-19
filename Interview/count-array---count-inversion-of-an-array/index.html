@@ -606,8 +606,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../design-heap-priority-queue/" title="Design heap priority queue" class="md-nav__link">
-      Design heap priority queue
+    <a href="../design-heap-or-priority-queue/" title="Design heap or priority queue" class="md-nav__link">
+      Design heap or priority queue
     </a>
   </li>
 
@@ -1566,8 +1566,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/91.-decode-ways/" title="Use array DP" class="md-nav__link">
-      Use array DP
+    <a href="../../Leetcode/91.-decode-ways/" title="91. decode ways" class="md-nav__link">
+      91. decode ways
     </a>
   </li>
 
@@ -1602,8 +1602,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Leetcode/96.-unique-binary-search-trees-%282%29/" title="96. unique binary search trees (2)" class="md-nav__link">
-      96. unique binary search trees (2)
+    <a href="../../Leetcode/96.-unique-binary-search-trees-%E2%80%94-my-method/" title="96. unique binary search trees — my method" class="md-nav__link">
+      96. unique binary search trees — my method
     </a>
   </li>
 
@@ -2167,7 +2167,70 @@
 <img alt="Screen Shot 2020-07-15 at 12.42.46 PM.png" src="../resources/BB11ED06861855BA143DCAC876E8F4AA.png" />
 <img alt="Screen Shot 2020-07-15 at 12.43.16 PM.png" src="../resources/F7938E0C8827C2B78D43F14FA24951D8.png" /></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include&lt;cstdio&gt;</span>
+<span style="color: #75715e">#include&lt;algorithm&gt;</span>
+
+<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+
+<span style="color: #66d9ef">typedef</span> <span style="color: #66d9ef">long</span> <span style="color: #66d9ef">long</span> <span style="color: #f8f8f2">LL;</span>
+
+<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">500010</span><span style="color: #f8f8f2">;</span>
+
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">m;</span>
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a[N],</span> <span style="color: #f8f8f2">b[N];</span>
+
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">find</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x)</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
+    <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span>
+    <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(b[mid]</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">x)</span>  <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid;</span>
+        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">tr[N];</span>
+
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x)</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&amp;</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">i)</span>  <span style="color: #f8f8f2">tr[i]</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">sum</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x)</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x;</span> <span style="color: #f8f8f2">i;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-=</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&amp;</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">i)</span>  <span style="color: #f8f8f2">res</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">tr[i];</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">n);</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>  <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">a[i]),</span>  <span style="color: #f8f8f2">b[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a[i];</span>
+
+    <span style="color: #f8f8f2">sort(b</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
+
+    <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(b[i]</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">b[m])</span>  <span style="color: #f8f8f2">b[</span><span style="color: #f92672">++</span> <span style="color: #f8f8f2">m]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b[i];</span>
+
+    <span style="color: #f8f8f2">LL</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">find(a[i]);</span>
+        <span style="color: #f8f8f2">res</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">sum(m)</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">sum(x);</span>
+        <span style="color: #f8f8f2">add(x);</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;%lld&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">res);</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #960050; background-color: #1e0010">作者：滑稽</span><span style="color: #f8f8f2">_ωﾉ</span>
+<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/file_system/file/content/whole/index/content/504568/</span>
+<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
+<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
                 
               
@@ -2206,13 +2269,13 @@
           </a>
         
         
-          <a href="../design-heap-priority-queue/" title="Design heap priority queue" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../design-heap-or-priority-queue/" title="Design heap or priority queue" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Design heap priority queue
+                Design heap or priority queue
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

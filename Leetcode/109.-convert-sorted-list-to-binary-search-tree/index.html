@@ -559,8 +559,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Interview/design-heap-priority-queue/" title="Design heap priority queue" class="md-nav__link">
-      Design heap priority queue
+    <a href="../../Interview/design-heap-or-priority-queue/" title="Design heap or priority queue" class="md-nav__link">
+      Design heap or priority queue
     </a>
   </li>
 
@@ -1559,8 +1559,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../91.-decode-ways/" title="Use array DP" class="md-nav__link">
-      Use array DP
+    <a href="../91.-decode-ways/" title="91. decode ways" class="md-nav__link">
+      91. decode ways
     </a>
   </li>
 
@@ -1595,8 +1595,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../96.-unique-binary-search-trees-%282%29/" title="96. unique binary search trees (2)" class="md-nav__link">
-      96. unique binary search trees (2)
+    <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" title="96. unique binary search trees — my method" class="md-nav__link">
+      96. unique binary search trees — my method
     </a>
   </li>
 
@@ -2149,14 +2149,14 @@
 <p>Example:</p>
 <p>Given the sorted linked list: [-10,-3,0,5,9],</p>
 <p>One possible answer is: [0,-3,9,-10,null,5], which represents the following height balanced BST:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>  0
- / \
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>      0
+     / \
+   -3   9
+   /   /
+ -10  5
 </code></pre></div>
 
 
-<p>-3   9
-   /   /
- -10  5</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>To build a bst from a sorted <strong>array</strong>, we can do so by recursively finding the middle of the array to generate the tree. However, we need extra time to find the middle of a linkedlist (use fast slow pointer requires <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>)</p>
 <p>We can definitely use fast slow pointer to find the mid in each iteration and the psuedo code would like</p>

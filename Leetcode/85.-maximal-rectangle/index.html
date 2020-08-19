@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#analysis" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -554,8 +559,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Interview/design-heap-priority-queue/" title="Design heap priority queue" class="md-nav__link">
-      Design heap priority queue
+    <a href="../../Interview/design-heap-or-priority-queue/" title="Design heap or priority queue" class="md-nav__link">
+      Design heap or priority queue
     </a>
   </li>
 
@@ -1498,9 +1503,47 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        85. maximal rectangle
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="./" title="85. maximal rectangle" class="md-nav__link md-nav__link--active">
       85. maximal rectangle
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1523,8 +1566,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../91.-decode-ways/" title="Use array DP" class="md-nav__link">
-      Use array DP
+    <a href="../91.-decode-ways/" title="91. decode ways" class="md-nav__link">
+      91. decode ways
     </a>
   </li>
 
@@ -1559,8 +1602,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../96.-unique-binary-search-trees-%282%29/" title="96. unique binary search trees (2)" class="md-nav__link">
-      96. unique binary search trees (2)
+    <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" title="96. unique binary search trees — my method" class="md-nav__link">
+      96. unique binary search trees — my method
     </a>
   </li>
 
@@ -2063,6 +2106,43 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -2078,7 +2158,46 @@
                 
                   <h1>85. maximal rectangle</h1>
                 
-                <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{public:</span>
+                <p>Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.</p>
+<p>Example:</p>
+<p>Input:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>[
+  [&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],
+  [&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],
+  [&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],
+  [&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]
+]
+</code></pre></div>
+
+
+<p>Output: 6</p>
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
+<p>height[i] record the current number of countinous '1' in column i;
+left[i] record the left most index j which satisfies that for any index k from j to  i, height[k] &gt;= height[i];
+right[i] record the right most index j which satifies that for any index k from i to  j, height[k] &gt;= height[i];</p>
+<p>if j doesn't exist, then use size of matrix to represent j for right, use 0 to represent j for left</p>
+<p>matrix
+0 0 0 1 0 0 0
+0 0 1 1 1 0 0
+0 1 1 1 1 1 0</p>
+<p>height
+0 0 0 1 0 0 0
+0 0 1 2 1 0 0
+0 1 2 3 2 1 0</p>
+<p>left
+0 0 0 3 0 0 0
+0 0 2 3 2 0 0
+0 1 2 3 2 1 0</p>
+<p>right
+7 7 7 4 7 7 7 // at index i from right to left, if height[i] &gt;= height[i+1], set right[i]=i or keep going
+7 7 5 4 5 7 7
+7 6 5 4 5 4 7</p>
+<p>result
+0 0 0 1 0 0 0
+0 0 3 2 3 0 0
+0 5 6 3 6 5 0</p>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{public:</span>
 <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">maximalRectangle(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">char</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">matrix)</span> <span style="color: #f8f8f2">{</span>
     <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(matrix.empty())</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
     <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix.size();</span>
@@ -2108,32 +2227,6 @@
     <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">maxA;</span>
 <span style="color: #f8f8f2">}</span>
 </code></pre></div>
-
-
-<p>height[i] record the current number of countinous '1' in column i;
-left[i] record the left most index j which satisfies that for any index k from j to  i, height[k] &gt;= height[i];
-right[i] record the right most index j which satifies that for any index k from i to  j, height[k] &gt;= height[i];</p>
-<p>if j doesn't exist, then use size of matrix to represent j for right, use 0 to represent j for left</p>
-<p>matrix
-0 0 0 1 0 0 0
-0 0 1 1 1 0 0
-0 1 1 1 1 1 0</p>
-<p>height
-0 0 0 1 0 0 0
-0 0 1 2 1 0 0
-0 1 2 3 2 1 0</p>
-<p>left
-0 0 0 3 0 0 0
-0 0 2 3 2 0 0
-0 1 2 3 2 1 0</p>
-<p>right
-7 7 7 4 7 7 7 // at index i from right to left, if height[i] &gt;= height[i+1], set right[i]=i or keep going
-7 7 5 4 5 7 7
-7 6 5 4 5 4 7</p>
-<p>result
-0 0 0 1 0 0 0
-0 0 3 2 3 0 0
-0 5 6 3 6 5 0</p>
                 
               
               
