@@ -53,7 +53,7 @@ public class Solution {
 }
 ```
 
-# 438. Find All Anagrams in a String
+## 438. Find All Anagrams in a String
 
 Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
 
@@ -108,7 +108,7 @@ public:
 };
 ```
 
-# 76. Minimum Window Substring
+## 76. Minimum Window Substring
 
 Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
 
@@ -149,7 +149,7 @@ public:
 };
 ```
 
-# 3. Longest Substring Without Repeating Characters
+## 3. Longest Substring Without Repeating Characters
 
 Given a string, find the length of the longest substring without repeating characters.
 
@@ -189,7 +189,7 @@ public:
 };
 ```
 
-# 30. Substring with Concatenation of All Words
+## 30. Substring with Concatenation of All Words
 
 You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters.
 
@@ -237,7 +237,7 @@ public:
 };
 ```
 
-# 30. Substring with Concatenation of All Words
+## 30. Substring with Concatenation of All Words
 
 You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters.
 
@@ -285,7 +285,7 @@ public:
 };
 ```
 
-# 159. Longest Substring with At Most Two Distinct Characters
+## 159. Longest Substring with At Most Two Distinct Characters
 
 Given a string s , find the length of the longest substring t  that contains at most 2 distinct characters.
 
@@ -300,7 +300,7 @@ Input: "ccaabbb"
 Output: 5
 Explanation: tis "aabbb" which its length is 5.
 
-## Analysis
+### Analysis
 
 **Use left only**
 
@@ -350,7 +350,7 @@ int main() {
 }
 ```
 
-## Variation: with K different words
+### Variation: with K different words
 
 if the character is in range of 'a' to 'z', then maintain a int array with size of 26.
 

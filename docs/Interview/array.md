@@ -64,7 +64,7 @@ class Solution {
 
 ```
 
-## Array Deduplication 1
+## Array Deduplication 3
 
 Given a sorted integer array, remove duplicate elements. For each group of elements with the same value do not keep any of them. Do this in-place, using the left side of the original array and and maintain the relative order of the elements of the array. Return the array after deduplication.
 
@@ -100,7 +100,7 @@ class Solution {
 
 ```
 
-## Array Deduplication IV
+## Array Deduplication 4
 
 Given an unsorted integer array, remove adjacent duplicate elements repeatedly, from left to right. For each group of elements with the same value do not keep any of them.
 

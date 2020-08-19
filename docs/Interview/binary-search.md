@@ -1,6 +1,7 @@
 ## Binary Search
 
 **2 Principles:**
+
 1. Guarantee that the search space decreases over time (after each iteration). // prevent while "true"
 2. Guarantee that the target (if exist) cannot be ruled out accidentally, when we change the value of Left or Right.
 
