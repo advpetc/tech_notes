@@ -257,7 +257,7 @@ Complexity:
 Time: $O(N^2)$
 Space: $O(N^2)$
 
-### Code
+### Code Java
 
 ```java
 package test;
@@ -288,6 +288,36 @@ public class MinimalCutsPalindrome {
 		System.out.println(solution.minCuts("abaacda"));
 	}
 }
+```
+
+### Code Cpp
+
+```c
+class Solution {
+ public:
+  int minCuts(string input) {
+    // write your solution here
+    int n = input.size(), inf = 0x3f3f3f3f;
+    int dp[n];
+    bool pal[n][n];
+    memset(pal, false, sizeof pal);
+    memset(dp, inf, sizeof dp);
+    dp[0] = 0;
+    for (int i = 0; i < n; ++i) {
+      pal[i][i] = true;
+    }
+    for (int i = 0; i < n; ++i)
+      for (int j = 0; j <= i; ++j) {
+        if (input[i] == input[j] && (j + 1 > i - 1 || pal[i - 1][j + 1])) {
+          if (j == 0) dp[i] = 0; // 
+          else dp[i] = min(dp[i], dp[j - 1] + 1);
+          pal[i][j] = true;
+        }
+      }
+    return dp[n - 1];
+  }
+};
+
 ```
 
 ## P4: Print all the `if {` and `}`

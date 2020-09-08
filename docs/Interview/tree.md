@@ -264,3 +264,96 @@ TreeNode* createMinimalBST(vector<int>& arr) {
 }
 ```
 
+### Tree Serialization
+
+Reconstruct Binary Tree With Levelorder And Inorder:
+Given the levelorder and inorder traversal sequence of a binary tree, reconstruct the original tree.
+
+Assumptions
+
+The given sequences are not null and they have the same length
+There are no duplicate keys in the binary tree
+Examples
+
+levelorder traversal = {5, 3, 8, 1, 4, 11}
+
+inorder traversal = {1, 3, 4, 5, 8, 11}
+
+the corresponding binary tree is
+```
+        5
+
+      /    \
+
+    3        8
+
+  /   \        \
+
+1      4        11
+```
+
+How is the binary tree represented?
+
+We use  level order traversal sequence with a special symbol "#" denoting the null node.
+
+For Example:
+
+The sequence [1, 2, 3, #, #, 4] represents the following binary tree:
+```
+    1
+
+  /   \
+
+ 2     3
+
+      /
+
+    4
+```
+
+#### Analysis
+
+- Assumption: all nodes have different values
+- In order traversal: left - root - right
+- Level order traversal: root -> next level -> next level * 2 ...
+- Details:
+  - First node of the level order traversal is the root node, and if we can locate the root node in the in-order travseral, we can know which nodes are on the left AND right side of the current root.
+  - To fast locate the position of root, we can preprocess aa map that maps node value to the index in the in-order array.
+- Time: $O(n^2)$
+- Space: $O(n)$
+
+#### Code
+
+```c
+//class TreeNode {
+// public:
+//  int value;
+//  TreeNode* left;
+//  TreeNode* right;
+//  TreeNode(int v) : value(v), left(NULL), right(NULL) {}
+//};
+class Solution {
+ public:
+  TreeNode* helper(vector<int>& levelOrder, unordered_map<int, int>& idx) {
+    if (levelOrder.empty()) return NULL;
+    TreeNode* root = new TreeNode(levelOrder[0]);
+    levelOrder.erase(levelOrder.begin()); // we can do better if we don't erase and instead using a start pointer to point to the new root
+    vector<int> left, right;
+    for (int n : levelOrder) {
+      if (idx[n] < idx[root -> value]) left.push_back(n);
+      else right.push_back(n);
+    }
+    root -> left = helper(left, idx);
+    root -> right = helper(right, idx);
+    return root;
+}
+  TreeNode* reconstruct(vector<int> inOrder, vector<int> levelOrder) {
+    // write your solution here
+    unordered_map<int, int> idx;
+    for (int i = 0; i < inOrder.size(); ++i) idx[inOrder[i]] = i;
+    return helper(levelOrder, idx);
+  }
+};
+
+```
+
