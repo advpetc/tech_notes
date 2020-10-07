@@ -233,3 +233,12 @@ class Solution {
   }
 };
 ```
+
+## Q3 Cutting wood
+
+![Screen Shot 2020-09-12 at 12.11.15 PM.png](resources/9E318A73D32A81EAFFDA28812B764A38.png)
+
+### 2-D DP: interval
+
+1. DP[i][j]: minimal cost from A[i] to A[j] (inclusive)
+2. DP[i][j] = A[j] - A[i] + (DP[i][x] + DP[x][j]) -> where x - i is the length of the current cut

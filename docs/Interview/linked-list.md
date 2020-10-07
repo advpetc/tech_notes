@@ -25,6 +25,26 @@ ListNode* reverse(ListNode* head) {
 }
 ```
 
+### Iterative
+
+```c
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if (!head) return NULL;
+        auto a = head, b = a->next;
+        while (b) {
+            auto c = b->next;
+            b->next = a;
+            a = b;
+            b = c;
+        }
+        head->next = NULL;
+        return a;
+    }
+};
+```
+
 ## Q2: insert into sorted linkedlist
 
 ```c
