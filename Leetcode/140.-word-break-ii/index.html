@@ -1473,6 +1473,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../130.-surrounded-regions/" title="130. surrounded regions" class="md-nav__link">
+      130. surrounded regions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../138.-copy-list-with-random-pointer/" title="138. copy list with random pointer" class="md-nav__link">
       138. copy list with random pointer
     </a>
@@ -1530,6 +1542,13 @@
         <li class="md-nav__item">
   <a href="#dfs-w-memo" class="md-nav__link">
     dfs w/ memo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#another-way-w-memo" class="md-nav__link">
+    Another way w/ memo
   </a>
   
 </li>
@@ -1703,6 +1722,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../290.-word-pattern/" title="290. word pattern" class="md-nav__link">
+      290. word pattern
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../295.-find-median-from-data-stream/" title="295. find median from data stream" class="md-nav__link">
       295. find median from data stream
     </a>
@@ -1727,8 +1758,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../36.-valid-sudoku/" title="36. valid sudoku" class="md-nav__link">
+      36. valid sudoku
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../4.-median-of-two-sorted-arrays/" title="4. median of two sorted arrays" class="md-nav__link">
       4. median of two sorted arrays
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../42.-trapping-rain-water/" title="42. trapping rain water" class="md-nav__link">
+      42. trapping rain water
     </a>
   </li>
 
@@ -2458,6 +2513,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#another-way-w-memo" class="md-nav__link">
+    Another way w/ memo
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2547,6 +2609,32 @@ Output:
 <li>dfs always takes in from s[0:i], and check s[i:] for current branch</li>
 <li>cache is the map of current s[0:i] to all the combination for this substring, so for s[0:i+1], to check s[0:i], just uses the cached one and combine with s[:i]</li>
 </ol>
+<h2 id="another-way-w-memo">Another way w/ memo<a class="headerlink" href="#another-way-w-memo" title="Permanent link">&para;</a></h2>
+<p><img alt="IMAGE" src="../resources/A7A0D625067844E33F882924CF5DE648.jpg" />
+After memo:
+<img alt="IMAGE" src="../resources/52DABD0AB9F46F747AAF823A8EB8F99A.jpg" /></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #66d9ef">public</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">wordBreak</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">wordDict)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #75715e">// word segment -&gt; using what words to form</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">helper(s,</span> <span style="color: #f8f8f2">wordDict,</span> <span style="color: #f8f8f2">m);</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #75715e">// will return all ways to combine this word</span>
+    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">wordDict,</span> <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">m)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(m.</span><span style="color: #a6e22e">count</span><span style="color: #f8f8f2">(s))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">s</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(s.</span><span style="color: #a6e22e">empty</span><span style="color: #f8f8f2">())</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">};</span>
+        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res;</span>
+        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">word</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">wordDict)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// try all words</span>
+            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(s.</span><span style="color: #a6e22e">substr</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">word.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">())</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">word)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">rem</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(s.</span><span style="color: #a6e22e">substr</span><span style="color: #f8f8f2">(word.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">()),</span> <span style="color: #f8f8f2">wordDict,</span> <span style="color: #f8f8f2">m);</span>
+            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">str</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">rem)</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #f8f8f2">res.</span><span style="color: #a6e22e">push_back</span><span style="color: #f8f8f2">(word</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(str.</span><span style="color: #a6e22e">empty</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">?</span> <span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">str);</span>
+            <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">s</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">res;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+</code></pre></div>
                 
               
               
