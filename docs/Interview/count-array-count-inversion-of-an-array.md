@@ -1,6 +1,8 @@
+# Count Array Inversion
+
 ![Screen Shot 2020-07-14 at 3.38.05 PM.png](resources/BBC688D2C23BE291F091D16190A9F862.png)
 
-How to make the Time Complexity into O(n * log n)
+How to make the Time Complexity into $O(n \times \log n)$
 
 ## Analysis
 

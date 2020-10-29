@@ -54,7 +54,7 @@ show self-motivation, start from small/short term goal to big/long term goal.
 technical challenge + human resource (team work, work with mentor, verify tasks, etc.)
 
 - variant: mistake you have done
-  - first tell what you ahfve done wrong
+  - first tell what you have done wrong
 
 ## Q6: do you have any questions for me
 

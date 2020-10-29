@@ -13,7 +13,7 @@ l = l: check if 1 element will cause inf
 
 ## Classic Binary Search
 
-```c
+```c++
 int binarySearch(vector<int>& a, int target) {
     int left = 0, right = a.size() - 1;
     while (left <= right) { // <=
@@ -37,7 +37,7 @@ index = col * row - 1
 col = index / size of col
 row = index % size of col
 
-```c
+```c++
 int l = 0, r = col * row - 1;
 while (l <= r) {
     int m = (l + r) >> 1;
@@ -54,7 +54,7 @@ return false;
 target == 4
 [1,2,3,8,9] -> return 3's index which is 2
 
-```c
+```c++
 while (l < r - 1) { // only two (or one) element left [l, l+1] or [l]
     int m = l + (r - l) / 2;
     if (a[m] == target) {
@@ -65,7 +65,8 @@ while (l < r - 1) { // only two (or one) element left [l, l+1] or [l]
         r = m;
     }
 }
-if (target - a[l] < a[r] - target) // return the one that is close to target, because there are two elements
+// return the one that is close to target, because there are two elements
+if (target - a[l] < a[r] - target) 
     return l;
 else
     return r;
@@ -76,7 +77,7 @@ else
 target = 5
 [4,5,5,5,5,5] -> return 1 (first occurance of 5 index)
 
-```c
+```c++
 while (l < r - 1) { // only two (or one) element left [l, l+1] or [l]
     int m = l + (r - l) / 2;
     if (a[m] == target) {
@@ -164,8 +165,8 @@ Solution 2:
 
 1. binary search to find L and R
 2. using offset to form two more arrays:
-  leftArray = {3 2 1} rightArray = {4 5}
-  then use the method introduced [later](#kth-smallest-in-two-sorted-arrays) to find the median. Don't need to preprocess the offset beforehand, but just to update when visited.
+    leftArray = {3 2 1} rightArray = {4 5}
+    then use the method introduced [later](#kth-smallest-in-two-sorted-arrays) to find the median. Don't need to preprocess the offset beforehand, but just to update when visited.
 
 Solution 3:
 

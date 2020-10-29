@@ -12,7 +12,7 @@ Given a sorted integer array, remove duplicate elements. For each group of eleme
 
 ### Code
 
-```c
+```c++
 class Solution {
  public:
   vector<int> dedup(vector<int> array) {
@@ -31,7 +31,7 @@ class Solution {
 
 ## Array Deduplication 2
 
-Given a sorted integer array, remove duplicate elements. For each group of elements with the same value keep at most two of them. Do this in-place, using the left side of the original array and maintain the relative order of the elements of the array. Return the array after deduplication.
+Given a sorted integer array, remove duplicate elements. For each group of elements with the same value keep at most **two** of them. Do this in-place, using the left side of the original array and maintain the relative order of the elements of the array. Return the array after deduplication.
 
 {1, 2, 2, 3, 3, 3} → {1, 2, 2, 3, 3} keep two duplicated
 
@@ -47,7 +47,7 @@ i = 5 => 1, 2, 2, 3, 3 (discard the third 3, since i - 2 = 3 -> num[3] == num[5]
 
 ### Code
 
-```c
+```c++
 class Solution {
  public:
   vector<int> dedup(vector<int> array) {
@@ -66,7 +66,7 @@ class Solution {
 
 ## Array Deduplication 3
 
-Given a sorted integer array, remove duplicate elements. For each group of elements with the same value do not keep any of them. Do this in-place, using the left side of the original array and and maintain the relative order of the elements of the array. Return the array after deduplication.
+Given a sorted integer array, remove duplicate elements. For each group of elements with the same value **do not keep any of them**. Do this in-place, using the left side of the original array and and maintain the relative order of the elements of the array. Return the array after deduplication.
 
 {1, 2, 2, 3, 3, 3} → {1}
 

@@ -7,8 +7,9 @@
 * Python: language specific tricks and notes. 
 * Machine Learning: course note for Stanford CS231n.
 * Interview: notes for preparing interviews.
-* Competitive Programming: Google Kick Start, LibreOJ, Acwing
+* Competitive Programming: Google Kick Start, LibreOJ, Acwing..
 * Books: various algorithm books notes.
+* Misc: miscellaneous (unorganized)
 
 ## Other
 

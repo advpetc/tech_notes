@@ -10,7 +10,7 @@ Note that each node can have either 1 (with 2 children) value or 2 (with 3 child
 
 ### Define a 2-3 tree
 
-```c
+```c++
 #ifndef _TRI_NODE
 #define _TRI_NODE
 

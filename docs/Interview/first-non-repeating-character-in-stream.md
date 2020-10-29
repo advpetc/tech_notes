@@ -1,3 +1,5 @@
+# First non repeating character in stream
+
 Given a stream of characters, find the first non-repeating character from stream. You need to tell the first non-repeating character in O(1) time at any moment.
 
 Implement two methods of the class:

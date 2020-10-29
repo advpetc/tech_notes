@@ -1,8 +1,10 @@
-E.G. s="ddfaaaabbbca", k=2 return 7
+# Find longest substring at most k characters
+
+E.G. s="ddfaaaabbbca", k=2 return 7 (longest substring size with at most k characters)
 
 ## Verification/Clarification
 
-1. signacture: int olve(string, int)
+1. signacture:`int solve(string, int)`
 2. k > 0 and if k > distinct chars size then return string.size()
 
 ## Analysis
