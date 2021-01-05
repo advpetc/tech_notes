@@ -60,7 +60,7 @@ int main ()
 
 &: left & right in compiler doesn't have fix order (either left to right or right to left)
 
->>: neg divide isn't right -> e.g. -3 / 2 = 101 >> 1 = 110 = -2 which is wrong
+> : neg divide isn't right -> e.g. -3 / 2 = 101 >> 1 = 110 = -2 which is wrong
 
 set kth bit to zero: x & ~(1 << k)
 
@@ -129,9 +129,11 @@ int main()
 }
 ```
 
-hash("Meet the new boss...") = 1861821886482076440
+```hash("Meet the new boss...") = 1861821886482076440
 hash("Hubert","Farnsworth") = 17622465712001802105 (using MyHash)
                            or 17622465712001802105 (using injected std::hash<S> specialization) 
+```
+
 "Turanga" "Leela"
 "Bender" "Rodriguez"
 "Hubert" "Farnsworth"
