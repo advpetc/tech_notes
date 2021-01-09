@@ -1,3 +1,5 @@
+# Stack and Queue
+
 ## Use array to mimic stack
 
 ```c

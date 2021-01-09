@@ -1,3 +1,5 @@
+# Hashmap
+
 ## Terms
 
 - **Collision**: when two keys' hash values are the same, they are going to map to the two same location in the array.

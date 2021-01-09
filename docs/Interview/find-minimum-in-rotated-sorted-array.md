@@ -1,4 +1,4 @@
-## LaiCode 23
+## LaiCode 23: fina minimum in rotated sorted array
 
 ![Screen Shot 2020-05-08 at 5.09.29 PM.png](resources/A3F93AD0735E2D53E21454B329D73FB9.png)
 

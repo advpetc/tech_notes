@@ -1,3 +1,5 @@
+# 2020 Round B
+
 ## Bike Tour
 
 Problem
@@ -32,7 +34,7 @@ Sample
 Input
  	
 Output
- 
+
 4
 3
 10 20 14
@@ -43,13 +45,13 @@ Output
 3
 10 3 10
 
-  
+
 Case #1: 1
 Case #2: 0
 Case #3: 2
 Case #4: 0
 
-  
+
 In sample case #1, the 2nd checkpoint is a peak.
 In sample case #2, there are no peaks.
 In sample case #3, the 2nd and 4th checkpoint are peaks.
@@ -133,7 +135,7 @@ Sample
 Input
  	
 Output
- 
+
 3
 3 10
 3 7 2
@@ -142,12 +144,12 @@ Output
 1 1
 1
 
-  
+
 Case #1: 6
 Case #2: 99
 Case #3: 1
 
-  
+
 In Sample Case #1, there are N = 3 bus routes and Bucket must arrive by day D = 10. She could:
 Take the 1st bus on day 6 (X1 = 3),
 Take the 2nd bus on day 7 (X2 = 7) and
@@ -270,7 +272,7 @@ N3(S)N2(E)N
 2(3(NW)2(W2(EE)W))
 ```
 
-  
+
 Output
 ```
 Case #1: 4 4
@@ -279,7 +281,7 @@ Case #3: 3 1
 Case #4: 3 999999995
 ```
 
-  
+
 In Sample Case #1, the rover moves three units south, then three units east.
 
 In Sample Case #2, the rover moves one unit north. Since the planet is a torus, this moves it into row 109.

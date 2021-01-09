@@ -1,3 +1,5 @@
+# Dynamic Programming 1
+
 ## what to do when asking a DP question
 
 1. base case

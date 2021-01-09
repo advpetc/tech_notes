@@ -1,3 +1,5 @@
+# Subset, combination, Permutation Problems
+
 ## Generate all **subset** duplicate character can exist in the single set of a sequence
 
 ### All elements are distinct
@@ -26,9 +28,9 @@ Output:
 Since each element can either be included or not included, we have $2^N$ subsets.
 
 1. branch factor = 1 to n, height = 1 to n
-  ![Screen Shot 2020-07-20 at 11.25.29 AM.png](resources/6A30FB2C4EA47149F4439B42C2C5B3CD.png)
+    ![Screen Shot 2020-07-20 at 11.25.29 AM.png](resources/6A30FB2C4EA47149F4439B42C2C5B3CD.png)
 2. branch factor = 2 (choose or not choose), height = n
-  ![Screen Shot 2020-07-20 at 11.29.09 AM.png](resources/1A7259AAEF64371E706E4C041BAE467A.png)
+    ![Screen Shot 2020-07-20 at 11.29.09 AM.png](resources/1A7259AAEF64371E706E4C041BAE467A.png)
 
 #### Code 1: using bitwise manipulation
 

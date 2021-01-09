@@ -1,14 +1,16 @@
+# Notes for a mock interview
+
 1. self intro
-	infrastructure engineer in search
-	ml infrastructure, inside tools for testing and developments
-	service owner for search slogan service
-	team search feature - for users and other engineering teams
-	drive the team of search quality - responsible
-	organize and manage the developments and teams - details
-	
-	impact, complexity for what you have done technically!!
-	millions level users and high qps, autoscaling and analysis
-tech stacks - details
+  infrastructure engineer in search
+  ml infrastructure, inside tools for testing and developments
+  service owner for search slogan service
+  team search feature - for users and other engineering teams
+  drive the team of search quality - responsible
+  organize and manage the developments and teams - details
+
+  impact, complexity for what you have done technically!!
+  millions level users and high qps, autoscaling and analysis
+  tech stacks - details
 
 
 2. Why do you want to change your company?
@@ -208,7 +210,7 @@ Result:
           min    mid                  max 
                    2*3 =6
          min,max
-      
+            
 	high level - 为什么能用binary search
 把Binary Search的要点讲清楚
 		1. search range → [min, max]
@@ -221,7 +223,7 @@ Result:
   case 1    max = mid - 1
   case 2    min = mid
 
-	
+
 Test 
 	cover all possible code branches
 

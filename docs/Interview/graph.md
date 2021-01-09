@@ -1,3 +1,5 @@
+# Graph
+
 ## Tree vs Graph
 
 1. Graph can have cycle while tree cannot

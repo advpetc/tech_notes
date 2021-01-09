@@ -1,3 +1,5 @@
+# Math
+
 ## Fast way to find nCr (n choose r)
 
 Def of C(n,r): (N * N - 1 * N - 2 * ... * N - R + 1) / (1 * 2 * ... * R), so to calculate C(n,r), we do N/1 * N-1/2 ... *  N-R+1/R

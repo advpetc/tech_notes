@@ -1,3 +1,5 @@
+# Midterm
+
 ## P1: N queens
 
 Find all valid ways of putting N Queens on an N * N chessboard so that no two Queens can attack each other (two queens can attack each other if they are on the same row/column or same diagonal line). 
@@ -174,7 +176,7 @@ Approach:
     2. left or right children have one is null: choose the path that has a leaf
     3. left and right children both exist: choose the maximum path between the two paths
 3. Recursion Tree:
-  ![IMG_297F00263AF2-1.jpeg](resources/0C0517AF12F1676BFC97F78B3FD29C3E.jpg)
+    ![IMG_297F00263AF2-1.jpeg](resources/0C0517AF12F1676BFC97F78B3FD29C3E.jpg)
 
 Complexity:
 - Time: $O(N)$
@@ -250,8 +252,8 @@ Approach:
   - induction rule: cuts[i] = min(cuts[i], cuts[j - 1] + 1) if s[j to i] is a palindrome AND s[i] == s[j]
   - result: cuts[n]
 3. Fill "table":
-  ![Screen Shot 2020-07-19 at 5.08.18 PM.png](resources/1C4193DA144B00F0E217312D7B1F6ADC.png)
-  ![Screen Shot 2020-07-19 at 5.08.51 PM.png](resources/34D0AAEFEAFF13F86648E5AA0ADD1E32.png)
+    ![Screen Shot 2020-07-19 at 5.08.18 PM.png](resources/1C4193DA144B00F0E217312D7B1F6ADC.png)
+    ![Screen Shot 2020-07-19 at 5.08.51 PM.png](resources/34D0AAEFEAFF13F86648E5AA0ADD1E32.png)
 
 Complexity:
 Time: $O(N^2)$
@@ -359,7 +361,7 @@ Approach:
   - To get the correct combination, we need to track the number of `if {` and `}`, which have to match with each other. We can use the approach introduced in **generated parenthesis** to do so.
   - Format: we need to count the number of space for each level, and I will use `int space` to track.
 3. Recursion Tree:
-  ![IMG_3D4DF44B9120-1.jpeg](resources/2AF834A3A13D16292AC30D0ED41A1F65.jpg)
+    ![IMG_3D4DF44B9120-1.jpeg](resources/2AF834A3A13D16292AC30D0ED41A1F65.jpg)
 
 Complexity:
 Time: $O(2^n)$

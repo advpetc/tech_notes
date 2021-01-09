@@ -1,3 +1,5 @@
+# Max Flow Problem
+
 ## Defination of Flow Network
 
 A **flow network** $G = (V, E)$ is a directed grarph in which each edge $(u, v) \in E$ has a nonnegative **capacity** $c(u, v) \geq 0$. We further require that if **E** contains an edge $(u, v)$, then there is no edge $(u, v)$ in the reverse direction.

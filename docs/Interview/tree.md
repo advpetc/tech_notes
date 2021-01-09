@@ -1,3 +1,5 @@
+# Tree
+
 ## Balanced Tree
 
 Def: height of the left and right subtrees of **every node** differ by 1 or less.

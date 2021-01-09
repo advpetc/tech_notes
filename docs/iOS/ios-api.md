@@ -1,4 +1,6 @@
-##Taking picture and movie
+# iOS API
+
+## Taking picture and movie
 **UIImagePickerController**
 **AV Foundation**
 **JSQMessageController** for bubble 

@@ -1,3 +1,5 @@
+# Minimal Spanning Tree
+
 ## Representation
 
 ![Screen Shot 2020-09-02 at 7.49.37 PM.png](resources/32BF4263082FEAAC74C8023360C114B3.png)

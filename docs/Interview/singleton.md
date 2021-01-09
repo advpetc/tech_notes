@@ -1,3 +1,5 @@
+# Singleton
+
 ## Definition
 
 in the entire life cycles, there is only one object being created and used.

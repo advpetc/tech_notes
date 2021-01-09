@@ -1,3 +1,5 @@
+# Marcos vs Functions
+
 ## Marco Definition 
 
 Macros are pre-processed which means that all the macros would be processed before your program compiles. However, functions are not preprocessed but compiled.

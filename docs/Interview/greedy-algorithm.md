@@ -1,3 +1,5 @@
+# Greedy Algorithm
+
 ## Coin: goal is to minimize the total number of coins **cannot be solved by using greedy**
 
 Given a list of all avalible coins = ${c_1, c_2, c_3, ..., c_k}$ and each coin can be used as many times as we want, what is the minimum number of coins needed?

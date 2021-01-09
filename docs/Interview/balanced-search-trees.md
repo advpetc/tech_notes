@@ -1,3 +1,5 @@
+# Balanced Search Trees
+
 ## 2-3 tree
 
 Each node can either have 2 or 3 children (so it's not a binary tree) AND all leaves are at the same level

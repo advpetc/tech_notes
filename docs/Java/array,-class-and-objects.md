@@ -1,3 +1,5 @@
+# Useful notes and codes for Java
+
 * 1D/2D Array
   * constructor
   * initialization
@@ -14,11 +16,10 @@
     * Instantiation
     * Initialization
     * Assignment
-* 
 
-# Array
+## Array
 
-## 1-D array
+### 1-D array
 
 create: `int[] array = new int[10];` once create, size cannot be modified
 
@@ -117,7 +118,7 @@ public int[][] reverse(int[][] matrix1, int[][] matrix2) {
 }
 ```
 
-# Main Function
+## Main Function
 
 ```java
 public static void main(String[] args) {
@@ -125,9 +126,9 @@ public static void main(String[] args) {
 }
 ```
 
-# OOD or OOP
+## OOD or OOP
 
-## Memory Layout
+### Memory Layout
 
 Stack: local variable (in function or scope)
 Heap: all the object

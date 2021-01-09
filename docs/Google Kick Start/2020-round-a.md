@@ -1,3 +1,5 @@
+# 2020 Round A
+
 ## Allocation
 
 There are N houses for sale. The i-th house costs Ai dollars to buy. You have a budget of B dollars to spend.
@@ -28,7 +30,7 @@ Sample
 Input
  	
 Output
- 
+
 3
 4 100
 20 90 40 90
@@ -37,12 +39,12 @@ Output
 3 300
 999 999 999
 
-  
+
 Case #1: 2
 Case #2: 3
 Case #3: 0
 
-  
+
 In Sample Case #1, you have a budget of 100 dollars. You can buy the 1st and 3rd houses for 20 + 40 = 60 dollars.
 In Sample Case #2, you have a budget of 50 dollars. You can buy the 1st, 3rd and 4th houses for 30 + 10 + 10 = 50 dollars.
 In Sample Case #3, you have a budget of 300 dollars. You cannot buy any houses (so the answer is 0).
@@ -174,7 +176,7 @@ Sample
 Input
  	
 Output
- 
+
 2
 2 4 5
 10 10 100 30
@@ -184,11 +186,11 @@ Output
 15 50
 20 10
 
-  
+
 Case #1: 250
 Case #2: 180
 
-  
+
 In Sample Case #1, Dr. Patel needs to pick P = 5 plates:
 He can pick the top 3 plates from the first stack (10 + 10 + 100 = 120).
 He can pick the top 2 plates from the second stack (80 + 50 = 130) .
@@ -288,18 +290,18 @@ Samples
 Input 1
  	
 Output 1
- 
+
 1
 3 1
 100 200 230
-  
+
 Case #1: 50
-  
+
 
 Input 2
  	
 Output 2
- 
+
 3
 5 2
 10 13 15 16 17
@@ -307,11 +309,11 @@ Output 2
 9 10 20 26 30
 8 3
 1 2 3 4 5 6 7 10
-  
+
 Case #1: 2
 Case #2: 3
 Case #3: 1
-  
+
 Sample #1
 In Case #1: Tambourine can add up to one session. The added sessions are marked in bold: 100 150 200 230. The difficulty is now 50.
 
@@ -478,7 +480,7 @@ The total number of characters in Pip's strings across all test cases is at most
 Samples
 
 Input 1
- 
+
 2
 2 2
 KICK
@@ -492,12 +494,12 @@ GOO
 GOO
 GOOO
 GOOO
-  
+
 Output 1
 
 Case #1: 0
 Case #2: 10
-  
+
 
 Input 2
  	
@@ -509,11 +511,11 @@ RANK
 RANDOM
 FIREWALL
 FIREFIGHTER
-  
+
 Output 2
- 
+
 Case #1: 6
-  
+
 Sample #1
 In Case #1, Pip can achieve a total score of 0 by make the groups:
 {KICK, START}, with a score of 0.

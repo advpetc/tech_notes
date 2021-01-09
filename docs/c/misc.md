@@ -137,3 +137,7 @@ hash("Hubert","Farnsworth") = 17622465712001802105 (using MyHash)
 "Turanga" "Leela"
 "Bender" "Rodriguez"
 "Hubert" "Farnsworth"
+
+## Parse `string` to `int`
+
+use atoi(s.c_str()); because it can handle leading zero (drop it). what it does is convert the s to char*.

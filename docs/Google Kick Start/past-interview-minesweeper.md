@@ -1,4 +1,6 @@
-> https://techdevguide.withgoogle.com/resources/coding-question-minesweeper/#code-challenge
+# Past Interview: Design a Minesweeper
+
+> https://techdevguide.witgoogle.com/resources/coding-question-minesweeper/#code-challenge
 
 ## Problem Statement
 

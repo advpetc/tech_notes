@@ -1,3 +1,5 @@
+# Majority Element with k times
+
 Given an integer array of length L, find all numbers that occur more than 1/K * L times if any exist.
 
 Assumptions
@@ -18,8 +20,8 @@ We can apply the same method usng in 2 and 3 times. General steps:
 3. Do the checking for each element in the array: 
   1. if exist in the map, just incremenet the counter by 1
   2. else
-    1. if the map is full, we decreament all the other couting, and if any of the counter reaches zero, we erase that mapping
-    2. if map isn't full, we just add one mapping of the new element to the map.
+        1. if the map is full, we decreament all the other couting, and if any of the counter reaches zero, we erase that mapping
+            2. if map isn't full, we just add one mapping of the new element to the map.
 4. Do the final check to see if all the keys in the map has the appeared more than 1/k * n times.
 
 ## Code

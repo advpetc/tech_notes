@@ -1,3 +1,5 @@
+# Lowest Common Ancester Problems
+
 ## Variant 1: input is a BST
 
 https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
@@ -9,7 +11,7 @@ If p and q are all on the right subtree, that means root -> left is less than th
 
 If p and q are all on the left subtree, that means root -> right is greater than the max value of p and q
   -> so we don't need to search the root -> right subtree
-  
+
 If p is in root -> left subtree and p is in root -> right subtree (order doesn't matter), then we juet need to find the first root that satisfy this situation
   -> return current root
 

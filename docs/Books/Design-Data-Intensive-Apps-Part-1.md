@@ -1,6 +1,8 @@
-# Foundations of Data Systems
+# Book notes for `Design Data Intensive Apps` 
 
-## Reliable, Scalable, and Maintainable Applications
+## Foundations of Data Systems
+
+### Reliable, Scalable, and Maintainable Applications
 
 * *Reliability*: The system should continue to work correctly even in the face of adversity.
 

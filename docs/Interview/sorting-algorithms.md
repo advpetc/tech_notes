@@ -1,3 +1,5 @@
+# Sorting Algorithms
+
 ## Overview
 
 ![Screen Shot 2020-05-17 at 10.35.19 AM.png](resources/1B8A40176D2D41B4F2CD44BB40E29E5A.png)

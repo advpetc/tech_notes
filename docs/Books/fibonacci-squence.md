@@ -1,3 +1,5 @@
+# Fibonacci Sequence
+
 ## What to prove
 
 If $\phi = (1 + \sqrt{5}) / 2$ then $F_n \leq \phi^{n - 1}$

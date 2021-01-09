@@ -1,4 +1,4 @@
-## Property for a heap (min heap for example)
+# Property for a heap (min heap for example)
 
 1. Complete Tree
   - root = i => left = i * 2 + 1, right = i * 2 + 2 

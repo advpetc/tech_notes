@@ -1,3 +1,5 @@
+# K sum problem
+
 ## Find X-elements from an array such that their sum is equal to a target value
 
 **things to clarify**:
