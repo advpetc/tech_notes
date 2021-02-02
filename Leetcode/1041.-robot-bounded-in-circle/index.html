@@ -259,6 +259,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Acwing/895.-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/" title="895. 最长上升子序列 (LCIS)" class="md-nav__link">
+      895. 最长上升子序列 (LCIS)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Acwing/905.-%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9/" title="905 区间选点" class="md-nav__link">
       905 区间选点
     </a>
@@ -1277,6 +1289,18 @@
   <li class="md-nav__item">
     <a href="../10.-regular-expression-matching/" title="Regular Expression Matching" class="md-nav__link">
       Regular Expression Matching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1011.-Capacity-To-Ship-Packages-Within-D-Days/" title="Capacity To Ship Packages Within D Days" class="md-nav__link">
+      Capacity To Ship Packages Within D Days
     </a>
   </li>
 
@@ -2500,6 +2524,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../golang/intro-learning-notes/" title="Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)" class="md-nav__link">
+      Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../golang/struct/" title="Struct" class="md-nav__link">
+      Struct
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2721,31 +2769,41 @@
                 
                 
                 <h1 id="robot-bounded-in-circle">Robot Bounded in Circle<a class="headerlink" href="#robot-bounded-in-circle" title="Permanent link">&para;</a></h1>
-<p>On an infinite plane, a robot initially stands at (0, 0) and faces north.  The robot can receive one of three instructions:</p>
-<p>"G": go straight 1 unit;
-"L": turn 90 degrees to the left;
-"R": turn 90 degress to the right.
-The robot performs the instructions given in order, and repeats them forever.</p>
-<p>Return true if and only if there exists a circle in the plane such that the robot never leaves the circle.</p>
-<p>Example 1:</p>
-<p>Input: "GGLLGG"
+<p>On an infinite plane, a robot initially stands at <code>(0, 0)</code> and faces north. The robot can receive one of three instructions:</p>
+<ul>
+<li><code>"G"</code>: go straight 1 unit;</li>
+<li><code>"L"</code>: turn 90 degrees to the left;</li>
+<li><code>"R"</code>: turn 90 degrees to the right.</li>
+</ul>
+<p>The robot performs the <code>instructions</code> given in order, and repeats them forever.</p>
+<p>Return <code>true</code> if and only if there exists a circle in the plane such that the robot never leaves the circle.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GGLLGG&quot;
 Output: true
-Explanation: 
-The robot moves from (0,0) to (0,2), turns 180 degrees, and then returns to (0,0).
+Explanation: The robot moves from (0,0) to (0,2), turns 180 degrees, and then returns to (0,0).
 When repeating these instructions, the robot remains in the circle of radius 2 centered at the origin.
-Example 2:</p>
-<p>Input: "GG"
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GG&quot;
 Output: false
-Explanation: 
-The robot moves north indefinitely.
-Example 3:</p>
-<p>Input: "GL"
+Explanation: The robot moves north indefinitely.
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GL&quot;
 Output: true
-Explanation: 
-The robot moves from (0, 0) -&gt; (0, 1) -&gt; (-1, 1) -&gt; (-1, 0) -&gt; (0, 0) -&gt; ...</p>
-<p>Note:</p>
-<p>1 &lt;= instructions.length &lt;= 100
-instructions[i] is in {'G', 'L', 'R'}</p>
+Explanation: The robot moves from (0, 0) -&gt; (0, 1) -&gt; (-1, 1) -&gt; (-1, 0) -&gt; (0, 0) -&gt; ...
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= instructions.length &lt;= 100</code></li>
+<li><code>instructions[i]</code> is <code>'G'</code>, <code>'L'</code> or, <code>'R'</code>.</li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <ol>
 <li>if after mimicing the instructions ends up with x = 0, y = 0, that means it's already a circle, so we return true.</li>

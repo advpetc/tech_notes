@@ -259,6 +259,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Acwing/895.-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/" title="895. 最长上升子序列 (LCIS)" class="md-nav__link">
+      895. 最长上升子序列 (LCIS)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Acwing/905.-%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9/" title="905 区间选点" class="md-nav__link">
       905 区间选点
     </a>
@@ -1277,6 +1289,18 @@
   <li class="md-nav__item">
     <a href="../10.-regular-expression-matching/" title="Regular Expression Matching" class="md-nav__link">
       Regular Expression Matching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1011.-Capacity-To-Ship-Packages-Within-D-Days/" title="Capacity To Ship Packages Within D Days" class="md-nav__link">
+      Capacity To Ship Packages Within D Days
     </a>
   </li>
 
@@ -2500,6 +2524,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../golang/intro-learning-notes/" title="Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)" class="md-nav__link">
+      Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../golang/struct/" title="Struct" class="md-nav__link">
+      Struct
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2754,7 +2802,7 @@ Explanation:
 <ol>
 <li>Vertically aligned with three same candies</li>
 <li>Horizontally algined with three same candies</li>
-<li>After "fell down" by gravity, there could possible add more cases above</li>
+<li>After "fell down" by gravity, above two cases could possibly happen again. Note that we don't need to write another helper function for checking if the current state is stable or not, because the check is essentially the same logic as the next call to the function (so we use recursion)</li>
 </ol>
 <p>We just need to follow these three cases to write the code. Note that for step 3, we need to use the same logic after we have fallen down all the candies, thus we need to use recrusion for that case.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
@@ -2790,7 +2838,7 @@ Explanation:
                     <span style="color: #f8f8f2">}</span>
                 <span style="color: #f8f8f2">}</span>
             <span style="color: #f8f8f2">}</span>
-            <span style="color: #75715e">// step 3: gravity part</span>
+<span style="color: #75715e">// step 3: gravity part</span>
             <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(todo)</span> <span style="color: #f8f8f2">{</span>
                 <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
                     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">row</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// pointing at bottom</span>

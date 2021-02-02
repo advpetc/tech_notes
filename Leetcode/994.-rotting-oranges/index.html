@@ -259,6 +259,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Acwing/895.-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/" title="895. 最长上升子序列 (LCIS)" class="md-nav__link">
+      895. 最长上升子序列 (LCIS)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Acwing/905.-%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9/" title="905 区间选点" class="md-nav__link">
       905 区间选点
     </a>
@@ -1277,6 +1289,18 @@
   <li class="md-nav__item">
     <a href="../10.-regular-expression-matching/" title="Regular Expression Matching" class="md-nav__link">
       Regular Expression Matching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1011.-Capacity-To-Ship-Packages-Within-D-Days/" title="Capacity To Ship Packages Within D Days" class="md-nav__link">
+      Capacity To Ship Packages Within D Days
     </a>
   </li>
 
@@ -2500,6 +2524,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../golang/intro-learning-notes/" title="Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)" class="md-nav__link">
+      Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../golang/struct/" title="Struct" class="md-nav__link">
+      Struct
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2721,26 +2769,42 @@
                 
                 
                 <h1 id="rotting-oranges">Rotting Oranges<a class="headerlink" href="#rotting-oranges" title="Permanent link">&para;</a></h1>
-<p>In a given grid, each cell can have one of three values:</p>
-<p>the value 0 representing an empty cell;
-the value 1 representing a fresh orange;
-the value 2 representing a rotten orange.
-Every minute, any fresh orange that is adjacent (4-directionally) to a rotten orange becomes rotten.</p>
-<p>Return the minimum number of minutes that must elapse until no cell has a fresh orange.  If this is impossible, return -1 instead.</p>
-<p>Input: [[2,1,1],[1,1,0],[0,1,1]]
+<p>You are given an <code>m x n</code> <code>grid</code> where each cell can have one of three values:</p>
+<ul>
+<li><code>0</code> representing an empty cell,</li>
+<li><code>1</code> representing a fresh orange, or</li>
+<li><code>2</code> representing a rotten orange.</li>
+</ul>
+<p>Every minute, any fresh orange that is <strong>4-directionally adjacent</strong> to a rotten orange becomes rotten.</p>
+<p>Return <em>the minimum number of minutes that must elapse until no cell has a fresh orange</em>. If <em>this is impossible, return</em> <code>-1</code>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img alt="img" src="https://assets.leetcode.com/uploads/2019/02/16/oranges.png" /></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: grid = [[2,1,1],[1,1,0],[0,1,1]]
 Output: 4
-Example 2:</p>
-<p>Input: [[2,1,1],[0,1,1],[1,0,1]]
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: grid = [[2,1,1],[0,1,1],[1,0,1]]
 Output: -1
-Explanation:  The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.
-Example 3:</p>
-<p>Input: [[0,2]]
+Explanation: The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: grid = [[0,2]]
 Output: 0
-Explanation:  Since there are already no fresh oranges at minute 0, the answer is just 0.</p>
-<p>Note:</p>
-<p>1 &lt;= grid.length &lt;= 10
-1 &lt;= grid[0].length &lt;= 10
-grid[i][j] is only 0, 1, or 2.</p>
+Explanation: Since there are already no fresh oranges at minute 0, the answer is just 0.
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>m == grid.length</code></li>
+<li><code>n == grid[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 10</code></li>
+<li><code>grid[i][j]</code> is <code>0</code>, <code>1</code>, or <code>2</code>.</li>
+</ul>
 <h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
 <p>Using bfs to expand level by level, using a counter to keep track of how many levels are there, which is the anser of our problem.</p>
 <p>Time Complexity: <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span> since you need to iterate through all the cells. 

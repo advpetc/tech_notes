@@ -259,6 +259,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Acwing/895.-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/" title="895. 最长上升子序列 (LCIS)" class="md-nav__link">
+      895. 最长上升子序列 (LCIS)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Acwing/905.-%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9/" title="905 区间选点" class="md-nav__link">
       905 区间选点
     </a>
@@ -1277,6 +1289,18 @@
   <li class="md-nav__item">
     <a href="../10.-regular-expression-matching/" title="Regular Expression Matching" class="md-nav__link">
       Regular Expression Matching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1011.-Capacity-To-Ship-Packages-Within-D-Days/" title="Capacity To Ship Packages Within D Days" class="md-nav__link">
+      Capacity To Ship Packages Within D Days
     </a>
   </li>
 
@@ -2539,6 +2563,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../golang/intro-learning-notes/" title="Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)" class="md-nav__link">
+      Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../golang/struct/" title="Struct" class="md-nav__link">
+      Struct
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2799,17 +2847,22 @@
                 
                 
                 <h1 id="remove-all-adjacent-duplicates-in-string">Remove all Adjacent Duplicates in String<a class="headerlink" href="#remove-all-adjacent-duplicates-in-string" title="Permanent link">&para;</a></h1>
-<p>Given a string S of lowercase letters, a duplicate removal consists of choosing two adjacent and equal letters, and removing them.</p>
+<p>Given a string <code>S</code> of lowercase letters, a <em>duplicate removal</em> consists of choosing two adjacent and equal letters, and removing them.</p>
 <p>We repeatedly make duplicate removals on S until we no longer can.</p>
-<p>Return the final string after all such duplicate removals have been made.  It is guaranteed the answer is unique.</p>
-<p>Example 1:</p>
-<p>Input: "abbaca"
-Output: "ca"
+<p>Return the final string after all such duplicate removals have been made. It is guaranteed the answer is unique.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: &quot;abbaca&quot;
+Output: &quot;ca&quot;
 Explanation: 
-For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".</p>
-<p>Note:</p>
-<p>1 &lt;= S.length &lt;= 20000
-S consists only of English lowercase letters.</p>
+For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is &quot;aaca&quot;, of which only &quot;aa&quot; is possible, so the final string is &quot;ca&quot;.
+</code></pre></div>
+
+
+<p><strong>Note:</strong></p>
+<ol>
+<li><code>1 &lt;= S.length &lt;= 20000</code></li>
+<li><code>S</code> consists only of English lowercase letters.</li>
+</ol>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>Because it requires to continuously merge and delete char that are the same, we should think about using stack to solve this problem.</p>
 <h3 id="solution-1">Solution 1<a class="headerlink" href="#solution-1" title="Permanent link">&para;</a></h3>
