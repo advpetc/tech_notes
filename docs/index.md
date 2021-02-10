@@ -1,7 +1,7 @@
 # Welcome to Haoyang's Tech Notes
 
 ## What's included
-* Leetcode: includes some questions I have done (with analysis).
+* Leetcode: some questions I have done (with analysis).
 * Languages: C, Java, Python, Golang
 * Machine Learning: course note for Stanford CS231n.
 * Interview: notes for preparing interviews.
