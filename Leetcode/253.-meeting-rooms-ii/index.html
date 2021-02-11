@@ -1,5 +1,4 @@
-
-
+<!-- Elements added to main will be displayed on all pages -->
 
 <!doctype html>
 <html lang="en" class="no-js">
@@ -11,13 +10,14 @@
         <meta name="description" content="Keep track of all the learning">
       
       
-        <link rel="canonical" href="https://peterchen.xyz/Leetcode/253.-meeting-rooms-ii/">
-      
       
         <meta name="author" content="Haoyang">
       
+      
+        <link rel="canonical" href="https://peterchen.xyz/Leetcode/253.-meeting-rooms-ii/">
+      
       <link rel="shortcut icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.8">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
     
     
       
@@ -25,20 +25,27 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
         
-        <meta name="theme-color" content="#546d78">
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
       
     
     
+<!-- Google Adsense-->
+
+<script data-ad-client="ca-pub-9714425906776797" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:300,400,400i,700%7C&display=fallback">
         <style>body,input{font-family:"Ubuntu Mono",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
@@ -63,7 +70,10 @@
     
     
     
+    
+    
     <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+      
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -81,7 +91,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://peterchen.xyz" title="Tech Notes" class="md-header-nav__button md-logo" aria-label="Tech Notes">
       
@@ -92,18 +104,20 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
     <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             Tech Notes
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             
               Meeting Rooms II
             
           </span>
         </div>
-      
+      </div>
     </div>
     
       <label class="md-header-nav__button md-icon" for="__search">
@@ -114,7 +128,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
@@ -155,8 +169,6 @@
     
     <div class="md-container" data-md-component="container">
       
-        
-      
       
         
       
@@ -164,10 +176,16 @@
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://peterchen.xyz" title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes">
       
@@ -196,1062 +214,1073 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../.." title="Welcome to Haoyang's Tech Notes" class="md-nav__link">
-      Welcome to Haoyang's Tech Notes
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../about/" title="About" class="md-nav__link">
-      About
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome to Haoyang's Tech Notes
+      </a>
+    </li>
+  
 
     
       
       
       
 
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      
+      
+      
+
+  
+  
+  
     
-    <label class="md-nav__link" for="nav-3">
-      Acwing
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Acwing" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
         Acwing
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Acwing" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Acwing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Acwing/1142.-%E7%B9%81%E5%BF%99%E7%9A%84%E9%83%BD%E5%B8%82/" class="md-nav__link">
+        1142 繁忙的都市
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Acwing/895.-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/" class="md-nav__link">
+        895. 最长上升子序列 (LCIS)
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../Acwing/1142.-%E7%B9%81%E5%BF%99%E7%9A%84%E9%83%BD%E5%B8%82/" title="1142 繁忙的都市" class="md-nav__link">
-      1142 繁忙的都市
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Acwing/905.-%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9/" class="md-nav__link">
+        905 区间选点
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Acwing/906.-%E5%8C%BA%E9%97%B4%E5%88%86%E7%BB%84/" class="md-nav__link">
+        906 区间分组
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Acwing/907.-%E5%8C%BA%E9%97%B4%E8%A6%86%E7%9B%96/" class="md-nav__link">
+        区间覆盖
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../Acwing/895.-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97/" title="895. 最长上升子序列 (LCIS)" class="md-nav__link">
-      895. 最长上升子序列 (LCIS)
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Acwing/908.-%E6%9C%80%E5%A4%A7%E4%B8%8D%E7%9B%B8%E4%BA%A4%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F/" class="md-nav__link">
+        最大不相交区间数量
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Acwing/lca%E6%9C%80%E5%B0%8F%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" class="md-nav__link">
+        Lca最小公共祖先
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Acwing/topological-sort/" class="md-nav__link">
+        Topological Sort
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../Acwing/905.-%E5%8C%BA%E9%97%B4%E9%80%89%E7%82%B9/" title="905 区间选点" class="md-nav__link">
-      905 区间选点
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Acwing/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/" class="md-nav__link">
+        算法基础课
+      </a>
+    </li>
+  
+
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Acwing/906.-%E5%8C%BA%E9%97%B4%E5%88%86%E7%BB%84/" title="906 区间分组" class="md-nav__link">
-      906 区间分组
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Acwing/907.-%E5%8C%BA%E9%97%B4%E8%A6%86%E7%9B%96/" title="区间覆盖" class="md-nav__link">
-      区间覆盖
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Acwing/908.-%E6%9C%80%E5%A4%A7%E4%B8%8D%E7%9B%B8%E4%BA%A4%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F/" title="最大不相交区间数量" class="md-nav__link">
-      最大不相交区间数量
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Acwing/lca%E6%9C%80%E5%B0%8F%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" title="Lca最小公共祖先" class="md-nav__link">
-      Lca最小公共祖先
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Acwing/topological-sort/" title="Topological Sort" class="md-nav__link">
-      Topological Sort
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Acwing/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/" title="算法基础课" class="md-nav__link">
-      算法基础课
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Books
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Books" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
         Books
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Books" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Books
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Books/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
+        Book notes for `Design Data Intensive Apps`
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Books/binomial-coefficient/" class="md-nav__link">
+        Binomial Coefficient
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../Books/Design-Data-Intensive-Apps-Part-1/" title="Book notes for `Design Data Intensive Apps`" class="md-nav__link">
-      Book notes for `Design Data Intensive Apps`
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Books/fibonacci-squence/" class="md-nav__link">
+        Fibonacci Sequence
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Books/harmonic-numbers/" class="md-nav__link">
+        Harmonic Numbers
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Books/lca/" class="md-nav__link">
+        Lowest Common Ancestor Problem with Advanced Methods to Solve
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../Books/binomial-coefficient/" title="Binomial Coefficient" class="md-nav__link">
-      Binomial Coefficient
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Books/max-flow/" class="md-nav__link">
+        Max Flow Problem
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Books/minimal-spanning-tree/" class="md-nav__link">
+        Minimal Spanning Tree
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Books/shortest-path-problem/" class="md-nav__link">
+        Shortest Path Problem
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../Books/fibonacci-squence/" title="Fibonacci Sequence" class="md-nav__link">
-      Fibonacci Sequence
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Books/harmonic-numbers/" title="Harmonic Numbers" class="md-nav__link">
-      Harmonic Numbers
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Books/lca/" title="Lowest Common Ancestor Problem with Advanced Methods to Solve" class="md-nav__link">
-      Lowest Common Ancestor Problem with Advanced Methods to Solve
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Books/max-flow/" title="Max Flow Problem" class="md-nav__link">
-      Max Flow Problem
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Books/minimal-spanning-tree/" title="Minimal Spanning Tree" class="md-nav__link">
-      Minimal Spanning Tree
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Books/shortest-path-problem/" title="Shortest Path Problem" class="md-nav__link">
-      Shortest Path Problem
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Google Kick Start
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Google Kick Start" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+      
+      <label class="md-nav__link" for="nav-5">
         Google Kick Start
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Google Kick Start" data-md-level="1">
+        <label class="md-nav__title" for="nav-5">
+          <span class="md-nav__icon md-icon"></span>
+          Google Kick Start
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Google%20Kick%20Start/2020-round-a/" class="md-nav__link">
+        2020 Round A
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Google%20Kick%20Start/2020-round-b/" class="md-nav__link">
+        2020 Round B
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../Google%20Kick%20Start/2020-round-a/" title="2020 Round A" class="md-nav__link">
-      2020 Round A
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Google%20Kick%20Start/past-interview-minesweeper/" class="md-nav__link">
+        Past Interview: Design a Minesweeper
+      </a>
+    </li>
+  
+
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Google%20Kick%20Start/2020-round-b/" title="2020 Round B" class="md-nav__link">
-      2020 Round B
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Google%20Kick%20Start/past-interview-minesweeper/" title="Past Interview: Design a Minesweeper" class="md-nav__link">
-      Past Interview: Design a Minesweeper
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
-      Interview
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Interview" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+      
+      <label class="md-nav__link" for="nav-6">
         Interview
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/Internet%20Protocol/" title="Internet Protocol (计算机网络)" class="md-nav__link">
-      Internet Protocol (计算机网络)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/all-valid-permutations-of-parentheses/" title="All Vaid Permutation of Parentheses" class="md-nav__link">
-      All Vaid Permutation of Parentheses
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/array/" title="Array" class="md-nav__link">
-      Array
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/balanced-search-trees/" title="Balanced Search Trees" class="md-nav__link">
-      Balanced Search Trees
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/behavior-questions/" title="Behavior Questions" class="md-nav__link">
-      Behavior Questions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/binary-search/" title="Binary Search" class="md-nav__link">
-      Binary Search
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/choose-k-cards-and-find-the-maximum/" title="Choose k cards and find the maximum" class="md-nav__link">
-      Choose k cards and find the maximum
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/count-array-count-inversion-of-an-array/" title="Count Array Inversion" class="md-nav__link">
-      Count Array Inversion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/design-heap-or-priority-queue/" title="Property for a heap (min heap for example)" class="md-nav__link">
-      Property for a heap (min heap for example)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/divide-two-integer/" title="Notes for a mock interview" class="md-nav__link">
-      Notes for a mock interview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/dynamic-programming-1/" title="Dynamic Programming 1" class="md-nav__link">
-      Dynamic Programming 1
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/dynamic-programming-4/" title="Dynamic Programming 4" class="md-nav__link">
-      Dynamic Programming 4
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/final-java/" title="Final Exam" class="md-nav__link">
-      Final Exam
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/find-longest-substring-at-most-k-characters/" title="Find longest substring at most k characters" class="md-nav__link">
-      Find longest substring at most k characters
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/find-minimum-in-rotated-sorted-array/" title="Find minimum in rotated sorted array" class="md-nav__link">
-      Find minimum in rotated sorted array
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/first-non-repeating-character-in-stream/" title="First non repeating character in stream" class="md-nav__link">
-      First non repeating character in stream
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/graph/" title="Graph" class="md-nav__link">
-      Graph
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/greedy-algorithm/" title="Greedy Algorithm" class="md-nav__link">
-      Greedy Algorithm
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/gs/" title="Goldman Sachs" class="md-nav__link">
-      Goldman Sachs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/hashmap/" title="Hashmap" class="md-nav__link">
-      Hashmap
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/k-sum-problem/" title="K sum problem" class="md-nav__link">
-      K sum problem
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/keep-distance-for-identical-elements/" title="Keep distance for identical elements" class="md-nav__link">
-      Keep distance for identical elements
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/knight-dialer/" title="Knight Dialer" class="md-nav__link">
-      Knight Dialer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/kth-problem/" title="Kth problem" class="md-nav__link">
-      Kth problem
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/linked-list/" title="Linked List" class="md-nav__link">
-      Linked List
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/lowest-common-ancester/" title="Lowest Common Ancester Problems" class="md-nav__link">
-      Lowest Common Ancester Problems
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/majority-element-with-k-times/" title="Majority Element with k times" class="md-nav__link">
-      Majority Element with k times
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/math/" title="Math" class="md-nav__link">
-      Math
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/maximum-product-subarray/" title="Maximum Product Subarray" class="md-nav__link">
-      Maximum Product Subarray
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/midterm-java/" title="Midterm" class="md-nav__link">
-      Midterm
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/ood/" title="Object Oriented Design" class="md-nav__link">
-      Object Oriented Design
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/rectangle-2d-dp/" title="2 Dimension Dynamic Programming" class="md-nav__link">
-      2 Dimension Dynamic Programming
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/recursion-tree/" title="Recursion and Tree" class="md-nav__link">
-      Recursion and Tree
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/recursion/" title="Recursion" class="md-nav__link">
-      Recursion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/russian-doll/" title="Russian Doll" class="md-nav__link">
-      Russian Doll
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/search-in-bitonic-array/" title="Searcg in Bitonic Array" class="md-nav__link">
-      Searcg in Bitonic Array
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/serializing-and-deserializing/" title="Serializing and Deserializing a tree" class="md-nav__link">
-      Serializing and Deserializing a tree
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/singleton/" title="Singleton" class="md-nav__link">
-      Singleton
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/sorting-algorithms/" title="Sorting Algorithms" class="md-nav__link">
-      Sorting Algorithms
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/stack-and-queue/" title="Stack and Queue" class="md-nav__link">
-      Stack and Queue
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/string-match/" title="String Match" class="md-nav__link">
-      String Match
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/string/" title="String" class="md-nav__link">
-      String
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/subset%2C-combination%2C-permutation-problems/" title="Subset, combination, Permutation Problems" class="md-nav__link">
-      Subset, combination, Permutation Problems
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/system-design-related-questions/" title="System Design Questions" class="md-nav__link">
-      System Design Questions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/tree/" title="Tree" class="md-nav__link">
-      Tree
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/%E5%8D%88%E9%97%B4%E8%AF%BE%E5%A0%82/" title="午间课堂" class="md-nav__link">
-      午间课堂
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Interview/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1/" title="每日打卡" class="md-nav__link">
-      每日打卡
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+      <nav class="md-nav" aria-label="Interview" data-md-level="1">
+        <label class="md-nav__title" for="nav-6">
+          <span class="md-nav__icon md-icon"></span>
+          Interview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/Internet%20Protocol/" class="md-nav__link">
+        Internet Protocol (计算机网络)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/all-valid-permutations-of-parentheses/" class="md-nav__link">
+        All Vaid Permutation of Parentheses
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/array/" class="md-nav__link">
+        Array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/balanced-search-trees/" class="md-nav__link">
+        Balanced Search Trees
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/behavior-questions/" class="md-nav__link">
+        Behavior Questions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/binary-search/" class="md-nav__link">
+        Binary Search
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/choose-k-cards-and-find-the-maximum/" class="md-nav__link">
+        Choose k cards and find the maximum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/count-array-count-inversion-of-an-array/" class="md-nav__link">
+        Count Array Inversion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/design-heap-or-priority-queue/" class="md-nav__link">
+        Property for a heap (min heap for example)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/divide-two-integer/" class="md-nav__link">
+        Notes for a mock interview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/dynamic-programming-1/" class="md-nav__link">
+        Dynamic Programming 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/dynamic-programming-4/" class="md-nav__link">
+        Dynamic Programming 4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/final-java/" class="md-nav__link">
+        Final Exam
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/find-longest-substring-at-most-k-characters/" class="md-nav__link">
+        Find longest substring at most k characters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/find-minimum-in-rotated-sorted-array/" class="md-nav__link">
+        Find minimum in rotated sorted array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/first-non-repeating-character-in-stream/" class="md-nav__link">
+        First non repeating character in stream
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/graph/" class="md-nav__link">
+        Graph
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/greedy-algorithm/" class="md-nav__link">
+        Greedy Algorithm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/gs/" class="md-nav__link">
+        Goldman Sachs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/hashmap/" class="md-nav__link">
+        Hashmap
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/k-sum-problem/" class="md-nav__link">
+        K sum problem
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/keep-distance-for-identical-elements/" class="md-nav__link">
+        Keep distance for identical elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/knight-dialer/" class="md-nav__link">
+        Knight Dialer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/kth-problem/" class="md-nav__link">
+        Kth problem
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/linked-list/" class="md-nav__link">
+        Linked List
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/lowest-common-ancester/" class="md-nav__link">
+        Lowest Common Ancester Problems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/majority-element-with-k-times/" class="md-nav__link">
+        Majority Element with k times
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/math/" class="md-nav__link">
+        Math
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/maximum-product-subarray/" class="md-nav__link">
+        Maximum Product Subarray
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/midterm-java/" class="md-nav__link">
+        Midterm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/ood/" class="md-nav__link">
+        Object Oriented Design
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/rectangle-2d-dp/" class="md-nav__link">
+        2 Dimension Dynamic Programming
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/recursion-tree/" class="md-nav__link">
+        Recursion and Tree
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/recursion/" class="md-nav__link">
+        Recursion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/russian-doll/" class="md-nav__link">
+        Russian Doll
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/search-in-bitonic-array/" class="md-nav__link">
+        Searcg in Bitonic Array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/serializing-and-deserializing/" class="md-nav__link">
+        Serializing and Deserializing a tree
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/singleton/" class="md-nav__link">
+        Singleton
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/sorting-algorithms/" class="md-nav__link">
+        Sorting Algorithms
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/stack-and-queue/" class="md-nav__link">
+        Stack and Queue
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/string-match/" class="md-nav__link">
+        String Match
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/string/" class="md-nav__link">
+        String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/subset%2C-combination%2C-permutation-problems/" class="md-nav__link">
+        Subset, combination, Permutation Problems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/system-design-related-questions/" class="md-nav__link">
+        System Design Questions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/tree/" class="md-nav__link">
+        Tree
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/%E5%8D%88%E9%97%B4%E8%AF%BE%E5%A0%82/" class="md-nav__link">
+        午间课堂
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1/" class="md-nav__link">
+        每日打卡
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      Java
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Java" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+      
+      <label class="md-nav__link" for="nav-7">
         Java
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Java" data-md-level="1">
+        <label class="md-nav__title" for="nav-7">
+          <span class="md-nav__icon md-icon"></span>
+          Java
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java/Serialization/" class="md-nav__link">
+        Serialization
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java/array%2C-class-and-objects/" class="md-nav__link">
+        Useful notes and codes for Java
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../Java/Serialization/" title="Serialization" class="md-nav__link">
-      Serialization
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java/common-problem/" class="md-nav__link">
+        Common problem
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java/comparison-with-other-languages/" class="md-nav__link">
+        Comparison with other languages
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java/control-flow-and-methods/" class="md-nav__link">
+        Control flow and methods
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../Java/array%2C-class-and-objects/" title="Useful notes and codes for Java" class="md-nav__link">
-      Useful notes and codes for Java
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java/primitive-types-and-basic-operations/" class="md-nav__link">
+        Primitive types and basic operations
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java/tips/" class="md-nav__link">
+        Tips
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="../../Java/common-problem/" title="Common problem" class="md-nav__link">
-      Common problem
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Java/comparison-with-other-languages/" title="Comparison with other languages" class="md-nav__link">
-      Comparison with other languages
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Java/control-flow-and-methods/" title="Control flow and methods" class="md-nav__link">
-      Control flow and methods
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Java/primitive-types-and-basic-operations/" title="Primitive types and basic operations" class="md-nav__link">
-      Primitive types and basic operations
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Java/tips/" title="Tips" class="md-nav__link">
-      Tips
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
@@ -1259,510 +1288,507 @@
       
 
   
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+  
+  
     
-    <label class="md-nav__link" for="nav-8">
-      Leetcode
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Leetcode" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      
+      <label class="md-nav__link" for="nav-8">
         Leetcode
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../10.-regular-expression-matching/" title="Regular Expression Matching" class="md-nav__link">
-      Regular Expression Matching
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1011.-Capacity-To-Ship-Packages-Within-D-Days/" title="Capacity To Ship Packages Within D Days" class="md-nav__link">
-      Capacity To Ship Packages Within D Days
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1014.-Best-Sightseeing-Pair/" title="Best Sightseeing Pair" class="md-nav__link">
-      Best Sightseeing Pair
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1015.-Smallest-Integer-Divisible-by-K/" title="Smallest Integer Divisible by K" class="md-nav__link">
-      Smallest Integer Divisible by K
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1021.-Remove-Outermost-Parentheses/" title="Remove Outermost Parentheses" class="md-nav__link">
-      Remove Outermost Parentheses
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../103.-binary-tree-zigzag-level-order-traversal/" title="Binary Tree Zigzag Level Order Traversal" class="md-nav__link">
-      Binary Tree Zigzag Level Order Traversal
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1041.-robot-bounded-in-circle/" title="Robot Bounded in Circle" class="md-nav__link">
-      Robot Bounded in Circle
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1047.-remove-all-adjacent-duplicates-in-string/" title="Remove all Adjacent Duplicates in String" class="md-nav__link">
-      Remove all Adjacent Duplicates in String
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1057.-campus-bikes/" title="Campus Bikes" class="md-nav__link">
-      Campus Bikes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1074.-number-of-submatrices-that-sum-to-target/" title="Number of Submatrices that sum to Target" class="md-nav__link">
-      Number of Submatrices that sum to Target
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../109.-convert-sorted-list-to-binary-search-tree/" title="Convert Sorted List to Binary Search Tree" class="md-nav__link">
-      Convert Sorted List to Binary Search Tree
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../11.-container-with-most-water/" title="Container with Most Water" class="md-nav__link">
-      Container with Most Water
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../112.-path-sum/" title="Path Sum" class="md-nav__link">
-      Path Sum
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../113.-path-sum-II/" title="Path Sum II" class="md-nav__link">
-      Path Sum II
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../114.-flatten-binary-tree-to-linked-list/" title="Flatten binary tree to linked list" class="md-nav__link">
-      Flatten binary tree to linked list
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../115.-distinct-subsequences/" title="Distinct Subsequences" class="md-nav__link">
-      Distinct Subsequences
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../12.-integer-to-roman/" title="Integer to Roman" class="md-nav__link">
-      Integer to Roman
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../121%2C123%2C132%2C188%2C309%2C714-best-time-to-buy-and-sell-stock/" title="Best Time to Buy and Sell Stock -- Summary" class="md-nav__link">
-      Best Time to Buy and Sell Stock -- Summary
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1235.-maximum-profit-in-job-scheduling/" title="Maximum Profit in job scheduling" class="md-nav__link">
-      Maximum Profit in job scheduling
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1286.-iterator-for-combination/" title="Iterator for Combination" class="md-nav__link">
-      Iterator for Combination
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../13.-roman-to-integer/" title="Roman to Integer" class="md-nav__link">
-      Roman to Integer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../130.-surrounded-regions/" title="Surrounded Regions" class="md-nav__link">
-      Surrounded Regions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../138.-copy-list-with-random-pointer/" title="Copy list with Random Pointer" class="md-nav__link">
-      Copy list with Random Pointer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../139.-word-break/" title="Word Break" class="md-nav__link">
-      Word Break
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../1396.-design-underground-system/" title="Design Underground System" class="md-nav__link">
-      Design Underground System
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../140.-word-break-ii/" title="Word Break II" class="md-nav__link">
-      Word Break II
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../146.-lru-cache/" title="LRU Cache" class="md-nav__link">
-      LRU Cache
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../148.-sort-list/" title="Sort List" class="md-nav__link">
-      Sort List
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../149.-max-points-on-a-line/" title="Max Points on a line" class="md-nav__link">
-      Max Points on a line
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../152.-maximum-product-subarray/" title="Maximum Product Subarray" class="md-nav__link">
-      Maximum Product Subarray
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../169.-majority-element/" title="Majority Element" class="md-nav__link">
-      Majority Element
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../2.-add-two-numbers/" title="Add Two Numbers" class="md-nav__link">
-      Add Two Numbers
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../208.-implement-trie-%28prefix-tree%29/" title="Implement Trie (Prefix Tree)" class="md-nav__link">
-      Implement Trie (Prefix Tree)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../212.-word-search-ii/" title="Word Search II" class="md-nav__link">
-      Word Search II
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../222.-count-complete-tree-node/" title="Count Complete Tree Nodes" class="md-nav__link">
-      Count Complete Tree Nodes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../229.-majority-element-ii/" title="Majority Element II" class="md-nav__link">
-      Majority Element II
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../239.-sliding-window-maximum/" title="Sliding Window Maximum" class="md-nav__link">
-      Sliding Window Maximum
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../24.-Swap-Nodes-in-Pairs/" title="Swap Nodes in Pairs" class="md-nav__link">
-      Swap Nodes in Pairs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
+      <nav class="md-nav" aria-label="Leetcode" data-md-level="1">
+        <label class="md-nav__title" for="nav-8">
+          <span class="md-nav__icon md-icon"></span>
+          Leetcode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.-regular-expression-matching/" class="md-nav__link">
+        Regular Expression Matching
+      </a>
+    </li>
   
 
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1011.-Capacity-To-Ship-Packages-Within-D-Days/" class="md-nav__link">
+        Capacity To Ship Packages Within D Days
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active">
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1014.-Best-Sightseeing-Pair/" class="md-nav__link">
+        Best Sightseeing Pair
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1015.-Smallest-Integer-Divisible-by-K/" class="md-nav__link">
+        Smallest Integer Divisible by K
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1021.-Remove-Outermost-Parentheses/" class="md-nav__link">
+        Remove Outermost Parentheses
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../103.-binary-tree-zigzag-level-order-traversal/" class="md-nav__link">
+        Binary Tree Zigzag Level Order Traversal
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1041.-robot-bounded-in-circle/" class="md-nav__link">
+        Robot Bounded in Circle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1047.-remove-all-adjacent-duplicates-in-string/" class="md-nav__link">
+        Remove all Adjacent Duplicates in String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1057.-campus-bikes/" class="md-nav__link">
+        Campus Bikes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1074.-number-of-submatrices-that-sum-to-target/" class="md-nav__link">
+        Number of Submatrices that sum to Target
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../109.-convert-sorted-list-to-binary-search-tree/" class="md-nav__link">
+        Convert Sorted List to Binary Search Tree
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.-container-with-most-water/" class="md-nav__link">
+        Container with Most Water
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../112.-path-sum/" class="md-nav__link">
+        Path Sum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../113.-path-sum-II/" class="md-nav__link">
+        Path Sum II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../114.-flatten-binary-tree-to-linked-list/" class="md-nav__link">
+        Flatten binary tree to linked list
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../115.-distinct-subsequences/" class="md-nav__link">
+        Distinct Subsequences
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.-integer-to-roman/" class="md-nav__link">
+        Integer to Roman
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../121%2C123%2C132%2C188%2C309%2C714-best-time-to-buy-and-sell-stock/" class="md-nav__link">
+        Best Time to Buy and Sell Stock -- Summary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1235.-maximum-profit-in-job-scheduling/" class="md-nav__link">
+        Maximum Profit in job scheduling
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1286.-iterator-for-combination/" class="md-nav__link">
+        Iterator for Combination
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.-roman-to-integer/" class="md-nav__link">
+        Roman to Integer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../130.-surrounded-regions/" class="md-nav__link">
+        Surrounded Regions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../138.-copy-list-with-random-pointer/" class="md-nav__link">
+        Copy list with Random Pointer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../139.-word-break/" class="md-nav__link">
+        Word Break
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1396.-design-underground-system/" class="md-nav__link">
+        Design Underground System
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../140.-word-break-ii/" class="md-nav__link">
+        Word Break II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../146.-lru-cache/" class="md-nav__link">
+        LRU Cache
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../148.-sort-list/" class="md-nav__link">
+        Sort List
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../149.-max-points-on-a-line/" class="md-nav__link">
+        Max Points on a line
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../152.-maximum-product-subarray/" class="md-nav__link">
+        Maximum Product Subarray
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../169.-majority-element/" class="md-nav__link">
+        Majority Element
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.-add-two-numbers/" class="md-nav__link">
+        Add Two Numbers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../208.-implement-trie-%28prefix-tree%29/" class="md-nav__link">
+        Implement Trie (Prefix Tree)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../212.-word-search-ii/" class="md-nav__link">
+        Word Search II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../222.-count-complete-tree-node/" class="md-nav__link">
+        Count Complete Tree Nodes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../229.-majority-element-ii/" class="md-nav__link">
+        Majority Element II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../239.-sliding-window-maximum/" class="md-nav__link">
+        Sliding Window Maximum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24.-Swap-Nodes-in-Pairs/" class="md-nav__link">
+        Swap Nodes in Pairs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
       
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Meeting Rooms II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Meeting Rooms II
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Meeting Rooms II" class="md-nav__link md-nav__link--active">
-      Meeting Rooms II
-    </a>
-    
+      </a>
       
+        
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -1770,9 +1796,7 @@
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -1794,991 +1818,1000 @@
     </ul>
   
 </nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../254.-factor-combinations/" title="Factor Combinations" class="md-nav__link">
-      Factor Combinations
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../287.-find-the-duplicate-number/" title="Find the Duplicate Number" class="md-nav__link">
-      Find the Duplicate Number
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../290.-word-pattern/" title="Word Pattern" class="md-nav__link">
-      Word Pattern
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../291.-word-pattern-II/" title="Word Pattern II" class="md-nav__link">
-      Word Pattern II
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../295.-find-median-from-data-stream/" title="Find Median From Data Stream" class="md-nav__link">
-      Find Median From Data Stream
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" title="Longest Substring Without Repeating Characters" class="md-nav__link">
-      Longest Substring Without Repeating Characters
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../32.-longest-valid-parentheses/" title="Longest Valid Parentheses" class="md-nav__link">
-      Longest Valid Parentheses
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../36.-valid-sudoku/" title="Valid Sudoku" class="md-nav__link">
-      Valid Sudoku
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../394.-decode-string/" title="Decode String" class="md-nav__link">
-      Decode String
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../4.-median-of-two-sorted-arrays/" title="Median of Two Sorted Arrays" class="md-nav__link">
-      Median of Two Sorted Arrays
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../42.-trapping-rain-water/" title="Trapping Rain Water" class="md-nav__link">
-      Trapping Rain Water
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../437.-path-sum-iii/" title="Path Sum III" class="md-nav__link">
-      Path Sum III
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../438%2C-76%2C-3%2C-30%2C-sliding-window/" title="Sliding Window Pattern" class="md-nav__link">
-      Sliding Window Pattern
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../496.-next-greater-element-i/" title="Next Greater Element I" class="md-nav__link">
-      Next Greater Element I
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../520.-detect-capital/" title="Detect Capital" class="md-nav__link">
-      Detect Capital
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../532.-k-diff-pairs-in-an-array/" title="K diff Pairs in an Array" class="md-nav__link">
-      K diff Pairs in an Array
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../54.-spiral-matrix/" title="Spiral Matrix" class="md-nav__link">
-      Spiral Matrix
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../568.-maximum-vacation-days/" title="Maximum Vacation Days" class="md-nav__link">
-      Maximum Vacation Days
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../58.-Length-of-Last-Word/" title="Length of Last Word" class="md-nav__link">
-      Length of Last Word
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../636.-exclusive-time-of-functions/" title="Exclusive Time of Functions" class="md-nav__link">
-      Exclusive Time of Functions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../646.-maximum-length-of-pair-chain/" title="Maximum Length of Pair Chain" class="md-nav__link">
-      Maximum Length of Pair Chain
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../647.-palindromic-substrings/" title="Palindromic Substrings" class="md-nav__link">
-      Palindromic Substrings
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../684.-Redundant-Connection/" title="Redundant Connection" class="md-nav__link">
-      Redundant Connection
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../69.-sqrt%28x%29/" title="Sqrt(t)" class="md-nav__link">
-      Sqrt(t)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../72.-edit-distance/" title="Edit Distance" class="md-nav__link">
-      Edit Distance
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../723.-Candy-Crush/" title="Candy Crush" class="md-nav__link">
-      Candy Crush
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../754.-Reach-a-Number/" title="Reach a Number" class="md-nav__link">
-      Reach a Number
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../85.-maximal-rectangle/" title="Maximal Rectangle" class="md-nav__link">
-      Maximal Rectangle
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../87.-scramble-string/" title="Scramble String" class="md-nav__link">
-      Scramble String
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../91.-decode-ways/" title="Decode Ways" class="md-nav__link">
-      Decode Ways
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../93.-restore-ip-addresses/" title="Restore IP addresses" class="md-nav__link">
-      Restore IP addresses
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../95.-unique-binary-search-trees-ii/" title="Unique Binary Search Trees II" class="md-nav__link">
-      Unique Binary Search Trees II
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../952.-largest-component-size-by-common-factor/" title="Largest Component Size by Common Factor" class="md-nav__link">
-      Largest Component Size by Common Factor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" title="Unique Binary Search Trees -- My Method" class="md-nav__link">
-      Unique Binary Search Trees -- My Method
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../96.-unique-binary-search-trees/" title="Unique Binary Search Trees" class="md-nav__link">
-      Unique Binary Search Trees
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../97.-interleaving-string/" title="Interleaving String" class="md-nav__link">
-      Interleaving String
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../987.-Vertical-Order-Traversal-of-a-binary-tree/" title="Vertical Order Traversal of a Binary Tree" class="md-nav__link">
-      Vertical Order Traversal of a Binary Tree
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../99.-recover-binary-search-tree/" title="Recover Binary Search Tree" class="md-nav__link">
-      Recover Binary Search Tree
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../994.-rotting-oranges/" title="Rotting Oranges" class="md-nav__link">
-      Rotting Oranges
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../dp-pattern/" title="Dp pattern" class="md-nav__link">
-      Dp pattern
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../254.-factor-combinations/" class="md-nav__link">
+        Factor Combinations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../287.-find-the-duplicate-number/" class="md-nav__link">
+        Find the Duplicate Number
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../290.-word-pattern/" class="md-nav__link">
+        Word Pattern
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../291.-word-pattern-II/" class="md-nav__link">
+        Word Pattern II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../295.-find-median-from-data-stream/" class="md-nav__link">
+        Find Median From Data Stream
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-nav__link">
+        Longest Substring Without Repeating Characters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32.-longest-valid-parentheses/" class="md-nav__link">
+        Longest Valid Parentheses
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36.-valid-sudoku/" class="md-nav__link">
+        Valid Sudoku
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../394.-decode-string/" class="md-nav__link">
+        Decode String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.-median-of-two-sorted-arrays/" class="md-nav__link">
+        Median of Two Sorted Arrays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42.-trapping-rain-water/" class="md-nav__link">
+        Trapping Rain Water
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../437.-path-sum-iii/" class="md-nav__link">
+        Path Sum III
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../438%2C-76%2C-3%2C-30%2C-sliding-window/" class="md-nav__link">
+        Sliding Window Pattern
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../496.-next-greater-element-i/" class="md-nav__link">
+        Next Greater Element I
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../520.-detect-capital/" class="md-nav__link">
+        Detect Capital
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../532.-k-diff-pairs-in-an-array/" class="md-nav__link">
+        K diff Pairs in an Array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../54.-spiral-matrix/" class="md-nav__link">
+        Spiral Matrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../568.-maximum-vacation-days/" class="md-nav__link">
+        Maximum Vacation Days
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../58.-Length-of-Last-Word/" class="md-nav__link">
+        Length of Last Word
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../636.-exclusive-time-of-functions/" class="md-nav__link">
+        Exclusive Time of Functions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../646.-maximum-length-of-pair-chain/" class="md-nav__link">
+        Maximum Length of Pair Chain
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../647.-palindromic-substrings/" class="md-nav__link">
+        Palindromic Substrings
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../684.-Redundant-Connection/" class="md-nav__link">
+        Redundant Connection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../69.-sqrt%28x%29/" class="md-nav__link">
+        Sqrt(t)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../72.-edit-distance/" class="md-nav__link">
+        Edit Distance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../723.-Candy-Crush/" class="md-nav__link">
+        Candy Crush
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../754.-Reach-a-Number/" class="md-nav__link">
+        Reach a Number
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../85.-maximal-rectangle/" class="md-nav__link">
+        Maximal Rectangle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../87.-scramble-string/" class="md-nav__link">
+        Scramble String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../91.-decode-ways/" class="md-nav__link">
+        Decode Ways
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../93.-restore-ip-addresses/" class="md-nav__link">
+        Restore IP addresses
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../95.-unique-binary-search-trees-ii/" class="md-nav__link">
+        Unique Binary Search Trees II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../952.-largest-component-size-by-common-factor/" class="md-nav__link">
+        Largest Component Size by Common Factor
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" class="md-nav__link">
+        Unique Binary Search Trees -- My Method
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../96.-unique-binary-search-trees/" class="md-nav__link">
+        Unique Binary Search Trees
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../97.-interleaving-string/" class="md-nav__link">
+        Interleaving String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../987.-Vertical-Order-Traversal-of-a-binary-tree/" class="md-nav__link">
+        Vertical Order Traversal of a Binary Tree
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99.-recover-binary-search-tree/" class="md-nav__link">
+        Recover Binary Search Tree
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../994.-rotting-oranges/" class="md-nav__link">
+        Rotting Oranges
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dp-pattern/" class="md-nav__link">
+        Dp pattern
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      LibreOJ
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="LibreOJ" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
+      
+      <label class="md-nav__link" for="nav-9">
         LibreOJ
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="LibreOJ" data-md-level="1">
+        <label class="md-nav__title" for="nav-9">
+          <span class="md-nav__icon md-icon"></span>
+          LibreOJ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LibreOJ/10000/" class="md-nav__link">
+        「一本通 1.1 例 1」活动安排
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LibreOJ/10001/" class="md-nav__link">
+        「一本通 1.1 例 2」种树
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../LibreOJ/10000/" title="「一本通 1.1 例 1」活动安排" class="md-nav__link">
-      「一本通 1.1 例 1」活动安排
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LibreOJ/10002/" class="md-nav__link">
+        「一本通 1.1 例 3」喷水装置
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LibreOJ/10003/" class="md-nav__link">
+        「一本通 1.1 例 4」加工生产调度
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="../../LibreOJ/10001/" title="「一本通 1.1 例 2」种树" class="md-nav__link">
-      「一本通 1.1 例 2」种树
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../LibreOJ/10002/" title="「一本通 1.1 例 3」喷水装置" class="md-nav__link">
-      「一本通 1.1 例 3」喷水装置
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../LibreOJ/10003/" title="「一本通 1.1 例 4」加工生产调度" class="md-nav__link">
-      「一本通 1.1 例 4」加工生产调度
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
-    
-    <label class="md-nav__link" for="nav-10">
-      Misc
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Misc" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
+      
+      <label class="md-nav__link" for="nav-10">
         Misc
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Misc" data-md-level="1">
+        <label class="md-nav__title" for="nav-10">
+          <span class="md-nav__icon md-icon"></span>
+          Misc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/CSS/" class="md-nav__link">
+        Example css file
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Misc/rsa-en%26decryption/" class="md-nav__link">
+        RSA encryption and decryption
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../Misc/CSS/" title="Example css file" class="md-nav__link">
-      Example css file
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Misc/rsa-en%26decryption/" title="RSA encryption and decryption" class="md-nav__link">
-      RSA encryption and decryption
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
-    
-    <label class="md-nav__link" for="nav-11">
-      Operating System
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Operating System" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" >
+      
+      <label class="md-nav__link" for="nav-11">
         Operating System
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Operating System" data-md-level="1">
+        <label class="md-nav__title" for="nav-11">
+          <span class="md-nav__icon md-icon"></span>
+          Operating System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Operating%20System/cs124/" class="md-nav__link">
+        CS-124: Operating Class from CalTech
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="../../Operating%20System/cs124/" title="CS-124: Operating Class from CalTech" class="md-nav__link">
-      CS-124: Operating Class from CalTech
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
-    
-    <label class="md-nav__link" for="nav-12">
-      C
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="C" data-md-level="1">
-      <label class="md-nav__title" for="nav-12">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" >
+      
+      <label class="md-nav__link" for="nav-12">
         C
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="C" data-md-level="1">
+        <label class="md-nav__title" for="nav-12">
+          <span class="md-nav__icon md-icon"></span>
+          C
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c/functional-programming-with-futures-to-implement-quick-sort/" class="md-nav__link">
+        Functional Programming in C
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c/marcos-vs-functions/" class="md-nav__link">
+        Marcos vs Functions
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../c/functional-programming-with-futures-to-implement-quick-sort/" title="Functional Programming in C" class="md-nav__link">
-      Functional Programming in C
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c/misc/" class="md-nav__link">
+        Misc
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c/overloading-operator/" class="md-nav__link">
+        Overloading Operator
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c/smart-pointers/" class="md-nav__link">
+        Smart Pointer
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../c/marcos-vs-functions/" title="Marcos vs Functions" class="md-nav__link">
-      Marcos vs Functions
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c/stl-complexity/" class="md-nav__link">
+        STL Complexity
+      </a>
+    </li>
+  
+
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../c/misc/" title="Misc" class="md-nav__link">
-      Misc
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../c/overloading-operator/" title="Overloading Operator" class="md-nav__link">
-      Overloading Operator
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../c/smart-pointers/" title="Smart Pointer" class="md-nav__link">
-      Smart Pointer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../c/stl-complexity/" title="STL Complexity" class="md-nav__link">
-      STL Complexity
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
-    
-    <label class="md-nav__link" for="nav-13">
-      Golang
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Golang" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" >
+      
+      <label class="md-nav__link" for="nav-13">
         Golang
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Golang" data-md-level="1">
+        <label class="md-nav__title" for="nav-13">
+          <span class="md-nav__icon md-icon"></span>
+          Golang
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../golang/Intro-To-Golang/" class="md-nav__link">
+        Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../golang/intro-learning-notes/" class="md-nav__link">
+        Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../golang/Intro-To-Golang/" title="Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*" class="md-nav__link">
-      Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../golang/struct/" class="md-nav__link">
+        Struct
+      </a>
+    </li>
+  
+
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../golang/intro-learning-notes/" title="Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)" class="md-nav__link">
-      Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../golang/struct/" title="Struct" class="md-nav__link">
-      Struct
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
-    
-    <label class="md-nav__link" for="nav-14">
-      iOS
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="iOS" data-md-level="1">
-      <label class="md-nav__title" for="nav-14">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14" >
+      
+      <label class="md-nav__link" for="nav-14">
         iOS
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="iOS" data-md-level="1">
+        <label class="md-nav__title" for="nav-14">
+          <span class="md-nav__icon md-icon"></span>
+          iOS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iOS/exam-ii-review-part-one/" class="md-nav__link">
+        Exam review Part 1
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iOS/exam-ii-review-part-two/" class="md-nav__link">
+        Exam review Part 2
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../iOS/exam-ii-review-part-one/" title="Exam review Part 1" class="md-nav__link">
-      Exam review Part 1
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iOS/ios-api/" class="md-nav__link">
+        iOS API
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iOS/some-tools/" class="md-nav__link">
+        Some tools
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="../../iOS/exam-ii-review-part-two/" title="Exam review Part 2" class="md-nav__link">
-      Exam review Part 2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../iOS/ios-api/" title="iOS API" class="md-nav__link">
-      iOS API
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../iOS/some-tools/" title="Some tools" class="md-nav__link">
-      Some tools
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
-    
-    <label class="md-nav__link" for="nav-15">
-      Machine learning
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Machine learning" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" >
+      
+      <label class="md-nav__link" for="nav-15">
         Machine learning
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Machine learning" data-md-level="1">
+        <label class="md-nav__title" for="nav-15">
+          <span class="md-nav__icon md-icon"></span>
+          Machine learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" class="md-nav__link">
+        Cs231n lecture 3   loss function
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" class="md-nav__link">
+        Cs231n lecture 4   introduction to neural networks
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" title="Cs231n lecture 3 loss function" class="md-nav__link">
-      Cs231n lecture 3   loss function
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" class="md-nav__link">
+        Cs231n lecture 5   convolutional neural networks
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" class="md-nav__link">
+        Cs231n lecture 6   training neural networks i
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" title="Cs231n lecture 4 introduction to neural networks" class="md-nav__link">
-      Cs231n lecture 4   introduction to neural networks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" title="Cs231n lecture 5 convolutional neural networks" class="md-nav__link">
-      Cs231n lecture 5   convolutional neural networks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" title="Cs231n lecture 6 training neural networks i" class="md-nav__link">
-      Cs231n lecture 6   training neural networks i
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
   </ul>
@@ -2788,7 +2821,8 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -2799,9 +2833,7 @@
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -2835,9 +2867,6 @@
                   <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Leetcode/253.-meeting-rooms-ii.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
-                
-                
-                  
                 
                 
                 <h1 id="meeting-rooms-ii">Meeting Rooms II<a class="headerlink" href="#meeting-rooms-ii" title="Permanent link">&para;</a></h1>
@@ -2893,7 +2922,7 @@ Output: 1
 
   <h2 id="__comments">Comments</h2>
   <div id="disqus_thread"></div>
-  <script>var disqus_config=function(){this.page.url="https://peterchen.xyz/Leetcode/253.-meeting-rooms-ii/",this.page.identifier="/Leetcode/253.-meeting-rooms-ii/"};!function(){var e=document,i=e.createElement("script");i.src="//tech-notes-2.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)}()</script>
+  <script>var disqus_config=function(){this.page.url="https://peterchen.xyz/Leetcode/253.-meeting-rooms-ii/",this.page.identifier="/Leetcode/253.-meeting-rooms-ii/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//tech-notes-2.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
 
               
             </article>
@@ -2907,7 +2936,7 @@ Output: 1
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../24.-Swap-Nodes-in-Pairs/" title="Swap Nodes in Pairs" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../24.-Swap-Nodes-in-Pairs/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2922,7 +2951,7 @@ Output: 1
           </a>
         
         
-          <a href="../254.-factor-combinations/" title="Factor Combinations" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../254.-factor-combinations/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
@@ -2955,22 +2984,20 @@ Output: 1
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
-      <script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-      
-        <script src="../../js/adsense.js"></script>
       
     
   </body>
