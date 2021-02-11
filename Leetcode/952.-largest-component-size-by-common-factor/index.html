@@ -1731,6 +1731,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../24.-Swap-Nodes-in-Pairs/" title="Swap Nodes in Pairs" class="md-nav__link">
+      Swap Nodes in Pairs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../253.-meeting-rooms-ii/" title="Meeting Rooms II" class="md-nav__link">
       Meeting Rooms II
     </a>
@@ -1959,6 +1971,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../58.-Length-of-Last-Word/" title="Length of Last Word" class="md-nav__link">
+      Length of Last Word
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../636.-exclusive-time-of-functions/" title="Exclusive Time of Functions" class="md-nav__link">
       Exclusive Time of Functions
     </a>
@@ -1985,6 +2009,18 @@
   <li class="md-nav__item">
     <a href="../647.-palindromic-substrings/" title="Palindromic Substrings" class="md-nav__link">
       Palindromic Substrings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../684.-Redundant-Connection/" title="Redundant Connection" class="md-nav__link">
+      Redundant Connection
     </a>
   </li>
 
@@ -2833,7 +2869,6 @@
                 
                 
                 <h1 id="largest-component-size-by-common-factor">Largest Component Size by Common Factor<a class="headerlink" href="#largest-component-size-by-common-factor" title="Permanent link">&para;</a></h1>
-<p><a href="https://leetcode.com/problems/largest-component-size-by-common-factor/" title="Permalink to">Source</a></p>
 <p>Given a non-empty array of unique positive integers <code>A</code>, consider the following graph:</p>
 <ul>
 <li>There are <code>A.length</code> nodes, labelled <code>A[0]</code> to <code>A[A.length - 1];</code></li>
@@ -2846,18 +2881,21 @@ Output: 4
 </code></pre></div>
 
 
+<p><img alt="image" src="../resources/ex1.png" /></p>
 <p><strong>Example 2:</strong></p>
 <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: [20,50,9,63]
 Output: 2
 </code></pre></div>
 
 
+<p><img alt="img" src="../resources/ex2.png" /></p>
 <p><strong>Example 3:</strong></p>
 <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: [2,3,6,7,4,12,21,39]
 Output: 8
 </code></pre></div>
 
 
+<p><img alt="img" src="../resources/ex3.png" /></p>
 <p><strong>Note:</strong></p>
 <ol>
 <li><code>1 &lt;= A.length &lt;= 20000</code></li>
@@ -2908,6 +2946,30 @@ Output: 8
 </code></pre></div>
 
 
+<p>Q&amp;A:
+why</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>for (int a : A) 
+    for (int i = 2; i &lt;= sqrt(a); ++i)
+        if (a % i == 0) {
+            p[find(a)] = p[find(i)];
+            p[find(a)] = p[find(a / i)];
+        }
+</code></pre></div>
+
+
+<p>instead of</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>for (int a : A) 
+    for (int i = 2; i &lt;= sqrt(a); ++i) {
+        int root = find(a);
+        if (a % i == 0) {
+            p[root] = p[find(i)];
+            p[root] = p[find(a / i)];
+        }
+    }
+</code></pre></div>
+
+
+<p>Because our root is going to change every time when the p map is updated.</p>
 <h2 id="analysis-union-find-w-prime-sieve">Analysis: Union-Find w/ Prime Sieve<a class="headerlink" href="#analysis-union-find-w-prime-sieve" title="Permanent link">&para;</a></h2>
 <h2 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
@@ -3074,6 +3136,8 @@ Output: 8
       </script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../js/adsense.js"></script>
       
     
   </body>
