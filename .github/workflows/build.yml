@@ -5,18 +5,25 @@ on:
       - master
 
 jobs:
-  build:
+  deploy:
     name: Deploy docs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout master
         uses: actions/checkout@v2
-
-      - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
-        # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CUSTOM_DOMAIN: peterchen.xyz
-          CONFIG_FILE: mkdocs.yml
-          EXTRA_PACKAGES: "build-base zlib"
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - name: Install Dependencies
+        run: |
+          python3 -m pip install --upgrade pip     # install pip
+          python3 install -r requirements.txt      # install via requirements.txt
+      - name: Build site
+        run: mkdocs build
+      - name: Desploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: $
+          publish_dir: ./site
