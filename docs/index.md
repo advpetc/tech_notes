@@ -1,4 +1,4 @@
-# Welcome to Haoyang's Tech Notes
+# Welcome to Peter's Tech Notes
 
 ## What's included
 * Leetcode: some questions I have done (with analysis).
