@@ -9,7 +9,7 @@ jobs:
     name: Deploy docs
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
+      - name: Checkout master
         uses: actions/checkout@v2
 
       - name: Deploy docs
@@ -19,4 +19,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CUSTOM_DOMAIN: peterchen.xyz
           CONFIG_FILE: mkdocs.yml
-          EXTRA_PACKAGES: build-base
+          EXTRA_PACKAGES: "build-base zlib"
