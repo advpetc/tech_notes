@@ -459,7 +459,7 @@ for (int i = 0; i < m; ++i) {
 return res * res;
 ```
 
-### 1240. Tililing a Rectangle with the Fewest Squares
+### 1240. Tiling a Rectangle with the Fewest Squares
 
 [analysis link](1240.-Tiling-a-Rectangle-with-the-Fewest-Squares.md)
 
