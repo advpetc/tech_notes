@@ -465,7 +465,7 @@ return res * res;
 
 ### 174. Dungeon Game
 
-[analysis link](174.-Dungeon-Game/)
+[analysis link](174.-Dungeon-Game.md)
 
 
 
