@@ -2951,8 +2951,10 @@ Explanation: Since there are already no fresh oranges at minute 0, the answer is
 </ul>
 <h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
 <p>Using bfs to expand level by level, using a counter to keep track of how many levels are there, which is the anser of our problem.</p>
-<p>Time Complexity: <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span> since you need to iterate through all the cells. 
-Space Complexity: <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span> since the worst case is when you put all the 1s into the queue.</p>
+<ul>
+<li>Time Complexity: <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span> since you need to iterate through all the cells. </li>
+<li>Space Complexity: <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span> since the worst case is when you put all the 1s into the queue.</li>
+</ul>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
 <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
 <span style="color: #f8f8f2">public:</span>

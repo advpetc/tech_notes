@@ -2027,9 +2027,49 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Maximum Vacation Days
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="./" title="Maximum Vacation Days" class="md-nav__link md-nav__link--active">
       Maximum Vacation Days
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2830,6 +2870,30 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2849,47 +2913,119 @@
                 
                 
                 <h1 id="maximum-vacation-days">Maximum Vacation Days<a class="headerlink" href="#maximum-vacation-days" title="Permanent link">&para;</a></h1>
-<p>LeetCode wants to give one of its best employees the option to travel among N cities to collect algorithm problems. But all work and no play makes Jack a dull boy, you could take vacations in some particular cities and weeks. Your job is to schedule the traveling to maximize the number of vacation days you could take, but there are certain rules and restrictions you need to follow.</p>
-<p>Rules and restrictions:
-You can only travel among N cities, represented by indexes from 0 to N-1. Initially, you are in the city indexed 0 on Monday.
-The cities are connected by flights. The flights are represented as a N<em>N matrix (not necessary symmetrical), called flights representing the airline status from the city i to the city j. If there is no flight from the city i to the city j, flights[i][j] = 0; Otherwise, flights[i][j] = 1. Also, flights[i][i] = 0 for all i.
-You totally have K weeks (each week has 7 days) to travel. You can only take flights at most once per day and can only take flights on each week's Monday morning. Since flight time is so short, we don't consider the impact of flight time.
-For each city, you can only have restricted vacation days in different weeks, given an N</em>K matrix called days representing this relationship. For the value of days[i][j], it represents the maximum days you could take vacation in the city i in the week j.
-You're given the flights matrix and days matrix, and you need to output the maximum vacation days you could take during K weeks.</p>
-<p>Example 1:
-Input:flights = [[0,1,1],[1,0,1],[1,1,0]], days = [[1,3,1],[6,0,3],[3,3,3]]
+<p>LeetCode wants to give one of its best employees the option to travel among <strong>N</strong> cities to collect algorithm problems. But all work and no play makes Jack a dull boy, you could take vacations in some particular cities and weeks. Your job is to schedule the traveling to maximize the number of vacation days you could take, but there are certain rules and restrictions you need to follow.</p>
+<p><strong>Rules and restrictions:</strong></p>
+<ol>
+<li>You can only travel among <strong>N</strong> cities, represented by indexes from 0 to N-1. Initially, you are in the city indexed 0 on <strong>Monday</strong>.</li>
+<li>The cities are connected by flights. The flights are represented as a <strong>N*N</strong> matrix (not necessary symmetrical), called <strong>flights</strong> representing the airline status from the city i to the city j. If there is no flight from the city i to the city j, <strong>flights[i][j] = 0</strong>; Otherwise, <strong>flights[i][j] = 1</strong>. Also, <strong>flights[i][i] = 0</strong> for all i.</li>
+<li>You totally have <strong>K</strong> weeks (<strong>each week has 7 days</strong>) to travel. You can only take flights at most once <strong>per day</strong> and can only take flights on each week's <strong>Monday</strong> morning. Since flight time is so short, we don't consider the impact of flight time.</li>
+<li>For each city, you can only have restricted vacation days in different weeks, given an <strong>N*K</strong> matrix called <strong>days</strong> representing this relationship. For the value of <strong>days[i][j]</strong>, it represents the maximum days you could take vacation in the city <strong>i</strong> in the week <strong>j</strong>.</li>
+</ol>
+<p>You're given the <strong>flights</strong> matrix and <strong>days</strong> matrix, and you need to output the maximum vacation days you could take during <strong>K</strong> weeks.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input:flights = [[0,1,1],[1,0,1],[1,1,0]], days = [[1,3,1],[6,0,3],[3,3,3]]
 Output: 12
 Explanation: 
-Ans = 6 + 3 + 3 = 12. </p>
-<p>One of the best strategies is:
-1<sup>st</sup> week : fly from city 0 to city 1 on Monday, and play 6 days and work 1 day. 
+Ans = 6 + 3 + 3 = 12. 
+
+One of the best strategies is:
+1st week : fly from city 0 to city 1 on Monday, and play 6 days and work 1 day. 
 (Although you start at city 0, we could also fly to and start at other cities since it is Monday.) 
-2<sup>nd</sup> week : fly from city 1 to city 2 on Monday, and play 3 days and work 4 days.
-3<sup>rd</sup> week : stay at city 2, and play 3 days and work 4 days.
-Example 2:
-Input:flights = [[0,0,0],[0,0,0],[0,0,0]], days = [[1,1,1],[7,7,7],[7,7,7]]
+2nd week : fly from city 1 to city 2 on Monday, and play 3 days and work 4 days.
+3rd week : stay at city 2, and play 3 days and work 4 days.
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input:flights = [[0,0,0],[0,0,0],[0,0,0]], days = [[1,1,1],[7,7,7],[7,7,7]]
 Output: 3
 Explanation: 
-Ans = 1 + 1 + 1 = 3. </p>
-<p>Since there is no flights enable you to move to another city, you have to stay at city 0 for the whole 3 weeks. 
+Ans = 1 + 1 + 1 = 3. 
+
+Since there is no flights enable you to move to another city, you have to stay at city 0 for the whole 3 weeks. 
 For each week, you only have one day to play and six days to work. 
 So the maximum number of vacation days is 3.
-Example 3:
-Input:flights = [[0,1,1],[1,0,1],[1,1,0]], days = [[7,0,0],[0,7,0],[0,0,7]]
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input:flights = [[0,1,1],[1,0,1],[1,1,0]], days = [[7,0,0],[0,7,0],[0,0,7]]
 Output: 21
 Explanation:
-Ans = 7 + 7 + 7 = 21</p>
-<p>One of the best strategies is:
-1<sup>st</sup> week : stay at city 0, and play 7 days. 
-2<sup>nd</sup> week : fly from city 0 to city 1 on Monday, and play 7 days.
-3<sup>rd</sup> week : fly from city 1 to city 2 on Monday, and play 7 days.
-Note:
-N and K are positive integers, which are in the range of [1, 100].
-In the matrix flights, all the values are integers in the range of [0, 1].
-In the matrix days, all the values are integers in the range [0, 7].
-You could stay at a city beyond the number of vacation days, but you should work on the extra days, which won't be counted as vacation days.
-If you fly from the city A to the city B and take the vacation on that day, the deduction towards vacation days will count towards the vacation days of city B in that week.
-We don't consider the impact of flight hours towards the calculation of vacation days.</p>
+Ans = 7 + 7 + 7 = 21
+
+One of the best strategies is:
+1st week : stay at city 0, and play 7 days. 
+2nd week : fly from city 0 to city 1 on Monday, and play 7 days.
+3rd week : fly from city 1 to city 2 on Monday, and play 7 days.
+</code></pre></div>
+
+
+<p><strong>Note:</strong></p>
+<ol>
+<li><strong>N and K</strong> are positive integers, which are in the range of [1, 100].</li>
+<li>In the matrix <strong>flights</strong>, all the values are integers in the range of [0, 1].</li>
+<li>In the matrix <strong>days</strong>, all the values are integers in the range [0, 7].</li>
+<li>You could stay at a city beyond the number of vacation days, but you should <strong>work</strong> on the extra days, which won't be counted as vacation days.</li>
+<li>If you fly from the city A to the city B and take the vacation on that day, the deduction towards vacation days will count towards the vacation days of city B in that week.</li>
+<li>We don't consider the impact of flight hours towards the calculation of vacation days.</li>
+</ol>
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
+<p>I've created an illustration for this problem:</p>
+<p><img alt="img" src="../resources/568.png" /></p>
+<p>From the days matrix, we can only move from left to right (except for day 1, which we can move up and down) <strong>or</strong> left to down right by certain amount of unit. Now the problem becomes find the highest weight path from top left to down right (with restriction of <code>flights</code> matrix and direction).</p>
+<p>Let's discuss more about the moving direction. In the <code>days</code> matrix, row represents the city number, and column represents the week number. We can fly from any city to another one if there is a flight from the <code>flights</code> matrix. Or:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>if flights[i][j] == 1:
+    then we can update from day[i][current week] to day[j][current week + 1]
+</code></pre></div>
+
+
+<p>We have <code>n</code> cities to try, so we need to loop to check all of the cities.</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>for j in 0 to n:
+    if flights[i][j] == 1:
+        then we can update from day[i][current week] to day[j][current week + 1]
+</code></pre></div>
+
+
+<p>We need something to hold the current maximum, but we also know local maximum cannot represent the global optimal, so we use dynamic programming. We use <code>dp[i][j]</code> to represent on city i, week j, what is the maximum vacation to take. As we make progress to another week, we bascially just try out all the previous maximum with current choice, and see if we should make the current decision.</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>for k in 0 to k - 1: try all weeks
+  for i in 0 to n: try all starting cities
+    for j in 0 to n: try all destination cities
+        if flights[i][j] == 1: if there is flight between
+          then we can update dp[i][k] from dp[i][k] to dp[i][k] + day[j][k + 1]
+</code></pre></div>
+
+
+<ul>
+<li>Time: <span><span class="MathJax_Preview">O(n^3)</span><script type="math/tex">O(n^3)</script></span></li>
+<li>Space: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span> for the <code>dp</code> matrix</li>
+</ul>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<p>Since I don't have prime for leetcode, this code is copied and pasted from <a href="https://www.cnblogs.com/grandyang/p/6919389.html">Grandyang's blog</a></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">maxVacationDays(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">flights,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">days)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">flights.size(),</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">days[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size(),</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">dp(n,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(k,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">));</span>
+        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// week j</span>
+            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// city 1</span>
+                <span style="color: #f8f8f2">dp[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">days[i][j];</span>
+                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">p)</span> <span style="color: #f8f8f2">{</span><span style="color: #75715e">// city 2</span>
+                    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">((i</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">flights[i][p])</span> <span style="color: #75715e">// city 1 == city 2 or there is flight</span>
+                        <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// and it&#39;s not the last week</span>
+                        <span style="color: #f8f8f2">dp[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(dp[i][j],</span> <span style="color: #f8f8f2">dp[p][j</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #75715e">// since we progress down, we populated the week j + 1 before week j</span>
+                                       <span style="color: #f92672">+</span> <span style="color: #f8f8f2">days[i][j]);</span>
+                    <span style="color: #f8f8f2">}</span>
+                    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #75715e">// we only update res when we reach starting city 0</span>
+                        <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">flights[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">][i]))</span> <span style="color: #75715e">// either current city is already city 0 or there is flight from current city to city 0</span>
+                      <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res,</span> <span style="color: #f8f8f2">dp[i][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]);</span>
+                <span style="color: #f8f8f2">}</span>
+            <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">};</span>
+</code></pre></div>
                 
               
               

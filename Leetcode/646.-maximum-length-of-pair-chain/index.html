@@ -2913,15 +2913,20 @@
                 
                 
                 <h1 id="maximum-length-of-pair-chain">Maximum Length of Pair Chain<a class="headerlink" href="#maximum-length-of-pair-chain" title="Permanent link">&para;</a></h1>
-<p>You are given n pairs of numbers. In every pair, the first number is always smaller than the second number.</p>
-<p>Now, we define a pair (c, d) can follow another pair (a, b) if and only if b &lt; c. Chain of pairs can be formed in this fashion.</p>
+<p>You are given <code>n</code> pairs of numbers. In every pair, the first number is always smaller than the second number.</p>
+<p>Now, we define a pair <code>(c, d)</code> can follow another pair <code>(a, b)</code> if and only if <code>b &lt; c</code>. Chain of pairs can be formed in this fashion. </p>
 <p>Given a set of pairs, find the length longest chain which can be formed. You needn't use up all the given pairs. You can select pairs in any order.</p>
-<p>Example 1:
-Input: [[1,2], [2,3], [3,4]]
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: [[1,2], [2,3], [3,4]]
 Output: 2
 Explanation: The longest chain is [1,2] -&gt; [3,4]
-Note:
-The number of given pairs will be in the range [1, 1000].</p>
+</code></pre></div>
+
+
+<p><strong>Note:</strong></p>
+<ol>
+<li>The number of given pairs will be in the range [1, 1000].</li>
+</ol>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>tldr: the question is given a list of interval, find the maximum number of intervals can be formed without any intersection.</p>
 <ul>
