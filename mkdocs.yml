@@ -15,7 +15,6 @@ theme:
   font:
     text: Ubuntu Mono
   name: material
-  custom_dir: overrides
   palette:
     scheme: 'slate'
     primary: 'blue grey'
