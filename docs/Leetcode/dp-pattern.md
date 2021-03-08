@@ -463,7 +463,7 @@ return res * res;
 
 [analysis link](1240.-Tiling-a-Rectangle-with-the-Fewest-Squares.md)
 
-## 174. Dungeon Game
+### 174. Dungeon Game
 
 [analysis link](174.-Dungeon-Game/)
 
