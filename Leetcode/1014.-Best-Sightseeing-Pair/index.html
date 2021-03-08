@@ -2062,6 +2062,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../560.-Subarray-Sum-Equals-K/" title="Subarray Sum Equals K" class="md-nav__link">
+      Subarray Sum Equals K
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../568.-maximum-vacation-days/" title="Maximum Vacation Days" class="md-nav__link">
       Maximum Vacation Days
     </a>
@@ -2326,8 +2338,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../dp-pattern/" title="Dp pattern" class="md-nav__link">
-      Dp pattern
+    <a href="../dp-pattern/" title="DP pattern summary" class="md-nav__link">
+      DP pattern summary
     </a>
   </li>
 
@@ -2925,8 +2937,8 @@ Explanation: i = 0, j = 2, A[i] + A[j] + i - j = 8 + 5 + 0 - 2 = 11
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>By using brute-force, it will cause TLE.</p>
 <p>We can rarrange the equation into <code>A[i] + i + A[j] - j</code>, where i &lt; j. So that we just need to make sure <code>A[i] + i</code> is the maximum and since it's always on the left side of j and A[j], we can "lazy" update its value when we process to the right.</p>
-<p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>
-Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></p>
+<p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
+<p>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
 <span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
