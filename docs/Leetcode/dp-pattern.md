@@ -1,10 +1,12 @@
+# DP pattern summary
+
 > https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns
 
-# Minimum (Maximum) Path to Reach a Target
+## Minimum (Maximum) Path to Reach a Target
 
 Given a target find minimum (maximum) cost / path / sum to reach the target.
 
-## 746. Min Cost Climbing Stairs
+### 746. Min Cost Climbing Stairs
 
 On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).
 
@@ -44,7 +46,7 @@ for (int i = 2; i <= cost.size(); ++i) {
 return p1;
 ```
 
-## 64. Minimum Path Sum
+### 64. Minimum Path Sum
 
 Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
 
@@ -73,7 +75,7 @@ for (int i = 1; i < n; ++i) {
 return grid[n-1][m-1]
 ```
 
-## 322. Coin Change
+### 322. Coin Change
 
 You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
 
@@ -102,7 +104,7 @@ for (int j = 1; j <= amount; ++j) {
 return dp[amount];
 ```
 
-# Why this cannot be solved by greedy algorithm?
+#### Why this cannot be solved by greedy algorithm?
 
 Exception:
 > But for some coin sets, there are sums for which the greedy algorithm fails. For example, for the set {1, 15, 25} and the sum 30, the greedy algorithm first chooses 25, leaving a remainder of 5, and then five 1s for a total of six coins. But the solution with the minimal number of coins is to choose 15 twice.
@@ -110,7 +112,7 @@ Exception:
 > In any case where there is no coin whose value, when added to the lowest denomination, is lower than twice that of the denomination immediately less than it, the greedy algorithm works.
 i.e. {1,2,3} works because [1,3] and [2,2] add to the same value however {1, 15, 25} doesn't work because (for the change 30) 15+15>25+1
 
-## 931. Minimum Falling Path Sum
+### 931. Minimum Falling Path Sum
 
 Given a square array of integers A, we want the minimum sum of a falling path through A.
 
@@ -146,7 +148,7 @@ int minFallingPathSum(vector<vector<int>>& A) {
 }
 ```
 
-## 983. Minimum Cost For Tickets
+### 983. Minimum Cost For Tickets
 
 In a country popular for train travel, you have planned some train travelling one year in advance.  The days of the year that you will travel is given as an array days.  Each day is an integer from 1 to 365.
 
@@ -167,10 +169,10 @@ Input: days = [1,4,6,7,8,20], costs = [2,7,15]
 Output: 11
 Explanation: 
 For example, here is one way to buy passes that lets you travel your travel plan:
-On day 1, you bought a 1-day pass for costs[0] = $2, which covered day 1.
-On day 3, you bought a 7-day pass for costs[1] = $7, which covered days 3, 4, ..., 9.
-On day 20, you bought a 1-day pass for costs[0] = $2, which covered day 20.
-In total you spent $11 and covered all the days of your travel.
+On day 1, you bought a 1-day pass for costs[0] = 2, which covered day 1.
+On day 3, you bought a 7-day pass for costs[1] = ​7, which covered days 3, 4, ..., 9.
+On day 20, you bought a 1-day pass for costs[0] = 2, which covered day 20.
+In total you spent 11 and covered all the days of your travel.
 Example 2:
 
 Input: days = [1,2,3,4,5,6,7,8,9,10,30,31], costs = [2,7,15]
@@ -204,7 +206,7 @@ int mincostTickets(vector<int>& days, vector<int>& costs) {
 }
 ```
 
-## 650. 2 Keys Keyboard
+### 650. 2 Keys Keyboard
 
 Initially on a notepad only one character 'A' is present. You can perform two operations on this notepad for each step:
 
@@ -259,7 +261,7 @@ for (int d = 2; d <= n; d++) {
 return s;
 ```
 
-## 279. Perfect Squares
+### 279. Perfect Squares
 
 Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
 
@@ -290,7 +292,7 @@ int numSquares(int n) {
 }
 ```
 
-## 1049. Last Stone Weight II
+### 1049. Last Stone Weight II
 
 We have a collection of rocks, each rock has a positive integer weight.
 
@@ -336,18 +338,21 @@ int lastStoneWeightII(vector<int>& stones) {
 }
 ```
 
-## 120. Triangle
+### 120. Triangle
 
 Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
 
 For example, given the following triangle
 
+```
 [
      [2],
     [3,4],
    [6,5,7],
   [4,1,8,3]
 ]
+```
+
 The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
 
 Note:
@@ -369,7 +374,7 @@ int minimumTotal(vector<vector<int>>& triangle) {
 }
 ```
 
-## 474. Ones and Zeroes
+### 474. Ones and Zeroes
 
 Given an array, strs, with strings consisting of only 0s and 1s. Also two integers m and n.
 
@@ -419,7 +424,7 @@ int findMaxForm(vector<string>& strs, int m, int n) {
 }
 ```
 
-## 221. Maximal Square
+### 221. Maximal Square
 
 Given a 2D binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
 
@@ -427,12 +432,40 @@ Example:
 
 Input: 
 
+```
 1 0 1 0 0
 1 0 1 1 1
 1 1 1 1 1
 1 0 0 1 0
 
+```
+
 Output: 4
+
+
+
+Here the`dp[i][j]`the same as `matrix[i][j]`, and it means the maximum width of the square that includes `matrix[i][j]` as the right down side of the resulting square. To expand the area to any directions (right, down), we check the `matrix[i][j-1]`, `matrix[i-1][j]` and `matrix[i-1][j-1]` and choose the minimal from them. The final answer is the maximum `matrix[i][j] * matrix[i][j]` from all the values we have filled.
+
+```c++
+for (int i = 0; i < m; ++i) {
+  for (int j = 0; j < n; ++j) {
+    if (matrix[i][j] == '0' || i == 0 || j == 0) continue;
+    matrix[i][j] = min({matrix[i][j - 1] - '0', 
+                        matrix[i - 1][j] - '0', 
+                        matrix[i - 1][j - 1] - '0'}) + '1';
+    res = max(res, matrix[i][j] - '0');
+  }
+}
+return res * res;
+```
+
+### 1240. Tililing a Rectangle with the Fewest Squares
+
+[analysis link](1240.-Tiling-a-Rectangle-with-the-Fewest-Squares.md)
+
+## 174. Dungeon Game
+
+[analysis link](174.-Dungeon-Game/)
 
 
 
