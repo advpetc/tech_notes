@@ -6,7 +6,7 @@
 
 ## Growing MST
 
-Grows one edge a time. THe generic method manages a set of edges A, maintaining the following loop invariant:
+Grows one edge a time. The generic method manages a set of edges A, maintaining the following loop invariant:
 
 **Prior to each iteration, A is a subset of some MST**
 
