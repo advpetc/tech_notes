@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2929,21 +2920,21 @@
                 <h1 id="longest-substring-without-repeating-characters">Longest Substring Without Repeating Characters<a class="headerlink" href="#longest-substring-without-repeating-characters" title="Permanent link">&para;</a></h1>
 <p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: &quot;abcabcbb&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;abcabcbb&quot;
 Output: 3 
 Explanation: The answer is &quot;abc&quot;, with the length of 3. 
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: &quot;bbbbb&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;bbbbb&quot;
 Output: 1
 Explanation: The answer is &quot;b&quot;, with the length of 1.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: &quot;pwwkew&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;pwwkew&quot;
 Output: 3
 Explanation: The answer is &quot;wke&quot;, with the length of 3. 
              Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
@@ -2971,39 +2962,39 @@ Explanation: The answer is &quot;wke&quot;, with the length of 3.
 <li>Space: <span><span class="MathJax_Preview">O(128)</span><script type="math/tex">O(128)</script></span> or <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> depending on the range of character</li>
 </ol>
 <h2 id="code-1">Code 1<a class="headerlink" href="#code-1" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">lengthOfLongestSubstring(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt[</span><span style="color: #ae81ff">128</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">};</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">s.size();</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt[s[r]]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #f8f8f2">cnt[s[r</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">]]</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">cnt[s[l</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">]]</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> lengthOfLongestSubstring(string s) {
+        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #B00040">int</span> cnt[<span style="color: #666666">128</span>] <span style="color: #666666">=</span> {<span style="color: #666666">0</span>};
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> r <span style="color: #666666">=</span> <span style="color: #666666">0</span>, l <span style="color: #666666">=</span> <span style="color: #666666">0</span>; r <span style="color: #666666">&lt;</span> s.size(); ) {
+            <span style="color: #008000; font-weight: bold">if</span> (cnt[s[r]] <span style="color: #666666">==</span> <span style="color: #666666">0</span>) {
+                res <span style="color: #666666">=</span> max(res, r <span style="color: #666666">-</span> l <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
+                cnt[s[r <span style="color: #666666">++</span>]] <span style="color: #666666">++</span>;
+            } <span style="color: #008000; font-weight: bold">else</span> {
+                cnt[s[l <span style="color: #666666">++</span>]] <span style="color: #666666">--</span>;
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
 
 
 <h2 id="code-2">Code 2<a class="headerlink" href="#code-2" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">lengthOfLongestSubstring(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">idx(</span><span style="color: #ae81ff">128</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">s.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(left,</span> <span style="color: #f8f8f2">idx[s[i]]);</span>
-            <span style="color: #f8f8f2">idx[s[i]]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-            <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">left);</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> lengthOfLongestSubstring(string s) {
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> idx(<span style="color: #666666">128</span>, <span style="color: #666666">-1</span>);
+        <span style="color: #B00040">int</span> left <span style="color: #666666">=</span> <span style="color: #666666">-1</span>, res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> s.size(); <span style="color: #666666">++</span>i) {
+            left <span style="color: #666666">=</span> max(left, idx[s[i]]);
+            idx[s[i]] <span style="color: #666666">=</span> i;
+            res <span style="color: #666666">=</span> max(res, i <span style="color: #666666">-</span> left);
+        }
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
                 
               

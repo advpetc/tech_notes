@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2942,22 +2933,22 @@ There is only one duplicate number in the array, but it could be repeated more t
 <li>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">findDuplicate(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">do</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// do while since 0 == 0 is our initial condition</span>
-            <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[nums[a]];</span>
-            <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[b];</span>
-        <span style="color: #f8f8f2">}</span>  <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(a</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(a</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[a];</span>
-            <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[b];</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">a;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">int</span> findDuplicate(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+        <span style="color: #B00040">int</span> a <span style="color: #666666">=</span> <span style="color: #666666">0</span>, b <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">do</span> { <span style="color: #408080; font-style: italic">// do while since 0 == 0 is our initial condition</span>
+            a <span style="color: #666666">=</span> nums[nums[a]];
+            b <span style="color: #666666">=</span> nums[b];
+        }  <span style="color: #008000; font-weight: bold">while</span> (a <span style="color: #666666">!=</span> b) ;
+        a <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">while</span> (a <span style="color: #666666">!=</span> b) {
+            a <span style="color: #666666">=</span> nums[a];
+            b <span style="color: #666666">=</span> nums[b];
+        }
+        <span style="color: #008000; font-weight: bold">return</span> a;
+    }
+};
 </code></pre></div>
                 
               

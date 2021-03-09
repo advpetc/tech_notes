@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2916,7 +2907,7 @@
 <p>Given a binary tree, return the <em>zigzag level order</em> traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).</p>
 <p>For example:
 Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>    3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    3
    / \
   9  20
     /  \
@@ -2925,7 +2916,7 @@ Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
 
 
 <p>return its zigzag level order traversal as:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>[
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>[
   [3],
   [20,9],
   [15,7]
@@ -2936,44 +2927,44 @@ Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>When seeing level order traversal, we should think about BFS. Different from level order traversal problem, it also requires us to reverse the level as we proceed, so we can introduce a <code>bool right</code> variable to represent if we need to reverse the order.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Definition for a binary tree node.</span>
-<span style="color: #75715e"> * struct TreeNode {</span>
-<span style="color: #75715e"> *     int val;</span>
-<span style="color: #75715e"> *     TreeNode *left;</span>
-<span style="color: #75715e"> *     TreeNode *right;</span>
-<span style="color: #75715e"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
-<span style="color: #75715e"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
-<span style="color: #75715e"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
-<span style="color: #75715e"> * };</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">zigzagLevelOrder(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">res;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">root)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-        <span style="color: #f8f8f2">queue</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">q{{root}};</span>
-        <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">q.empty())</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sz</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q.size();</span>
-            <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">level;</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">sz;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q.front();</span>
-                <span style="color: #f8f8f2">level.push_back(t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val);</span>
-                <span style="color: #f8f8f2">q.pop();</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left)</span> <span style="color: #f8f8f2">q.push(t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left);</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">q.push(t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right);</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(right)</span> <span style="color: #f8f8f2">res.push_back(level);</span>
-            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">reverse(level.begin(),</span> <span style="color: #f8f8f2">level.end());</span>
-                <span style="color: #f8f8f2">res.push_back(level);</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">right;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
+<span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
+<span style="color: #408080; font-style: italic"> *     int val;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *left;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *right;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span style="color: #408080; font-style: italic"> * };</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> zigzagLevelOrder(TreeNode<span style="color: #666666">*</span> root) {
+        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> res;
+        queue<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> q{{root}};
+        <span style="color: #B00040">bool</span> right <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+        <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>q.empty()) {
+            <span style="color: #B00040">int</span> sz <span style="color: #666666">=</span> q.size();
+            vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> level;
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> sz; <span style="color: #666666">++</span>i) {
+                TreeNode<span style="color: #666666">*</span> t <span style="color: #666666">=</span> q.front();
+                level.push_back(t <span style="color: #666666">-&gt;</span> val);
+                q.pop();
+                <span style="color: #008000; font-weight: bold">if</span> (t <span style="color: #666666">-&gt;</span> left) q.push(t <span style="color: #666666">-&gt;</span> left);
+                <span style="color: #008000; font-weight: bold">if</span> (t <span style="color: #666666">-&gt;</span> right) q.push(t <span style="color: #666666">-&gt;</span> right);
+            }
+            <span style="color: #008000; font-weight: bold">if</span> (right) res.push_back(level);
+            <span style="color: #008000; font-weight: bold">else</span> {
+                reverse(level.begin(), level.end());
+                res.push_back(level);
+            }
+            right <span style="color: #666666">=</span> <span style="color: #666666">!</span>right;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
                 
               

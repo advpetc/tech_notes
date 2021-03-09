@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3150,17 +3141,17 @@
   -&gt; return current root</p>
 <p>Time: <span><span class="MathJax_Preview">O(log_2{n})</span><script type="math/tex">O(log_2{n})</script></span></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">lowestCommonAncestor</span><span style="color: #f8f8f2">(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">p,</span> <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">q)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">min(p</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val,</span> <span style="color: #f8f8f2">q</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val))</span>
-            <span style="color: #f8f8f2">root</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">max(p</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val,</span> <span style="color: #f8f8f2">q</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val))</span>
-            <span style="color: #f8f8f2">root</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left;</span>
-        <span style="color: #66d9ef">else</span>
-            <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>TreeNode<span style="color: #666666">*</span> <span style="color: #0000FF">lowestCommonAncestor</span>(TreeNode<span style="color: #666666">*</span> root, TreeNode<span style="color: #666666">*</span> p, TreeNode<span style="color: #666666">*</span> q) {
+    <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">1</span>) {
+        <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">-&gt;</span> val <span style="color: #666666">&lt;</span> min(p <span style="color: #666666">-&gt;</span> val, q <span style="color: #666666">-&gt;</span> val))
+            root <span style="color: #666666">=</span> root <span style="color: #666666">-&gt;</span> right;
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">-&gt;</span> val <span style="color: #666666">&gt;</span> max(p <span style="color: #666666">-&gt;</span> val, q <span style="color: #666666">-&gt;</span> val))
+            root <span style="color: #666666">=</span> root <span style="color: #666666">-&gt;</span> left;
+        <span style="color: #008000; font-weight: bold">else</span>
+            <span style="color: #008000; font-weight: bold">break</span>;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> root;
+}
 </code></pre></div>
 
 
@@ -3172,16 +3163,16 @@
 <p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>
 Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="math/tex">O(height)</script></span></p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">solve(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">one,</span> <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">two)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">root</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">one</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">two</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">root)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">solve(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">one,</span> <span style="color: #f8f8f2">two);</span>
-    <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">solve(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">one,</span> <span style="color: #f8f8f2">two);</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(left</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">right)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span> <span style="color: #75715e">// both exist, so current root is the LCA</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">left</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">right;</span> <span style="color: #75715e">// return the one that is found</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  TreeNode<span style="color: #666666">*</span> solve(TreeNode<span style="color: #666666">*</span> root, TreeNode<span style="color: #666666">*</span> one, TreeNode<span style="color: #666666">*</span> two) {
+    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root <span style="color: #666666">||</span> root <span style="color: #666666">==</span> one <span style="color: #666666">||</span> two <span style="color: #666666">==</span> root) <span style="color: #008000; font-weight: bold">return</span> root;
+    TreeNode<span style="color: #666666">*</span> left <span style="color: #666666">=</span> solve(root <span style="color: #666666">-&gt;</span> left, one, two);
+    TreeNode<span style="color: #666666">*</span> right <span style="color: #666666">=</span> solve(root <span style="color: #666666">-&gt;</span> right, one, two);
+    <span style="color: #008000; font-weight: bold">if</span> (left <span style="color: #666666">&amp;&amp;</span> right) <span style="color: #008000; font-weight: bold">return</span> root; <span style="color: #408080; font-style: italic">// both exist, so current root is the LCA</span>
+    <span style="color: #008000; font-weight: bold">return</span> left <span style="color: #666666">?</span> <span style="color: #A0A000">left</span> : right; <span style="color: #408080; font-style: italic">// return the one that is found</span>
+  }
+};
 </code></pre></div>
 
 
@@ -3190,114 +3181,114 @@ Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="m
 <p>所以，我们其实不需要去计算他们到交点的高度差，我们把这两个节点成为a和b，交点称为i，链表结尾称为e，可以发现，两条链表的长度差就是i到a和b的长度差，所以当走到末尾时，我们让他从另一个链表的头部开始继续遍历，只要有交点，他们一定会碰在一起</p>
 <p>changeOne 和 changeTwo 在这里使得只会走一次，避免没有相交时进去死循环</p>
 <h3 id="code-1">Code 1<a class="headerlink" href="#code-1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * public class TreeNodeP {</span>
-<span style="color: #75715e"> *   public int key;</span>
-<span style="color: #75715e"> *   public TreeNodeP left;</span>
-<span style="color: #75715e"> *   public TreeNodeP right;</span>
-<span style="color: #75715e"> *   public TreeNodeP parent;</span>
-<span style="color: #75715e"> *   public TreeNodeP(int key, TreeNodeP parent) {</span>
-<span style="color: #75715e"> *     this.key = key;</span>
-<span style="color: #75715e"> *     this.parent = parent;</span>
-<span style="color: #75715e"> *   }</span>
-<span style="color: #75715e"> * }</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #a6e22e">lowestCommonAncestor</span><span style="color: #f8f8f2">(TreeNodeP</span> <span style="color: #f8f8f2">one,</span> <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #f8f8f2">two)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(one</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">two</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">){</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #f8f8f2">oneCurr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">one;</span>
-    <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #f8f8f2">twoCurr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">two;</span>
-    <span style="color: #66d9ef">boolean</span> <span style="color: #f8f8f2">changeOne</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">changeTwo</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * public class TreeNodeP {</span>
+<span style="color: #408080; font-style: italic"> *   public int key;</span>
+<span style="color: #408080; font-style: italic"> *   public TreeNodeP left;</span>
+<span style="color: #408080; font-style: italic"> *   public TreeNodeP right;</span>
+<span style="color: #408080; font-style: italic"> *   public TreeNodeP parent;</span>
+<span style="color: #408080; font-style: italic"> *   public TreeNodeP(int key, TreeNodeP parent) {</span>
+<span style="color: #408080; font-style: italic"> *     this.key = key;</span>
+<span style="color: #408080; font-style: italic"> *     this.parent = parent;</span>
+<span style="color: #408080; font-style: italic"> *   }</span>
+<span style="color: #408080; font-style: italic"> * }</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+  <span style="color: #008000; font-weight: bold">public</span> TreeNodeP <span style="color: #0000FF">lowestCommonAncestor</span>(TreeNodeP one, TreeNodeP two) {
+    <span style="color: #008000; font-weight: bold">if</span>(one <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> two <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>){
+      <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">null</span>;
+    }
+    TreeNodeP oneCurr <span style="color: #666666">=</span> one;
+    TreeNodeP twoCurr <span style="color: #666666">=</span> two;
+    <span style="color: #B00040">boolean</span> changeOne <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>, changeTwo <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>;
 
-    <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(oneCurr</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">null</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">twoCurr</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">null</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">oneCurr</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">twoCurr){</span>
-      <span style="color: #f8f8f2">oneCurr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">oneCurr.</span><span style="color: #a6e22e">parent</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// keep going up</span>
-      <span style="color: #f8f8f2">twoCurr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">twoCurr.</span><span style="color: #a6e22e">parent</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #008000; font-weight: bold">while</span>(oneCurr <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> twoCurr <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> oneCurr <span style="color: #666666">!=</span> twoCurr){
+      oneCurr <span style="color: #666666">=</span> oneCurr.<span style="color: #7D9029">parent</span>; <span style="color: #408080; font-style: italic">// keep going up</span>
+      twoCurr <span style="color: #666666">=</span> twoCurr.<span style="color: #7D9029">parent</span>;
 
-      <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(oneCurr</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">twoCurr){</span> <span style="color: #75715e">// terminate if meet up</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">oneCurr;</span>
-      <span style="color: #f8f8f2">}</span>
+      <span style="color: #008000; font-weight: bold">if</span>(oneCurr <span style="color: #666666">==</span> twoCurr){ <span style="color: #408080; font-style: italic">// terminate if meet up</span>
+        <span style="color: #008000; font-weight: bold">return</span> oneCurr;
+      }
 
-      <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(oneCurr</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">changeOne</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">){</span> <span style="color: #75715e">// only alternate once</span>
-        <span style="color: #f8f8f2">oneCurr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">two;</span> <span style="color: #75715e">// finish oneCurr, now start with two&#39;s head</span>
-        <span style="color: #f8f8f2">changeOne</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span>
-      <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(twoCurr</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">changeTwo</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">){</span> <span style="color: #75715e">// only alternate once</span>
-        <span style="color: #f8f8f2">twoCurr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">one;</span>
-        <span style="color: #f8f8f2">changeTwo</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(oneCurr</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">twoCurr){</span> <span style="color: #75715e">// possible that after the for loop they meet</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">oneCurr;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+      <span style="color: #008000; font-weight: bold">if</span>(oneCurr <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> changeOne <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">false</span>){ <span style="color: #408080; font-style: italic">// only alternate once</span>
+        oneCurr <span style="color: #666666">=</span> two; <span style="color: #408080; font-style: italic">// finish oneCurr, now start with two&#39;s head</span>
+        changeOne <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
+      }
+      <span style="color: #008000; font-weight: bold">if</span>(twoCurr <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> changeTwo <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">false</span>){ <span style="color: #408080; font-style: italic">// only alternate once</span>
+        twoCurr <span style="color: #666666">=</span> one;
+        changeTwo <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
+      }
+    }
+    <span style="color: #008000; font-weight: bold">if</span>(oneCurr <span style="color: #666666">==</span> twoCurr){ <span style="color: #408080; font-style: italic">// possible that after the for loop they meet</span>
+      <span style="color: #008000; font-weight: bold">return</span> oneCurr;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">null</span>;
+  }
+}
 </code></pre></div>
 
 
 <h3 id="code-2-check-height-and-decide-which-node-to-proceed-up">Code 2: check height and decide which node to proceed up<a class="headerlink" href="#code-2-check-height-and-decide-which-node-to-proceed-up" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">value;</span>
-  <span style="color: #f8f8f2">TreeNodeP</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">left;</span>
-  <span style="color: #f8f8f2">TreeNodeP</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">right;</span>
-  <span style="color: #f8f8f2">TreeNodeP</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">parent;</span>
-  <span style="color: #f8f8f2">TreeNodeP(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">v,</span> <span style="color: #f8f8f2">TreeNodeP</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">p)</span>
-      <span style="color: #f92672">:</span> <span style="color: #f8f8f2">value(v),</span> <span style="color: #f8f8f2">left(NULL),</span> <span style="color: #f8f8f2">right(NULL),</span> <span style="color: #f8f8f2">parent(p)</span> <span style="color: #f8f8f2">{}</span>
-<span style="color: #f8f8f2">};</span>
+class TreeNodeP {
+ <span style="color: #A0A000">public</span>:
+  <span style="color: #B00040">int</span> value;
+  TreeNodeP<span style="color: #666666">*</span> left;
+  TreeNodeP<span style="color: #666666">*</span> right;
+  TreeNodeP<span style="color: #666666">*</span> parent;
+  TreeNodeP(<span style="color: #B00040">int</span> v, TreeNodeP<span style="color: #666666">*</span> p)
+      <span style="color: #666666">:</span> value(v), left(<span style="color: #008000">NULL</span>), right(<span style="color: #008000">NULL</span>), parent(p) {}
+};
 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-     <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">height(TreeNodeP</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">node)</span> <span style="color: #f8f8f2">{</span>
-         <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-         <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(node)</span> <span style="color: #f8f8f2">{</span>
-             <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-             <span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">parent;</span>
-         <span style="color: #f8f8f2">}</span>
-         <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">cnt;</span>
-     <span style="color: #f8f8f2">}</span>
+class Solution {
+ <span style="color: #A0A000">public</span>:
+     <span style="color: #B00040">int</span> height(TreeNodeP<span style="color: #666666">*</span> node) {
+         <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+         <span style="color: #008000; font-weight: bold">while</span> (node) {
+             cnt<span style="color: #666666">++</span>;
+             node <span style="color: #666666">=</span> node <span style="color: #666666">-&gt;</span> parent;
+         }
+         <span style="color: #008000; font-weight: bold">return</span> cnt;
+     }
 
-  <span style="color: #f8f8f2">TreeNodeP</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">solve(TreeNodeP</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">one,</span> <span style="color: #f8f8f2">TreeNodeP</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">two)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(one</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">two)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">one;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">one</span> <span style="color: #f92672">||</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">two)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">NULL;</span>
-    <span style="color: #f8f8f2">TreeNodeP</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">h1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">height(one),</span> <span style="color: #f8f8f2">h2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">height(two);</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(h1</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">h2)</span> <span style="color: #f8f8f2">{</span>          
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">((res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">solve(one</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">parent,</span> <span style="color: #f8f8f2">two)))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(h1</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">h2)</span> <span style="color: #f8f8f2">{</span>       
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">((res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">solve(one,</span> <span style="color: #f8f8f2">two</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">parent)))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">solve(one</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">parent,</span> <span style="color: #f8f8f2">two</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">parent);</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+  TreeNodeP<span style="color: #666666">*</span> solve(TreeNodeP<span style="color: #666666">*</span> one, TreeNodeP<span style="color: #666666">*</span> two) {
+    <span style="color: #008000; font-weight: bold">if</span> (one <span style="color: #666666">==</span> two) <span style="color: #008000; font-weight: bold">return</span> one;
+    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>one <span style="color: #666666">||</span> <span style="color: #666666">!</span>two) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">NULL</span>;
+    TreeNodeP<span style="color: #666666">*</span> res;
+    <span style="color: #B00040">int</span> h1 <span style="color: #666666">=</span> height(one), h2 <span style="color: #666666">=</span> height(two);
+    <span style="color: #008000; font-weight: bold">if</span> (h1 <span style="color: #666666">&gt;</span> h2) {          
+            <span style="color: #008000; font-weight: bold">if</span> ((res <span style="color: #666666">=</span> solve(one<span style="color: #666666">-&gt;</span>parent, two))) <span style="color: #008000; font-weight: bold">return</span> res;
+    } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (h1 <span style="color: #666666">&lt;</span> h2) {       
+        <span style="color: #008000; font-weight: bold">if</span> ((res <span style="color: #666666">=</span> solve(one, two<span style="color: #666666">-&gt;</span>parent))) <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> solve(one<span style="color: #666666">-&gt;</span>parent, two<span style="color: #666666">-&gt;</span>parent);
+  }
+};
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNodeP(</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">NULL);</span>
-  <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNodeP(</span><span style="color: #ae81ff">9</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">p1);</span>
-  <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p3</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNodeP(</span><span style="color: #ae81ff">12</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">p1);</span>
-  <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p4</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNodeP(</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">p2);</span>
-  <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p5</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNodeP(</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">p2);</span>
-  <span style="color: #f8f8f2">TreeNodeP</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p6</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNodeP(</span><span style="color: #ae81ff">14</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">p3);</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+  TreeNodeP <span style="color: #666666">*</span>p1 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">5</span>, <span style="color: #008000">NULL</span>);
+  TreeNodeP <span style="color: #666666">*</span>p2 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">9</span>, p1);
+  TreeNodeP <span style="color: #666666">*</span>p3 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">12</span>, p1);
+  TreeNodeP <span style="color: #666666">*</span>p4 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">2</span>, p2);
+  TreeNodeP <span style="color: #666666">*</span>p5 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">3</span>, p2);
+  TreeNodeP <span style="color: #666666">*</span>p6 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">14</span>, p3);
 
-  <span style="color: #f8f8f2">p1</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p2;</span>
-  <span style="color: #f8f8f2">p1</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p3;</span>
+  p1 <span style="color: #666666">-&gt;</span> left <span style="color: #666666">=</span> p2;
+  p1 <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> p3;
 
-  <span style="color: #f8f8f2">p2</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p4;</span>
-  <span style="color: #f8f8f2">p2</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p5;</span>
+  p2 <span style="color: #666666">-&gt;</span> left <span style="color: #666666">=</span> p4;
+  p2 <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> p5;
 
-  <span style="color: #f8f8f2">p3</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p6;</span>
+  p3 <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> p6;
 
-  <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">s;</span>
-  <span style="color: #75715e">// TreeNodeP *tmp = new TreeNodeP(-1, NULL);</span>
-  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">s.solve(p5,</span> <span style="color: #f8f8f2">p2)</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">value;</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+  Solution s;
+  <span style="color: #408080; font-style: italic">// TreeNodeP *tmp = new TreeNodeP(-1, NULL);</span>
+  cout <span style="color: #666666">&lt;&lt;</span> s.solve(p5, p2) <span style="color: #666666">-&gt;</span> value;
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3308,40 +3299,40 @@ Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="m
 2. if a subset of the given node are under the root, return LCA of the nodes under root.
 3. if none of the nodes are under root, return null.</p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">lca(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">curr,</span> <span style="color: #f8f8f2">unordered_set</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">st)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">curr</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">st.count(curr))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">curr;</span>
-    <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">lca(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">st);</span> <span style="color: #75715e">// if left is under root</span>
-    <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">lca(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">st);</span> <span style="color: #75715e">// if right is under root</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(left</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">right)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">curr;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">left</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">right;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">solve(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">nodes)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">unordered_set</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">st(nodes.begin(),</span> <span style="color: #f8f8f2">nodes.end());</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">lca</span><span style="color: #f8f8f2">(root,</span> <span style="color: #f8f8f2">st);</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  TreeNode<span style="color: #666666">*</span> lca(TreeNode<span style="color: #666666">*</span> curr, unordered_set<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> st) {
+    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>curr <span style="color: #666666">||</span> st.count(curr)) <span style="color: #008000; font-weight: bold">return</span> curr;
+    TreeNode<span style="color: #666666">*</span> left <span style="color: #666666">=</span> lca(curr <span style="color: #666666">-&gt;</span> left, st); <span style="color: #408080; font-style: italic">// if left is under root</span>
+    TreeNode<span style="color: #666666">*</span> right <span style="color: #666666">=</span> lca(curr <span style="color: #666666">-&gt;</span> right, st); <span style="color: #408080; font-style: italic">// if right is under root</span>
+    <span style="color: #008000; font-weight: bold">if</span> (left <span style="color: #666666">&amp;&amp;</span> right) <span style="color: #008000; font-weight: bold">return</span> curr;
+    <span style="color: #008000; font-weight: bold">return</span> left <span style="color: #666666">?</span> <span style="color: #A0A000">left</span> : right;
+  }
+  TreeNode<span style="color: #666666">*</span> solve(TreeNode<span style="color: #666666">*</span> root, vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> nodes) {
+    unordered_set<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> st(nodes.begin(), nodes.end());
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">lca</span>(root, st);
+  }
+};
 </code></pre></div>
 
 
 <h2 id="variant-5-find-lca-for-two-nodes-for-m-ary-tree">Variant 5: find LCA for two nodes for m-ary tree<a class="headerlink" href="#variant-5-find-lca-for-two-nodes-for-m-ary-tree" title="Permanent link">&para;</a></h2>
 <p>Use the same logic to find the two corresponding nodes from the binary tree, and then check if any <em>two</em> are sharing with the same root. If so, return the root, or return the one that isn't null.</p>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 
-  <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">KnaryTreeNode</span> <span style="color: #a6e22e">lowestCommonAncestor</span><span style="color: #f8f8f2">(KnaryTreeNode</span> <span style="color: #f8f8f2">root,</span> <span style="color: #f8f8f2">KnaryTreeNode</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">KnaryTreeNode</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">b)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #f8f8f2">KnaryTreeNode</span> <span style="color: #f8f8f2">found</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// at least two children are found, or just return the one that is found or just null</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(KnaryTreeNode</span> <span style="color: #f8f8f2">node</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">root.</span><span style="color: #a6e22e">children</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">KnaryTreeNode</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">lowestCommonAncestor(node,</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b);</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(found</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span> <span style="color: #75715e">// already two nodes are sharing with the current root</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(found</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">found</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">curr;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">found;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+  <span style="color: #008000; font-weight: bold">public</span> KnaryTreeNode <span style="color: #0000FF">lowestCommonAncestor</span>(KnaryTreeNode root, KnaryTreeNode a, KnaryTreeNode b) {
+    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> root <span style="color: #666666">==</span> a <span style="color: #666666">||</span> root <span style="color: #666666">==</span> b) <span style="color: #008000; font-weight: bold">return</span> root;
+    KnaryTreeNode found <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>; <span style="color: #408080; font-style: italic">// at least two children are found, or just return the one that is found or just null</span>
+    <span style="color: #008000; font-weight: bold">for</span> (KnaryTreeNode node : root.<span style="color: #7D9029">children</span>) {
+      KnaryTreeNode curr <span style="color: #666666">=</span> lowestCommonAncestor(node, a, b);
+      <span style="color: #008000; font-weight: bold">if</span> (curr <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">continue</span>;
+      <span style="color: #008000; font-weight: bold">if</span> (found <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">return</span> root; <span style="color: #408080; font-style: italic">// already two nodes are sharing with the current root</span>
+      <span style="color: #008000; font-weight: bold">if</span> (found <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) found <span style="color: #666666">=</span> curr;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> found;
+  }
+}
 </code></pre></div>
 
 
@@ -3349,35 +3340,35 @@ Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="m
 <p>Use the same logic to find the two corresponding nodes from the m-ary tree, and then check if any <em>two</em> are sharing with the same root. If so, return the root, or return the one that isn't null.</p>
 <p>In the base case, we only need to check if current searched node is one of the node in the set. We don't need to care about duplication, since, all the children of the current node are distinct, meaning if there are <em>two nodes</em> being found from the recursion call, we can guarantee that these two nodes are distint.</p>
 <h3 id="code_4">Code<a class="headerlink" href="#code_4" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e">* public class KnaryTreeNode {</span>
-<span style="color: #75715e"> *     int key;</span>
-<span style="color: #75715e"> *     List&lt;KnaryTreeNode&gt; children;</span>
-<span style="color: #75715e"> *     public KnaryTreeNode(int key) {</span>
-<span style="color: #75715e"> *         this.key = key;</span>
-<span style="color: #75715e"> *         this.children = new ArrayList&lt;&gt;();</span>
-<span style="color: #75715e"> *     }</span>
-<span style="color: #75715e"> * }</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">KnaryTreeNode</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(KnaryTreeNode</span> <span style="color: #f8f8f2">root,</span> <span style="color: #f8f8f2">Set</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">KnaryTreeNode</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">set)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">set.</span><span style="color: #a6e22e">contains</span><span style="color: #f8f8f2">(root))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #f8f8f2">KnaryTreeNode</span> <span style="color: #f8f8f2">found</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(KnaryTreeNode</span> <span style="color: #f8f8f2">nei</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">root.</span><span style="color: #a6e22e">children</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">KnaryTreeNode</span> <span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(nei,</span> <span style="color: #f8f8f2">set);</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(node</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(found</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">found</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node;</span>
-      <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">root;</span> 
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">found;</span>
-  <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic">* public class KnaryTreeNode {</span>
+<span style="color: #408080; font-style: italic"> *     int key;</span>
+<span style="color: #408080; font-style: italic"> *     List&lt;KnaryTreeNode&gt; children;</span>
+<span style="color: #408080; font-style: italic"> *     public KnaryTreeNode(int key) {</span>
+<span style="color: #408080; font-style: italic"> *         this.key = key;</span>
+<span style="color: #408080; font-style: italic"> *         this.children = new ArrayList&lt;&gt;();</span>
+<span style="color: #408080; font-style: italic"> *     }</span>
+<span style="color: #408080; font-style: italic"> * }</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+  KnaryTreeNode <span style="color: #0000FF">helper</span>(KnaryTreeNode root, Set<span style="color: #666666">&lt;</span>KnaryTreeNode<span style="color: #666666">&gt;</span> set) {
+    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> set.<span style="color: #7D9029">contains</span>(root)) <span style="color: #008000; font-weight: bold">return</span> root;
+    KnaryTreeNode found <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (KnaryTreeNode nei : root.<span style="color: #7D9029">children</span>) {
+      KnaryTreeNode node <span style="color: #666666">=</span> helper(nei, set);
+      <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">continue</span>;
+      <span style="color: #008000; font-weight: bold">if</span> (found <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) found <span style="color: #666666">=</span> node;
+      <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">return</span> root; 
+    }
+    <span style="color: #008000; font-weight: bold">return</span> found;
+  }
 
-  <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">KnaryTreeNode</span> <span style="color: #a6e22e">lowestCommonAncestor</span><span style="color: #f8f8f2">(KnaryTreeNode</span> <span style="color: #f8f8f2">root,</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">KnaryTreeNode</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">nodes)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// Write your solution here</span>
-    <span style="color: #f8f8f2">Set</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">KnaryTreeNode</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">set</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">HashSet</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">KnaryTreeNode</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(nodes);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">helper(root,</span> <span style="color: #f8f8f2">set);</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+  <span style="color: #008000; font-weight: bold">public</span> KnaryTreeNode <span style="color: #0000FF">lowestCommonAncestor</span>(KnaryTreeNode root, List<span style="color: #666666">&lt;</span>KnaryTreeNode<span style="color: #666666">&gt;</span> nodes) {
+    <span style="color: #408080; font-style: italic">// Write your solution here</span>
+    Set<span style="color: #666666">&lt;</span>KnaryTreeNode<span style="color: #666666">&gt;</span> set <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashSet<span style="color: #666666">&lt;</span>KnaryTreeNode<span style="color: #666666">&gt;</span>(nodes);
+    <span style="color: #008000; font-weight: bold">return</span> helper(root, set);
+  }
+}
 </code></pre></div>
                 
               

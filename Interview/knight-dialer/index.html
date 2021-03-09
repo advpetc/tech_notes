@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2868,113 +2859,113 @@ input: 2 output: 20
 input: 3 output: 48</p>
 <h1 id="dfs-with-memo">DFS with memo<a class="headerlink" href="#dfs-with-memo" title="Permanent link">&para;</a></h1>
 <p>Time Complexity: O(n) -&gt; size of memo, Space Complexity: O(n), But call stack is very large.</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mod</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1e9</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">7</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">MAX</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">10010</span><span style="color: #f8f8f2">;</span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> mod <span style="color: #666666">=</span> <span style="color: #666666">1e9</span> <span style="color: #666666">+</span> <span style="color: #666666">7</span>, MAX <span style="color: #666666">=</span> <span style="color: #666666">10010</span>;
 
-<span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">nxt[</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;46&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;68&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;79&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;48&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;390&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;170&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;26&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;13&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;42&quot;</span><span style="color: #f8f8f2">};</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">n;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">memo[</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">][MAX];</span>
+string nxt[<span style="color: #666666">10</span>] <span style="color: #666666">=</span> {<span style="color: #BA2121">&quot;46&quot;</span>, <span style="color: #BA2121">&quot;68&quot;</span>, <span style="color: #BA2121">&quot;79&quot;</span>, <span style="color: #BA2121">&quot;48&quot;</span>, <span style="color: #BA2121">&quot;390&quot;</span>, <span style="color: #BA2121">&quot;&quot;</span>, <span style="color: #BA2121">&quot;170&quot;</span>, <span style="color: #BA2121">&quot;26&quot;</span>, <span style="color: #BA2121">&quot;13&quot;</span>, <span style="color: #BA2121">&quot;42&quot;</span>};
+<span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, n;
+<span style="color: #B00040">int</span> memo[<span style="color: #666666">10</span>][MAX];
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">pos,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">hops)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(memo[pos][hops]</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">memo[pos][hops];</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">i</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">nxt[pos])</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">dfs(i</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">hops</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">memo[pos][hops]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cnt;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">dfs</span>(<span style="color: #B00040">int</span> pos, <span style="color: #B00040">int</span> hops) {
+    <span style="color: #008000; font-weight: bold">if</span> (memo[pos][hops] <span style="color: #666666">!=</span> <span style="color: #666666">0</span>)
+        <span style="color: #008000; font-weight: bold">return</span> memo[pos][hops];
+    <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">char</span> <span style="color: #A0A000">i</span> : nxt[pos]) {
+        cnt <span style="color: #666666">+=</span> dfs(i <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;0&#39;</span>, hops <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+    }
+    <span style="color: #008000; font-weight: bold">return</span> memo[pos][hops] <span style="color: #666666">=</span> cnt;
+}
 
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">solve</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-        <span style="color: #f8f8f2">memo[i][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<span style="color: #B00040">void</span> <span style="color: #0000FF">solve</span>() {
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> <span style="color: #666666">10</span>; <span style="color: #666666">++</span>i)
+        memo[i][<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">pos</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">pos</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">pos)</span>
-        <span style="color: #f8f8f2">res</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">dfs(pos,</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> pos <span style="color: #666666">=</span> <span style="color: #666666">0</span>; pos <span style="color: #666666">&lt;</span> <span style="color: #666666">10</span>; <span style="color: #666666">++</span>pos)
+        res <span style="color: #666666">+=</span> dfs(pos, n <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #f8f8f2">solve();</span>
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">mod;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    solve();
+    cout <span style="color: #666666">&lt;&lt;</span> res <span style="color: #666666">%</span> mod;
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
 <h1 id="dp-with-2d-matrix">DP with 2D matrix<a class="headerlink" href="#dp-with-2d-matrix" title="Permanent link">&para;</a></h1>
 <p>memo[pos][hops]: # of solution when ends in "pos" in "hops" hops.
 base case: memo[x][0] = 1</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mod</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1e9</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">7</span><span style="color: #f8f8f2">;</span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> mod <span style="color: #666666">=</span> <span style="color: #666666">1e9</span> <span style="color: #666666">+</span> <span style="color: #666666">7</span>;
 
-<span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">nxt[</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;46&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;68&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;79&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;48&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;390&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;170&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;26&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;13&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;42&quot;</span><span style="color: #f8f8f2">};</span>
-<span style="color: #75715e">#define ll long long</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">ll</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-  <span style="color: #f8f8f2">ll</span> <span style="color: #f8f8f2">memo[</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">][n];</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">memo[i][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">hops</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">hops</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">hops)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">pos</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">pos</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">pos)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">ll</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">nei</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">nxt[pos])</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">%=</span> <span style="color: #f8f8f2">mod;</span>
-        <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">memo[nei</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">][hops</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-      <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">memo[pos][hops]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cnt;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">res</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">memo[i][n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">mod;</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+string nxt[<span style="color: #666666">10</span>] <span style="color: #666666">=</span> {<span style="color: #BA2121">&quot;46&quot;</span>, <span style="color: #BA2121">&quot;68&quot;</span>, <span style="color: #BA2121">&quot;79&quot;</span>, <span style="color: #BA2121">&quot;48&quot;</span>, <span style="color: #BA2121">&quot;390&quot;</span>, <span style="color: #BA2121">&quot;&quot;</span>, <span style="color: #BA2121">&quot;170&quot;</span>, <span style="color: #BA2121">&quot;26&quot;</span>, <span style="color: #BA2121">&quot;13&quot;</span>, <span style="color: #BA2121">&quot;42&quot;</span>};
+<span style="color: #BC7A00">#define ll long long</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+  ll res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #B00040">int</span> n;
+  cin <span style="color: #666666">&gt;&gt;</span> n;
+  ll memo[<span style="color: #666666">10</span>][n];
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> <span style="color: #666666">10</span>; <span style="color: #666666">++</span>i) memo[i][<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> hops <span style="color: #666666">=</span> <span style="color: #666666">1</span>; hops <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>hops) {
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> pos <span style="color: #666666">=</span> <span style="color: #666666">0</span>; pos <span style="color: #666666">&lt;</span> <span style="color: #666666">10</span>; <span style="color: #666666">++</span>pos) {
+      ll cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">char</span> <span style="color: #A0A000">nei</span> : nxt[pos]) {
+        cnt <span style="color: #666666">%=</span> mod;
+        cnt <span style="color: #666666">+=</span> memo[nei <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;0&#39;</span>][hops <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
+      }
+      memo[pos][hops] <span style="color: #666666">=</span> cnt;
+    }
+  }
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> <span style="color: #666666">10</span>; <span style="color: #666666">++</span>i) {
+    res <span style="color: #666666">+=</span> memo[i][n <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
+  }
+  cout <span style="color: #666666">&lt;&lt;</span> res <span style="color: #666666">%</span> mod;
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
 <h1 id="dp-with-constant-space">DP with constant space<a class="headerlink" href="#dp-with-constant-space" title="Permanent link">&para;</a></h1>
 <p>only need to record last state, so just two array is fine.</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mod</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1e9</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">7</span><span style="color: #f8f8f2">;</span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> mod <span style="color: #666666">=</span> <span style="color: #666666">1e9</span> <span style="color: #666666">+</span> <span style="color: #666666">7</span>;
 
-<span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">nxt[</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;46&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;68&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;79&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;48&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;390&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;170&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;26&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;13&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;42&quot;</span><span style="color: #f8f8f2">};</span>
+string nxt[<span style="color: #666666">10</span>] <span style="color: #666666">=</span> {<span style="color: #BA2121">&quot;46&quot;</span>, <span style="color: #BA2121">&quot;68&quot;</span>, <span style="color: #BA2121">&quot;79&quot;</span>, <span style="color: #BA2121">&quot;48&quot;</span>, <span style="color: #BA2121">&quot;390&quot;</span>, <span style="color: #BA2121">&quot;&quot;</span>, <span style="color: #BA2121">&quot;170&quot;</span>, <span style="color: #BA2121">&quot;26&quot;</span>, <span style="color: #BA2121">&quot;13&quot;</span>, <span style="color: #BA2121">&quot;42&quot;</span>};
 
-<span style="color: #75715e">#define ll long long</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">ll</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-  <span style="color: #f8f8f2">ll</span> <span style="color: #f8f8f2">prev[</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">curr[</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">];</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">prev[i]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">hops</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">hops</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">hops)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">pos</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">pos</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">pos)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">ll</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">nei</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">nxt[pos])</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">%=</span> <span style="color: #f8f8f2">mod;</span>
-        <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">prev[nei</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">];</span>
-      <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">curr[pos]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cnt;</span>
-    <span style="color: #f8f8f2">}</span> 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">pos</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">pos</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">pos)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">prev[pos]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">curr[pos];</span>
-        <span style="color: #f8f8f2">curr[pos]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">res</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">prev[i];</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">mod;</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #BC7A00">#define ll long long</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+  ll res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #B00040">int</span> n;
+  cin <span style="color: #666666">&gt;&gt;</span> n;
+  ll prev[<span style="color: #666666">10</span>], curr[<span style="color: #666666">10</span>];
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> <span style="color: #666666">10</span>; <span style="color: #666666">++</span>i) prev[i] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> hops <span style="color: #666666">=</span> <span style="color: #666666">1</span>; hops <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>hops) {
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> pos <span style="color: #666666">=</span> <span style="color: #666666">0</span>; pos <span style="color: #666666">&lt;</span> <span style="color: #666666">10</span>; <span style="color: #666666">++</span>pos) {
+      ll cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">char</span> <span style="color: #A0A000">nei</span> : nxt[pos]) {
+        cnt <span style="color: #666666">%=</span> mod;
+        cnt <span style="color: #666666">+=</span> prev[nei <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;0&#39;</span>];
+      }
+      curr[pos] <span style="color: #666666">=</span> cnt;
+    } 
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> pos <span style="color: #666666">=</span> <span style="color: #666666">0</span>; pos <span style="color: #666666">&lt;</span> <span style="color: #666666">10</span>; <span style="color: #666666">++</span>pos) {
+        prev[pos] <span style="color: #666666">=</span> curr[pos];
+        curr[pos] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    }
+  }
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> <span style="color: #666666">10</span>; <span style="color: #666666">++</span>i) {
+    res <span style="color: #666666">+=</span> prev[i];
+  }
+  cout <span style="color: #666666">&lt;&lt;</span> res <span style="color: #666666">%</span> mod;
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
                 
               

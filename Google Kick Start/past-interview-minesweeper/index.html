@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2932,7 +2923,7 @@
 </blockquote>
 <h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">&para;</a></h2>
 <p>Given a matrix:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>0  0  0  0  0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>0  0  0  0  0
 0  0  0  0  0
 1  1  1  0  0
 1  9  1  0  0
@@ -2944,7 +2935,7 @@
 
 <p>where 9 indicates mine, 0 to 8 represents the number of mines in the 8 directions.</p>
 <p>The game start with a matrix with all "-", and if player clicks any position that is 0, it will keep expanding until to all the boundary:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>0  0  0  0  0 &lt; clicked this point
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>0  0  0  0  0 &lt; clicked this point
 0  0  0  0  0
 1  1  1  0  0
 -  -  1  0  0
@@ -2955,13 +2946,13 @@
 
 
 <p>You are given a <code>Matrix</code> class:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">template</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">typename</span> <span style="color: #f8f8f2">T</span><span style="color: #f92672">&gt;</span> 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Matrix</span> <span style="color: #f8f8f2">{</span> 
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">resize(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">rows,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cols);</span> 
-  <span style="color: #f8f8f2">T</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">at(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">row,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">col);</span> 
-  <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">rows</span><span style="color: #f8f8f2">();</span> 
-  <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">cols</span><span style="color: #f8f8f2">();</span> 
-<span style="color: #f8f8f2">};</span> 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>template<span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">typename</span> T<span style="color: #666666">&gt;</span> 
+class Matrix { 
+  <span style="color: #B00040">void</span> resize(<span style="color: #B00040">int</span> rows, <span style="color: #B00040">int</span> cols); 
+  T<span style="color: #666666">&amp;</span> at(<span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> col); 
+  <span style="color: #B00040">int</span> <span style="color: #0000FF">rows</span>(); 
+  <span style="color: #B00040">int</span> <span style="color: #0000FF">cols</span>(); 
+}; 
 </code></pre></div>
 
 
@@ -2975,117 +2966,117 @@
 <li>for the 0 case, we can use recursion to do the expanding.</li>
 </ol>
 <h2 id="code-link">Code: <a href="https://gist.github.com/dgossow/d28083522608771e1c65f49822820ba9">link</a><a class="headerlink" href="#code-link" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;stdlib.h&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;vector&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;stdlib.h&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;vector&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">template</span> <span style="color: #f92672">&lt;</span><span style="color: #66d9ef">typename</span> <span style="color: #f8f8f2">T</span><span style="color: #f92672">&gt;</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Matrix</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">resize(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">rows,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cols)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">data_.resize(rows</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">cols);</span>
-    <span style="color: #f8f8f2">rows_</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rows;</span>
-    <span style="color: #f8f8f2">cols_</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cols;</span>
-  <span style="color: #f8f8f2">}</span>
+template <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">typename</span> T<span style="color: #666666">&gt;</span>
+class Matrix {
+ <span style="color: #A0A000">public</span>:
+  <span style="color: #B00040">void</span> resize(<span style="color: #B00040">int</span> rows, <span style="color: #B00040">int</span> cols) {
+    data_.resize(rows <span style="color: #666666">*</span> cols);
+    rows_ <span style="color: #666666">=</span> rows;
+    cols_ <span style="color: #666666">=</span> cols;
+  }
 
-  <span style="color: #f8f8f2">T</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">at(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">row,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">col)</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">data_.at(row</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">cols_</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">col);</span> <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">rows()</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">rows_;</span> <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cols()</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">cols_;</span> <span style="color: #f8f8f2">}</span>
+  T<span style="color: #666666">&amp;</span> at(<span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> col) { <span style="color: #008000; font-weight: bold">return</span> data_.at(row <span style="color: #666666">*</span> cols_ <span style="color: #666666">+</span> col); }
+  <span style="color: #B00040">int</span> rows() <span style="color: #008000; font-weight: bold">const</span> { <span style="color: #008000; font-weight: bold">return</span> rows_; }
+  <span style="color: #B00040">int</span> cols() <span style="color: #008000; font-weight: bold">const</span> { <span style="color: #008000; font-weight: bold">return</span> cols_; }
 
- <span style="color: #f8f8f2">private:</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">T</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">data_;</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">rows_</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cols_</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">};</span>
+ <span style="color: #A0A000">private</span>:
+  std<span style="color: #666666">::</span>vector<span style="color: #666666">&lt;</span>T<span style="color: #666666">&gt;</span> data_;
+  <span style="color: #B00040">int</span> rows_ <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #B00040">int</span> cols_ <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+};
 
-<span style="color: #f8f8f2">constexpr</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">kMine</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">9</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">min;</span>
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">max;</span>
+constexpr <span style="color: #B00040">int</span> kMine <span style="color: #666666">=</span> <span style="color: #666666">9</span>;
+using std<span style="color: #666666">::</span>min;
+using std<span style="color: #666666">::</span>max;
 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">MineField</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">private:</span>
-  <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Cell</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">value</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">visible</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-  <span style="color: #f8f8f2">};</span>
-  <span style="color: #f8f8f2">Matrix</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Cell</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">field;</span>
+class MineField {
+ <span style="color: #A0A000">private</span>:
+  <span style="color: #008000; font-weight: bold">struct</span> Cell {
+    <span style="color: #B00040">int</span> value <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #B00040">bool</span> visible <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+  };
+  Matrix<span style="color: #666666">&lt;</span>Cell<span style="color: #666666">&gt;</span> field;
 
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">MineField(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">rows,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cols,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num_mines)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">field.resize(rows,</span> <span style="color: #f8f8f2">cols);</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mines_placed</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(mines_placed</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">num_mines)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">row</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rand()</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">rows;</span>
-      <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">col</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rand()</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">cols;</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(field.at(row,</span> <span style="color: #f8f8f2">col).value</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">kMine)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">mines_placed</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">row</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">min(rows</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">row</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">col</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">min(cols</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">col</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">row</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">col)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">field.at(i,</span> <span style="color: #f8f8f2">j).value</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">kMine;</span>
-          <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(field.at(i,</span> <span style="color: #f8f8f2">j).value</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">kMine)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">field.at(i,</span> <span style="color: #f8f8f2">j).value</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
+ <span style="color: #A0A000">public</span>:
+  MineField(<span style="color: #B00040">int</span> rows, <span style="color: #B00040">int</span> cols, <span style="color: #B00040">int</span> num_mines) {
+    field.resize(rows, cols);
+    <span style="color: #B00040">int</span> mines_placed <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">while</span> (mines_placed <span style="color: #666666">&lt;</span> num_mines) {
+      <span style="color: #B00040">int</span> row <span style="color: #666666">=</span> rand() <span style="color: #666666">%</span> rows;
+      <span style="color: #B00040">int</span> col <span style="color: #666666">=</span> rand() <span style="color: #666666">%</span> cols;
+      <span style="color: #008000; font-weight: bold">if</span> (field.at(row, col).value <span style="color: #666666">==</span> kMine) {
+        <span style="color: #008000; font-weight: bold">continue</span>;
+      }
+      mines_placed<span style="color: #666666">++</span>;
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> max(<span style="color: #666666">0</span>, row <span style="color: #666666">-</span> <span style="color: #666666">1</span>); i <span style="color: #666666">&lt;=</span> min(rows <span style="color: #666666">-</span> <span style="color: #666666">1</span>, row <span style="color: #666666">+</span> <span style="color: #666666">1</span>); <span style="color: #666666">++</span>i) {
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> max(<span style="color: #666666">0</span>, col <span style="color: #666666">-</span> <span style="color: #666666">1</span>); j <span style="color: #666666">&lt;=</span> min(cols <span style="color: #666666">-</span> <span style="color: #666666">1</span>, col <span style="color: #666666">+</span> <span style="color: #666666">1</span>); <span style="color: #666666">++</span>j) {
+          <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">==</span> row <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">==</span> col) {
+            field.at(i, j).value <span style="color: #666666">=</span> kMine;
+          } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (field.at(i, j).value <span style="color: #666666">!=</span> kMine) {
+            field.at(i, j).value<span style="color: #666666">++</span>;
+          }
+        }
+      }
+    }
+  }
 
-  <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">OnClick(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">row,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">col)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(row</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">row</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">field.rows()</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">col</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">col</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">field.cols())</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(field.at(row,</span> <span style="color: #f8f8f2">col).visible)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">field.at(row,</span> <span style="color: #f8f8f2">col).visible</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(field.at(row,</span> <span style="color: #f8f8f2">col).value</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">kMine)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;BOOM!&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(field.at(row,</span> <span style="color: #f8f8f2">col).value</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">OnClick(row</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">col);</span>
-    <span style="color: #f8f8f2">OnClick(row</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">col);</span>
-    <span style="color: #f8f8f2">OnClick(row,</span> <span style="color: #f8f8f2">col</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">OnClick(row,</span> <span style="color: #f8f8f2">col</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-  <span style="color: #f8f8f2">}</span>
+  <span style="color: #B00040">bool</span> OnClick(<span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> col) {
+    <span style="color: #008000; font-weight: bold">if</span> (row <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> row <span style="color: #666666">&gt;=</span> field.rows() <span style="color: #666666">||</span> col <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> col <span style="color: #666666">&gt;=</span> field.cols()) {
+      <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+    }
+    <span style="color: #008000; font-weight: bold">if</span> (field.at(row, col).visible) {
+      <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+    }
+    field.at(row, col).visible <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+    <span style="color: #008000; font-weight: bold">if</span> (field.at(row, col).value <span style="color: #666666">==</span> kMine) {
+      std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;BOOM!&quot;</span> <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
+      <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+    }
+    <span style="color: #008000; font-weight: bold">if</span> (field.at(row, col).value <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) {
+      <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+    }
+    OnClick(row <span style="color: #666666">-</span> <span style="color: #666666">1</span>, col);
+    OnClick(row <span style="color: #666666">+</span> <span style="color: #666666">1</span>, col);
+    OnClick(row, col <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+    OnClick(row, col <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+  }
 
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">Print(</span><span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">show_hidden)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">field.rows();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">field.cols();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(field.at(i,</span> <span style="color: #f8f8f2">j).visible</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">show_hidden)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">field.at(i,</span> <span style="color: #f8f8f2">j).value</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;. &quot;</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+  <span style="color: #B00040">void</span> Print(<span style="color: #B00040">bool</span> show_hidden) {
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> field.rows(); <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> field.cols(); <span style="color: #666666">++</span>j) {
+        <span style="color: #008000; font-weight: bold">if</span> (field.at(i, j).visible <span style="color: #666666">||</span> show_hidden) {
+          std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> field.at(i, j).value <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; &quot;</span>;
+        } <span style="color: #008000; font-weight: bold">else</span> {
+          std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;. &quot;</span>;
+        }
+      }
+      std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
+    }
+    std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
+  }
+};
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">srand(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">MineField</span> <span style="color: #f8f8f2">mine_field(</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">7</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">mine_field.Print(true);</span>
-  <span style="color: #f8f8f2">mine_field.OnClick(</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">mine_field.Print(false);</span>
-  <span style="color: #f8f8f2">mine_field.OnClick(</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">6</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">mine_field.Print(false);</span>
-  <span style="color: #f8f8f2">mine_field.OnClick(</span><span style="color: #ae81ff">9</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">mine_field.Print(false);</span>
-  <span style="color: #f8f8f2">mine_field.OnClick(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">mine_field.Print(false);</span>
-  <span style="color: #f8f8f2">mine_field.OnClick(</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">mine_field.Print(false);</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+  srand(<span style="color: #666666">1</span>);
+  MineField mine_field(<span style="color: #666666">10</span>, <span style="color: #666666">10</span>, <span style="color: #666666">7</span>);
+  mine_field.Print(<span style="color: #008000">true</span>);
+  mine_field.OnClick(<span style="color: #666666">5</span>, <span style="color: #666666">1</span>);
+  mine_field.Print(<span style="color: #008000">false</span>);
+  mine_field.OnClick(<span style="color: #666666">2</span>, <span style="color: #666666">6</span>);
+  mine_field.Print(<span style="color: #008000">false</span>);
+  mine_field.OnClick(<span style="color: #666666">9</span>, <span style="color: #666666">3</span>);
+  mine_field.Print(<span style="color: #008000">false</span>);
+  mine_field.OnClick(<span style="color: #666666">0</span>, <span style="color: #666666">0</span>);
+  mine_field.Print(<span style="color: #008000">false</span>);
+  mine_field.OnClick(<span style="color: #666666">3</span>, <span style="color: #666666">5</span>);
+  mine_field.Print(<span style="color: #008000">false</span>);
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
                 
               

@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2928,36 +2919,36 @@ Could you devise a constant space solution?</p>
 <p>Time Complexity: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> as it's an in-order traversal
 Space Complexity: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> worst case the tree is a linkedlist</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Definition for a binary tree node.</span>
-<span style="color: #75715e"> * struct TreeNode {</span>
-<span style="color: #75715e"> *     int val;</span>
-<span style="color: #75715e"> *     TreeNode *left;</span>
-<span style="color: #75715e"> *     TreeNode *right;</span>
-<span style="color: #75715e"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
-<span style="color: #75715e"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
-<span style="color: #75715e"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),</span>
-<span style="color: #75715e"> * right(right) {}</span>
-<span style="color: #75715e"> * };</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">first</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL;</span>
-  <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">second</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL;</span>
-  <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">prev</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNode(INT_MIN);</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">recoverTree</span><span style="color: #f8f8f2">(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">help(root);</span>
-    <span style="color: #f8f8f2">swap(first</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val,</span> <span style="color: #f8f8f2">second</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val);</span>
-  <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
+<span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
+<span style="color: #408080; font-style: italic"> *     int val;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *left;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *right;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),</span>
+<span style="color: #408080; font-style: italic"> * right(right) {}</span>
+<span style="color: #408080; font-style: italic"> * };</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class Solution {
+ <span style="color: #A0A000">public</span>:
+  TreeNode<span style="color: #666666">*</span> first <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
+  TreeNode<span style="color: #666666">*</span> second <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
+  TreeNode<span style="color: #666666">*</span> prev <span style="color: #666666">=</span> new TreeNode(INT_MIN);
+  <span style="color: #B00040">void</span> <span style="color: #0000FF">recoverTree</span>(TreeNode<span style="color: #666666">*</span> root) {
+    help(root);
+    swap(first<span style="color: #666666">-&gt;</span>val, second<span style="color: #666666">-&gt;</span>val);
+  }
 
-  <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">help</span><span style="color: #f8f8f2">(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">NULL)</span> <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">help(root</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left);</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(first</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">NULL</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">prev</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">root</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val)</span> <span style="color: #f8f8f2">first</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">prev;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(first</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">NULL</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">prev</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">root</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val)</span> <span style="color: #f8f8f2">second</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #f8f8f2">prev</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #f8f8f2">help(root</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right);</span>
-  <span style="color: #f8f8f2">}</span>
+  <span style="color: #B00040">void</span> <span style="color: #0000FF">help</span>(TreeNode<span style="color: #666666">*</span> root) {
+    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000">NULL</span>) <span style="color: #008000; font-weight: bold">return</span>;
+    help(root<span style="color: #666666">-&gt;</span>left);
+    <span style="color: #008000; font-weight: bold">if</span> (first <span style="color: #666666">==</span> <span style="color: #008000">NULL</span> <span style="color: #666666">&amp;&amp;</span> prev<span style="color: #666666">-&gt;</span>val <span style="color: #666666">&gt;</span> root<span style="color: #666666">-&gt;</span>val) first <span style="color: #666666">=</span> prev;
+    <span style="color: #008000; font-weight: bold">if</span> (first <span style="color: #666666">!=</span> <span style="color: #008000">NULL</span> <span style="color: #666666">&amp;&amp;</span> prev<span style="color: #666666">-&gt;</span>val <span style="color: #666666">&gt;</span> root<span style="color: #666666">-&gt;</span>val) second <span style="color: #666666">=</span> root;
+    prev <span style="color: #666666">=</span> root;
+    help(root<span style="color: #666666">-&gt;</span>right);
+  }
 </code></pre></div>
                 
               

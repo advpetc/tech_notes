@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2929,7 +2920,7 @@
                 <h1 id="scramble-string">Scramble String<a class="headerlink" href="#scramble-string" title="Permanent link">&para;</a></h1>
 <p>Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.</p>
 <p>Below is one possible representation of s1 = "great":</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>    great
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    great
    /    \
   gr    eat
  / \    /  \
@@ -2941,7 +2932,7 @@ g   r  e   at
 
 <p>To scramble the string, we may choose any non-leaf node and swap its two children.</p>
 <p>For example, if we choose the node "gr" and swap its two children, it produces a scrambled string "rgeat".</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>    rgeat
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    rgeat
    /    \
   rg    eat
  / \    /  \
@@ -2953,7 +2944,7 @@ r   g  e   at
 
 <p>We say that "rgeat" is a scrambled string of "great".</p>
 <p>Similarly, if we continue to swap the children of nodes "eat" and "at", it produces a scrambled string "rgtae".</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>    rgtae
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    rgtae
    /    \
   rg    tae
  / \    /  \
@@ -2972,38 +2963,38 @@ Example 2:</p>
 <p>Input: s1 = "abcde", s2 = "caebd"
 Output: false</p>
 <h2 id="using-cache-recursion">Using cache + recursion<a class="headerlink" href="#using-cache-recursion" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">DP_helper(unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #66d9ef">bool</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">isScramblePair,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s2)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i,len</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s1.size();</span>
-        <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">len)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">len)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s1</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s2;</span>
-        <span style="color: #66d9ef">else</span>
-        <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(isScramblePair.count(s1</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">s2))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">isScramblePair[s1</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">s2];</span> <span style="color: #75715e">// checked before, return intermediate result directly</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s1</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">s2)</span> <span style="color: #f8f8f2">res</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">true;</span>
-            <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">len</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">res;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-                <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">//check s1[0..i-1] with s2[0..i-1] and s1[i..len-1] and s2[i..len-1]</span>
-                    <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(DP_helper(isScramblePair,</span> <span style="color: #f8f8f2">s1.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,i),</span> <span style="color: #f8f8f2">s2.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,i))</span> 
-                                <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">DP_helper(isScramblePair,</span> <span style="color: #f8f8f2">s1.substr(i,len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">i),</span> <span style="color: #f8f8f2">s2.substr(i,len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">i)));</span>
-    <span style="color: #75715e">//if no match, then check s1[0..i-1] with s2[len-k.. len-1] and s1[i..len-1] and s2[0..len-i]</span>
-                   <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(DP_helper(isScramblePair,</span> <span style="color: #f8f8f2">s1.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,i),</span> <span style="color: #f8f8f2">s2.substr(len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">i,i))</span> 
-                                <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">DP_helper(isScramblePair,</span> <span style="color: #f8f8f2">s1.substr(i,len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">i),</span> <span style="color: #f8f8f2">s2.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">i)));</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">isScramblePair[s1</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">s2]</span><span style="color: #f92672">=</span> <span style="color: #f8f8f2">res;</span> <span style="color: #75715e">//save the intermediate results</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+    <span style="color: #B00040">bool</span> DP_helper(unordered_map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">bool</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>isScramblePair, string s1, string s2)
+    {
+        <span style="color: #B00040">int</span> i,len <span style="color: #666666">=</span> s1.size();
+        <span style="color: #B00040">bool</span> res <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+        <span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">0==</span>len) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span>(<span style="color: #666666">1==</span>len) <span style="color: #008000; font-weight: bold">return</span> s1 <span style="color: #666666">==</span> s2;
+        <span style="color: #008000; font-weight: bold">else</span>
+        {
+            <span style="color: #008000; font-weight: bold">if</span>(isScramblePair.count(s1<span style="color: #666666">+</span>s2)) <span style="color: #008000; font-weight: bold">return</span> isScramblePair[s1<span style="color: #666666">+</span>s2]; <span style="color: #408080; font-style: italic">// checked before, return intermediate result directly</span>
+            <span style="color: #008000; font-weight: bold">if</span>(s1<span style="color: #666666">==</span>s2) res<span style="color: #666666">=</span><span style="color: #008000">true</span>;
+            <span style="color: #008000; font-weight: bold">else</span>{
+                <span style="color: #008000; font-weight: bold">for</span>(i<span style="color: #666666">=1</span>; i<span style="color: #666666">&lt;</span>len <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>res; <span style="color: #666666">++</span>i)
+                {
+    <span style="color: #408080; font-style: italic">//check s1[0..i-1] with s2[0..i-1] and s1[i..len-1] and s2[i..len-1]</span>
+                    res <span style="color: #666666">=</span> res <span style="color: #666666">||</span> (DP_helper(isScramblePair, s1.substr(<span style="color: #666666">0</span>,i), s2.substr(<span style="color: #666666">0</span>,i)) 
+                                <span style="color: #666666">&amp;&amp;</span> DP_helper(isScramblePair, s1.substr(i,len<span style="color: #666666">-</span>i), s2.substr(i,len<span style="color: #666666">-</span>i)));
+    <span style="color: #408080; font-style: italic">//if no match, then check s1[0..i-1] with s2[len-k.. len-1] and s1[i..len-1] and s2[0..len-i]</span>
+                   res <span style="color: #666666">=</span> res <span style="color: #666666">||</span> (DP_helper(isScramblePair, s1.substr(<span style="color: #666666">0</span>,i), s2.substr(len<span style="color: #666666">-</span>i,i)) 
+                                <span style="color: #666666">&amp;&amp;</span> DP_helper(isScramblePair, s1.substr(i,len<span style="color: #666666">-</span>i), s2.substr(<span style="color: #666666">0</span>,len<span style="color: #666666">-</span>i)));
+                }
+            }
+            <span style="color: #008000; font-weight: bold">return</span> isScramblePair[s1<span style="color: #666666">+</span>s2]<span style="color: #666666">=</span> res; <span style="color: #408080; font-style: italic">//save the intermediate results</span>
 
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">public:</span>
-        <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isScramble(string</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s2)</span> <span style="color: #f8f8f2">{</span>
-           <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #66d9ef">bool</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">isScramblePair;</span>
-           <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">DP_helper</span><span style="color: #f8f8f2">(isScramblePair,</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">s2);</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">};</span>
+        }
+    }
+    <span style="color: #A0A000">public</span>:
+        <span style="color: #B00040">bool</span> isScramble(string s1, string s2) {
+           unordered_map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">bool</span><span style="color: #666666">&gt;</span> isScramblePair;
+           <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">DP_helper</span>(isScramblePair, s1, s2);
+        }
+    };
 </code></pre></div>
 
 
@@ -3017,33 +3008,33 @@ s2: 333i444len</p>
 <p>111 &amp;&amp; 444
 222 &amp;&amp; 333</p>
 <h2 id="dp-bottom-up">DP bottom-up<a class="headerlink" href="#dp-bottom-up" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isScramble(string</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s2)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sSize</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s1.size(),</span> <span style="color: #f8f8f2">len,</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">j,</span> <span style="color: #f8f8f2">k;</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">sSize)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">sSize)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s1</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">s2;</span>
-        <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isS[sSize</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][sSize][sSize];</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">bool</span> isScramble(string s1, string s2) {
+        <span style="color: #B00040">int</span> sSize <span style="color: #666666">=</span> s1.size(), len, i, j, k;
+        <span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">0==</span>sSize) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+        <span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">1==</span>sSize) <span style="color: #008000; font-weight: bold">return</span> s1<span style="color: #666666">==</span>s2;
+        <span style="color: #B00040">bool</span> isS[sSize<span style="color: #666666">+1</span>][sSize][sSize];
 
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">sSize;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-            <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(j</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">sSize;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span>
-                <span style="color: #f8f8f2">isS[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s1[i]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s2[j];</span>
+        <span style="color: #008000; font-weight: bold">for</span>(i<span style="color: #666666">=0</span>; i<span style="color: #666666">&lt;</span>sSize; <span style="color: #666666">++</span>i)
+            <span style="color: #008000; font-weight: bold">for</span>(j<span style="color: #666666">=0</span>; j<span style="color: #666666">&lt;</span>sSize; <span style="color: #666666">++</span>j)
+                isS[<span style="color: #666666">1</span>][i][j] <span style="color: #666666">=</span> s1[i] <span style="color: #666666">==</span> s2[j];
 
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(len</span><span style="color: #f92672">=</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">len</span> <span style="color: #f92672">&lt;=</span><span style="color: #f8f8f2">sSize;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">len)</span>
-            <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">&lt;=</span><span style="color: #f8f8f2">sSize</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">len;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-                <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(j</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">&lt;=</span><span style="color: #f8f8f2">sSize</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">len;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span>
-                <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f8f8f2">isS[len][i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-                        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(k</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">len</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">isS[len][i][j];</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">k)</span>
-                        <span style="color: #f8f8f2">{</span>
-                            <span style="color: #f8f8f2">isS[len][i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">isS[len][i][j]</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(isS[k][i][j]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">isS[len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">k][i</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">k][j</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">k]);</span>
-                            <span style="color: #f8f8f2">isS[len][i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">isS[len][i][j]</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(isS[k][i</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">k][j]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">isS[len</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">k][i][j</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">k]);</span>
-                        <span style="color: #f8f8f2">}</span>
-                <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">isS[sSize][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>            
+        <span style="color: #008000; font-weight: bold">for</span>(len<span style="color: #666666">=2</span>; len <span style="color: #666666">&lt;=</span>sSize; <span style="color: #666666">++</span>len)
+            <span style="color: #008000; font-weight: bold">for</span>(i<span style="color: #666666">=0</span>; i<span style="color: #666666">&lt;=</span>sSize<span style="color: #666666">-</span>len; <span style="color: #666666">++</span>i)
+                <span style="color: #008000; font-weight: bold">for</span>(j<span style="color: #666666">=0</span>; j<span style="color: #666666">&lt;=</span>sSize<span style="color: #666666">-</span>len; <span style="color: #666666">++</span>j)
+                {
+                    isS[len][i][j] <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+                        <span style="color: #008000; font-weight: bold">for</span>(k<span style="color: #666666">=1</span>; k<span style="color: #666666">&lt;</span>len <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>isS[len][i][j]; <span style="color: #666666">++</span>k)
+                        {
+                            isS[len][i][j] <span style="color: #666666">=</span> isS[len][i][j] <span style="color: #666666">||</span> (isS[k][i][j] <span style="color: #666666">&amp;&amp;</span> isS[len<span style="color: #666666">-</span>k][i<span style="color: #666666">+</span>k][j<span style="color: #666666">+</span>k]);
+                            isS[len][i][j] <span style="color: #666666">=</span> isS[len][i][j] <span style="color: #666666">||</span> (isS[k][i<span style="color: #666666">+</span>len<span style="color: #666666">-</span>k][j] <span style="color: #666666">&amp;&amp;</span> isS[len<span style="color: #666666">-</span>k][i][j<span style="color: #666666">+</span>k]);
+                        }
+                }
+        <span style="color: #008000; font-weight: bold">return</span> isS[sSize][<span style="color: #666666">0</span>][<span style="color: #666666">0</span>];            
 
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span> 
+    }
+}; 
 </code></pre></div>
 
 

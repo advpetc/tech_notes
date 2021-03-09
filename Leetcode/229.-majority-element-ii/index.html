@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2932,47 +2923,47 @@ Output: [1,2]</p>
 <li>there are two elments appears more than n/3 times, candicates would contain both of them. (&lt;n/3 other elements couldn't pair out any of the majorities.)</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">public:</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">majorityElement(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res;</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">cnt1</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">cnt2</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums.size();</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(num</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f92672">++</span><span style="color: #f8f8f2">cnt1;</span> 
-                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(num</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f92672">++</span><span style="color: #f8f8f2">cnt2;</span> 
-                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt1</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">num;</span>
-                    <span style="color: #f8f8f2">cnt1</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt2</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">num;</span>
-                    <span style="color: #f8f8f2">cnt2</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f92672">--</span><span style="color: #f8f8f2">cnt1;</span>
-                    <span style="color: #f92672">--</span><span style="color: #f8f8f2">cnt2;</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">cnt1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cnt2</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(num</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f92672">++</span><span style="color: #f8f8f2">cnt1;</span> 
-                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(num</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f92672">++</span><span style="color: #f8f8f2">cnt2;</span> 
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+    <span style="color: #A0A000">public</span>:
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> majorityElement(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+            vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
+            <span style="color: #B00040">int</span> a <span style="color: #666666">=</span> <span style="color: #666666">0</span>, b <span style="color: #666666">=</span> <span style="color: #666666">0</span>, cnt1 <span style="color: #666666">=</span> <span style="color: #666666">0</span>, cnt2 <span style="color: #666666">=</span> <span style="color: #666666">0</span>, n <span style="color: #666666">=</span> nums.size();
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">num</span> : nums) {
+                <span style="color: #008000; font-weight: bold">if</span> (num <span style="color: #666666">==</span> a) {
+                    <span style="color: #666666">++</span>cnt1; 
+                } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (num <span style="color: #666666">==</span> b) {
+                    <span style="color: #666666">++</span>cnt2; 
+                } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (cnt1 <span style="color: #666666">==</span> <span style="color: #666666">0</span>) {
+                    a <span style="color: #666666">=</span> num;
+                    cnt1 <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+                } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (cnt2 <span style="color: #666666">==</span> <span style="color: #666666">0</span>) {
+                    b <span style="color: #666666">=</span> num;
+                    cnt2 <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+                } <span style="color: #008000; font-weight: bold">else</span> {
+                    <span style="color: #666666">--</span>cnt1;
+                    <span style="color: #666666">--</span>cnt2;
+                }
+            }
+            cnt1 <span style="color: #666666">=</span> cnt2 <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">num</span> : nums) {
+                <span style="color: #008000; font-weight: bold">if</span> (num <span style="color: #666666">==</span> a) {
+                    <span style="color: #666666">++</span>cnt1; 
+                } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (num <span style="color: #666666">==</span> b) {
+                    <span style="color: #666666">++</span>cnt2; 
+                }
+            }
 
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt1</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">res.push_back(a);</span> 
-            <span style="color: #f8f8f2">}</span>
+            <span style="color: #008000; font-weight: bold">if</span> (cnt1 <span style="color: #666666">&gt;</span> n <span style="color: #666666">/</span> <span style="color: #666666">3</span>) {
+                res.push_back(a); 
+            }
 
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt2</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">res.push_back(b);</span> 
-            <span style="color: #f8f8f2">}</span>
+            <span style="color: #008000; font-weight: bold">if</span> (cnt2 <span style="color: #666666">&gt;</span> n <span style="color: #666666">/</span> <span style="color: #666666">3</span>) {
+                res.push_back(b); 
+            }
 
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-        <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+            <span style="color: #008000; font-weight: bold">return</span> res;
+        }
+};
 </code></pre></div>
                 
               

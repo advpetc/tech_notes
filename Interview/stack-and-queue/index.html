@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2994,91 +2985,91 @@
                 
                 <h1 id="stack-and-queue">Stack and Queue<a class="headerlink" href="#stack-and-queue" title="Permanent link">&para;</a></h1>
 <h2 id="use-array-to-mimic-stack">Use array to mimic stack<a class="headerlink" href="#use-array-to-mimic-stack" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// tt表示栈顶</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">stk[N],</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// tt表示栈顶</span>
+<span style="color: #B00040">int</span> stk[N], tt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
-<span style="color: #75715e">// 向栈顶插入一个数</span>
-<span style="color: #f8f8f2">stk[</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">tt]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x;</span>
+<span style="color: #408080; font-style: italic">// 向栈顶插入一个数</span>
+stk[ <span style="color: #666666">++</span> tt] <span style="color: #666666">=</span> x;
 
-<span style="color: #75715e">// 从栈顶弹出一个数</span>
-<span style="color: #f8f8f2">tt</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">;</span>
+<span style="color: #408080; font-style: italic">// 从栈顶弹出一个数</span>
+tt <span style="color: #666666">--</span> ;
 
-<span style="color: #75715e">// 栈顶的值</span>
-<span style="color: #f8f8f2">stk[tt];</span>
+<span style="color: #408080; font-style: italic">// 栈顶的值</span>
+stk[tt];
 
-<span style="color: #75715e">// 判断栈是否为空</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(tt</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">{</span>
+<span style="color: #408080; font-style: italic">// 判断栈是否为空</span>
+<span style="color: #008000; font-weight: bold">if</span> (tt <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>)
+{
 
-<span style="color: #f8f8f2">}</span>
+}
 </code></pre></div>
 
 
 <h3 id="monotonic-stack">Monotonic Stack<a class="headerlink" href="#monotonic-stack" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// 常见模型：找出每个数左边离它最近的比它大/小的数</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(tt</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">check(stk[tt],</span> <span style="color: #f8f8f2">i))</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">stk[</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">tt]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// 常见模型：找出每个数左边离它最近的比它大/小的数</span>
+<span style="color: #B00040">int</span> tt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+<span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; i <span style="color: #666666">++</span> )
+{
+    <span style="color: #008000; font-weight: bold">while</span> (tt <span style="color: #666666">&amp;&amp;</span> check(stk[tt], i)) tt <span style="color: #666666">--</span> ;
+    stk[ <span style="color: #666666">++</span> tt] <span style="color: #666666">=</span> i;
+}
 </code></pre></div>
 
 
 <h2 id="use-array-to-mimic-queue">Use array to mimic queue<a class="headerlink" href="#use-array-to-mimic-queue" title="Permanent link">&para;</a></h2>
 <h3 id="ordinary-queue">Ordinary Queue<a class="headerlink" href="#ordinary-queue" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// hh 表示队头，tt表示队尾</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">q[N],</span> <span style="color: #f8f8f2">hh</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// hh 表示队头，tt表示队尾</span>
+<span style="color: #B00040">int</span> q[N], hh <span style="color: #666666">=</span> <span style="color: #666666">0</span>, tt <span style="color: #666666">=</span> <span style="color: #666666">-1</span>;
 
-<span style="color: #75715e">// 向队尾插入一个数</span>
-<span style="color: #f8f8f2">q[</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">tt]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x;</span>
+<span style="color: #408080; font-style: italic">// 向队尾插入一个数</span>
+q[ <span style="color: #666666">++</span> tt] <span style="color: #666666">=</span> x;
 
-<span style="color: #75715e">// 从队头弹出一个数</span>
-<span style="color: #f8f8f2">hh</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">;</span>
+<span style="color: #408080; font-style: italic">// 从队头弹出一个数</span>
+hh <span style="color: #666666">++</span> ;
 
-<span style="color: #75715e">// 队头的值</span>
-<span style="color: #f8f8f2">q[hh];</span>
+<span style="color: #408080; font-style: italic">// 队头的值</span>
+q[hh];
 
-<span style="color: #75715e">// 判断队列是否为空</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(hh</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">tt)</span>
-<span style="color: #f8f8f2">{</span>
+<span style="color: #408080; font-style: italic">// 判断队列是否为空</span>
+<span style="color: #008000; font-weight: bold">if</span> (hh <span style="color: #666666">&lt;=</span> tt)
+{
 
-<span style="color: #f8f8f2">}</span>
+}
 </code></pre></div>
 
 
 <h3 id="circular-queue-with-only-n-1-elements">Circular Queue (with only N - 1 elements)<a class="headerlink" href="#circular-queue-with-only-n-1-elements" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// hh 表示队头，tt表示队尾的后一个位置</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">q[N],</span> <span style="color: #f8f8f2">hh</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// hh 表示队头，tt表示队尾的后一个位置</span>
+<span style="color: #B00040">int</span> q[N], hh <span style="color: #666666">=</span> <span style="color: #666666">0</span>, tt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
-<span style="color: #75715e">// 向队尾插入一个数</span>
-<span style="color: #f8f8f2">q[tt</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x;</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(tt</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">N)</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// reset to 0</span>
+<span style="color: #408080; font-style: italic">// 向队尾插入一个数</span>
+q[tt <span style="color: #666666">++</span> ] <span style="color: #666666">=</span> x;
+<span style="color: #008000; font-weight: bold">if</span> (tt <span style="color: #666666">==</span> N) tt <span style="color: #666666">=</span> <span style="color: #666666">0</span>; <span style="color: #408080; font-style: italic">// reset to 0</span>
 
-<span style="color: #75715e">// 从队头弹出一个数</span>
-<span style="color: #f8f8f2">hh</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(hh</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">N)</span> <span style="color: #f8f8f2">hh</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #408080; font-style: italic">// 从队头弹出一个数</span>
+hh <span style="color: #666666">++</span> ;
+<span style="color: #008000; font-weight: bold">if</span> (hh <span style="color: #666666">==</span> N) hh <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
-<span style="color: #75715e">// 队头的值</span>
-<span style="color: #f8f8f2">q[hh];</span>
+<span style="color: #408080; font-style: italic">// 队头的值</span>
+q[hh];
 
-<span style="color: #75715e">// 判断队列是否为空</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(hh</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">tt)</span>
-<span style="color: #f8f8f2">{</span>
+<span style="color: #408080; font-style: italic">// 判断队列是否为空</span>
+<span style="color: #008000; font-weight: bold">if</span> (hh <span style="color: #666666">!=</span> tt)
+{
 
-<span style="color: #f8f8f2">}</span>
+}
 </code></pre></div>
 
 
 <h3 id="monotonic-queue">Monotonic Queue<a class="headerlink" href="#monotonic-queue" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// 常见模型：找出滑动窗口中的最大值/最小值</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">hh</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(hh</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">check_out(q[hh]))</span> <span style="color: #f8f8f2">hh</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">;</span>  <span style="color: #75715e">// 判断队头是否滑出窗口</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(hh</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">check(q[tt],</span> <span style="color: #f8f8f2">i))</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">q[</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">tt]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// 常见模型：找出滑动窗口中的最大值/最小值</span>
+<span style="color: #B00040">int</span> hh <span style="color: #666666">=</span> <span style="color: #666666">0</span>, tt <span style="color: #666666">=</span> <span style="color: #666666">-1</span>;
+<span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i <span style="color: #666666">++</span> )
+{
+    <span style="color: #008000; font-weight: bold">while</span> (hh <span style="color: #666666">&lt;=</span> tt <span style="color: #666666">&amp;&amp;</span> check_out(q[hh])) hh <span style="color: #666666">++</span> ;  <span style="color: #408080; font-style: italic">// 判断队头是否滑出窗口</span>
+    <span style="color: #008000; font-weight: bold">while</span> (hh <span style="color: #666666">&lt;=</span> tt <span style="color: #666666">&amp;&amp;</span> check(q[tt], i)) tt <span style="color: #666666">--</span> ;
+    q[ <span style="color: #666666">++</span> tt] <span style="color: #666666">=</span> i;
+}
 </code></pre></div>
                 
               

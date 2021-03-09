@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2948,21 +2939,21 @@
 </ul>
 <p>Return the size of the largest connected component in the graph.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: [4,6,15,35]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [4,6,15,35]
 Output: 4
 </code></pre></div>
 
 
 <p><img alt="image" src="../resources/ex1.png" /></p>
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: [20,50,9,63]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [20,50,9,63]
 Output: 2
 </code></pre></div>
 
 
 <p><img alt="img" src="../resources/ex2.png" /></p>
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: [2,3,6,7,4,12,21,39]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [2,3,6,7,4,12,21,39]
 Output: 8
 </code></pre></div>
 
@@ -2987,40 +2978,40 @@ Output: 8
 <p>step 3 check the root and do the counting
 * now we have built our tree, and we can easily find the root node (or id) for each node, we can just count the number of id and find the max.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">p;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> p;
 
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">find</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">p.count(a))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">p[a]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(p[a]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">a;</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">p[a]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">find(p[a]);</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">find</span>(<span style="color: #B00040">int</span> a) {
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>p.count(a)) <span style="color: #008000; font-weight: bold">return</span> p[a] <span style="color: #666666">=</span> a;
+        <span style="color: #008000; font-weight: bold">if</span> (p[a] <span style="color: #666666">==</span> a) <span style="color: #008000; font-weight: bold">return</span> a;
+        <span style="color: #008000; font-weight: bold">return</span> p[a] <span style="color: #666666">=</span> find(p[a]);
+    }
 
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">largestComponentSize</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">A)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">A.size();</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">A)</span>
-            <span style="color: #f8f8f2">p[a]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">A)</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">sqrt(a);</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>                    
-                    <span style="color: #f8f8f2">p[find(a)]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p[find(i)];</span>
-                    <span style="color: #f8f8f2">p[find(a)]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p[find(a</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">i)];</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">cnt;</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">A)</span>
-            <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res,</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">cnt[find(a)]);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">largestComponentSize</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> A) {
+        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> A.size();
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">a</span> : A)
+            p[a] <span style="color: #666666">=</span> a;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">a</span> : A)
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">2</span>; i <span style="color: #666666">&lt;=</span> sqrt(a); <span style="color: #666666">++</span>i) {
+                <span style="color: #008000; font-weight: bold">if</span> (a <span style="color: #666666">%</span> i <span style="color: #666666">==</span> <span style="color: #666666">0</span>) {                    
+                    p[find(a)] <span style="color: #666666">=</span> p[find(i)];
+                    p[find(a)] <span style="color: #666666">=</span> p[find(a <span style="color: #666666">/</span> i)];
+                }
+            }
+        unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> cnt;
+        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">a</span> : A)
+            res <span style="color: #666666">=</span> max(res, <span style="color: #666666">++</span>cnt[find(a)]);
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
 
 
 <p>Q&amp;A:
 why</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>for (int a : A) 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>for (int a : A) 
     for (int i = 2; i &lt;= sqrt(a); ++i)
         if (a % i == 0) {
             p[find(a)] = p[find(i)];
@@ -3030,7 +3021,7 @@ why</p>
 
 
 <p>instead of</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>for (int a : A) 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>for (int a : A) 
     for (int i = 2; i &lt;= sqrt(a); ++i) {
         int root = find(a);
         if (a % i == 0) {
@@ -3044,85 +3035,85 @@ why</p>
 <p>Because our root is going to change every time when the p map is updated.</p>
 <h2 id="analysis-union-find-w-prime-sieve">Analysis: Union-Find w/ Prime Sieve<a class="headerlink" href="#analysis-union-find-w-prime-sieve" title="Permanent link">&para;</a></h2>
 <h2 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">static</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">100001</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">parent[N];</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m[N];</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">size[N];</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+    <span style="color: #008000; font-weight: bold">const</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">100001</span>;
+    <span style="color: #B00040">int</span> parent[N];
+    <span style="color: #B00040">int</span> m[N];
+    <span style="color: #B00040">int</span> size[N];
 
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">root</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val){</span>
-        <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(val</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">parent[val])</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">parent[val]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">parent[parent[val]];</span>
-            <span style="color: #f8f8f2">val</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">parent[val];</span>
-        <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">root</span>(<span style="color: #B00040">int</span> val){
+        <span style="color: #008000; font-weight: bold">while</span>(val <span style="color: #666666">!=</span> parent[val]) {
+            parent[val] <span style="color: #666666">=</span> parent[parent[val]];
+            val <span style="color: #666666">=</span> parent[val];
+        }
 
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">val;</span>
-    <span style="color: #f8f8f2">}</span>
+        <span style="color: #008000; font-weight: bold">return</span> val;
+    }
 
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">unionize</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">y){</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root(x);</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root(y);</span>
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">unionize</span>(<span style="color: #B00040">int</span> x, <span style="color: #B00040">int</span> y){
+        <span style="color: #B00040">int</span> r1 <span style="color: #666666">=</span> root(x);
+        <span style="color: #B00040">int</span> r2 <span style="color: #666666">=</span> root(y);
 
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(r1</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">r2)</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">size[r1];</span>
+        <span style="color: #008000; font-weight: bold">if</span>(r1 <span style="color: #666666">==</span> r2)
+            <span style="color: #008000; font-weight: bold">return</span> size[r1];
 
-        <span style="color: #f8f8f2">parent[r1]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">r2;</span>
-        <span style="color: #f8f8f2">size[r2]</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">size[r1];</span>
+        parent[r1] <span style="color: #666666">=</span> r2;
+        size[r2] <span style="color: #666666">+=</span> size[r1];
 
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">size[r2];</span>
-    <span style="color: #f8f8f2">}</span>
+        <span style="color: #008000; font-weight: bold">return</span> size[r2];
+    }
 
-    <span style="color: #75715e">// sieve algo</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">findPrime</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">prime){</span>
-        <span style="color: #f8f8f2">prime.resize(N,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">N;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(prime[i]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">=</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">i;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">N;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">i)</span> 
-                    <span style="color: #f8f8f2">prime[j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span> 
+    <span style="color: #408080; font-style: italic">// sieve algo</span>
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">findPrime</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>prime){
+        prime.resize(N, <span style="color: #666666">0</span>);
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">2</span>; i<span style="color: #666666">*</span>i <span style="color: #666666">&lt;</span> N; i<span style="color: #666666">++</span>)
+            <span style="color: #008000; font-weight: bold">if</span> (prime[i] <span style="color: #666666">==</span> <span style="color: #666666">0</span>)
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j<span style="color: #666666">=</span> i<span style="color: #666666">*</span>i; j <span style="color: #666666">&lt;</span> N; j <span style="color: #666666">+=</span> i) 
+                    prime[j] <span style="color: #666666">=</span> i; 
 
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span> <span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">N;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(prime[i]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-                <span style="color: #f8f8f2">prime[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-    <span style="color: #f8f8f2">}</span>
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">2</span> ; i <span style="color: #666666">&lt;</span> N; <span style="color: #666666">++</span>i)
+            <span style="color: #008000; font-weight: bold">if</span>(prime[i] <span style="color: #666666">==</span> <span style="color: #666666">0</span>)
+                prime[i] <span style="color: #666666">=</span> i;
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">init</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n){</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span> <span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i){</span>
-            <span style="color: #f8f8f2">parent[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-            <span style="color: #f8f8f2">size[i]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">m[i]</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">init</span>(<span style="color: #B00040">int</span> n){
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span> ; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i){
+            parent[i] <span style="color: #666666">=</span> i;
+            size[i] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+            m[i] <span style="color: #666666">=</span> <span style="color: #666666">-1</span>;
+        }
+    }
 
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">largestComponentSize(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">A)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">static</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">prime;</span>
-        <span style="color: #f8f8f2">init</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">max_element(A.begin(),</span> <span style="color: #f8f8f2">A.end()));</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">int</span> largestComponentSize(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> A) {
+        <span style="color: #008000; font-weight: bold">static</span> vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> prime;
+        init (<span style="color: #666666">*</span>max_element(A.begin(), A.end()));
+        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(prime.empty())</span>
-            <span style="color: #f8f8f2">findPrime(prime);</span>
+        <span style="color: #008000; font-weight: bold">if</span>(prime.empty())
+            findPrime(prime);
 
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">A)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">a</span> : A) {
 
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cur</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a;</span>
+            <span style="color: #B00040">int</span> cur <span style="color: #666666">=</span> a;
 
-            <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(a</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">){</span>
-                <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">prime[a];</span>
+            <span style="color: #008000; font-weight: bold">while</span>(a <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>){
+                <span style="color: #B00040">int</span> p <span style="color: #666666">=</span> prime[a];
 
-                <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(m[p]</span> <span style="color: #f92672">==</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
-                    <span style="color: #f8f8f2">m[p]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cur;</span>
+                <span style="color: #008000; font-weight: bold">if</span>(m[p] <span style="color: #666666">==</span> <span style="color: #666666">-1</span>)
+                    m[p] <span style="color: #666666">=</span> cur;
 
-                <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res</span> <span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">unionize(m[p],cur));</span>
+                res <span style="color: #666666">=</span> max(res , unionize(m[p],cur));
 
-                <span style="color: #75715e">//remove all prime factors p from a</span>
-                <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(prime[a]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">p)</span>
-                    <span style="color: #f8f8f2">a</span> <span style="color: #f92672">/=</span> <span style="color: #f8f8f2">p;</span>      
-            <span style="color: #f8f8f2">}</span>        
-        <span style="color: #f8f8f2">}</span>
+                <span style="color: #408080; font-style: italic">//remove all prime factors p from a</span>
+                <span style="color: #008000; font-weight: bold">while</span>(prime[a] <span style="color: #666666">==</span> p)
+                    a <span style="color: #666666">/=</span> p;      
+            }        
+        }
 
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
                 
               

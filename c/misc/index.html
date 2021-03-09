@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2983,24 +2974,24 @@
 <p><a href="http://blog.providencezhang.cn/2019/02/18/lang-notebook/">http://blog.providencezhang.cn/2019/02/18/lang-notebook/</a></p>
 </blockquote>
 <p>decltype:有时我们希望从表达式的类型推断出要定义的变量类型，但是不想用该表达式的值初始化变量（初始化可以用auto）。为了满足这一需求，C++11新标准引入了decltype类型说明符，它的作用是选择并返回操作数的数据类型，在此过程中，编译器分析表达式并得到它的类型，却不实际计算表达式的值。</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">getSize</span><span style="color: #f8f8f2">();</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">void</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">tempA</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">getSize</span>();
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>(<span style="color: #B00040">void</span>)
+{
+    <span style="color: #B00040">int</span> tempA <span style="color: #666666">=</span> <span style="color: #666666">2</span>;
 
-    <span style="color: #75715e">/*1.dclTempA为int.*/</span>
-    <span style="color: #f8f8f2">decltype(tempA)</span> <span style="color: #f8f8f2">dclTempA;</span>
-    <span style="color: #75715e">/*2.dclTempB为int，对于getSize根本没有定义，但是程序依旧正常，因为decltype只做分析，并不调用getSize().*/</span>
-    <span style="color: #f8f8f2">decltype(getSize())</span> <span style="color: #f8f8f2">dclTempB;</span>
-<span style="color: #960050; background-color: #1e0010">​</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #408080; font-style: italic">/*1.dclTempA为int.*/</span>
+    decltype(tempA) dclTempA;
+    <span style="color: #408080; font-style: italic">/*2.dclTempB为int，对于getSize根本没有定义，但是程序依旧正常，因为decltype只做分析，并不调用getSize().*/</span>
+    decltype(getSize()) dclTempB;
+<span style="border: 1px solid #FF0000">​</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
 <h2 id="mod">mod<a class="headerlink" href="#mod" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #ae81ff">1024</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span><span style="color: #75715e">// = 4</span>
-<span style="color: #f92672">-</span><span style="color: #ae81ff">1024</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">//-4</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #666666">1024</span> <span style="color: #666666">%</span> <span style="color: #666666">10</span>;<span style="color: #408080; font-style: italic">// = 4</span>
+<span style="color: #666666">-1024</span> <span style="color: #666666">%</span> <span style="color: #666666">10</span>; <span style="color: #408080; font-style: italic">//-4</span>
 </code></pre></div>
 
 
@@ -3008,26 +2999,26 @@
 <p>use 0x3f3f3f3f if there is a need to do addition
 else use 0x7fffffff</p>
 <h2 id="tuple">Tuple<a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// packing/unpacking tuples</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;     // std::cout</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;tuple&gt;        // std::tuple, std::make_tuple, std::tie</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// packing/unpacking tuples</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;     // std::cout</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;tuple&gt;        // std::tuple, std::make_tuple, std::tie</span><span style="color: #BC7A00"></span>
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span> <span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">myint;</span>
-  <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">mychar;</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span> ()
+{
+  <span style="color: #B00040">int</span> myint;
+  <span style="color: #B00040">char</span> mychar;
 
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">tuple</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">float</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">char</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">mytuple;</span>
+  std<span style="color: #666666">::</span>tuple<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>,<span style="color: #B00040">float</span>,<span style="color: #B00040">char</span><span style="color: #666666">&gt;</span> mytuple;
 
-  <span style="color: #f8f8f2">mytuple</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">make_tuple</span> <span style="color: #f8f8f2">(</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2.6</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">);</span>          <span style="color: #75715e">// packing values into tuple</span>
+  mytuple <span style="color: #666666">=</span> std<span style="color: #666666">::</span>make_tuple (<span style="color: #666666">10</span>, <span style="color: #666666">2.6</span>, <span style="color: #BA2121">&#39;a&#39;</span>);          <span style="color: #408080; font-style: italic">// packing values into tuple</span>
 
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">tie</span> <span style="color: #f8f8f2">(myint,</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">ignore,</span> <span style="color: #f8f8f2">mychar)</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mytuple;</span>   <span style="color: #75715e">// unpacking tuple into variables</span>
+  std<span style="color: #666666">::</span>tie (myint, std<span style="color: #666666">::</span>ignore, mychar) <span style="color: #666666">=</span> mytuple;   <span style="color: #408080; font-style: italic">// unpacking tuple into variables</span>
 
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;myint contains: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">myint</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&#39;\n&#39;</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;mychar contains: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">mychar</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&#39;\n&#39;</span><span style="color: #f8f8f2">;</span>
+  std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;myint contains: &quot;</span> <span style="color: #666666">&lt;&lt;</span> myint <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&#39;\n&#39;</span>;
+  std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;mychar contains: &quot;</span> <span style="color: #666666">&lt;&lt;</span> mychar <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&#39;\n&#39;</span>;
 
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3038,66 +3029,66 @@ else use 0x7fffffff</p>
 </blockquote>
 <p>set kth bit to zero: x &amp; ~(1 &lt;&lt; k)</p>
 <h2 id="customize-hashing-for-your-class">Customize Hashing for your class<a class="headerlink" href="#customize-hashing-for-your-class" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iomanip&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;functional&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;string&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;unordered_set&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iomanip&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;functional&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;string&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;unordered_set&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">S</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">first_name;</span>
-    <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">last_name;</span>
-<span style="color: #f8f8f2">};</span>
-<span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">operator</span><span style="color: #f92672">==</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">S</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">lhs,</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">S</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">rhs)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">lhs.first_name</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">rhs.first_name</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">lhs.last_name</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">rhs.last_name;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">struct</span> S {
+    std<span style="color: #666666">::</span>string first_name;
+    std<span style="color: #666666">::</span>string last_name;
+};
+<span style="color: #B00040">bool</span> operator<span style="color: #666666">==</span>(<span style="color: #008000; font-weight: bold">const</span> S<span style="color: #666666">&amp;</span> lhs, <span style="color: #008000; font-weight: bold">const</span> S<span style="color: #666666">&amp;</span> rhs) {
+    <span style="color: #008000; font-weight: bold">return</span> lhs.first_name <span style="color: #666666">==</span> rhs.first_name <span style="color: #666666">&amp;&amp;</span> lhs.last_name <span style="color: #666666">==</span> rhs.last_name;
+}
 
-<span style="color: #75715e">// custom hash can be a standalone function object:</span>
-<span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">MyHash</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #66d9ef">size_t</span> <span style="color: #f8f8f2">operator()(S</span> <span style="color: #66d9ef">const</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">s)</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">noexcept</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #66d9ef">size_t</span> <span style="color: #f8f8f2">h1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">hash</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">{}(s.first_name);</span>
-        <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #66d9ef">size_t</span> <span style="color: #f8f8f2">h2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">hash</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">{}(s.last_name);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">h1</span> <span style="color: #f92672">^</span> <span style="color: #f8f8f2">(h2</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// or use boost::hash_combine (see Discussion)</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<span style="color: #408080; font-style: italic">// custom hash can be a standalone function object:</span>
+<span style="color: #008000; font-weight: bold">struct</span> MyHash
+{
+    std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> operator()(S <span style="color: #008000; font-weight: bold">const</span><span style="color: #666666">&amp;</span> s) <span style="color: #008000; font-weight: bold">const</span> noexcept
+    {
+        std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> h1 <span style="color: #666666">=</span> std<span style="color: #666666">::</span>hash<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>string<span style="color: #666666">&gt;</span>{}(s.first_name);
+        std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> h2 <span style="color: #666666">=</span> std<span style="color: #666666">::</span>hash<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>string<span style="color: #666666">&gt;</span>{}(s.last_name);
+        <span style="color: #008000; font-weight: bold">return</span> h1 <span style="color: #666666">^</span> (h2 <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">1</span>); <span style="color: #408080; font-style: italic">// or use boost::hash_combine (see Discussion)</span>
+    }
+};
 
-<span style="color: #75715e">// custom specialization of std::hash can be injected in namespace std</span>
-<span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">template</span><span style="color: #f92672">&lt;&gt;</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">hash</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">S</span><span style="color: #f92672">&gt;</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #66d9ef">size_t</span> <span style="color: #f8f8f2">operator()(S</span> <span style="color: #66d9ef">const</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">s)</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">noexcept</span>
-        <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #66d9ef">size_t</span> <span style="color: #f8f8f2">h1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">hash</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">{}(s.first_name);</span>
-            <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #66d9ef">size_t</span> <span style="color: #f8f8f2">h2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">hash</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">{}(s.last_name);</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">h1</span> <span style="color: #f92672">^</span> <span style="color: #f8f8f2">(h2</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// or use boost::hash_combine</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">};</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #408080; font-style: italic">// custom specialization of std::hash can be injected in namespace std</span>
+namespace std
+{
+    template<span style="color: #666666">&lt;&gt;</span> <span style="color: #008000; font-weight: bold">struct</span> hash<span style="color: #666666">&lt;</span>S<span style="color: #666666">&gt;</span>
+    {
+        std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> operator()(S <span style="color: #008000; font-weight: bold">const</span><span style="color: #666666">&amp;</span> s) <span style="color: #008000; font-weight: bold">const</span> noexcept
+        {
+            std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> h1 <span style="color: #666666">=</span> std<span style="color: #666666">::</span>hash<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>string<span style="color: #666666">&gt;</span>{}(s.first_name);
+            std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> h2 <span style="color: #666666">=</span> std<span style="color: #666666">::</span>hash<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>string<span style="color: #666666">&gt;</span>{}(s.last_name);
+            <span style="color: #008000; font-weight: bold">return</span> h1 <span style="color: #666666">^</span> (h2 <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">1</span>); <span style="color: #408080; font-style: italic">// or use boost::hash_combine</span>
+        }
+    };
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">main()</span>
-<span style="color: #f8f8f2">{</span>
+<span style="color: #B00040">int</span> main()
+{
 
-    <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">str</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;Meet the new boss...&quot;</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #66d9ef">size_t</span> <span style="color: #f8f8f2">str_hash</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">hash</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">{}(str);</span>
-    <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;hash(&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">quoted(str)</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;) = &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">str_hash</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&#39;\n&#39;</span><span style="color: #f8f8f2">;</span>
+    std<span style="color: #666666">::</span>string str <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;Meet the new boss...&quot;</span>;
+    std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> str_hash <span style="color: #666666">=</span> std<span style="color: #666666">::</span>hash<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>string<span style="color: #666666">&gt;</span>{}(str);
+    std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;hash(&quot;</span> <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>quoted(str) <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;) = &quot;</span> <span style="color: #666666">&lt;&lt;</span> str_hash <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&#39;\n&#39;</span>;
 
-    <span style="color: #f8f8f2">S</span> <span style="color: #f8f8f2">obj</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #e6db74">&quot;Hubert&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Farnsworth&quot;</span><span style="color: #f8f8f2">};</span>
-    <span style="color: #75715e">// using the standalone function object</span>
-    <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;hash(&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">quoted(obj.first_name)</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&#39;,&#39;</span> 
-               <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">quoted(obj.last_name)</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;) = &quot;</span>
-               <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">MyHash{}(obj)</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; (using MyHash)</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">                           or &quot;</span>
-               <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">hash</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">S</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">{}(obj)</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; (using injected std::hash&lt;S&gt; specialization)</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">;</span>
+    S obj <span style="color: #666666">=</span> { <span style="color: #BA2121">&quot;Hubert&quot;</span>, <span style="color: #BA2121">&quot;Farnsworth&quot;</span>};
+    <span style="color: #408080; font-style: italic">// using the standalone function object</span>
+    std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;hash(&quot;</span> <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>quoted(obj.first_name) <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&#39;,&#39;</span> 
+               <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>quoted(obj.last_name) <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;) = &quot;</span>
+               <span style="color: #666666">&lt;&lt;</span> MyHash{}(obj) <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; (using MyHash)</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">                           or &quot;</span>
+               <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>hash<span style="color: #666666">&lt;</span>S<span style="color: #666666">&gt;</span>{}(obj) <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; (using injected std::hash&lt;S&gt; specialization)</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>;
 
-    <span style="color: #75715e">// custom hash makes it possible to use custom types in unordered containers</span>
-    <span style="color: #75715e">// The example will use the injected std::hash&lt;S&gt; specialization above,</span>
-    <span style="color: #75715e">// to use MyHash instead, pass it as a second template argument</span>
-    <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">unordered_set</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">S</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">names</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{obj,</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;Bender&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Rodriguez&quot;</span><span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;Turanga&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Leela&quot;</span><span style="color: #f8f8f2">}</span> <span style="color: #f8f8f2">};</span>
-    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">s:</span> <span style="color: #f8f8f2">names)</span>
-        <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">quoted(s.first_name)</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&#39; &#39;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">quoted(s.last_name)</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&#39;\n&#39;</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #408080; font-style: italic">// custom hash makes it possible to use custom types in unordered containers</span>
+    <span style="color: #408080; font-style: italic">// The example will use the injected std::hash&lt;S&gt; specialization above,</span>
+    <span style="color: #408080; font-style: italic">// to use MyHash instead, pass it as a second template argument</span>
+    std<span style="color: #666666">::</span>unordered_set<span style="color: #666666">&lt;</span>S<span style="color: #666666">&gt;</span> names <span style="color: #666666">=</span> {obj, {<span style="color: #BA2121">&quot;Bender&quot;</span>, <span style="color: #BA2121">&quot;Rodriguez&quot;</span>}, {<span style="color: #BA2121">&quot;Turanga&quot;</span>, <span style="color: #BA2121">&quot;Leela&quot;</span>} };
+    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #008000; font-weight: bold">auto</span><span style="color: #666666">&amp;</span> <span style="color: #A0A000">s</span>: names)
+        std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>quoted(s.first_name) <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&#39; &#39;</span> <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>quoted(s.last_name) <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&#39;\n&#39;</span>;
+}
 </code></pre></div>
 
 

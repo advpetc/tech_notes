@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2952,20 +2943,20 @@
 <p>int: Integer.MAX_VALUE (<span><span class="MathJax_Preview">2^{31} - 1</span><script type="math/tex">2^{31} - 1</script></span>), Integer.MIN_VALUE (<span><span class="MathJax_Preview">-2^{31}</span><script type="math/tex">-2^{31}</script></span>)</p>
 <h2 id="data-structure">Data structure<a class="headerlink" href="#data-structure" title="Permanent link">&para;</a></h2>
 <h3 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">Deque</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">stack</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">LinkedList</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">();</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Deque<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> stack <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> LinkedList<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span>();
 
-<span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">isEmpty</span><span style="color: #f8f8f2">()</span> 
-<span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">peekFirst</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">pollFirst</span><span style="color: #f8f8f2">();</span>
-<span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">offerFirst</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
+stack.<span style="color: #7D9029">isEmpty</span>() 
+stack.<span style="color: #7D9029">peekFirst</span>()
+stack.<span style="color: #7D9029">pollFirst</span>();
+stack.<span style="color: #7D9029">offerFirst</span>(<span style="color: #666666">1</span>);
 </code></pre></div>
 
 
 <h3 id="string">String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">StringBuilder</span> <span style="color: #f8f8f2">cur</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">StringBuilder();</span>
-<span style="color: #f8f8f2">cur.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;(&#39;</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">cur.</span><span style="color: #a6e22e">deleteCharAt</span><span style="color: #f8f8f2">(cur.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// remove last char from the string</span>
-<span style="color: #f8f8f2">String</span> <span style="color: #f8f8f2">result</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cur.</span><span style="color: #a6e22e">toString</span><span style="color: #f8f8f2">();</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>StringBuilder cur <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> StringBuilder();
+cur.<span style="color: #7D9029">append</span>(<span style="color: #BA2121">&#39;(&#39;</span>);
+cur.<span style="color: #7D9029">deleteCharAt</span>(cur.<span style="color: #7D9029">length</span>() <span style="color: #666666">-</span> <span style="color: #666666">1</span>); <span style="color: #408080; font-style: italic">// remove last char from the string</span>
+String result <span style="color: #666666">=</span> cur.<span style="color: #7D9029">toString</span>();
 </code></pre></div>
                 
               

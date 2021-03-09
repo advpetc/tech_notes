@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2921,7 +2912,7 @@
 <li>Replace a character</li>
 </ul>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: word1 = &quot;horse&quot;, word2 = &quot;ros&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: word1 = &quot;horse&quot;, word2 = &quot;ros&quot;
 Output: 3
 Explanation: 
 horse -&gt; rorse (replace &#39;h&#39; with &#39;r&#39;)
@@ -2931,7 +2922,7 @@ rose -&gt; ros (remove &#39;e&#39;)
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: word1 = &quot;intention&quot;, word2 = &quot;execution&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: word1 = &quot;intention&quot;, word2 = &quot;execution&quot;
 Output: 5
 Explanation: 
 intention -&gt; inention (remove &#39;t&#39;)
@@ -2950,28 +2941,28 @@ exection -&gt; execution (insert &#39;u&#39;)
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>dp[i][j]: # of ops to transfer word1[0:i] to word2[0:j]</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">dp_sol</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">word1,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">word2){</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">word1.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">word2.size();</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">dp(m</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(n</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">));</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">dp[i][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span> <span style="color: #75715e">// can only remove all from word2[0:i] to form an empty word1</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">dp_sol</span>(string word1, string word2){
+    <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> word1.size(), n <span style="color: #666666">=</span> word2.size();
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> dp(m <span style="color: #666666">+</span> <span style="color: #666666">1</span>, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span>(n <span style="color: #666666">+</span> <span style="color: #666666">1</span>));
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;=</span> m; <span style="color: #666666">++</span>i) {
+        dp[i][<span style="color: #666666">0</span>] <span style="color: #666666">=</span> i; <span style="color: #408080; font-style: italic">// can only remove all from word2[0:i] to form an empty word1</span>
+    }
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">dp[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">][i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span> <span style="color: #75715e">// same as above</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>i) {
+        dp[<span style="color: #666666">0</span>][i] <span style="color: #666666">=</span> i; <span style="color: #408080; font-style: italic">// same as above</span>
+    }
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(word1[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">word2[j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">])</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// nothing needs to be changed, because they are the same</span>
-                <span style="color: #f8f8f2">dp[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// now you can either remove previous one from word1, add is equal to remove one from word2, or replace current one (no change)</span>
-                <span style="color: #f8f8f2">dp[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(dp[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">min(dp[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j],</span> <span style="color: #f8f8f2">dp[i][j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]))</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// +1 for the current op</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dp[m][n];</span>
-<span style="color: #f8f8f2">}</span> 
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> m; <span style="color: #666666">++</span>i) {
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>j) {
+            <span style="color: #008000; font-weight: bold">if</span> (word1[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">==</span> word2[j <span style="color: #666666">-</span> <span style="color: #666666">1</span>]) { <span style="color: #408080; font-style: italic">// nothing needs to be changed, because they are the same</span>
+                dp[i][j] <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
+            } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #408080; font-style: italic">// now you can either remove previous one from word1, add is equal to remove one from word2, or replace current one (no change)</span>
+                dp[i][j] <span style="color: #666666">=</span> min(dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>], min(dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j], dp[i][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>])) <span style="color: #666666">+</span> <span style="color: #666666">1</span>; <span style="color: #408080; font-style: italic">// +1 for the current op</span>
+            }
+        }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> dp[m][n];
+} 
 </code></pre></div>
                 
               

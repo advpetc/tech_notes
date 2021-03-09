@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2941,49 +2932,49 @@
 <li>从前往后枚举每个区间，选择右端点最大的区间，将右端点记做<code>start</code>，下一次查询的时候比较<code>start</code></li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1e5</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">num[N];</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">t;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">s</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">t;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-        <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d %d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">num[i].first,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">num[i].second);</span>
-    <span style="color: #f8f8f2">sort(num,</span> <span style="color: #f8f8f2">num</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">[](pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l.first</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r.first;</span>
-    <span style="color: #f8f8f2">});</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">success</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">2e9</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #75715e">// find the largest right from all the interval that left is less than start</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">num[j].first</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(r,</span> <span style="color: #f8f8f2">num[j].second);</span>
-            <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">1e5</span> <span style="color: #666666">+</span> <span style="color: #666666">10</span>;
+pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> num[N];
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    <span style="color: #B00040">int</span> n, s, t;
+    cin <span style="color: #666666">&gt;&gt;</span> s <span style="color: #666666">&gt;&gt;</span> t;
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i)
+        scanf(<span style="color: #BA2121">&quot;%d %d&quot;</span>, <span style="color: #666666">&amp;</span>num[i].first, <span style="color: #666666">&amp;</span>num[i].second);
+    sort(num, num <span style="color: #666666">+</span> n, [](pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> l, pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> r) {
+        <span style="color: #008000; font-weight: bold">return</span> l.first <span style="color: #666666">&lt;</span> r.first;
+    });
+    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #B00040">bool</span> success <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+        <span style="color: #B00040">int</span> j <span style="color: #666666">=</span> i, r <span style="color: #666666">=</span> <span style="color: #666666">-2e9</span>;
+        <span style="color: #408080; font-style: italic">// find the largest right from all the interval that left is less than start</span>
+        <span style="color: #008000; font-weight: bold">while</span> (j <span style="color: #666666">&lt;</span> n <span style="color: #666666">&amp;&amp;</span> num[j].first <span style="color: #666666">&lt;=</span> s) {
+            r <span style="color: #666666">=</span> max(r, num[j].second);
+            j<span style="color: #666666">++</span>;
+        }
 
-        <span style="color: #75715e">// if still less than s, meaning not possible</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(r</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">res</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #408080; font-style: italic">// if still less than s, meaning not possible</span>
+        <span style="color: #008000; font-weight: bold">if</span> (r <span style="color: #666666">&lt;</span> s) {
+            res <span style="color: #666666">=</span> <span style="color: #666666">-1</span>;
+            <span style="color: #008000; font-weight: bold">break</span>;
+        }
+        res <span style="color: #666666">++</span>;
 
-        <span style="color: #75715e">// if current right already fullfilled the requirement</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(r</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">t)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">success</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-            <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">// update start to current furthest right</span>
-        <span style="color: #f8f8f2">s</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">r;</span>
-        <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">success)</span> <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">res;</span>
-<span style="color: #f8f8f2">}</span>
+        <span style="color: #408080; font-style: italic">// if current right already fullfilled the requirement</span>
+        <span style="color: #008000; font-weight: bold">if</span> (r <span style="color: #666666">&gt;=</span> t) {
+            success <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+            <span style="color: #008000; font-weight: bold">break</span>;
+        }
+        <span style="color: #408080; font-style: italic">// update start to current furthest right</span>
+        s <span style="color: #666666">=</span> r;
+        i <span style="color: #666666">=</span> j <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+    }
+    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>success) cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">-1</span>;
+    <span style="color: #008000; font-weight: bold">else</span> cout <span style="color: #666666">&lt;&lt;</span> res;
+}
 </code></pre></div>
                 
               

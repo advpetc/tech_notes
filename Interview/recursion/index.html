@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3001,10 +2992,10 @@ Test</p>
 <p>Time Complexity: total nodes of the recursion tree
 Space Complexity: call stack (typically equals to the height of the recursion tree)</p>
 <h3 id="naive-approach">Naive Approach<a class="headerlink" href="#naive-approach" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">fib</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">fib(n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">fib(n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">fib</span>(<span style="color: #B00040">int</span> n) {
+    <span style="color: #008000; font-weight: bold">if</span> (n <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> n <span style="color: #666666">==</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">return</span> n;
+    <span style="color: #008000; font-weight: bold">return</span> fib(n <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">+</span> fib(n <span style="color: #666666">-</span> <span style="color: #666666">2</span>);
+}
 </code></pre></div>
 
 
@@ -3013,10 +3004,10 @@ Space: n</p>
 <h2 id="powa-b">pow(a, b)<a class="headerlink" href="#powa-b" title="Permanent link">&para;</a></h2>
 <p>don't care the case for a == 0 or b &lt; 0 for now</p>
 <h3 id="naive-approach_1">Naive Approach<a class="headerlink" href="#naive-approach_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">pow</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(b</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">pow(a,</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">a;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">pow</span>(<span style="color: #B00040">int</span> a, <span style="color: #B00040">int</span> b) {
+    <span style="color: #008000; font-weight: bold">if</span> (b <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">return</span> pow(a, b <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">*</span> a;
+}
 </code></pre></div>
 
 
@@ -3034,10 +3025,10 @@ there are b nodes and the longest path is b
 Time: O(b)
 Space: O(b)</p>
 <h3 id="optimize-space">Optimize Space<a class="headerlink" href="#optimize-space" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">pow</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(b</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">pow(a,</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span>  <span style="color: #f92672">*</span> <span style="color: #f8f8f2">pow(a,</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// why not using b/2? because 3/2 = 1.5 = 1</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">pow</span>(<span style="color: #B00040">int</span> a, <span style="color: #B00040">int</span> b) {
+    <span style="color: #008000; font-weight: bold">if</span> (b <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">return</span> pow(a, b <span style="color: #666666">/</span> <span style="color: #666666">2</span>)  <span style="color: #666666">*</span> pow(a, b <span style="color: #666666">-</span> b <span style="color: #666666">/</span> <span style="color: #666666">2</span>); <span style="color: #408080; font-style: italic">// why not using b/2? because 3/2 = 1.5 = 1</span>
+}
 </code></pre></div>
 
 

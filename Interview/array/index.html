@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3106,19 +3097,19 @@
 <li>condition 2: put the non-duplicated element into the correct spot</li>
 </ol>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dedup(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">array)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(array.empty())</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{};</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">array.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(array[i]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">array[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">])</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">array[idx</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">array[i];</span> <span style="color: #75715e">// 1,2,2: first 2 will be placed but not the second 2</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(array.begin(),</span> <span style="color: #f8f8f2">array.begin()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">idx);</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+ <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dedup(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    <span style="color: #008000; font-weight: bold">if</span> (array.empty()) <span style="color: #008000; font-weight: bold">return</span> {};
+    <span style="color: #B00040">int</span> idx <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;</span> array.size(); <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">if</span> (array[i] <span style="color: #666666">==</span> array[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>]) <span style="color: #008000; font-weight: bold">continue</span>;
+      array[idx<span style="color: #666666">++</span>] <span style="color: #666666">=</span> array[i]; <span style="color: #408080; font-style: italic">// 1,2,2: first 2 will be placed but not the second 2</span>
+    }
+    <span style="color: #008000; font-weight: bold">return</span> vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span>(array.begin(), array.begin() <span style="color: #666666">+</span> idx);
+  }
+};
 </code></pre></div>
 
 
@@ -3135,19 +3126,19 @@
 i = 2 =&gt; 1, 2, 2 (keep second 2, since i - 2 = 0 -&gt; num[0] != num[2])
 i = 5 =&gt; 1, 2, 2, 3, 3 (discard the third 3, since i - 2 = 3 -&gt; num[3] == num[5])</p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dedup(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">array)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(array.size()</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">array;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">array.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(array[i]</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">array[j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">])</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">array[j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">array[i];</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(array.begin(),</span> <span style="color: #f8f8f2">array.begin()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">j);</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+ <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dedup(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    <span style="color: #008000; font-weight: bold">if</span> (array.size() <span style="color: #666666">&lt;=</span> <span style="color: #666666">2</span>) <span style="color: #008000; font-weight: bold">return</span> array;
+    <span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">2</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">2</span>; i <span style="color: #666666">&lt;</span> array.size(); <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">if</span> (array[i] <span style="color: #666666">!=</span> array[j <span style="color: #666666">-</span> <span style="color: #666666">2</span>]) <span style="color: #008000; font-weight: bold">continue</span>;
+      <span style="color: #008000; font-weight: bold">else</span> array[j<span style="color: #666666">++</span>] <span style="color: #666666">=</span> array[i];
+    }
+    <span style="color: #008000; font-weight: bold">return</span> vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span>(array.begin(), array.begin() <span style="color: #666666">+</span> j);
+  }
+};
 </code></pre></div>
 
 
@@ -3158,24 +3149,24 @@ i = 5 =&gt; 1, 2, 2, 3, 3 (discard the third 3, since i - 2 = 3 -&gt; num[3] == 
 <h3 id="analysis_2">Analysis<a class="headerlink" href="#analysis_2" title="Permanent link">&para;</a></h3>
 <p>If the top of stack is equal to current element, set the flag to true AND don't update the stack. If the flag is true and current element isn't the same as the top of the stack, unset the flag and use the current element as the new top of the stack, since the old top has a duplicated element already. If the current element isn't equal to the top of stack and the flag isn't true, we can normally proceed it to put the current element at the top of the stack. The meaning of flag is for checking any ongoing element other than current duplicated element on the stack, we keep it on the stack temporarily and replace it with the first element that is not equal to the duplicated element. Finally, if the flag is true, it means we should discard the last element since it is duplicate but we still keep it on the stack.</p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dedup(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">array)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(array.size()</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">array;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">flag</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">array.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(array[i]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">array[j])</span> <span style="color: #f8f8f2">flag</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-      <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(flag)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">array[j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">array[i];</span>
-        <span style="color: #f8f8f2">flag</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">array[</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">array[i];</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(flag)</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(array.begin(),</span> <span style="color: #f8f8f2">array.begin()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dedup(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    <span style="color: #008000; font-weight: bold">if</span> (array.size() <span style="color: #666666">&lt;=</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">return</span> array;
+    <span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #B00040">bool</span> flag <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;</span> array.size(); <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">if</span> (array[i] <span style="color: #666666">==</span> array[j]) flag <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+      <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (flag) {
+        array[j] <span style="color: #666666">=</span> array[i];
+        flag <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+      } <span style="color: #008000; font-weight: bold">else</span> array[<span style="color: #666666">++</span>j] <span style="color: #666666">=</span> array[i];
+    }
+    <span style="color: #008000; font-weight: bold">if</span> (flag) j<span style="color: #666666">--</span>;
+    <span style="color: #008000; font-weight: bold">return</span> vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span>(array.begin(), array.begin() <span style="color: #666666">+</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
+  }
+};
 </code></pre></div>
 
 
@@ -3193,22 +3184,22 @@ Examples</p>
 <li>if equal to the top, then we need to consectively deduplicate the same adjacent elements, and pop the element from the top of the stack (<code>slow--</code>).</li>
 </ol>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dedup(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">a)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">slow</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">fast</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a.size();</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(fast</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(slow</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">a[slow</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">a[fast])</span> <span style="color: #f8f8f2">a[slow</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a[fast</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">];</span>
-      <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">fast</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">a[curr]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a[fast])</span> <span style="color: #f8f8f2">curr</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">slow</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">fast</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">curr;</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(a.begin(),</span> <span style="color: #f8f8f2">a.begin()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">slow);</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dedup(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> a) {
+    <span style="color: #B00040">int</span> slow <span style="color: #666666">=</span> <span style="color: #666666">0</span>, fast <span style="color: #666666">=</span> <span style="color: #666666">0</span>, n <span style="color: #666666">=</span> a.size();
+    <span style="color: #008000; font-weight: bold">while</span> (fast <span style="color: #666666">&lt;</span> n) {
+      <span style="color: #008000; font-weight: bold">if</span> (slow <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> a[slow <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">!=</span> a[fast]) a[slow<span style="color: #666666">++</span>] <span style="color: #666666">=</span> a[fast<span style="color: #666666">++</span>];
+      <span style="color: #008000; font-weight: bold">else</span> {
+        <span style="color: #B00040">int</span> curr <span style="color: #666666">=</span> fast <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">while</span> (curr <span style="color: #666666">&lt;</span> n <span style="color: #666666">&amp;&amp;</span> a[curr] <span style="color: #666666">==</span> a[fast]) curr<span style="color: #666666">++</span>;
+        slow<span style="color: #666666">--</span>;
+        fast <span style="color: #666666">=</span> curr;
+      }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span>(a.begin(), a.begin() <span style="color: #666666">+</span> slow);
+  }
+};
 </code></pre></div>
                 
               

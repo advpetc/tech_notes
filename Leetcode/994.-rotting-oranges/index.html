@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2923,20 +2914,20 @@
 <p>Return <em>the minimum number of minutes that must elapse until no cell has a fresh orange</em>. If <em>this is impossible, return</em> <code>-1</code>.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="https://assets.leetcode.com/uploads/2019/02/16/oranges.png" /></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: grid = [[2,1,1],[1,1,0],[0,1,1]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: grid = [[2,1,1],[1,1,0],[0,1,1]]
 Output: 4
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: grid = [[2,1,1],[0,1,1],[1,0,1]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: grid = [[2,1,1],[0,1,1],[1,0,1]]
 Output: -1
 Explanation: The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: grid = [[0,2]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: grid = [[0,2]]
 Output: 0
 Explanation: Since there are already no fresh oranges at minute 0, the answer is just 0.
 </code></pre></div>
@@ -2956,47 +2947,47 @@ Explanation: Since there are already no fresh oranges at minute 0, the answer is
 <li>Space Complexity: <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span> since the worst case is when you put all the 1s into the queue.</li>
 </ul>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">orangesRotting(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">g)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #75715e">// step 1: check if possible</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">g.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">g[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-        <span style="color: #f8f8f2">queue</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">q;</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">ones;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(g[i][j]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span>
-                    <span style="color: #f8f8f2">q.push({i,j});</span>
-                <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(g[i][j]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> 
-                    <span style="color: #f8f8f2">ones.push_back({i,j});</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">// step 2: iterate all the neigbours who are currently 1</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dir[</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">},{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">},{</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">},{</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">}};</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">minutes</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">q.empty())</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">minutes</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sz</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q.size();</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">sz;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">y;</span>
-                <span style="color: #f8f8f2">tie(x,</span> <span style="color: #f8f8f2">y)</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q.front();</span>
-                <span style="color: #f8f8f2">q.pop();</span>
-                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">d</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">dir)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dx</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">d[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">dy</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">d[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-                    <span style="color: #75715e">// error check and then set to 2 and put it to queue</span>
-                    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(dx</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">dx</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">dy</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">dy</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">||</span> 
-                        <span style="color: #f8f8f2">g[dx][dy]</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-                    <span style="color: #f8f8f2">g[dx][dy]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
-                    <span style="color: #f8f8f2">q.push({dx,dy});</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">// step 3: error checking</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">coord</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">ones)</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(g[coord.first][coord.second]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #75715e">// if answer is 0, then return 0</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">max</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">minutes</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">int</span> orangesRotting(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> g) {
+        <span style="color: #408080; font-style: italic">// step 1: check if possible</span>
+        <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> g.size(), n <span style="color: #666666">=</span> g[<span style="color: #666666">0</span>].size();
+        queue<span style="color: #666666">&lt;</span>pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> q;
+        vector<span style="color: #666666">&lt;</span>pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> ones;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i)
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+                <span style="color: #008000; font-weight: bold">if</span> (g[i][j] <span style="color: #666666">==</span> <span style="color: #666666">2</span>)
+                    q.push({i,j});
+                <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (g[i][j] <span style="color: #666666">==</span> <span style="color: #666666">1</span>) 
+                    ones.push_back({i,j});
+            }
+        <span style="color: #408080; font-style: italic">// step 2: iterate all the neigbours who are currently 1</span>
+        <span style="color: #B00040">int</span> dir[<span style="color: #666666">4</span>][<span style="color: #666666">2</span>] <span style="color: #666666">=</span> {{<span style="color: #666666">0</span>,<span style="color: #666666">1</span>},{<span style="color: #666666">0</span>,<span style="color: #666666">-1</span>},{<span style="color: #666666">1</span>,<span style="color: #666666">0</span>},{<span style="color: #666666">-1</span>,<span style="color: #666666">0</span>}};
+        <span style="color: #B00040">int</span> minutes <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>q.empty()) {
+            minutes <span style="color: #666666">++</span>;
+            <span style="color: #B00040">int</span> sz <span style="color: #666666">=</span> q.size();
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> sz; <span style="color: #666666">++</span>i) {
+                <span style="color: #B00040">int</span> x, y;
+                tie(x, y) <span style="color: #666666">=</span> q.front();
+                q.pop();
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">d</span> : dir) {
+                    <span style="color: #B00040">int</span> dx <span style="color: #666666">=</span> x <span style="color: #666666">+</span> d[<span style="color: #666666">0</span>], dy <span style="color: #666666">=</span> y <span style="color: #666666">+</span> d[<span style="color: #666666">1</span>];
+                    <span style="color: #408080; font-style: italic">// error check and then set to 2 and put it to queue</span>
+                    <span style="color: #008000; font-weight: bold">if</span> (dx <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> dx <span style="color: #666666">&gt;=</span> m <span style="color: #666666">||</span> dy <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> dy <span style="color: #666666">&gt;=</span> n <span style="color: #666666">||</span> 
+                        g[dx][dy] <span style="color: #666666">!=</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">continue</span>;
+                    g[dx][dy] <span style="color: #666666">=</span> <span style="color: #666666">2</span>;
+                    q.push({dx,dy});
+                }
+            }
+        }
+        <span style="color: #408080; font-style: italic">// step 3: error checking</span>
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">coord</span> : ones)
+            <span style="color: #008000; font-weight: bold">if</span> (g[coord.first][coord.second] <span style="color: #666666">==</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
+        <span style="color: #408080; font-style: italic">// if answer is 0, then return 0</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">max</span>(<span style="color: #666666">0</span>, minutes <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+    }
+};
 </code></pre></div>
                 
               

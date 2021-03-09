@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2928,36 +2919,36 @@ Output: ["255.255.11.135", "255.255.111.35"]</p>
 <p>Time: <span><span class="MathJax_Preview">O(n^n)</span><script type="math/tex">O(n^n)</script></span> n branches (for loop) and n height (idx in [0, n])
 Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> height of the recurison tree</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+    <span style="color: #A0A000">public</span>:
+    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> res;
 
-    <span style="color: #66d9ef">bool</span> <span style="color: #66d9ef">inline</span> <span style="color: #a6e22e">valid</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">sub)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">d</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">atoi(sub.c_str());</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(sub[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">)</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">d</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">sub.size()</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// only if &#39;0&#39;</span>
-        <span style="color: #66d9ef">else</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">d</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">256</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">sub.size()</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// only if less than 256 and has a digits less than 3</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">bool</span> <span style="color: #008000; font-weight: bold">inline</span> <span style="color: #0000FF">valid</span>(string sub) {
+        <span style="color: #B00040">int</span> d <span style="color: #666666">=</span> atoi(sub.c_str());
+        <span style="color: #008000; font-weight: bold">if</span> (sub[<span style="color: #666666">0</span>] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;0&#39;</span>)
+            <span style="color: #008000; font-weight: bold">return</span> d <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> sub.size() <span style="color: #666666">==</span> <span style="color: #666666">1</span>; <span style="color: #408080; font-style: italic">// only if &#39;0&#39;</span>
+        <span style="color: #008000; font-weight: bold">else</span>
+            <span style="color: #008000; font-weight: bold">return</span> d <span style="color: #666666">&lt;</span> <span style="color: #666666">256</span> <span style="color: #666666">&amp;&amp;</span> sub.size() <span style="color: #666666">&lt;=</span> <span style="color: #666666">3</span>; <span style="color: #408080; font-style: italic">// only if less than 256 and has a digits less than 3</span>
+    }
 
-    <span style="color: #75715e">// idx: starting pos of the ip segament to try</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">h</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">idx,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">part,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">ip)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(part</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(valid(ip.substr(idx)))</span> <span style="color: #f8f8f2">res.push_back(ip);</span>
-            <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">3</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">ip.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">valid(ip.substr(idx,</span> <span style="color: #f8f8f2">i)))</span> <span style="color: #66d9ef">continue</span> <span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">ip.insert(idx</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">i,</span> <span style="color: #e6db74">&quot;.&quot;</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #f8f8f2">h(idx</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">part</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">ip);</span>
-            <span style="color: #f8f8f2">ip.erase(idx</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">i,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">restoreIpAddresses(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">h(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">s);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #408080; font-style: italic">// idx: starting pos of the ip segament to try</span>
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">h</span>(<span style="color: #B00040">int</span> idx, <span style="color: #B00040">int</span> part, string ip) {
+        <span style="color: #008000; font-weight: bold">if</span> (part <span style="color: #666666">==</span> <span style="color: #666666">3</span>) {
+            <span style="color: #008000; font-weight: bold">if</span> (valid(ip.substr(idx))) res.push_back(ip);
+            <span style="color: #008000; font-weight: bold">return</span>;
+        }
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> <span style="color: #666666">3</span> <span style="color: #666666">&amp;&amp;</span> idx <span style="color: #666666">+</span> i <span style="color: #666666">&lt;</span> ip.size(); <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>valid(ip.substr(idx, i))) <span style="color: #008000; font-weight: bold">continue</span> ;
+            ip.insert(idx <span style="color: #666666">+</span> i, <span style="color: #BA2121">&quot;.&quot;</span>);
+            h(idx <span style="color: #666666">+</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>, part <span style="color: #666666">+</span> <span style="color: #666666">1</span>, ip);
+            ip.erase(idx <span style="color: #666666">+</span> i, <span style="color: #666666">1</span>);
+        }
+    }
+    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> restoreIpAddresses(string s) {
+        h(<span style="color: #666666">0</span>, <span style="color: #666666">0</span>, s);
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
                 
               

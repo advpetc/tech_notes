@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2917,7 +2908,7 @@
 <p>On each move, you can either go left or right. During the <em>n</em>-th move (starting from 1), you take <em>n</em> steps.</p>
 <p>Return the minimum number of steps required to reach the destination.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: target = 3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: target = 3
 Output: 2
 Explanation:
 On the first move we step from 0 to 1.
@@ -2926,7 +2917,7 @@ On the second step we step from 1 to 3.
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: target = 2
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: target = 2
 Output: 3
 Explanation:
 On the first move we step from 0 to 1.
@@ -2952,34 +2943,34 @@ On the third move we step from -1 to 2.
 <p>Why it can guarantee to be the optimal solution? <a href="https://leetcode.com/problems/reach-a-number/discuss/991187/C++-O(1)-math-solution-w-proof">leetcode url</a></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <p>Without using math:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">reachNumber(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">target</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">abs(target);</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">step</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">sum</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(;</span> <span style="color: #f8f8f2">sum</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">target;</span> <span style="color: #f8f8f2">sum</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">step)</span>
-            <span style="color: #f8f8f2">step</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">((sum</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">sum</span> <span style="color: #f92672">+=</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">step;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">step;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> reachNumber(<span style="color: #B00040">int</span> target) {
+        target <span style="color: #666666">=</span> abs(target);
+        <span style="color: #B00040">int</span> step <span style="color: #666666">=</span> <span style="color: #666666">0</span>, sum <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (; sum <span style="color: #666666">&lt;</span> target; sum <span style="color: #666666">+=</span> step)
+            step <span style="color: #666666">++</span>;
+        <span style="color: #008000; font-weight: bold">while</span> ((sum <span style="color: #666666">-</span> target) <span style="color: #666666">%</span> <span style="color: #666666">2</span> <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) {
+            sum <span style="color: #666666">+=</span> <span style="color: #666666">++</span>step;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> step;
 
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    }
+};
 </code></pre></div>
 
 
 <p>Using Pythagorean theorem:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">reachNumber(</span><span style="color: #66d9ef">int64_t</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">target</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">abs(target);</span>
-        <span style="color: #66d9ef">int64_t</span> <span style="color: #f8f8f2">steps</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0.5</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">(sqrt(</span><span style="color: #ae81ff">8</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">target)</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">sum{(steps</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">steps</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">diff{sum</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">target};</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(diff</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">steps;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span><span style="color: #f8f8f2">(steps</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">steps</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">steps</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> reachNumber(<span style="color: #B00040">int64_t</span> target) {
+        target <span style="color: #666666">=</span> std<span style="color: #666666">::</span>abs(target);
+        <span style="color: #B00040">int64_t</span> steps <span style="color: #666666">=</span> <span style="color: #666666">0.5*</span>(sqrt(<span style="color: #666666">8*</span>target)<span style="color: #666666">-1</span>)<span style="color: #666666">+1</span>, sum{(steps<span style="color: #666666">+1</span>)<span style="color: #666666">*</span>steps<span style="color: #666666">/2</span>}, diff{sum <span style="color: #666666">-</span> target};
+        <span style="color: #008000; font-weight: bold">if</span>(diff <span style="color: #666666">%</span> <span style="color: #666666">2</span> <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> steps;
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span>(steps <span style="color: #666666">%</span> <span style="color: #666666">2</span> <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> steps <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">return</span> steps <span style="color: #666666">+</span> <span style="color: #666666">2</span>;
+    }
+};
 </code></pre></div>
                 
               

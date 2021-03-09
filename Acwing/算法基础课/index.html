@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3043,188 +3034,188 @@
                 <h2 id="count-of-1-in-binary">Count # of 1 in binary<a class="headerlink" href="#count-of-1-in-binary" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.acwing.com/problem/content/803/">https://www.acwing.com/problem/content/803/</a></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">inline</span> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">lowbit</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&amp;</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">x;</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">x;</span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">inline</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">lowbit</span>(<span style="color: #B00040">int</span> x) {
+    <span style="color: #008000; font-weight: bold">return</span> x <span style="color: #666666">&amp;</span> <span style="color: #666666">-</span>x;
+}
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    <span style="color: #B00040">int</span> n;
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    <span style="color: #008000; font-weight: bold">while</span> (n <span style="color: #666666">--</span>) {
+        <span style="color: #B00040">int</span> x, res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        cin <span style="color: #666666">&gt;&gt;</span> x;
 
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(x)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">x</span> <span style="color: #f92672">-=</span> <span style="color: #f8f8f2">lowbit(x);</span>
-            <span style="color: #f8f8f2">res</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&#39; &#39;</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+        <span style="color: #008000; font-weight: bold">while</span> (x) {
+            x <span style="color: #666666">-=</span> lowbit(x);
+            res<span style="color: #666666">++</span>;
+        }
+        cout <span style="color: #666666">&lt;&lt;</span> res <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&#39; &#39;</span>;
+    }
+}
 </code></pre></div>
 
 
 <h2 id="a-b">a - b<a class="headerlink" href="#a-b" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.acwing.com/problem/content/794/">https://www.acwing.com/problem/content/794/</a></p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;vector&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;vector&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">cmp</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">A,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">B)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(A.size()</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">B.size())</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">A.size()</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">B.size();</span> <span style="color: #75715e">// 大小不一致，长的大</span>
+<span style="color: #B00040">bool</span> <span style="color: #0000FF">cmp</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>A, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>B)
+{
+    <span style="color: #008000; font-weight: bold">if</span> (A.size() <span style="color: #666666">!=</span> B.size()) <span style="color: #008000; font-weight: bold">return</span> A.size() <span style="color: #666666">&gt;</span> B.size(); <span style="color: #408080; font-style: italic">// 大小不一致，长的大</span>
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">A.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(A[i]</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">B[i])</span> <span style="color: #75715e">// 左数第一个不一样的大小决定数字大小</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">A[i]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">B[i];</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> A.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">--</span> )
+        <span style="color: #008000; font-weight: bold">if</span> (A[i] <span style="color: #666666">!=</span> B[i]) <span style="color: #408080; font-style: italic">// 左数第一个不一样的大小决定数字大小</span>
+            <span style="color: #008000; font-weight: bold">return</span> A[i] <span style="color: #666666">&gt;</span> B[i];
 
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+}
 
-<span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">sub(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">A,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">B)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">C;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">A.size();</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">A[i]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">t;</span> <span style="color: #75715e">// 当前数减去借位的数</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">B.size())</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">-=</span> <span style="color: #f8f8f2">B[i];</span> <span style="color: #75715e">// 如果B数组比A数组短，那么剩余值减去B当前位</span>
-        <span style="color: #f8f8f2">C.push_back((t</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// 如果t &lt; 0，取t + 10的值（0-6 = -4），同时借位，如果t &gt;= 0，取%10，（5-3=2=2+10%10=2）</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(t</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// 借位</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// 不必借位</span>
-    <span style="color: #f8f8f2">}</span>
+vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> sub(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>A, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>B)
+{
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> C;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, t <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> A.size(); i <span style="color: #666666">++</span> )
+    {
+        t <span style="color: #666666">=</span> A[i] <span style="color: #666666">-</span> t; <span style="color: #408080; font-style: italic">// 当前数减去借位的数</span>
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">&lt;</span> B.size()) t <span style="color: #666666">-=</span> B[i]; <span style="color: #408080; font-style: italic">// 如果B数组比A数组短，那么剩余值减去B当前位</span>
+        C.push_back((t <span style="color: #666666">+</span> <span style="color: #666666">10</span>) <span style="color: #666666">%</span> <span style="color: #666666">10</span>); <span style="color: #408080; font-style: italic">// 如果t &lt; 0，取t + 10的值（0-6 = -4），同时借位，如果t &gt;= 0，取%10，（5-3=2=2+10%10=2）</span>
+        <span style="color: #008000; font-weight: bold">if</span> (t <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span>) t <span style="color: #666666">=</span> <span style="color: #666666">1</span>; <span style="color: #408080; font-style: italic">// 借位</span>
+        <span style="color: #008000; font-weight: bold">else</span> t <span style="color: #666666">=</span> <span style="color: #666666">0</span>; <span style="color: #408080; font-style: italic">// 不必借位</span>
+    }
 
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(C.size()</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">C.back()</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">C.pop_back();</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">C;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">while</span> (C.size() <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> C.back() <span style="color: #666666">==</span> <span style="color: #666666">0</span>) C.pop_back();
+    <span style="color: #008000; font-weight: bold">return</span> C;
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">main()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b;</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">A,</span> <span style="color: #f8f8f2">B;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">b;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">A.push_back(a[i]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">B.push_back(b[i]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #B00040">int</span> main()
+{
+    string a, b;
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> A, B;
+    cin <span style="color: #666666">&gt;&gt;</span> a <span style="color: #666666">&gt;&gt;</span> b;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> a.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">--</span> ) A.push_back(a[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;0&#39;</span>);
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> b.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">--</span> ) B.push_back(b[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;0&#39;</span>);
 
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">C;</span>
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> C;
 
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cmp(A,</span> <span style="color: #f8f8f2">B))</span> <span style="color: #f8f8f2">C</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">sub(A,</span> <span style="color: #f8f8f2">B);</span>
-    <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">C</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">sub(B,</span> <span style="color: #f8f8f2">A),</span> <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&#39;-&#39;</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #008000; font-weight: bold">if</span> (cmp(A, B)) C <span style="color: #666666">=</span> sub(A, B);
+    <span style="color: #008000; font-weight: bold">else</span> C <span style="color: #666666">=</span> sub(B, A), cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&#39;-&#39;</span>;
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">C.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">C[i];</span>
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> C.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">--</span> ) cout <span style="color: #666666">&lt;&lt;</span> C[i];
+    cout <span style="color: #666666">&lt;&lt;</span> endl;
 
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 
-<span style="color: #960050; background-color: #1e0010">作者：</span><span style="color: #f8f8f2">yxc</span>
-<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/activity/content/code/content/39793/</span>
-<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
-<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+<span style="border: 1px solid #FF0000">作者：</span>yxc
+<span style="border: 1px solid #FF0000">链接：</span><span style="color: #A0A000">https</span>:<span style="color: #408080; font-style: italic">//www.acwing.com/activity/content/code/content/39793/</span>
+<span style="border: 1px solid #FF0000">来源：</span>AcWing
+<span style="border: 1px solid #FF0000">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
 
 
 <h2 id="a-b_1">a * b<a class="headerlink" href="#a-b_1" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.acwing.com/activity/content/code/content/39794/">https://www.acwing.com/activity/content/code/content/39794/</a></p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;vector&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;vector&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-
-
-<span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">mul(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">A,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">C;</span>
-
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">A.size()</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">t;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">A.size())</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">A[i]</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">b;</span>
-        <span style="color: #f8f8f2">C.push_back(t</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #f8f8f2">t</span> <span style="color: #f92672">/=</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(C.size()</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">C.back()</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">C.pop_back();</span> <span style="color: #75715e">// 去除leading zeros</span>
-
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">C;</span>
-<span style="color: #f8f8f2">}</span>
+using namespace std;
 
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">main()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">a;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b;</span>
+vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> mul(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>A, <span style="color: #B00040">int</span> b)
+{
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> C;
 
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">b;</span>
+    <span style="color: #B00040">int</span> t <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> A.size() <span style="color: #666666">||</span> t; i <span style="color: #666666">++</span> )
+    {
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">&lt;</span> A.size()) t <span style="color: #666666">+=</span> A[i] <span style="color: #666666">*</span> b;
+        C.push_back(t <span style="color: #666666">%</span> <span style="color: #666666">10</span>);
+        t <span style="color: #666666">/=</span> <span style="color: #666666">10</span>;
+    }
 
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">A;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">A.push_back(a[i]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #008000; font-weight: bold">while</span> (C.size() <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> C.back() <span style="color: #666666">==</span> <span style="color: #666666">0</span>) C.pop_back(); <span style="color: #408080; font-style: italic">// 去除leading zeros</span>
 
-    <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">C</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mul(A,</span> <span style="color: #f8f8f2">b);</span>
+    <span style="color: #008000; font-weight: bold">return</span> C;
+}
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">C.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">C[i]);</span>
 
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> main()
+{
+    string a;
+    <span style="color: #B00040">int</span> b;
 
-<span style="color: #960050; background-color: #1e0010">作者：</span><span style="color: #f8f8f2">yxc</span>
-<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/activity/content/code/content/39794/</span>
-<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
-<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+    cin <span style="color: #666666">&gt;&gt;</span> a <span style="color: #666666">&gt;&gt;</span> b;
+
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> A;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> a.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">--</span> ) A.push_back(a[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;0&#39;</span>);
+
+    <span style="color: #008000; font-weight: bold">auto</span> C <span style="color: #666666">=</span> mul(A, b);
+
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> C.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">--</span> ) printf(<span style="color: #BA2121">&quot;%d&quot;</span>, C[i]);
+
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
+
+<span style="border: 1px solid #FF0000">作者：</span>yxc
+<span style="border: 1px solid #FF0000">链接：</span><span style="color: #A0A000">https</span>:<span style="color: #408080; font-style: italic">//www.acwing.com/activity/content/code/content/39794/</span>
+<span style="border: 1px solid #FF0000">来源：</span>AcWing
+<span style="border: 1px solid #FF0000">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
 
 
 <h2 id="a-b_2">a / b<a class="headerlink" href="#a-b_2" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.acwing.com/activity/content/code/content/39795/">https://www.acwing.com/activity/content/code/content/39795/</a></p>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;vector&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;algorithm&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;vector&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;algorithm&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">div(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">A,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b,</span> <span style="color: #66d9ef">int</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">r)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">C;</span>
-    <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// reminder</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">A.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">10</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">A[i];</span>
-        <span style="color: #f8f8f2">C.push_back(r</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">b);</span>
-        <span style="color: #f8f8f2">r</span> <span style="color: #f92672">%=</span> <span style="color: #f8f8f2">b;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">reverse(C.begin(),</span> <span style="color: #f8f8f2">C.end());</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(C.size()</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">C.back()</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">C.pop_back();</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">C;</span>
-<span style="color: #f8f8f2">}</span>
+vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> div(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>A, <span style="color: #B00040">int</span> b, <span style="color: #B00040">int</span> <span style="color: #666666">&amp;</span>r)
+{
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> C;
+    r <span style="color: #666666">=</span> <span style="color: #666666">0</span>; <span style="color: #408080; font-style: italic">// reminder</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> A.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">--</span> )
+    {
+        r <span style="color: #666666">=</span> r <span style="color: #666666">*</span> <span style="color: #666666">10</span> <span style="color: #666666">+</span> A[i];
+        C.push_back(r <span style="color: #666666">/</span> b);
+        r <span style="color: #666666">%=</span> b;
+    }
+    reverse(C.begin(), C.end());
+    <span style="color: #008000; font-weight: bold">while</span> (C.size() <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> C.back() <span style="color: #666666">==</span> <span style="color: #666666">0</span>) C.pop_back();
+    <span style="color: #008000; font-weight: bold">return</span> C;
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">main()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">a;</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">A;</span>
+<span style="color: #B00040">int</span> main()
+{
+    string a;
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> A;
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">B;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">B;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">A.push_back(a[i]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #B00040">int</span> B;
+    cin <span style="color: #666666">&gt;&gt;</span> a <span style="color: #666666">&gt;&gt;</span> B;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> a.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">--</span> ) A.push_back(a[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;0&#39;</span>);
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r;</span>
-    <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">C</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">div(A,</span> <span style="color: #f8f8f2">B,</span> <span style="color: #f8f8f2">r);</span>
+    <span style="color: #B00040">int</span> r;
+    <span style="color: #008000; font-weight: bold">auto</span> C <span style="color: #666666">=</span> div(A, B, r);
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">C.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">C[i];</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> C.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">--</span> ) cout <span style="color: #666666">&lt;&lt;</span> C[i];
 
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
+    cout <span style="color: #666666">&lt;&lt;</span> endl <span style="color: #666666">&lt;&lt;</span> r <span style="color: #666666">&lt;&lt;</span> endl;
 
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 
-<span style="color: #960050; background-color: #1e0010">作者：</span><span style="color: #f8f8f2">yxc</span>
-<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/activity/content/code/content/39795/</span>
-<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
-<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+<span style="border: 1px solid #FF0000">作者：</span>yxc
+<span style="border: 1px solid #FF0000">链接：</span><span style="color: #A0A000">https</span>:<span style="color: #408080; font-style: italic">//www.acwing.com/activity/content/code/content/39795/</span>
+<span style="border: 1px solid #FF0000">来源：</span>AcWing
+<span style="border: 1px solid #FF0000">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
                 
               

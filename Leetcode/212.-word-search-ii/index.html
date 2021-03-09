@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2942,63 +2933,63 @@ The values of words are distinct.</p>
 <li>Using Trie: we can do better for elimating the unnecessary checks mentioned in the DFS. We can cut off early if the neigbour of current Trie node doesn't exist, and we only proceed if exist. Thus, the optimized time complexity is <span><span class="MathJax_Preview">O(w \times len + m \times n \times 4 ^ {len})</span><script type="math/tex">O(w \times len + m \times n \times 4 ^ {len})</script></span> [building Trie + dfs search].</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">Node</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">nei[</span><span style="color: #ae81ff">26</span><span style="color: #f8f8f2">];</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">end</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-  <span style="color: #f8f8f2">};</span>
-  <span style="color: #f8f8f2">Node</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">root</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">Node();</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">insert</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">Node</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">c</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">curr</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">nei[c</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">])</span>
-        <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">nei[c</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">Node();</span>
-      <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">nei[c</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">];</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">end</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-  <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+  <span style="color: #008000; font-weight: bold">struct</span> Node {
+    Node <span style="color: #666666">*</span>nei[<span style="color: #666666">26</span>];
+    <span style="color: #B00040">bool</span> end <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+  };
+  Node <span style="color: #666666">*</span>root <span style="color: #666666">=</span> new Node();
+  <span style="color: #B00040">void</span> <span style="color: #0000FF">insert</span>(string s) {
+    Node <span style="color: #666666">*</span>curr <span style="color: #666666">=</span> root;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">char</span> <span style="color: #A0A000">c</span> : s) {
+      <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>curr<span style="color: #666666">-&gt;</span>nei[c <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>])
+        curr<span style="color: #666666">-&gt;</span>nei[c <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #666666">=</span> new Node();
+      curr <span style="color: #666666">=</span> curr<span style="color: #666666">-&gt;</span>nei[c <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>];
+    }
+    curr<span style="color: #666666">-&gt;</span>end <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+  }
 
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dir[</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{{</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">}};</span>
-  <span style="color: #f8f8f2">unordered_set</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">char</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">matrix;</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m,</span> <span style="color: #f8f8f2">n;</span>
-  <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">vis[</span><span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">}};</span>
-  <span style="color: #75715e">// O(m * n)</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">path,</span> <span style="color: #f8f8f2">Node</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">curr)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">curr)</span>
-      <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">end)</span>
-      <span style="color: #f8f8f2">res.insert(path);</span>
-    <span style="color: #f8f8f2">vis[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">d</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">dir)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">d[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">d[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(x</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">||</span>
-          <span style="color: #f92672">!</span><span style="color: #f8f8f2">curr</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">nei[matrix[x][y]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">vis[x][y])</span>
-        <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">dfs(x,</span> <span style="color: #f8f8f2">y,</span> <span style="color: #f8f8f2">path</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">matrix[x][y],</span> <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">nei[matrix[x][y]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">]);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">vis[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">findWords(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">char</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">board,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">words)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">board.size();</span>
-    <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">board[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
+  <span style="color: #B00040">int</span> dir[<span style="color: #666666">4</span>][<span style="color: #666666">2</span>] <span style="color: #666666">=</span> {{<span style="color: #666666">1</span>, <span style="color: #666666">0</span>}, {<span style="color: #666666">-1</span>, <span style="color: #666666">0</span>}, {<span style="color: #666666">0</span>, <span style="color: #666666">1</span>}, {<span style="color: #666666">0</span>, <span style="color: #666666">-1</span>}};
+  unordered_set<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> res;
+  vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;&gt;</span> matrix;
+  <span style="color: #B00040">int</span> m, n;
+  <span style="color: #B00040">bool</span> vis[<span style="color: #666666">1010</span>][<span style="color: #666666">1010</span>] <span style="color: #666666">=</span> {{<span style="color: #666666">0</span>}};
+  <span style="color: #408080; font-style: italic">// O(m * n)</span>
+  <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(<span style="color: #B00040">int</span> i, <span style="color: #B00040">int</span> j, string path, Node <span style="color: #666666">*</span>curr) {
+    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>curr)
+      <span style="color: #008000; font-weight: bold">return</span>;
+    <span style="color: #008000; font-weight: bold">if</span> (curr<span style="color: #666666">-&gt;</span>end)
+      res.insert(path);
+    vis[i][j] <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">d</span> : dir) {
+      <span style="color: #B00040">int</span> x <span style="color: #666666">=</span> i <span style="color: #666666">+</span> d[<span style="color: #666666">0</span>], y <span style="color: #666666">=</span> j <span style="color: #666666">+</span> d[<span style="color: #666666">1</span>];
+      <span style="color: #008000; font-weight: bold">if</span> (x <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> x <span style="color: #666666">&gt;=</span> m <span style="color: #666666">||</span> y <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> y <span style="color: #666666">&gt;=</span> n <span style="color: #666666">||</span>
+          <span style="color: #666666">!</span>curr<span style="color: #666666">-&gt;</span>nei[matrix[x][y] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #666666">||</span> vis[x][y])
+        <span style="color: #008000; font-weight: bold">continue</span>;
+      dfs(x, y, path <span style="color: #666666">+</span> matrix[x][y], curr<span style="color: #666666">-&gt;</span>nei[matrix[x][y] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>]);
+    }
+    vis[i][j] <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+  }
+  vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> findWords(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">&amp;</span>board, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>words) {
+    m <span style="color: #666666">=</span> board.size();
+    n <span style="color: #666666">=</span> board[<span style="color: #666666">0</span>].size();
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(string</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">str</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">words)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">insert(str);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">matrix</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">board;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">nei[matrix[i][j]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">])</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">matrix[i][j]);</span>
-          <span style="color: #f8f8f2">dfs(i,</span> <span style="color: #f8f8f2">j,</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">root</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">nei[matrix[i][j]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">]);</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(res.begin(),</span> <span style="color: #f8f8f2">res.end());</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #008000; font-weight: bold">for</span> (string <span style="color: #666666">&amp;</span><span style="color: #A0A000">str</span> : words) {
+      insert(str);
+    }
+    matrix <span style="color: #666666">=</span> board;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+        <span style="color: #008000; font-weight: bold">if</span> (root<span style="color: #666666">-&gt;</span>nei[matrix[i][j] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>]) {
+          string s(<span style="color: #666666">1</span>, matrix[i][j]);
+          dfs(i, j, s, root<span style="color: #666666">-&gt;</span>nei[matrix[i][j] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>]);
+        }
+      }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span>(res.begin(), res.end());
+  }
+};
 </code></pre></div>
                 
               

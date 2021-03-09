@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2920,7 +2911,7 @@
 <p>Return an list of non-empty reports in order of <code>X</code> coordinate. Every report will have a list of values of nodes.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="https://assets.leetcode.com/uploads/2019/01/31/1236_example_1.PNG" /></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: [3,9,20,null,null,15,7]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [3,9,20,null,null,15,7]
 Output: [[9],[3,15],[20],[7]]
 Explanation: 
 Without loss of generality, we can assume the root node is at position (0, 0):
@@ -2933,7 +2924,7 @@ The node with value 7 occurs at position (2, -2).
 
 <p><strong>Example 2:</strong></p>
 <p><strong><img alt="img" src="https://assets.leetcode.com/uploads/2019/01/31/tree2.png" /></strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: [1,2,3,4,5,6,7]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [1,2,3,4,5,6,7]
 Output: [[4],[2],[1,5,6],[3],[7]]
 Explanation: 
 The node with value 5 and the node with value 6 have the same position according to the given scheme.
@@ -2956,45 +2947,45 @@ However, in the report &quot;[1,5,6]&quot;, the node value of 5 comes first sinc
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> since need to store all the nodes</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Definition for a binary tree node.</span>
-<span style="color: #75715e"> * struct TreeNode {</span>
-<span style="color: #75715e"> *     int val;</span>
-<span style="color: #75715e"> *     TreeNode *left;</span>
-<span style="color: #75715e"> *     TreeNode *right;</span>
-<span style="color: #75715e"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
-<span style="color: #75715e"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
-<span style="color: #75715e"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
-<span style="color: #75715e"> * };</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">verticalTraversal(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">set</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&gt;</span> <span style="color: #f8f8f2">nodes;</span>
-        <span style="color: #f8f8f2">queue</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">tuple</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">todo;</span>
-        <span style="color: #f8f8f2">todo.push({root,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">});</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">todo.empty())</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">[node,</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">y]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">todo.front();</span>
-            <span style="color: #f8f8f2">todo.pop();</span>
-            <span style="color: #f8f8f2">nodes[x][y].insert(node</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val);</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(node</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">todo.push({node</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">});</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(node</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">todo.push({node</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">});</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">ans;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">p</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">nodes)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">col;</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">q</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">p.second)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">col.insert(col.end(),</span> <span style="color: #f8f8f2">q.second.begin(),</span> <span style="color: #f8f8f2">q.second.end());</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">ans.push_back(col);</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">ans;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
+<span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
+<span style="color: #408080; font-style: italic"> *     int val;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *left;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *right;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span style="color: #408080; font-style: italic"> * };</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> verticalTraversal(TreeNode<span style="color: #666666">*</span> root) {
+        map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, set<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&gt;</span> nodes;
+        queue<span style="color: #666666">&lt;</span>tuple<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*</span>, <span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> todo;
+        todo.push({root, <span style="color: #666666">0</span>, <span style="color: #666666">0</span>});
+        <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>todo.empty()) {
+            <span style="color: #008000; font-weight: bold">auto</span> [node, x, y] <span style="color: #666666">=</span> todo.front();
+            todo.pop();
+            nodes[x][y].insert(node <span style="color: #666666">-&gt;</span> val);
+            <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">-&gt;</span> left) {
+                todo.push({node <span style="color: #666666">-&gt;</span> left, x <span style="color: #666666">-</span> <span style="color: #666666">1</span>, y <span style="color: #666666">+</span> <span style="color: #666666">1</span>});
+            }
+            <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">-&gt;</span> right) {
+                todo.push({node <span style="color: #666666">-&gt;</span> right, x <span style="color: #666666">+</span> <span style="color: #666666">1</span>, y <span style="color: #666666">+</span> <span style="color: #666666">1</span>});
+            }
+        }
+        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> ans;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">p</span> : nodes) {
+            vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> col;
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">q</span> : p.second) {
+                col.insert(col.end(), q.second.begin(), q.second.end());
+            }
+            ans.push_back(col);
+        }
+        <span style="color: #008000; font-weight: bold">return</span> ans;
+    }
+};
 </code></pre></div>
                 
               

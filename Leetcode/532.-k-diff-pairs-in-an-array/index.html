@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2944,19 +2935,19 @@ All the integers in the given input belong to the range: [-1e7, 1e7].</p>
 <p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>
 Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> for the unordered_map</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">findPairs(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">m;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">m[num];</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">m)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(k</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">a.second</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">res;</span> <span style="color: #75715e">// multiple duplicate</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(k</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">m.count(a.first</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">k))</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">res;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">int</span> findPairs(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> k) {
+        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> m;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">num</span> : nums) <span style="color: #666666">++</span>m[num];
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">a</span> : m) {
+            <span style="color: #008000; font-weight: bold">if</span> (k <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> a.second <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>) <span style="color: #666666">++</span>res; <span style="color: #408080; font-style: italic">// multiple duplicate</span>
+            <span style="color: #008000; font-weight: bold">if</span> (k <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> m.count(a.first <span style="color: #666666">+</span> k)) <span style="color: #666666">++</span>res;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
                 
               

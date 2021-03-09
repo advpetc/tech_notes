@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2919,46 +2910,46 @@
 如果是A那么从前往后排序
 如果是B那么从后往前排序</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">point</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">minn,</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">y;</span>
-<span style="color: #f8f8f2">};</span>
+<span style="color: #008000; font-weight: bold">struct</span> point {
+    <span style="color: #B00040">int</span> i, minn, x, y;
+};
 
-<span style="color: #f8f8f2">point</span> <span style="color: #f8f8f2">a[</span><span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">];</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">ans[</span><span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">];</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">inf</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0x3f3f3f3f</span><span style="color: #f8f8f2">;</span>
+point a[<span style="color: #666666">1010</span>];
+<span style="color: #B00040">int</span> ans[<span style="color: #666666">1010</span>];
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> inf <span style="color: #666666">=</span> <span style="color: #666666">0x3f3f3f3f</span>;
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">a[i].x;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">a[i].y;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">a[i].minn</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(a[i].x,</span> <span style="color: #f8f8f2">a[i].y);</span> <span style="color: #75715e">// find the min</span>
-        <span style="color: #f8f8f2">a[i].i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">sort(a</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">[](</span><span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">point</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">l,</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">point</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l.minn</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r.minn;</span> <span style="color: #f8f8f2">});</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[i].minn</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a[i].x)</span> <span style="color: #75715e">// A should finish first</span>
-            <span style="color: #f8f8f2">ans[x</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a[i].i;</span>
-        <span style="color: #66d9ef">else</span>
-            <span style="color: #f8f8f2">ans[y</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a[i].i;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">timea</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">timeb</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">mina</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">inf,</span> <span style="color: #f8f8f2">minb</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">inf;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">timea</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">a[i].x;</span>
-        <span style="color: #f8f8f2">timeb</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">a[i].y;</span>
-        <span style="color: #f8f8f2">mina</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(mina,</span> <span style="color: #f8f8f2">a[i].x);</span>
-        <span style="color: #f8f8f2">minb</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(minb,</span> <span style="color: #f8f8f2">a[i].y);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">max(timea</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">minb,</span> <span style="color: #f8f8f2">timeb</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">mina)</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">ans[i]</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    <span style="color: #B00040">int</span> n;
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>i) cin <span style="color: #666666">&gt;&gt;</span> a[i].x;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>i) cin <span style="color: #666666">&gt;&gt;</span> a[i].y;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>i) {
+        a[i].minn <span style="color: #666666">=</span> min(a[i].x, a[i].y); <span style="color: #408080; font-style: italic">// find the min</span>
+        a[i].i <span style="color: #666666">=</span> i;
+    }
+    sort(a <span style="color: #666666">+</span> <span style="color: #666666">1</span>, a <span style="color: #666666">+</span> n <span style="color: #666666">+</span> <span style="color: #666666">1</span>, [](<span style="color: #008000; font-weight: bold">const</span> point<span style="color: #666666">&amp;</span> l, <span style="color: #008000; font-weight: bold">const</span> point<span style="color: #666666">&amp;</span> r) { <span style="color: #008000; font-weight: bold">return</span> l.minn <span style="color: #666666">&lt;</span> r.minn; });
+    <span style="color: #B00040">int</span> x <span style="color: #666666">=</span> <span style="color: #666666">1</span>, y <span style="color: #666666">=</span> n;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>i) {
+        <span style="color: #008000; font-weight: bold">if</span> (a[i].minn <span style="color: #666666">==</span> a[i].x) <span style="color: #408080; font-style: italic">// A should finish first</span>
+            ans[x<span style="color: #666666">++</span>] <span style="color: #666666">=</span> a[i].i;
+        <span style="color: #008000; font-weight: bold">else</span>
+            ans[y<span style="color: #666666">--</span>] <span style="color: #666666">=</span> a[i].i;
+    }
+    <span style="color: #B00040">int</span> timea <span style="color: #666666">=</span> <span style="color: #666666">0</span>, timeb <span style="color: #666666">=</span> <span style="color: #666666">0</span>, mina <span style="color: #666666">=</span> inf, minb <span style="color: #666666">=</span> inf;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>i) {
+        timea <span style="color: #666666">+=</span> a[i].x;
+        timeb <span style="color: #666666">+=</span> a[i].y;
+        mina <span style="color: #666666">=</span> min(mina, a[i].x);
+        minb <span style="color: #666666">=</span> min(minb, a[i].y);
+    }
+    cout <span style="color: #666666">&lt;&lt;</span> max(timea <span style="color: #666666">+</span> minb, timeb <span style="color: #666666">+</span> mina) <span style="color: #666666">&lt;&lt;</span> endl;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>i) cout <span style="color: #666666">&lt;&lt;</span> ans[i] <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; &quot;</span>;
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
                 
               

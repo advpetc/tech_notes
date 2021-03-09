@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2927,10 +2918,10 @@
 <li>Trickle Up (offer/push)</li>
 <li>adding new element to the tail</li>
 </ol>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">((i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">arr[i]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">arr[(i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">])</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">swap(arr[i],</span> <span style="color: #f8f8f2">arr[(i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]);</span>
-  <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">while</span> ((i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> arr[i] <span style="color: #666666">&lt;</span> arr[(i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span>]) {
+  swap(arr[i], arr[(i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span>]);
+  i <span style="color: #666666">=</span> (i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span>;
+}
 </code></pre></div>
 
 
@@ -2938,16 +2929,16 @@
 <li>Trickle Down (poll/pop)</li>
 <li>remove the root of the tree</li>
 </ol>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#define (left) (i * 2 + 1)</span>
-<span style="color: #75715e">#define (right) (i * 2 + 2)</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(left</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">arr.size()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">(arr[i]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">arr[left]</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">arr[i]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">arr[right]))</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">tmp;</span>
-  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr[left]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">arr[right])</span> <span style="color: #f8f8f2">tmp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">left;</span> 
-  <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">tmp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">right;</span>
-  <span style="color: #f8f8f2">swap(arr[i],</span> <span style="color: #f8f8f2">arr[tmp]);</span>
-  <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tmp;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#define (left) (i * 2 + 1)</span>
+<span style="color: #BC7A00">#define (right) (i * 2 + 2)</span>
+<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+<span style="color: #008000; font-weight: bold">while</span> (left <span style="color: #666666">&lt;</span> arr.size() <span style="color: #666666">&amp;&amp;</span> (arr[i] <span style="color: #666666">&gt;</span> arr[left] <span style="color: #666666">||</span> arr[i] <span style="color: #666666">&gt;</span> arr[right])) {
+  <span style="color: #B00040">int</span> tmp;
+  <span style="color: #008000; font-weight: bold">if</span> (arr[left] <span style="color: #666666">&lt;</span> arr[right]) tmp <span style="color: #666666">=</span> left; 
+  <span style="color: #008000; font-weight: bold">else</span> tmp <span style="color: #666666">=</span> right;
+  swap(arr[i], arr[tmp]);
+  i <span style="color: #666666">=</span> tmp;
+}
 </code></pre></div>
 
 

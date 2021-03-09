@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3046,32 +3037,32 @@ Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(
 <p>When sort: if width is the same, higher height sort first (same width cannot stack together)</p>
 <p>So we need to rewrite the comparator such that when two width are the same, choose the one with higher height</p>
 <h4 id="solution-code">Solution Code<a class="headerlink" href="#solution-code" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">env[n];</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">env[i].first;</span>
-        <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">env[i].second;</span>
-    <span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    <span style="color: #B00040">int</span> n;
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>,<span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> env[n];
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+        cin <span style="color: #666666">&gt;&gt;</span> env[i].first;
+        cin <span style="color: #666666">&gt;&gt;</span> env[i].second;
+    }
 
-    <span style="color: #f8f8f2">sort(env,</span> <span style="color: #f8f8f2">env</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">[](</span><span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">l,</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l.first</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r.first</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(l.first</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">r.first</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">l.second</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">r.second);</span>
-    <span style="color: #f8f8f2">});</span>
+    sort(env, env <span style="color: #666666">+</span> n, [](<span style="color: #008000; font-weight: bold">const</span> pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>,<span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> l, <span style="color: #008000; font-weight: bold">const</span> pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>,<span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> r) {
+        <span style="color: #008000; font-weight: bold">return</span> l.first <span style="color: #666666">&lt;</span> r.first <span style="color: #666666">||</span> (l.first <span style="color: #666666">==</span> r.first <span style="color: #666666">&amp;&amp;</span> l.second <span style="color: #666666">&gt;</span> r.second);
+    });
 
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dp;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">p</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">env)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">longest</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">lower_bound(dp.begin(),</span> <span style="color: #f8f8f2">dp.end(),</span> <span style="color: #f8f8f2">p.second)</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">dp.begin();</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(longest</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">dp.size())</span> <span style="color: #f8f8f2">dp.push_back(p.second);</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">dp[longest]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p.second;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">dp.size();</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dp;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">p</span> : env) {
+        <span style="color: #B00040">int</span> longest <span style="color: #666666">=</span> lower_bound(dp.begin(), dp.end(), p.second) <span style="color: #666666">-</span> dp.begin();
+        <span style="color: #008000; font-weight: bold">if</span> (longest <span style="color: #666666">&gt;=</span> dp.size()) dp.push_back(p.second);
+        <span style="color: #008000; font-weight: bold">else</span> dp[longest] <span style="color: #666666">=</span> p.second;
+    }
+    cout <span style="color: #666666">&lt;&lt;</span> dp.size();
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
                 
               

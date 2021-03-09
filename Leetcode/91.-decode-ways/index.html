@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2928,7 +2919,7 @@
                 
                 <h1 id="decode-ways">Decode Ways<a class="headerlink" href="#decode-ways" title="Permanent link">&para;</a></h1>
 <p>A message containing letters from <code>A-Z</code> is being encoded to numbers using the following mapping:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>&#39;A&#39; -&gt; 1
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>&#39;A&#39; -&gt; 1
 &#39;B&#39; -&gt; 2
 ...
 &#39;Z&#39; -&gt; 26
@@ -2938,28 +2929,28 @@
 <p>Given a <strong>non-empty</strong> string containing only digits, determine the total number of ways to decode it.</p>
 <p>The answer is guaranteed to fit in a <strong>32-bit</strong> integer.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;12&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;12&quot;
 Output: 2
 Explanation: It could be decoded as &quot;AB&quot; (1 2) or &quot;L&quot; (12).
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;226&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;226&quot;
 Output: 3
 Explanation: It could be decoded as &quot;BZ&quot; (2 26), &quot;VF&quot; (22 6), or &quot;BBF&quot; (2 2 6).
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;0&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;0&quot;
 Output: 0
 Explanation: There is no character that is mapped to a number starting with &#39;0&#39;. We cannot ignore a zero when we face it while decoding. So, each &#39;0&#39; should be part of &quot;10&quot; --&gt; &#39;J&#39; or &quot;20&quot; --&gt; &#39;T&#39;.
 </code></pre></div>
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;1&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;1&quot;
 Output: 1
 </code></pre></div>
 
@@ -2970,28 +2961,28 @@ Output: 1
 <li><code>s</code> contains only digits and may contain leading zero(s).</li>
 </ul>
 <h2 id="java">java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">numDecodings</span><span style="color: #f8f8f2">(String</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">s.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">();</span>
-        <span style="color: #66d9ef">int</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">dp</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">n</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">dp</span><span style="color: #f92672">[</span><span style="color: #ae81ff">0</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// # of ways to decode for empty s</span>
-        <span style="color: #f8f8f2">dp</span><span style="color: #f92672">[</span><span style="color: #ae81ff">1</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.</span><span style="color: #a6e22e">charAt</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">!=</span> <span style="color: #e6db74">&#39;0&#39;</span> <span style="color: #f92672">?</span> <span style="color: #ae81ff">1</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// 0 cannot be leading element for a number</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">first</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Integer.</span><span style="color: #a6e22e">valueOf</span><span style="color: #f8f8f2">(s.</span><span style="color: #a6e22e">substring</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i));</span> <span style="color: #75715e">// s[i-1:i]</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">second</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Integer.</span><span style="color: #a6e22e">valueOf</span><span style="color: #f8f8f2">(s.</span><span style="color: #a6e22e">substring</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i));</span><span style="color: #75715e">// s[i-2:i]</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(first</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">first</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">9</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-               <span style="color: #f8f8f2">dp</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">dp</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>  
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(second</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">10</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">second</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">26</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">dp</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">dp</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">2</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dp</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">n</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">numDecodings</span>(String s) {
+        <span style="color: #008000; font-weight: bold">if</span>(s <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> s.<span style="color: #7D9029">length</span>() <span style="color: #666666">==</span> <span style="color: #666666">0</span>) {
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+        }
+        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> s.<span style="color: #7D9029">length</span>();
+        <span style="color: #B00040">int</span><span style="color: #666666">[]</span> dp <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[</span>n<span style="color: #666666">+1]</span>;
+        dp<span style="color: #666666">[0]</span> <span style="color: #666666">=</span> <span style="color: #666666">1</span>; <span style="color: #408080; font-style: italic">// # of ways to decode for empty s</span>
+        dp<span style="color: #666666">[1]</span> <span style="color: #666666">=</span> s.<span style="color: #7D9029">charAt</span>(<span style="color: #666666">0</span>) <span style="color: #666666">!=</span> <span style="color: #BA2121">&#39;0&#39;</span> <span style="color: #666666">?</span> <span style="color: #666666">1</span> : <span style="color: #666666">0</span>; <span style="color: #408080; font-style: italic">// 0 cannot be leading element for a number</span>
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">2</span>; i <span style="color: #666666">&lt;=</span> n; i<span style="color: #666666">++</span>) {
+            <span style="color: #B00040">int</span> first <span style="color: #666666">=</span> Integer.<span style="color: #7D9029">valueOf</span>(s.<span style="color: #7D9029">substring</span>(i<span style="color: #666666">-1</span>, i)); <span style="color: #408080; font-style: italic">// s[i-1:i]</span>
+            <span style="color: #B00040">int</span> second <span style="color: #666666">=</span> Integer.<span style="color: #7D9029">valueOf</span>(s.<span style="color: #7D9029">substring</span>(i<span style="color: #666666">-2</span>, i));<span style="color: #408080; font-style: italic">// s[i-2:i]</span>
+            <span style="color: #008000; font-weight: bold">if</span>(first <span style="color: #666666">&gt;=</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> first <span style="color: #666666">&lt;=</span> <span style="color: #666666">9</span>) {
+               dp<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">+=</span> dp<span style="color: #666666">[</span>i<span style="color: #666666">-1]</span>;  
+            }
+            <span style="color: #008000; font-weight: bold">if</span>(second <span style="color: #666666">&gt;=</span> <span style="color: #666666">10</span> <span style="color: #666666">&amp;&amp;</span> second <span style="color: #666666">&lt;=</span> <span style="color: #666666">26</span>) {
+                dp<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">+=</span> dp<span style="color: #666666">[</span>i<span style="color: #666666">-2]</span>;
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> dp<span style="color: #666666">[</span>n<span style="color: #666666">]</span>;
+    }
+}
 </code></pre></div>
 
 
@@ -2999,19 +2990,19 @@ Output: 1
 1. dp[i] += dp[i-1] if s[i-1:i] is valid (single digit: range from 0-9)
 2. dp[i] += dp[i-2] if s[i-2:i] is valid (two digits: range from 10-26)</p>
 <h2 id="cpp">cpp<a class="headerlink" href="#cpp" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">numDecodings</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.size();</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dp(n</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">dp[n]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">i;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// from back to front</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">dp[i]</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">dp[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">(s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;2&#39;</span><span style="color: #f92672">&amp;&amp;</span><span style="color: #f8f8f2">s[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">&lt;</span><span style="color: #e6db74">&#39;7&#39;</span><span style="color: #f8f8f2">))</span> <span style="color: #f8f8f2">dp[i]</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">dp[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">];</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s.empty()</span><span style="color: #f92672">?</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">dp[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">numDecodings</span>(string s) {
+    <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> s.size();
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dp(n<span style="color: #666666">+1</span>);
+    dp[n] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; <span style="color: #666666">~</span>i; i<span style="color: #666666">--</span>) { <span style="color: #408080; font-style: italic">// from back to front</span>
+        <span style="color: #008000; font-weight: bold">if</span>(s[i]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;0&#39;</span>) dp[i]<span style="color: #666666">=0</span>;
+        <span style="color: #008000; font-weight: bold">else</span> {
+            dp[i] <span style="color: #666666">=</span> dp[i<span style="color: #666666">+1</span>];
+            <span style="color: #008000; font-weight: bold">if</span>(i<span style="color: #666666">&lt;</span>n<span style="color: #666666">-1</span> <span style="color: #666666">&amp;&amp;</span> (s[i]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;1&#39;</span><span style="color: #666666">||</span>s[i]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;2&#39;</span><span style="color: #666666">&amp;&amp;</span>s[i<span style="color: #666666">+1</span>]<span style="color: #666666">&lt;</span><span style="color: #BA2121">&#39;7&#39;</span>)) dp[i]<span style="color: #666666">+=</span>dp[i<span style="color: #666666">+2</span>];
+        }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> s.empty()<span style="color: #666666">?</span> <span style="color: #666666">0</span> <span style="color: #666666">:</span> dp[<span style="color: #666666">0</span>];
+}
 </code></pre></div>
 
 
@@ -3020,25 +3011,25 @@ Output: 1
 2. s[i] == 2 and s[i+1] &lt; 7, so that s[i:i+1] is in range 20-26</p>
 <p>if s[i] == 0, then dp[i] = 0, because 0 cannot be leading</p>
 <h2 id="optimize-with-constant-space">optimize with constant space<a class="headerlink" href="#optimize-with-constant-space" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">numDecodings(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.size();</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">prepre</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;i</span><span style="color: #f92672">&gt;=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;i</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// from back to front</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">curr</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">curr</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">pre;</span>
-                <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">(s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">s[i]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;2&#39;</span><span style="color: #f92672">&amp;&amp;</span><span style="color: #f8f8f2">s[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">&lt;</span><span style="color: #e6db74">&#39;7&#39;</span><span style="color: #f8f8f2">))</span> 
-                    <span style="color: #f8f8f2">curr</span><span style="color: #f92672">+=</span><span style="color: #f8f8f2">prepre;</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">prepre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pre;</span>
-            <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">curr;</span>
-            <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s.empty()</span><span style="color: #f92672">?</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">pre;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> numDecodings(string s) {
+        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> s.size();
+        <span style="color: #B00040">int</span> pre <span style="color: #666666">=</span> <span style="color: #666666">1</span>, prepre <span style="color: #666666">=</span> <span style="color: #666666">1</span>, curr <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i<span style="color: #666666">=</span>n<span style="color: #666666">-1</span>;i<span style="color: #666666">&gt;=0</span>;i<span style="color: #666666">--</span>) { <span style="color: #408080; font-style: italic">// from back to front</span>
+            <span style="color: #008000; font-weight: bold">if</span>(s[i]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;0&#39;</span>) curr<span style="color: #666666">=0</span>;
+            <span style="color: #008000; font-weight: bold">else</span> {
+                curr<span style="color: #666666">=</span>pre;
+                <span style="color: #008000; font-weight: bold">if</span>(i<span style="color: #666666">&lt;</span>n<span style="color: #666666">-1</span> <span style="color: #666666">&amp;&amp;</span> (s[i]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;1&#39;</span><span style="color: #666666">||</span>s[i]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;2&#39;</span><span style="color: #666666">&amp;&amp;</span>s[i<span style="color: #666666">+1</span>]<span style="color: #666666">&lt;</span><span style="color: #BA2121">&#39;7&#39;</span>)) 
+                    curr<span style="color: #666666">+=</span>prepre;
+            }
+            prepre <span style="color: #666666">=</span> pre;
+            pre <span style="color: #666666">=</span> curr;
+            curr <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> s.empty()<span style="color: #666666">?</span> <span style="color: #666666">0</span> <span style="color: #666666">:</span> pre;
+    }
+};
 </code></pre></div>
 
 

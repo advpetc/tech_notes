@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2928,57 +2919,57 @@
                 
                 <h1 id="struct">Struct<a class="headerlink" href="#struct" title="Permanent link">&para;</a></h1>
 <h2 id="anonymous-struct">Anonymous Struct<a class="headerlink" href="#anonymous-struct" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #a6e22e">monica</span> <span style="color: #f92672">:=</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">firstName</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">lastName</span> <span style="color: #66d9ef">string</span>
-        <span style="color: #a6e22e">salary</span>              <span style="color: #66d9ef">int</span>
-        <span style="color: #a6e22e">fullTime</span>            <span style="color: #66d9ef">bool</span>
-    <span style="color: #f8f8f2">}{</span>
-        <span style="color: #a6e22e">firstName</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;Monica&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #a6e22e">lastName</span><span style="color: #f8f8f2">:</span>  <span style="color: #e6db74">&quot;Geller&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #a6e22e">salary</span><span style="color: #f8f8f2">:</span>    <span style="color: #ae81ff">1200</span><span style="color: #f8f8f2">,</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>monica <span style="color: #666666">:=</span> <span style="color: #008000; font-weight: bold">struct</span> {
+        firstName, lastName <span style="color: #B00040">string</span>
+        salary              <span style="color: #B00040">int</span>
+        fullTime            <span style="color: #B00040">bool</span>
+    }{
+        firstName: <span style="color: #BA2121">&quot;Monica&quot;</span>,
+        lastName:  <span style="color: #BA2121">&quot;Geller&quot;</span>,
+        salary:    <span style="color: #666666">1200</span>,
+    }
 
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">monica</span><span style="color: #f8f8f2">)</span>
+    fmt.Println(monica)
 </code></pre></div>
 
 
 <h2 id="anonymous-field">Anonymous Field<a class="headerlink" href="#anonymous-field" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">type</span> <span style="color: #a6e22e">Data</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">test</span> <span style="color: #66d9ef">string</span>
-    <span style="color: #66d9ef">int</span>
-    <span style="color: #66d9ef">bool</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">type</span> Data <span style="color: #008000; font-weight: bold">struct</span> {
+    test <span style="color: #B00040">string</span>
+    <span style="color: #B00040">int</span>
+    <span style="color: #B00040">bool</span>
+}
 
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">sample1</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">Data</span><span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;Monday&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1200</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">}</span>
-    <span style="color: #a6e22e">sample1</span><span style="color: #f8f8f2">.</span><span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">=</span> <span style="color: #66d9ef">false</span>
+<span style="color: #008000; font-weight: bold">func</span> main() {
+    sample1 <span style="color: #666666">:=</span> Data{<span style="color: #BA2121">&quot;Monday&quot;</span>, <span style="color: #666666">1200</span>, <span style="color: #008000; font-weight: bold">true</span>}
+    sample1.<span style="color: #B00040">bool</span> = <span style="color: #008000; font-weight: bold">false</span>
 
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">sample1</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">test</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">sample1</span><span style="color: #f8f8f2">.</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">sample1</span><span style="color: #f8f8f2">.</span><span style="color: #66d9ef">bool</span><span style="color: #f8f8f2">)</span> <span style="color: #75715e">// note that sample1.string will raise error</span>
-<span style="color: #f8f8f2">}</span>
+    fmt.Println(sample1.test, sample1.<span style="color: #B00040">int</span>, sample1.<span style="color: #B00040">bool</span>) <span style="color: #408080; font-style: italic">// note that sample1.string will raise error</span>
+}
 </code></pre></div>
 
 
 <h2 id="tag"><a href="https://medium.com/golangspec/tags-in-golang-3e5db0b8ef3e">Tag</a><a class="headerlink" href="#tag" title="Permanent link">&para;</a></h2>
 <p>Tags are formatted as concatenation of <code>key:"value"</code> pairs.</p>
 <p>(Un)marshaling;</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f92672">import</span> <span style="color: #f8f8f2">(</span>
-    <span style="color: #e6db74">&quot;encoding/json&quot;</span>
-    <span style="color: #e6db74">&quot;fmt&quot;</span>
-<span style="color: #f8f8f2">)</span>
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">type</span> <span style="color: #a6e22e">T</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">{</span>
-       <span style="color: #a6e22e">F1</span> <span style="color: #66d9ef">int</span> <span style="color: #e6db74">`json:&quot;f_1&quot;`</span>
-       <span style="color: #a6e22e">F2</span> <span style="color: #66d9ef">int</span> <span style="color: #e6db74">`json:&quot;f_2,omitempty&quot;`</span>
-       <span style="color: #a6e22e">F3</span> <span style="color: #66d9ef">int</span> <span style="color: #e6db74">`json:&quot;f_3,omitempty&quot;`</span>
-       <span style="color: #a6e22e">F4</span> <span style="color: #66d9ef">int</span> <span style="color: #e6db74">`json:&quot;-&quot;`</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #a6e22e">t</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">T</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">}</span>
-    <span style="color: #a6e22e">b</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">json</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Marshal</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">t</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">panic(</span><span style="color: #a6e22e">err</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Printf</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;%s\n&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">b</span><span style="color: #f8f8f2">)</span> <span style="color: #75715e">// {&quot;f_1&quot;:1,&quot;f_3&quot;:2}</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">import</span> (
+    <span style="color: #BA2121">&quot;encoding/json&quot;</span>
+    <span style="color: #BA2121">&quot;fmt&quot;</span>
+)
+<span style="color: #008000; font-weight: bold">func</span> main() {
+    <span style="color: #008000; font-weight: bold">type</span> T <span style="color: #008000; font-weight: bold">struct</span> {
+       F1 <span style="color: #B00040">int</span> <span style="color: #BA2121">`json:&quot;f_1&quot;`</span>
+       F2 <span style="color: #B00040">int</span> <span style="color: #BA2121">`json:&quot;f_2,omitempty&quot;`</span>
+       F3 <span style="color: #B00040">int</span> <span style="color: #BA2121">`json:&quot;f_3,omitempty&quot;`</span>
+       F4 <span style="color: #B00040">int</span> <span style="color: #BA2121">`json:&quot;-&quot;`</span>
+    }
+    t <span style="color: #666666">:=</span> T{<span style="color: #666666">1</span>, <span style="color: #666666">0</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>}
+    b, err <span style="color: #666666">:=</span> json.Marshal(t)
+    <span style="color: #008000; font-weight: bold">if</span> err <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> {
+        <span style="color: #008000">panic</span>(err)
+    }
+    fmt.Printf(<span style="color: #BA2121">&quot;%s\n&quot;</span>, b) <span style="color: #408080; font-style: italic">// {&quot;f_1&quot;:1,&quot;f_3&quot;:2}</span>
+}
 </code></pre></div>
                 
               

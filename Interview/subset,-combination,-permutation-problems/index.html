@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3101,73 +3092,73 @@ Output:
     <img alt="Screen Shot 2020-07-20 at 11.29.09 AM.png" src="../resources/1A7259AAEF64371E706E4C041BAE467A.png" /></li>
 </ol>
 <h4 id="code-1-using-bitwise-manipulation">Code 1: using bitwise manipulation<a class="headerlink" href="#code-1-using-bitwise-manipulation" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #75715e">// use binary increment for listing all the combination of bits</span>
-    <span style="color: #75715e">// converting the binary representation to subset representation</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">subsets(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">res;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">nums.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">temp;</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">nums.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #75715e">// check if current bit is 1, if so, add the value to list</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">((i</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">j)</span> <span style="color: #f92672">&amp;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
-                    <span style="color: #f8f8f2">temp.push_back(nums[j]);</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">res.push_back(temp);</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #408080; font-style: italic">// use binary increment for listing all the combination of bits</span>
+    <span style="color: #408080; font-style: italic">// converting the binary representation to subset representation</span>
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> subsets(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;&lt;</span> nums.size(); <span style="color: #666666">++</span>i) {
+            vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> temp;
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> nums.size(); <span style="color: #666666">++</span>j) {
+                <span style="color: #408080; font-style: italic">// check if current bit is 1, if so, add the value to list</span>
+                <span style="color: #008000; font-weight: bold">if</span> ((i <span style="color: #666666">&gt;&gt;</span> j) <span style="color: #666666">&amp;</span> <span style="color: #666666">1</span>)
+                    temp.push_back(nums[j]);
+            }
+            res.push_back(temp);
+        }
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
 
 
 <h4 id="code-2-using-backtrackingdfs-with-varied-branch-factor">Code 2: using backtracking/dfs with varied branch factor<a class="headerlink" href="#code-2-using-backtrackingdfs-with-varied-branch-factor" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">ret;</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">subsets(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">v;</span>
-        <span style="color: #f8f8f2">helper(v,</span> <span style="color: #f8f8f2">nums,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">ret;</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> ret;
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> subsets(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> v;
+        helper(v, nums, <span style="color: #666666">0</span>);
+        <span style="color: #008000; font-weight: bold">return</span> ret;
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">helper(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">curr,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">ret.push_back(curr);</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">nums.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">curr.push_back(nums[i]);</span>
-            <span style="color: #f8f8f2">helper(curr,</span> <span style="color: #f8f8f2">nums,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #f8f8f2">curr.pop_back();</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #B00040">void</span> helper(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> curr, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> i) {
+        ret.push_back(curr);
+        <span style="color: #008000; font-weight: bold">for</span> (; i <span style="color: #666666">&lt;</span> nums.size(); <span style="color: #666666">++</span>i) {
+            curr.push_back(nums[i]);
+            helper(curr, nums, i <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
+            curr.pop_back();
+        }
+    }
+};
 </code></pre></div>
 
 
 <h4 id="code-3-using-backtrackingdfs-with-choose-or-not">Code 3: using backtracking/dfs with choose or not<a class="headerlink" href="#code-3-using-backtrackingdfs-with-choose-or-not" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">res;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;
 
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">curr)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">nums.size())</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">res.push_back(curr);</span>
-            <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">// choose current element from nums[i]</span>
-        <span style="color: #f8f8f2">curr.push_back(nums[i]);</span>
-        <span style="color: #f8f8f2">dfs(nums,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">curr);</span>
-        <span style="color: #f8f8f2">curr.pop_back();</span>
-        <span style="color: #75715e">// not choose</span>
-        <span style="color: #f8f8f2">dfs(nums,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">curr);</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> i, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> curr) {
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">==</span> nums.size()) {
+            res.push_back(curr);
+            <span style="color: #008000; font-weight: bold">return</span>;
+        }
+        <span style="color: #408080; font-style: italic">// choose current element from nums[i]</span>
+        curr.push_back(nums[i]);
+        dfs(nums, i <span style="color: #666666">+</span> <span style="color: #666666">1</span>, curr);
+        curr.pop_back();
+        <span style="color: #408080; font-style: italic">// not choose</span>
+        dfs(nums, i <span style="color: #666666">+</span> <span style="color: #666666">1</span>, curr);
+    }
 
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">subsets(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">curr;</span>
-        <span style="color: #f8f8f2">dfs(nums,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">curr);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> subsets(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> curr;
+        dfs(nums, <span style="color: #666666">0</span>, curr);
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
 
 
@@ -3190,56 +3181,56 @@ Output:
 <p>1,2 and 1,2,2 are two different subsets, so we need to decide when to <strong>stop</strong> the recursion. In the previous problem, using "choose or not choose" we stop as we have reach to the end of the elements to be chosen. See the recursion tree for this particular problem:
 <img alt="Screen Shot 2020-07-20 at 1.30.34 PM.png" src="../resources/8013F39D7DF265C11CDF03E78F19889F.png" /></p>
 <h4 id="code-1-using-backtrackingdfs-with-varied-branch-factor">Code 1: using backtracking/dfs with varied branch factor<a class="headerlink" href="#code-1-using-backtrackingdfs-with-varied-branch-factor" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">subsetsWithDup(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">S)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(S.empty())</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{};</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">res;</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">out;</span>
-        <span style="color: #f8f8f2">sort(S.begin(),</span> <span style="color: #f8f8f2">S.end());</span>
-        <span style="color: #f8f8f2">getSubsets(S,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">out,</span> <span style="color: #f8f8f2">res);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">getSubsets(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">S,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">pos,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">out,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">res)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">res.push_back(out);</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pos;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">S.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">out.push_back(S[i]);</span>
-            <span style="color: #f8f8f2">getSubsets(S,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">out,</span> <span style="color: #f8f8f2">res);</span>
-            <span style="color: #f8f8f2">out.pop_back();</span>
-            <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">S.size()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">S[i]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">S[i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">])</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i;</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> subsetsWithDup(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>S) {
+        <span style="color: #008000; font-weight: bold">if</span> (S.empty()) <span style="color: #008000; font-weight: bold">return</span> {};
+        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> out;
+        sort(S.begin(), S.end());
+        getSubsets(S, <span style="color: #666666">0</span>, out, res);
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+    <span style="color: #B00040">void</span> getSubsets(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>S, <span style="color: #B00040">int</span> pos, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>out, vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">&amp;</span>res) {
+        res.push_back(out);
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> pos; i <span style="color: #666666">&lt;</span> S.size(); <span style="color: #666666">++</span>i) {
+            out.push_back(S[i]);
+            getSubsets(S, i <span style="color: #666666">+</span> <span style="color: #666666">1</span>, out, res);
+            out.pop_back();
+            <span style="color: #008000; font-weight: bold">while</span> (i <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;</span> S.size() <span style="color: #666666">&amp;&amp;</span> S[i] <span style="color: #666666">==</span> S[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>]) <span style="color: #666666">++</span>i;
+        }
+    }
+};
 </code></pre></div>
 
 
 <h4 id="code-2-using-backtrackingdfs-with-choose-or-not">Code 2: using backtracking/dfs with choose or not<a class="headerlink" href="#code-2-using-backtrackingdfs-with-choose-or-not" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">res;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+    <span style="color: #A0A000">public</span>:
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;
 
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">curr)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s.size())</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">res.push_back(curr);</span>
-            <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">// choose current s[i]</span>
-        <span style="color: #f8f8f2">curr.push_back(s[i]);</span>
-        <span style="color: #f8f8f2">dfs(i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">curr);</span>
-        <span style="color: #f8f8f2">curr.pop_back();</span>
-        <span style="color: #75715e">// not choose current s[i] and skip all the rest that are duplicated with s[i]</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">s.size()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">s[idx]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s[i])</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">dfs(i,</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">curr);</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(<span style="color: #B00040">int</span> i, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> s, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> curr) {
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">==</span> s.size()) {
+            res.push_back(curr);
+            <span style="color: #008000; font-weight: bold">return</span>;
+        }
+        <span style="color: #408080; font-style: italic">// choose current s[i]</span>
+        curr.push_back(s[i]);
+        dfs(i <span style="color: #666666">+</span> <span style="color: #666666">1</span>, s, curr);
+        curr.pop_back();
+        <span style="color: #408080; font-style: italic">// not choose current s[i] and skip all the rest that are duplicated with s[i]</span>
+        <span style="color: #B00040">int</span> idx <span style="color: #666666">=</span> i;
+        <span style="color: #008000; font-weight: bold">while</span> (i <span style="color: #666666">&lt;</span> s.size() <span style="color: #666666">&amp;&amp;</span> s[idx] <span style="color: #666666">==</span> s[i]) i<span style="color: #666666">++</span>;
+        dfs(i, s, curr);
+    }
 
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">subsetsWithDup(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">sort(nums.begin(),</span> <span style="color: #f8f8f2">nums.end());</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">curr;</span>
-        <span style="color: #f8f8f2">dfs(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">nums,</span> <span style="color: #f8f8f2">curr);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> subsetsWithDup(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+        sort(nums.begin(), nums.end());
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> curr;
+        dfs(<span style="color: #666666">0</span>, nums, curr);
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
 
 

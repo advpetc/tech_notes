@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3224,77 +3215,77 @@ we want to prove that A == O</p>
 <p>pick an ai that is in A, and replace it with oj. oj is not in A, so oj is less than ai. since size of B is the same, the solution is still the most optimal one. keep doing this until there is A == O.</p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
 <h4 id="sort-with-nlog-n">sort with nlog n<a class="headerlink" href="#sort-with-nlog-n" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * allocation.cpp</span>
-<span style="color: #75715e"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> * Distributed under terms of the MIT license.</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * allocation.cpp</span>
+<span style="color: #408080; font-style: italic"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> * Distributed under terms of the MIT license.</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">argc,</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">argv[])</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">T,</span> <span style="color: #f8f8f2">N,</span> <span style="color: #f8f8f2">B;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">T;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">T;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">B;</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">costs(N,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">N;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">costs[j];</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">sort(costs.begin(),</span> <span style="color: #f8f8f2">costs.end());</span> <span style="color: #75715e">// nlog n</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">N;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">k)</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(B</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">costs[k])</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">B</span> <span style="color: #f92672">-=</span> <span style="color: #f8f8f2">costs[k];</span>
-                <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Case #&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>(<span style="color: #B00040">int</span> argc, <span style="color: #B00040">char</span><span style="color: #666666">*</span> argv[])
+{
+    <span style="color: #B00040">int</span> T, N, B;
+    cin <span style="color: #666666">&gt;&gt;</span> T;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> T; <span style="color: #666666">++</span>i) {
+        cin <span style="color: #666666">&gt;&gt;</span> N <span style="color: #666666">&gt;&gt;</span> B;
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> costs(N, <span style="color: #666666">0</span>);
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> N; <span style="color: #666666">++</span>j) {
+            cin <span style="color: #666666">&gt;&gt;</span> costs[j];
+        }
+        sort(costs.begin(), costs.end()); <span style="color: #408080; font-style: italic">// nlog n</span>
+        <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">0</span>; k <span style="color: #666666">&lt;</span> N; <span style="color: #666666">++</span>k)
+            <span style="color: #008000; font-weight: bold">if</span> (B <span style="color: #666666">&gt;=</span> costs[k]) {
+                B <span style="color: #666666">-=</span> costs[k];
+                cnt<span style="color: #666666">++</span>;
+            } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">break</span>;
+        cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;Case #&quot;</span> <span style="color: #666666">&lt;&lt;</span> i <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;: &quot;</span> <span style="color: #666666">&lt;&lt;</span> cnt <span style="color: #666666">&lt;&lt;</span> endl;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
 <h4 id="count-sort-with-n">count sort with n<a class="headerlink" href="#count-sort-with-n" title="Permanent link">&para;</a></h4>
 <p>because 1 ≤ Ai ≤ 1000, we can use count sort</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * allocation.cpp</span>
-<span style="color: #75715e"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> * Distributed under terms of the MIT license.</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * allocation.cpp</span>
+<span style="color: #408080; font-style: italic"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> * Distributed under terms of the MIT license.</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">A[n];</span>
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> <span style="color: #666666">1010</span>;
+<span style="color: #B00040">int</span> A[n];
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">argc,</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">argv[])</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">T,</span> <span style="color: #f8f8f2">N,</span> <span style="color: #f8f8f2">B;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">T;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">T;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">B;</span>
-        <span style="color: #f8f8f2">memset(A,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">A);</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">v;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">N;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">v;</span>
-            <span style="color: #f8f8f2">A[v]</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">B</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">1000</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// i is house price</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(B</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">A[i]);</span> <span style="color: #75715e">// case when there are less than you can buy</span>
-            <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">curr;</span>
-            <span style="color: #f8f8f2">B</span> <span style="color: #f92672">-=</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">i;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Case #&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>(<span style="color: #B00040">int</span> argc, <span style="color: #B00040">char</span><span style="color: #666666">*</span> argv[])
+{
+    <span style="color: #B00040">int</span> T, N, B;
+    cin <span style="color: #666666">&gt;&gt;</span> T;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> T; <span style="color: #666666">++</span>i) {
+        cin <span style="color: #666666">&gt;&gt;</span> N <span style="color: #666666">&gt;&gt;</span> B;
+        memset(A, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> A);
+        <span style="color: #B00040">int</span> v;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> N; <span style="color: #666666">++</span>i) {
+            cin <span style="color: #666666">&gt;&gt;</span> v;
+            A[v]<span style="color: #666666">++</span>;
+        }
+        <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; B <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> i <span style="color: #666666">&lt;=</span> <span style="color: #666666">1000</span>; <span style="color: #666666">++</span>i) { <span style="color: #408080; font-style: italic">// i is house price</span>
+            <span style="color: #B00040">int</span> curr <span style="color: #666666">=</span> min(B <span style="color: #666666">/</span> i, A[i]); <span style="color: #408080; font-style: italic">// case when there are less than you can buy</span>
+            cnt <span style="color: #666666">+=</span> curr;
+            B <span style="color: #666666">-=</span> curr <span style="color: #666666">*</span> i;
+        }
+        cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;Case #&quot;</span> <span style="color: #666666">&lt;&lt;</span> i <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;: &quot;</span> <span style="color: #666666">&lt;&lt;</span> cnt <span style="color: #666666">&lt;&lt;</span> endl;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3345,46 +3336,46 @@ dp[i][j] = max(dp[i][j], val[k] + dp[i - 1][p - k])</p>
 <p>for choosing current stack's top k plates, you need to give up the previous stacks k plates, so the previous state is dp[i - 1][p - k]
 the answer is dp[N][P]</p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * plates.cpp</span>
-<span style="color: #75715e"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> * Distributed under terms of the MIT license.</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * plates.cpp</span>
+<span style="color: #408080; font-style: italic"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> * Distributed under terms of the MIT license.</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">argc,</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">argv[])</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">T;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N,</span> <span style="color: #f8f8f2">K,</span> <span style="color: #f8f8f2">P;</span> <span style="color: #75715e">// n: # of stacks, k: # of items for each stack, # total to be</span>
-                 <span style="color: #75715e">// borrowed</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">T;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">T;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">t)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">K</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">P;</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dp[N</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][P</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span> <span style="color: #75715e">// from 0-N, the max value for P plates</span>
-        <span style="color: #f8f8f2">memset(dp,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">dp);</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">N;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val[K</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #f8f8f2">memset(val,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">val);</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">K;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">val[j];</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #75715e">// calculate preSum</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">K;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">val[k]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val[k</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">val[k];</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">P;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">p)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">min(p,</span> <span style="color: #f8f8f2">K);</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f8f8f2">dp[i][p]</span>  <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(dp[i][p],</span> <span style="color: #f8f8f2">val[k]</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][p</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">k]);</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Case #&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">dp[N][P]</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>(<span style="color: #B00040">int</span> argc, <span style="color: #B00040">char</span><span style="color: #666666">*</span> argv[])
+{
+    <span style="color: #B00040">int</span> T;
+    <span style="color: #B00040">int</span> N, K, P; <span style="color: #408080; font-style: italic">// n: # of stacks, k: # of items for each stack, # total to be</span>
+                 <span style="color: #408080; font-style: italic">// borrowed</span>
+    cin <span style="color: #666666">&gt;&gt;</span> T;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> t <span style="color: #666666">=</span> <span style="color: #666666">0</span>; t <span style="color: #666666">&lt;</span> T; <span style="color: #666666">++</span>t) {
+        cin <span style="color: #666666">&gt;&gt;</span> N <span style="color: #666666">&gt;&gt;</span> K <span style="color: #666666">&gt;&gt;</span> P;
+        <span style="color: #B00040">int</span> dp[N <span style="color: #666666">+</span> <span style="color: #666666">1</span>][P <span style="color: #666666">+</span> <span style="color: #666666">1</span>]; <span style="color: #408080; font-style: italic">// from 0-N, the max value for P plates</span>
+        memset(dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> N; <span style="color: #666666">++</span>i) {
+            <span style="color: #B00040">int</span> val[K <span style="color: #666666">+</span> <span style="color: #666666">1</span>];
+            memset(val, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> val);
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&lt;=</span> K; <span style="color: #666666">++</span>j) {
+                cin <span style="color: #666666">&gt;&gt;</span> val[j];
+            }
+            <span style="color: #408080; font-style: italic">// calculate preSum</span>
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">1</span>; k <span style="color: #666666">&lt;=</span> K; <span style="color: #666666">++</span>k) {
+                val[k] <span style="color: #666666">=</span> val[k <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">+</span> val[k];
+            }
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> p <span style="color: #666666">=</span> <span style="color: #666666">1</span>; p <span style="color: #666666">&lt;=</span> P; <span style="color: #666666">++</span>p) {
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">0</span>; k <span style="color: #666666">&lt;=</span> min(p, K); <span style="color: #666666">++</span>k) {
+                    dp[i][p]  <span style="color: #666666">=</span> max(dp[i][p], val[k] <span style="color: #666666">+</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][p <span style="color: #666666">-</span> k]);
+                }
+            }
+        }
+        cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;Case #&quot;</span> <span style="color: #666666">&lt;&lt;</span> t <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;: &quot;</span> <span style="color: #666666">&lt;&lt;</span> dp[N][P] <span style="color: #666666">&lt;&lt;</span> endl;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3440,112 +3431,112 @@ In Case #1: Tambourine can add up to two sessions. The added sessions are marked
 </ol>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
 <h4 id="priority-queue">Priority Queue<a class="headerlink" href="#priority-queue" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">node</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #f8f8f2">cnt;</span>
-    <span style="color: #f8f8f2">node()</span> <span style="color: #f8f8f2">{}</span>
-    <span style="color: #f8f8f2">node(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt)</span>
-        <span style="color: #f92672">:</span> <span style="color: #f8f8f2">sum(sum)</span>
-        <span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">cnt(cnt)</span>
-    <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">operator</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">node</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">b)</span> <span style="color: #66d9ef">const</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(sum</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">cnt)</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(sum</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// sort by averged out by cnt</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(b.sum</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">b.cnt)</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(b.sum</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">b.cnt</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">y;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">argc,</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">argv[])</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">T;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N,</span> <span style="color: #f8f8f2">K;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">T;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">T;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">K;</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m[N];</span>
-        <span style="color: #f8f8f2">memset(m,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">m);</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">N;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">m[n];</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">gap[N</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-        <span style="color: #f8f8f2">memset(gap,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">gap);</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">gap[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m[i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">m[i];</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(K</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">sort(gap,</span> <span style="color: #f8f8f2">gap</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(N</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span>
-                <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;Case #%d: %d</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">(gap[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #66d9ef">else</span>
-                <span style="color: #f8f8f2">printf(</span>
-                    <span style="color: #e6db74">&quot;Case #%d: %d</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">max((gap[N</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">gap[N</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">]));</span>
-        <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">priority_queue</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">node</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">q;</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">q.push(node(gap[i],</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">));</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">K;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q.top();</span>
-                <span style="color: #f8f8f2">q.pop();</span>
-                <span style="color: #f8f8f2">q.push(node(p.sum,</span> <span style="color: #f8f8f2">p.cnt</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">));</span> <span style="color: #75715e">// add one to split it</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q.top();</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(p.sum</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">p.cnt)</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(p.sum</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">p.cnt</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;Case #%d: %d</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">res);</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">struct</span> node {
+    <span style="color: #B00040">int</span> sum, cnt;
+    node() {}
+    node(<span style="color: #B00040">int</span> sum, <span style="color: #B00040">int</span> cnt)
+        <span style="color: #666666">:</span> sum(sum)
+        , cnt(cnt)
+    {
+    }
+    <span style="color: #B00040">bool</span> operator<span style="color: #666666">&lt;</span>(<span style="color: #008000; font-weight: bold">const</span> node<span style="color: #666666">&amp;</span> b) <span style="color: #008000; font-weight: bold">const</span>
+    {
+        <span style="color: #B00040">int</span> x <span style="color: #666666">=</span> (sum <span style="color: #666666">/</span> cnt) <span style="color: #666666">+</span> (sum <span style="color: #666666">%</span> cnt <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>); <span style="color: #408080; font-style: italic">// sort by averged out by cnt</span>
+        <span style="color: #B00040">int</span> y <span style="color: #666666">=</span> (b.sum <span style="color: #666666">/</span> b.cnt) <span style="color: #666666">+</span> (b.sum <span style="color: #666666">%</span> b.cnt <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>);
+        <span style="color: #008000; font-weight: bold">return</span> x <span style="color: #666666">&lt;</span> y;
+    }
+};
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>(<span style="color: #B00040">int</span> argc, <span style="color: #B00040">char</span><span style="color: #666666">*</span> argv[])
+{
+    <span style="color: #B00040">int</span> T;
+    <span style="color: #B00040">int</span> N, K;
+    cin <span style="color: #666666">&gt;&gt;</span> T;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> T; <span style="color: #666666">++</span>i) {
+        cin <span style="color: #666666">&gt;&gt;</span> N <span style="color: #666666">&gt;&gt;</span> K;
+        <span style="color: #B00040">int</span> m[N];
+        memset(m, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> m);
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> n <span style="color: #666666">=</span> <span style="color: #666666">0</span>; n <span style="color: #666666">&lt;</span> N; <span style="color: #666666">++</span>n) {
+            cin <span style="color: #666666">&gt;&gt;</span> m[n];
+        }
+        <span style="color: #B00040">int</span> gap[N <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
+        memset(gap, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> gap);
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> N <span style="color: #666666">-</span> <span style="color: #666666">1</span>; <span style="color: #666666">++</span>i) {
+            gap[i] <span style="color: #666666">=</span> m[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">-</span> m[i];
+        }
+        <span style="color: #008000; font-weight: bold">if</span> (K <span style="color: #666666">==</span> <span style="color: #666666">1</span>) {
+            sort(gap, gap <span style="color: #666666">+</span> N <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+            <span style="color: #008000; font-weight: bold">if</span> (N <span style="color: #666666">==</span> <span style="color: #666666">2</span>)
+                printf(<span style="color: #BA2121">&quot;Case #%d: %d</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>, i, (gap[<span style="color: #666666">0</span>] <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span>);
+            <span style="color: #008000; font-weight: bold">else</span>
+                printf(
+                    <span style="color: #BA2121">&quot;Case #%d: %d</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>, i, max((gap[N <span style="color: #666666">-</span> <span style="color: #666666">2</span>] <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span>, gap[N <span style="color: #666666">-</span> <span style="color: #666666">3</span>]));
+        } <span style="color: #008000; font-weight: bold">else</span> {
+            priority_queue<span style="color: #666666">&lt;</span>node<span style="color: #666666">&gt;</span> q;
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> N <span style="color: #666666">-</span> <span style="color: #666666">1</span>; <span style="color: #666666">++</span>i) {
+                q.push(node(gap[i], <span style="color: #666666">1</span>));
+            }
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> K; <span style="color: #666666">++</span>i) {
+                <span style="color: #008000; font-weight: bold">auto</span> p <span style="color: #666666">=</span> q.top();
+                q.pop();
+                q.push(node(p.sum, p.cnt <span style="color: #666666">+</span> <span style="color: #666666">1</span>)); <span style="color: #408080; font-style: italic">// add one to split it</span>
+            }
+            <span style="color: #008000; font-weight: bold">auto</span> p <span style="color: #666666">=</span> q.top();
+            <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> (p.sum <span style="color: #666666">/</span> p.cnt) <span style="color: #666666">+</span> (p.sum <span style="color: #666666">%</span> p.cnt <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>);
+            printf(<span style="color: #BA2121">&quot;Case #%d: %d</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>, i, res);
+        }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
 <h4 id="binary-search">Binary search<a class="headerlink" href="#binary-search" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+using namespace std;
 
-<span style="color: #75715e">#define ll long long</span>
-<span style="color: #75715e">#define ar array</span>
+<span style="color: #BC7A00">#define ll long long</span>
+<span style="color: #BC7A00">#define ar array</span>
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">k,</span> <span style="color: #f8f8f2">a[</span><span style="color: #ae81ff">100000</span><span style="color: #f8f8f2">];</span>
+<span style="color: #B00040">int</span> n, k, a[<span style="color: #666666">100000</span>];
 
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">solve</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">k;</span> <span style="color: #75715e">// n: size of a, k: # of total insertions</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-        <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">a[i];</span>
+<span style="color: #B00040">void</span> <span style="color: #0000FF">solve</span>()
+{
+    cin <span style="color: #666666">&gt;&gt;</span> n <span style="color: #666666">&gt;&gt;</span> k; <span style="color: #408080; font-style: italic">// n: size of a, k: # of total insertions</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i)
+        cin <span style="color: #666666">&gt;&gt;</span> a[i];
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">lb</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">rb</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a[n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">a[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span> <span style="color: #75715e">// total difference</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(lb</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">rb)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mb</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(lb</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">rb)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// guess the most optimal difference is mb</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k2</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">d</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a[i]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">a[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #f8f8f2">k2</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">(d</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">mb</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">mb</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// # of all inserted class if mb is the optimal</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(k2</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">k)</span> <span style="color: #75715e">// if less than k, we can potentially decrease the difficulity</span>
-            <span style="color: #f8f8f2">rb</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mb;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #75715e">// or we have to increase the difficulity</span>
-            <span style="color: #f8f8f2">lb</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mb</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">lb</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">int</span> lb <span style="color: #666666">=</span> <span style="color: #666666">1</span>, rb <span style="color: #666666">=</span> a[n <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">-</span> a[<span style="color: #666666">0</span>]; <span style="color: #408080; font-style: italic">// total difference</span>
+    <span style="color: #008000; font-weight: bold">while</span> (lb <span style="color: #666666">&lt;</span> rb) {
+        <span style="color: #B00040">int</span> mb <span style="color: #666666">=</span> (lb <span style="color: #666666">+</span> rb) <span style="color: #666666">/</span> <span style="color: #666666">2</span>; <span style="color: #408080; font-style: italic">// guess the most optimal difference is mb</span>
+        <span style="color: #B00040">int</span> k2 <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+            <span style="color: #B00040">int</span> d <span style="color: #666666">=</span> a[i] <span style="color: #666666">-</span> a[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
+            k2 <span style="color: #666666">+=</span> (d <span style="color: #666666">+</span> mb <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> mb <span style="color: #666666">-</span> <span style="color: #666666">1</span>; <span style="color: #408080; font-style: italic">// # of all inserted class if mb is the optimal</span>
+        }
+        <span style="color: #008000; font-weight: bold">if</span> (k2 <span style="color: #666666">&lt;=</span> k) <span style="color: #408080; font-style: italic">// if less than k, we can potentially decrease the difficulity</span>
+            rb <span style="color: #666666">=</span> mb;
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #408080; font-style: italic">// or we have to increase the difficulity</span>
+            lb <span style="color: #666666">=</span> mb <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+    }
+    cout <span style="color: #666666">&lt;&lt;</span> lb <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>;
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">ios</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">sync_with_stdio(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">cin.tie(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>()
+{
+    ios<span style="color: #666666">::</span>sync_with_stdio(<span style="color: #666666">0</span>);
+    cin.tie(<span style="color: #666666">0</span>);
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">t;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(t</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Case #&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;: &quot;</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">solve();</span>
-        <span style="color: #f92672">++</span><span style="color: #f8f8f2">i;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">int</span> t, i <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+    cin <span style="color: #666666">&gt;&gt;</span> t;
+    <span style="color: #008000; font-weight: bold">while</span> (t<span style="color: #666666">--</span>) {
+        cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;Case #&quot;</span> <span style="color: #666666">&lt;&lt;</span> i <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;: &quot;</span>;
+        solve();
+        <span style="color: #666666">++</span>i;
+    }
+}
 </code></pre></div>
 
 
@@ -3625,69 +3616,69 @@ Each trie node has 26 children nodes, and one cnt int for counting the number of
 Insert: insert into trie and update the cnt for each ending character node. 
 Query: just search from the root of the trie and traverse through the last level of the trie, because all the nodes from root has a count that represent the occurance of word that is ended with node character.</p>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+using namespace std;
 
-<span style="color: #75715e">#define endl &quot;\n&quot;</span>
-<span style="color: #75715e">#define int long long</span>
+<span style="color: #BC7A00">#define endl &quot;\n&quot;</span>
+<span style="color: #BC7A00">#define int long long</span>
 
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1e5</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">;</span>
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">1e5</span> <span style="color: #666666">+</span> <span style="color: #666666">5</span>;
 
-<span style="color: #66d9ef">typedef</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">data</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">data</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">bit[</span><span style="color: #ae81ff">26</span><span style="color: #f8f8f2">];</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}trie;</span>
+<span style="color: #008000; font-weight: bold">typedef</span> <span style="color: #008000; font-weight: bold">struct</span> data
+{
+    data<span style="color: #666666">*</span> bit[<span style="color: #666666">26</span>];
+    <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+}trie;
 
-<span style="color: #f8f8f2">trie</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">head;</span>
+trie<span style="color: #666666">*</span> head;
 
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">insert</span><span style="color: #f8f8f2">(string</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">s)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">trie</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">cur</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
-    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">it:s)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">it</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;A&#39;</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">bit[b])</span>
-            <span style="color: #f8f8f2">cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">bit[b]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">trie();</span> <span style="color: #75715e">// create new node if not exist</span>
-        <span style="color: #f8f8f2">cur</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">bit[b];</span> <span style="color: #75715e">// proceed through next character</span>
-        <span style="color: #f8f8f2">cur</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">cnt</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// end with current character</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">void</span> <span style="color: #0000FF">insert</span>(string <span style="color: #666666">&amp;</span>s)
+{
+    trie<span style="color: #666666">*</span> cur <span style="color: #666666">=</span> head;
+    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #666666">&amp;</span><span style="color: #A0A000">it</span>:s)
+    {
+        <span style="color: #B00040">int</span> b <span style="color: #666666">=</span> it <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;A&#39;</span>;
+        <span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">!</span>cur<span style="color: #666666">-&gt;</span>bit[b])
+            cur<span style="color: #666666">-&gt;</span>bit[b] <span style="color: #666666">=</span> new trie(); <span style="color: #408080; font-style: italic">// create new node if not exist</span>
+        cur <span style="color: #666666">=</span> cur<span style="color: #666666">-&gt;</span>bit[b]; <span style="color: #408080; font-style: italic">// proceed through next character</span>
+        cur<span style="color: #666666">-&gt;</span>cnt<span style="color: #666666">++</span>; <span style="color: #408080; font-style: italic">// end with current character</span>
+    }
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">k;</span>
-<span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s[N];</span>
+<span style="color: #B00040">int</span> n, k;
+string s[N];
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">query</span><span style="color: #f8f8f2">(trie</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">cur)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">cur)</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">ans</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(cur</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">k);</span> <span style="color: #75715e">// there are k words each, so there are k times repeat counts</span>
-    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">25</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(cur</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">bit[i])</span>
-            <span style="color: #f8f8f2">ans</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">query(cur</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">bit[i]);</span> <span style="color: #75715e">// proceeds to next level and check the count</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">ans;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">query</span>(trie<span style="color: #666666">*</span> cur)
+{
+    <span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">!</span>cur)
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+    <span style="color: #B00040">int</span> ans <span style="color: #666666">=</span> (cur <span style="color: #666666">-&gt;</span> cnt <span style="color: #666666">/</span> k); <span style="color: #408080; font-style: italic">// there are k words each, so there are k times repeat counts</span>
+    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;=</span> <span style="color: #666666">25</span>; i<span style="color: #666666">++</span>)
+        <span style="color: #008000; font-weight: bold">if</span>(cur <span style="color: #666666">-&gt;</span> bit[i])
+            ans <span style="color: #666666">+=</span> query(cur <span style="color: #666666">-&gt;</span> bit[i]); <span style="color: #408080; font-style: italic">// proceeds to next level and check the count</span>
+    <span style="color: #008000; font-weight: bold">return</span> ans;
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">t;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">tc</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> 
-    <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(t</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">trie();</span>
-        <span style="color: #f8f8f2">tc</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">k;</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
-        <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">s[i];</span>
-            <span style="color: #f8f8f2">insert(s[i]);</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">ans</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">query(head);</span>
-        <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Case #&quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">tc</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">ans</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
-    <span style="color: #f8f8f2">}</span>   
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>()
+{
+    <span style="color: #B00040">int</span> t;
+    cin <span style="color: #666666">&gt;&gt;</span> t;
+    <span style="color: #B00040">int</span> tc <span style="color: #666666">=</span> <span style="color: #666666">0</span>; 
+    <span style="color: #008000; font-weight: bold">while</span>(t<span style="color: #666666">--</span>)
+    {
+        head <span style="color: #666666">=</span> new trie();
+        tc<span style="color: #666666">++</span>;
+        cin <span style="color: #666666">&gt;&gt;</span> n <span style="color: #666666">&gt;&gt;</span> k;
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; i<span style="color: #666666">++</span>)
+        {
+            cin <span style="color: #666666">&gt;&gt;</span> s[i];
+            insert(s[i]);
+        }
+        <span style="color: #B00040">int</span> ans <span style="color: #666666">=</span> query(head);
+        cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;Case #&quot;</span> <span style="color: #666666">&lt;&lt;</span> tc <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;: &quot;</span> <span style="color: #666666">&lt;&lt;</span> ans <span style="color: #666666">&lt;&lt;</span> endl;
+    }   
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
                 
               

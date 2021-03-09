@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2900,16 +2891,16 @@
                 
                 <h1 id="overloading-operator">Overloading Operator<a class="headerlink" href="#overloading-operator" title="Permanent link">&para;</a></h1>
 <h2 id="sort-operator-on-struct">Sort Operator on Struct<a class="headerlink" href="#sort-operator-on-struct" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Edge</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">w;</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">operator</span><span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">Edge</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">t)</span> <span style="color: #66d9ef">const</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">w</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">t.w;</span> <span style="color: #75715e">// will sort from small to big, aka, increasing order</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}e[M];</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">struct</span> Edge
+{
+    <span style="color: #B00040">int</span> a, b, w;
+    <span style="color: #B00040">bool</span> operator<span style="color: #666666">&lt;</span> (<span style="color: #008000; font-weight: bold">const</span> Edge <span style="color: #666666">&amp;</span>t) <span style="color: #008000; font-weight: bold">const</span>
+    {
+        <span style="color: #008000; font-weight: bold">return</span> w <span style="color: #666666">&lt;</span> t.w; <span style="color: #408080; font-style: italic">// will sort from small to big, aka, increasing order</span>
+    }
+}e[M];
 
-<span style="color: #f8f8f2">sort(e,</span> <span style="color: #f8f8f2">e</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">m);</span>
+sort(e, e <span style="color: #666666">+</span> m);
 </code></pre></div>
                 
               

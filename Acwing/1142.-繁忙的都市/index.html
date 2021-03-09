@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2960,63 +2951,63 @@
 <h2 id="kruskal">分析：Kruskal<a class="headerlink" href="#kruskal" title="Permanent link">&para;</a></h2>
 <p>首先按照边排序，从小往大加边，当cover到所有点的时候结束，返回当前的最后加入的边的值，复杂度: <span><span class="MathJax_Preview">O(m \times log(m))</span><script type="math/tex">O(m \times log(m))</script></span></p>
 <h2 id="_1">代码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;cstring&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;algorithm&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;cstring&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;algorithm&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">310</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">M</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">10010</span><span style="color: #f8f8f2">;</span>
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">310</span>, M <span style="color: #666666">=</span> <span style="color: #666666">10010</span>;
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">m;</span>
-<span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Edge</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">w;</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">operator</span><span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">Edge</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">t)</span> <span style="color: #66d9ef">const</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">w</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">t.w;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}e[M];</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">p[N];</span>
+<span style="color: #B00040">int</span> n, m;
+<span style="color: #008000; font-weight: bold">struct</span> Edge
+{
+    <span style="color: #B00040">int</span> a, b, w;
+    <span style="color: #B00040">bool</span> operator<span style="color: #666666">&lt;</span> (<span style="color: #008000; font-weight: bold">const</span> Edge <span style="color: #666666">&amp;</span>t) <span style="color: #008000; font-weight: bold">const</span>
+    {
+        <span style="color: #008000; font-weight: bold">return</span> w <span style="color: #666666">&lt;</span> t.w;
+    }
+}e[M];
+<span style="color: #B00040">int</span> p[N];
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">find</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(p[x]</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">x)</span> <span style="color: #f8f8f2">p[x]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">find(p[x]);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">p[x];</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">find</span>(<span style="color: #B00040">int</span> x)
+{
+    <span style="color: #008000; font-weight: bold">if</span> (p[x] <span style="color: #666666">!=</span> x) p[x] <span style="color: #666666">=</span> find(p[x]);
+    <span style="color: #008000; font-weight: bold">return</span> p[x];
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">p[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">w;</span>
-        <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">w;</span>
-        <span style="color: #f8f8f2">e[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">w};</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">sort(e,</span> <span style="color: #f8f8f2">e</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">m);</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>()
+{
+    cin <span style="color: #666666">&gt;&gt;</span> n <span style="color: #666666">&gt;&gt;</span> m;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; i <span style="color: #666666">++</span> ) p[i] <span style="color: #666666">=</span> i;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; i <span style="color: #666666">++</span> )
+    {
+        <span style="color: #B00040">int</span> a, b, w;
+        cin <span style="color: #666666">&gt;&gt;</span> a <span style="color: #666666">&gt;&gt;</span> b <span style="color: #666666">&gt;&gt;</span> w;
+        e[i] <span style="color: #666666">=</span> {a, b, w};
+    }
+    sort(e, e <span style="color: #666666">+</span> m);
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">find(e[i].a),</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">find(e[i].b),</span> <span style="color: #f8f8f2">w</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">e[i].w;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">b)</span> <span style="color: #75715e">// 假如已经连接，那么无需继续连接</span>
-        <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">p[a]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b;</span>
-            <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">w;</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; i <span style="color: #666666">++</span> )
+    {
+        <span style="color: #B00040">int</span> a <span style="color: #666666">=</span> find(e[i].a), b <span style="color: #666666">=</span> find(e[i].b), w <span style="color: #666666">=</span> e[i].w;
+        <span style="color: #008000; font-weight: bold">if</span> (a <span style="color: #666666">!=</span> b) <span style="color: #408080; font-style: italic">// 假如已经连接，那么无需继续连接</span>
+        {
+            p[a] <span style="color: #666666">=</span> b;
+            res <span style="color: #666666">=</span> w;
+        }
+    }
 
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&#39; &#39;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
+    cout <span style="color: #666666">&lt;&lt;</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&#39; &#39;</span> <span style="color: #666666">&lt;&lt;</span> res <span style="color: #666666">&lt;&lt;</span> endl;
 
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 
-<span style="color: #960050; background-color: #1e0010">作者：</span><span style="color: #f8f8f2">yxc</span>
-<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/activity/content/code/content/148078/</span>
-<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
-<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+<span style="border: 1px solid #FF0000">作者：</span>yxc
+<span style="border: 1px solid #FF0000">链接：</span><span style="color: #A0A000">https</span>:<span style="color: #408080; font-style: italic">//www.acwing.com/activity/content/code/content/148078/</span>
+<span style="border: 1px solid #FF0000">来源：</span>AcWing
+<span style="border: 1px solid #FF0000">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
                 
               

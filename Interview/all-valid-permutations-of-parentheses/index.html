@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2915,14 +2906,14 @@
                 <h1 id="all-vaid-permutation-of-parentheses">All Vaid Permutation of Parentheses<a class="headerlink" href="#all-vaid-permutation-of-parentheses" title="Permanent link">&para;</a></h1>
 <p>Get all valid permutations of l pairs of (), m pairs of &lt;&gt; and n pairs of {}, subject to the priority restriction: {} higher than &lt;&gt; higher than ().</p>
 <p>Assumptions</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>l, m, n &gt;= 0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>l, m, n &gt;= 0
 
 l + m + n &gt;= 0
 </code></pre></div>
 
 
 <p>Examples</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>l = 1, m = 1, n = 0, all the valid permutations are [&quot;()&lt;&gt;&quot;, &quot;&lt;()&gt;&quot;, &quot;&lt;&gt;()&quot;].
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>l = 1, m = 1, n = 0, all the valid permutations are [&quot;()&lt;&gt;&quot;, &quot;&lt;()&gt;&quot;, &quot;&lt;&gt;()&quot;].
 
 l = 2, m = 0, n = 1, all the valid permutations are [“()(){}”, “(){()}”, “(){}()”, “{()()}”, “{()}()”, “{}()()”].
 </code></pre></div>
@@ -2936,52 +2927,52 @@ l = 2, m = 0, n = 1, all the valid permutations are [“()(){}”, “(){()}”,
 <li>if no, check if previous one is the corresponding open parenthese and delete the previous open parenthese index from stack</li>
 </ul>
 <h2 id="java-code">Java Code<a class="headerlink" href="#java-code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">static</span> <span style="color: #66d9ef">final</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">PS</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">[]</span><span style="color: #f8f8f2">{</span><span style="color: #e6db74">&#39;(&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;)&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;&lt;&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;&gt;&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;{&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;}&#39;</span><span style="color: #f8f8f2">};</span>
-  <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">String</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">validParenthesesIII</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">remain</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">[]</span><span style="color: #f8f8f2">{l,</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">m,</span> <span style="color: #f8f8f2">m,</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">n};</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">targetLen</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #f8f8f2">StringBuilder</span> <span style="color: #f8f8f2">cur</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">StringBuilder();</span>
-    <span style="color: #f8f8f2">Deque</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">stack</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">LinkedList</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">();</span>
-    <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">String</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">result</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">ArrayList</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">String</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">();</span>
-    <span style="color: #f8f8f2">helper(cur,</span> <span style="color: #f8f8f2">stack,</span> <span style="color: #f8f8f2">remain,</span> <span style="color: #f8f8f2">targetLen,</span> <span style="color: #f8f8f2">result);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">result;</span>
-  <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #B00040">char</span><span style="color: #666666">[]</span> PS <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">char</span><span style="color: #666666">[]</span>{<span style="color: #BA2121">&#39;(&#39;</span>, <span style="color: #BA2121">&#39;)&#39;</span>, <span style="color: #BA2121">&#39;&lt;&#39;</span>, <span style="color: #BA2121">&#39;&gt;&#39;</span>, <span style="color: #BA2121">&#39;{&#39;</span>, <span style="color: #BA2121">&#39;}&#39;</span>};
+  <span style="color: #008000; font-weight: bold">public</span> List<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> <span style="color: #0000FF">validParenthesesIII</span>(<span style="color: #B00040">int</span> l, <span style="color: #B00040">int</span> m, <span style="color: #B00040">int</span> n) {
+    <span style="color: #B00040">int</span><span style="color: #666666">[]</span> remain <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span>{l, l, m, m, n, n};
+    <span style="color: #B00040">int</span> targetLen <span style="color: #666666">=</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> l <span style="color: #666666">+</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> m <span style="color: #666666">+</span> <span style="color: #666666">2</span> <span style="color: #666666">*</span> n;
+    StringBuilder cur <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> StringBuilder();
+    Deque<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> stack <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> LinkedList<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span>();
+    List<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> result <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span>();
+    helper(cur, stack, remain, targetLen, result);
+    <span style="color: #008000; font-weight: bold">return</span> result;
+  }
 
-  <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(StringBuilder</span> <span style="color: #f8f8f2">cur,</span> <span style="color: #f8f8f2">Deque</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">stack,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">remain,</span>
-                      <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">targetLen,</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">String</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">result)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// need to use all parentheses</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cur.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">targetLen)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">result.</span><span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(cur.</span><span style="color: #a6e22e">toString</span><span style="color: #f8f8f2">());</span>
-      <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">remain.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// ( &lt; or {</span>
-        <span style="color: #75715e">// top of stack has a lower priority -&gt; need to be surrounded by higher priority parenthese</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(remain</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">(stack.</span><span style="color: #a6e22e">isEmpty</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">peekFirst</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">i))</span> <span style="color: #f8f8f2">{</span> 
-          <span style="color: #f8f8f2">cur.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(PS</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">offerFirst</span><span style="color: #f8f8f2">(i);</span>
-          <span style="color: #f8f8f2">remain</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]--</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">helper(cur,</span> <span style="color: #f8f8f2">stack,</span> <span style="color: #f8f8f2">remain,</span> <span style="color: #f8f8f2">targetLen,</span> <span style="color: #f8f8f2">result);</span>
-          <span style="color: #f8f8f2">cur.</span><span style="color: #a6e22e">deleteCharAt</span><span style="color: #f8f8f2">(cur.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">pollFirst</span><span style="color: #f8f8f2">();</span>
-          <span style="color: #f8f8f2">remain</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// ) &gt; or }</span>
-        <span style="color: #75715e">// only update the cur if previous / top of the stack is the corresponding open parentheses</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">isEmpty</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">peekFirst</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #f8f8f2">cur.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(PS</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">pollFirst</span><span style="color: #f8f8f2">();</span>
-          <span style="color: #f8f8f2">remain</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]--</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #f8f8f2">helper(cur,</span> <span style="color: #f8f8f2">stack,</span> <span style="color: #f8f8f2">remain,</span> <span style="color: #f8f8f2">targetLen,</span> <span style="color: #f8f8f2">result);</span>
-          <span style="color: #f8f8f2">cur.</span><span style="color: #a6e22e">deleteCharAt</span><span style="color: #f8f8f2">(cur.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">stack.</span><span style="color: #a6e22e">offerFirst</span><span style="color: #f8f8f2">(i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-          <span style="color: #f8f8f2">remain</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">helper</span>(StringBuilder cur, Deque<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> stack, <span style="color: #B00040">int</span><span style="color: #666666">[]</span> remain,
+                      <span style="color: #B00040">int</span> targetLen, List<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> result) {
+    <span style="color: #408080; font-style: italic">// need to use all parentheses</span>
+    <span style="color: #008000; font-weight: bold">if</span> (cur.<span style="color: #7D9029">length</span>() <span style="color: #666666">==</span> targetLen) {
+      result.<span style="color: #7D9029">add</span>(cur.<span style="color: #7D9029">toString</span>());
+      <span style="color: #008000; font-weight: bold">return</span>;
+    }
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> remain.<span style="color: #7D9029">length</span>; <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">%</span> <span style="color: #666666">2</span> <span style="color: #666666">==</span> <span style="color: #666666">0</span>) { <span style="color: #408080; font-style: italic">// ( &lt; or {</span>
+        <span style="color: #408080; font-style: italic">// top of stack has a lower priority -&gt; need to be surrounded by higher priority parenthese</span>
+        <span style="color: #008000; font-weight: bold">if</span> (remain<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> (stack.<span style="color: #7D9029">isEmpty</span>() <span style="color: #666666">||</span> stack.<span style="color: #7D9029">peekFirst</span>() <span style="color: #666666">&gt;</span> i)) { 
+          cur.<span style="color: #7D9029">append</span>(PS<span style="color: #666666">[</span>i<span style="color: #666666">]</span>);
+          stack.<span style="color: #7D9029">offerFirst</span>(i);
+          remain<span style="color: #666666">[</span>i<span style="color: #666666">]--</span>;
+          helper(cur, stack, remain, targetLen, result);
+          cur.<span style="color: #7D9029">deleteCharAt</span>(cur.<span style="color: #7D9029">length</span>() <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+          stack.<span style="color: #7D9029">pollFirst</span>();
+          remain<span style="color: #666666">[</span>i<span style="color: #666666">]++</span>;
+        }
+      } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #408080; font-style: italic">// ) &gt; or }</span>
+        <span style="color: #408080; font-style: italic">// only update the cur if previous / top of the stack is the corresponding open parentheses</span>
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>stack.<span style="color: #7D9029">isEmpty</span>() <span style="color: #666666">&amp;&amp;</span> stack.<span style="color: #7D9029">peekFirst</span>() <span style="color: #666666">==</span> i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) {
+          cur.<span style="color: #7D9029">append</span>(PS<span style="color: #666666">[</span>i<span style="color: #666666">]</span>);
+          stack.<span style="color: #7D9029">pollFirst</span>();
+          remain<span style="color: #666666">[</span>i<span style="color: #666666">]--</span>;
+          helper(cur, stack, remain, targetLen, result);
+          cur.<span style="color: #7D9029">deleteCharAt</span>(cur.<span style="color: #7D9029">length</span>() <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+          stack.<span style="color: #7D9029">offerFirst</span>(i <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+          remain<span style="color: #666666">[</span>i<span style="color: #666666">]++</span>;
+        }
+      }
+    }
+  }
+}
 </code></pre></div>
                 
               

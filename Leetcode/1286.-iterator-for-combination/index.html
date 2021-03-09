@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2920,7 +2911,7 @@
 <li>A function <em>hasNext()</em> that returns <code>True</code> if and only if there exists a next combination.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>CombinationIterator iterator = new CombinationIterator(&quot;abc&quot;, 2); // creates the iterator.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>CombinationIterator iterator = new CombinationIterator(&quot;abc&quot;, 2); // creates the iterator.
 
 iterator.next(); // returns &quot;ab&quot;
 iterator.hasNext(); // returns true
@@ -2940,7 +2931,7 @@ iterator.hasNext(); // returns false
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>When seeing combination problem, we can think of bit manipulation (0 represents not choose and 1 represents choose).</p>
 <p><strong>Take an example</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>   Num             bit_rep           no_of_set_bit       a   b   c              hold_set
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>   Num             bit_rep           no_of_set_bit       a   b   c              hold_set
     1               0 0 1                 1              0   0   1              nothing   &lt;= because combinationLength != no_of_set_bit
     2               0 1 0                 1              0   1   0              same case like upper one
     3               0 1 1                 2              0   1   1              &quot;bc&quot; &lt;= combinationLength ==no_of
@@ -2954,47 +2945,47 @@ iterator.hasNext(); // returns false
 
 
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">CombinationIterator</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">len,</span> <span style="color: #f8f8f2">mask;</span>
-    <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s;</span>
-    <span style="color: #f8f8f2">CombinationIterator(string</span> <span style="color: #f8f8f2">characters,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">combinationLength)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">s</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">characters;</span>
-        <span style="color: #f8f8f2">len</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">combinationLength;</span>
-        <span style="color: #f8f8f2">mask</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">characters.length())</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class CombinationIterator {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">int</span> len, mask;
+    string s;
+    CombinationIterator(string characters, <span style="color: #B00040">int</span> combinationLength) {
+        s <span style="color: #666666">=</span> characters;
+        len <span style="color: #666666">=</span> combinationLength;
+        mask <span style="color: #666666">=</span> (<span style="color: #666666">1</span> <span style="color: #666666">&lt;&lt;</span> characters.length()) <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+    }
 
-    <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">next()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #75715e">// step 1: make sure # of bits inside the mask == len</span>
-        <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(mask</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">__builtin_popcount(mask)</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">len)</span> <span style="color: #f8f8f2">mask</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">out;</span>
-        <span style="color: #75715e">// step 2: check each character&#39;s location in mask</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">s.length();</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(mask</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">(s.length()</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)))</span> <span style="color: #75715e">// chosen</span>
-                <span style="color: #f8f8f2">out</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">s[i];</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">// step 3: update mask to next one</span>
-        <span style="color: #f8f8f2">mask</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span> 
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">out;</span>
-    <span style="color: #f8f8f2">}</span>
+    string next() {
+        <span style="color: #408080; font-style: italic">// step 1: make sure # of bits inside the mask == len</span>
+        <span style="color: #008000; font-weight: bold">while</span>(mask <span style="color: #666666">&amp;&amp;</span> __builtin_popcount(mask) <span style="color: #666666">!=</span> len) mask<span style="color: #666666">--</span>;
+        string out;
+        <span style="color: #408080; font-style: italic">// step 2: check each character&#39;s location in mask</span>
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> s.length(); i<span style="color: #666666">++</span>) {
+            <span style="color: #008000; font-weight: bold">if</span> (mask <span style="color: #666666">&amp;</span> (<span style="color: #666666">1</span> <span style="color: #666666">&lt;&lt;</span> (s.length() <span style="color: #666666">-</span> i <span style="color: #666666">-</span> <span style="color: #666666">1</span>))) <span style="color: #408080; font-style: italic">// chosen</span>
+                out <span style="color: #666666">+=</span> s[i];
+        }
+        <span style="color: #408080; font-style: italic">// step 3: update mask to next one</span>
+        mask<span style="color: #666666">--</span>; 
+        <span style="color: #008000; font-weight: bold">return</span> out;
+    }
 
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">hasNext()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #75715e">// step 1: try to find next valid mask</span>
-        <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(mask</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">__builtin_popcount(mask)</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">len)</span> <span style="color: #f8f8f2">mask</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #75715e">// step 2: see if is found or not</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">mask)</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">bool</span> hasNext() {
+        <span style="color: #408080; font-style: italic">// step 1: try to find next valid mask</span>
+        <span style="color: #008000; font-weight: bold">while</span>(mask <span style="color: #666666">&amp;&amp;</span> __builtin_popcount(mask) <span style="color: #666666">!=</span> len) mask<span style="color: #666666">--</span>;
+        <span style="color: #408080; font-style: italic">// step 2: see if is found or not</span>
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>mask)
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+    }
 
-<span style="color: #f8f8f2">};</span>
+};
 
-<span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Your CombinationIterator object will be instantiated and called as such:</span>
-<span style="color: #75715e"> * CombinationIterator* obj = new CombinationIterator(characters, combinationLength);</span>
-<span style="color: #75715e"> * string param_1 = obj-&gt;next();</span>
-<span style="color: #75715e"> * bool param_2 = obj-&gt;hasNext();</span>
-<span style="color: #75715e"> */</span>
+<span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Your CombinationIterator object will be instantiated and called as such:</span>
+<span style="color: #408080; font-style: italic"> * CombinationIterator* obj = new CombinationIterator(characters, combinationLength);</span>
+<span style="color: #408080; font-style: italic"> * string param_1 = obj-&gt;next();</span>
+<span style="color: #408080; font-style: italic"> * bool param_2 = obj-&gt;hasNext();</span>
+<span style="color: #408080; font-style: italic"> */</span>
 </code></pre></div>
                 
               

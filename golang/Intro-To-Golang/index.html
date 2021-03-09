@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3021,60 +3012,60 @@
 <li>If our function had multiple return statements (perhaps one in an if and one in an else), Close will happen <strong>before</strong> both of them.</li>
 <li>Deferred functions are run even if a runtime panic occurs.</li>
 </ul>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">func</span> <span style="color: #a6e22e">CopyFile</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">dstName</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">srcName</span> <span style="color: #66d9ef">string</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">written</span> <span style="color: #66d9ef">int64</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #66d9ef">error</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">src</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">os</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Open</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">srcName</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> CopyFile(dstName, srcName <span style="color: #B00040">string</span>) (written <span style="color: #B00040">int64</span>, err <span style="color: #B00040">error</span>) {
+    src, err <span style="color: #666666">:=</span> os.Open(srcName)
+    <span style="color: #008000; font-weight: bold">if</span> err <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> {
+        <span style="color: #008000; font-weight: bold">return</span>
+    }
 
-    <span style="color: #a6e22e">dst</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">os</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Create</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">dstName</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span>
-    <span style="color: #f8f8f2">}</span>
+    dst, err <span style="color: #666666">:=</span> os.Create(dstName)
+    <span style="color: #008000; font-weight: bold">if</span> err <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> {
+        <span style="color: #008000; font-weight: bold">return</span>
+    }
 
-    <span style="color: #a6e22e">written</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #f8f8f2">=</span> <span style="color: #a6e22e">io</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Copy</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">dst</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">src</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #a6e22e">dst</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Close</span><span style="color: #f8f8f2">()</span>
-    <span style="color: #a6e22e">src</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Close</span><span style="color: #f8f8f2">()</span>
-    <span style="color: #66d9ef">return</span>
-<span style="color: #f8f8f2">}</span>
+    written, err = io.Copy(dst, src)
+    dst.Close()
+    src.Close()
+    <span style="color: #008000; font-weight: bold">return</span>
+}
 </code></pre></div>
 
 
 <p>If the call to os.Create fails, the function will return without closing the source file. This can be easily remedied by putting a call to src.Close before the second return statement, but if the function were more complex the problem might not be so easily noticed and resolved. By introducing defer statements we can ensure that the files are always closed:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">func</span> <span style="color: #a6e22e">CopyFile</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">dstName</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">srcName</span> <span style="color: #66d9ef">string</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">written</span> <span style="color: #66d9ef">int64</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #66d9ef">error</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">src</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">os</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Open</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">srcName</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">defer</span> <span style="color: #a6e22e">src</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Close</span><span style="color: #f8f8f2">()</span> <span style="color: #75715e">// this will be called before line 4 if err != nil</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> CopyFile(dstName, srcName <span style="color: #B00040">string</span>) (written <span style="color: #B00040">int64</span>, err <span style="color: #B00040">error</span>) {
+    src, err <span style="color: #666666">:=</span> os.Open(srcName)
+    <span style="color: #008000; font-weight: bold">if</span> err <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> {
+        <span style="color: #008000; font-weight: bold">return</span>
+    }
+    <span style="color: #008000; font-weight: bold">defer</span> src.Close() <span style="color: #408080; font-style: italic">// this will be called before line 4 if err != nil</span>
 
-    <span style="color: #a6e22e">dst</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">os</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Create</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">dstName</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">defer</span> <span style="color: #a6e22e">dst</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Close</span><span style="color: #f8f8f2">()</span> <span style="color: #75715e">// this will be called before line 10 if err != nil</span>
+    dst, err <span style="color: #666666">:=</span> os.Create(dstName)
+    <span style="color: #008000; font-weight: bold">if</span> err <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> {
+        <span style="color: #008000; font-weight: bold">return</span>
+    }
+    <span style="color: #008000; font-weight: bold">defer</span> dst.Close() <span style="color: #408080; font-style: italic">// this will be called before line 10 if err != nil</span>
 
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">io</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Copy</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">dst</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">src</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">return</span> io.Copy(dst, src)
+}
 </code></pre></div>
 
 
 <p>However, there are some pitfalls:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">func</span> <span style="color: #a6e22e">a</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">i</span> <span style="color: #f92672">:=</span> <span style="color: #ae81ff">0</span>
-    <span style="color: #66d9ef">defer</span> <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">i</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #a6e22e">i</span><span style="color: #f92672">++</span>
-    <span style="color: #66d9ef">return</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> a() {
+    i <span style="color: #666666">:=</span> <span style="color: #666666">0</span>
+    <span style="color: #008000; font-weight: bold">defer</span> fmt.Println(i)
+    i<span style="color: #666666">++</span>
+    <span style="color: #008000; font-weight: bold">return</span>
+}
 </code></pre></div>
 
 
 <p>Instead of printing 1, it will print 0, although the <code>fmt.Println(i)</code> is being called after i++. <code>defer</code> will save the current state of the function — including local variable — to run before the very last line of the function.</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">func</span> <span style="color: #a6e22e">b</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">:=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span> <span style="color: #f8f8f2">&lt;</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span><span style="color: #f92672">++</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">defer</span> <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Print</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">i</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> b() {
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #666666">:=</span> <span style="color: #666666">0</span>; i &lt; <span style="color: #666666">4</span>; i<span style="color: #666666">++</span> {
+        <span style="color: #008000; font-weight: bold">defer</span> fmt.Print(i)
+    }
+}
 </code></pre></div>
 
 
@@ -3086,133 +3077,133 @@
 </ol>
 </blockquote>
 <p>You can specify the return value and its type in the function signacture:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">func</span> <span style="color: #a6e22e">a</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">i</span> <span style="color: #66d9ef">int</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// return 2 since it return nothing</span>
-    <span style="color: #a6e22e">i</span> <span style="color: #f8f8f2">=</span> <span style="color: #ae81ff">2</span>
-    <span style="color: #66d9ef">return</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> a() (i <span style="color: #B00040">int</span>) { <span style="color: #408080; font-style: italic">// return 2 since it return nothing</span>
+    i = <span style="color: #666666">2</span>
+    <span style="color: #008000; font-weight: bold">return</span>
+}
 
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">b</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">i</span> <span style="color: #66d9ef">int</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>  <span style="color: #75715e">// return 1 since it &quot;override&quot; what should be returned</span>
-    <span style="color: #a6e22e">i</span> <span style="color: #f8f8f2">=</span> <span style="color: #ae81ff">2</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">1</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">func</span> b() (i <span style="color: #B00040">int</span>) {  <span style="color: #408080; font-style: italic">// return 1 since it &quot;override&quot; what should be returned</span>
+    i = <span style="color: #666666">2</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">1</span>
+}
 </code></pre></div>
 
 
 <p>So</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code> <span style="color: #66d9ef">func</span> <span style="color: #a6e22e">c</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">i</span> <span style="color: #66d9ef">int</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">defer</span> <span style="color: #66d9ef">func</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">i</span><span style="color: #f92672">++</span> <span style="color: #f8f8f2">}()</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">1</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code> <span style="color: #008000; font-weight: bold">func</span> c() (i <span style="color: #B00040">int</span>) {
+    <span style="color: #008000; font-weight: bold">defer</span> <span style="color: #008000; font-weight: bold">func</span>() { i<span style="color: #666666">++</span> }()
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">1</span>
+}
 </code></pre></div>
 
 
 <p>This deferred <code>func()</code> just specify the return value and type, and it got executed after 1 is returned </p>
 <h2 id="receiver">Receiver<a class="headerlink" href="#receiver" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// instead of using &amp;c to pass as reference to the function</span>
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">circleArea</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">c</span> <span style="color: #f92672">*</span><span style="color: #a6e22e">Circle</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">float64</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">math</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Pi</span> <span style="color: #f92672">*</span> <span style="color: #a6e22e">c</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">r</span> <span style="color: #f92672">*</span> <span style="color: #a6e22e">c</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">r</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #a6e22e">c</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">Circle</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">}</span>
-<span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">circleArea</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">&amp;</span><span style="color: #a6e22e">c</span><span style="color: #f8f8f2">))</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// instead of using &amp;c to pass as reference to the function</span>
+<span style="color: #008000; font-weight: bold">func</span> circleArea(c <span style="color: #666666">*</span>Circle) <span style="color: #B00040">float64</span> {
+    <span style="color: #008000; font-weight: bold">return</span> math.Pi <span style="color: #666666">*</span> c.r <span style="color: #666666">*</span> c.r
+}
+c <span style="color: #666666">:=</span> Circle{<span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">5</span>}
+fmt.Println(circleArea(<span style="color: #666666">&amp;</span>c))
 
-<span style="color: #75715e">// use receiver</span>
-<span style="color: #66d9ef">func</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">c</span> <span style="color: #f92672">*</span><span style="color: #a6e22e">Circle</span><span style="color: #f8f8f2">)</span> <span style="color: #a6e22e">area</span><span style="color: #f8f8f2">()</span> <span style="color: #66d9ef">float64</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">math</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Pi</span> <span style="color: #f92672">*</span> <span style="color: #a6e22e">c</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">r</span> <span style="color: #f92672">*</span> <span style="color: #a6e22e">c</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">r</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #408080; font-style: italic">// use receiver</span>
+<span style="color: #008000; font-weight: bold">func</span> (c <span style="color: #666666">*</span>Circle) area() <span style="color: #B00040">float64</span> {
+  <span style="color: #008000; font-weight: bold">return</span> math.Pi <span style="color: #666666">*</span> c.r <span style="color: #666666">*</span> c.r
+}
 
-<span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">c</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">area</span><span style="color: #f8f8f2">())</span>
+fmt.Println(c.area())
 </code></pre></div>
 
 
 <p>Has-a relationship with receiver</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">type</span> <span style="color: #a6e22e">Person</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">Name</span> <span style="color: #66d9ef">string</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">type</span> Person <span style="color: #008000; font-weight: bold">struct</span> {
+    Name <span style="color: #B00040">string</span>
+}
 
-<span style="color: #66d9ef">type</span> <span style="color: #a6e22e">Android</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// Person Person // this will work, but doesn&#39;t full utilize the has-a relationship</span>
-  <span style="color: #a6e22e">Person</span>                <span style="color: #75715e">// type, this is better, so that we can all a.Talk()</span>
-    <span style="color: #a6e22e">Model</span>  <span style="color: #66d9ef">string</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">type</span> Android <span style="color: #008000; font-weight: bold">struct</span> {
+    <span style="color: #408080; font-style: italic">// Person Person // this will work, but doesn&#39;t full utilize the has-a relationship</span>
+  Person                <span style="color: #408080; font-style: italic">// type, this is better, so that we can all a.Talk()</span>
+    Model  <span style="color: #B00040">string</span>
+}
 
-<span style="color: #75715e">// has-a relationship using receiver</span>
-<span style="color: #a6e22e">a</span> <span style="color: #f92672">:=</span> <span style="color: #f8f8f2">new(</span><span style="color: #a6e22e">Android</span><span style="color: #f8f8f2">)</span>
-<span style="color: #a6e22e">a</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Person</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Talk</span><span style="color: #f8f8f2">()</span> <span style="color: #75715e">// this will work</span>
-<span style="color: #a6e22e">a</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Talk</span><span style="color: #f8f8f2">()</span>        <span style="color: #75715e">// will work as well, since a person can talk, an android is a person, therefore an android can talk</span>
+<span style="color: #408080; font-style: italic">// has-a relationship using receiver</span>
+a <span style="color: #666666">:=</span> <span style="color: #008000">new</span>(Android)
+a.Person.Talk() <span style="color: #408080; font-style: italic">// this will work</span>
+a.Talk()        <span style="color: #408080; font-style: italic">// will work as well, since a person can talk, an android is a person, therefore an android can talk</span>
 </code></pre></div>
 
 
 <h2 id="interface">Interface<a class="headerlink" href="#interface" title="Permanent link">&para;</a></h2>
 <p><a href="https://gobyexample.com/interfaces">url</a></p>
 <p>To use interface, there is no specific keyword such as <code>extends</code> in Java or <code>implement</code> in C++, we just implement all the method.</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f92672">package</span> <span style="color: #a6e22e">main</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">package</span> main
 
-<span style="color: #f92672">import</span> <span style="color: #f8f8f2">(</span>
-    <span style="color: #e6db74">&quot;fmt&quot;</span>
-    <span style="color: #e6db74">&quot;math&quot;</span>
-<span style="color: #f8f8f2">)</span>
+<span style="color: #008000; font-weight: bold">import</span> (
+    <span style="color: #BA2121">&quot;fmt&quot;</span>
+    <span style="color: #BA2121">&quot;math&quot;</span>
+)
 
-<span style="color: #75715e">// interface</span>
-<span style="color: #66d9ef">type</span> <span style="color: #a6e22e">Shape</span> <span style="color: #66d9ef">interface</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">area</span><span style="color: #f8f8f2">()</span> <span style="color: #66d9ef">float64</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #408080; font-style: italic">// interface</span>
+<span style="color: #008000; font-weight: bold">type</span> Shape <span style="color: #008000; font-weight: bold">interface</span> {
+    area() <span style="color: #B00040">float64</span>
+}
 
-<span style="color: #66d9ef">type</span> <span style="color: #a6e22e">MultiShape</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">shapes</span> <span style="color: #f8f8f2">[]</span><span style="color: #a6e22e">Shape</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">type</span> MultiShape <span style="color: #008000; font-weight: bold">struct</span> {
+    shapes []Shape
+}
 
-<span style="color: #75715e">// this two struct will implement Shape</span>
-<span style="color: #66d9ef">type</span> <span style="color: #a6e22e">Circle</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">x</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">r</span> <span style="color: #66d9ef">float64</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #408080; font-style: italic">// this two struct will implement Shape</span>
+<span style="color: #008000; font-weight: bold">type</span> Circle <span style="color: #008000; font-weight: bold">struct</span> {
+    x, y, r <span style="color: #B00040">float64</span>
+}
 
-<span style="color: #66d9ef">type</span> <span style="color: #a6e22e">Rectangle</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">x1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">x2</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y2</span> <span style="color: #66d9ef">float64</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">type</span> Rectangle <span style="color: #008000; font-weight: bold">struct</span> {
+    x1, y1, x2, y2 <span style="color: #B00040">float64</span>
+}
 
-<span style="color: #75715e">// aux functions</span>
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">distance</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">x1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">x2</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y2</span> <span style="color: #66d9ef">float64</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">float64</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">a</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">x2</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">x1</span>
-    <span style="color: #a6e22e">b</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">y2</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">y1</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">math</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Sqrt</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">a</span><span style="color: #f92672">*</span><span style="color: #a6e22e">a</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">b</span><span style="color: #f92672">*</span><span style="color: #a6e22e">b</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #408080; font-style: italic">// aux functions</span>
+<span style="color: #008000; font-weight: bold">func</span> distance(x1, y1, x2, y2 <span style="color: #B00040">float64</span>) <span style="color: #B00040">float64</span> {
+    a <span style="color: #666666">:=</span> x2 <span style="color: #666666">-</span> x1
+    b <span style="color: #666666">:=</span> y2 <span style="color: #666666">-</span> y1
+    <span style="color: #008000; font-weight: bold">return</span> math.Sqrt(a<span style="color: #666666">*</span>a <span style="color: #666666">+</span> b<span style="color: #666666">*</span>b)
+}
 
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">rectangleArea</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">x1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">x2</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y2</span> <span style="color: #66d9ef">float64</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">float64</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">l</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">distance</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">x1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">x1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y2</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #a6e22e">w</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">distance</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">x1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">x2</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y1</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">l</span> <span style="color: #f92672">*</span> <span style="color: #a6e22e">w</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">func</span> rectangleArea(x1, y1, x2, y2 <span style="color: #B00040">float64</span>) <span style="color: #B00040">float64</span> {
+    l <span style="color: #666666">:=</span> distance(x1, y1, x1, y2)
+    w <span style="color: #666666">:=</span> distance(x1, y1, x2, y1)
+    <span style="color: #008000; font-weight: bold">return</span> l <span style="color: #666666">*</span> w
+}
 
-<span style="color: #75715e">// by implementinng the area() method (receiver), it will implement the Shape interface</span>
-<span style="color: #66d9ef">func</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">c</span> <span style="color: #a6e22e">Circle</span><span style="color: #f8f8f2">)</span> <span style="color: #a6e22e">area</span><span style="color: #f8f8f2">()</span> <span style="color: #66d9ef">float64</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">math</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Pi</span> <span style="color: #f92672">*</span> <span style="color: #a6e22e">c</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">r</span> <span style="color: #f92672">*</span> <span style="color: #a6e22e">c</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">r</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #408080; font-style: italic">// by implementinng the area() method (receiver), it will implement the Shape interface</span>
+<span style="color: #008000; font-weight: bold">func</span> (c Circle) area() <span style="color: #B00040">float64</span> {
+    <span style="color: #008000; font-weight: bold">return</span> math.Pi <span style="color: #666666">*</span> c.r <span style="color: #666666">*</span> c.r
+}
 
-<span style="color: #75715e">// by implementinng the area() method (receiver), it will implement the Shape interface</span>
-<span style="color: #66d9ef">func</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">r</span> <span style="color: #a6e22e">Rectangle</span><span style="color: #f8f8f2">)</span> <span style="color: #a6e22e">area</span><span style="color: #f8f8f2">()</span> <span style="color: #66d9ef">float64</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">l</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">distance</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">r</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">x1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">r</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">y1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">r</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">x1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">r</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">y2</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #a6e22e">w</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">distance</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">r</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">x1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">r</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">y1</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">r</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">x2</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">r</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">y1</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">l</span> <span style="color: #f92672">*</span> <span style="color: #a6e22e">w</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #408080; font-style: italic">// by implementinng the area() method (receiver), it will implement the Shape interface</span>
+<span style="color: #008000; font-weight: bold">func</span> (r Rectangle) area() <span style="color: #B00040">float64</span> {
+    l <span style="color: #666666">:=</span> distance(r.x1, r.y1, r.x1, r.y2)
+    w <span style="color: #666666">:=</span> distance(r.x1, r.y1, r.x2, r.y1)
+    <span style="color: #008000; font-weight: bold">return</span> l <span style="color: #666666">*</span> w
+}
 
 
-<span style="color: #66d9ef">func</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">m</span> <span style="color: #f92672">*</span><span style="color: #a6e22e">MultiShape</span><span style="color: #f8f8f2">)</span> <span style="color: #a6e22e">area</span><span style="color: #f8f8f2">()</span> <span style="color: #66d9ef">float64</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">area</span> <span style="color: #66d9ef">float64</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #a6e22e">_</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">s</span> <span style="color: #f92672">:=</span> <span style="color: #66d9ef">range</span> <span style="color: #a6e22e">m</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">shapes</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">area</span> <span style="color: #f92672">+=</span> <span style="color: #a6e22e">s</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">area</span><span style="color: #f8f8f2">()</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">area</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">func</span> (m <span style="color: #666666">*</span>MultiShape) area() <span style="color: #B00040">float64</span> {
+    <span style="color: #008000; font-weight: bold">var</span> area <span style="color: #B00040">float64</span>
+    <span style="color: #008000; font-weight: bold">for</span> _, s <span style="color: #666666">:=</span> <span style="color: #008000; font-weight: bold">range</span> m.shapes {
+        area <span style="color: #666666">+=</span> s.area()
+    }
+    <span style="color: #008000; font-weight: bold">return</span> area
+}
 
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #a6e22e">multiShape</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">MultiShape</span><span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">shapes</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[]</span><span style="color: #a6e22e">Shape</span><span style="color: #f8f8f2">{</span>
-      <span style="color: #a6e22e">Circle</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">},</span> <span style="color: #75715e">// in slice literal, cannot declare pointer</span>
-      <span style="color: #a6e22e">Rectangle</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">multiShape</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">area</span><span style="color: #f8f8f2">())</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">func</span> main() {
+  multiShape <span style="color: #666666">:=</span> MultiShape{
+    shapes: []Shape{
+      Circle{<span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">5</span>}, <span style="color: #408080; font-style: italic">// in slice literal, cannot declare pointer</span>
+      Rectangle{<span style="color: #666666">0</span>, <span style="color: #666666">0</span>, <span style="color: #666666">10</span>, <span style="color: #666666">10</span>},
+    },
+    }
+    fmt.Println(multiShape.area())
+}
 </code></pre></div>
 
 
@@ -3220,54 +3211,54 @@
 <p>Difference between method and function in Golang: method has a receiver, while function
 doesn't have one. <code>func () a() float64 {}</code> vs <code>func a() float64 {}</code></p>
 <h2 id="fast-way-to-create-an-slicearray">Fast way to create an slice/array<a class="headerlink" href="#fast-way-to-create-an-slicearray" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">strings</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Join</span><span style="color: #f8f8f2">([]</span><span style="color: #66d9ef">string</span><span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;a&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;b&quot;</span><span style="color: #f8f8f2">},</span> <span style="color: #e6db74">&quot;-&quot;</span><span style="color: #f8f8f2">))</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    fmt.Println(strings.Join([]<span style="color: #B00040">string</span>{<span style="color: #BA2121">&quot;a&quot;</span>, <span style="color: #BA2121">&quot;b&quot;</span>}, <span style="color: #BA2121">&quot;-&quot;</span>))
 </code></pre></div>
 
 
 <h2 id="reuse-variable">Reuse variable<a class="headerlink" href="#reuse-variable" title="Permanent link">&para;</a></h2>
 <p>This will work:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// err variable is reused</span>
-<span style="color: #a6e22e">dir</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">os</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Open</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.&quot;</span><span style="color: #f8f8f2">)</span>
-<span style="color: #66d9ef">if</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">return</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">defer</span> <span style="color: #a6e22e">dir</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Close</span><span style="color: #f8f8f2">()</span>
-<span style="color: #a6e22e">fileInfos</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">dir</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Readdir</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
-<span style="color: #66d9ef">if</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">return</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// err variable is reused</span>
+dir, err <span style="color: #666666">:=</span> os.Open(<span style="color: #BA2121">&quot;.&quot;</span>)
+<span style="color: #008000; font-weight: bold">if</span> err <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> {
+  <span style="color: #008000; font-weight: bold">return</span>
+}
+<span style="color: #008000; font-weight: bold">defer</span> dir.Close()
+fileInfos, err <span style="color: #666666">:=</span> dir.Readdir(<span style="color: #666666">-1</span>)
+<span style="color: #008000; font-weight: bold">if</span> err <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> {
+  <span style="color: #008000; font-weight: bold">return</span>
+}
 </code></pre></div>
 
 
 <p>​   This will not work:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// this will not work</span>
-<span style="color: #a6e22e">err</span> <span style="color: #f92672">:=</span> <span style="color: #ae81ff">3</span>
-<span style="color: #a6e22e">err</span> <span style="color: #f92672">:=</span> <span style="color: #ae81ff">4</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// this will not work</span>
+err <span style="color: #666666">:=</span> <span style="color: #666666">3</span>
+err <span style="color: #666666">:=</span> <span style="color: #666666">4</span>
 
-<span style="color: #a6e22e">a</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">b</span> <span style="color: #f92672">:=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2</span>
-<span style="color: #a6e22e">a</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">b</span> <span style="color: #f92672">:=</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2</span>
+a, b <span style="color: #666666">:=</span> <span style="color: #666666">1</span>, <span style="color: #666666">2</span>
+a, b <span style="color: #666666">:=</span> <span style="color: #666666">3</span>, <span style="color: #666666">2</span>
 </code></pre></div>
 
 
 <p>and will throw</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code># command-line-arguments
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code># command-line-arguments
 ./main.go:110:6: no new variables on left side of :=
 </code></pre></div>
 
 
 <h2 id="read-all-the-file-recursively-under-specified-directory">Read all the file recursively under specified directory<a class="headerlink" href="#read-all-the-file-recursively-under-specified-directory" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f92672">import</span> <span style="color: #f8f8f2">(</span>
-  <span style="color: #e6db74">&quot;fmt&quot;</span>
-    <span style="color: #e6db74">&quot;os&quot;</span>
-  <span style="color: #e6db74">&quot;path/filepath&quot;</span>
-<span style="color: #f8f8f2">)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">import</span> (
+  <span style="color: #BA2121">&quot;fmt&quot;</span>
+    <span style="color: #BA2121">&quot;os&quot;</span>
+  <span style="color: #BA2121">&quot;path/filepath&quot;</span>
+)
 
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">walkFolder</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">filepath</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Walk</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">func</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">path</span> <span style="color: #66d9ef">string</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">info</span> <span style="color: #a6e22e">os</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">FileInfo</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">err</span> <span style="color: #66d9ef">error</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">error</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">path</span><span style="color: #f8f8f2">)</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">nil</span>
-    <span style="color: #f8f8f2">})</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">func</span> walkFolder() {
+    filepath.Walk(<span style="color: #BA2121">&quot;.&quot;</span>, <span style="color: #008000; font-weight: bold">func</span>(path <span style="color: #B00040">string</span>, info os.FileInfo, err <span style="color: #B00040">error</span>) <span style="color: #B00040">error</span> {
+        fmt.Println(path)
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">nil</span>
+    })
+}
 </code></pre></div>
 
 
@@ -3275,34 +3266,34 @@ doesn't have one. <code>func () a() float64 {}</code> vs <code>func a() float64 
 <p><a href="https://stackoverflow.com/questions/26006856/why-use-the-go-keyword-when-calling-a-function">stackoverflow</a></p>
 <p>In writing a go server: to see the difference in action, try connecting twice (at the same time) to your server. You will find that without the word go, you will not accept the second tcp connection until the first one is done.</p>
 <h2 id="use-flag-to-parse-input-argument">Use <code>flag</code> to parse input argument<a class="headerlink" href="#use-flag-to-parse-input-argument" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f92672">package</span> <span style="color: #a6e22e">main</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">package</span> main
 
-<span style="color: #f92672">import</span> <span style="color: #f8f8f2">(</span>
-    <span style="color: #e6db74">&quot;flag&quot;</span>
-    <span style="color: #e6db74">&quot;fmt&quot;</span>
-    <span style="color: #e6db74">&quot;math/rand&quot;</span>
-<span style="color: #f8f8f2">)</span>
+<span style="color: #008000; font-weight: bold">import</span> (
+    <span style="color: #BA2121">&quot;flag&quot;</span>
+    <span style="color: #BA2121">&quot;fmt&quot;</span>
+    <span style="color: #BA2121">&quot;math/rand&quot;</span>
+)
 
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// use -max flag, use &quot;the max value&quot; as the help message</span>
-    <span style="color: #75715e">/* $ go run args.go -help will display:</span>
-<span style="color: #75715e">     *    Usage of /var/folders/84/zs57njyx4hx911_xchm8mp7c0000gn/T/go-build805909142/b001/exe/args:</span>
-<span style="color: #75715e">     *  -max int</span>
-<span style="color: #75715e">     *        the max value (default 6)</span>
-<span style="color: #75715e">     *  exit status 2</span>
-<span style="color: #75715e">     */</span>
-    <span style="color: #a6e22e">maxp</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">flag</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Int</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;max&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">6</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;the max value&quot;</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #a6e22e">flag</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Parse</span><span style="color: #f8f8f2">()</span>
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">Intn</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">*</span><span style="color: #a6e22e">maxp</span><span style="color: #f8f8f2">))</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">func</span> main() {
+    <span style="color: #408080; font-style: italic">// use -max flag, use &quot;the max value&quot; as the help message</span>
+    <span style="color: #408080; font-style: italic">/* $ go run args.go -help will display:</span>
+<span style="color: #408080; font-style: italic">     *    Usage of /var/folders/84/zs57njyx4hx911_xchm8mp7c0000gn/T/go-build805909142/b001/exe/args:</span>
+<span style="color: #408080; font-style: italic">     *  -max int</span>
+<span style="color: #408080; font-style: italic">     *        the max value (default 6)</span>
+<span style="color: #408080; font-style: italic">     *  exit status 2</span>
+<span style="color: #408080; font-style: italic">     */</span>
+    maxp <span style="color: #666666">:=</span> flag.Int(<span style="color: #BA2121">&quot;max&quot;</span>, <span style="color: #666666">6</span>, <span style="color: #BA2121">&quot;the max value&quot;</span>)
+    flag.Parse()
+    fmt.Println(Intn(<span style="color: #666666">*</span>maxp))
+}
 </code></pre></div>
 
 
 <h2 id="import-alias">Import alias<a class="headerlink" href="#import-alias" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f92672">import</span> <span style="color: #a6e22e">m</span> <span style="color: #e6db74">&quot;golang-book/chapter8/math&quot;</span>
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #a6e22e">xs</span> <span style="color: #f92672">:=</span> <span style="color: #f8f8f2">[]</span><span style="color: #66d9ef">float64</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">}</span> <span style="color: #a6e22e">avg</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">m</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Average</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">xs</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">import</span> m <span style="color: #BA2121">&quot;golang-book/chapter8/math&quot;</span>
+<span style="color: #008000; font-weight: bold">func</span> main() {
+  xs <span style="color: #666666">:=</span> []<span style="color: #B00040">float64</span>{<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>} avg <span style="color: #666666">:=</span> m.Average(xs)
+}
 </code></pre></div>
 
 

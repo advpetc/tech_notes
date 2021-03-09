@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3014,28 +3005,28 @@
 <h3 id="using-dfs">Using DFS<a class="headerlink" href="#using-dfs" title="Permanent link">&para;</a></h3>
 <p><img alt="Screen Shot 2020-09-11 at 9.15.07 PM.png" src="../resources/283D95D8921F6988C2D0F32CE3EAC7D8.png" /></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Definition for a binary tree node.</span>
-<span style="color: #75715e"> * struct TreeNode {</span>
-<span style="color: #75715e"> *     int val;</span>
-<span style="color: #75715e"> *     TreeNode *left;</span>
-<span style="color: #75715e"> *     TreeNode *right;</span>
-<span style="color: #75715e"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
-<span style="color: #75715e"> * };</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">prev;</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">flatten</span><span style="color: #f8f8f2">(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">root)</span> <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">flatten</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right);</span>
-        <span style="color: #f8f8f2">flatten</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left);</span>
-        <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">prev;</span>
-        <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL;</span>
-        <span style="color: #f8f8f2">prev</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
+<span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
+<span style="color: #408080; font-style: italic"> *     int val;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *left;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *right;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
+<span style="color: #408080; font-style: italic"> * };</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class Solution {
+<span style="color: #A0A000">public</span>:
+    TreeNode<span style="color: #666666">*</span> prev;
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">flatten</span>(TreeNode<span style="color: #666666">*</span> root) {
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span>;
+        flatten (root <span style="color: #666666">-&gt;</span> right);
+        flatten (root <span style="color: #666666">-&gt;</span> left);
+        root <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> prev;
+        root <span style="color: #666666">-&gt;</span> left <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
+        prev <span style="color: #666666">=</span> root;
+    }
 
-<span style="color: #f8f8f2">};</span>
+};
 </code></pre></div>
 
 
@@ -3048,55 +3039,55 @@
 <li>if left subtree doesn't exist, visit right subtree of current root, insert left subtree to current root's right.</li>
 </ol>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Definition for a binary tree node.</span>
-<span style="color: #75715e"> * struct TreeNode {</span>
-<span style="color: #75715e"> *     int val;</span>
-<span style="color: #75715e"> *     TreeNode *left;</span>
-<span style="color: #75715e"> *     TreeNode *right;</span>
-<span style="color: #75715e"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
-<span style="color: #75715e"> * };</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">flatten(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(root)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left;</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(p)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(p</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right;</span>
-                <span style="color: #f8f8f2">}</span>
-                <span style="color: #f8f8f2">p</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right;</span>
-                <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left;</span>
-                <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nullptr;</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">root</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right;</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
+<span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
+<span style="color: #408080; font-style: italic"> *     int val;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *left;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *right;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
+<span style="color: #408080; font-style: italic"> * };</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">void</span> flatten(TreeNode<span style="color: #666666">*</span> root) {
+        <span style="color: #008000; font-weight: bold">while</span> (root) {
+            TreeNode<span style="color: #666666">*</span> p <span style="color: #666666">=</span> root <span style="color: #666666">-&gt;</span> left;
+            <span style="color: #008000; font-weight: bold">if</span> (p) {
+                <span style="color: #008000; font-weight: bold">while</span> (p <span style="color: #666666">-&gt;</span> right) {
+                    p <span style="color: #666666">=</span> p <span style="color: #666666">-&gt;</span> right;
+                }
+                p <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> root <span style="color: #666666">-&gt;</span> right;
+                root <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> root <span style="color: #666666">-&gt;</span> left;
+                root <span style="color: #666666">-&gt;</span> left <span style="color: #666666">=</span> nullptr;
+            }
+            root <span style="color: #666666">=</span> root <span style="color: #666666">-&gt;</span> right;
+        }
+    }
 
-<span style="color: #f8f8f2">};</span>
+};
 </code></pre></div>
 
 
 <h2 id="given-a-binary-tree-flatten-it-to-a-doubly-linkedlist">Given a binary tree, flatten it to a <strong>doubly linkedlist</strong><a class="headerlink" href="#given-a-binary-tree-flatten-it-to-a-doubly-linkedlist" title="Permanent link">&para;</a></h2>
 <p><img alt="Screen Shot 2020-09-11 at 9.17.02 PM.png" src="../resources/DBCD62EC150295E2DBF29B8FE91ED2BC.png" /></p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(Treenode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">prev,</span> <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">head)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">root)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">helper(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">prev,</span> <span style="color: #f8f8f2">head);</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">pre)</span> <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">prev;</span>
-        <span style="color: #f8f8f2">prev</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">prev</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #f8f8f2">helper(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">prev,</span> <span style="color: #f8f8f2">head);</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>TreeNode<span style="color: #666666">*</span> <span style="color: #0000FF">helper</span>(Treenode<span style="color: #666666">*</span> root, TreeNode<span style="color: #666666">*</span> prev, TreeNode<span style="color: #666666">*</span> head) {
+    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> ;
+    helper(root <span style="color: #666666">-&gt;</span> left, prev, head);
+    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>pre) head <span style="color: #666666">=</span> root;
+    <span style="color: #008000; font-weight: bold">else</span> {
+        root <span style="color: #666666">-&gt;</span> left <span style="color: #666666">=</span> prev;
+        prev <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> root;
+    }
+    prev <span style="color: #666666">=</span> root;
+    helper(root <span style="color: #666666">-&gt;</span> right, prev, head);
+}
 
-<span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">flatten</span><span style="color: #f8f8f2">(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">helper(root,</span> <span style="color: #f8f8f2">prev,</span> <span style="color: #f8f8f2">head);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">head;</span>
-<span style="color: #f8f8f2">}</span>
+TreeNode<span style="color: #666666">*</span> <span style="color: #0000FF">flatten</span>(TreeNode<span style="color: #666666">*</span> root) {
+    helper(root, prev, head);
+    <span style="color: #008000; font-weight: bold">return</span> head;
+}
 </code></pre></div>
                 
               

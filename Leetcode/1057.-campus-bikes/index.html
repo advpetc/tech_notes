@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3013,76 +3004,76 @@ All worker and bike locations are distinct.
 3. Bike index</p>
 <p>Using Priority Queue if the input is unbounded.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * tmp.cpp</span>
-<span style="color: #75715e"> * Copyright (C) 2020 Haoyang &lt;me@peterchen.xyz&gt;</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> * Distributed under terms of the MIT license.</span>
-<span style="color: #75715e"> */</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * tmp.cpp</span>
+<span style="color: #408080; font-style: italic"> * Copyright (C) 2020 Haoyang &lt;me@peterchen.xyz&gt;</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> * Distributed under terms of the MIT license.</span>
+<span style="color: #408080; font-style: italic"> */</span>
 
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">typedef</span> <span style="color: #f8f8f2">tuple</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">TII;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #66d9ef">inline</span> <span style="color: #a6e22e">manhattan</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">p1,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">p2)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">abs(p1[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">p2[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">])</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">abs(p1[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">p2[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]);</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">assignBikes(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">workers,</span>
-                        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">bikes)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #75715e">/*</span>
-<span style="color: #75715e">   *auto cmp = [](const TII&amp; l, const TII&amp; r) {</span>
-<span style="color: #75715e">   *  int ld = get&lt;0&gt;(l), rd = get&lt;0&gt;(r), wl = get&lt;1&gt;(l), wr = get&lt;1&gt;(r),</span>
-<span style="color: #75715e">   *      bl = get&lt;2&gt;(l), br = get&lt;2&gt;(r);</span>
-<span style="color: #75715e">   *  if (ld != rd)</span>
-<span style="color: #75715e">   *    return ld &gt; rd;</span>
-<span style="color: #75715e">   *  else if (wl != wr)</span>
-<span style="color: #75715e">   *    return wl &gt; wr;</span>
-<span style="color: #75715e">   *  else</span>
-<span style="color: #75715e">   *    return bl &gt; br;</span>
-<span style="color: #75715e">   *};</span>
-<span style="color: #75715e">   */</span>
-  <span style="color: #75715e">//priority_queue&lt;TII, vector&lt;TII&gt;, decltype(cmp)&gt; pq(cmp);</span>
-   <span style="color: #f8f8f2">priority_queue</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TII,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TII</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">greater</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TII</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">pq;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">workers.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">bikes.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">pq.push({manhattan(workers[i],</span> <span style="color: #f8f8f2">bikes[j]),</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">j});</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">wo(workers.size(),</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">),</span> <span style="color: #f8f8f2">bi(bikes.size(),</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">assigned</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">pq.empty()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">assigned</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">workers.size())</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">TII</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pq.top();</span>
-    <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;after: %d, %d, %d</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">0</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t),</span> <span style="color: #f8f8f2">get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">1</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t),</span> <span style="color: #f8f8f2">get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">2</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t));</span>
-    <span style="color: #f8f8f2">pq.pop();</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(wo[get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">1</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t)]</span> <span style="color: #f92672">==</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">bi[get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">2</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t)]</span> <span style="color: #f92672">==</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>  <span style="color: #75715e">// both unassigned</span>
-      <span style="color: #f8f8f2">wo[get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">1</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t)]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">2</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t);</span>
-      <span style="color: #f8f8f2">bi[get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">2</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t)]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">get</span><span style="color: #f92672">&lt;</span><span style="color: #ae81ff">1</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(t);</span>
-      <span style="color: #f8f8f2">assigned</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">wo;</span>
-<span style="color: #f8f8f2">}</span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">typedef</span> tuple<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> TII;
+<span style="color: #B00040">int</span> <span style="color: #008000; font-weight: bold">inline</span> <span style="color: #0000FF">manhattan</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> p1, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> p2) {
+  <span style="color: #008000; font-weight: bold">return</span> abs(p1[<span style="color: #666666">0</span>] <span style="color: #666666">-</span> p2[<span style="color: #666666">0</span>]) <span style="color: #666666">+</span> abs(p1[<span style="color: #666666">1</span>] <span style="color: #666666">-</span> p2[<span style="color: #666666">1</span>]);
+}
+vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> assignBikes(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> workers,
+                        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> bikes) {
+  <span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic">   *auto cmp = [](const TII&amp; l, const TII&amp; r) {</span>
+<span style="color: #408080; font-style: italic">   *  int ld = get&lt;0&gt;(l), rd = get&lt;0&gt;(r), wl = get&lt;1&gt;(l), wr = get&lt;1&gt;(r),</span>
+<span style="color: #408080; font-style: italic">   *      bl = get&lt;2&gt;(l), br = get&lt;2&gt;(r);</span>
+<span style="color: #408080; font-style: italic">   *  if (ld != rd)</span>
+<span style="color: #408080; font-style: italic">   *    return ld &gt; rd;</span>
+<span style="color: #408080; font-style: italic">   *  else if (wl != wr)</span>
+<span style="color: #408080; font-style: italic">   *    return wl &gt; wr;</span>
+<span style="color: #408080; font-style: italic">   *  else</span>
+<span style="color: #408080; font-style: italic">   *    return bl &gt; br;</span>
+<span style="color: #408080; font-style: italic">   *};</span>
+<span style="color: #408080; font-style: italic">   */</span>
+  <span style="color: #408080; font-style: italic">//priority_queue&lt;TII, vector&lt;TII&gt;, decltype(cmp)&gt; pq(cmp);</span>
+   priority_queue<span style="color: #666666">&lt;</span>TII, vector<span style="color: #666666">&lt;</span>TII<span style="color: #666666">&gt;</span>, greater<span style="color: #666666">&lt;</span>TII<span style="color: #666666">&gt;&gt;</span> pq;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> workers.size(); <span style="color: #666666">++</span>i) {
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> bikes.size(); <span style="color: #666666">++</span>j) {
+      pq.push({manhattan(workers[i], bikes[j]), i, j});
+    }
+  }
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> wo(workers.size(), <span style="color: #666666">-1</span>), bi(bikes.size(), <span style="color: #666666">-1</span>);
+  <span style="color: #B00040">int</span> assigned <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>pq.empty() <span style="color: #666666">&amp;&amp;</span> assigned <span style="color: #666666">&lt;</span> workers.size()) {
+    TII t <span style="color: #666666">=</span> pq.top();
+    printf(<span style="color: #BA2121">&quot;after: %d, %d, %d</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>, get<span style="color: #666666">&lt;0&gt;</span>(t), get<span style="color: #666666">&lt;1&gt;</span>(t), get<span style="color: #666666">&lt;2&gt;</span>(t));
+    pq.pop();
+    <span style="color: #008000; font-weight: bold">if</span> (wo[get<span style="color: #666666">&lt;1&gt;</span>(t)] <span style="color: #666666">==</span> <span style="color: #666666">-1</span> <span style="color: #666666">&amp;&amp;</span> bi[get<span style="color: #666666">&lt;2&gt;</span>(t)] <span style="color: #666666">==</span> <span style="color: #666666">-1</span>) {  <span style="color: #408080; font-style: italic">// both unassigned</span>
+      wo[get<span style="color: #666666">&lt;1&gt;</span>(t)] <span style="color: #666666">=</span> get<span style="color: #666666">&lt;2&gt;</span>(t);
+      bi[get<span style="color: #666666">&lt;2&gt;</span>(t)] <span style="color: #666666">=</span> get<span style="color: #666666">&lt;1&gt;</span>(t);
+      assigned<span style="color: #666666">++</span>;
+    }
+  }
+  <span style="color: #008000; font-weight: bold">return</span> wo;
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">main()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">w,</span> <span style="color: #f8f8f2">b;</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">w;</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">workers,</span> <span style="color: #f8f8f2">bikes;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">w;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">y;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">y;</span>
-    <span style="color: #f8f8f2">workers.push_back({x,</span> <span style="color: #f8f8f2">y});</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">b;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">b;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">y;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">y;</span>
-    <span style="color: #f8f8f2">bikes.push_back({x,</span> <span style="color: #f8f8f2">y});</span>
-  <span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> main() {
+  <span style="color: #B00040">int</span> w, b;
+  cin <span style="color: #666666">&gt;&gt;</span> w;
+  vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> workers, bikes;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> w; <span style="color: #666666">++</span>i) {
+    <span style="color: #B00040">int</span> x, y;
+    cin <span style="color: #666666">&gt;&gt;</span> x <span style="color: #666666">&gt;&gt;</span> y;
+    workers.push_back({x, y});
+  }
+  cin <span style="color: #666666">&gt;&gt;</span> b;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> b; <span style="color: #666666">++</span>i) {
+    <span style="color: #B00040">int</span> x, y;
+    cin <span style="color: #666666">&gt;&gt;</span> x <span style="color: #666666">&gt;&gt;</span> y;
+    bikes.push_back({x, y});
+  }
 
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">assignBikes(workers,</span> <span style="color: #f8f8f2">bikes);</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">res)</span> <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res <span style="color: #666666">=</span> assignBikes(workers, bikes);
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">i</span> : res) cout <span style="color: #666666">&lt;&lt;</span> i <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; &quot;</span>;
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3104,74 +3095,74 @@ All worker and bike locations are distinct.
 <h3 id="complete-bipartite-graph">Complete Bipartite graph<a class="headerlink" href="#complete-bipartite-graph" title="Permanent link">&para;</a></h3>
 <p>Since all workers can freely assigned with all the bikes, and bikes can "choose" any of the workers. It's a complete bipartitie graph. We should assume # of bikes != # of workes, or the ans is simply # of bikes or # of workers.</p>
 <p><img alt="IMAGE" src="../resources/8F3376215C804DE00F461F369BB276F6.jpg" /></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include&lt;iostream&gt;</span>
-<span style="color: #75715e">#include&lt;cstring&gt;</span>
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">510</span> <span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">M</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">100010</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n1,n2,m;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">h[N],ne[M],e[M],idx;</span>
-<span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">st[N];</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">match[N];</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span><span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span><span style="color: #408080; font-style: italic">&lt;cstring&gt;</span><span style="color: #BC7A00"></span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">510</span> , M <span style="color: #666666">=</span> <span style="color: #666666">100010</span>;
+<span style="color: #B00040">int</span> n1,n2,m;
+<span style="color: #B00040">int</span> h[N],ne[M],e[M],idx;
+<span style="color: #B00040">bool</span> st[N];
+<span style="color: #B00040">int</span> match[N];
 
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">e[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">ne[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h[a],</span> <span style="color: #f8f8f2">h[a]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">idx</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">void</span> <span style="color: #0000FF">add</span>(<span style="color: #B00040">int</span> a , <span style="color: #B00040">int</span> b)
+{
+    e[idx] <span style="color: #666666">=</span> b, ne[idx] <span style="color: #666666">=</span> h[a], h[a] <span style="color: #666666">=</span> idx<span style="color: #666666">++</span>;
+}
 
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">init</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">memset(h,</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">h);</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">void</span> <span style="color: #0000FF">init</span>()
+{
+    memset(h,<span style="color: #666666">-1</span>,<span style="color: #008000; font-weight: bold">sizeof</span> h);
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">find</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">//遍历自己喜欢的女孩</span>
-    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h[x]</span> <span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">!=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f8f8f2">;i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">ne[i])</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">e[i];</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">st[j])</span><span style="color: #75715e">//如果在这一轮模拟匹配中,这个女孩尚未被预定</span>
-        <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">st[j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span><span style="color: #75715e">//那x就预定这个女孩了</span>
-            <span style="color: #75715e">//如果女孩j没有男朋友，或者她原来的男朋友能够预定其它喜欢的女孩。配对成功</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">match[j]</span><span style="color: #f92672">||</span><span style="color: #f8f8f2">find(match[j]))</span>
-            <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">match[j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x;</span>
-                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-            <span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">find</span>(<span style="color: #B00040">int</span> x)
+{
+    <span style="color: #408080; font-style: italic">//遍历自己喜欢的女孩</span>
+    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> h[x] ; i <span style="color: #666666">!=</span> <span style="color: #666666">-1</span> ;i <span style="color: #666666">=</span> ne[i])
+    {
+        <span style="color: #B00040">int</span> j <span style="color: #666666">=</span> e[i];
+        <span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">!</span>st[j])<span style="color: #408080; font-style: italic">//如果在这一轮模拟匹配中,这个女孩尚未被预定</span>
+        {
+            st[j] <span style="color: #666666">=</span> <span style="color: #008000">true</span>;<span style="color: #408080; font-style: italic">//那x就预定这个女孩了</span>
+            <span style="color: #408080; font-style: italic">//如果女孩j没有男朋友，或者她原来的男朋友能够预定其它喜欢的女孩。配对成功</span>
+            <span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">!</span>match[j]<span style="color: #666666">||</span>find(match[j]))
+            {
+                match[j] <span style="color: #666666">=</span> x;
+                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+            }
 
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #75715e">//自己中意的全部都被预定了。配对失败。</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">init();</span>
-    <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">n1</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">n2</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">m;</span>
-    <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(m</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,b;</span>
-        <span style="color: #f8f8f2">cin</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">a</span><span style="color: #f92672">&gt;&gt;</span><span style="color: #f8f8f2">b;</span>
-        <span style="color: #f8f8f2">add(a,b);</span>
-    <span style="color: #f8f8f2">}</span>
+        }
+    }
+    <span style="color: #408080; font-style: italic">//自己中意的全部都被预定了。配对失败。</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+}
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>()
+{
+    init();
+    cin<span style="color: #666666">&gt;&gt;</span>n1<span style="color: #666666">&gt;&gt;</span>n2<span style="color: #666666">&gt;&gt;</span>m;
+    <span style="color: #008000; font-weight: bold">while</span>(m<span style="color: #666666">--</span>)
+    {
+        <span style="color: #B00040">int</span> a,b;
+        cin<span style="color: #666666">&gt;&gt;</span>a<span style="color: #666666">&gt;&gt;</span>b;
+        add(a,b);
+    }
 
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n1</span> <span style="color: #f8f8f2">;i</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>  
-         <span style="color: #75715e">//因为每次模拟匹配的预定情况都是不一样的所以每轮模拟都要初始化</span>
-          <span style="color: #f8f8f2">memset(st,false,</span><span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">st);</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(find(i))</span> 
-          <span style="color: #f8f8f2">res</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>  
+    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n1 ;i <span style="color: #666666">++</span>)
+    {  
+         <span style="color: #408080; font-style: italic">//因为每次模拟匹配的预定情况都是不一样的所以每轮模拟都要初始化</span>
+          memset(st,<span style="color: #008000">false</span>,<span style="color: #008000; font-weight: bold">sizeof</span> st);
+        <span style="color: #008000; font-weight: bold">if</span>(find(i)) 
+          res<span style="color: #666666">++</span>;
+    }  
 
-    <span style="color: #f8f8f2">cout</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">res</span><span style="color: #f92672">&lt;&lt;</span><span style="color: #f8f8f2">endl;</span>
-<span style="color: #f8f8f2">}</span>
+    cout<span style="color: #666666">&lt;&lt;</span>res<span style="color: #666666">&lt;&lt;</span>endl;
+}
 
-<span style="color: #960050; background-color: #1e0010">作者：在线白给</span>
-<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/solution/content/5334/</span>
-<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
-<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+<span style="border: 1px solid #FF0000">作者：在线白给</span>
+<span style="border: 1px solid #FF0000">链接：</span><span style="color: #A0A000">https</span>:<span style="color: #408080; font-style: italic">//www.acwing.com/solution/content/5334/</span>
+<span style="border: 1px solid #FF0000">来源：</span>AcWing
+<span style="border: 1px solid #FF0000">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
 
 
@@ -3185,81 +3176,81 @@ All worker and bike locations are distinct.
 <p>Use binary search for finding the biggest distance where the graph is still bipartite
 Use dfs to check if all the other can have the coloring</p>
 <p><strong>Now we have a different problem: find the if the graph is bipartitie if max = ?, and we find the smallest max</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;cstdio&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;cstring&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;algorithm&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;cstdio&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;cstring&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;algorithm&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">20010</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">M</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">200010</span><span style="color: #f8f8f2">;</span>
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">20010</span>, M <span style="color: #666666">=</span> <span style="color: #666666">200010</span>;
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">m;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">h[N],</span> <span style="color: #f8f8f2">e[M],</span> <span style="color: #f8f8f2">w[M],</span> <span style="color: #f8f8f2">ne[M],</span> <span style="color: #f8f8f2">idx;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">color[N];</span>
+<span style="color: #B00040">int</span> n, m;
+<span style="color: #B00040">int</span> h[N], e[M], w[M], ne[M], idx;
+<span style="color: #B00040">int</span> color[N];
 
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">c)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">e[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">w[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">c,</span> <span style="color: #f8f8f2">ne[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h[a],</span> <span style="color: #f8f8f2">h[a]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">void</span> <span style="color: #0000FF">add</span>(<span style="color: #B00040">int</span> a, <span style="color: #B00040">int</span> b, <span style="color: #B00040">int</span> c)
+{
+    e[idx] <span style="color: #666666">=</span> b, w[idx] <span style="color: #666666">=</span> c, ne[idx] <span style="color: #666666">=</span> h[a], h[a] <span style="color: #666666">=</span> idx <span style="color: #666666">++</span> ;
+}
 
-<span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">u,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">c,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">limit)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">color[u]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">c;</span> <span style="color: #75715e">// color current node to c</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h[u];</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">i;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">ne[i])</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(w[i]</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">limit)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// weight is less than current found max wight</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">e[i];</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(color[j])</span>
-        <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(color[j]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">c)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span> <span style="color: #75715e">// in the same group</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">dfs(j,</span> <span style="color: #ae81ff">3</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">c,</span> <span style="color: #f8f8f2">limit))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span> <span style="color: #75715e">// check alternative coloring =&gt; place j to another group</span>
-    <span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">bool</span> <span style="color: #0000FF">dfs</span>(<span style="color: #B00040">int</span> u, <span style="color: #B00040">int</span> c, <span style="color: #B00040">int</span> limit)
+{
+    color[u] <span style="color: #666666">=</span> c; <span style="color: #408080; font-style: italic">// color current node to c</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> h[u]; <span style="color: #666666">~</span>i; i <span style="color: #666666">=</span> ne[i])
+    {
+        <span style="color: #008000; font-weight: bold">if</span> (w[i] <span style="color: #666666">&lt;=</span> limit) <span style="color: #008000; font-weight: bold">continue</span>; <span style="color: #408080; font-style: italic">// weight is less than current found max wight</span>
+        <span style="color: #B00040">int</span> j <span style="color: #666666">=</span> e[i];
+        <span style="color: #008000; font-weight: bold">if</span> (color[j])
+        {
+            <span style="color: #008000; font-weight: bold">if</span> (color[j] <span style="color: #666666">==</span> c) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>; <span style="color: #408080; font-style: italic">// in the same group</span>
+        }
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>dfs(j, <span style="color: #666666">3</span> <span style="color: #666666">-</span> c, limit)) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>; <span style="color: #408080; font-style: italic">// check alternative coloring =&gt; place j to another group</span>
+    }
 
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+}
 
-<span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">check</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">limit)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">memset(color,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">color);</span>
+<span style="color: #B00040">bool</span> <span style="color: #0000FF">check</span>(<span style="color: #B00040">int</span> limit)
+{
+    memset(color, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> color);
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(color[i]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">dfs(i,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">limit))</span> <span style="color: #75715e">// start with coloring current node with 1, any that couldn&#39;t make it work will return false</span>
-                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; i <span style="color: #666666">++</span> )
+        <span style="color: #008000; font-weight: bold">if</span> (color[i] <span style="color: #666666">==</span> <span style="color: #666666">0</span>)
+            <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>dfs(i, <span style="color: #666666">1</span>, limit)) <span style="color: #408080; font-style: italic">// start with coloring current node with 1, any that couldn&#39;t make it work will return false</span>
+                <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">n,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">m);</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>()
+{
+    scanf(<span style="color: #BA2121">&quot;%d%d&quot;</span>, <span style="color: #666666">&amp;</span>n, <span style="color: #666666">&amp;</span>m);
 
-    <span style="color: #f8f8f2">memset(h,</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">h);</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(m</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">c;</span>
-        <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d%d%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">a,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">b,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">c);</span> <span style="color: #75715e">// a: bike id, b: worker id, c: weight</span>
-        <span style="color: #f8f8f2">add(a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">c);</span>
-        <span style="color: #f8f8f2">add(b,</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">c);</span>
-    <span style="color: #f8f8f2">}</span>
+    memset(h, <span style="color: #666666">-1</span>, <span style="color: #008000; font-weight: bold">sizeof</span> h);
+    <span style="color: #008000; font-weight: bold">while</span> (m <span style="color: #666666">--</span> )
+    {
+        <span style="color: #B00040">int</span> a, b, c;
+        scanf(<span style="color: #BA2121">&quot;%d%d%d&quot;</span>, <span style="color: #666666">&amp;</span>a, <span style="color: #666666">&amp;</span>b, <span style="color: #666666">&amp;</span>c); <span style="color: #408080; font-style: italic">// a: bike id, b: worker id, c: weight</span>
+        add(a, b, c);
+        add(b, a, c);
+    }
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1e9</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(check(mid))</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> <span style="color: #666666">1e9</span>;
+    <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r)
+    {
+        <span style="color: #B00040">int</span> mid <span style="color: #666666">=</span> l <span style="color: #666666">+</span> r <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (check(mid)) r <span style="color: #666666">=</span> mid;
+        <span style="color: #008000; font-weight: bold">else</span> l <span style="color: #666666">=</span> mid <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+    }
 
-    <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;%d</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">l);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    printf(<span style="color: #BA2121">&quot;%d</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>, l);
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 
-<span style="color: #960050; background-color: #1e0010">作者：</span><span style="color: #f8f8f2">yxc</span>
-<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/solution/content/3042/</span>
-<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
-<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+<span style="border: 1px solid #FF0000">作者：</span>yxc
+<span style="border: 1px solid #FF0000">链接：</span><span style="color: #A0A000">https</span>:<span style="color: #408080; font-style: italic">//www.acwing.com/solution/content/3042/</span>
+<span style="border: 1px solid #FF0000">来源：</span>AcWing
+<span style="border: 1px solid #FF0000">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
                 
               

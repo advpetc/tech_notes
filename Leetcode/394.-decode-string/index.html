@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2918,25 +2909,25 @@
 <p>You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.</p>
 <p>Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, <em>k</em>. For example, there won't be input like <code>3a</code> or <code>2[4]</code>.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;3[a]2[bc]&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;3[a]2[bc]&quot;
 Output: &quot;aaabcbc&quot;
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;3[a2[c]]&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;3[a2[c]]&quot;
 Output: &quot;accaccacc&quot;
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;2[abc]3[cd]ef&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;2[abc]3[cd]ef&quot;
 Output: &quot;abcabccdcdcdef&quot;
 </code></pre></div>
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;abc3[cd]xyz&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;abc3[cd]xyz&quot;
 Output: &quot;abccdcdcdxyz&quot;
 </code></pre></div>
 
@@ -2960,36 +2951,36 @@ Output: &quot;abccdcdcdxyz&quot;
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> </li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-  <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">decodeString(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">stack</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">times;</span>
-    <span style="color: #f8f8f2">stack</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">stk;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">c</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(c</span> <span style="color: #f92672">&lt;=</span> <span style="color: #e6db74">&#39;9&#39;</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">c</span> <span style="color: #f92672">&gt;=</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">10</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">c</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(c</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;[&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">times.push(cnt);</span>
-        <span style="color: #f8f8f2">stk.push(t);</span>
-        <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(c</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;]&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">time</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">times.top();</span>
-        <span style="color: #f8f8f2">times.pop();</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">time;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #f8f8f2">stk.top()</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">t;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">stk.top();</span>
-        <span style="color: #f8f8f2">stk.pop();</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">t</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">c;</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">stk.empty()</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">t</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">stk.top();</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+  string decodeString(string s) {
+    stack<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> times;
+    stack<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> stk;
+    <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    string t <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">char</span> <span style="color: #A0A000">c</span> : s) {
+      <span style="color: #008000; font-weight: bold">if</span> (c <span style="color: #666666">&lt;=</span> <span style="color: #BA2121">&#39;9&#39;</span> <span style="color: #666666">&amp;&amp;</span> c <span style="color: #666666">&gt;=</span> <span style="color: #BA2121">&#39;0&#39;</span>) {
+        cnt <span style="color: #666666">=</span> cnt <span style="color: #666666">*</span> <span style="color: #666666">10</span> <span style="color: #666666">+</span> c <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;0&#39;</span>;
+      } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (c <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;[&#39;</span>) {
+        times.push(cnt);
+        stk.push(t);
+        cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        t <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>;
+      } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (c <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;]&#39;</span>) {
+        <span style="color: #B00040">int</span> time <span style="color: #666666">=</span> times.top();
+        times.pop();
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> time; <span style="color: #666666">++</span>i) {
+          stk.top() <span style="color: #666666">+=</span> t;
+        }
+        t <span style="color: #666666">=</span> stk.top();
+        stk.pop();
+      } <span style="color: #008000; font-weight: bold">else</span> {
+        t <span style="color: #666666">+=</span> c;
+      }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> stk.empty() <span style="color: #666666">?</span> <span style="color: #A0A000">t</span> : stk.top();
+  }
+};
 </code></pre></div>
                 
               

@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3080,34 +3071,34 @@ In sample case #4, there are no peaks.</p>
 <li>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></li>
 </ul>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// Problem : Bike Tour</span>
-<span style="color: #75715e">// Contest : Google Coding Competitions - Round B 2020 - Kick Start 2020</span>
-<span style="color: #75715e">// URL : https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d82e6</span>
-<span style="color: #75715e">// Memory Limit : 1024 MB</span>
-<span style="color: #75715e">// Time Limit : 10000 ms</span>
-<span style="color: #75715e">// Powered by CP Editor (https://github.com/cpeditor/cpeditor)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// Problem : Bike Tour</span>
+<span style="color: #408080; font-style: italic">// Contest : Google Coding Competitions - Round B 2020 - Kick Start 2020</span>
+<span style="color: #408080; font-style: italic">// URL : https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d82e6</span>
+<span style="color: #408080; font-style: italic">// Memory Limit : 1024 MB</span>
+<span style="color: #408080; font-style: italic">// Time Limit : 10000 ms</span>
+<span style="color: #408080; font-style: italic">// Powered by CP Editor (https://github.com/cpeditor/cpeditor)</span>
 
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">nums[</span><span style="color: #ae81ff">110</span><span style="color: #f8f8f2">];</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">T,</span> <span style="color: #f8f8f2">n;</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">T;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">T;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">t){</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+using namespace std;
+<span style="color: #B00040">int</span> nums[<span style="color: #666666">110</span>];
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+  <span style="color: #B00040">int</span> T, n;
+  cin <span style="color: #666666">&gt;&gt;</span> T;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> t <span style="color: #666666">=</span> <span style="color: #666666">0</span>; t <span style="color: #666666">&lt;</span> T; <span style="color: #666666">++</span>t){
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-      <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">nums[i];</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i)
+      cin <span style="color: #666666">&gt;&gt;</span> nums[i];
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(nums[i]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">nums[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">nums[i]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">nums[i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">])</span> <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; <span style="color: #666666">++</span>i) {
+        <span style="color: #008000; font-weight: bold">if</span> (nums[i] <span style="color: #666666">&gt;</span> nums[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">&amp;&amp;</span> nums[i] <span style="color: #666666">&gt;</span> nums[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>]) cnt<span style="color: #666666">++</span>;
+    }
 
-    <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;Case #%d: %d</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">cnt);</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+    printf(<span style="color: #BA2121">&quot;Case #%d: %d</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>, t <span style="color: #666666">+</span> <span style="color: #666666">1</span>, cnt);
+  }
+}
 </code></pre></div>
 
 
@@ -3168,47 +3159,47 @@ Take the 1<sup>st</sup> bus on day 1 (X1 = 1).</p>
 <li>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></li>
 </ul>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// Problem : Bus Routes</span>
-<span style="color: #75715e">// Contest : Google Coding Competitions - Round B 2020 - Kick Start 2020</span>
-<span style="color: #75715e">// URL :</span>
-<span style="color: #75715e">// https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83bf</span>
-<span style="color: #75715e">// Memory Limit : 1024 MB</span>
-<span style="color: #75715e">// Time Limit : 10000 ms</span>
-<span style="color: #75715e">// Powered by CP Editor (https://github.com/cpeditor/cpeditor)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// Problem : Bus Routes</span>
+<span style="color: #408080; font-style: italic">// Contest : Google Coding Competitions - Round B 2020 - Kick Start 2020</span>
+<span style="color: #408080; font-style: italic">// URL :</span>
+<span style="color: #408080; font-style: italic">// https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83bf</span>
+<span style="color: #408080; font-style: italic">// Memory Limit : 1024 MB</span>
+<span style="color: #408080; font-style: italic">// Time Limit : 10000 ms</span>
+<span style="color: #408080; font-style: italic">// Powered by CP Editor (https://github.com/cpeditor/cpeditor)</span>
 
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">typedef</span> <span style="color: #66d9ef">long</span> <span style="color: #66d9ef">long</span> <span style="color: #f8f8f2">ll;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">T,</span> <span style="color: #f8f8f2">n;</span>
-<span style="color: #f8f8f2">ll</span> <span style="color: #f8f8f2">d;</span>
-<span style="color: #f8f8f2">ll</span> <span style="color: #f8f8f2">num[</span><span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">];</span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">typedef</span> <span style="color: #B00040">long</span> <span style="color: #B00040">long</span> ll;
+<span style="color: #B00040">int</span> T, n;
+ll d;
+ll num[<span style="color: #666666">1010</span>];
 
-<span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">works</span><span style="color: #f8f8f2">(ll</span> <span style="color: #f8f8f2">mid)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(mid</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">num[i]</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> 
-        <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">(num[i]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">num[i]);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">d;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">bool</span> <span style="color: #0000FF">works</span>(ll mid) {
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+    <span style="color: #008000; font-weight: bold">if</span> (mid <span style="color: #666666">%</span> num[i] <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) 
+        mid <span style="color: #666666">+=</span> (num[i] <span style="color: #666666">-</span> mid <span style="color: #666666">%</span> num[i]);
+  }
+  <span style="color: #008000; font-weight: bold">return</span> mid <span style="color: #666666">&lt;=</span> d;
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">T;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">T;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">t)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">d;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">num[i];</span>
-    <span style="color: #f8f8f2">ll</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">d;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">ll</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(works(m))</span>
-        <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
-      <span style="color: #66d9ef">else</span>
-        <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;Case #%d: %llu</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">t,</span> <span style="color: #f8f8f2">l);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+  cin <span style="color: #666666">&gt;&gt;</span> T;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> t <span style="color: #666666">=</span> <span style="color: #666666">1</span>; t <span style="color: #666666">&lt;=</span> T; <span style="color: #666666">++</span>t) {
+    cin <span style="color: #666666">&gt;&gt;</span> n <span style="color: #666666">&gt;&gt;</span> d;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) cin <span style="color: #666666">&gt;&gt;</span> num[i];
+    ll l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> d;
+    <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r) {
+      ll m <span style="color: #666666">=</span> (l <span style="color: #666666">+</span> r <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>;
+      <span style="color: #008000; font-weight: bold">if</span> (works(m))
+        l <span style="color: #666666">=</span> m;
+      <span style="color: #008000; font-weight: bold">else</span>
+        r <span style="color: #666666">=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+    }
+    printf(<span style="color: #BA2121">&quot;Case #%d: %llu</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span>, t, l);
+  }
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3241,7 +3232,7 @@ The total number of moves the robot will make in a single test case is at most 1
 No additional constraints.</p>
 <p>Sample</p>
 <p>Input</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>4
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>4
 SSSEEE
 N
 N3(S)N2(E)N
@@ -3250,7 +3241,7 @@ N3(S)N2(E)N
 
 
 <p>Output</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Case #1: 4 4
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Case #1: 4 4
 Case #2: 1 1000000000
 Case #3: 3 1
 Case #4: 3 999999995

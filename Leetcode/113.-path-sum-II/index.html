@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2917,7 +2908,7 @@
 <p><strong>Note:</strong> A leaf is a node with no children.</p>
 <p><strong>Example:</strong></p>
 <p>Given the below binary tree and <code>sum = 22</code>,</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>      5
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>      5
      / \
     4   8
    /   / \
@@ -2928,7 +2919,7 @@
 
 
 <p>Return:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>[
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>[
    [5,4,11,2],
    [5,8,4,5]
 ]
@@ -2942,38 +2933,38 @@
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> if don't count the return space.</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Definition for a binary tree node.</span>
-<span style="color: #75715e"> * struct TreeNode {</span>
-<span style="color: #75715e"> *     int val;</span>
-<span style="color: #75715e"> *     TreeNode *left;</span>
-<span style="color: #75715e"> *     TreeNode *right;</span>
-<span style="color: #75715e"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
-<span style="color: #75715e"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
-<span style="color: #75715e"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
-<span style="color: #75715e"> * };</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">res;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
+<span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
+<span style="color: #408080; font-style: italic"> *     int val;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *left;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *right;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span style="color: #408080; font-style: italic"> * };</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;
 
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">path)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">root)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">sum</span> <span style="color: #f92672">-=</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val;</span>
-        <span style="color: #f8f8f2">path.push_back(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">sum</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">res.push_back(path);</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">dfs(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #f8f8f2">path);</span>
-        <span style="color: #f8f8f2">dfs(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #f8f8f2">path);</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(TreeNode<span style="color: #666666">*</span> root, <span style="color: #B00040">int</span> sum, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> path) {
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> ;
+        sum <span style="color: #666666">-=</span> root <span style="color: #666666">-&gt;</span> val;
+        path.push_back(root <span style="color: #666666">-&gt;</span> val);
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>sum <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>root <span style="color: #666666">-&gt;</span> left <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>root <span style="color: #666666">-&gt;</span> right) {
+            res.push_back(path);
+            <span style="color: #008000; font-weight: bold">return</span> ;
+        }
+        dfs(root <span style="color: #666666">-&gt;</span> left, sum, path);
+        dfs(root <span style="color: #666666">-&gt;</span> right, sum, path);
+    }
 
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">pathSum(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sum)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">dfs(root,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #f8f8f2">{});</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> pathSum(TreeNode<span style="color: #666666">*</span> root, <span style="color: #B00040">int</span> sum) {
+        dfs(root, sum, {});
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
                 
               

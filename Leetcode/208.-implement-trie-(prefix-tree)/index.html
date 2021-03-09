@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2938,63 +2929,63 @@ All inputs are guaranteed to be non-empty strings.</p>
 <p><img alt="Screen Shot 2020-04-25 at 6.22.03 PM.png" src="../resources/53E2049F8A91A184083AB85827B4396D.png" /></p>
 <p>each node can has 26 (all lower case) children - <strong>pretty bad space complexity</strong></p>
 <h2 id="cpp-dynamically-generate-26-nodes-all-the-time">cpp: dynamically generate 26 nodes all the time<a class="headerlink" href="#cpp-dynamically-generate-26-nodes-all-the-time" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">TrieNode</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">TrieNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">next[</span><span style="color: #ae81ff">26</span><span style="color: #f8f8f2">];</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">is_word;</span>
-    <span style="color: #f8f8f2">TrieNode(</span><span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false)</span>
-        <span style="color: #f92672">:</span> <span style="color: #f8f8f2">is_word(b)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">memset(next,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span><span style="color: #f8f8f2">(next));</span> <span style="color: #75715e">// next store address instead of the value itself</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">struct</span> TrieNode {
+    TrieNode<span style="color: #666666">*</span> next[<span style="color: #666666">26</span>];
+    <span style="color: #B00040">bool</span> is_word;
+    TrieNode(<span style="color: #B00040">bool</span> b <span style="color: #666666">=</span> <span style="color: #008000">false</span>)
+        <span style="color: #666666">:</span> is_word(b)
+    {
+        memset(next, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span>(next)); <span style="color: #408080; font-style: italic">// next store address instead of the value itself</span>
+    }
+};
 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Trie</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">private:</span>
-    <span style="color: #f8f8f2">TrieNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #f8f8f2">TrieNode</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">find</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">key)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">TrieNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">key.size()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">NULL;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next[key[i]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">];</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">p;</span>
-    <span style="color: #f8f8f2">}</span>
+class Trie {
+<span style="color: #A0A000">private</span>:
+    TrieNode<span style="color: #666666">*</span> root;
+    TrieNode<span style="color: #666666">*</span> <span style="color: #0000FF">find</span>(string key)
+    {
+        TrieNode<span style="color: #666666">*</span> p <span style="color: #666666">=</span> root;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> key.size() <span style="color: #666666">&amp;&amp;</span> p <span style="color: #666666">!=</span> <span style="color: #008000">NULL</span>; <span style="color: #666666">++</span>i) {
+            p <span style="color: #666666">=</span> p<span style="color: #666666">-&gt;</span>next[key[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>];
+        }
+        <span style="color: #008000; font-weight: bold">return</span> p;
+    }
 
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #75715e">/** Initialize your data structure here. */</span>
-    <span style="color: #f8f8f2">Trie()</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TrieNode();</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #A0A000">public</span>:
+    <span style="color: #408080; font-style: italic">/** Initialize your data structure here. */</span>
+    Trie() { root <span style="color: #666666">=</span> new TrieNode(); }
 
-    <span style="color: #75715e">/** Inserts a word into the trie. */</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">insert(string</span> <span style="color: #f8f8f2">word)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">TrieNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">word.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(p</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next[word[i]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">NULL)</span> <span style="color: #75715e">// not assign any value yet</span>
-                <span style="color: #f8f8f2">p</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next[word[i]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TrieNode();</span> <span style="color: #75715e">// only new when </span>
-            <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next[word[i]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">];</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">p</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">is_word</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #408080; font-style: italic">/** Inserts a word into the trie. */</span>
+    <span style="color: #B00040">void</span> insert(string word)
+    {
+        TrieNode<span style="color: #666666">*</span> p <span style="color: #666666">=</span> root;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> word.size(); <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">if</span> (p<span style="color: #666666">-&gt;</span>next[word[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #666666">==</span> <span style="color: #008000">NULL</span>) <span style="color: #408080; font-style: italic">// not assign any value yet</span>
+                p<span style="color: #666666">-&gt;</span>next[word[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #666666">=</span> new TrieNode(); <span style="color: #408080; font-style: italic">// only new when </span>
+            p <span style="color: #666666">=</span> p<span style="color: #666666">-&gt;</span>next[word[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>];
+        }
+        p<span style="color: #666666">-&gt;</span>is_word <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+    }
 
-    <span style="color: #75715e">/** Returns if the word is in the trie. */</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">search(string</span> <span style="color: #f8f8f2">word)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">TrieNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">find(word);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">NULL</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">p</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">is_word;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #408080; font-style: italic">/** Returns if the word is in the trie. */</span>
+    <span style="color: #B00040">bool</span> search(string word)
+    {
+        TrieNode<span style="color: #666666">*</span> p <span style="color: #666666">=</span> find(word);
+        <span style="color: #008000; font-weight: bold">return</span> p <span style="color: #666666">!=</span> <span style="color: #008000">NULL</span> <span style="color: #666666">&amp;&amp;</span> p<span style="color: #666666">-&gt;</span>is_word;
+    }
 
-    <span style="color: #75715e">/** Returns if there is any word in the trie that starts with the given</span>
-<span style="color: #75715e">     * prefix. */</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">startsWith(string</span> <span style="color: #f8f8f2">prefix)</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">find(prefix)</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">NULL;</span> <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #408080; font-style: italic">/** Returns if there is any word in the trie that starts with the given</span>
+<span style="color: #408080; font-style: italic">     * prefix. */</span>
+    <span style="color: #B00040">bool</span> startsWith(string prefix) { <span style="color: #008000; font-weight: bold">return</span> find(prefix) <span style="color: #666666">!=</span> <span style="color: #008000">NULL</span>; }
+};
 
-<span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Your Trie object will be instantiated and called as such:</span>
-<span style="color: #75715e"> * Trie* obj = new Trie();</span>
-<span style="color: #75715e"> * obj-&gt;insert(word);</span>
-<span style="color: #75715e"> * bool param_3 = obj-&gt;search(word);</span>
-<span style="color: #75715e"> * bool param_3 = obj-&gt;startsWith(prefix);</span>
-<span style="color: #75715e"> */</span>
+<span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Your Trie object will be instantiated and called as such:</span>
+<span style="color: #408080; font-style: italic"> * Trie* obj = new Trie();</span>
+<span style="color: #408080; font-style: italic"> * obj-&gt;insert(word);</span>
+<span style="color: #408080; font-style: italic"> * bool param_3 = obj-&gt;search(word);</span>
+<span style="color: #408080; font-style: italic"> * bool param_3 = obj-&gt;startsWith(prefix);</span>
+<span style="color: #408080; font-style: italic"> */</span>
 </code></pre></div>
                 
               

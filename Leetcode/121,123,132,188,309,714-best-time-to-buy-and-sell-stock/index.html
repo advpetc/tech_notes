@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3000,26 +2991,26 @@ dp[i][1][1] = max(dp[i-1][1][1], dp[i-1][0][0] - prices[i])
 可以进行进一步化简去掉所有 k：
 dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
 dp[i][1] = max(dp[i-1][1], -prices[i])</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">==</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// i==0</span>
-        <span style="color: #f8f8f2">dp[i][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #75715e">// 解释：</span>
-        <span style="color: #75715e">//   dp[i][0] </span>
-        <span style="color: #75715e">// = max(dp[-1][0], dp[-1][1] + prices[i])</span>
-        <span style="color: #75715e">// = max(0, -infinity + prices[i]) = 0</span>
-        <span style="color: #f8f8f2">dp[i][</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">prices[i];</span>
-        <span style="color: #75715e">//解释：</span>
-        <span style="color: #75715e">//   dp[i][1] </span>
-        <span style="color: #75715e">// = max(dp[-1][1], dp[-1][0] - prices[i])</span>
-        <span style="color: #75715e">// = max(-infinity, 0 - prices[i]) </span>
-        <span style="color: #75715e">// = -prices[i]</span>
-        <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">dp[i][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">prices[i]);</span>
-    <span style="color: #f8f8f2">dp[i][</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">],</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">prices[i]);</span> <span style="color: #75715e">// now is sell, if last is sold now has to hold</span>
-                                            <span style="color: #75715e">//              if last is buy, now is rest</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dp[n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i<span style="color: #666666">++</span>) {
+    <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">==</span> <span style="color: #666666">-1</span>) { <span style="color: #408080; font-style: italic">// i==0</span>
+        dp[i][<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #408080; font-style: italic">// 解释：</span>
+        <span style="color: #408080; font-style: italic">//   dp[i][0] </span>
+        <span style="color: #408080; font-style: italic">// = max(dp[-1][0], dp[-1][1] + prices[i])</span>
+        <span style="color: #408080; font-style: italic">// = max(0, -infinity + prices[i]) = 0</span>
+        dp[i][<span style="color: #666666">1</span>] <span style="color: #666666">=</span> <span style="color: #666666">-</span>prices[i];
+        <span style="color: #408080; font-style: italic">//解释：</span>
+        <span style="color: #408080; font-style: italic">//   dp[i][1] </span>
+        <span style="color: #408080; font-style: italic">// = max(dp[-1][1], dp[-1][0] - prices[i])</span>
+        <span style="color: #408080; font-style: italic">// = max(-infinity, 0 - prices[i]) </span>
+        <span style="color: #408080; font-style: italic">// = -prices[i]</span>
+        <span style="color: #008000; font-weight: bold">continue</span>;
+    }
+    dp[i][<span style="color: #666666">0</span>] <span style="color: #666666">=</span> max(dp[i<span style="color: #666666">-1</span>][<span style="color: #666666">0</span>], dp[i<span style="color: #666666">-1</span>][<span style="color: #666666">1</span>] <span style="color: #666666">+</span> prices[i]);
+    dp[i][<span style="color: #666666">1</span>] <span style="color: #666666">=</span> max(dp[i<span style="color: #666666">-1</span>][<span style="color: #666666">1</span>], <span style="color: #666666">-</span>prices[i]); <span style="color: #408080; font-style: italic">// now is sell, if last is sold now has to hold</span>
+                                            <span style="color: #408080; font-style: italic">//              if last is buy, now is rest</span>
+}
+<span style="color: #008000; font-weight: bold">return</span> dp[n <span style="color: #666666">-</span> <span style="color: #666666">1</span>][<span style="color: #666666">0</span>];
 </code></pre></div>
 
 
@@ -3030,16 +3021,16 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
 <p>我们发现数组中的 k 已经不会改变了，也就是说不需要记录 k 这个状态了：
 dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
 dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i])</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">maxProfit_k_inf</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">prices)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">prices.size();</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dp_i_0</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">dp_i_1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">INT_MIN;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">temp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp_i_0;</span> <span style="color: #75715e">// last state is </span>
-        <span style="color: #f8f8f2">dp_i_0</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(dp_i_0,</span> <span style="color: #f8f8f2">dp_i_1</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">prices[i]);</span>
-        <span style="color: #f8f8f2">dp_i_1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(dp_i_1,</span> <span style="color: #f8f8f2">temp</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">prices[i]);</span>
-    <span style="color: #f8f8f2">}</span>   
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dp_i_0;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">maxProfit_k_inf</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> prices) {
+    <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> prices.size();
+    <span style="color: #B00040">int</span> dp_i_0 <span style="color: #666666">=</span> <span style="color: #666666">0</span>, dp_i_1 <span style="color: #666666">=</span> INT_MIN;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i<span style="color: #666666">++</span>) {
+        <span style="color: #B00040">int</span> temp <span style="color: #666666">=</span> dp_i_0; <span style="color: #408080; font-style: italic">// last state is </span>
+        dp_i_0 <span style="color: #666666">=</span> max(dp_i_0, dp_i_1 <span style="color: #666666">+</span> prices[i]);
+        dp_i_1 <span style="color: #666666">=</span> max(dp_i_1, temp <span style="color: #666666">-</span> prices[i]);
+    }   
+    <span style="color: #008000; font-weight: bold">return</span> dp_i_0;
+}
 </code></pre></div>
                 
               

@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2932,36 +2923,36 @@ A = {2, 1}, K = 2, return []</p>
             2. if map isn't full, we just add one mapping of the new element to the map.
 4. Do the final check to see if all the keys in the map has the appeared more than 1/k * n times.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">majority(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">array,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">cnt;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">array)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt.count(a))</span> <span style="color: #f8f8f2">cnt[a]</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt.size()</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">p</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">cnt)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">p.second</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-              <span style="color: #f8f8f2">cnt.erase(p.first);</span>
-          <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt.size()</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #f8f8f2">cnt[a]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">check;</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">target</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">array.size()</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">k;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">array)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt.count(a))</span>
-        <span style="color: #f92672">++</span><span style="color: #f8f8f2">check[a];</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">p</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">check)</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(p.second</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">res.push_back(p.first);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> majority(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array, <span style="color: #B00040">int</span> k) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> cnt;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">a</span> : array) {
+      <span style="color: #008000; font-weight: bold">if</span> (cnt.count(a)) cnt[a]<span style="color: #666666">++</span>;
+      <span style="color: #008000; font-weight: bold">else</span> {
+        <span style="color: #008000; font-weight: bold">if</span> (cnt.size() <span style="color: #666666">==</span> k <span style="color: #666666">-</span> <span style="color: #666666">1</span>) {
+          <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span><span style="color: #666666">&amp;</span> <span style="color: #A0A000">p</span> : cnt) {
+            <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">--</span>p.second <span style="color: #666666">==</span> <span style="color: #666666">0</span>)
+              cnt.erase(p.first);
+          }
+        } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (cnt.size() <span style="color: #666666">&lt;</span> k <span style="color: #666666">-</span> <span style="color: #666666">1</span>) {
+          cnt[a] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+        }
+      }
+    }
+    unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> check;
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
+    <span style="color: #B00040">int</span> target <span style="color: #666666">=</span> array.size() <span style="color: #666666">/</span> k;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">a</span> : array) {
+      <span style="color: #008000; font-weight: bold">if</span> (cnt.count(a))
+        <span style="color: #666666">++</span>check[a];
+    }
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">p</span> : check)
+      <span style="color: #008000; font-weight: bold">if</span> (p.second <span style="color: #666666">&gt;</span> target) res.push_back(p.first);
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
+};
 </code></pre></div>
                 
               

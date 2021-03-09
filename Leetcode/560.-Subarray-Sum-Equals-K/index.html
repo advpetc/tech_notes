@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2915,13 +2906,13 @@
                 <h1 id="subarray-sum-equals-k">Subarray Sum Equals K<a class="headerlink" href="#subarray-sum-equals-k" title="Permanent link">&para;</a></h1>
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the total number of continuous subarrays whose sum equals to <code>k</code></em>.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: nums = [1,1,1], k = 2
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [1,1,1], k = 2
 Output: 2
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: nums = [1,2,3], k = 3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [1,2,3], k = 3
 Output: 2
 </code></pre></div>
 
@@ -2940,23 +2931,23 @@ Output: 2
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> there could have at most n difference sum</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">subarraySum(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">)nums.size();</span>
-        <span style="color: #75715e">// key: sum from 0 to i, value: # of this sum occurred</span>
-        <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">m;</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">curr_sum</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">m[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">curr_sum</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">nums[i];</span>
-            <span style="color: #f8f8f2">res</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">m[curr_sum</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">k];</span>
-            <span style="color: #f8f8f2">m[curr_sum]</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> subarraySum(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> k) {
+        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> (<span style="color: #B00040">int</span>)nums.size();
+        <span style="color: #408080; font-style: italic">// key: sum from 0 to i, value: # of this sum occurred</span>
+        unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> m;
+        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #B00040">int</span> curr_sum <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        m[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+            curr_sum <span style="color: #666666">+=</span> nums[i];
+            res <span style="color: #666666">+=</span> m[curr_sum <span style="color: #666666">-</span> k];
+            m[curr_sum]<span style="color: #666666">++</span>;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
                 
               

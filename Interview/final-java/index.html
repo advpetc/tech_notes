@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3161,53 +3152,53 @@
 <li>There are n levels, and the last level has <span><span class="MathJax_Preview">2^n</span><script type="math/tex">2^n</script></span> nodes, which means the time complexity is <span><span class="MathJax_Preview">O(2^n)</span><script type="math/tex">O(2^n)</script></span>, and space complexity is <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 </ul>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f92672">package</span> <span style="color: #f8f8f2">test;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">package</span> <span style="color: #0000FF; font-weight: bold">test</span>;
 
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">RecruitingEventSchedules</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(String</span> <span style="color: #f8f8f2">input,</span> <span style="color: #f8f8f2">StringBuilder</span> <span style="color: #f8f8f2">curr,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">idx)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(idx</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">input.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">())</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">System.</span><span style="color: #a6e22e">out</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">println</span><span style="color: #f8f8f2">(curr);</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">// without x</span>
-        <span style="color: #f8f8f2">curr.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(input.</span><span style="color: #a6e22e">charAt</span><span style="color: #f8f8f2">(idx));</span>
-        <span style="color: #f8f8f2">dfs(input,</span> <span style="color: #f8f8f2">curr,</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #f8f8f2">curr.</span><span style="color: #a6e22e">deleteCharAt</span><span style="color: #f8f8f2">(curr.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">RecruitingEventSchedules</span> {
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(String input, StringBuilder curr, <span style="color: #B00040">int</span> idx) {
+        <span style="color: #008000; font-weight: bold">if</span> (idx <span style="color: #666666">==</span> input.<span style="color: #7D9029">length</span>()) {
+            System.<span style="color: #7D9029">out</span>.<span style="color: #7D9029">println</span>(curr);
+            <span style="color: #008000; font-weight: bold">return</span> ;
+        }
+        <span style="color: #408080; font-style: italic">// without x</span>
+        curr.<span style="color: #7D9029">append</span>(input.<span style="color: #7D9029">charAt</span>(idx));
+        dfs(input, curr, idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
+        curr.<span style="color: #7D9029">deleteCharAt</span>(curr.<span style="color: #7D9029">length</span>() <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
 
-        <span style="color: #75715e">// with x</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">curr.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;x&#39;</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #f8f8f2">curr.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(input.</span><span style="color: #a6e22e">charAt</span><span style="color: #f8f8f2">(idx));</span>
-        <span style="color: #f8f8f2">dfs(input,</span> <span style="color: #f8f8f2">curr,</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #f8f8f2">curr.</span><span style="color: #a6e22e">deleteCharAt</span><span style="color: #f8f8f2">(curr.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #f8f8f2">curr.</span><span style="color: #a6e22e">deleteCharAt</span><span style="color: #f8f8f2">(curr.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">}</span>
+        <span style="color: #408080; font-style: italic">// with x</span>
+        <span style="color: #008000; font-weight: bold">if</span> (curr.<span style="color: #7D9029">length</span>() <span style="color: #666666">&lt;=</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> ;
+        curr.<span style="color: #7D9029">append</span>(<span style="color: #BA2121">&#39;x&#39;</span>);
+        curr.<span style="color: #7D9029">append</span>(input.<span style="color: #7D9029">charAt</span>(idx));
+        dfs(input, curr, idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
+        curr.<span style="color: #7D9029">deleteCharAt</span>(curr.<span style="color: #7D9029">length</span>() <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+        curr.<span style="color: #7D9029">deleteCharAt</span>(curr.<span style="color: #7D9029">length</span>() <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+    }
 
-    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">static</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">(String</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">args)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #75715e">// TODO Auto-generated method stub</span>
-        <span style="color: #f8f8f2">String</span> <span style="color: #f8f8f2">t1</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;ABC&quot;</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">String</span> <span style="color: #f8f8f2">t2</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;A&quot;</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">String</span> <span style="color: #f8f8f2">t3</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">RecruitingEventSchedules</span> <span style="color: #f8f8f2">sol</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">RecruitingEventSchedules();</span>
-        <span style="color: #75715e">/*</span>
-<span style="color: #75715e">         *  ABC</span>
-<span style="color: #75715e">            ABxC</span>
-<span style="color: #75715e">            AxBC</span>
-<span style="color: #75715e">            AxBxC</span>
-<span style="color: #75715e">         */</span>
-        <span style="color: #f8f8f2">sol.</span><span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(t1,</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">StringBuilder(),</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #f8f8f2">sol.</span><span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(t2,</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">StringBuilder(),</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// A</span>
-        <span style="color: #f8f8f2">sol.</span><span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(t3,</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">StringBuilder(),</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// &quot;&quot;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
+        <span style="color: #408080; font-style: italic">// TODO Auto-generated method stub</span>
+        String t1 <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;ABC&quot;</span>;
+        String t2 <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;A&quot;</span>;
+        String t3 <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>;
+        RecruitingEventSchedules sol <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> RecruitingEventSchedules();
+        <span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic">         *  ABC</span>
+<span style="color: #408080; font-style: italic">            ABxC</span>
+<span style="color: #408080; font-style: italic">            AxBC</span>
+<span style="color: #408080; font-style: italic">            AxBxC</span>
+<span style="color: #408080; font-style: italic">         */</span>
+        sol.<span style="color: #7D9029">dfs</span>(t1, <span style="color: #008000; font-weight: bold">new</span> StringBuilder(), <span style="color: #666666">0</span>);
+        sol.<span style="color: #7D9029">dfs</span>(t2, <span style="color: #008000; font-weight: bold">new</span> StringBuilder(), <span style="color: #666666">0</span>); <span style="color: #408080; font-style: italic">// A</span>
+        sol.<span style="color: #7D9029">dfs</span>(t3, <span style="color: #008000; font-weight: bold">new</span> StringBuilder(), <span style="color: #666666">0</span>); <span style="color: #408080; font-style: italic">// &quot;&quot;</span>
+    }
 
-<span style="color: #f8f8f2">}</span>
+}
 </code></pre></div>
 
 
 <h2 id="q2-cousins-in-a-binary-tree">Q2. Cousins in a Binary Tree<a class="headerlink" href="#q2-cousins-in-a-binary-tree" title="Permanent link">&para;</a></h2>
 <p>In a binary tree, two nodes are cousins of each other if they are at the same level and have different parents.</p>
 <p>For example, in the following tree:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>                     6
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>                     6
 
                   /     \
 
@@ -3231,48 +3222,48 @@
 <li>Space Complexity: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 </ul>
 <h3 id="code-in-cpp-bfs">Code in Cpp: BFS<a class="headerlink" href="#code-in-cpp-bfs" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Definition for a binary tree node.</span>
-<span style="color: #75715e"> * struct TreeNode {</span>
-<span style="color: #75715e"> *     int val;</span>
-<span style="color: #75715e"> *     TreeNode *left;</span>
-<span style="color: #75715e"> *     TreeNode *right;</span>
-<span style="color: #75715e"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
-<span style="color: #75715e"> * };</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isCousins(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">y)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">queue</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">q({root});</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">q.empty())</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sz</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q.size();</span>
-            <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false,</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-            <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(sz</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q.front();</span>
-                <span style="color: #f8f8f2">q.pop();</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">x)</span>
-                    <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">y)</span>
-                    <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>              
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(left</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">right)</span>
-                    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left)</span>
-                    <span style="color: #f8f8f2">q.push(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left);</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right)</span>
-                    <span style="color: #f8f8f2">q.push(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right);</span>
-                <span style="color: #75715e">// check if sharing same parent for next level, so that on current level we don&#39;t need to do a same check again</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">y)</span>
-                        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-                    <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">y)</span>
-                        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
+<span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
+<span style="color: #408080; font-style: italic"> *     int val;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *left;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode *right;</span>
+<span style="color: #408080; font-style: italic"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
+<span style="color: #408080; font-style: italic"> * };</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">bool</span> isCousins(TreeNode<span style="color: #666666">*</span> root, <span style="color: #B00040">int</span> x, <span style="color: #B00040">int</span> y) {
+        queue<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> q({root});
+        <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>q.empty()) {
+            <span style="color: #B00040">int</span> sz <span style="color: #666666">=</span> q.size();
+            <span style="color: #B00040">bool</span> left <span style="color: #666666">=</span> <span style="color: #008000">false</span>, right <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+            <span style="color: #008000; font-weight: bold">while</span> (sz<span style="color: #666666">--</span>) {
+                TreeNode<span style="color: #666666">*</span> curr <span style="color: #666666">=</span> q.front();
+                q.pop();
+                <span style="color: #008000; font-weight: bold">if</span> (curr <span style="color: #666666">-&gt;</span> val <span style="color: #666666">==</span> x)
+                    left <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+                <span style="color: #008000; font-weight: bold">if</span> (curr <span style="color: #666666">-&gt;</span> val <span style="color: #666666">==</span> y)
+                    right <span style="color: #666666">=</span> <span style="color: #008000">true</span>;              
+                <span style="color: #008000; font-weight: bold">if</span> (left <span style="color: #666666">&amp;&amp;</span> right)
+                    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+                <span style="color: #008000; font-weight: bold">if</span> (curr <span style="color: #666666">-&gt;</span> left)
+                    q.push(curr <span style="color: #666666">-&gt;</span> left);
+                <span style="color: #008000; font-weight: bold">if</span> (curr <span style="color: #666666">-&gt;</span> right)
+                    q.push(curr <span style="color: #666666">-&gt;</span> right);
+                <span style="color: #408080; font-style: italic">// check if sharing same parent for next level, so that on current level we don&#39;t need to do a same check again</span>
+                <span style="color: #008000; font-weight: bold">if</span> (curr <span style="color: #666666">-&gt;</span> left <span style="color: #666666">&amp;&amp;</span> curr <span style="color: #666666">-&gt;</span> right) {
+                    <span style="color: #008000; font-weight: bold">if</span> (curr <span style="color: #666666">-&gt;</span> left <span style="color: #666666">-&gt;</span> val <span style="color: #666666">==</span> x <span style="color: #666666">&amp;&amp;</span> curr <span style="color: #666666">-&gt;</span> right <span style="color: #666666">-&gt;</span> val <span style="color: #666666">==</span> y)
+                        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+                    <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (curr <span style="color: #666666">-&gt;</span> right <span style="color: #666666">-&gt;</span> val <span style="color: #666666">==</span> x <span style="color: #666666">&amp;&amp;</span> curr <span style="color: #666666">-&gt;</span> left <span style="color: #666666">-&gt;</span> val <span style="color: #666666">==</span> y)
+                        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+                }
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
 
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    }
+};
 </code></pre></div>
 
 
@@ -3285,21 +3276,21 @@
 <li>Return: only return the level that has found the LCA.</li>
 </ul>
 <h3 id="code-lca">Code: LCA<a class="headerlink" href="#code-lca" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">boolean</span> <span style="color: #a6e22e">findCusion</span><span style="color: #f8f8f2">(TreeNode</span> <span style="color: #f8f8f2">root,</span> <span style="color: #f8f8f2">TreeNode</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">TreeNode</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-    <span style="color: #f8f8f2">boolean[]</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">boolean[]{false};</span>
-    <span style="color: #f8f8f2">dfs(root,</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">res);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>public boolean <span style="color: #0000FF">findCusion</span>(TreeNode root, TreeNode a, TreeNode b) {
+    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> null <span style="color: #666666">||</span> a <span style="color: #666666">==</span> null <span style="color: #666666">||</span> b <span style="color: #666666">==</span> null) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+    boolean[] res <span style="color: #666666">=</span> new boolean[]{<span style="color: #008000">false</span>};
+    dfs(root, a, b, <span style="color: #666666">0</span>, res);
+    <span style="color: #008000; font-weight: bold">return</span> res[<span style="color: #666666">0</span>];
+}
 
-<span style="color: #f8f8f2">public</span> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(TreeNode</span> <span style="color: #f8f8f2">root,</span> <span style="color: #f8f8f2">TreeNode</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">TreeNode</span> <span style="color: #f8f8f2">b,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">level,</span> <span style="color: #f8f8f2">boolean[]</span> <span style="color: #f8f8f2">res)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null)</span> <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">b)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">level;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dfs(root.left,</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">level</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">res);</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dfs(root.right,</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">level</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">res);</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(left</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">level</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">res[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">==</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">right</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">left;</span>
-<span style="color: #f8f8f2">}</span>
+public <span style="color: #B00040">int</span> <span style="color: #0000FF">dfs</span>(TreeNode root, TreeNode a, TreeNode b, <span style="color: #B00040">int</span> level, boolean[] res) {
+    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> null) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
+    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> a <span style="color: #666666">||</span> root <span style="color: #666666">==</span> b) <span style="color: #008000; font-weight: bold">return</span> level;
+    <span style="color: #B00040">int</span> left <span style="color: #666666">=</span> dfs(root.left, a, b, level <span style="color: #666666">+</span> <span style="color: #666666">1</span>, res);
+    <span style="color: #B00040">int</span> right <span style="color: #666666">=</span> dfs(root.right, a, b, level <span style="color: #666666">+</span> <span style="color: #666666">1</span>, res);
+    <span style="color: #008000; font-weight: bold">if</span> (left <span style="color: #666666">==</span> right <span style="color: #666666">&amp;&amp;</span> left <span style="color: #666666">-</span> level <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>) res[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+    <span style="color: #008000; font-weight: bold">return</span> left <span style="color: #666666">==</span> <span style="color: #666666">-1</span> <span style="color: #666666">?</span> <span style="color: #A0A000">right</span> : left;
+}
 </code></pre></div>
 
 
@@ -3321,20 +3312,20 @@ Explanation: 13 = 4 + 9.</p>
 <li>Notice: don't forget the case when n == perfect square number, in this case, set it to 1</li>
 </ul>
 <h3 id="code-cpp">Code: Cpp<a class="headerlink" href="#code-cpp" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">numSquares(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dp[n</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">inf</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0x3f3f3f3f</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">memset(dp,</span> <span style="color: #f8f8f2">inf,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">dp);</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">i;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">dp[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(dp[i],</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">j]</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">dp[i]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dp[n];</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">int</span> numSquares(<span style="color: #B00040">int</span> n) {
+        <span style="color: #B00040">int</span> dp[n <span style="color: #666666">+</span> <span style="color: #666666">1</span>], inf <span style="color: #666666">=</span> <span style="color: #666666">0x3f3f3f3f</span>;
+        memset(dp, inf, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">1</span>; j <span style="color: #666666">*</span> j <span style="color: #666666">&lt;=</span> i; <span style="color: #666666">++</span>j) {
+                <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">-</span> j <span style="color: #666666">*</span> j <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>) dp[i] <span style="color: #666666">=</span> min(dp[i], dp[i <span style="color: #666666">-</span> j <span style="color: #666666">*</span> j] <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
+                <span style="color: #008000; font-weight: bold">if</span> (j <span style="color: #666666">*</span> j <span style="color: #666666">==</span> i) dp[i] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> dp[n];
+    }
+};
 </code></pre></div>
 
 
@@ -3361,25 +3352,25 @@ Explanation: 13 = 4 + 9.</p>
 <li>Space Compleity: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 </ul>
 <h3 id="code-permutation">Code: Permutation<a class="headerlink" href="#code-permutation" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">public</span> <span style="color: #66d9ef">boolean</span> <span style="color: #a6e22e">canChain</span><span style="color: #f8f8f2">(String</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">strArr)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">helper(strArr,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">canChain</span>(String<span style="color: #666666">[]</span> strArr) {
+    <span style="color: #008000; font-weight: bold">return</span> helper(strArr, <span style="color: #666666">1</span>);
+}
 
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">boolean</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(String</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">strArr,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">index)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(index</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">strArr.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">canConnect(strArr</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">index</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">strArr</span><span style="color: #f92672">[</span><span style="color: #ae81ff">0</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// head -&gt; tail</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">index;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">strArr.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(canConnect(strArr</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">index</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">strArr</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">))</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">swap(strArr,</span> <span style="color: #f8f8f2">index,</span> <span style="color: #f8f8f2">i);</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(helper(strArr,</span> <span style="color: #f8f8f2">index</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">))</span> <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">swap(strArr,</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">index);</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">helper</span>(String<span style="color: #666666">[]</span> strArr, <span style="color: #B00040">int</span> index) {
+    <span style="color: #008000; font-weight: bold">if</span> (index <span style="color: #666666">==</span> strArr.<span style="color: #7D9029">length</span>) <span style="color: #008000; font-weight: bold">return</span> canConnect(strArr<span style="color: #666666">[</span>index <span style="color: #666666">-</span> <span style="color: #666666">1]</span>, strArr<span style="color: #666666">[0]</span>); <span style="color: #408080; font-style: italic">// head -&gt; tail</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> index; i <span style="color: #666666">&lt;</span> strArr.<span style="color: #7D9029">length</span>; <span style="color: #666666">++</span>i) {
+        <span style="color: #008000; font-weight: bold">if</span> (canConnect(strArr<span style="color: #666666">[</span>index<span style="color: #666666">[</span>i <span style="color: #666666">-</span> <span style="color: #666666">1]</span>, strArr<span style="color: #666666">[</span>i<span style="color: #666666">]</span>)) {
+            swap(strArr, index, i);
+            <span style="color: #008000; font-weight: bold">if</span> (helper(strArr, index <span style="color: #666666">+</span> <span style="color: #666666">1</span>)) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">true</span>;
+            swap(strArr, i, index);
+        }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">false</span>;
+}
 
-<span style="color: #66d9ef">private</span> <span style="color: #66d9ef">boolean</span> <span style="color: #a6e22e">canConnect</span><span style="color: #f8f8f2">(String</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">String</span> <span style="color: #f8f8f2">s2)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s1.</span><span style="color: #a6e22e">charAt</span><span style="color: #f8f8f2">(s1.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s2.</span><span style="color: #a6e22e">charAt</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">canConnect</span>(String s1, String s2) {
+    <span style="color: #008000; font-weight: bold">return</span> s1.<span style="color: #7D9029">charAt</span>(s1.<span style="color: #7D9029">length</span>() <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">==</span> s2.<span style="color: #7D9029">charAt</span>(<span style="color: #666666">0</span>);
+}
 </code></pre></div>
                 
               

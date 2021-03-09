@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3069,13 +3060,13 @@ Use upstreaming compound and multiple with the local compound to derive the desi
 <script type="math/tex; mode=display">= 2^k q_i  x_j </script>
 </p>
 <h2 id="implement-forward-and-backword-for-different-gates">Implement forward and backword for different gates<a class="headerlink" href="#implement-forward-and-backword-for-different-gates" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">MultiplyGate</span><span style="color: #f8f8f2">(object):</span>
-    <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">forward</span><span style="color: #f8f8f2">(x,y):</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">y</span>
-    <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">backward</span><span style="color: #f8f8f2">(dz):</span>
-        <span style="color: #f8f8f2">dx</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">self</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">y</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">dz</span> <span style="color: #75715e"># cache y</span>
-        <span style="color: #f8f8f2">dy</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">self</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">x</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">dz</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">[dx,</span> <span style="color: #f8f8f2">dy]</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MultiplyGate</span>(<span style="color: #008000">object</span>):
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">forward</span>(x,y):
+        <span style="color: #008000; font-weight: bold">return</span> x <span style="color: #666666">*</span> y
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">backward</span>(dz):
+        dx <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>y <span style="color: #666666">*</span> dz <span style="color: #408080; font-style: italic"># cache y</span>
+        dy <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>x <span style="color: #666666">*</span> dz
+        <span style="color: #008000; font-weight: bold">return</span> [dx, dy]
 </code></pre></div>
 
 

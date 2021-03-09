@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2916,19 +2907,19 @@
 <p>Given a linked list, swap every two adjacent nodes and return its head.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/swap_ex1.jpg" /></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: head = [1,2,3,4]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [1,2,3,4]
 Output: [2,1,4,3]
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: head = []
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = []
 Output: []
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: head = [1]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [1]
 Output: [1]
 </code></pre></div>
 
@@ -2951,22 +2942,22 @@ target state: t -&gt; b -&gt; a -&gt; c</p>
 <p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 <p>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">swapPairs(ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">head)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">ListNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">dummy</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">ListNode(</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">),</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dummy;</span>
-        <span style="color: #f8f8f2">dummy</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(t</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">auto</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">c</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next;</span>
-            <span style="color: #f8f8f2">t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b;</span>
-            <span style="color: #f8f8f2">a</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">c;</span>
-            <span style="color: #f8f8f2">b</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a;</span>
-            <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dummy</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    ListNode<span style="color: #666666">*</span> swapPairs(ListNode<span style="color: #666666">*</span> head)
+    {
+        ListNode <span style="color: #666666">*</span>dummy <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ListNode(<span style="color: #666666">-1</span>), <span style="color: #666666">*</span>t <span style="color: #666666">=</span> dummy;
+        dummy<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> head;
+        <span style="color: #008000; font-weight: bold">while</span> (t <span style="color: #666666">&amp;&amp;</span> t <span style="color: #666666">-&gt;</span> next <span style="color: #666666">&amp;&amp;</span> t <span style="color: #666666">-&gt;</span> next <span style="color: #666666">-&gt;</span> next) {
+            <span style="color: #008000; font-weight: bold">auto</span> <span style="color: #666666">*</span>a <span style="color: #666666">=</span> t <span style="color: #666666">-&gt;</span> next, <span style="color: #666666">*</span>b <span style="color: #666666">=</span> t <span style="color: #666666">-&gt;</span> next <span style="color: #666666">-&gt;</span> next, <span style="color: #666666">*</span>c <span style="color: #666666">=</span> t <span style="color: #666666">-&gt;</span> next <span style="color: #666666">-&gt;</span> next <span style="color: #666666">-&gt;</span> next;
+            t <span style="color: #666666">-&gt;</span> next <span style="color: #666666">=</span> b;
+            a <span style="color: #666666">-&gt;</span> next <span style="color: #666666">=</span> c;
+            b <span style="color: #666666">-&gt;</span> next <span style="color: #666666">=</span> a;
+            t <span style="color: #666666">=</span> t <span style="color: #666666">-&gt;</span> next <span style="color: #666666">-&gt;</span> next;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> dummy <span style="color: #666666">-&gt;</span> next;
+    }
+};
 </code></pre></div>
                 
               

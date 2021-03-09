@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2917,7 +2908,7 @@
 <p>A move consists of walking from one land square 4-directionally to another land square, or off the boundary of the grid.</p>
 <p>Return the number of land squares in the grid for which we <strong>cannot</strong> walk off the boundary of the grid in any number of moves.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
 Output: 3
 Explanation: 
 There are three 1s that are enclosed by 0s, and one 1 that isn&#39;t enclosed because its on the boundary.
@@ -2925,7 +2916,7 @@ There are three 1s that are enclosed by 0s, and one 1 that isn&#39;t enclosed be
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: [[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]
 Output: 0
 Explanation: 
 All 1s are either on the boundary or can reach the boundary.
@@ -2948,39 +2939,39 @@ All 1s are either on the boundary or can reach the boundary.
 <p>Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <p>Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span> possible stack space allocated for the dfs call</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dir[</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{{</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">},{</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">},{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">},{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">}};</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m,</span> <span style="color: #f8f8f2">n;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> dir[<span style="color: #666666">4</span>][<span style="color: #666666">2</span>] <span style="color: #666666">=</span> {{<span style="color: #666666">1</span>,<span style="color: #666666">0</span>},{<span style="color: #666666">-1</span>,<span style="color: #666666">0</span>},{<span style="color: #666666">0</span>,<span style="color: #666666">1</span>},{<span style="color: #666666">0</span>,<span style="color: #666666">-1</span>}};
+    <span style="color: #B00040">int</span> m, n;
 
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">A,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">y)</span> <span style="color: #f8f8f2">{</span>        
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(x</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">A[x][y]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">A[x][y]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">d</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">dir)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">dfs(A,</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">d[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">d[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]);</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">numEnclaves</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">A)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> A, <span style="color: #B00040">int</span> x, <span style="color: #B00040">int</span> y) {        
+        <span style="color: #008000; font-weight: bold">if</span> (x <span style="color: #666666">&gt;=</span> m <span style="color: #666666">||</span> y <span style="color: #666666">&gt;=</span> n <span style="color: #666666">||</span> x <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> y <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> A[x][y] <span style="color: #666666">==</span> <span style="color: #666666">0</span>)
+            <span style="color: #008000; font-weight: bold">return</span> ;
+        A[x][y] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">d</span> : dir) {
+            dfs(A, x <span style="color: #666666">+</span> d[<span style="color: #666666">0</span>], y <span style="color: #666666">+</span> d[<span style="color: #666666">1</span>]);
+        }
+    }
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">numEnclaves</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> A) {
 
-        <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">A.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">A[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #75715e">// here we do a trick: 1 * 0, 0 * 1 and 0 * 0 == 0</span>
-                <span style="color: #75715e">// equal to i == 0 || j == 0</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> 
-                  <span style="color: #f8f8f2">dfs(A,</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">j);</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
+        m <span style="color: #666666">=</span> A.size(), n <span style="color: #666666">=</span> A[<span style="color: #666666">0</span>].size();
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+                <span style="color: #408080; font-style: italic">// here we do a trick: 1 * 0, 0 * 1 and 0 * 0 == 0</span>
+                <span style="color: #408080; font-style: italic">// equal to i == 0 || j == 0</span>
+                <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">*</span> j <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> i <span style="color: #666666">==</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">||</span> j <span style="color: #666666">==</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>) 
+                  dfs(A, i, j);
+            }
+        }
 
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(A[i][j]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
+        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i)
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j)
+                <span style="color: #008000; font-weight: bold">if</span> (A[i][j] <span style="color: #666666">==</span> <span style="color: #666666">1</span>) res <span style="color: #666666">++</span>;
+        <span style="color: #008000; font-weight: bold">return</span> res;
 
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    }
+};
 </code></pre></div>
                 
               

@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2915,7 +2906,7 @@
                 <h1 id="unique-binary-search-trees-ii">Unique Binary Search Trees II<a class="headerlink" href="#unique-binary-search-trees-ii" title="Permanent link">&para;</a></h1>
 <p>Given an integer <code>n</code>, generate all structurally unique <strong>BST's</strong> (binary search trees) that store values 1 ... <em>n</em>.</p>
 <p><strong>Example:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: 3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: 3
 Output:
 [
   [1,null,3,2],
@@ -2944,7 +2935,7 @@ The above output corresponds to the 5 unique BST&#39;s shown below:
 <p>Submissions</p>
 <p>499,827</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>start.... i .....end
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>start.... i .....end
 for all left from start to i - 1:
   for all right from i + 1 to end:
     root -&gt; left = choose one from all left
@@ -2954,58 +2945,58 @@ for all left from start to i - 1:
 
 <p>Time Compleixty: <span><span class="MathJax_Preview">O(n!)</span><script type="math/tex">O(n!)</script></span> since each node could be the root node, and for each root there could have n - 1 configuration of left (so does right subtree), and doing the process recursively will yield <span><span class="MathJax_Preview">n \times (n - 1) ... \times 1 = n!</span><script type="math/tex">n \times (n - 1) ... \times 1 = n!</script></span></p>
 <h2 id="c">c++<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">generateTrees(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{};</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">n);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">helper(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">start,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">end)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(start</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">end)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{nullptr};</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">res;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">start;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">end;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(start,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">),</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">end);</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">left)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">b</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f8f8f2">TreeNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">TreeNode(i);</span>
-                    <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a;</span>
-                    <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b;</span>
-                    <span style="color: #f8f8f2">res.push_back(node);</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> generateTrees(<span style="color: #B00040">int</span> n) {
+        <span style="color: #008000; font-weight: bold">if</span> (n <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> {};
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">helper</span>(<span style="color: #666666">1</span>, n);
+    }
+    vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> helper(<span style="color: #B00040">int</span> start, <span style="color: #B00040">int</span> end) {
+        <span style="color: #008000; font-weight: bold">if</span> (start <span style="color: #666666">&gt;</span> end) <span style="color: #008000; font-weight: bold">return</span> {nullptr};
+        vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> res;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> start; i <span style="color: #666666">&lt;=</span> end; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">auto</span> left <span style="color: #666666">=</span> helper(start, i <span style="color: #666666">-</span> <span style="color: #666666">1</span>), right <span style="color: #666666">=</span> helper(i <span style="color: #666666">+</span> <span style="color: #666666">1</span>, end);
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">a</span> : left) {
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">b</span> : right) {
+                    TreeNode <span style="color: #666666">*</span>node <span style="color: #666666">=</span> new TreeNode(i);
+                    node<span style="color: #666666">-&gt;</span>left <span style="color: #666666">=</span> a;
+                    node<span style="color: #666666">-&gt;</span>right <span style="color: #666666">=</span> b;
+                    res.push_back(node);
+                }
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
 
 
 <p>with MEMO + DP</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">generateTrees(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{};</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;&gt;&gt;</span> <span style="color: #f8f8f2">memo(n,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;&gt;</span><span style="color: #f8f8f2">(n));</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">memo);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">helper(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">start,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">end,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;&gt;&gt;&amp;</span> <span style="color: #f8f8f2">memo)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(start</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">end)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">nullptr</span><span style="color: #f8f8f2">};</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">memo[start</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][end</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].empty())</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">memo[start</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][end</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">TreeNode</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">res;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">start;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">end;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(start,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">memo),</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">end,</span> <span style="color: #f8f8f2">memo);</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">left)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">b</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f8f8f2">TreeNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">TreeNode(i);</span>
-                    <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a;</span>
-                    <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b;</span>
-                    <span style="color: #f8f8f2">res.push_back(node);</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">memo[start</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][end</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> generateTrees(<span style="color: #B00040">int</span> n) {
+        <span style="color: #008000; font-weight: bold">if</span> (n <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> {};
+        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;&gt;&gt;</span> memo(n, vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;&gt;</span>(n));
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">helper</span>(<span style="color: #666666">1</span>, n, memo);
+    }
+    vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> helper(<span style="color: #B00040">int</span> start, <span style="color: #B00040">int</span> end, vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;&gt;&gt;&amp;</span> memo) {
+        <span style="color: #008000; font-weight: bold">if</span> (start <span style="color: #666666">&gt;</span> end) <span style="color: #008000; font-weight: bold">return</span> {<span style="color: #008000; font-weight: bold">nullptr</span>};
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>memo[start <span style="color: #666666">-</span> <span style="color: #666666">1</span>][end <span style="color: #666666">-</span> <span style="color: #666666">1</span>].empty()) <span style="color: #008000; font-weight: bold">return</span> memo[start <span style="color: #666666">-</span> <span style="color: #666666">1</span>][end <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
+        vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> res;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> start; i <span style="color: #666666">&lt;=</span> end; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">auto</span> left <span style="color: #666666">=</span> helper(start, i <span style="color: #666666">-</span> <span style="color: #666666">1</span>, memo), right <span style="color: #666666">=</span> helper(i <span style="color: #666666">+</span> <span style="color: #666666">1</span>, end, memo);
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">a</span> : left) {
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">b</span> : right) {
+                    TreeNode <span style="color: #666666">*</span>node <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> TreeNode(i);
+                    node<span style="color: #666666">-&gt;</span>left <span style="color: #666666">=</span> a;
+                    node<span style="color: #666666">-&gt;</span>right <span style="color: #666666">=</span> b;
+                    res.push_back(node);
+                }
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> memo[start <span style="color: #666666">-</span> <span style="color: #666666">1</span>][end <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">=</span> res;
+    }
+};
 </code></pre></div>
 
 

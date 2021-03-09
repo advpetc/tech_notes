@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3021,16 +3012,16 @@ while (l &lt; r): 1 element <strong>cannot</strong> get in</p>
 <p>l = l + 1: eleminate l for next iteration
 l = l: check if 1 element will cause inf</p>
 <h2 id="classic-binary-search">Classic Binary Search<a class="headerlink" href="#classic-binary-search" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">binarySearch</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(left</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">right)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// &lt;=</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[mid]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">target)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">mid;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[mid]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">binarySearch</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> a, <span style="color: #B00040">int</span> target) {
+    <span style="color: #B00040">int</span> left <span style="color: #666666">=</span> <span style="color: #666666">0</span>, right <span style="color: #666666">=</span> a.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">while</span> (left <span style="color: #666666">&lt;=</span> right) { <span style="color: #408080; font-style: italic">// &lt;=</span>
+        <span style="color: #B00040">int</span> mid <span style="color: #666666">=</span> left <span style="color: #666666">+</span> right <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (a[mid] <span style="color: #666666">==</span> target) <span style="color: #008000; font-weight: bold">return</span> mid;
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (a[mid] <span style="color: #666666">&lt;</span> target) left <span style="color: #666666">=</span> mid <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">else</span> right <span style="color: #666666">=</span> mid <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
+}
 </code></pre></div>
 
 
@@ -3042,80 +3033,80 @@ target = 11</p>
 <p>index = col * row - 1
 col = index / size of col
 row = index % size of col</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">col</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">row</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">col,</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">col;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[x][y]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">target)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-    <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(a[x][y]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> col <span style="color: #666666">*</span> row <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+<span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;=</span> r) {
+    <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> (l <span style="color: #666666">+</span> r) <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>;
+    <span style="color: #B00040">int</span> x <span style="color: #666666">=</span> m <span style="color: #666666">/</span> col, y <span style="color: #666666">=</span> m <span style="color: #666666">%</span> col;
+    <span style="color: #008000; font-weight: bold">if</span> (a[x][y] <span style="color: #666666">==</span> target) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+    <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (a[x][y] <span style="color: #666666">&lt;</span> target) l <span style="color: #666666">=</span> m <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">else</span> r <span style="color: #666666">=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+}
+<span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
 </code></pre></div>
 
 
 <h2 id="closest-element-to-target">Closest Element to Target<a class="headerlink" href="#closest-element-to-target" title="Permanent link">&para;</a></h2>
 <p>target == 4
 [1,2,3,8,9] -&gt; return 3's index which is 2</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// only two (or one) element left [l, l+1] or [l]</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[m]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[m]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #75715e">// return the one that is close to target, because there are two elements</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(target</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">a[l]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">a[r]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">target)</span> 
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l;</span>
-<span style="color: #66d9ef">else</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">r;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r <span style="color: #666666">-</span> <span style="color: #666666">1</span>) { <span style="color: #408080; font-style: italic">// only two (or one) element left [l, l+1] or [l]</span>
+    <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> l <span style="color: #666666">+</span> (r <span style="color: #666666">-</span> l) <span style="color: #666666">/</span> <span style="color: #666666">2</span>;
+    <span style="color: #008000; font-weight: bold">if</span> (a[m] <span style="color: #666666">==</span> target) {
+        <span style="color: #008000; font-weight: bold">return</span> m;
+    } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (a[m] <span style="color: #666666">&lt;</span> target) {
+        l <span style="color: #666666">=</span> m;
+    } <span style="color: #008000; font-weight: bold">else</span> {
+        r <span style="color: #666666">=</span> m;
+    }
+}
+<span style="color: #408080; font-style: italic">// return the one that is close to target, because there are two elements</span>
+<span style="color: #008000; font-weight: bold">if</span> (target <span style="color: #666666">-</span> a[l] <span style="color: #666666">&lt;</span> a[r] <span style="color: #666666">-</span> target) 
+    <span style="color: #008000; font-weight: bold">return</span> l;
+<span style="color: #008000; font-weight: bold">else</span>
+    <span style="color: #008000; font-weight: bold">return</span> r;
 </code></pre></div>
 
 
 <h2 id="first-target">First target<a class="headerlink" href="#first-target" title="Permanent link">&para;</a></h2>
 <p>target = 5
 [4,5,5,5,5,5] -&gt; return 1 (first occurance of 5 index)</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// only two (or one) element left [l, l+1] or [l]</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[m]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span> <span style="color: #75715e">// r = m - 1 -&gt; wrong</span>
-    <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[m]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span> <span style="color: #75715e">// l = m + 1 -&gt; right</span>
-    <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span> <span style="color: #75715e">// r = m - 1 -&gt; right</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(target</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a[l])</span> <span style="color: #75715e">// return the left that is equal to target, because it goes from left to right</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l;</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(target</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a[r])</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">r;</span>
-<span style="color: #66d9ef">else</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r <span style="color: #666666">-</span> <span style="color: #666666">1</span>) { <span style="color: #408080; font-style: italic">// only two (or one) element left [l, l+1] or [l]</span>
+    <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> l <span style="color: #666666">+</span> (r <span style="color: #666666">-</span> l) <span style="color: #666666">/</span> <span style="color: #666666">2</span>;
+    <span style="color: #008000; font-weight: bold">if</span> (a[m] <span style="color: #666666">==</span> target) {
+        r <span style="color: #666666">=</span> m; <span style="color: #408080; font-style: italic">// r = m - 1 -&gt; wrong</span>
+    } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (a[m] <span style="color: #666666">&lt;</span> target) {
+        l <span style="color: #666666">=</span> m; <span style="color: #408080; font-style: italic">// l = m + 1 -&gt; right</span>
+    } <span style="color: #008000; font-weight: bold">else</span> {
+        r <span style="color: #666666">=</span> m; <span style="color: #408080; font-style: italic">// r = m - 1 -&gt; right</span>
+    }
+}
+<span style="color: #008000; font-weight: bold">if</span> (target <span style="color: #666666">==</span> a[l]) <span style="color: #408080; font-style: italic">// return the left that is equal to target, because it goes from left to right</span>
+    <span style="color: #008000; font-weight: bold">return</span> l;
+<span style="color: #008000; font-weight: bold">if</span> (target <span style="color: #666666">==</span> a[r])
+    <span style="color: #008000; font-weight: bold">return</span> r;
+<span style="color: #008000; font-weight: bold">else</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
 </code></pre></div>
 
 
 <h2 id="last-target-variant-for-previous-one">Last target (variant for previous one)<a class="headerlink" href="#last-target-variant-for-previous-one" title="Permanent link">&para;</a></h2>
 <p>target = 5
 [4,5,5,5,5,5] -&gt; return 1 (first occurance of 5 index)</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// only two (or one) element left [l, l+1] or [l]</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[m]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span> <span style="color: #75715e">// now change to l</span>
-    <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[m]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(target</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a[r])</span> <span style="color: #75715e">// return the right that is equal to target, because it goes from right to left</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l;</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(target</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a[l])</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">r;</span>
-<span style="color: #66d9ef">else</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r <span style="color: #666666">-</span> <span style="color: #666666">1</span>) { <span style="color: #408080; font-style: italic">// only two (or one) element left [l, l+1] or [l]</span>
+    <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> l <span style="color: #666666">+</span> (r <span style="color: #666666">-</span> l) <span style="color: #666666">/</span> <span style="color: #666666">2</span>;
+    <span style="color: #008000; font-weight: bold">if</span> (a[m] <span style="color: #666666">==</span> target) {
+        l <span style="color: #666666">=</span> m; <span style="color: #408080; font-style: italic">// now change to l</span>
+    } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (a[m] <span style="color: #666666">&lt;</span> target) {
+        l <span style="color: #666666">=</span> m;
+    } <span style="color: #008000; font-weight: bold">else</span> {
+        r <span style="color: #666666">=</span> m;
+    }
+}
+<span style="color: #008000; font-weight: bold">if</span> (target <span style="color: #666666">==</span> a[r]) <span style="color: #408080; font-style: italic">// return the right that is equal to target, because it goes from right to left</span>
+    <span style="color: #008000; font-weight: bold">return</span> l;
+<span style="color: #008000; font-weight: bold">if</span> (target <span style="color: #666666">==</span> a[l])
+    <span style="color: #008000; font-weight: bold">return</span> r;
+<span style="color: #008000; font-weight: bold">else</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
 </code></pre></div>
 
 
@@ -3127,33 +3118,33 @@ return 2,3,8</p>
 1. run binary search to find L and R, where L is the<strong> largest value that is smaller than target</strong>
 2. if l is close to target, l--; else r++
 Complexity: O(log(n) + k), what if k <span><span class="MathJax_Preview">\approx</span><script type="math/tex">\approx</script></span> n? Complexity will be O(n)</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">largestSmallerEqual</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">arr,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">arr.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(left</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr[mid]</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid;</span>
-        <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid;</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr[right]</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">target)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">right;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr[left]</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">target)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">left;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">kClosest(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">arr,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">target,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">largestSmallerEqual(arr,</span> <span style="color: #f8f8f2">target);</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res(k);</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">k;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(right</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">arr.size()</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">target</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">arr[left]</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">arr[right]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">res[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">arr[left</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">];</span>
-        <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">res[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">arr[right</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">];</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">largestSmallerEqual</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> arr, <span style="color: #B00040">int</span> target) {
+    <span style="color: #B00040">int</span> left <span style="color: #666666">=</span> <span style="color: #666666">0</span>, right <span style="color: #666666">=</span> arr.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">while</span> (left <span style="color: #666666">&lt;</span> right <span style="color: #666666">-</span> <span style="color: #666666">1</span>) {
+        <span style="color: #B00040">int</span> mid <span style="color: #666666">=</span> left <span style="color: #666666">+</span> right <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (arr[mid] <span style="color: #666666">&lt;=</span> target) {
+            left <span style="color: #666666">=</span> mid;
+        } <span style="color: #008000; font-weight: bold">else</span> {
+            right <span style="color: #666666">=</span> mid;
+        }
+    }
+    <span style="color: #008000; font-weight: bold">if</span> (arr[right] <span style="color: #666666">&lt;=</span> target) <span style="color: #008000; font-weight: bold">return</span> right;
+    <span style="color: #008000; font-weight: bold">if</span> (arr[left] <span style="color: #666666">&lt;=</span> target) <span style="color: #008000; font-weight: bold">return</span> left;
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
+}
+vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> kClosest(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> arr, <span style="color: #B00040">int</span> target, <span style="color: #B00040">int</span> k) {
+    <span style="color: #B00040">int</span> left <span style="color: #666666">=</span> largestSmallerEqual(arr, target);
+    <span style="color: #B00040">int</span> right <span style="color: #666666">=</span> left <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res(k);
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> k; <span style="color: #666666">++</span>i) {
+        <span style="color: #008000; font-weight: bold">if</span> (right <span style="color: #666666">&gt;=</span> arr.size() <span style="color: #666666">||</span> left <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> target <span style="color: #666666">-</span> arr[left] <span style="color: #666666">&lt;=</span> arr[right] <span style="color: #666666">-</span> target) {
+            res[i] <span style="color: #666666">=</span> arr[left<span style="color: #666666">--</span>];
+        } <span style="color: #008000; font-weight: bold">else</span> {
+            res[i] <span style="color: #666666">=</span> arr[right<span style="color: #666666">++</span>];
+        }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> res;
+}
 </code></pre></div>
 
 
@@ -3174,23 +3165,23 @@ Complexity: O(log(n) + k), what if k <span><span class="MathJax_Preview">\approx
 <p>-------A[mid]------------------x---A[mid + k]----------</p>
 <p>case 4: x - A[mid] &gt; A[mid + k] - x, need to move window go right</p>
 <p>-------A[mid]---------------------A[mid + k]----x------</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">kClosest(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a.size();</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">k;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">0ll</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(x</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">a[m]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">a[m</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">k]</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">x)</span>
-        <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">else</span>
-        <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">(a.begin()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">a.begin()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">k</span> <span style="color: #f8f8f2">);</span>
-    <span style="color: #75715e">// this sort is unecessary if there is no requirement for what order to be returned</span>
-    <span style="color: #75715e">// sort(res.begin(), res.end(), [&amp;](const int l, const int r) {</span>
-    <span style="color: #75715e">//   return abs(l - x) &lt; abs(r - x);</span>
-    <span style="color: #75715e">// });</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> kClosest(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> a, <span style="color: #B00040">int</span> x, <span style="color: #B00040">int</span> k) {
+    <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> a.size();
+    <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> n <span style="color: #666666">-</span> k;
+    <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r) {
+      <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> (l <span style="color: #666666">+</span> <span style="color: #666666">0ll</span> <span style="color: #666666">+</span> r) <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>;
+      <span style="color: #008000; font-weight: bold">if</span> (x <span style="color: #666666">-</span> a[m] <span style="color: #666666">&gt;</span> a[m <span style="color: #666666">+</span> k] <span style="color: #666666">-</span> x)
+        l <span style="color: #666666">=</span> m <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+      <span style="color: #008000; font-weight: bold">else</span>
+        r <span style="color: #666666">=</span> m;
+    }
+    <span style="color: #008000; font-weight: bold">auto</span> res <span style="color: #666666">=</span> vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span>(a.begin() <span style="color: #666666">+</span> l, a.begin() <span style="color: #666666">+</span> l <span style="color: #666666">+</span> k );
+    <span style="color: #408080; font-style: italic">// this sort is unecessary if there is no requirement for what order to be returned</span>
+    <span style="color: #408080; font-style: italic">// sort(res.begin(), res.end(), [&amp;](const int l, const int r) {</span>
+    <span style="color: #408080; font-style: italic">//   return abs(l - x) &lt; abs(r - x);</span>
+    <span style="color: #408080; font-style: italic">// });</span>
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
 </code></pre></div>
 
 
@@ -3202,19 +3193,19 @@ case 2: if input[m] == target:
   l = m + 1 // l = m also work
 case 3: if input[m] &gt; target:
   r = m // r = m - 1 is wrong, becasue it will wipe out the first b</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// only two (or one) element left [l, l+1] or [l]</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[m]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[m]</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">target)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// or just else</span>
-        <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[l]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">target)</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l;</span>
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[r]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">target)</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">r;</span>
-<span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r <span style="color: #666666">-</span> <span style="color: #666666">1</span>) { <span style="color: #408080; font-style: italic">// only two (or one) element left [l, l+1] or [l]</span>
+    <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> l <span style="color: #666666">+</span> (r <span style="color: #666666">-</span> l) <span style="color: #666666">/</span> <span style="color: #666666">2</span>;
+    <span style="color: #008000; font-weight: bold">if</span> (a[m] <span style="color: #666666">&gt;</span> target) {
+        r <span style="color: #666666">=</span> m;
+    } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (a[m] <span style="color: #666666">&lt;=</span> target) { <span style="color: #408080; font-style: italic">// or just else</span>
+        l <span style="color: #666666">=</span> m;
+    }
+}
+<span style="color: #008000; font-weight: bold">if</span> (a[l] <span style="color: #666666">&gt;</span> target)
+    <span style="color: #008000; font-weight: bold">return</span> l;
+<span style="color: #008000; font-weight: bold">if</span> (a[r] <span style="color: #666666">&lt;</span> target)
+    <span style="color: #008000; font-weight: bold">return</span> r;
+<span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
 </code></pre></div>
 
 

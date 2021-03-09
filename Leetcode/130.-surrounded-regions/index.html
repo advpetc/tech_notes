@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2916,7 +2907,7 @@
 <p>Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.</p>
 <p>A region is captured by flipping all 'O's into 'X's in that surrounded region.</p>
 <p>Example:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>X X X X
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>X X X X
 X O O X
 X X O X
 X O X X
@@ -2924,7 +2915,7 @@ X O X X
 
 
 <p>After running your function, the board should be:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>X X X X
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>X X X X
 X X X X
 X X X X
 X O X X
@@ -2935,7 +2926,7 @@ X O X X
 <p>Surrounded regions shouldn’t be on the border, which means that any 'O' on the border of the board are not flipped to 'X'. Any 'O' that is not on the border and it is not connected to an 'O' on the border will be flipped to 'X'. Two cells are connected if they are adjacent cells connected horizontally or vertically.</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>We cannot just find all 'O' that isn't at the boarder and expand through dfs, because consider the case:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>X X X X
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>X X X X
 X O O X
 X O O X
 X O X X
@@ -2948,40 +2939,40 @@ X O X X
 <li>Space: <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span> if cannot modify the original board, or <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">solve(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">char</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">board)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(board.empty()</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">board[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].empty())</span> <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">board.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">board[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(board[i][j]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;O&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">dfs(board,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">j);</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>   
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(board[i][j]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;O&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">board[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;X&#39;</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #75715e">// recover</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(board[i][j]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;$&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">board[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;O&#39;</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">void</span> solve(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;&gt;&amp;</span> board) {
+        <span style="color: #008000; font-weight: bold">if</span> (board.empty() <span style="color: #666666">||</span> board[<span style="color: #666666">0</span>].empty()) <span style="color: #008000; font-weight: bold">return</span>;
+        <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> board.size(), n <span style="color: #666666">=</span> board[<span style="color: #666666">0</span>].size();
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+                <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> i <span style="color: #666666">==</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">||</span> j <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> j <span style="color: #666666">==</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>) {
+                    <span style="color: #008000; font-weight: bold">if</span> (board[i][j] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;O&#39;</span>) dfs(board, i , j);
+                }
+            }   
+        }
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+                <span style="color: #008000; font-weight: bold">if</span> (board[i][j] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;O&#39;</span>) board[i][j] <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;X&#39;</span>;
+                <span style="color: #408080; font-style: italic">// recover</span>
+                <span style="color: #008000; font-weight: bold">if</span> (board[i][j] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;$&#39;</span>) board[i][j] <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;O&#39;</span>;
+            }
+        }
+    }
 
-    <span style="color: #75715e">// find all &#39;O&#39; that are invalid -- from boarder</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">dfs(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">char</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">board,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">y)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">board.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">board[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">dir{{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">},{</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">},{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">},{</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">}};</span>
-        <span style="color: #f8f8f2">board[x][y]</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;$&#39;</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">dir.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dx</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">dir[i][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">dy</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">y</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">dir[i][</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(dx</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">dx</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">dy</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">dy</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">board[dx][dy]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;O&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">dfs(board,</span> <span style="color: #f8f8f2">dx,</span> <span style="color: #f8f8f2">dy);</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #408080; font-style: italic">// find all &#39;O&#39; that are invalid -- from boarder</span>
+    <span style="color: #B00040">void</span> dfs(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">&amp;</span>board, <span style="color: #B00040">int</span> x, <span style="color: #B00040">int</span> y) {
+        <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> board.size(), n <span style="color: #666666">=</span> board[<span style="color: #666666">0</span>].size();
+        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> dir{{<span style="color: #666666">0</span>,<span style="color: #666666">-1</span>},{<span style="color: #666666">-1</span>,<span style="color: #666666">0</span>},{<span style="color: #666666">0</span>,<span style="color: #666666">1</span>},{<span style="color: #666666">1</span>,<span style="color: #666666">0</span>}};
+        board[x][y] <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;$&#39;</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> dir.size(); <span style="color: #666666">++</span>i) {
+            <span style="color: #B00040">int</span> dx <span style="color: #666666">=</span> x <span style="color: #666666">+</span> dir[i][<span style="color: #666666">0</span>], dy <span style="color: #666666">=</span> y <span style="color: #666666">+</span> dir[i][<span style="color: #666666">1</span>];
+            <span style="color: #008000; font-weight: bold">if</span> (dx <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> dx <span style="color: #666666">&lt;</span> m <span style="color: #666666">&amp;&amp;</span> dy <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> dy <span style="color: #666666">&lt;</span> n <span style="color: #666666">&amp;&amp;</span> board[dx][dy] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;O&#39;</span>) {
+                dfs(board, dx, dy);
+            }
+        }
+    }
+};
 </code></pre></div>
                 
               

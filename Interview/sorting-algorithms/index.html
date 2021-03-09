@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3351,34 +3342,34 @@
 <p>// Find the minimum element in arr[3...4]
 // and place it at beginning of arr[3...4]
 11 12 22 25 64 </p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/* a[0] to a[aLength-1] is the array to sort */</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i,j;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">aLength;</span> <span style="color: #75715e">// initialise to a&#39;s length</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/* a[0] to a[aLength-1] is the array to sort */</span>
+<span style="color: #B00040">int</span> i,j;
+<span style="color: #B00040">int</span> aLength; <span style="color: #408080; font-style: italic">// initialise to a&#39;s length</span>
 
-<span style="color: #75715e">/* advance the position through the entire array */</span>
-<span style="color: #75715e">/*   (could do i &lt; aLength-1 because single element is also min element) */</span>
-<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">aLength</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">/* find the min element in the unsorted a[i .. aLength-1] */</span>
+<span style="color: #408080; font-style: italic">/* advance the position through the entire array */</span>
+<span style="color: #408080; font-style: italic">/*   (could do i &lt; aLength-1 because single element is also min element) */</span>
+<span style="color: #008000; font-weight: bold">for</span> (i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> aLength<span style="color: #666666">-1</span>; i<span style="color: #666666">++</span>)
+{
+    <span style="color: #408080; font-style: italic">/* find the min element in the unsorted a[i .. aLength-1] */</span>
 
-    <span style="color: #75715e">/* assume the min is the first element */</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">jMin</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-    <span style="color: #75715e">/* test against elements after i to find the smallest */</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">aLength;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #75715e">/* if this element is less, then it is the new minimum */</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a[j]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">a[jMin])</span>
-        <span style="color: #f8f8f2">{</span>
-            <span style="color: #75715e">/* found new minimum; remember its index */</span>
-            <span style="color: #f8f8f2">jMin</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">j;</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #408080; font-style: italic">/* assume the min is the first element */</span>
+    <span style="color: #B00040">int</span> jMin <span style="color: #666666">=</span> i;
+    <span style="color: #408080; font-style: italic">/* test against elements after i to find the smallest */</span>
+    <span style="color: #008000; font-weight: bold">for</span> (j <span style="color: #666666">=</span> i<span style="color: #666666">+1</span>; j <span style="color: #666666">&lt;</span> aLength; j<span style="color: #666666">++</span>)
+    {
+        <span style="color: #408080; font-style: italic">/* if this element is less, then it is the new minimum */</span>
+        <span style="color: #008000; font-weight: bold">if</span> (a[j] <span style="color: #666666">&lt;</span> a[jMin])
+        {
+            <span style="color: #408080; font-style: italic">/* found new minimum; remember its index */</span>
+            jMin <span style="color: #666666">=</span> j;
+        }
+    }
 
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(jMin</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">i)</span> 
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">swap(a[i],</span> <span style="color: #f8f8f2">a[jMin]);</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">if</span> (jMin <span style="color: #666666">!=</span> i) 
+    {
+        swap(a[i], a[jMin]);
+    }
+}
 </code></pre></div>
 
 
@@ -3386,53 +3377,53 @@
 <p><span><span class="MathJax_Preview">O(\frac{(n-1)+1}{2} \times (n-1))</span><script type="math/tex">O(\frac{(n-1)+1}{2} \times (n-1))</script></span> = <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span> -- no matter if is pre-sorted or not</p>
 <h3 id="q1-sort-with-stacks">Q1: sort with stacks<a class="headerlink" href="#q1-sort-with-stacks" title="Permanent link">&para;</a></h3>
 <p>sort with two stacks:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include&lt;bits/stdc++.h&gt;</span>
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span><span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+using namespace std;
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num[n];</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">num[i];</span>
-    <span style="color: #f8f8f2">stack</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">s2;</span> <span style="color: #75715e">// s1: buffer; s2: sorted array in ascending order</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">num)</span> <span style="color: #f8f8f2">s1.push(i);</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">s1.empty())</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s1.top();</span>
-        <span style="color: #f8f8f2">s1.pop();</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #75715e">/*</span>
-<span style="color: #75715e">        s1: C</span>
-<span style="color: #75715e">        s2: LLL </span>
-<span style="color: #75715e">        */</span>
-        <span style="color: #75715e">// remove everything that is less than curr in the buffer</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">s2.empty()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">s2.top()</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">curr)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">s1.push(s2.top());</span>
-            <span style="color: #f8f8f2">s2.pop();</span>
-            <span style="color: #f92672">++</span><span style="color: #f8f8f2">cnt;</span>
-        <span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    <span style="color: #B00040">int</span> n;
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    <span style="color: #B00040">int</span> num[n];
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) cin <span style="color: #666666">&gt;&gt;</span> num[i];
+    stack<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> s1, s2; <span style="color: #408080; font-style: italic">// s1: buffer; s2: sorted array in ascending order</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">i</span> : num) s1.push(i);
+    <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>s1.empty()) {
+        <span style="color: #B00040">int</span> curr <span style="color: #666666">=</span> s1.top();
+        s1.pop();
+        <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic">        s1: C</span>
+<span style="color: #408080; font-style: italic">        s2: LLL </span>
+<span style="color: #408080; font-style: italic">        */</span>
+        <span style="color: #408080; font-style: italic">// remove everything that is less than curr in the buffer</span>
+        <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>s2.empty() <span style="color: #666666">&amp;&amp;</span> s2.top() <span style="color: #666666">&lt;</span> curr) {
+            s1.push(s2.top());
+            s2.pop();
+            <span style="color: #666666">++</span>cnt;
+        }
 
-        <span style="color: #f8f8f2">s2.push(curr);</span>
-        <span style="color: #75715e">/*</span>
-<span style="color: #75715e">        s1: LLL</span>
-<span style="color: #75715e">        s2: C</span>
-<span style="color: #75715e">        */</span>
-        <span style="color: #75715e">// move back</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">cnt;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">s2.push(s1.top());</span>
-            <span style="color: #f8f8f2">s1.pop();</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">/*</span>
-<span style="color: #75715e">        s1: </span>
-<span style="color: #75715e">        s2: CLLL</span>
-<span style="color: #75715e">        */</span>
-    <span style="color: #f8f8f2">}</span>
+        s2.push(curr);
+        <span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic">        s1: LLL</span>
+<span style="color: #408080; font-style: italic">        s2: C</span>
+<span style="color: #408080; font-style: italic">        */</span>
+        <span style="color: #408080; font-style: italic">// move back</span>
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> cnt; <span style="color: #666666">++</span>i) {
+            s2.push(s1.top());
+            s1.pop();
+        }
+        <span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic">        s1: </span>
+<span style="color: #408080; font-style: italic">        s2: CLLL</span>
+<span style="color: #408080; font-style: italic">        */</span>
+    }
 
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">s2.empty())</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">s2.top()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">s2.pop();</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>s2.empty()) {
+        cout <span style="color: #666666">&lt;&lt;</span> s2.top() <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; &quot;</span>;
+        s2.pop();
+    }
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3442,11 +3433,11 @@
 3. using the counter to determine when to stop when pushing the pop the input stack
 Here input stack's top (from top to top + counter) works as the buffer</p>
 <h2 id="insertion-sort">Insertion Sort<a class="headerlink" href="#insertion-sort" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">A.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">A[j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">A[j];</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// can terminate early if unsatisfy</span>
-        <span style="color: #f8f8f2">swap(A[j],</span> <span style="color: #f8f8f2">A[j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]);</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> A.size(); <span style="color: #666666">++</span>i) {
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> i; j <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> A[j <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">&gt;</span> A[j]; <span style="color: #666666">--</span>j) { <span style="color: #408080; font-style: italic">// can terminate early if unsatisfy</span>
+        swap(A[j], A[j <span style="color: #666666">-</span> <span style="color: #666666">1</span>]);
+    }
+}
 </code></pre></div>
 
 
@@ -3473,30 +3464,30 @@ C[] is pre-sum for counting the frequency of each element (element is the index)
 <h3 id="complexity_1">Complexity<a class="headerlink" href="#complexity_1" title="Permanent link">&para;</a></h3>
 <p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>, Space: <span><span class="MathJax_Preview">O(|max - min|)</span><script type="math/tex">O(|max - min|)</script></span></p>
 <h2 id="merge-sort-stable">Merge Sort: stable<a class="headerlink" href="#merge-sort-stable" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">tmp[</span><span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">];</span>
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">merge_sort</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">q,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">r)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">merge_sort(q,</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">mid);</span>
-    <span style="color: #f8f8f2">merge_sort(q,</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r);</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> tmp[<span style="color: #666666">1010</span>];
+<span style="color: #B00040">void</span> <span style="color: #0000FF">merge_sort</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> q, <span style="color: #B00040">int</span> l, <span style="color: #B00040">int</span> r) {
+    <span style="color: #008000; font-weight: bold">if</span> (l <span style="color: #666666">&gt;=</span> r) <span style="color: #008000; font-weight: bold">return</span> ;
+    <span style="color: #B00040">int</span> mid <span style="color: #666666">=</span> (l <span style="color: #666666">+</span> r) <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>;
+    merge_sort(q, l, mid);
+    merge_sort(q, mid <span style="color: #666666">+</span> <span style="color: #666666">1</span>, r);
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// two pointers</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(q[i]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">q[j])</span> <span style="color: #f8f8f2">tmp[k</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q[i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">];</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">tmp[k</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q[j</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">];</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">mid)</span> <span style="color: #f8f8f2">tmp[k</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q[i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">];</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">tmp[k</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q[j</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">];</span>
+    <span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">0</span>, i <span style="color: #666666">=</span> l, j <span style="color: #666666">=</span> mid <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">while</span> (i <span style="color: #666666">&lt;=</span> mid <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">&lt;=</span> r) { <span style="color: #408080; font-style: italic">// two pointers</span>
+        <span style="color: #008000; font-weight: bold">if</span> (q[i] <span style="color: #666666">&lt;</span> q[j]) tmp[k <span style="color: #666666">++</span> ] <span style="color: #666666">=</span> q[i <span style="color: #666666">++</span> ];
+        <span style="color: #008000; font-weight: bold">else</span> tmp[k <span style="color: #666666">++</span> ] <span style="color: #666666">=</span> q[j <span style="color: #666666">++</span> ];
+    }
+    <span style="color: #008000; font-weight: bold">while</span> (i <span style="color: #666666">&lt;=</span> mid) tmp[k <span style="color: #666666">++</span> ] <span style="color: #666666">=</span> q[i <span style="color: #666666">++</span> ];
+    <span style="color: #008000; font-weight: bold">while</span> (j <span style="color: #666666">&lt;=</span> r) tmp[k <span style="color: #666666">++</span> ] <span style="color: #666666">=</span> q[j <span style="color: #666666">++</span> ];
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">r;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">q[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tmp[j];</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">for</span> (i <span style="color: #666666">=</span> l, j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;=</span> r; i <span style="color: #666666">++</span>, j <span style="color: #666666">++</span> ) q[i] <span style="color: #666666">=</span> tmp[j];
+}
 
-<span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">mergeSort(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">array)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">array;</span>
-    <span style="color: #f8f8f2">merge_sort(res,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">array.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-<span style="color: #f8f8f2">}</span>
+vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> mergeSort(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res <span style="color: #666666">=</span> array;
+    merge_sort(res, <span style="color: #666666">0</span>, array.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+    <span style="color: #008000; font-weight: bold">return</span> res;
+}
 </code></pre></div>
 
 
@@ -3508,63 +3499,63 @@ C[] is pre-sum for counting the frequency of each element (element is the index)
 - heap: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 <h3 id="q1">Q1:<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
 <h2 id="quick-sort-not-stable">Quick Sort: not stable<a class="headerlink" href="#quick-sort-not-stable" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">quick_sort(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">q,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">r)</span> <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #75715e">// pivot at mid</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q[(l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">j)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">do</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(q[i]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">x);</span>
-        <span style="color: #66d9ef">do</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(q[j]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">x);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">swap(q[i],</span> <span style="color: #f8f8f2">q[j]);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">quick_sort(q,</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">j),</span> <span style="color: #f8f8f2">quick_sort(q,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r);</span>
-  <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  <span style="color: #B00040">void</span> quick_sort(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> q, <span style="color: #B00040">int</span> l, <span style="color: #B00040">int</span> r) {
+    <span style="color: #008000; font-weight: bold">if</span> (l <span style="color: #666666">&gt;=</span> r) <span style="color: #008000; font-weight: bold">return</span>;
+    <span style="color: #408080; font-style: italic">// pivot at mid</span>
+    <span style="color: #B00040">int</span> i <span style="color: #666666">=</span> l <span style="color: #666666">-</span> <span style="color: #666666">1</span>, j <span style="color: #666666">=</span> r <span style="color: #666666">+</span> <span style="color: #666666">1</span>, x <span style="color: #666666">=</span> q[(l <span style="color: #666666">+</span> r) <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>];
+    <span style="color: #008000; font-weight: bold">while</span> (i <span style="color: #666666">&lt;</span> j)
+    {
+        <span style="color: #008000; font-weight: bold">do</span> i <span style="color: #666666">++</span> ; <span style="color: #008000; font-weight: bold">while</span> (q[i] <span style="color: #666666">&lt;</span> x);
+        <span style="color: #008000; font-weight: bold">do</span> j <span style="color: #666666">--</span> ; <span style="color: #008000; font-weight: bold">while</span> (q[j] <span style="color: #666666">&gt;</span> x);
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">&lt;</span> j) swap(q[i], q[j]);
+    }
+    quick_sort(q, l, j), quick_sort(q, j <span style="color: #666666">+</span> <span style="color: #666666">1</span>, r);
+  }
 
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">quickSort(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">array)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #f8f8f2">quick_sort(array,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">array.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">array;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> quickSort(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    quick_sort(array, <span style="color: #666666">0</span>, array.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>);
+    <span style="color: #008000; font-weight: bold">return</span> array;
+  }
+};
 </code></pre></div>
 
 
 <h2 id="quick-select-select-kth-element">Quick select: select kth element<a class="headerlink" href="#quick-select-select-kth-element" title="Permanent link">&para;</a></h2>
 <p>Differ from Merge Sort, Quick sort first split array into two half where the values on the left of x are less than x and values on the right of x are equal or greater than x. </p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">;</span>
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">1010</span>;
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num[N];</span>
+<span style="color: #B00040">int</span> num[N];
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">quick_select</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">r)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">num[l];</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">num[(l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-  <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(num[</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">i]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">x)</span> <span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(num[</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">j]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">x)</span> <span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">swap(num[i],</span> <span style="color: #f8f8f2">num[j]);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">offset</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(k</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">offset)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">quick_select(l,</span> <span style="color: #f8f8f2">j,</span> <span style="color: #f8f8f2">k);</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">quick_select(j</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r,</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">offset);</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">quick_select</span>(<span style="color: #B00040">int</span> l, <span style="color: #B00040">int</span> r, <span style="color: #B00040">int</span> k) {
+  <span style="color: #008000; font-weight: bold">if</span> (l <span style="color: #666666">==</span> r) <span style="color: #008000; font-weight: bold">return</span> num[l];
+  <span style="color: #B00040">int</span> i <span style="color: #666666">=</span> l <span style="color: #666666">-</span> <span style="color: #666666">1</span>, j <span style="color: #666666">=</span> r <span style="color: #666666">+</span> <span style="color: #666666">1</span>, x <span style="color: #666666">=</span> num[(l <span style="color: #666666">+</span> r) <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>];
+  <span style="color: #008000; font-weight: bold">while</span> (i <span style="color: #666666">&lt;</span> j) {
+    <span style="color: #008000; font-weight: bold">while</span> (num[<span style="color: #666666">++</span>i] <span style="color: #666666">&lt;</span> x) ;
+    <span style="color: #008000; font-weight: bold">while</span> (num[<span style="color: #666666">--</span>j] <span style="color: #666666">&gt;</span> x) ;
+    <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">&lt;</span> j) swap(num[i], num[j]);
+  }
+  <span style="color: #B00040">int</span> offset <span style="color: #666666">=</span> j <span style="color: #666666">-</span> l <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+  <span style="color: #008000; font-weight: bold">if</span> (k <span style="color: #666666">&lt;=</span> offset) <span style="color: #008000; font-weight: bold">return</span> quick_select(l, j, k);
+  <span style="color: #008000; font-weight: bold">return</span> quick_select(j <span style="color: #666666">+</span> <span style="color: #666666">1</span>, r, k <span style="color: #666666">-</span> offset);
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">k;</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">k;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">num[i];</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+  <span style="color: #B00040">int</span> n, k;
+  cin <span style="color: #666666">&gt;&gt;</span> n <span style="color: #666666">&gt;&gt;</span> k;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) cin <span style="color: #666666">&gt;&gt;</span> num[i];
 
-  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">quick_select(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">k);</span>
+  cout <span style="color: #666666">&lt;&lt;</span> quick_select(<span style="color: #666666">0</span>, n <span style="color: #666666">-</span> <span style="color: #666666">1</span>, k);
 
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3577,16 +3568,16 @@ C[] is pre-sum for counting the frequency of each element (element is the index)
 <p>Best time complexity: <span><span class="MathJax_Preview">O(n \log n)</span><script type="math/tex">O(n \log n)</script></span>, Worst: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>. It works great in small size array, and for large size array it's better to use merge sort.</p>
 <h3 id="q1-moving-zeros">Q1: moving zeros<a class="headerlink" href="#q1-moving-zeros" title="Permanent link">&para;</a></h3>
 <p>Move 0s to the right end of the array, no need to keep the relative order of the elements in the origional array</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">moveZeros(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">arr)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr.size()</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">arr;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">arr.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr[l]</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">l</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(arr[r]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">r</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">swap</span><span style="color: #f8f8f2">(arr[l</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">arr[r</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">]);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">arr;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> moveZeros(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> arr) {
+    <span style="color: #008000; font-weight: bold">if</span> (arr.size() <span style="color: #666666">&lt;=</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">return</span> arr;
+    <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> arr.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;=</span> r) {
+        <span style="color: #008000; font-weight: bold">if</span> (arr[l] <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) l<span style="color: #666666">++</span>;
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (arr[r] <span style="color: #666666">==</span> <span style="color: #666666">0</span>) r<span style="color: #666666">--</span>;
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">swap</span>(arr[l<span style="color: #666666">++</span>], arr[r<span style="color: #666666">--</span>]);
+    }
+    <span style="color: #008000; font-weight: bold">return</span> arr;
+}
 </code></pre></div>
 
 
@@ -3600,15 +3591,15 @@ e.g. given [a,b,a,a,a,c,b,a] -&gt; [a,a,a,a,a,b,b,c]</p>
 <p>if arr[j] == a: swap(arr[i++], arr[j++]) // i++ because i~j are b, and after sway, arr[i] is a
 if arr[j] == b: j++
 if arr[j] == c: swap(arr[j], arr[k--]) // don't need to j++ becasue arr[j] is unknown</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">void</span> <span style="color: #a6e22e">rainbowSort</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">char</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">arr)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr.size()</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">arr.size()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr[j]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">swap(arr[i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">arr[j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">]);</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr[j]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;b&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">swap(arr[j],</span> <span style="color: #f8f8f2">arr[k</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">]);</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">void</span> <span style="color: #0000FF">rainbowSort</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;&amp;</span> arr) {
+    <span style="color: #008000; font-weight: bold">if</span> (arr.size() <span style="color: #666666">&lt;=</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">return</span> ;
+    <span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, j <span style="color: #666666">=</span> <span style="color: #666666">0</span>, k <span style="color: #666666">=</span> arr.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">while</span> (j <span style="color: #666666">&lt;=</span> k) {
+        <span style="color: #008000; font-weight: bold">if</span> (arr[j] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;a&#39;</span>) swap(arr[i<span style="color: #666666">++</span>], arr[j<span style="color: #666666">++</span>]);
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (arr[j] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;b&#39;</span>) j<span style="color: #666666">++</span>;
+        <span style="color: #008000; font-weight: bold">else</span> swap(arr[j], arr[k<span style="color: #666666">--</span>]);
+    }
+}
 </code></pre></div>
 
 
@@ -3624,57 +3615,57 @@ a=0,b=1,c=2,d=3</p>
 if arr[i3] == c: swap(arr[i3++], arr[i2++])
 if arr[i3] == b: swap(arr[i3++], arr[i2++]), swap(arr[i1++, i2])
 if arr[i3] == a: swap(arr[i3++], arr[i2++]), swap(arr[i1++], arr[i2]) , swap(arr[i0++], arr[i1])</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">public</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">[]</span> <span style="color: #a6e22e">rainbowSortII</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">array)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// Write your solution here</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i0</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i1</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i2</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i3</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">while</span><span style="color: #f8f8f2">(i3</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">array.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(array</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i3</span><span style="color: #f92672">]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">i3</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(array</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i3</span><span style="color: #f92672">]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">swap(array,</span> <span style="color: #f8f8f2">i2,</span> <span style="color: #f8f8f2">i3);</span>
-        <span style="color: #f8f8f2">i2</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">i3</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(array</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i3</span><span style="color: #f92672">]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">swap(array,</span> <span style="color: #f8f8f2">i2,</span> <span style="color: #f8f8f2">i3);</span>
-        <span style="color: #f8f8f2">swap(array,</span> <span style="color: #f8f8f2">i1,</span> <span style="color: #f8f8f2">i2);</span>
-        <span style="color: #f8f8f2">i1</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">i2</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">i3</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">swap(array,</span> <span style="color: #f8f8f2">i2,</span> <span style="color: #f8f8f2">i3);</span>
-        <span style="color: #f8f8f2">swap(array,</span> <span style="color: #f8f8f2">i1,</span> <span style="color: #f8f8f2">i2);</span>
-        <span style="color: #f8f8f2">swap(array,</span> <span style="color: #f8f8f2">i0,</span> <span style="color: #f8f8f2">i1);</span>
-        <span style="color: #f8f8f2">i0</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">i1</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">i2</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">i3</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">array;</span>
-  <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span> <span style="color: #0000FF">rainbowSortII</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> array) {
+    <span style="color: #408080; font-style: italic">// Write your solution here</span>
+    <span style="color: #B00040">int</span> i0 <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #B00040">int</span> i1 <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #B00040">int</span> i2 <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #B00040">int</span> i3 <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">while</span>(i3 <span style="color: #666666">&lt;</span> array.<span style="color: #7D9029">length</span>) {
+      <span style="color: #008000; font-weight: bold">if</span>(array<span style="color: #666666">[</span>i3<span style="color: #666666">]</span> <span style="color: #666666">==</span> <span style="color: #666666">3</span>) {
+        i3<span style="color: #666666">++</span>;
+      } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span>(array<span style="color: #666666">[</span>i3<span style="color: #666666">]</span> <span style="color: #666666">==</span> <span style="color: #666666">2</span>) {
+        swap(array, i2, i3);
+        i2<span style="color: #666666">++</span>;
+        i3<span style="color: #666666">++</span>;
+      } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span>(array<span style="color: #666666">[</span>i3<span style="color: #666666">]</span> <span style="color: #666666">==</span> <span style="color: #666666">1</span>) {
+        swap(array, i2, i3);
+        swap(array, i1, i2);
+        i1<span style="color: #666666">++</span>;
+        i2<span style="color: #666666">++</span>;
+        i3<span style="color: #666666">++</span>;
+      } <span style="color: #008000; font-weight: bold">else</span> {
+        swap(array, i2, i3);
+        swap(array, i1, i2);
+        swap(array, i0, i1);
+        i0<span style="color: #666666">++</span>;
+        i1<span style="color: #666666">++</span>;
+        i2<span style="color: #666666">++</span>;
+        i3<span style="color: #666666">++</span>;
+      }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> array;
+  }
 </code></pre></div>
 
 
 <h3 id="q4-what-about-k-color">Q4: What about k color?<a class="headerlink" href="#q4-what-about-k-color" title="Permanent link">&para;</a></h3>
 <p>use counting sort, sort in linear time!</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #66d9ef">public</span><span style="color: #f8f8f2">:</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">rainbowSortIII</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">cnt</span><span style="color: #f8f8f2">(k</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// accumulate cnt of each element (from 0 - k)</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">();</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">a</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]]++</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">k;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">(n);</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">res</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">cnt</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">a</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]]</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">a</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]]--</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+ <span style="color: #008000; font-weight: bold">public</span>:
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #0000FF">rainbowSortIII</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> a, <span style="color: #B00040">int</span> k) {
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #0000FF">cnt</span>(k <span style="color: #666666">+</span> <span style="color: #666666">1</span>); <span style="color: #408080; font-style: italic">// accumulate cnt of each element (from 0 - k)</span>
+    <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> a.<span style="color: #7D9029">size</span>();
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) cnt<span style="color: #666666">[</span>a<span style="color: #666666">[</span>i<span style="color: #666666">]]++</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> k; <span style="color: #666666">++</span>i) cnt<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> cnt<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">+</span> cnt<span style="color: #666666">[</span>i <span style="color: #666666">-</span> <span style="color: #666666">1]</span>;
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #0000FF">res</span>(n);
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
+      res<span style="color: #666666">[</span>cnt<span style="color: #666666">[</span>a<span style="color: #666666">[</span>i<span style="color: #666666">]]</span> <span style="color: #666666">-</span> <span style="color: #666666">1]</span> <span style="color: #666666">=</span> a<span style="color: #666666">[</span>i<span style="color: #666666">]</span>;
+      cnt<span style="color: #666666">[</span>a<span style="color: #666666">[</span>i<span style="color: #666666">]]--</span>;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
+};
 </code></pre></div>
 
 
@@ -3687,16 +3678,16 @@ if arr[i3] == a: swap(arr[i3++], arr[i2++]), swap(arr[i1++], arr[i2]) , swap(arr
 2. 当前颜色在array中已经存在的个数
 这两个信息虽然看似没有关联实际上是：当知道所有在当前颜色之前的颜色<em>每个个数之后，那么就可以知道当前颜色在array中的开始位置。那么就是要处理如何知道当前颜色之前的所有颜色</em>个数。
 这里就可以想到accumulate list或者pre sum list来处理。 </p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cnt[a[i]]</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">k;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cnt[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cnt[i]</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">cnt[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) cnt[a[i]]<span style="color: #666666">++</span>;
+<span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> k; <span style="color: #666666">++</span>i) cnt[i] <span style="color: #666666">=</span> cnt[i] <span style="color: #666666">+</span> cnt[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
 </code></pre></div>
 
 
 <p>这两行做的事情分别是找到每一个元素的数量，然后计算presum，这里的presum便是上面说的<strong>当前颜色之前的颜色*每个个数</strong>。当知道了这两个信息之后便可以把他们一个一个放到sort好的res数组了。</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">res[cnt[a[i]]</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a[i];</span>
-      <span style="color: #f8f8f2">cnt[a[i]]</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
+      res[cnt[a[i]] <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">=</span> a[i];
+      cnt[a[i]]<span style="color: #666666">--</span>;
+}
 </code></pre></div>
 
 
@@ -3704,24 +3695,24 @@ if arr[i3] == a: swap(arr[i3++], arr[i2++]), swap(arr[i1++], arr[i2]) , swap(arr
 <h3 id="_3">如何解决非数字问题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>假如颜色不是1～k的数字，那么为了计算presum，我们需要找到某种方法来知道每两个元素的相对位置：
 假设objA &lt; objB，那么我们可以用一个<code>unordered_map&lt;Obj, int&gt; mapping</code>来为每个元素赋值。即：</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cnt[mapping[a[i]]]</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">k;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cnt[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cnt[i]</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">cnt[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) cnt[mapping[a[i]]]<span style="color: #666666">++</span>;
+<span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> k; <span style="color: #666666">++</span>i) cnt[i] <span style="color: #666666">=</span> cnt[i] <span style="color: #666666">+</span> cnt[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
 </code></pre></div>
 
 
 <h3 id="in-place-sort-space-ok-time-on">In-place sort: space O(k), time O(n)<a class="headerlink" href="#in-place-sort-space-ok-time-on" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">rainbowSortIII(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">cnt(k</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>  <span style="color: #75715e">// cnt of each element (from 0 - k)</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a.size();</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cnt[a[i]]</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">k;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(cnt[i]</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">a[idx</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-      <span style="color: #f8f8f2">cnt[i]</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">a;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> rainbowSortIII(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> a, <span style="color: #B00040">int</span> k) {
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> cnt(k <span style="color: #666666">+</span> <span style="color: #666666">1</span>);  <span style="color: #408080; font-style: italic">// cnt of each element (from 0 - k)</span>
+  <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> a.size();
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) cnt[a[i]]<span style="color: #666666">++</span>;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>, idx <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;=</span> k; <span style="color: #666666">++</span>i) {
+    <span style="color: #008000; font-weight: bold">while</span> (cnt[i] <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) {
+      a[idx<span style="color: #666666">++</span>] <span style="color: #666666">=</span> i;
+      cnt[i]<span style="color: #666666">--</span>;
+    }
+  }
+  <span style="color: #008000; font-weight: bold">return</span> a;
+}
 </code></pre></div>
 
 
@@ -3733,38 +3724,38 @@ output: [1,-1,2,-1,3,-1,4,5] (the ordering of pos/neg number doesn't matter)</p>
 <h4 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h4>
 <p>Use quick sort's partition to split the array into two half, then put them back to the new array alternatively</p>
 <h4 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #75715e">#define N 1010</span>
+<span style="color: #BC7A00">#define N 1010</span>
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">nums[N];</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">nums[i];</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(nums[</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">l]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">x);</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(nums[</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">r]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">x);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">swap(nums[l],</span> <span style="color: #f8f8f2">nums[r]);</span>
-    <span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> nums[N];
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    <span style="color: #B00040">int</span> n;
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) cin <span style="color: #666666">&gt;&gt;</span> nums[i];
+    <span style="color: #B00040">int</span> x <span style="color: #666666">=</span> <span style="color: #666666">0</span>, l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r) {
+        <span style="color: #008000; font-weight: bold">while</span> (nums[<span style="color: #666666">++</span>l] <span style="color: #666666">&gt;</span> x);
+        <span style="color: #008000; font-weight: bold">while</span> (nums[<span style="color: #666666">--</span>r] <span style="color: #666666">&lt;</span> x);
+        <span style="color: #008000; font-weight: bold">if</span> (l <span style="color: #666666">&lt;</span> r) swap(nums[l], nums[r]);
+    }
 
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">nums[l]</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">nums[r]</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span> 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res[n];</span>
-    <span style="color: #f8f8f2">memset(res,</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">res);</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">r;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">res[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[idx</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">];</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+=</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">res[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[idx</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">];</span>
-    <span style="color: #f8f8f2">}</span>
+    cout <span style="color: #666666">&lt;&lt;</span> nums[l] <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; &quot;</span> <span style="color: #666666">&lt;&lt;</span> nums[r] <span style="color: #666666">&lt;&lt;</span> endl; 
+    <span style="color: #B00040">int</span> res[n];
+    memset(res, <span style="color: #666666">-1</span>, <span style="color: #008000; font-weight: bold">sizeof</span> res);
+    <span style="color: #B00040">int</span> idx <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; idx <span style="color: #666666">&lt;=</span> r; i <span style="color: #666666">+=</span> <span style="color: #666666">2</span>) {
+        res[i] <span style="color: #666666">=</span> nums[idx<span style="color: #666666">++</span>];
+    }
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; idx <span style="color: #666666">&lt;</span> n; i <span style="color: #666666">+=</span> <span style="color: #666666">2</span>) {
+        res[i] <span style="color: #666666">=</span> nums[idx<span style="color: #666666">++</span>];
+    }
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">res)</span> <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">i</span> : res) cout <span style="color: #666666">&lt;&lt;</span> i <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot; &quot;</span>;
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
                 
               

@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2944,35 +2935,35 @@ wordDict = ["cats", "dog", "sand", "and", "cat"]
 Output:
 []</p>
 <h2 id="dfs-w-memo">dfs w/ memo<a class="headerlink" href="#dfs-w-memo" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">m;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+    unordered_map<span style="color: #666666">&lt;</span>string, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&gt;</span> m;
 
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">combine</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">word,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">prev){</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">prev.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">();</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">i){</span>
-            <span style="color: #f8f8f2">prev</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]+=</span><span style="color: #e6db74">&quot; &quot;</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">word;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">prev;</span>
-    <span style="color: #f8f8f2">}</span>
+    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #0000FF">combine</span>(string word, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> prev){
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i<span style="color: #666666">=0</span>;i<span style="color: #666666">&lt;</span>prev.<span style="color: #7D9029">size</span>();<span style="color: #666666">++</span>i){
+            prev<span style="color: #666666">[</span>i<span style="color: #666666">]+=</span><span style="color: #BA2121">&quot; &quot;</span><span style="color: #666666">+</span>word;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> prev;
+    }
 
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">wordBreak</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">unordered_set</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">dict)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(m.</span><span style="color: #a6e22e">count</span><span style="color: #f8f8f2">(s))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">s</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">//take from memory</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">result;</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(dict.</span><span style="color: #a6e22e">count</span><span style="color: #f8f8f2">(s)){</span> <span style="color: #75715e">//a whole string is a word</span>
-            <span style="color: #f8f8f2">result.</span><span style="color: #a6e22e">push_back</span><span style="color: #f8f8f2">(s);</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">s.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">();</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">i){</span>
-            <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">word</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">s.</span><span style="color: #a6e22e">substr</span><span style="color: #f8f8f2">(i);</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(dict.</span><span style="color: #a6e22e">count</span><span style="color: #f8f8f2">(word)){</span><span style="color: #75715e">//s[0:i] and s[i:], s[i:] is checked, now check s[0:i]</span>
-                <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">rem</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">s.</span><span style="color: #a6e22e">substr</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,i);</span>
-                <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">prev</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">combine(word,wordBreak(rem,dict));</span>
-                <span style="color: #f8f8f2">result.</span><span style="color: #a6e22e">insert</span><span style="color: #f8f8f2">(result.</span><span style="color: #a6e22e">end</span><span style="color: #f8f8f2">(),prev.</span><span style="color: #a6e22e">begin</span><span style="color: #f8f8f2">(),</span> <span style="color: #f8f8f2">prev.</span><span style="color: #a6e22e">end</span><span style="color: #f8f8f2">());</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">m</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">s</span><span style="color: #f92672">]=</span><span style="color: #f8f8f2">result;</span> <span style="color: #75715e">//memorize</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">result;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<span style="color: #A0A000">public:</span>
+    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #0000FF">wordBreak</span>(string s, unordered_set<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> dict) {
+        <span style="color: #008000; font-weight: bold">if</span>(m.<span style="color: #7D9029">count</span>(s)) <span style="color: #008000; font-weight: bold">return</span> m<span style="color: #666666">[</span>s<span style="color: #666666">]</span>; <span style="color: #408080; font-style: italic">//take from memory</span>
+        vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> result;
+        <span style="color: #008000; font-weight: bold">if</span>(dict.<span style="color: #7D9029">count</span>(s)){ <span style="color: #408080; font-style: italic">//a whole string is a word</span>
+            result.<span style="color: #7D9029">push_back</span>(s);
+        }
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i<span style="color: #666666">=1</span>;i<span style="color: #666666">&lt;</span>s.<span style="color: #7D9029">size</span>();<span style="color: #666666">++</span>i){
+            string word<span style="color: #666666">=</span>s.<span style="color: #7D9029">substr</span>(i);
+            <span style="color: #008000; font-weight: bold">if</span>(dict.<span style="color: #7D9029">count</span>(word)){<span style="color: #408080; font-style: italic">//s[0:i] and s[i:], s[i:] is checked, now check s[0:i]</span>
+                string rem<span style="color: #666666">=</span>s.<span style="color: #7D9029">substr</span>(<span style="color: #666666">0</span>,i);
+                vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> prev<span style="color: #666666">=</span>combine(word,wordBreak(rem,dict));
+                result.<span style="color: #7D9029">insert</span>(result.<span style="color: #7D9029">end</span>(),prev.<span style="color: #7D9029">begin</span>(), prev.<span style="color: #7D9029">end</span>());
+            }
+        }
+        m<span style="color: #666666">[</span>s<span style="color: #666666">]=</span>result; <span style="color: #408080; font-style: italic">//memorize</span>
+        <span style="color: #008000; font-weight: bold">return</span> result;
+    }
+};
 </code></pre></div>
 
 
@@ -2984,27 +2975,27 @@ Output:
 <p><img alt="IMAGE" src="../resources/A7A0D625067844E33F882924CF5DE648.jpg" />
 After memo:
 <img alt="IMAGE" src="../resources/52DABD0AB9F46F747AAF823A8EB8F99A.jpg" /></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">wordBreak</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">wordDict)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #75715e">// word segment -&gt; using what words to form</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">helper(s,</span> <span style="color: #f8f8f2">wordDict,</span> <span style="color: #f8f8f2">m);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #75715e">// will return all ways to combine this word</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">wordDict,</span> <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">m)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(m.</span><span style="color: #a6e22e">count</span><span style="color: #f8f8f2">(s))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">s</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(s.</span><span style="color: #a6e22e">empty</span><span style="color: #f8f8f2">())</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">};</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">word</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">wordDict)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// try all words</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(s.</span><span style="color: #a6e22e">substr</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">word.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">())</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">word)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">rem</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">helper(s.</span><span style="color: #a6e22e">substr</span><span style="color: #f8f8f2">(word.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">()),</span> <span style="color: #f8f8f2">wordDict,</span> <span style="color: #f8f8f2">m);</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">str</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">rem)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">res.</span><span style="color: #a6e22e">push_back</span><span style="color: #f8f8f2">(word</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">(str.</span><span style="color: #a6e22e">empty</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">?</span> <span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">str);</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">s</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span>:
+    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #0000FF">wordBreak</span>(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> wordDict) {
+        unordered_map<span style="color: #666666">&lt;</span>string, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&gt;</span> m; <span style="color: #408080; font-style: italic">// word segment -&gt; using what words to form</span>
+        <span style="color: #008000; font-weight: bold">return</span> helper(s, wordDict, m);
+    }
+    <span style="color: #408080; font-style: italic">// will return all ways to combine this word</span>
+    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #0000FF">helper</span>(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> wordDict, unordered_map<span style="color: #666666">&lt;</span>string, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&gt;&amp;</span> m) {
+        <span style="color: #008000; font-weight: bold">if</span> (m.<span style="color: #7D9029">count</span>(s)) <span style="color: #008000; font-weight: bold">return</span> m<span style="color: #666666">[</span>s<span style="color: #666666">]</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (s.<span style="color: #7D9029">empty</span>()) <span style="color: #008000; font-weight: bold">return</span> {<span style="color: #BA2121">&quot;&quot;</span>};
+        vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> res;
+        <span style="color: #008000; font-weight: bold">for</span> (string word : wordDict) { <span style="color: #408080; font-style: italic">// try all words</span>
+            <span style="color: #008000; font-weight: bold">if</span> (s.<span style="color: #7D9029">substr</span>(<span style="color: #666666">0</span>, word.<span style="color: #7D9029">size</span>()) <span style="color: #666666">!=</span> word) <span style="color: #008000; font-weight: bold">continue</span>;
+            vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> rem <span style="color: #666666">=</span> helper(s.<span style="color: #7D9029">substr</span>(word.<span style="color: #7D9029">size</span>()), wordDict, m);
+            <span style="color: #008000; font-weight: bold">for</span> (string str : rem) {
+                res.<span style="color: #7D9029">push_back</span>(word <span style="color: #666666">+</span> (str.<span style="color: #7D9029">empty</span>() <span style="color: #666666">?</span> <span style="color: #BA2121">&quot;&quot;</span> : <span style="color: #BA2121">&quot; &quot;</span>) <span style="color: #666666">+</span> str);
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> m<span style="color: #666666">[</span>s<span style="color: #666666">]</span> <span style="color: #666666">=</span> res;
+    }
+};
 </code></pre></div>
                 
               

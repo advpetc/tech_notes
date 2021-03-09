@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2958,15 +2949,15 @@
 <h3 id="recurison-tree">Recurison Tree<a class="headerlink" href="#recurison-tree" title="Permanent link">&para;</a></h3>
 <p><img alt="Screen Shot 2020-05-12 at 3.32.11 PM.png" src="../resources/696E8DE4BA0667EC6199D5EB8444EC61.png" /></p>
 <h3 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isSymmetric(left,</span> <span style="color: #f8f8f2">right)</span>
-  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span> <span style="color: #f8f8f2">and</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true</span>
-  <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">null</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false</span>
-  <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">left.val</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">right.val</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false</span>
-  <span style="color: #66d9ef">else</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">isSymmetric(left.left,</span> <span style="color: #f8f8f2">right.right)</span> <span style="color: #f8f8f2">and</span> <span style="color: #f8f8f2">isSymmetric(left.right,</span> <span style="color: #f8f8f2">right.left)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">bool</span> isSymmetric(left, right)
+  <span style="color: #008000; font-weight: bold">if</span> left <span style="color: #666666">==</span> null and right <span style="color: #666666">==</span> null
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>
+  <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> left <span style="color: #666666">==</span> null <span style="color: #666666">||</span> right <span style="color: #666666">==</span> null
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>
+  <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> left.val <span style="color: #666666">!=</span> right.val
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>
+  <span style="color: #008000; font-weight: bold">else</span>
+    <span style="color: #008000; font-weight: bold">return</span> isSymmetric(left.left, right.right) and isSymmetric(left.right, right.left)
 </code></pre></div>
 
 

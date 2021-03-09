@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2931,21 +2922,21 @@
 <p>Return <em>the </em><em>length</em><em> of</em> <code>N</code>. If there is no such <code>N</code>, return -1.</p>
 <p><strong>Note:</strong> <code>N</code> may not fit in a 64-bit signed integer.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: K = 1
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: K = 1
 Output: 1
 Explanation: The smallest answer is N = 1, which has length 1.
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: K = 2
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: K = 2
 Output: -1
 Explanation: There is no such positive integer N divisible by 2.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: K = 3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: K = 3
 Output: 3
 Explanation: The smallest answer is N = 111, which has length 3.
 </code></pre></div>
@@ -2957,7 +2948,7 @@ Explanation: The smallest answer is N = 111, which has length 3.
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>By observation, we can find that the only case that will return -1 is when there is a repetend for the reminder as we grow our candidate number, so we can just create a set that will store all the prevous reminders and see if current reminder already exist or not. However, if we just arbitarily increase our candidate number, it will result in overflow, so we need to apply the modulus trick:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>r = n % k
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>r = n % k
 n = m * k + r
 10 * n + 1 = 10 * (m * k + r) + 1
 10 * n + 1 = 10 * m * k + 10 * r + 1
@@ -2971,7 +2962,7 @@ so whatever n is, (10 * n + 1) % k equals to (10 * r + 1) % k, where r is n % k.
 <p>Or inituitively, we can see that reminder is always in the range from 0 to K. No mater how do we increase our number, we just need to keep the reminder (% K result), since we are only interested in the reminder of the long number.</p>
 <p>So we conclude that $r = (r \times 10 + 1) \mod K $, where left-side r is our new r.</p>
 <p>However, there is a even smarter way to reduce the space: </p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Assume that N = 1 to N = K, if there isn&#39;t 111...11 % K == 0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Assume that N = 1 to N = K, if there isn&#39;t 111...11 % K == 0
 There are at most K - 1 different remainders: 1, 2, .... K - 1.
 
 So this is a pigeon holes problem:
@@ -2992,22 +2983,22 @@ otherwise, there must be a solution N &lt;= K.
 <p>This will allow us to just check these two simple cases to determine if we should return -1.</p>
 <p>Time: <span><span class="MathJax_Preview">O(K)</span><script type="math/tex">O(K)</script></span></p>
 <h2 id="code-with-extra-space">Code: with extra space<a class="headerlink" href="#code-with-extra-space" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">smallestRepunitDivByK(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">K)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">set</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">vis;</span>        
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">10</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">K;</span>
-            <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mod</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">K;</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(vis.count(mod))</span> <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(mod</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">cnt;</span>
-            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">vis.insert(mod);</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">cnt;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> smallestRepunitDivByK(<span style="color: #B00040">int</span> K) {
+        set<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> vis;        
+        <span style="color: #B00040">int</span> curr <span style="color: #666666">=</span> <span style="color: #666666">0</span>, cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">1</span>) {
+            curr <span style="color: #666666">=</span> (curr <span style="color: #666666">*</span> <span style="color: #666666">10</span> <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #666666">%</span> K;
+            cnt <span style="color: #666666">++</span>;
+            <span style="color: #B00040">int</span> mod <span style="color: #666666">=</span> curr <span style="color: #666666">%</span> K;
+            <span style="color: #008000; font-weight: bold">if</span> (vis.count(mod)) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
+            <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (mod <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> cnt;
+            <span style="color: #008000; font-weight: bold">else</span> vis.insert(mod);
+        }
+        <span style="color: #008000; font-weight: bold">return</span> cnt;
+    }
+};
 </code></pre></div>
 
 
@@ -3016,12 +3007,12 @@ otherwise, there must be a solution N &lt;= K.
 <blockquote>
 <p><a href="https://leetcode.com/problems/smallest-integer-divisible-by-k/discuss/260852/JavaC%2B%2BPython-O(1)-Space-with-Proves-of-Pigeon-Holes">https://leetcode.com/problems/smallest-integer-divisible-by-k/discuss/260852/JavaC%2B%2BPython-O(1)-Space-with-Proves-of-Pigeon-Holes</a></p>
 </blockquote>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #a6e22e">smallestRepunitDivByK</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">K)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">K;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">N)</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">((r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(r</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">10</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">K)</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">N;</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">smallestRepunitDivByK</span>(<span style="color: #B00040">int</span> K) {
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> r <span style="color: #666666">=</span> <span style="color: #666666">0</span>, N <span style="color: #666666">=</span> <span style="color: #666666">1</span>; N <span style="color: #666666">&lt;=</span> K; <span style="color: #666666">++</span>N)
+    <span style="color: #008000; font-weight: bold">if</span> ((r <span style="color: #666666">=</span> (r <span style="color: #666666">*</span> <span style="color: #666666">10</span> <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #666666">%</span> K) <span style="color: #666666">==</span> <span style="color: #666666">0</span>)
+      <span style="color: #008000; font-weight: bold">return</span> N;
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
+}
 </code></pre></div>
 
 

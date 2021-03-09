@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2952,7 +2943,7 @@ Output: 6</p>
 1 &lt;= profit[i] &lt;= 10^4</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>For this problem, we cannot use greedy algorithm, since each interval's contribution isn't uniform (not all 1), so we need dp to solve. Different from classic dp problem, which we need to store all the timestamp, in this problem, we just care about the timestamp that is one of the ending time of any task. For example:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>// if t is between two interval (w/o any intersection), dp[t] is equal to [dp[job1.end], dp[job1.start]], we don&#39;t need to record all the timestamp
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>// if t is between two interval (w/o any intersection), dp[t] is equal to [dp[job1.end], dp[job1.start]], we don&#39;t need to record all the timestamp
 job1: -----[ t ]
 job2:           ------
 </code></pre></div>
@@ -2965,26 +2956,26 @@ job2:           ------
 <p>Time: <span><span class="MathJax_Preview">O(n \log(n))</span><script type="math/tex">O(n \log(n))</script></span> for sorting, <span><span class="MathJax_Preview">O(n \log(n))</span><script type="math/tex">O(n \log(n))</script></span> for search last job ending (choose case from dp)
 Space:<span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> we need to store all the interval in the map.</p>
 <h2 id="code-link">Code <a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/409009/JavaC%2B%2BPython-DP-Solution">Link</a><a class="headerlink" href="#code-link" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">jobScheduling(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">startTime,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">endTime,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">profit)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">startTime.size();</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">jobs;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">jobs.push_back({endTime[i],</span> <span style="color: #f8f8f2">startTime[i],</span> <span style="color: #f8f8f2">profit[i]});</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">sort(jobs.begin(),</span> <span style="color: #f8f8f2">jobs.end());</span> <span style="color: #75715e">// sort by ending time</span>
-        <span style="color: #f8f8f2">map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{{</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">}};</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">job</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">jobs)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #75715e">// find the last ending which end before current start time, so that we can schedule current job</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">last_ending_profit</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">prev(dp.upper_bound(job[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]))</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">second;</span> 
-            <span style="color: #75715e">// if by adding current job will cause a higher profit, we can update current ending time&#39;s profit</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(last_ending_profit</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">job[</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dp.rbegin()</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">second)</span>
-                <span style="color: #f8f8f2">dp[job[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">last_ending_profit</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">job[</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">];</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dp.rbegin()</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">second;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> jobScheduling(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> startTime, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> endTime, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> profit) {
+        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> startTime.size();
+        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> jobs;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+            jobs.push_back({endTime[i], startTime[i], profit[i]});
+        }
+        sort(jobs.begin(), jobs.end()); <span style="color: #408080; font-style: italic">// sort by ending time</span>
+        map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dp <span style="color: #666666">=</span> {{<span style="color: #666666">0</span>, <span style="color: #666666">0</span>}};
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">job</span> : jobs) {
+            <span style="color: #408080; font-style: italic">// find the last ending which end before current start time, so that we can schedule current job</span>
+            <span style="color: #B00040">int</span> last_ending_profit <span style="color: #666666">=</span> prev(dp.upper_bound(job[<span style="color: #666666">1</span>])) <span style="color: #666666">-&gt;</span> second; 
+            <span style="color: #408080; font-style: italic">// if by adding current job will cause a higher profit, we can update current ending time&#39;s profit</span>
+            <span style="color: #008000; font-weight: bold">if</span> (last_ending_profit <span style="color: #666666">+</span> job[<span style="color: #666666">2</span>] <span style="color: #666666">&gt;</span> dp.rbegin() <span style="color: #666666">-&gt;</span> second)
+                dp[job[<span style="color: #666666">0</span>]] <span style="color: #666666">=</span> last_ending_profit <span style="color: #666666">+</span> job[<span style="color: #666666">2</span>];
+        }
+        <span style="color: #008000; font-weight: bold">return</span> dp.rbegin() <span style="color: #666666">-&gt;</span> second;
+    }
+};
 </code></pre></div>
 
 

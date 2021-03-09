@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2997,7 +2988,7 @@
                 <h1 id="find-median-from-data-stream">Find Median From Data Stream<a class="headerlink" href="#find-median-from-data-stream" title="Permanent link">&para;</a></h1>
 <p>Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.</p>
 <p>For example,</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>[2,3,4]`, the median is `3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>[2,3,4]`, the median is `3
 [2,3]`, the median is `(2 + 3) / 2 = 2.5
 </code></pre></div>
 
@@ -3008,7 +2999,7 @@
 <li>double findMedian() - Return the median of all elements so far.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>addNum(1)
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>addNum(1)
 addNum(2)
 findMedian() -&gt; 1.5
 addNum(3) 
@@ -3042,42 +3033,42 @@ q2: yyyy</p>
 else 
   then push to small then push the top of small to large // now it's even</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">MedianFinder</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">private:</span>
-    <span style="color: #f8f8f2">priority_queue</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">double</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">small,</span> <span style="color: #f8f8f2">large;</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">even;</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #75715e">/** initialize your data structure here. */</span>
-    <span style="color: #f8f8f2">MedianFinder()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">even</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span><span style="color: #75715e">// 0 is even</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class MedianFinder {
+<span style="color: #A0A000">private</span>:
+    priority_queue<span style="color: #666666">&lt;</span><span style="color: #B00040">double</span><span style="color: #666666">&gt;</span> small, large;
+    <span style="color: #B00040">bool</span> even;
+<span style="color: #A0A000">public</span>:
+    <span style="color: #408080; font-style: italic">/** initialize your data structure here. */</span>
+    MedianFinder() {
+        even <span style="color: #666666">=</span> <span style="color: #008000">true</span>;<span style="color: #408080; font-style: italic">// 0 is even</span>
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">addNum(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(even)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// small.size() == large.size()</span>
-            <span style="color: #f8f8f2">large.push(</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">num);</span>
-            <span style="color: #f8f8f2">small.push(</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">large.top());</span>
-            <span style="color: #f8f8f2">large.pop();</span> 
-        <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// small.size() - large.size() == 1</span>
-            <span style="color: #f8f8f2">small.push(num);</span>
-            <span style="color: #f8f8f2">large.push(</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">small.top());</span>
-            <span style="color: #f8f8f2">small.pop();</span> 
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">even</span> <span style="color: #f92672">=</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">even;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> addNum(<span style="color: #B00040">int</span> num)
+    {
+        <span style="color: #008000; font-weight: bold">if</span> (even) { <span style="color: #408080; font-style: italic">// small.size() == large.size()</span>
+            large.push(<span style="color: #666666">-</span>num);
+            small.push(<span style="color: #666666">-</span>large.top());
+            large.pop(); 
+        } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #408080; font-style: italic">// small.size() - large.size() == 1</span>
+            small.push(num);
+            large.push(<span style="color: #666666">-</span>small.top());
+            small.pop(); 
+        }
+        even <span style="color: #666666">=</span> <span style="color: #666666">!</span>even;
+    }
 
-    <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">findMedian()</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">even</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">small.top()</span> <span style="color: #f92672">:</span> <span style="color: #ae81ff">0.5</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">(small.top()</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">large.top());</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #B00040">double</span> findMedian()
+    {
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">!</span>even <span style="color: #666666">?</span> small.top() <span style="color: #666666">:</span> <span style="color: #666666">0.5</span> <span style="color: #666666">*</span> (small.top() <span style="color: #666666">-</span> large.top());
+    }
+};
 
-<span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Your MedianFinder object will be instantiated and called as such:</span>
-<span style="color: #75715e"> * MedianFinder* obj = new MedianFinder();</span>
-<span style="color: #75715e"> * obj-&gt;addNum(num);</span>
-<span style="color: #75715e"> * double param_2 = obj-&gt;findMedian();</span>
-<span style="color: #75715e"> */</span>
+<span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Your MedianFinder object will be instantiated and called as such:</span>
+<span style="color: #408080; font-style: italic"> * MedianFinder* obj = new MedianFinder();</span>
+<span style="color: #408080; font-style: italic"> * obj-&gt;addNum(num);</span>
+<span style="color: #408080; font-style: italic"> * double param_2 = obj-&gt;findMedian();</span>
+<span style="color: #408080; font-style: italic"> */</span>
 </code></pre></div>
 
 
@@ -3096,66 +3087,66 @@ small: 2 -&gt; 4, 2 -&gt; 2 -&gt; 3, 2
 large: -3 -&gt; -3, -4 -&gt; -4
 median: 3</p>
 <h2 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">MedianFinder</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">private:</span>
-    <span style="color: #f8f8f2">priority_queue</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">long</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">small,</span> <span style="color: #f8f8f2">large;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class MedianFinder {
+<span style="color: #A0A000">private</span>:
+    priority_queue<span style="color: #666666">&lt;</span><span style="color: #B00040">long</span><span style="color: #666666">&gt;</span> small, large;
 
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #75715e">/** initialize your data structure here. */</span>
-    <span style="color: #f8f8f2">MedianFinder()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #A0A000">public</span>:
+    <span style="color: #408080; font-style: italic">/** initialize your data structure here. */</span>
+    MedianFinder() {}
 
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">addNum(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #75715e">// blindly push in two pq</span>
-        <span style="color: #f8f8f2">small.push(num);</span>
-        <span style="color: #f8f8f2">large.push(</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">small.top());</span>
-        <span style="color: #75715e">// small is always greater than large in size, at most greater by one, equal is fine</span>
-        <span style="color: #f8f8f2">small.pop();</span> <span style="color: #75715e">// leave the new element in large</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(small.size()</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">large.size())</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">small.push(</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">large.top());</span>
-            <span style="color: #f8f8f2">large.pop();</span> <span style="color: #75715e">// large has one more, so move it to small</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> addNum(<span style="color: #B00040">int</span> num) {
+        <span style="color: #408080; font-style: italic">// blindly push in two pq</span>
+        small.push(num);
+        large.push(<span style="color: #666666">-</span>small.top());
+        <span style="color: #408080; font-style: italic">// small is always greater than large in size, at most greater by one, equal is fine</span>
+        small.pop(); <span style="color: #408080; font-style: italic">// leave the new element in large</span>
+        <span style="color: #008000; font-weight: bold">if</span> (small.size() <span style="color: #666666">&lt;</span> large.size()) {
+            small.push(<span style="color: #666666">-</span>large.top());
+            large.pop(); <span style="color: #408080; font-style: italic">// large has one more, so move it to small</span>
+        }
+    }
 
-    <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">findMedian()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">small.size()</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">large.size()</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">small.top()</span>
-                                           <span style="color: #f92672">:</span> <span style="color: #ae81ff">0.5</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">(small.top()</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">large.top());</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #B00040">double</span> findMedian() {
+        <span style="color: #008000; font-weight: bold">return</span> small.size() <span style="color: #666666">!=</span> large.size() <span style="color: #666666">?</span> small.top()
+                                           <span style="color: #666666">:</span> <span style="color: #666666">0.5</span> <span style="color: #666666">*</span> (small.top() <span style="color: #666666">-</span> large.top());
+    }
+};
 
-<span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Your MedianFinder object will be instantiated and called as such:</span>
-<span style="color: #75715e"> * MedianFinder* obj = new MedianFinder();</span>
-<span style="color: #75715e"> * obj-&gt;addNum(num);</span>
-<span style="color: #75715e"> * double param_2 = obj-&gt;findMedian();</span>
-<span style="color: #75715e"> */</span>
+<span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Your MedianFinder object will be instantiated and called as such:</span>
+<span style="color: #408080; font-style: italic"> * MedianFinder* obj = new MedianFinder();</span>
+<span style="color: #408080; font-style: italic"> * obj-&gt;addNum(num);</span>
+<span style="color: #408080; font-style: italic"> * double param_2 = obj-&gt;findMedian();</span>
+<span style="color: #408080; font-style: italic"> */</span>
 </code></pre></div>
 
 
 <h2 id="followups">Followups<a class="headerlink" href="#followups" title="Permanent link">&para;</a></h2>
 <p>With all fall in between 0-100?</p>
 <h3 id="code-o100o100">Code <span><span class="MathJax_Preview">O(100)</span><script type="math/tex">O(100)</script></span><a class="headerlink" href="#code-o100o100" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">MedianFinder</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">private:</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">A[</span><span style="color: #ae81ff">101</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">n;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class MedianFinder {
+    <span style="color: #A0A000">private</span>:
+        <span style="color: #B00040">int</span> A[<span style="color: #666666">101</span>], n;
 
-    <span style="color: #f8f8f2">public:</span>
-        <span style="color: #f8f8f2">MedianFinder()</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">memset(A,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">A);</span>
-        <span style="color: #f8f8f2">}</span>    
-        <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">addNum(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">A[num]</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">n</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
+    <span style="color: #A0A000">public</span>:
+        MedianFinder() {
+            n <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+            memset(A, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> A);
+        }    
+        <span style="color: #B00040">void</span> addNum(<span style="color: #B00040">int</span> num) {
+            A[num]<span style="color: #666666">++</span>;
+            n<span style="color: #666666">++</span>;
+        }
 
-        <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">findMedian()</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">count</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(count</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">count</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">A[i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-            <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(count</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">count</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">A[j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2.0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+        <span style="color: #B00040">double</span> findMedian() {
+            <span style="color: #B00040">int</span> count <span style="color: #666666">=</span> <span style="color: #666666">0</span>, i <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+            <span style="color: #008000; font-weight: bold">while</span> (count <span style="color: #666666">&lt;</span> n<span style="color: #666666">/2</span>) count <span style="color: #666666">+=</span> A[i<span style="color: #666666">++</span>];
+            <span style="color: #B00040">int</span> j <span style="color: #666666">=</span> i;
+            <span style="color: #008000; font-weight: bold">while</span> (count <span style="color: #666666">&lt;</span> n<span style="color: #666666">/2</span> <span style="color: #666666">+</span> <span style="color: #666666">1</span>) count <span style="color: #666666">+=</span> A[j<span style="color: #666666">++</span>];
+            <span style="color: #008000; font-weight: bold">return</span> (n <span style="color: #666666">%</span> <span style="color: #666666">2</span> <span style="color: #666666">==</span> <span style="color: #666666">1</span>) <span style="color: #666666">?</span> j<span style="color: #666666">-1</span> <span style="color: #666666">:</span> (i <span style="color: #666666">+</span> j <span style="color: #666666">-</span> <span style="color: #666666">2</span>) <span style="color: #666666">/</span> <span style="color: #666666">2.0</span>;
+        }
+};
 </code></pre></div>
 
 

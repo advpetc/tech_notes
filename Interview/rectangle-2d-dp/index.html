@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3176,57 +3167,57 @@ Examples</p>
 <p>Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span>
 Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">down,</span> <span style="color: #f8f8f2">up;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">minVal</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">min({left,</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">down,</span> <span style="color: #f8f8f2">up});</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">setRD</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val;</span>
-      <span style="color: #f8f8f2">down</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">setLU</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val;</span>
-      <span style="color: #f8f8f2">up</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">};</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">largest</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">matrix)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-    <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">dp[m][n];</span>
-    <span style="color: #f8f8f2">memset(dp,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">dp);</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">one</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[i][j];</span>
-        <span style="color: #f8f8f2">dp[i][j].setRD(one);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">one)</span>
-          <span style="color: #f8f8f2">dp[i][j].right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j].right</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">one)</span>
-          <span style="color: #f8f8f2">dp[i][j].down</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i][j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].down</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #75715e">// Note: direction is reversed, or there is no precalculation</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">one</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[i][j];</span>
-        <span style="color: #f8f8f2">dp[i][j].setLU(one);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">one)</span>
-          <span style="color: #f8f8f2">dp[i][j].left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j].left</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">one)</span>
-          <span style="color: #f8f8f2">dp[i][j].up</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i][j</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].up</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  <span style="color: #008000; font-weight: bold">struct</span> Node {
+    <span style="color: #B00040">int</span> left, right, down, up;
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() {
+      <span style="color: #008000; font-weight: bold">return</span> min({left, right, down, up});
+    }
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">setRD</span>(<span style="color: #B00040">int</span> val) {
+      right <span style="color: #666666">=</span> val;
+      down <span style="color: #666666">=</span> val;
+    }
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">setLU</span>(<span style="color: #B00040">int</span> val) {
+      left <span style="color: #666666">=</span> val;
+      up <span style="color: #666666">=</span> val;
+    }
+  };
+  <span style="color: #B00040">int</span> <span style="color: #0000FF">largest</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
+    Node dp[m][n];
+    memset(dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
+    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+        <span style="color: #B00040">int</span> one <span style="color: #666666">=</span> matrix[i][j];
+        dp[i][j].setRD(one);
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> one)
+          dp[i][j].right <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j].right <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (j <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> one)
+          dp[i][j].down <span style="color: #666666">=</span> dp[i][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>].down <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+      }
+    }
+    <span style="color: #408080; font-style: italic">// Note: direction is reversed, or there is no precalculation</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>j) {
+        <span style="color: #B00040">int</span> one <span style="color: #666666">=</span> matrix[i][j];
+        dp[i][j].setLU(one);
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> one)
+          dp[i][j].left <span style="color: #666666">=</span> dp[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j].left <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (j <span style="color: #666666">!=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> one)
+          dp[i][j].up <span style="color: #666666">=</span> dp[i][j <span style="color: #666666">+</span> <span style="color: #666666">1</span>].up <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+      }
+    }
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span>
-        <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res,</span> <span style="color: #f8f8f2">dp[i][j].minVal());</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i)
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j)
+        res <span style="color: #666666">=</span> max(res, dp[i][j].minVal());
+    <span style="color: #008000; font-weight: bold">return</span> res;
 
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+  }
+};
 </code></pre></div>
 
 
@@ -3251,57 +3242,57 @@ Examples</p>
 <p>Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span>
 Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">nw,</span> <span style="color: #f8f8f2">ne,</span> <span style="color: #f8f8f2">sw,</span> <span style="color: #f8f8f2">se;</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">setN</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">nw</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">ne</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val;</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  <span style="color: #008000; font-weight: bold">struct</span> Node {
+    <span style="color: #B00040">int</span> nw, ne, sw, se;
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">setN</span>(<span style="color: #B00040">int</span> val) {
+      nw <span style="color: #666666">=</span> ne <span style="color: #666666">=</span> val;
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">setS</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">sw</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">se</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">setS</span>(<span style="color: #B00040">int</span> val) {
+      sw <span style="color: #666666">=</span> se <span style="color: #666666">=</span> val;
+    }
 
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">minVal</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">min({nw,</span> <span style="color: #f8f8f2">ne,</span> <span style="color: #f8f8f2">sw,</span> <span style="color: #f8f8f2">se});</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">};</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">largest</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">matrix)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-    <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">dp[m][n];</span>
-    <span style="color: #f8f8f2">memset(dp,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">dp);</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[i][j];</span>
-        <span style="color: #f8f8f2">dp[i][j].setN(val);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(val</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> 
-          <span style="color: #f8f8f2">dp[i][j].nw</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].nw</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
-          <span style="color: #f8f8f2">dp[i][j].ne</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].ne</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() {
+      <span style="color: #008000; font-weight: bold">return</span> min({nw, ne, sw, se});
+    }
+  };
+  <span style="color: #B00040">int</span> <span style="color: #0000FF">largest</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
+    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
+    Node dp[m][n];
+    memset(dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+        <span style="color: #B00040">int</span> val <span style="color: #666666">=</span> matrix[i][j];
+        dp[i][j].setN(val);
+        <span style="color: #008000; font-weight: bold">if</span> (val <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">continue</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) 
+          dp[i][j].nw <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>].nw <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">!=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+          dp[i][j].ne <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j <span style="color: #666666">+</span> <span style="color: #666666">1</span>].ne <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
 
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+      }
+    }
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[i][j];</span>
-        <span style="color: #f8f8f2">dp[i][j].setS(val);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(val</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> 
-          <span style="color: #f8f8f2">dp[i][j].sw</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].sw</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
-          <span style="color: #f8f8f2">dp[i][j].se</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].se</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>j) {
+        <span style="color: #B00040">int</span> val <span style="color: #666666">=</span> matrix[i][j];
+        dp[i][j].setS(val);
+        <span style="color: #008000; font-weight: bold">if</span> (val <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">continue</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) 
+          dp[i][j].sw <span style="color: #666666">=</span> dp[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>].sw <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">!=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+          dp[i][j].se <span style="color: #666666">=</span> dp[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j <span style="color: #666666">+</span> <span style="color: #666666">1</span>].se <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+      }
+    }
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span>
-        <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res,</span> <span style="color: #f8f8f2">dp[i][j].minVal());</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i)
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j)
+        res <span style="color: #666666">=</span> max(res, dp[i][j].minVal());
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
+};
 </code></pre></div>
 
 
@@ -3327,49 +3318,49 @@ Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math
 <p>Time: <span><span class="MathJax_Preview">O(m \times n \times max(m, n))</span><script type="math/tex">O(m \times n \times max(m, n))</script></span>
 Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">hor,</span> <span style="color: #f8f8f2">ver;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">minVal</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">min(hor,</span> <span style="color: #f8f8f2">ver);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">set</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">hor</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">ver</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">};</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">largestSquareSurroundedByOne</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">matrix)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(matrix.empty()</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">matrix[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].empty())</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-    <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">dp[m][n];</span>
-    <span style="color: #f8f8f2">memset(dp,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">dp);</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[i][j];</span>
-        <span style="color: #f8f8f2">dp[i][j].set(val);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(val</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-            <span style="color: #f8f8f2">dp[i][j].ver</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j].ver</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-          <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-            <span style="color: #f8f8f2">dp[i][j].hor</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i][j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].hor</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  <span style="color: #008000; font-weight: bold">struct</span> Node {
+    <span style="color: #B00040">int</span> hor, ver;
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() {
+      <span style="color: #008000; font-weight: bold">return</span> min(hor, ver);
+    }
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">set</span>(<span style="color: #B00040">int</span> val) {
+      hor <span style="color: #666666">=</span> ver <span style="color: #666666">=</span> val;
+    }
+  };
+  <span style="color: #B00040">int</span> <span style="color: #0000FF">largestSquareSurroundedByOne</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
+    <span style="color: #008000; font-weight: bold">if</span> (matrix.empty() <span style="color: #666666">||</span> matrix[<span style="color: #666666">0</span>].empty()) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
+    Node dp[m][n];
+    memset(dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+        <span style="color: #B00040">int</span> val <span style="color: #666666">=</span> matrix[i][j];
+        dp[i][j].set(val);
+        <span style="color: #008000; font-weight: bold">if</span> (val <span style="color: #666666">==</span> <span style="color: #666666">1</span>) {
+          <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> <span style="color: #666666">0</span>)
+            dp[i][j].ver <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j].ver <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+          <span style="color: #008000; font-weight: bold">if</span> (j <span style="color: #666666">!=</span> <span style="color: #666666">0</span>)
+            dp[i][j].hor <span style="color: #666666">=</span> dp[i][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>].hor <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+        }
+      }
+    }
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">small</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i][j].minVal();</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(small</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #75715e">// horizonal grow requires vertial has the same stretching size, vice versa for vertial grow</span>
-          <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(dp[i][j</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">small</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].ver</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">small</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">small</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j].hor</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">small)</span>
-            <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">small;</span>
-          <span style="color: #f8f8f2">small</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>j) {
+        <span style="color: #B00040">int</span> small <span style="color: #666666">=</span> dp[i][j].minVal();
+        <span style="color: #008000; font-weight: bold">while</span> (small <span style="color: #666666">&gt;</span> res) {
+          <span style="color: #408080; font-style: italic">// horizonal grow requires vertial has the same stretching size, vice versa for vertial grow</span>
+          <span style="color: #008000; font-weight: bold">if</span> (dp[i][j <span style="color: #666666">-</span> small <span style="color: #666666">+</span> <span style="color: #666666">1</span>].ver <span style="color: #666666">&gt;=</span> small <span style="color: #666666">&amp;&amp;</span> dp[i <span style="color: #666666">-</span> small <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j].hor <span style="color: #666666">&gt;=</span> small)
+            res <span style="color: #666666">=</span> small;
+          small<span style="color: #666666">--</span>;
+        }
+      }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
+};
 </code></pre></div>
 
 
@@ -3400,44 +3391,44 @@ Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="mat
 <p>Time: <span><span class="MathJax_Preview">O(m \times n \times max(n, m))</span><script type="math/tex">O(m \times n \times max(n, m))</script></span>
 Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">top;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">minVal</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">min(left,</span> <span style="color: #f8f8f2">top);</span> <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">set</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">top</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">};</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">largestSquareOfMatches</span><span style="color: #f8f8f2">(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">matrix)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-    <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">dp[m][n];</span>
-    <span style="color: #f8f8f2">memset(dp,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">dp);</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[i][j];</span>
-        <span style="color: #f8f8f2">dp[i][j].set(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">((val</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
-          <span style="color: #f8f8f2">dp[i][j].left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i][j</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].left</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">((val</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">val</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
-          <span style="color: #f8f8f2">dp[i][j].top</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j].top</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">small</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i][j].minVal();</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(small</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #75715e">// j + small but not j + small - 1</span>
-          <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(dp[i][j</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">small].top</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">small</span> <span style="color: #f92672">&amp;&amp;</span>
-              <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">small][j].left</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">small)</span>
-            <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">small;</span>
-          <span style="color: #f8f8f2">small</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  <span style="color: #008000; font-weight: bold">struct</span> Node {
+    <span style="color: #B00040">int</span> left, top;
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() { <span style="color: #008000; font-weight: bold">return</span> min(left, top); }
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">set</span>(<span style="color: #B00040">int</span> val) {
+        left <span style="color: #666666">=</span> top <span style="color: #666666">=</span> val;
+    }
+  };
+  <span style="color: #B00040">int</span> <span style="color: #0000FF">largestSquareOfMatches</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
+    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
+    Node dp[m][n];
+    memset(dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>j) {
+        <span style="color: #B00040">int</span> val <span style="color: #666666">=</span> matrix[i][j];
+        dp[i][j].set(<span style="color: #666666">0</span>);
+        <span style="color: #008000; font-weight: bold">if</span> ((val <span style="color: #666666">==</span> <span style="color: #666666">1</span> <span style="color: #666666">||</span> val <span style="color: #666666">==</span> <span style="color: #666666">3</span>) <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">!=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+          dp[i][j].left <span style="color: #666666">=</span> dp[i][j <span style="color: #666666">+</span> <span style="color: #666666">1</span>].left <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">if</span> ((val <span style="color: #666666">==</span> <span style="color: #666666">2</span> <span style="color: #666666">||</span> val <span style="color: #666666">==</span> <span style="color: #666666">3</span>) <span style="color: #666666">&amp;&amp;</span> i <span style="color: #666666">!=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
+          dp[i][j].top <span style="color: #666666">=</span> dp[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j].top <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+      }
+    }
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+        <span style="color: #B00040">int</span> small <span style="color: #666666">=</span> dp[i][j].minVal();
+        <span style="color: #008000; font-weight: bold">while</span> (small <span style="color: #666666">&gt;</span> res) {
+          <span style="color: #408080; font-style: italic">// j + small but not j + small - 1</span>
+          <span style="color: #008000; font-weight: bold">if</span> (dp[i][j <span style="color: #666666">+</span> small].top <span style="color: #666666">&gt;=</span> small <span style="color: #666666">&amp;&amp;</span>
+              dp[i <span style="color: #666666">+</span> small][j].left <span style="color: #666666">&gt;=</span> small)
+            res <span style="color: #666666">=</span> small;
+          small<span style="color: #666666">--</span>;
+        }
+      }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
+};
 </code></pre></div>
 
 
@@ -3464,25 +3455,25 @@ yyyy</p>
 <p>Time: <span><span class="MathJax_Preview">O(n \times n \times m)</span><script type="math/tex">O(n \times n \times m)</script></span> or <span><span class="MathJax_Preview">O(min(m, n)^2 \times max(m, n))</span><script type="math/tex">O(min(m, n)^2 \times max(m, n))</script></span>
 Space: because we just need one 1-d presum array: <span><span class="MathJax_Preview">O(min(m, n))</span><script type="math/tex">O(min(m, n))</script></span></p>
 <h3 id="code_4">Code<a class="headerlink" href="#code_4" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">largest(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">matrix)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">preSum(n);</span> <span style="color: #75715e">// keep adding from i - j rows&#39; sum</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">k)</span>
-          <span style="color: #f8f8f2">preSum[k]</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">matrix[j][k];</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">currMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">preSum[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// find largest subarray</span>
-          <span style="color: #f8f8f2">currMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(currMax</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">preSum[k],</span> <span style="color: #f8f8f2">preSum[k]);</span>
-          <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res,</span> <span style="color: #f8f8f2">currMax);</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  <span style="color: #B00040">int</span> largest(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
+    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>][<span style="color: #666666">0</span>], m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+      vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> preSum(n); <span style="color: #408080; font-style: italic">// keep adding from i - j rows&#39; sum</span>
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> i; j <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>j) {
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">0</span>; k <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>k)
+          preSum[k] <span style="color: #666666">+=</span> matrix[j][k];
+        <span style="color: #B00040">int</span> currMax <span style="color: #666666">=</span> preSum[<span style="color: #666666">0</span>];
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">1</span>; k <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>k) { <span style="color: #408080; font-style: italic">// find largest subarray</span>
+          currMax <span style="color: #666666">=</span> max(currMax <span style="color: #666666">+</span> preSum[k], preSum[k]);
+          res <span style="color: #666666">=</span> max(res, currMax);
+        }
+      }
+    }
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
+};
 </code></pre></div>
                 
               

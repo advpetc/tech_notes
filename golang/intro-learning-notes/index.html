@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2985,120 +2976,120 @@
                 <h1 id="learning-notes-from-geektutu">Learning notes from <a href="https://geektutu.com/post/quick-golang.html">geektutu</a><a class="headerlink" href="#learning-notes-from-geektutu" title="Permanent link">&para;</a></h1>
 <h2 id="array-and-slice">Array and Slice<a class="headerlink" href="#array-and-slice" title="Permanent link">&para;</a></h2>
 <p>Array:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">var</span> <span style="color: #a6e22e">arr</span> <span style="color: #f8f8f2">[</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">]</span><span style="color: #66d9ef">int</span> <span style="color: #75715e">// declare 1-d array</span>
-<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">arr</span> <span style="color: #f8f8f2">[</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">]</span><span style="color: #66d9ef">int</span> <span style="color: #75715e">// declare 2-d array</span>
-<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">arr</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">[</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">]</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">arr</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">[</span><span style="color: #f92672">...</span><span style="color: #f8f8f2">]</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">}</span> <span style="color: #75715e">// compiler will count the array elements for you</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">var</span> arr [<span style="color: #666666">5</span>]<span style="color: #B00040">int</span> <span style="color: #408080; font-style: italic">// declare 1-d array</span>
+<span style="color: #008000; font-weight: bold">var</span> arr [<span style="color: #666666">5</span>][<span style="color: #666666">5</span>]<span style="color: #B00040">int</span> <span style="color: #408080; font-style: italic">// declare 2-d array</span>
+<span style="color: #008000; font-weight: bold">var</span> arr = [<span style="color: #666666">5</span>]<span style="color: #B00040">int</span>{<span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>}
+<span style="color: #008000; font-weight: bold">var</span> arr = [<span style="color: #666666">...</span>]<span style="color: #B00040">int</span>{<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>} <span style="color: #408080; font-style: italic">// compiler will count the array elements for you</span>
 </code></pre></div>
 
 
 <p>Slice:</p>
 <p>Slice is just a pointer that is pointing to the underlying array</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">var</span> <span style="color: #a6e22e">slice</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">[]</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">}</span> <span style="color: #75715e">// note that there is nothing inside the []</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">var</span> slice = []<span style="color: #B00040">int</span>{<span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>} <span style="color: #408080; font-style: italic">// note that there is nothing inside the []</span>
 </code></pre></div>
 
 
 <p>Can also use <code>make</code> to declare a slice:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #a6e22e">slice</span> <span style="color: #f92672">:=</span> <span style="color: #f8f8f2">make([]</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">)</span> <span style="color: #75715e">// with size of 4 and capacity of 5</span>
-<span style="color: #a6e22e">slice</span> <span style="color: #f92672">:=</span> <span style="color: #f8f8f2">make([]</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">)</span> <span style="color: #75715e">// with size of 4 and capacity equals to size (4)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>slice <span style="color: #666666">:=</span> <span style="color: #008000">make</span>([]<span style="color: #B00040">int</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>) <span style="color: #408080; font-style: italic">// with size of 4 and capacity of 5</span>
+slice <span style="color: #666666">:=</span> <span style="color: #008000">make</span>([]<span style="color: #B00040">int</span>, <span style="color: #666666">4</span>) <span style="color: #408080; font-style: italic">// with size of 4 and capacity equals to size (4)</span>
 </code></pre></div>
 
 
 <p>Appending two slices:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">append([]</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">[]</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">}</span><span style="color: #f92672">...</span><span style="color: #f8f8f2">)</span> <span style="color: #75715e">// don&#39;t forget the ... at the end</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000">append</span>([]<span style="color: #B00040">int</span>{<span style="color: #666666">1</span>,<span style="color: #666666">2</span>}, []<span style="color: #B00040">int</span>{<span style="color: #666666">3</span>,<span style="color: #666666">4</span>}<span style="color: #666666">...</span>) <span style="color: #408080; font-style: italic">// don&#39;t forget the ... at the end</span>
 </code></pre></div>
 
 
 <h2 id="map">Map<a class="headerlink" href="#map" title="Permanent link">&para;</a></h2>
 <p>Declare a map:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #a6e22e">m1</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">make(</span><span style="color: #66d9ef">map</span><span style="color: #f8f8f2">[</span><span style="color: #66d9ef">string</span><span style="color: #f8f8f2">]</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>m1 = <span style="color: #008000">make</span>(<span style="color: #008000; font-weight: bold">map</span>[<span style="color: #B00040">string</span>]<span style="color: #B00040">int</span>)
 </code></pre></div>
 
 
 <h2 id="enum">Enum<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h2>
 <p>There is no <code>enum</code> in Go, but it uses <code>const</code> to represent:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">type</span> <span style="color: #a6e22e">Gender</span> <span style="color: #66d9ef">int8</span>
-<span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">(</span>
-    <span style="color: #a6e22e">MALE</span>   <span style="color: #a6e22e">Gender</span> <span style="color: #f8f8f2">=</span> <span style="color: #ae81ff">1</span> <span style="color: #75715e">// variable name, type, assigned value</span>
-    <span style="color: #a6e22e">FEMALE</span> <span style="color: #a6e22e">Gender</span> <span style="color: #f8f8f2">=</span> <span style="color: #ae81ff">2</span>
-<span style="color: #f8f8f2">)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">type</span> Gender <span style="color: #B00040">int8</span>
+<span style="color: #008000; font-weight: bold">const</span> (
+    MALE   Gender = <span style="color: #666666">1</span> <span style="color: #408080; font-style: italic">// variable name, type, assigned value</span>
+    FEMALE Gender = <span style="color: #666666">2</span>
+)
 
-<span style="color: #a6e22e">gender</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">MALE</span>
+gender <span style="color: #666666">:=</span> MALE
 
-<span style="color: #66d9ef">switch</span> <span style="color: #a6e22e">gender</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">case</span> <span style="color: #a6e22e">FEMALE</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;female&quot;</span><span style="color: #f8f8f2">)</span>
-<span style="color: #66d9ef">case</span> <span style="color: #a6e22e">MALE</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;male&quot;</span><span style="color: #f8f8f2">)</span>
-<span style="color: #66d9ef">default</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;unknown&quot;</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #75715e">// male</span>
+<span style="color: #008000; font-weight: bold">switch</span> gender {
+<span style="color: #008000; font-weight: bold">case</span> FEMALE:
+    fmt.Println(<span style="color: #BA2121">&quot;female&quot;</span>)
+<span style="color: #008000; font-weight: bold">case</span> MALE:
+    fmt.Println(<span style="color: #BA2121">&quot;male&quot;</span>)
+<span style="color: #008000; font-weight: bold">default</span>:
+    fmt.Println(<span style="color: #BA2121">&quot;unknown&quot;</span>)
+}
+<span style="color: #408080; font-style: italic">// male</span>
 </code></pre></div>
 
 
 <h2 id="defer-and-recover">Defer and recover<a class="headerlink" href="#defer-and-recover" title="Permanent link">&para;</a></h2>
 <p>Use <code>defer</code> and <code>recover</code> when as <code>try</code> and <code>catch</code>:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">func</span> <span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">index</span> <span style="color: #66d9ef">int</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">ret</span> <span style="color: #66d9ef">int</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">defer</span> <span style="color: #66d9ef">func</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #a6e22e">r</span> <span style="color: #f92672">:=</span> <span style="color: #f8f8f2">recover();</span> <span style="color: #a6e22e">r</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// it will be called after the panic occurs</span>
-            <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Some error happened!&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">r</span><span style="color: #f8f8f2">)</span>
-            <span style="color: #a6e22e">ret</span> <span style="color: #f8f8f2">=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}()</span>
-    <span style="color: #a6e22e">arr</span> <span style="color: #f92672">:=</span> <span style="color: #f8f8f2">[</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">]</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">arr</span><span style="color: #f8f8f2">[</span><span style="color: #a6e22e">index</span><span style="color: #f8f8f2">]</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> get(index <span style="color: #B00040">int</span>) (ret <span style="color: #B00040">int</span>) {
+    <span style="color: #008000; font-weight: bold">defer</span> <span style="color: #008000; font-weight: bold">func</span>() {
+        <span style="color: #008000; font-weight: bold">if</span> r <span style="color: #666666">:=</span> <span style="color: #008000">recover</span>(); r <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> { <span style="color: #408080; font-style: italic">// it will be called after the panic occurs</span>
+            fmt.Println(<span style="color: #BA2121">&quot;Some error happened!&quot;</span>, r)
+            ret = <span style="color: #666666">-1</span>
+        }
+    }()
+    arr <span style="color: #666666">:=</span> [<span style="color: #666666">3</span>]<span style="color: #B00040">int</span>{<span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>}
+    <span style="color: #008000; font-weight: bold">return</span> arr[index]
+}
 
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">))</span>
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;finished&quot;</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">func</span> main() {
+    fmt.Println(get(<span style="color: #666666">5</span>))
+    fmt.Println(<span style="color: #BA2121">&quot;finished&quot;</span>)
+}
 </code></pre></div>
 
 
 <h2 id="struct">Struct<a class="headerlink" href="#struct" title="Permanent link">&para;</a></h2>
 <p>Use <strong>method</strong> to call struct instance:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">type</span> <span style="color: #a6e22e">Student</span> <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">name</span> <span style="color: #66d9ef">string</span>
-    <span style="color: #a6e22e">age</span>  <span style="color: #66d9ef">int</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">type</span> Student <span style="color: #008000; font-weight: bold">struct</span> {
+    name <span style="color: #B00040">string</span>
+    age  <span style="color: #B00040">int</span>
+}
 
-<span style="color: #66d9ef">func</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">stu</span> <span style="color: #f92672">*</span><span style="color: #a6e22e">Student</span><span style="color: #f8f8f2">)</span> <span style="color: #a6e22e">hello</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">person</span> <span style="color: #66d9ef">string</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">string</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Sprintf</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;hello %s, I am %s&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">person</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">stu</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">func</span> (stu <span style="color: #666666">*</span>Student) hello(person <span style="color: #B00040">string</span>) <span style="color: #B00040">string</span> {
+    <span style="color: #008000; font-weight: bold">return</span> fmt.Sprintf(<span style="color: #BA2121">&quot;hello %s, I am %s&quot;</span>, person, stu.name)
+}
 
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">stu</span> <span style="color: #f92672">:=</span> <span style="color: #f92672">&amp;</span><span style="color: #a6e22e">Student</span><span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;Tom&quot;</span><span style="color: #f8f8f2">,</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// this will also work, now studnet </span>
-  <span style="color: #a6e22e">stu</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">Student</span><span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;Tom&quot;</span><span style="color: #f8f8f2">,</span> 
-  <span style="color: #f8f8f2">}</span>
-    <span style="color: #a6e22e">msg</span> <span style="color: #f92672">:=</span> <span style="color: #a6e22e">stu</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">hello</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Jack&quot;</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">msg</span><span style="color: #f8f8f2">)</span> <span style="color: #75715e">// hello Jack, I am Tom</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">func</span> main() {
+    stu <span style="color: #666666">:=</span> <span style="color: #666666">&amp;</span>Student{
+        name: <span style="color: #BA2121">&quot;Tom&quot;</span>,
+    }
+  <span style="color: #408080; font-style: italic">// this will also work, now studnet </span>
+  stu <span style="color: #666666">:=</span> Student{
+    name: <span style="color: #BA2121">&quot;Tom&quot;</span>, 
+  }
+    msg <span style="color: #666666">:=</span> stu.hello(<span style="color: #BA2121">&quot;Jack&quot;</span>)
+    fmt.Println(msg) <span style="color: #408080; font-style: italic">// hello Jack, I am Tom</span>
+}
 </code></pre></div>
 
 
 <p>In Go, a function can return the reference of a local variable:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">func</span> <span style="color: #a6e22e">myFunction</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">*</span><span style="color: #a6e22e">MyStructType</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">error</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">chunk</span> <span style="color: #f92672">*</span><span style="color: #a6e22e">MyStructType</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">new(</span><span style="color: #a6e22e">HeaderChunk</span><span style="color: #f8f8f2">)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> myFunction() (<span style="color: #666666">*</span>MyStructType, <span style="color: #B00040">error</span>) {
+    <span style="color: #008000; font-weight: bold">var</span> chunk <span style="color: #666666">*</span>MyStructType = <span style="color: #008000">new</span>(HeaderChunk)
 
-    <span style="color: #f92672">...</span>
+    <span style="color: #666666">...</span>
 
-    <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">chunk</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">nil</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">return</span> chunk, <span style="color: #008000; font-weight: bold">nil</span>
+}
 
 
-<span style="color: #66d9ef">func</span> <span style="color: #a6e22e">myFunction</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">*</span><span style="color: #a6e22e">MyStructType</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">error</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">chunk</span> <span style="color: #a6e22e">MyStructType</span>
+<span style="color: #008000; font-weight: bold">func</span> myFunction() (<span style="color: #666666">*</span>MyStructType, <span style="color: #B00040">error</span>) {
+    <span style="color: #008000; font-weight: bold">var</span> chunk MyStructType
 
-    <span style="color: #f92672">...</span>
+    <span style="color: #666666">...</span>
 
-    <span style="color: #66d9ef">return</span> <span style="color: #f92672">&amp;</span><span style="color: #a6e22e">chunk</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">nil</span> <span style="color: #75715e">// this will work</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">&amp;</span>chunk, <span style="color: #008000; font-weight: bold">nil</span> <span style="color: #408080; font-style: italic">// this will work</span>
+}
 </code></pre></div>
 
 
@@ -3111,13 +3102,13 @@
 <p>If function/interface/type/method/statement is capitalized, then these will be accessible from other files in the other package(s). If not capitalized, then it will not be accessible.</p>
 <h2 id="trick">Trick<a class="headerlink" href="#trick" title="Permanent link">&para;</a></h2>
 <p>Use empty interface to represent any type:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">func</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">m</span> <span style="color: #f92672">:=</span> <span style="color: #f8f8f2">make(</span><span style="color: #66d9ef">map</span><span style="color: #f8f8f2">[</span><span style="color: #66d9ef">string</span><span style="color: #f8f8f2">]</span><span style="color: #66d9ef">interface</span><span style="color: #f8f8f2">{})</span>
-    <span style="color: #a6e22e">m</span><span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;name&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f8f8f2">=</span> <span style="color: #e6db74">&quot;Tom&quot;</span>
-    <span style="color: #a6e22e">m</span><span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;age&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f8f8f2">=</span> <span style="color: #ae81ff">18</span>
-    <span style="color: #a6e22e">m</span><span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;scores&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f8f8f2">=</span> <span style="color: #f8f8f2">[</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">]</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">{</span><span style="color: #ae81ff">98</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">99</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">85</span><span style="color: #f8f8f2">}</span>
-    <span style="color: #a6e22e">fmt</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Println</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">m</span><span style="color: #f8f8f2">)</span> <span style="color: #75715e">// map[age:18 name:Tom scores:[98 99 85]]</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> main() {
+    m <span style="color: #666666">:=</span> <span style="color: #008000">make</span>(<span style="color: #008000; font-weight: bold">map</span>[<span style="color: #B00040">string</span>]<span style="color: #008000; font-weight: bold">interface</span>{})
+    m[<span style="color: #BA2121">&quot;name&quot;</span>] = <span style="color: #BA2121">&quot;Tom&quot;</span>
+    m[<span style="color: #BA2121">&quot;age&quot;</span>] = <span style="color: #666666">18</span>
+    m[<span style="color: #BA2121">&quot;scores&quot;</span>] = [<span style="color: #666666">3</span>]<span style="color: #B00040">int</span>{<span style="color: #666666">98</span>, <span style="color: #666666">99</span>, <span style="color: #666666">85</span>}
+    fmt.Println(m) <span style="color: #408080; font-style: italic">// map[age:18 name:Tom scores:[98 99 85]]</span>
+}
 </code></pre></div>
                 
               

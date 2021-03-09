@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2958,31 +2949,31 @@
 <li>return global length</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s;</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k;</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">k;</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">s;</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+  string s;
+  <span style="color: #B00040">int</span> k;
+  cin <span style="color: #666666">&gt;&gt;</span> k;
+  cin <span style="color: #666666">&gt;&gt;</span> s;
 
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt[</span><span style="color: #ae81ff">26</span><span style="color: #f8f8f2">];</span>
-  <span style="color: #f8f8f2">memset(cnt,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">cnt);</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.size();</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// j is left, i is right</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt[s[i]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">++</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">curr</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// keep track of the distinct element in [j:i]</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">cnt[s[j]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">curr</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f92672">++</span><span style="color: #f8f8f2">j;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+  <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, curr <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #B00040">int</span> cnt[<span style="color: #666666">26</span>];
+  memset(cnt, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> cnt);
+  <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> s.size();
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) { <span style="color: #408080; font-style: italic">// j is left, i is right</span>
+    <span style="color: #008000; font-weight: bold">if</span> (cnt[s[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>]<span style="color: #666666">++</span> <span style="color: #666666">==</span> <span style="color: #666666">0</span>) curr<span style="color: #666666">++</span>; <span style="color: #408080; font-style: italic">// keep track of the distinct element in [j:i]</span>
+    <span style="color: #008000; font-weight: bold">while</span> (curr <span style="color: #666666">&gt;</span> k) {
+      <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">--</span>cnt[s[j] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #666666">==</span> <span style="color: #666666">0</span>) curr<span style="color: #666666">--</span>;
+      <span style="color: #666666">++</span>j;
+    }
+    res <span style="color: #666666">=</span> max(res, i <span style="color: #666666">-</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
+  }
+  cout <span style="color: #666666">&lt;&lt;</span> res;
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 

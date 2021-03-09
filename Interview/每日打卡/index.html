@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2968,32 +2959,32 @@ input = "aabcccc", k = 2, output = "bcccc".</p>
 dabaaebac: l = 0, r = 0, cnt = 0, len = 9
 l = 0, r = 7: dabaaeba</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">longest(string</span> <span style="color: #f8f8f2">input,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">input.size();</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">len</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">v[</span><span style="color: #ae81ff">26</span><span style="color: #f8f8f2">];</span>
-    <span style="color: #f8f8f2">memset(v,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">v);</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(cnt</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(v[input[r]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">++</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">r</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">len</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// cnt is valid</span>
-        <span style="color: #f8f8f2">len</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l;</span>
-        <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">input.substr(l,</span> <span style="color: #f8f8f2">len);</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(len</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// cnt is invalid</span>
-        <span style="color: #f8f8f2">len</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">input.substr(l,</span> <span style="color: #f8f8f2">len);</span>
-      <span style="color: #f8f8f2">}</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">v[input[l]</span> <span style="color: #f92672">-</span> <span style="color: #e6db74">&#39;a&#39;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">l</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  string longest(string input, <span style="color: #B00040">int</span> k) {
+    <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> input.size();
+    <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> <span style="color: #666666">0</span>, cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>, len <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    string res <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>;
+    <span style="color: #B00040">int</span> v[<span style="color: #666666">26</span>];
+    memset(v, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> v);
+    <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>) {
+      <span style="color: #008000; font-weight: bold">while</span> (cnt <span style="color: #666666">&lt;=</span> k <span style="color: #666666">&amp;&amp;</span> r <span style="color: #666666">&lt;</span> n) {
+        <span style="color: #008000; font-weight: bold">if</span> (v[input[r] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>]<span style="color: #666666">++</span> <span style="color: #666666">==</span> <span style="color: #666666">0</span>) cnt<span style="color: #666666">++</span>;
+        r<span style="color: #666666">++</span>;
+      }
+      <span style="color: #008000; font-weight: bold">if</span> (cnt <span style="color: #666666">&lt;=</span> k <span style="color: #666666">&amp;&amp;</span> len <span style="color: #666666">&lt;</span> r <span style="color: #666666">-</span> l) { <span style="color: #408080; font-style: italic">// cnt is valid</span>
+        len <span style="color: #666666">=</span> r <span style="color: #666666">-</span> l;
+        res <span style="color: #666666">=</span> input.substr(l, len);
+      } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (len <span style="color: #666666">&lt;</span> r <span style="color: #666666">-</span> l <span style="color: #666666">-</span> <span style="color: #666666">1</span>) { <span style="color: #408080; font-style: italic">// cnt is invalid</span>
+        len <span style="color: #666666">=</span> r <span style="color: #666666">-</span> l <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+        res <span style="color: #666666">=</span> input.substr(l, len);
+      }
+      <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">--</span>v[input[l] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #666666">==</span> <span style="color: #666666">0</span>) cnt<span style="color: #666666">--</span>;
+      l<span style="color: #666666">++</span>;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
+};
 </code></pre></div>
                 
               

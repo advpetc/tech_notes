@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2940,7 +2931,7 @@
 <p>The given root is not null.
 There are no duplicate keys in the binary search tree.
 Examples:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>    5
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    5
 
   /    \
 
@@ -2959,7 +2950,7 @@ Examples:</p>
 <p>We use the level order traversal sequence with a special symbol "#" denoting the null node.</p>
 <p>For Example:</p>
 <p>The sequence [1, 2, 3, #, #, 4] represents the following binary tree:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>    1
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    1
 
   /   \
 
@@ -2974,47 +2965,47 @@ Examples:</p>
 <h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
 <p>Because it is a binary search tree, if we do in order traversal, then we can get the sequence in ascending order. Imagine we have a sliding window (implemented as a queue), and we keep pushing in the element whose absolute value with target is less than current top's absolute value. </p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * public class TreeNode {</span>
-<span style="color: #75715e"> *   public int key;</span>
-<span style="color: #75715e"> *   public TreeNode left;</span>
-<span style="color: #75715e"> *   public TreeNode right;</span>
-<span style="color: #75715e"> *   public TreeNode(int key) {</span>
-<span style="color: #75715e"> *     this.key = key;</span>
-<span style="color: #75715e"> *   }</span>
-<span style="color: #75715e"> * }</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">helper</span><span style="color: #f8f8f2">(TreeNode</span> <span style="color: #f8f8f2">node,</span> <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">target,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k,</span> <span style="color: #f8f8f2">Queue</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">queue)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(node</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">)</span>
-      <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * public class TreeNode {</span>
+<span style="color: #408080; font-style: italic"> *   public int key;</span>
+<span style="color: #408080; font-style: italic"> *   public TreeNode left;</span>
+<span style="color: #408080; font-style: italic"> *   public TreeNode right;</span>
+<span style="color: #408080; font-style: italic"> *   public TreeNode(int key) {</span>
+<span style="color: #408080; font-style: italic"> *     this.key = key;</span>
+<span style="color: #408080; font-style: italic"> *   }</span>
+<span style="color: #408080; font-style: italic"> * }</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">helper</span>(TreeNode node, <span style="color: #B00040">double</span> target, <span style="color: #B00040">int</span> k, Queue<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> queue) {
+    <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>)
+      <span style="color: #008000; font-weight: bold">return</span>;
 
-    <span style="color: #f8f8f2">helper(node.</span><span style="color: #a6e22e">left</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">target,</span> <span style="color: #f8f8f2">k,</span> <span style="color: #f8f8f2">queue);</span> <span style="color: #75715e">// in order traverse the left</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(queue.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">k)</span> <span style="color: #75715e">// window isn&#39;t full yet</span>
-      <span style="color: #f8f8f2">queue.</span><span style="color: #a6e22e">offer</span><span style="color: #f8f8f2">(node.</span><span style="color: #a6e22e">key</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #75715e">// use current node as the right end of the sliding window</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(Math.</span><span style="color: #a6e22e">abs</span><span style="color: #f8f8f2">(target</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">node.</span><span style="color: #a6e22e">key</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">Math.</span><span style="color: #a6e22e">abs</span><span style="color: #f8f8f2">(target</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">queue.</span><span style="color: #a6e22e">peek</span><span style="color: #f8f8f2">()))</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">queue.</span><span style="color: #a6e22e">poll</span><span style="color: #f8f8f2">();</span>
-        <span style="color: #f8f8f2">queue.</span><span style="color: #a6e22e">offer</span><span style="color: #f8f8f2">(node.</span><span style="color: #a6e22e">key</span><span style="color: #f8f8f2">)</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #75715e">// not use current node</span>
-        <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">helper(node.</span><span style="color: #a6e22e">right</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">target,</span> <span style="color: #f8f8f2">k,</span> <span style="color: #f8f8f2">queue);</span> <span style="color: #75715e">// in order traverse the right</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">[]</span> <span style="color: #a6e22e">closestKValues</span><span style="color: #f8f8f2">(TreeNode</span> <span style="color: #f8f8f2">root,</span> <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">target,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(k</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">new</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">[</span><span style="color: #ae81ff">0</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
+    helper(node.<span style="color: #7D9029">left</span>, target, k, queue); <span style="color: #408080; font-style: italic">// in order traverse the left</span>
+    <span style="color: #008000; font-weight: bold">if</span> (queue.<span style="color: #7D9029">size</span>() <span style="color: #666666">&lt;</span> k) <span style="color: #408080; font-style: italic">// window isn&#39;t full yet</span>
+      queue.<span style="color: #7D9029">offer</span>(node.<span style="color: #7D9029">key</span>);
+    <span style="color: #008000; font-weight: bold">else</span> {
+      <span style="color: #408080; font-style: italic">// use current node as the right end of the sliding window</span>
+      <span style="color: #008000; font-weight: bold">if</span> (Math.<span style="color: #7D9029">abs</span>(target <span style="color: #666666">-</span> node.<span style="color: #7D9029">key</span>) <span style="color: #666666">&lt;</span> Math.<span style="color: #7D9029">abs</span>(target <span style="color: #666666">-</span> queue.<span style="color: #7D9029">peek</span>())) {
+        queue.<span style="color: #7D9029">poll</span>();
+        queue.<span style="color: #7D9029">offer</span>(node.<span style="color: #7D9029">key</span>)
+      } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #408080; font-style: italic">// not use current node</span>
+        <span style="color: #008000; font-weight: bold">return</span>;
+    }
+    helper(node.<span style="color: #7D9029">right</span>, target, k, queue); <span style="color: #408080; font-style: italic">// in order traverse the right</span>
+  }
+  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span> <span style="color: #0000FF">closestKValues</span>(TreeNode root, <span style="color: #B00040">double</span> target, <span style="color: #B00040">int</span> k) {
+    <span style="color: #008000; font-weight: bold">if</span> (k <span style="color: #666666">&lt;=</span> <span style="color: #666666">0</span>)
+      <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[0]</span>;
 
-    <span style="color: #f8f8f2">Queue</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">queue</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">ArrayDeque</span><span style="color: #f92672">&lt;&gt;</span><span style="color: #f8f8f2">(k);</span> <span style="color: #75715e">// sliding window</span>
-    <span style="color: #f8f8f2">helper(root,</span> <span style="color: #f8f8f2">target,</span> <span style="color: #f8f8f2">k,</span> <span style="color: #f8f8f2">queue);</span>
-    <span style="color: #66d9ef">int</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">result</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">queue.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">()</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">result.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
-      <span style="color: #f8f8f2">result</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">queue.</span><span style="color: #a6e22e">poll</span><span style="color: #f8f8f2">();</span>
+    Queue<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> queue <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayDeque<span style="color: #666666">&lt;&gt;</span>(k); <span style="color: #408080; font-style: italic">// sliding window</span>
+    helper(root, target, k, queue);
+    <span style="color: #B00040">int</span><span style="color: #666666">[]</span> result <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[</span>queue.<span style="color: #7D9029">size</span>()<span style="color: #666666">]</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> result.<span style="color: #7D9029">length</span>; i<span style="color: #666666">++</span>)
+      result<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> queue.<span style="color: #7D9029">poll</span>();
 
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">result;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">return</span> result;
+  }
+}
 </code></pre></div>
                 
               

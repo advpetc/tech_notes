@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2963,7 +2954,7 @@
 <p><strong>Follow up:</strong>
 Could you do <code>get</code> and <code>put</code> in <code>O(1)</code> time complexity?</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input
 [&quot;LRUCache&quot;, &quot;put&quot;, &quot;put&quot;, &quot;get&quot;, &quot;put&quot;, &quot;get&quot;, &quot;put&quot;, &quot;get&quot;, &quot;get&quot;, &quot;get&quot;]
 [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
 Output
@@ -2991,126 +2982,126 @@ lRUCache.get(4);    // return 4
 <li>At most <code>3 * 104</code> calls will be made to <code>get</code> and <code>put</code>.</li>
 </ul>
 <h2 id="double-linked-list-with-map-java">double linked list with map (java)<a class="headerlink" href="#double-linked-list-with-map-java" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f92672">import</span> <span style="color: #f8f8f2">java.util.Hashtable;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.Hashtable</span>;
 
 
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">LRUCache</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">LRUCache</span> {
 
-<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">DLinkedNode</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">key;</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">value;</span>
-  <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">pre;</span>
-  <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">post;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">DLinkedNode</span> {
+  <span style="color: #B00040">int</span> key;
+  <span style="color: #B00040">int</span> value;
+  DLinkedNode pre;
+  DLinkedNode post;
+}
 
-<span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Always add the new node right after head;</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #75715e">/* before:</span>
-<span style="color: #75715e">    node.pre - node - node.post</span>
-<span style="color: #75715e">    head - head.post (tail)</span>
-<span style="color: #75715e">   after:</span>
-<span style="color: #75715e">    head - node - head.post (tail)</span>
-<span style="color: #75715e">*/</span> 
-<span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">addNode</span><span style="color: #f8f8f2">(DLinkedNode</span> <span style="color: #f8f8f2">node)</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Always add the new node right after head;</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #408080; font-style: italic">/* before:</span>
+<span style="color: #408080; font-style: italic">    node.pre - node - node.post</span>
+<span style="color: #408080; font-style: italic">    head - head.post (tail)</span>
+<span style="color: #408080; font-style: italic">   after:</span>
+<span style="color: #408080; font-style: italic">    head - node - head.post (tail)</span>
+<span style="color: #408080; font-style: italic">*/</span> 
+<span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">addNode</span>(DLinkedNode node) {
 
-  <span style="color: #f8f8f2">node.</span><span style="color: #a6e22e">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
-  <span style="color: #f8f8f2">node.</span><span style="color: #a6e22e">post</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head.</span><span style="color: #a6e22e">post</span><span style="color: #f8f8f2">;</span>
+  node.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> head;
+  node.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> head.<span style="color: #7D9029">post</span>;
 
-  <span style="color: #f8f8f2">head.</span><span style="color: #a6e22e">post</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node;</span>
-  <span style="color: #f8f8f2">head.</span><span style="color: #a6e22e">post</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node;</span>
-<span style="color: #f8f8f2">}</span>
+  head.<span style="color: #7D9029">post</span>.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> node;
+  head.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> node;
+}
 
-<span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Remove an existing node from the linked list.</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #75715e">// pre - node - post -&gt; pre - post</span>
-<span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">removeNode</span><span style="color: #f8f8f2">(DLinkedNode</span> <span style="color: #f8f8f2">node){</span>
-  <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node.</span><span style="color: #a6e22e">pre</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">post</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node.</span><span style="color: #a6e22e">post</span><span style="color: #f8f8f2">;</span>
+<span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Remove an existing node from the linked list.</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #408080; font-style: italic">// pre - node - post -&gt; pre - post</span>
+<span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">removeNode</span>(DLinkedNode node){
+  DLinkedNode pre <span style="color: #666666">=</span> node.<span style="color: #7D9029">pre</span>;
+  DLinkedNode post <span style="color: #666666">=</span> node.<span style="color: #7D9029">post</span>;
 
-  <span style="color: #f8f8f2">pre.</span><span style="color: #a6e22e">post</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">post;</span> 
-  <span style="color: #f8f8f2">post.</span><span style="color: #a6e22e">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pre;</span>
-<span style="color: #f8f8f2">}</span>
+  pre.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> post; 
+  post.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> pre;
+}
 
-<span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Move certain node in between to the head.</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">moveToHead</span><span style="color: #f8f8f2">(DLinkedNode</span> <span style="color: #f8f8f2">node){</span>
-  <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">removeNode</span><span style="color: #f8f8f2">(node);</span>
-  <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">addNode</span><span style="color: #f8f8f2">(node);</span> <span style="color: #75715e">// head-&gt;post now point to node</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Move certain node in between to the head.</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">moveToHead</span>(DLinkedNode node){
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">removeNode</span>(node);
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">addNode</span>(node); <span style="color: #408080; font-style: italic">// head-&gt;post now point to node</span>
+}
 
-<span style="color: #75715e">// pop the current tail. </span>
-<span style="color: #66d9ef">private</span> <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #a6e22e">popTail</span><span style="color: #f8f8f2">(){</span>
-  <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tail.</span><span style="color: #a6e22e">pre</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">removeNode</span><span style="color: #f8f8f2">(res);</span> <span style="color: #75715e">// </span>
-  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #408080; font-style: italic">// pop the current tail. </span>
+<span style="color: #008000; font-weight: bold">private</span> DLinkedNode <span style="color: #0000FF">popTail</span>(){
+  DLinkedNode res <span style="color: #666666">=</span> tail.<span style="color: #7D9029">pre</span>;
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">removeNode</span>(res); <span style="color: #408080; font-style: italic">// </span>
+  <span style="color: #008000; font-weight: bold">return</span> res;
+}
 
-<span style="color: #66d9ef">private</span> <span style="color: #f8f8f2">Hashtable</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer,</span> <span style="color: #f8f8f2">DLinkedNode</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">cache</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Hashtable</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer,</span> <span style="color: #f8f8f2">DLinkedNode</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">();</span>
-<span style="color: #66d9ef">private</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">count;</span>
-<span style="color: #66d9ef">private</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">capacity;</span>
-<span style="color: #66d9ef">private</span> <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">head,</span> <span style="color: #f8f8f2">tail;</span>
-<span style="color: #75715e">// head.pre (null) - head - head.post (tail)</span>
-<span style="color: #75715e">// tail.pre (head) - tail - tail.post (null)</span>
+<span style="color: #008000; font-weight: bold">private</span> Hashtable<span style="color: #666666">&lt;</span>Integer, DLinkedNode<span style="color: #666666">&gt;</span> cache <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Hashtable<span style="color: #666666">&lt;</span>Integer, DLinkedNode<span style="color: #666666">&gt;</span>();
+<span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">int</span> count;
+<span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">int</span> capacity;
+<span style="color: #008000; font-weight: bold">private</span> DLinkedNode head, tail;
+<span style="color: #408080; font-style: italic">// head.pre (null) - head - head.post (tail)</span>
+<span style="color: #408080; font-style: italic">// tail.pre (head) - tail - tail.post (null)</span>
 
-<span style="color: #75715e">// -&gt; head.pre (null) - head - tail - tail.post (null)</span>
-<span style="color: #66d9ef">public</span> <span style="color: #a6e22e">LRUCache</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">capacity)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">count</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">capacity</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">capacity;</span>
+<span style="color: #408080; font-style: italic">// -&gt; head.pre (null) - head - tail - tail.post (null)</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">LRUCache</span>(<span style="color: #B00040">int</span> capacity) {
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">count</span> <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">capacity</span> <span style="color: #666666">=</span> capacity;
 
-  <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">DLinkedNode();</span>
-  <span style="color: #f8f8f2">head.</span><span style="color: #a6e22e">pre</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
+  head <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> DLinkedNode();
+  head.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
 
-  <span style="color: #f8f8f2">tail</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">DLinkedNode();</span>
-  <span style="color: #f8f8f2">tail.</span><span style="color: #a6e22e">post</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
+  tail <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> DLinkedNode();
+  tail.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
 
-  <span style="color: #f8f8f2">head.</span><span style="color: #a6e22e">post</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tail;</span>
-  <span style="color: #f8f8f2">tail.</span><span style="color: #a6e22e">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
-<span style="color: #f8f8f2">}</span>
+  head.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> tail;
+  tail.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> head;
+}
 
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">key)</span> <span style="color: #f8f8f2">{</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">get</span>(<span style="color: #B00040">int</span> key) {
 
-  <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cache.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(key);</span>
-  <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(node</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">){</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// should raise exception here.</span>
-  <span style="color: #f8f8f2">}</span>
+  DLinkedNode node <span style="color: #666666">=</span> cache.<span style="color: #7D9029">get</span>(key);
+  <span style="color: #008000; font-weight: bold">if</span>(node <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>){
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>; <span style="color: #408080; font-style: italic">// should raise exception here.</span>
+  }
 
-  <span style="color: #75715e">// move the accessed node to the head;</span>
-  <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">moveToHead</span><span style="color: #f8f8f2">(node);</span>
+  <span style="color: #408080; font-style: italic">// move the accessed node to the head;</span>
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">moveToHead</span>(node);
 
-  <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">node.</span><span style="color: #a6e22e">value</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+  <span style="color: #008000; font-weight: bold">return</span> node.<span style="color: #7D9029">value</span>;
+}
 
 
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">put</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">key,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">value)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cache.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(key);</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">put</span>(<span style="color: #B00040">int</span> key, <span style="color: #B00040">int</span> value) {
+  DLinkedNode node <span style="color: #666666">=</span> cache.<span style="color: #7D9029">get</span>(key);
 
-  <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(node</span> <span style="color: #f92672">==</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">){</span> <span style="color: #75715e">// need to insert new key-value pair into the list</span>
+  <span style="color: #008000; font-weight: bold">if</span>(node <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>){ <span style="color: #408080; font-style: italic">// need to insert new key-value pair into the list</span>
 
-    <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">newNode</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">DLinkedNode();</span>
-    <span style="color: #f8f8f2">newNode.</span><span style="color: #a6e22e">key</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">key;</span>
-    <span style="color: #f8f8f2">newNode.</span><span style="color: #a6e22e">value</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">value;</span>
+    DLinkedNode newNode <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> DLinkedNode();
+    newNode.<span style="color: #7D9029">key</span> <span style="color: #666666">=</span> key;
+    newNode.<span style="color: #7D9029">value</span> <span style="color: #666666">=</span> value;
 
-    <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">cache</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">put</span><span style="color: #f8f8f2">(key,</span> <span style="color: #f8f8f2">newNode);</span>
-    <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">addNode</span><span style="color: #f8f8f2">(newNode);</span>
+    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">cache</span>.<span style="color: #7D9029">put</span>(key, newNode);
+    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">addNode</span>(newNode);
 
-    <span style="color: #f92672">++</span><span style="color: #f8f8f2">count;</span> <span style="color: #75715e">// same as the size of cache.size()</span>
+    <span style="color: #666666">++</span>count; <span style="color: #408080; font-style: italic">// same as the size of cache.size()</span>
 
-    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(count</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">capacity){</span>
-      <span style="color: #75715e">// pop the tail</span>
-      <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">tail</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">popTail</span><span style="color: #f8f8f2">();</span>
-      <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">cache</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">remove</span><span style="color: #f8f8f2">(tail.</span><span style="color: #a6e22e">key</span><span style="color: #f8f8f2">);</span>
-      <span style="color: #f92672">--</span><span style="color: #f8f8f2">count;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span><span style="color: #66d9ef">else</span><span style="color: #f8f8f2">{</span> <span style="color: #75715e">// just swap to the head and update value</span>
-    <span style="color: #f8f8f2">node.</span><span style="color: #a6e22e">value</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">value;</span>
-    <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">moveToHead</span><span style="color: #f8f8f2">(node);</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">if</span>(count <span style="color: #666666">&gt;</span> capacity){
+      <span style="color: #408080; font-style: italic">// pop the tail</span>
+      DLinkedNode tail <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">popTail</span>();
+      <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">cache</span>.<span style="color: #7D9029">remove</span>(tail.<span style="color: #7D9029">key</span>);
+      <span style="color: #666666">--</span>count;
+    }
+  }<span style="color: #008000; font-weight: bold">else</span>{ <span style="color: #408080; font-style: italic">// just swap to the head and update value</span>
+    node.<span style="color: #7D9029">value</span> <span style="color: #666666">=</span> value;
+    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">moveToHead</span>(node);
+  }
+}
 
-<span style="color: #f8f8f2">}</span>
+}
 </code></pre></div>
 
 
@@ -3121,125 +3112,125 @@ lRUCache.get(4);    // return 4
 <p>People who are wondering why we have double-linked list here instead of single-linked linked list :</p>
 <p>Yes, the purpose can be achieved with a single-linked LL with some hacks but NOT in java. Let's say I've to remove node n and it's previous node is p. If n is the last node in the list, I've to modify the next field of p to point to null. This can't be done if I don't have access to p.next since in java, method parameters are actually references of the objects and they are passed by value. So, let's say right now, n and p.next point to the same object (i.e. n of course). If I do n=null, that doesn't makes the object null. The object is still there and p.next points to that object. The only diff is that now n doesn't point to that object. In fact, it doesn't point to anything.</p>
 <p><strong>n=null doesn't remove n, but just send what it points-to to null</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">public</span> <span style="color: #a6e22e">LRUCache</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">capacity)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">count</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">capacity</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">capacity;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">LRUCache</span>(<span style="color: #B00040">int</span> capacity) {
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">count</span> <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">capacity</span> <span style="color: #666666">=</span> capacity;
 
-  <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">DLinkedNode();</span>
-  <span style="color: #f8f8f2">head.</span><span style="color: #a6e22e">pre</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
+  head <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> DLinkedNode();
+  head.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
 
-  <span style="color: #f8f8f2">tail</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">DLinkedNode();</span>
-  <span style="color: #f8f8f2">tail.</span><span style="color: #a6e22e">post</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
+  tail <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> DLinkedNode();
+  tail.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
 
-  <span style="color: #f8f8f2">head.</span><span style="color: #a6e22e">post</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tail;</span>
-  <span style="color: #f8f8f2">tail.</span><span style="color: #a6e22e">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
-<span style="color: #f8f8f2">}</span>
+  head.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> tail;
+  tail.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> head;
+}
 </code></pre></div>
 
 
 <p>if tail.pre is always pointing to head, and head.post always points to tail</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">removeNode</span><span style="color: #f8f8f2">(DLinkedNode</span> <span style="color: #f8f8f2">node){</span>
-  <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node.</span><span style="color: #a6e22e">pre</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">DLinkedNode</span> <span style="color: #f8f8f2">post</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node.</span><span style="color: #a6e22e">post</span><span style="color: #f8f8f2">;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">removeNode</span>(DLinkedNode node){
+  DLinkedNode pre <span style="color: #666666">=</span> node.<span style="color: #7D9029">pre</span>;
+  DLinkedNode post <span style="color: #666666">=</span> node.<span style="color: #7D9029">post</span>;
 
-  <span style="color: #f8f8f2">pre.</span><span style="color: #a6e22e">post</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">post;</span>
-  <span style="color: #f8f8f2">post.</span><span style="color: #a6e22e">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pre;</span>
-<span style="color: #f8f8f2">}</span>
+  pre.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> post;
+  post.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> pre;
+}
 </code></pre></div>
 
 
 <h2 id="cpp">cpp<a class="headerlink" href="#cpp" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">LRUCache</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">Node</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">key,</span> <span style="color: #f8f8f2">val;</span>
-        <span style="color: #f8f8f2">Node</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">next,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">pre;</span>
-        <span style="color: #f8f8f2">Node(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">key,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val)</span>
-            <span style="color: #f92672">:</span> <span style="color: #f8f8f2">key(key)</span>
-            <span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">val(val)</span>
-        <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">LRUCache</span> {
+    <span style="color: #008000; font-weight: bold">struct</span> Node {
+        <span style="color: #B00040">int</span> key, val;
+        Node <span style="color: #666666">*</span>next, <span style="color: #666666">*</span>pre;
+        Node(<span style="color: #B00040">int</span> key, <span style="color: #B00040">int</span> val)
+            <span style="color: #666666">:</span> key(key)
+            , val(val)
+        {
+        }
+    };
 
-<span style="color: #66d9ef">private</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">map;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cap;</span>
-    <span style="color: #f8f8f2">Node</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">head,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">tail;</span>
+<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span>
+    unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, Node<span style="color: #666666">*&gt;</span> map;
+    <span style="color: #B00040">int</span> cap;
+    Node <span style="color: #666666">*</span>head, <span style="color: #666666">*</span>tail;
 
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">LRUCache(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">capacity)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">cap</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">capacity;</span>
-        <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL,</span> <span style="color: #f8f8f2">tail</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL;</span>
-    <span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    LRUCache(<span style="color: #B00040">int</span> capacity)
+    {
+        cap <span style="color: #666666">=</span> capacity;
+        head <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>, tail <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
+    }
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">get(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">key)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">map.count(key))</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">map[key];</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(node</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">tail)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(node</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">head)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span> <span style="color: #75715e">// leave space for head to move node to the back</span>
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// pre &lt;-&gt; node &lt;-&gt; next =&gt; pre &lt;-&gt; next</span>
-                <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">pre</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-                <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">pre;</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">tail</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node;</span> <span style="color: #75715e">// now tail points to the latest node</span>
-            <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tail;</span>
-            <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL;</span>
-            <span style="color: #f8f8f2">tail</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">int</span> get(<span style="color: #B00040">int</span> key)
+    {
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>map.count(key))
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
+        Node<span style="color: #666666">*</span> node <span style="color: #666666">=</span> map[key];
+        <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">!=</span> tail) {
+            <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">==</span> head) {
+                head <span style="color: #666666">=</span> head<span style="color: #666666">-&gt;</span>next; <span style="color: #408080; font-style: italic">// leave space for head to move node to the back</span>
+            } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #408080; font-style: italic">// pre &lt;-&gt; node &lt;-&gt; next =&gt; pre &lt;-&gt; next</span>
+                node<span style="color: #666666">-&gt;</span>pre<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> node<span style="color: #666666">-&gt;</span>next;
+                node<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>pre <span style="color: #666666">=</span> node<span style="color: #666666">-&gt;</span>pre;
+            }
+            tail<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> node; <span style="color: #408080; font-style: italic">// now tail points to the latest node</span>
+            node<span style="color: #666666">-&gt;</span>pre <span style="color: #666666">=</span> tail;
+            node<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
+            tail <span style="color: #666666">=</span> node;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> node<span style="color: #666666">-&gt;</span>val;
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">put(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">key,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">value)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #75715e">// exist</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(map.count(key))</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">map[key];</span>
-            <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">value;</span> <span style="color: #75715e">// update value</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(node</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">tail)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// here are the same logic as in get()</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(node</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">head)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// head now points to the second recent used node</span>
-                    <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-                <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span><span style="color: #75715e">// split out node, now node.pre - node.next</span>
-                    <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">pre</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-                    <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">pre;</span>
-                <span style="color: #f8f8f2">}</span>
-                <span style="color: #f8f8f2">tail</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node;</span>
-                <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tail;</span>
-                <span style="color: #f8f8f2">node</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL;</span>
-                <span style="color: #f8f8f2">tail</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">node;</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// not exit</span>
-            <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">newNode</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Node(key,</span> <span style="color: #f8f8f2">value);</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cap</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// cap == capacity - map.size()</span>
-                <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">temp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span>
-                <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span> <span style="color: #75715e">// always remove the least recent used node</span>
-                <span style="color: #f8f8f2">map.erase(temp</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">key);</span>
-                <span style="color: #f8f8f2">cap</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> put(<span style="color: #B00040">int</span> key, <span style="color: #B00040">int</span> value)
+    {
+        <span style="color: #408080; font-style: italic">// exist</span>
+        <span style="color: #008000; font-weight: bold">if</span> (map.count(key)) {
+            Node<span style="color: #666666">*</span> node <span style="color: #666666">=</span> map[key];
+            node<span style="color: #666666">-&gt;</span>val <span style="color: #666666">=</span> value; <span style="color: #408080; font-style: italic">// update value</span>
+            <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">!=</span> tail) { <span style="color: #408080; font-style: italic">// here are the same logic as in get()</span>
+                <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">==</span> head) { <span style="color: #408080; font-style: italic">// head now points to the second recent used node</span>
+                    head <span style="color: #666666">=</span> head<span style="color: #666666">-&gt;</span>next;
+                } <span style="color: #008000; font-weight: bold">else</span> {<span style="color: #408080; font-style: italic">// split out node, now node.pre - node.next</span>
+                    node<span style="color: #666666">-&gt;</span>pre<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> node<span style="color: #666666">-&gt;</span>next;
+                    node<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>pre <span style="color: #666666">=</span> node<span style="color: #666666">-&gt;</span>pre;
+                }
+                tail<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> node;
+                node<span style="color: #666666">-&gt;</span>pre <span style="color: #666666">=</span> tail;
+                node<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
+                tail <span style="color: #666666">=</span> node;
+            }
+        } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #408080; font-style: italic">// not exit</span>
+            Node<span style="color: #666666">*</span> newNode <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Node(key, value);
+            <span style="color: #008000; font-weight: bold">if</span> (cap <span style="color: #666666">==</span> <span style="color: #666666">0</span>) { <span style="color: #408080; font-style: italic">// cap == capacity - map.size()</span>
+                Node<span style="color: #666666">*</span> temp <span style="color: #666666">=</span> head;
+                head <span style="color: #666666">=</span> head<span style="color: #666666">-&gt;</span>next; <span style="color: #408080; font-style: italic">// always remove the least recent used node</span>
+                map.erase(temp<span style="color: #666666">-&gt;</span>key);
+                cap<span style="color: #666666">++</span>;
+            }
 
-            <span style="color: #75715e">// what could happen after removal?</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(head</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">NULL</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">tail</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">NULL)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">newNode;</span>
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// let tail point to the newly inserted node</span>
-                <span style="color: #f8f8f2">tail</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">newNode;</span>
-                <span style="color: #f8f8f2">newNode</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">pre</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tail;</span>
-                <span style="color: #f8f8f2">newNode</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">NULL;</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">tail</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">newNode;</span>
-            <span style="color: #f8f8f2">map[key]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">newNode;</span>
-            <span style="color: #f8f8f2">cap</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+            <span style="color: #408080; font-style: italic">// what could happen after removal?</span>
+            <span style="color: #008000; font-weight: bold">if</span> (head <span style="color: #666666">==</span> <span style="color: #008000">NULL</span> <span style="color: #666666">&amp;&amp;</span> tail <span style="color: #666666">==</span> <span style="color: #008000">NULL</span>) {
+                head <span style="color: #666666">=</span> newNode;
+            } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #408080; font-style: italic">// let tail point to the newly inserted node</span>
+                tail<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> newNode;
+                newNode<span style="color: #666666">-&gt;</span>pre <span style="color: #666666">=</span> tail;
+                newNode<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
+            }
+            tail <span style="color: #666666">=</span> newNode;
+            map[key] <span style="color: #666666">=</span> newNode;
+            cap<span style="color: #666666">--</span>;
+        }
+    }
+};
 
-<span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Your LRUCache object will be instantiated and called as such:</span>
-<span style="color: #75715e"> * LRUCache* obj = new LRUCache(capacity);</span>
-<span style="color: #75715e"> * int param_1 = obj-&gt;get(key);</span>
-<span style="color: #75715e"> * obj-&gt;put(key,value);</span>
-<span style="color: #75715e"> */</span>
+<span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Your LRUCache object will be instantiated and called as such:</span>
+<span style="color: #408080; font-style: italic"> * LRUCache* obj = new LRUCache(capacity);</span>
+<span style="color: #408080; font-style: italic"> * int param_1 = obj-&gt;get(key);</span>
+<span style="color: #408080; font-style: italic"> * obj-&gt;put(key,value);</span>
+<span style="color: #408080; font-style: italic"> */</span>
 </code></pre></div>
 
 

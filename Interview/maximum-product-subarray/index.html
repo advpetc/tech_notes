@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2873,28 +2864,28 @@ min_dp[i]: from 0-i, the minimum product</p>
 max_dp[i] = max(min_dp[i] * array[i], max_dp[i-1] * array[i], array[i])
 where min_dp[i] * array[i] is for calculating the case when both min_dp and array[i] are neg
 where max_dp[i] * array[i] is for calculating the case when both max_dp and array[i] are pos</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">maxProduct(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums.size();</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">max_dp[n],</span> <span style="color: #f8f8f2">min_dp[n];</span>
-        <span style="color: #f8f8f2">memset(max_dp,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">max_dp);</span>
-        <span style="color: #f8f8f2">memset(min_dp,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">min_dp);</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">INT_MIN;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">min_dp[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[i];</span>
-                <span style="color: #f8f8f2">max_dp[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[i];</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">max_dp[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(max(min_dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">nums[i],</span> <span style="color: #f8f8f2">max_dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">nums[i]),</span> <span style="color: #f8f8f2">nums[i]);</span>
-                <span style="color: #f8f8f2">min_dp[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(min(min_dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">nums[i],</span> <span style="color: #f8f8f2">max_dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">nums[i]),</span> <span style="color: #f8f8f2">nums[i]);</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res,</span> <span style="color: #f8f8f2">max_dp[i]);</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">int</span> maxProduct(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> nums.size();
+        <span style="color: #B00040">int</span> max_dp[n], min_dp[n];
+        memset(max_dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> max_dp);
+        memset(min_dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> min_dp);
+        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> INT_MIN;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">==</span> <span style="color: #666666">0</span>) {
+                min_dp[i] <span style="color: #666666">=</span> nums[i];
+                max_dp[i] <span style="color: #666666">=</span> nums[i];
+            }
+            <span style="color: #008000; font-weight: bold">else</span> {
+                max_dp[i] <span style="color: #666666">=</span> max(max(min_dp[i<span style="color: #666666">-1</span>] <span style="color: #666666">*</span> nums[i], max_dp[i<span style="color: #666666">-1</span>] <span style="color: #666666">*</span> nums[i]), nums[i]);
+                min_dp[i] <span style="color: #666666">=</span> min(min(min_dp[i<span style="color: #666666">-1</span>] <span style="color: #666666">*</span> nums[i], max_dp[i<span style="color: #666666">-1</span>] <span style="color: #666666">*</span> nums[i]), nums[i]);
+            }
+            res <span style="color: #666666">=</span> max(res, max_dp[i]);
+        }
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
 
 
@@ -2908,24 +2899,24 @@ min_dp: from 0-i, the minimum product</p>
 max_dp = max(min_dp * array[i], pre_max_dp * array[i], array[i])
 where min_dp * array[i] is for calculating the case when both min_dp and array[i] are neg
 where max_dp * array[i] is for calculating the case when both max_dp and array[i] are pos</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">public:</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">maxProduct(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">size</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums.size();</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(size</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">oldMin</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">oldMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">ret</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">size;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">newMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(nums[i],</span> <span style="color: #f8f8f2">nums[i]</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">oldMax</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">nums[i]</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">oldMin</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">nums[i]);</span>
-                <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">newMin</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(nums[i],</span> <span style="color: #f8f8f2">nums[i]</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">oldMin</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">nums[i]</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">oldMax</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">nums[i]);</span>
-                <span style="color: #f8f8f2">ret</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(ret,</span> <span style="color: #f8f8f2">newMax);</span>
-                <span style="color: #f8f8f2">oldMin</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">newMin;</span>
-                <span style="color: #f8f8f2">oldMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">newMax;</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">ret;</span>
-        <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+    <span style="color: #A0A000">public</span>:
+        <span style="color: #B00040">int</span> maxProduct(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+            <span style="color: #B00040">int</span> size <span style="color: #666666">=</span> nums.size();
+            <span style="color: #008000; font-weight: bold">if</span> (size <span style="color: #666666">==</span> <span style="color: #666666">0</span>) { <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>; }
+            <span style="color: #B00040">int</span> oldMin <span style="color: #666666">=</span> nums[<span style="color: #666666">0</span>];
+            <span style="color: #B00040">int</span> oldMax <span style="color: #666666">=</span> nums[<span style="color: #666666">0</span>];
+            <span style="color: #B00040">int</span> ret <span style="color: #666666">=</span> nums[<span style="color: #666666">0</span>];
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;</span> size; <span style="color: #666666">++</span>i) {
+                <span style="color: #B00040">int</span> newMax <span style="color: #666666">=</span> max(nums[i], nums[i] <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #666666">?</span> oldMax <span style="color: #666666">*</span> nums[i] <span style="color: #666666">:</span> oldMin <span style="color: #666666">*</span> nums[i]);
+                <span style="color: #B00040">int</span> newMin <span style="color: #666666">=</span> min(nums[i], nums[i] <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span> <span style="color: #666666">?</span> oldMin <span style="color: #666666">*</span> nums[i] <span style="color: #666666">:</span> oldMax <span style="color: #666666">*</span> nums[i]);
+                ret <span style="color: #666666">=</span> max(ret, newMax);
+                oldMin <span style="color: #666666">=</span> newMin;
+                oldMax <span style="color: #666666">=</span> newMax;
+            }
+            <span style="color: #008000; font-weight: bold">return</span> ret;
+        }
+};
 </code></pre></div>
                 
               

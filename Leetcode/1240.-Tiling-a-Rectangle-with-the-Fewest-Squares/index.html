@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2916,7 +2907,7 @@
 <p>Given a rectangle of size <code>n</code> x <code>m</code>, find the minimum number of integer-sided squares that tile the rectangle.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/sample_11_1592.png" /></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: n = 2, m = 3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 2, m = 3
 Output: 3
 Explanation: 3 squares are necessary to coverthe rectangle.
 2 (squares of 1x1)
@@ -2926,14 +2917,14 @@ Explanation: 3 squares are necessary to coverthe rectangle.
 
 <p><strong>Example 2:</strong></p>
 <p><img alt="img" src="../resources/sample_22_1592.png" /></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: n = 5, m = 8
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 5, m = 8
 Output: 5
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
 <p><img alt="img" src="../resources/sample_33_1592.png" /></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: n = 11, m = 13
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 11, m = 13
 Output: 6
 </code></pre></div>
 
@@ -2947,45 +2938,45 @@ Output: 6
 <p>If you think about using greedy to solve this problem, you will probably fail. If you try to fill the rectangular space from largest to smallest, it will not guarantee to be the most optimal solution. Check <img alt="img" src="../resources/image_1572481565.png" /></p>
 <p>On the middle right, it has splayed the right down region with the upper right region, which breaks the greedy algorithm.</p>
 <p>So we go back to use the rudimentary DFS search solution. Imagine you can fill the rectangular as a skyline problem (from left to right, bottom to top). You task is to fill all parts of the rectangular. We use a <code>height[i]</code> array to represent the skyline. If our skyline has the same height as the given height <code>m</code>, then we have reach our base case. We update the answer with the current minimal.</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(min_height</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">m)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(cnt,</span> <span style="color: #f8f8f2">res);</span>
-  <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">if</span> (min_height <span style="color: #666666">==</span> m) {
+  res <span style="color: #666666">=</span> min(cnt, res);
+  <span style="color: #008000; font-weight: bold">return</span>;
+}
 </code></pre></div>
 
 
 <p>To place next block, we try to eagerly find the next square from the current concave shape skyline. We need to first determine the largest block to be filled with, and then update the new height with the current skyline.</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">min_height</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
-<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(heights[i]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">min_height)</span>
-    <span style="color: #f8f8f2">min_height</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">heights[left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i];</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> left <span style="color: #666666">=</span> <span style="color: #666666">0</span>, min_height <span style="color: #666666">=</span> m;
+<span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+  <span style="color: #008000; font-weight: bold">if</span> (heights[i] <span style="color: #666666">&lt;</span> min_height)
+    min_height <span style="color: #666666">=</span> heights[left <span style="color: #666666">=</span> i];
+}
 
-<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(min_height</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">m)</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(cnt,</span> <span style="color: #f8f8f2">res);</span>
-  <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">left;</span>
-<span style="color: #75715e">// giving space for square with width and height equal to min_height</span>
-<span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(right</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">heights[left]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">heights[right]</span> <span style="color: #f92672">&amp;&amp;</span>
-       <span style="color: #75715e">// check width to fit in m</span>
-       <span style="color: #f8f8f2">right</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">min_height</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m)</span>
-  <span style="color: #f8f8f2">right</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-<span style="color: #75715e">// update the new height</span>
-<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">left;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">right;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-  <span style="color: #f8f8f2">heights[i]</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">left;</span>
+<span style="color: #008000; font-weight: bold">if</span> (min_height <span style="color: #666666">==</span> m) {
+  res <span style="color: #666666">=</span> min(cnt, res);
+  <span style="color: #008000; font-weight: bold">return</span>;
+}
+<span style="color: #B00040">int</span> right <span style="color: #666666">=</span> left;
+<span style="color: #408080; font-style: italic">// giving space for square with width and height equal to min_height</span>
+<span style="color: #008000; font-weight: bold">while</span> (right <span style="color: #666666">&lt;</span> n <span style="color: #666666">&amp;&amp;</span> heights[left] <span style="color: #666666">==</span> heights[right] <span style="color: #666666">&amp;&amp;</span>
+       <span style="color: #408080; font-style: italic">// check width to fit in m</span>
+       right <span style="color: #666666">-</span> left <span style="color: #666666">+</span> min_height <span style="color: #666666">&lt;</span> m)
+  right<span style="color: #666666">++</span>;
+<span style="color: #408080; font-style: italic">// update the new height</span>
+<span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> left; i <span style="color: #666666">&lt;</span> right; <span style="color: #666666">++</span>i)
+  heights[i] <span style="color: #666666">+=</span> right <span style="color: #666666">-</span> left;
 </code></pre></div>
 
 
 <p>Now we have filled the next largest piece of square in the block, and we need to recursively find the next one from the current shape. However, at this point we cannot just keep doing it greedily , since we have prove it won't work for some cases. What we do is try all the square starting from the current largest square we have occupied, and decrease the <code>height[i]</code> one by one.</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">size</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">left;</span> <span style="color: #f8f8f2">size</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">size)</span> <span style="color: #f8f8f2">{</span>
-   <span style="color: #75715e">// try the largest square first</span>
-   <span style="color: #f8f8f2">dfs(n,</span> <span style="color: #f8f8f2">m,</span> <span style="color: #f8f8f2">heights,</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">res);</span>
-   <span style="color: #75715e">// try other squares by decreasing the size of it, or &quot;recover&quot; the original block</span>
-   <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">left;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">size</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-     <span style="color: #f8f8f2">heights[i]</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-   <span style="color: #f8f8f2">heights[left</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">size</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">-=</span> <span style="color: #f8f8f2">size;</span>
- <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code> <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> size <span style="color: #666666">=</span> right <span style="color: #666666">-</span> left; size <span style="color: #666666">&gt;=</span> <span style="color: #666666">1</span>; <span style="color: #666666">--</span>size) {
+   <span style="color: #408080; font-style: italic">// try the largest square first</span>
+   dfs(n, m, heights, cnt <span style="color: #666666">+</span> <span style="color: #666666">1</span>, res);
+   <span style="color: #408080; font-style: italic">// try other squares by decreasing the size of it, or &quot;recover&quot; the original block</span>
+   <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> left; i <span style="color: #666666">&lt;</span> left <span style="color: #666666">+</span> size <span style="color: #666666">-</span> <span style="color: #666666">1</span>; <span style="color: #666666">++</span>i)
+     heights[i] <span style="color: #666666">--</span>;
+   heights[left <span style="color: #666666">+</span> size <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">-=</span> size;
+ }
 </code></pre></div>
 
 
@@ -2994,43 +2985,43 @@ Output: 6
 <li>Space: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span> both the stack space and the <code>height[i]</code> array.</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">dfs(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">heights,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">res)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(cnt</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">res)</span> <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #75715e">// left: min_height&#39;s index, if there are multiple min_height, it uses the left most min_height&#39;s index</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">min_height</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(heights[i]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">min_height)</span>
-                <span style="color: #f8f8f2">min_height</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">heights[left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i];</span>
-        <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+    <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">void</span> dfs(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> m, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> heights, <span style="color: #B00040">int</span> cnt, <span style="color: #B00040">int</span><span style="color: #666666">&amp;</span> res) {
+        <span style="color: #008000; font-weight: bold">if</span> (cnt <span style="color: #666666">&gt;=</span> res) <span style="color: #008000; font-weight: bold">return</span>;
+        <span style="color: #408080; font-style: italic">// left: min_height&#39;s index, if there are multiple min_height, it uses the left most min_height&#39;s index</span>
+        <span style="color: #B00040">int</span> left <span style="color: #666666">=</span> <span style="color: #666666">0</span>, min_height <span style="color: #666666">=</span> m;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">if</span> (heights[i] <span style="color: #666666">&lt;</span> min_height)
+                min_height <span style="color: #666666">=</span> heights[left <span style="color: #666666">=</span> i];
+        }
 
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(min_height</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">m)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(cnt,</span> <span style="color: #f8f8f2">res);</span>
-            <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">left;</span>
-        <span style="color: #75715e">// giving space for square with width and height equal to min_height</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(right</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">heights[left]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">heights[right]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">min_height</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m)</span>
-            <span style="color: #f8f8f2">right</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">left;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">right;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-            <span style="color: #f8f8f2">heights[i]</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">left;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">size</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">left;</span> <span style="color: #f8f8f2">size</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">size)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">dfs(n,</span> <span style="color: #f8f8f2">m,</span> <span style="color: #f8f8f2">heights,</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">res);</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">left;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">size</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-                <span style="color: #f8f8f2">heights[i]</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">heights[left</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">size</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">-=</span> <span style="color: #f8f8f2">size;</span>
-        <span style="color: #f8f8f2">}</span>
+        <span style="color: #008000; font-weight: bold">if</span> (min_height <span style="color: #666666">==</span> m) {
+            res <span style="color: #666666">=</span> min(cnt, res);
+            <span style="color: #008000; font-weight: bold">return</span>;
+        }
+        <span style="color: #B00040">int</span> right <span style="color: #666666">=</span> left;
+        <span style="color: #408080; font-style: italic">// giving space for square with width and height equal to min_height</span>
+        <span style="color: #008000; font-weight: bold">while</span> (right <span style="color: #666666">&lt;</span> n <span style="color: #666666">&amp;&amp;</span> heights[left] <span style="color: #666666">==</span> heights[right] <span style="color: #666666">&amp;&amp;</span> right <span style="color: #666666">-</span> left <span style="color: #666666">+</span> min_height <span style="color: #666666">&lt;</span> m)
+            right<span style="color: #666666">++</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> left; i <span style="color: #666666">&lt;</span> right; <span style="color: #666666">++</span>i)
+            heights[i] <span style="color: #666666">+=</span> right <span style="color: #666666">-</span> left;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> size <span style="color: #666666">=</span> right <span style="color: #666666">-</span> left; size <span style="color: #666666">&gt;=</span> <span style="color: #666666">1</span>; <span style="color: #666666">--</span>size) {
+            dfs(n, m, heights, cnt <span style="color: #666666">+</span> <span style="color: #666666">1</span>, res);
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> left; i <span style="color: #666666">&lt;</span> left <span style="color: #666666">+</span> size <span style="color: #666666">-</span> <span style="color: #666666">1</span>; <span style="color: #666666">++</span>i)
+                heights[i] <span style="color: #666666">--</span>;
+            heights[left <span style="color: #666666">+</span> size <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">-=</span> size;
+        }
 
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">tilingRectangle(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">m)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">tilingRectangle(m,</span> <span style="color: #f8f8f2">n);</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">heights(n);</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">INT_MAX;</span>
-        <span style="color: #f8f8f2">dfs(n,</span> <span style="color: #f8f8f2">m,</span> <span style="color: #f8f8f2">heights,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">res);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    }
+    <span style="color: #B00040">int</span> tilingRectangle(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> m) {
+        <span style="color: #008000; font-weight: bold">if</span> (n <span style="color: #666666">&gt;</span> m) <span style="color: #008000; font-weight: bold">return</span> tilingRectangle(m, n);
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> heights(n);
+        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> INT_MAX;
+        dfs(n, m, heights, <span style="color: #666666">0</span>, res);
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
                 
               

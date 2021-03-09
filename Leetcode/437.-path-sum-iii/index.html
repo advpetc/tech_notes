@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3026,7 +3017,7 @@
 <h4 id="_1">样例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>Example:</p>
 <p>root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>      10
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>      10
      /  \
     5   -3
    / \    \
@@ -3049,28 +3040,28 @@
 <p>时间复杂度分析：brute force相当于每个节点都尝试一遍，所以对于每个节点都有两个operation，如果有
 n个节点，那么一共有2^n种选法。</p>
 <h2 id="c">C++<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">pathSum</span><span style="color: #f8f8f2">(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sum)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">traverse(root,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">true);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #75715e">// there are two choice: 1 start from current node 2. keep going from current node</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">traverse</span><span style="color: #f8f8f2">(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">curr_sum,</span> <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">as_start)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">root)</span>
-            <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">curr_sum</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr_sum</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">sum)</span>
-            <span style="color: #f8f8f2">res</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">traverse(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #f8f8f2">curr_sum,</span> <span style="color: #f8f8f2">false);</span>
-        <span style="color: #f8f8f2">traverse(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #f8f8f2">curr_sum,</span> <span style="color: #f8f8f2">false);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(as_start)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">traverse(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">true);</span> <span style="color: #75715e">// start from next node, so sum is 0</span>
-            <span style="color: #f8f8f2">traverse(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">true);</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> res;
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">pathSum</span>(TreeNode<span style="color: #666666">*</span> root, <span style="color: #B00040">int</span> sum) {
+        traverse(root, sum, <span style="color: #666666">0</span>, <span style="color: #008000">true</span>);
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+    <span style="color: #408080; font-style: italic">// there are two choice: 1 start from current node 2. keep going from current node</span>
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">traverse</span>(TreeNode<span style="color: #666666">*</span> root, <span style="color: #B00040">int</span> sum, <span style="color: #B00040">int</span> curr_sum, <span style="color: #B00040">bool</span> as_start) {
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root)
+            <span style="color: #008000; font-weight: bold">return</span>;
+        curr_sum <span style="color: #666666">+=</span> root <span style="color: #666666">-&gt;</span> val;
+        <span style="color: #008000; font-weight: bold">if</span> (curr_sum <span style="color: #666666">==</span> sum)
+            res<span style="color: #666666">++</span>;
+        traverse(root <span style="color: #666666">-&gt;</span> left, sum, curr_sum, <span style="color: #008000">false</span>);
+        traverse(root <span style="color: #666666">-&gt;</span> right, sum, curr_sum, <span style="color: #008000">false</span>);
+        <span style="color: #008000; font-weight: bold">if</span> (as_start) {
+            traverse(root <span style="color: #666666">-&gt;</span> left, sum, <span style="color: #666666">0</span>, <span style="color: #008000">true</span>); <span style="color: #408080; font-style: italic">// start from next node, so sum is 0</span>
+            traverse(root <span style="color: #666666">-&gt;</span> right, sum, <span style="color: #666666">0</span>, <span style="color: #008000">true</span>);
+        }
+    }
+};
 </code></pre></div>
 
 
@@ -3083,33 +3074,33 @@ n个节点，那么一共有2^n种选法。</p>
 two sum那道题其实也是类似的思想，只不过是有两个，所以不用map来存个数，直接用set来看存不存在就可以了。</p>
 <p>时间复杂度分析：每个节点只要走一次，但是要牺牲space来存之前的sum，所以space是n，time是n。</p>
 <h4 id="c_1">C++<a class="headerlink" href="#c_1" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #75715e">// sum: number of ways to form this sum</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">pathSum</span><span style="color: #f8f8f2">(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sum)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">root)</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">m[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// the node before root: value is 0 and it has 1 way to get that sum</span>
-        <span style="color: #f8f8f2">traverse(root,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">int</span> res;
+    unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> m; <span style="color: #408080; font-style: italic">// sum: number of ways to form this sum</span>
+    <span style="color: #B00040">int</span> <span style="color: #0000FF">pathSum</span>(TreeNode<span style="color: #666666">*</span> root, <span style="color: #B00040">int</span> sum) {
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root)
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+        m[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>; <span style="color: #408080; font-style: italic">// the node before root: value is 0 and it has 1 way to get that sum</span>
+        traverse(root, sum, root <span style="color: #666666">-&gt;</span> val);
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">traverse</span><span style="color: #f8f8f2">(TreeNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">root,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">curr_sum)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">root)</span>
-            <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #75715e">// check the complements</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(m.count(curr_sum</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">sum))</span>
-            <span style="color: #f8f8f2">res</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">m[curr_sum</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">sum];</span>
-        <span style="color: #f8f8f2">m[curr_sum]</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left)</span>
-            <span style="color: #f8f8f2">traverse(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #f8f8f2">curr_sum</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">left</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right)</span>
-            <span style="color: #f8f8f2">traverse(root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right,</span> <span style="color: #f8f8f2">sum,</span> <span style="color: #f8f8f2">curr_sum</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">right</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val);</span>
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">traverse</span>(TreeNode<span style="color: #666666">*</span> root, <span style="color: #B00040">int</span> sum, <span style="color: #B00040">int</span> curr_sum) {
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root)
+            <span style="color: #008000; font-weight: bold">return</span>;
+        <span style="color: #408080; font-style: italic">// check the complements</span>
+        <span style="color: #008000; font-weight: bold">if</span> (m.count(curr_sum <span style="color: #666666">-</span> sum))
+            res <span style="color: #666666">+=</span> m[curr_sum <span style="color: #666666">-</span> sum];
+        m[curr_sum]<span style="color: #666666">++</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">-&gt;</span> left)
+            traverse(root <span style="color: #666666">-&gt;</span> left, sum, curr_sum <span style="color: #666666">+</span> root <span style="color: #666666">-&gt;</span> left <span style="color: #666666">-&gt;</span> val);
+        <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">-&gt;</span> right)
+            traverse(root <span style="color: #666666">-&gt;</span> right, sum, curr_sum <span style="color: #666666">+</span> root <span style="color: #666666">-&gt;</span> right <span style="color: #666666">-&gt;</span> val);
 
-        <span style="color: #f8f8f2">m[curr_sum]</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// don&#39;t forget to set it back</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+        m[curr_sum]<span style="color: #666666">--</span>; <span style="color: #408080; font-style: italic">// don&#39;t forget to set it back</span>
+    }
+};
 </code></pre></div>
                 
               

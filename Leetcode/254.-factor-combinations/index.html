@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2950,26 +2941,26 @@ Output:
 <p>We use a variable <code>index</code> to track the current factor, and if we choose current factor, we should <strong>not</strong> update <code>index</code>, because we can potentially reuse the same factor for multiple times.</p>
 <p>Note: since all the factors cannot be greater than sqrt(num), in the inner loop, we just need to loop from <code>index</code> to sqrt(n)</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">getFactors(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">res;</span>
-        <span style="color: #f8f8f2">helper(n,</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{},</span> <span style="color: #f8f8f2">res);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">helper(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">start,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">out,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">res)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(out.size()</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">res.push_back(out);</span>
-            <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">start;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">sqrt(n);</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">out.push_back(i);</span>
-            <span style="color: #f8f8f2">helper(n</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">out,</span> <span style="color: #f8f8f2">res);</span>
-            <span style="color: #f8f8f2">out.pop_back();</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> getFactors(<span style="color: #B00040">int</span> n) {
+        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;
+        helper(n, <span style="color: #666666">2</span>, {}, res);
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+    <span style="color: #B00040">void</span> helper(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> start, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> out, vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> res) {
+        <span style="color: #008000; font-weight: bold">if</span> (n <span style="color: #666666">==</span> <span style="color: #666666">1</span>) {
+            <span style="color: #008000; font-weight: bold">if</span> (out.size() <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>) res.push_back(out);
+            <span style="color: #008000; font-weight: bold">return</span>;
+        }
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> start; i <span style="color: #666666">&lt;=</span> sqrt(n); <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">if</span> (n <span style="color: #666666">%</span> i <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">continue</span>;
+            out.push_back(i);
+            helper(n <span style="color: #666666">/</span> i, i, out, res);
+            out.pop_back();
+        }
+    }
+};
 </code></pre></div>
                 
               

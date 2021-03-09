@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3049,19 +3040,19 @@ max(0, cat score - car score + 1) + max(0,  frog score - car score + 1) = max(0,
 <li>find the slope (using gradient: numberic for debugging and analytic for calculating)</li>
 </ol>
 <h3 id="gradient-descent">Gradient Descent<a class="headerlink" href="#gradient-descent" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">while</span> <span style="color: #66d9ef">True</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">weights_grad</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">evaluate_gradient(loss_fun,</span> <span style="color: #f8f8f2">data,</span> <span style="color: #f8f8f2">weights)</span>
-    <span style="color: #f8f8f2">weights</span> <span style="color: #f92672">+=</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">step_size</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">weights_grad</span> <span style="color: #75715e"># perform parameter update</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000; font-weight: bold">True</span>:
+    weights_grad <span style="color: #666666">=</span> evaluate_gradient(loss_fun, data, weights)
+    weights <span style="color: #666666">+=</span> <span style="color: #666666">-</span> step_size <span style="color: #666666">*</span> weights_grad <span style="color: #408080; font-style: italic"># perform parameter update</span>
 </code></pre></div>
 
 
 <p><strong>step_size is also the learning rate, it's the first thing to set</strong></p>
 <h3 id="stochastic-gradient-descent-sgd">Stochastic Gradient Descent (SGD)<a class="headerlink" href="#stochastic-gradient-descent-sgd" title="Permanent link">&para;</a></h3>
 <p>Use when there are a lot of training set, in each iteraion, take a samples data from the training set (typically 32/64/128/256) called <strong>minibatch</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">while</span> <span style="color: #66d9ef">True</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">data_batch</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">sample_training_data(data,</span> <span style="color: #ae81ff">256</span><span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">weights_grad</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">evaluate_gradient(loss_fun,</span> <span style="color: #f8f8f2">data_batch,</span> <span style="color: #f8f8f2">weights)</span>
-    <span style="color: #f8f8f2">weights</span> <span style="color: #f92672">+=</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">step_size</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">weights_grad</span> <span style="color: #75715e"># perform parameter update</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">while</span> <span style="color: #008000; font-weight: bold">True</span>:
+    data_batch <span style="color: #666666">=</span> sample_training_data(data, <span style="color: #666666">256</span>)
+    weights_grad <span style="color: #666666">=</span> evaluate_gradient(loss_fun, data_batch, weights)
+    weights <span style="color: #666666">+=</span> <span style="color: #666666">-</span> step_size <span style="color: #666666">*</span> weights_grad <span style="color: #408080; font-style: italic"># perform parameter update</span>
 </code></pre></div>
                 
               

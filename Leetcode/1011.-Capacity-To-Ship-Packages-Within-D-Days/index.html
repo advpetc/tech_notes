@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2917,7 +2908,7 @@
 <p>The ith package on the conveyor belt has a weight of <code>weights[i]</code>. Each day, we load the ship with packages on the conveyor belt (in the order given by <code>weights</code>). We may not load more weight than the maximum weight capacity of the ship.</p>
 <p>Return the least weight capacity of the ship that will result in all the packages on the conveyor belt being shipped within <code>D</code> days.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: weights = [1,2,3,4,5,6,7,8,9,10], D = 5
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: weights = [1,2,3,4,5,6,7,8,9,10], D = 5
 Output: 15
 Explanation: A ship capacity of 15 is the minimum to ship all the packages in 5 days like this:
 1st day: 1, 2, 3, 4, 5
@@ -2931,7 +2922,7 @@ Note that the cargo must be shipped in the order given, so using a ship of capac
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: weights = [3,2,2,4,1,4], D = 3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: weights = [3,2,2,4,1,4], D = 3
 Output: 6
 Explanation: A ship capacity of 6 is the minimum to ship all the packages in 3 days like this:
 1st day: 3, 2
@@ -2941,7 +2932,7 @@ Explanation: A ship capacity of 6 is the minimum to ship all the packages in 3 d
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: weights = [1,2,3,1,1], D = 4
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: weights = [1,2,3,1,1], D = 4
 Output: 3
 Explanation:
 1st day: 1
@@ -2962,33 +2953,33 @@ Explanation:
 <p>Time: <span><span class="MathJax_Preview">O(\log(\sum(weight)) \times n)</span><script type="math/tex">O(\log(\sum(weight)) \times n)</script></span> , where n is the length of the weights array.</p>
 <p>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #66d9ef">inline</span> <span style="color: #f8f8f2">possible(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cap,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">w,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">D)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">w)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">i;</span> <span style="color: #75715e">// we never check the condition that if i &gt; cap, which will return false</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(curr</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">cap)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">D;</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">bool</span> <span style="color: #008000; font-weight: bold">inline</span> possible(<span style="color: #B00040">int</span> cap, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> w, <span style="color: #B00040">int</span> D) {
+        <span style="color: #B00040">int</span> curr <span style="color: #666666">=</span> <span style="color: #666666">0</span>, cnt <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> <span style="color: #A0A000">i</span> : w) {
+            curr <span style="color: #666666">+=</span> i; <span style="color: #408080; font-style: italic">// we never check the condition that if i &gt; cap, which will return false</span>
+            <span style="color: #008000; font-weight: bold">if</span> (curr <span style="color: #666666">&gt;</span> cap) {
+                cnt <span style="color: #666666">++</span>;
+                curr <span style="color: #666666">=</span> i;
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> cnt <span style="color: #666666">&lt;=</span> D;
+    }
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">shipWithinDays(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">w,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">D)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">max_element(w.begin(),</span> <span style="color: #f8f8f2">w.end()),</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">accumulate(w.begin(),</span> <span style="color: #f8f8f2">w.end(),</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cap</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">0ll</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(possible(cap,</span> <span style="color: #f8f8f2">w,</span> <span style="color: #f8f8f2">D))</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cap;</span>
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cap</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #B00040">int</span> shipWithinDays(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> w, <span style="color: #B00040">int</span> D) {
+        <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">*</span>max_element(w.begin(), w.end()), r <span style="color: #666666">=</span> accumulate(w.begin(), w.end(), <span style="color: #666666">0</span>);
+        <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r) {
+            <span style="color: #B00040">int</span> cap <span style="color: #666666">=</span> l <span style="color: #666666">+</span> <span style="color: #666666">0ll</span> <span style="color: #666666">+</span> r <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>;
+            <span style="color: #008000; font-weight: bold">if</span> (possible(cap, w, D)) {
+                r <span style="color: #666666">=</span> cap;
+            } <span style="color: #008000; font-weight: bold">else</span> {
+                l <span style="color: #666666">=</span> cap <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> l;
+    }
+};
 </code></pre></div>
                 
               

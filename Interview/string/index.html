@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2952,18 +2943,18 @@
 n &gt;= 0.
 Examples</p>
 <p>"abc", 4 -&gt; "cab"</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">rightShift(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">n</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">s</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s;</span>
-    <span style="color: #f8f8f2">reverse(s.begin(),</span> <span style="color: #f8f8f2">s.end());</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">shift</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">s.size();</span>
-    <span style="color: #f8f8f2">reverse(s.begin()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">shift,</span> <span style="color: #f8f8f2">s.end());</span>
-    <span style="color: #f8f8f2">reverse(s.begin(),</span> <span style="color: #f8f8f2">s.begin()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">shift);</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">s;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  string rightShift(string s, <span style="color: #B00040">int</span> n) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>n <span style="color: #666666">||</span> s <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;&quot;</span>) <span style="color: #008000; font-weight: bold">return</span> s;
+    reverse(s.begin(), s.end());
+    <span style="color: #B00040">int</span> shift <span style="color: #666666">=</span> n <span style="color: #666666">%</span> s.size();
+    reverse(s.begin() <span style="color: #666666">+</span> shift, s.end());
+    reverse(s.begin(), s.begin() <span style="color: #666666">+</span> shift);
+    <span style="color: #008000; font-weight: bold">return</span> s;
+  }
+};
 </code></pre></div>
 
 
@@ -2978,13 +2969,13 @@ Examples</p>
 <blockquote>
 <p><a href="https://app.laicode.io/app/problem/649">https://app.laicode.io/app/problem/649</a></p>
 </blockquote>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">// TODO</span>
-<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(s[i]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">p[j])</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">s[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">p[j];</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// TODO</span>
+<span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+    <span style="color: #008000; font-weight: bold">if</span> (s[i] <span style="color: #666666">==</span> p[j]) {
+        j<span style="color: #666666">++</span>;
+        s[i] <span style="color: #666666">=</span> p[j];
+    }
+}
 </code></pre></div>
                 
               

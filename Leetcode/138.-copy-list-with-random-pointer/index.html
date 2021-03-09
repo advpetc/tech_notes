@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3096,7 +3087,7 @@
 random_index: the index of the node (range from 0 to n-1) where random pointer points to, or null if it does not point to any node.</p>
 <p>Example 1:
 <img alt="e1.png" src="../resources/20B092AA2A45AAD196EB04C8F6001772.png" /></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
 </code></pre></div>
 
@@ -3107,48 +3098,48 @@ Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
 <h4 id="_1">时间复杂度<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>因为每次遍历整个链表需要<span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间上不算生成的节点需要<span><span class="MathJax_Preview">O(2 \times n)</span><script type="math/tex">O(2 \times n)</script></span>来建立哈希表。</p>
 <h4 id="c">C++ 代码<a class="headerlink" href="#c" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
-<span style="color: #75715e">// Definition for a Node.</span>
-<span style="color: #75715e">class Node {</span>
-<span style="color: #75715e">public:</span>
-<span style="color: #75715e">    int val;</span>
-<span style="color: #75715e">    Node* next;</span>
-<span style="color: #75715e">    Node* random;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic">// Definition for a Node.</span>
+<span style="color: #408080; font-style: italic">class Node {</span>
+<span style="color: #408080; font-style: italic">public:</span>
+<span style="color: #408080; font-style: italic">    int val;</span>
+<span style="color: #408080; font-style: italic">    Node* next;</span>
+<span style="color: #408080; font-style: italic">    Node* random;</span>
 
-<span style="color: #75715e">    Node(int _val) {</span>
-<span style="color: #75715e">        val = _val;</span>
-<span style="color: #75715e">        next = NULL;</span>
-<span style="color: #75715e">        random = NULL;</span>
-<span style="color: #75715e">    }</span>
-<span style="color: #75715e">};</span>
-<span style="color: #75715e">*/</span>
+<span style="color: #408080; font-style: italic">    Node(int _val) {</span>
+<span style="color: #408080; font-style: italic">        val = _val;</span>
+<span style="color: #408080; font-style: italic">        next = NULL;</span>
+<span style="color: #408080; font-style: italic">        random = NULL;</span>
+<span style="color: #408080; font-style: italic">    }</span>
+<span style="color: #408080; font-style: italic">};</span>
+<span style="color: #408080; font-style: italic">*/</span>
 
-<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">copyRandomList</span><span style="color: #f8f8f2">(Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">head)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">head)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">NULL;</span>
-        <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">newHead</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Node(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val);</span>
-        <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">cpy</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">newHead;</span>
-        <span style="color: #f8f8f2">m[head]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">newHead;</span> <span style="color: #75715e">// don&#39;t forget to put newHead into the map!!!</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(head)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">m.count(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next))</span>
-                    <span style="color: #f8f8f2">m[head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next]</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Node(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val);</span>
-                <span style="color: #f8f8f2">cpy</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m[head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next];</span>
-            <span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    unordered_map<span style="color: #666666">&lt;</span>Node<span style="color: #666666">*</span>, Node<span style="color: #666666">*&gt;</span> m;
+    Node<span style="color: #666666">*</span> <span style="color: #0000FF">copyRandomList</span>(Node<span style="color: #666666">*</span> head) {
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>head) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">NULL</span>;
+        Node<span style="color: #666666">*</span> newHead <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Node(head <span style="color: #666666">-&gt;</span> val);
+        Node<span style="color: #666666">*</span> cpy <span style="color: #666666">=</span> newHead;
+        m[head] <span style="color: #666666">=</span> newHead; <span style="color: #408080; font-style: italic">// don&#39;t forget to put newHead into the map!!!</span>
+        <span style="color: #008000; font-weight: bold">while</span> (head) {
+            <span style="color: #008000; font-weight: bold">if</span> (head <span style="color: #666666">-&gt;</span> next) {
+                <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>m.count(head <span style="color: #666666">-&gt;</span> next))
+                    m[head <span style="color: #666666">-&gt;</span> next] <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Node(head <span style="color: #666666">-&gt;</span> next <span style="color: #666666">-&gt;</span> val);
+                cpy <span style="color: #666666">-&gt;</span> next <span style="color: #666666">=</span> m[head <span style="color: #666666">-&gt;</span> next];
+            }
 
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">random)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">m.count(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">random))</span>
-                    <span style="color: #f8f8f2">m[head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">random]</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Node(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">random</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val);</span>
-                <span style="color: #f8f8f2">cpy</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">random</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m[head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">random];</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next;</span>
-            <span style="color: #f8f8f2">cpy</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cpy</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">newHead;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+            <span style="color: #008000; font-weight: bold">if</span> (head <span style="color: #666666">-&gt;</span> random) {
+                <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>m.count(head <span style="color: #666666">-&gt;</span> random))
+                    m[head <span style="color: #666666">-&gt;</span> random] <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Node(head <span style="color: #666666">-&gt;</span> random <span style="color: #666666">-&gt;</span> val);
+                cpy <span style="color: #666666">-&gt;</span> random <span style="color: #666666">=</span> m[head <span style="color: #666666">-&gt;</span> random];
+            }
+            head <span style="color: #666666">=</span> head <span style="color: #666666">-&gt;</span> next;
+            cpy <span style="color: #666666">=</span> cpy <span style="color: #666666">-&gt;</span> next;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> newHead;
+    }
+};
 </code></pre></div>
 
 
@@ -3159,35 +3150,35 @@ Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
 <h4 id="_2">时间复杂度<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p>由于每次recursion call最终会被call n次（不是random的指针的数量，因为如果多次访问已经存在的节点就可以直接剪枝使用之前已经生成的节点来返回，不会再进行递归调用），所以时间是<span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。空间上除了哈希表的大小还需要计算call stack的大小，即<span><span class="MathJax_Preview">O(n + 2 n)</span><script type="math/tex">O(n + 2 n)</script></span></p>
 <h4 id="c_1">C++ 代码<a class="headerlink" href="#c_1" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
-<span style="color: #75715e">// Definition for a Node.</span>
-<span style="color: #75715e">class Node {</span>
-<span style="color: #75715e">public:</span>
-<span style="color: #75715e">    int val;</span>
-<span style="color: #75715e">    Node* next;</span>
-<span style="color: #75715e">    Node* random;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic">// Definition for a Node.</span>
+<span style="color: #408080; font-style: italic">class Node {</span>
+<span style="color: #408080; font-style: italic">public:</span>
+<span style="color: #408080; font-style: italic">    int val;</span>
+<span style="color: #408080; font-style: italic">    Node* next;</span>
+<span style="color: #408080; font-style: italic">    Node* random;</span>
 
-<span style="color: #75715e">    Node(int _val) {</span>
-<span style="color: #75715e">        val = _val;</span>
-<span style="color: #75715e">        next = NULL;</span>
-<span style="color: #75715e">        random = NULL;</span>
-<span style="color: #75715e">    }</span>
-<span style="color: #75715e">};</span>
-<span style="color: #75715e">*/</span>
+<span style="color: #408080; font-style: italic">    Node(int _val) {</span>
+<span style="color: #408080; font-style: italic">        val = _val;</span>
+<span style="color: #408080; font-style: italic">        next = NULL;</span>
+<span style="color: #408080; font-style: italic">        random = NULL;</span>
+<span style="color: #408080; font-style: italic">    }</span>
+<span style="color: #408080; font-style: italic">};</span>
+<span style="color: #408080; font-style: italic">*/</span>
 
-<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*&gt;</span> <span style="color: #f8f8f2">m;</span>
-    <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">copyRandomList</span><span style="color: #f8f8f2">(Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">head)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">head)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">NULL;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(m.count(head))</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">m[head];</span>
-        <span style="color: #f8f8f2">Node</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">newHead</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Node(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">val);</span>
-        <span style="color: #f8f8f2">m[head]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">newHead;</span>
-        <span style="color: #f8f8f2">newHead</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">copyRandomList(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">next);</span>
-        <span style="color: #f8f8f2">newHead</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">random</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">copyRandomList(head</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">random);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">newHead;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    unordered_map<span style="color: #666666">&lt;</span>Node<span style="color: #666666">*</span>, Node<span style="color: #666666">*&gt;</span> m;
+    Node<span style="color: #666666">*</span> <span style="color: #0000FF">copyRandomList</span>(Node<span style="color: #666666">*</span> head) {
+        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>head) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">NULL</span>;
+        <span style="color: #008000; font-weight: bold">if</span> (m.count(head)) <span style="color: #008000; font-weight: bold">return</span> m[head];
+        Node<span style="color: #666666">*</span> newHead <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Node(head <span style="color: #666666">-&gt;</span> val);
+        m[head] <span style="color: #666666">=</span> newHead;
+        newHead <span style="color: #666666">-&gt;</span> next <span style="color: #666666">=</span> copyRandomList(head <span style="color: #666666">-&gt;</span> next);
+        newHead <span style="color: #666666">-&gt;</span> random <span style="color: #666666">=</span> copyRandomList(head <span style="color: #666666">-&gt;</span> random);
+        <span style="color: #008000; font-weight: bold">return</span> newHead;
+    }
+};
 </code></pre></div>
 
 
@@ -3202,39 +3193,39 @@ Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
 <h4 id="_3">时间复杂度<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>因为每次遍历整个链表需要<span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间上不再需要使用哈希表所以是<span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>.</p>
 <h4 id="c_2">C++ 代码<a class="headerlink" href="#c_2" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Definition for singly-linked list with a random pointer.</span>
-<span style="color: #75715e"> * struct RandomListNode {</span>
-<span style="color: #75715e"> *     int label;</span>
-<span style="color: #75715e"> *     RandomListNode *next, *random;</span>
-<span style="color: #75715e"> *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}</span>
-<span style="color: #75715e"> * };</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-  <span style="color: #f8f8f2">RandomListNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">copyRandomList(RandomListNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">head)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">head)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">NULL;</span>
-    <span style="color: #f8f8f2">RandomListNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">newHead,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">l1,</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">l2;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(l1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span> <span style="color: #f8f8f2">l1</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">NULL;</span> <span style="color: #f8f8f2">l1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">l2</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">RandomListNode(l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">label);</span>
-      <span style="color: #f8f8f2">l2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-      <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l2;</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Definition for singly-linked list with a random pointer.</span>
+<span style="color: #408080; font-style: italic"> * struct RandomListNode {</span>
+<span style="color: #408080; font-style: italic"> *     int label;</span>
+<span style="color: #408080; font-style: italic"> *     RandomListNode *next, *random;</span>
+<span style="color: #408080; font-style: italic"> *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}</span>
+<span style="color: #408080; font-style: italic"> * };</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+ <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+  RandomListNode <span style="color: #666666">*</span>copyRandomList(RandomListNode <span style="color: #666666">*</span>head) {
+    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>head) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">NULL</span>;
+    RandomListNode <span style="color: #666666">*</span>newHead, <span style="color: #666666">*</span>l1, <span style="color: #666666">*</span>l2;
+    <span style="color: #008000; font-weight: bold">for</span> (l1 <span style="color: #666666">=</span> head; l1 <span style="color: #666666">!=</span> <span style="color: #008000">NULL</span>; l1 <span style="color: #666666">=</span> l1<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>next) {
+      l2 <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> RandomListNode(l1<span style="color: #666666">-&gt;</span>label);
+      l2<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> l1<span style="color: #666666">-&gt;</span>next;
+      l1<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> l2;
+    }
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(l1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span> <span style="color: #f8f8f2">l1</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">NULL;</span> <span style="color: #f8f8f2">l1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">random)</span> <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">random</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">random</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">for</span> (l1 <span style="color: #666666">=</span> head; l1 <span style="color: #666666">!=</span> <span style="color: #008000">NULL</span>; l1 <span style="color: #666666">=</span> l1<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>next) {
+      <span style="color: #008000; font-weight: bold">if</span> (l1<span style="color: #666666">-&gt;</span>random) l1<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>random <span style="color: #666666">=</span> l1<span style="color: #666666">-&gt;</span>random<span style="color: #666666">-&gt;</span>next;
+    }
 
-    <span style="color: #f8f8f2">newHead</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(l1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">head;</span> <span style="color: #f8f8f2">l1</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">NULL;</span> <span style="color: #f8f8f2">l1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">l2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-      <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(l2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next)</span> <span style="color: #f8f8f2">l2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-    <span style="color: #f8f8f2">}</span>
+    newHead <span style="color: #666666">=</span> head<span style="color: #666666">-&gt;</span>next;
+    <span style="color: #008000; font-weight: bold">for</span> (l1 <span style="color: #666666">=</span> head; l1 <span style="color: #666666">!=</span> <span style="color: #008000">NULL</span>; l1 <span style="color: #666666">=</span> l1<span style="color: #666666">-&gt;</span>next) {
+      l2 <span style="color: #666666">=</span> l1<span style="color: #666666">-&gt;</span>next;
+      l1<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> l2<span style="color: #666666">-&gt;</span>next;
+      <span style="color: #008000; font-weight: bold">if</span> (l2<span style="color: #666666">-&gt;</span>next) l2<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> l2<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>next;
+    }
 
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">newHead;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #008000; font-weight: bold">return</span> newHead;
+  }
+};
 </code></pre></div>
                 
               

@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3255,175 +3246,175 @@
 <p>Core: create a builder class for top level abstraction and subclasses for specific constructions. When implementing, don't forget to <code>#include "builder.hpp"</code>.</p>
 </li>
 </ol>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * C++ Design Patterns: Builder</span>
-<span style="color: #75715e"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
-<span style="color: #75715e"> * 2016</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> * Source code is licensed under MIT License</span>
-<span style="color: #75715e"> * (for more details see LICENSE)</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> */</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * C++ Design Patterns: Builder</span>
+<span style="color: #408080; font-style: italic"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
+<span style="color: #408080; font-style: italic"> * 2016</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> * Source code is licensed under MIT License</span>
+<span style="color: #408080; font-style: italic"> * (for more details see LICENSE)</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> */</span>
 
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;string&gt;</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;string&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Product</span>
-<span style="color: #75715e"> * the final object that will be created using Builder</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Product</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">makeA(</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">part</span> <span style="color: #f8f8f2">)</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">partA</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">part;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">makeB(</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">part</span> <span style="color: #f8f8f2">)</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">partB</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">part;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">makeC(</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">part</span> <span style="color: #f8f8f2">)</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">partC</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">part;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">get()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">(partA</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot; &quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">partB</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot; &quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">partC);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Product</span>
+<span style="color: #408080; font-style: italic"> * the final object that will be created using Builder</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class Product
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #B00040">void</span> makeA( <span style="color: #008000; font-weight: bold">const</span> std<span style="color: #666666">::</span>string <span style="color: #666666">&amp;</span>part )
+  {
+    partA <span style="color: #666666">=</span> part;
+  }
+  <span style="color: #B00040">void</span> makeB( <span style="color: #008000; font-weight: bold">const</span> std<span style="color: #666666">::</span>string <span style="color: #666666">&amp;</span>part )
+  {
+    partB <span style="color: #666666">=</span> part;
+  }
+  <span style="color: #B00040">void</span> makeC( <span style="color: #008000; font-weight: bold">const</span> std<span style="color: #666666">::</span>string <span style="color: #666666">&amp;</span>part )
+  {
+    partC <span style="color: #666666">=</span> part;
+  }
+  std<span style="color: #666666">::</span>string get()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> (partA <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; &quot;</span> <span style="color: #666666">+</span> partB <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; &quot;</span> <span style="color: #666666">+</span> partC);
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
 
-<span style="color: #f8f8f2">private:</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">partA;</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">partB;</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">partC;</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+<span style="color: #A0A000">private</span>:
+  std<span style="color: #666666">::</span>string partA;
+  std<span style="color: #666666">::</span>string partB;
+  std<span style="color: #666666">::</span>string partC;
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Builder</span>
-<span style="color: #75715e"> * abstract interface for creating products</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Builder</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">Builder()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Builder</span>
+<span style="color: #408080; font-style: italic"> * abstract interface for creating products</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class Builder
+{
+<span style="color: #A0A000">public</span>:
+  virtual <span style="color: #666666">~</span>Builder() {}
 
-  <span style="color: #f8f8f2">Product</span> <span style="color: #f8f8f2">get()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">product;</span>
-  <span style="color: #f8f8f2">}</span>
+  Product get()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> product;
+  }
 
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartA()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">buildPartB</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">buildPartC</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #75715e">// ...</span>
+  virtual <span style="color: #B00040">void</span> buildPartA() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  virtual <span style="color: #B00040">void</span> <span style="color: #0000FF">buildPartB</span>() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  virtual <span style="color: #B00040">void</span> <span style="color: #0000FF">buildPartC</span>() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #408080; font-style: italic">// ...</span>
 
-<span style="color: #f8f8f2">protected:</span>
-  <span style="color: #f8f8f2">Product</span> <span style="color: #f8f8f2">product;</span>
-<span style="color: #f8f8f2">};</span>
+<span style="color: #A0A000">protected</span>:
+  Product product;
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Concrete Builder X and Y</span>
-<span style="color: #75715e"> * create real products and stores them in the composite structure</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteBuilderX</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">Builder</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartA()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">product.makeA(</span> <span style="color: #e6db74">&quot;A-X&quot;</span> <span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartB()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">product.makeB(</span> <span style="color: #e6db74">&quot;B-X&quot;</span> <span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartC()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">product.makeC(</span> <span style="color: #e6db74">&quot;C-X&quot;</span> <span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Concrete Builder X and Y</span>
+<span style="color: #408080; font-style: italic"> * create real products and stores them in the composite structure</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class <span style="color: #A0A000">ConcreteBuilderX</span> : public Builder
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #B00040">void</span> buildPartA()
+  {
+    product.makeA( <span style="color: #BA2121">&quot;A-X&quot;</span> );
+  }
+  <span style="color: #B00040">void</span> buildPartB()
+  {
+    product.makeB( <span style="color: #BA2121">&quot;B-X&quot;</span> );
+  }
+  <span style="color: #B00040">void</span> buildPartC()
+  {
+    product.makeC( <span style="color: #BA2121">&quot;C-X&quot;</span> );
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteBuilderY</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">Builder</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartA()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">product.makeA(</span> <span style="color: #e6db74">&quot;A-Y&quot;</span> <span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartB()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">product.makeB(</span> <span style="color: #e6db74">&quot;B-Y&quot;</span> <span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">buildPartC()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">product.makeC(</span> <span style="color: #e6db74">&quot;C-Y&quot;</span> <span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+class <span style="color: #A0A000">ConcreteBuilderY</span> : public Builder
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #B00040">void</span> buildPartA()
+  {
+    product.makeA( <span style="color: #BA2121">&quot;A-Y&quot;</span> );
+  }
+  <span style="color: #B00040">void</span> buildPartB()
+  {
+    product.makeB( <span style="color: #BA2121">&quot;B-Y&quot;</span> );
+  }
+  <span style="color: #B00040">void</span> buildPartC()
+  {
+    product.makeC( <span style="color: #BA2121">&quot;C-Y&quot;</span> );
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Director</span>
-<span style="color: #75715e"> * responsible for managing the correct sequence of object creation</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Director</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">Director()</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">builder()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Director</span>
+<span style="color: #408080; font-style: italic"> * responsible for managing the correct sequence of object creation</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class Director {
+<span style="color: #A0A000">public</span>:
+  Director() <span style="color: #666666">:</span> builder() {}
 
-  <span style="color: #f92672">~</span><span style="color: #f8f8f2">Director()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">builder</span> <span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">builder;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
+  <span style="color: #666666">~</span>Director()
+  {
+    <span style="color: #008000; font-weight: bold">if</span> ( builder )
+    {
+      delete builder;
+    }
+  }
 
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">set(</span> <span style="color: #f8f8f2">Builder</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">b</span> <span style="color: #f8f8f2">)</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">builder</span> <span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">builder;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">builder</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b;</span>
-  <span style="color: #f8f8f2">}</span>
+  <span style="color: #B00040">void</span> set( Builder <span style="color: #666666">*</span>b )
+  {
+    <span style="color: #008000; font-weight: bold">if</span> ( builder )
+    {
+      delete builder;
+    }
+    builder <span style="color: #666666">=</span> b;
+  }
 
-  <span style="color: #f8f8f2">Product</span> <span style="color: #f8f8f2">get()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">builder</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">get();</span>
-  <span style="color: #f8f8f2">}</span>
+  Product get()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> builder<span style="color: #666666">-&gt;</span>get();
+  }
 
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">construct()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">builder</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">buildPartA();</span>
-    <span style="color: #f8f8f2">builder</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">buildPartB();</span>
-    <span style="color: #f8f8f2">builder</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">buildPartC();</span>
-    <span style="color: #75715e">// ...</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
+  <span style="color: #B00040">void</span> construct()
+  {
+    builder<span style="color: #666666">-&gt;</span>buildPartA();
+    builder<span style="color: #666666">-&gt;</span>buildPartB();
+    builder<span style="color: #666666">-&gt;</span>buildPartC();
+    <span style="color: #408080; font-style: italic">// ...</span>
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
 
-<span style="color: #f8f8f2">private:</span>
-  <span style="color: #f8f8f2">Builder</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">builder;</span>
-<span style="color: #f8f8f2">};</span>
+<span style="color: #A0A000">private</span>:
+  Builder <span style="color: #666666">*</span>builder;
+};
 
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">Director</span> <span style="color: #f8f8f2">director;</span>
-  <span style="color: #f8f8f2">director.set(</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteBuilderX</span> <span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">director.construct();</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>()
+{
+  Director director;
+  director.set( new ConcreteBuilderX );
+  director.construct();
 
-  <span style="color: #f8f8f2">Product</span> <span style="color: #f8f8f2">product1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">director.get();</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;1st product parts: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">product1.get()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
+  Product product1 <span style="color: #666666">=</span> director.get();
+  std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;1st product parts: &quot;</span> <span style="color: #666666">&lt;&lt;</span> product1.get() <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
 
-  <span style="color: #f8f8f2">director.set(</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteBuilderY</span> <span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">director.construct();</span>
+  director.set( new ConcreteBuilderY );
+  director.construct();
 
-  <span style="color: #f8f8f2">Product</span> <span style="color: #f8f8f2">product2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">director.get();</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;2nd product parts: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">product2.get()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
+  Product product2 <span style="color: #666666">=</span> director.get();
+  std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;2nd product parts: &quot;</span> <span style="color: #666666">&lt;&lt;</span> product2.get() <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
 
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3434,172 +3425,172 @@
 <li>it's a easy to extend: if you want to add a new type and add its creation and other <em>CURD</em>, just create a new method in the abstract factory class (implement the details in the subclass).</li>
 <li>example usage: when designing an application on different platforms, methods themselves don't need to change the logic when running on different platform =&gt; create a factory class for initialize different object on different platform</li>
 </ol>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * C++ Design Patterns: Abstract Factory</span>
-<span style="color: #75715e"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
-<span style="color: #75715e"> * 2016</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> * Source code is licensed under MIT License</span>
-<span style="color: #75715e"> * (for more details see LICENSE)</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> */</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * C++ Design Patterns: Abstract Factory</span>
+<span style="color: #408080; font-style: italic"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
+<span style="color: #408080; font-style: italic"> * 2016</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> * Source code is licensed under MIT License</span>
+<span style="color: #408080; font-style: italic"> * (for more details see LICENSE)</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> */</span>
 
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Product A</span>
-<span style="color: #75715e"> * products implement the same interface so that the classes can refer</span>
-<span style="color: #75715e"> * to the interface not the concrete product</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ProductA</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">ProductA()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Product A</span>
+<span style="color: #408080; font-style: italic"> * products implement the same interface so that the classes can refer</span>
+<span style="color: #408080; font-style: italic"> * to the interface not the concrete product</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class ProductA
+{
+<span style="color: #A0A000">public</span>:
+  virtual <span style="color: #666666">~</span>ProductA() {}
 
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  virtual <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">char</span><span style="color: #666666">*</span> getName() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * ConcreteProductAX and ConcreteProductAY</span>
-<span style="color: #75715e"> * define objects to be created by concrete factory</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductAX</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">ProductA</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductAX()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * ConcreteProductAX and ConcreteProductAY</span>
+<span style="color: #408080; font-style: italic"> * define objects to be created by concrete factory</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class <span style="color: #A0A000">ConcreteProductAX</span> : public ProductA
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #666666">~</span>ConcreteProductAX() {}
 
-  <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;A-X&quot;</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">char</span><span style="color: #666666">*</span> getName()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;A-X&quot;</span>;
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductAY</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">ProductA</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductAY()</span> <span style="color: #f8f8f2">{}</span>
+class <span style="color: #A0A000">ConcreteProductAY</span> : public ProductA
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #666666">~</span>ConcreteProductAY() {}
 
-  <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;A-Y&quot;</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">char</span><span style="color: #666666">*</span> getName()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;A-Y&quot;</span>;
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Product B</span>
-<span style="color: #75715e"> * same as Product A, Product B declares interface for concrete products</span>
-<span style="color: #75715e"> * where each can produce an entire set of products</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ProductB</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">ProductB()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Product B</span>
+<span style="color: #408080; font-style: italic"> * same as Product A, Product B declares interface for concrete products</span>
+<span style="color: #408080; font-style: italic"> * where each can produce an entire set of products</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class ProductB
+{
+<span style="color: #A0A000">public</span>:
+  virtual <span style="color: #666666">~</span>ProductB() {}
 
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  virtual <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">char</span><span style="color: #666666">*</span> getName() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * ConcreteProductBX and ConcreteProductBY</span>
-<span style="color: #75715e"> * same as previous concrete product classes</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductBX</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">ProductB</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductBX()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * ConcreteProductBX and ConcreteProductBY</span>
+<span style="color: #408080; font-style: italic"> * same as previous concrete product classes</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class <span style="color: #A0A000">ConcreteProductBX</span> : public ProductB
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #666666">~</span>ConcreteProductBX() {}
 
-  <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;B-X&quot;</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">char</span><span style="color: #666666">*</span> getName()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;B-X&quot;</span>;
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductBY</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">ProductB</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductBY()</span> <span style="color: #f8f8f2">{}</span>
+class <span style="color: #A0A000">ConcreteProductBY</span> : public ProductB
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #666666">~</span>ConcreteProductBY() {}
 
-  <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">getName()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;B-Y&quot;</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">char</span><span style="color: #666666">*</span> getName()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;B-Y&quot;</span>;
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Abstract Factory</span>
-<span style="color: #75715e"> * provides an abstract interface for creating a family of products</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">AbstractFactory</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">AbstractFactory()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Abstract Factory</span>
+<span style="color: #408080; font-style: italic"> * provides an abstract interface for creating a family of products</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class AbstractFactory
+{
+<span style="color: #A0A000">public</span>:
+  virtual <span style="color: #666666">~</span>AbstractFactory() {}
 
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f8f8f2">ProductA</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">createProductA()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f8f8f2">ProductB</span> <span style="color: #f92672">*</span><span style="color: #a6e22e">createProductB</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">};</span>
+  virtual ProductA <span style="color: #666666">*</span>createProductA() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  virtual ProductB <span style="color: #666666">*</span><span style="color: #0000FF">createProductB</span>() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Concrete Factory X and Y</span>
-<span style="color: #75715e"> * each concrete factory create a family of products and client uses</span>
-<span style="color: #75715e"> * one of these factories so it never has to instantiate a product object</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteFactoryX</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">AbstractFactory</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteFactoryX()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Concrete Factory X and Y</span>
+<span style="color: #408080; font-style: italic"> * each concrete factory create a family of products and client uses</span>
+<span style="color: #408080; font-style: italic"> * one of these factories so it never has to instantiate a product object</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class <span style="color: #A0A000">ConcreteFactoryX</span> : public AbstractFactory
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #666666">~</span>ConcreteFactoryX() {}
 
-  <span style="color: #f8f8f2">ProductA</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">createProductA()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductAX();</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">ProductB</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">createProductB()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductBX();</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  ProductA <span style="color: #666666">*</span>createProductA()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> new ConcreteProductAX();
+  }
+  ProductB <span style="color: #666666">*</span>createProductB()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> new ConcreteProductBX();
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteFactoryY</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">AbstractFactory</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteFactoryY()</span> <span style="color: #f8f8f2">{}</span>
+class <span style="color: #A0A000">ConcreteFactoryY</span> : public AbstractFactory
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #666666">~</span>ConcreteFactoryY() {}
 
-  <span style="color: #f8f8f2">ProductA</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">createProductA()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductAY();</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">ProductB</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">createProductB()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductBY();</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  ProductA <span style="color: #666666">*</span>createProductA()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> new ConcreteProductAY();
+  }
+  ProductB <span style="color: #666666">*</span>createProductB()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> new ConcreteProductBY();
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">ConcreteFactoryX</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">factoryX</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteFactoryX();</span>
-  <span style="color: #f8f8f2">ConcreteFactoryY</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">factoryY</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteFactoryY();</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>()
+{
+  ConcreteFactoryX <span style="color: #666666">*</span>factoryX <span style="color: #666666">=</span> new ConcreteFactoryX();
+  ConcreteFactoryY <span style="color: #666666">*</span>factoryY <span style="color: #666666">=</span> new ConcreteFactoryY();
 
-  <span style="color: #f8f8f2">ProductA</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">factoryX</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">createProductA();</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Product: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">p1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
+  ProductA <span style="color: #666666">*</span>p1 <span style="color: #666666">=</span> factoryX<span style="color: #666666">-&gt;</span>createProductA();
+  std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;Product: &quot;</span> <span style="color: #666666">&lt;&lt;</span> p1<span style="color: #666666">-&gt;</span>getName() <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
 
-  <span style="color: #f8f8f2">ProductA</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">factoryY</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">createProductA();</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Product: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">p2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
+  ProductA <span style="color: #666666">*</span>p2 <span style="color: #666666">=</span> factoryY<span style="color: #666666">-&gt;</span>createProductA();
+  std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;Product: &quot;</span> <span style="color: #666666">&lt;&lt;</span> p2<span style="color: #666666">-&gt;</span>getName() <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
 
-  <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">p1;</span>
-  <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">p2;</span>
+  delete p1;
+  delete p2;
 
-  <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">factoryX;</span>
-  <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">factoryY;</span>
+  delete factoryX;
+  delete factoryY;
 
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3608,127 +3599,127 @@
 * a class cant anticipate the class of objects it must create
 * a class wants its subclasses to specify the objects it creates
 * classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * C++ Design Patterns: Factory Method</span>
-<span style="color: #75715e"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
-<span style="color: #75715e"> * 2016</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> * Source code is licensed under MIT License</span>
-<span style="color: #75715e"> * (for more details see LICENSE)</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> */</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * C++ Design Patterns: Factory Method</span>
+<span style="color: #408080; font-style: italic"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
+<span style="color: #408080; font-style: italic"> * 2016</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> * Source code is licensed under MIT License</span>
+<span style="color: #408080; font-style: italic"> * (for more details see LICENSE)</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> */</span>
 
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;string&gt;</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;string&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Product</span>
-<span style="color: #75715e"> * products implement the same interface so that the classes can refer</span>
-<span style="color: #75715e"> * to the interface not the concrete product</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Product</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">Product()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Product</span>
+<span style="color: #408080; font-style: italic"> * products implement the same interface so that the classes can refer</span>
+<span style="color: #408080; font-style: italic"> * to the interface not the concrete product</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class Product
+{
+<span style="color: #A0A000">public</span>:
+  virtual <span style="color: #666666">~</span>Product() {}
 
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  virtual std<span style="color: #666666">::</span>string getName() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Concrete Product</span>
-<span style="color: #75715e"> * define product to be created</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductA</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">Product</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductA()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Concrete Product</span>
+<span style="color: #408080; font-style: italic"> * define product to be created</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class <span style="color: #A0A000">ConcreteProductA</span> : public Product
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #666666">~</span>ConcreteProductA() {}
 
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">getName()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;type A&quot;</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  std<span style="color: #666666">::</span>string getName()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;type A&quot;</span>;
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Concrete Product</span>
-<span style="color: #75715e"> * define product to be created</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteProductB</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">Product</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteProductB()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Concrete Product</span>
+<span style="color: #408080; font-style: italic"> * define product to be created</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class <span style="color: #A0A000">ConcreteProductB</span> : public Product
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #666666">~</span>ConcreteProductB() {}
 
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">getName()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #e6db74">&quot;type B&quot;</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  std<span style="color: #666666">::</span>string getName()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;type B&quot;</span>;
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Creator</span>
-<span style="color: #75715e"> * contains the implementation for all of the methods</span>
-<span style="color: #75715e"> * to manipulate products except for the factory method</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Creator</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">Creator()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Creator</span>
+<span style="color: #408080; font-style: italic"> * contains the implementation for all of the methods</span>
+<span style="color: #408080; font-style: italic"> * to manipulate products except for the factory method</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class Creator
+{
+<span style="color: #A0A000">public</span>:
+  virtual <span style="color: #666666">~</span>Creator() {}
 
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f8f8f2">Product</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">createProductA()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #f8f8f2">Product</span><span style="color: #f92672">*</span> <span style="color: #a6e22e">createProductB</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  virtual Product<span style="color: #666666">*</span> createProductA() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  virtual Product<span style="color: #666666">*</span> <span style="color: #0000FF">createProductB</span>() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
-  <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">removeProduct</span><span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">Product</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">product</span> <span style="color: #f8f8f2">)</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+  virtual <span style="color: #B00040">void</span> <span style="color: #0000FF">removeProduct</span>( Product <span style="color: #666666">*</span>product ) <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
-<span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * Concrete Creator</span>
-<span style="color: #75715e"> * implements factory method that is responsible for creating</span>
-<span style="color: #75715e"> * one or more concrete products ie. it is class that has</span>
-<span style="color: #75715e"> * the knowledge of how to create the products</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ConcreteCreator</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">public</span> <span style="color: #f8f8f2">Creator</span>
-<span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #f92672">~</span><span style="color: #f8f8f2">ConcreteCreator()</span> <span style="color: #f8f8f2">{}</span>
+<span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * Concrete Creator</span>
+<span style="color: #408080; font-style: italic"> * implements factory method that is responsible for creating</span>
+<span style="color: #408080; font-style: italic"> * one or more concrete products ie. it is class that has</span>
+<span style="color: #408080; font-style: italic"> * the knowledge of how to create the products</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class <span style="color: #A0A000">ConcreteCreator</span> : public Creator
+{
+<span style="color: #A0A000">public</span>:
+  <span style="color: #666666">~</span>ConcreteCreator() {}
 
-  <span style="color: #f8f8f2">Product</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">createProductA()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductA();</span>
-  <span style="color: #f8f8f2">}</span>
+  Product<span style="color: #666666">*</span> createProductA()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> new ConcreteProductA();
+  }
 
-  <span style="color: #f8f8f2">Product</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">createProductB()</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteProductB();</span>
-  <span style="color: #f8f8f2">}</span>
+  Product<span style="color: #666666">*</span> createProductB()
+  {
+    <span style="color: #008000; font-weight: bold">return</span> new ConcreteProductB();
+  }
 
-  <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">removeProduct(</span> <span style="color: #f8f8f2">Product</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">product</span> <span style="color: #f8f8f2">)</span>
-  <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">product;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #75715e">// ...</span>
-<span style="color: #f8f8f2">};</span>
+  <span style="color: #B00040">void</span> removeProduct( Product <span style="color: #666666">*</span>product )
+  {
+    delete product;
+  }
+  <span style="color: #408080; font-style: italic">// ...</span>
+};
 
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">Creator</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">creator</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ConcreteCreator();</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>()
+{
+  Creator <span style="color: #666666">*</span>creator <span style="color: #666666">=</span> new ConcreteCreator();
 
-  <span style="color: #f8f8f2">Product</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">creator</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">createProductA();</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Product: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">p1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
-  <span style="color: #f8f8f2">creator</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">removeProduct(</span> <span style="color: #f8f8f2">p1</span> <span style="color: #f8f8f2">);</span>
+  Product <span style="color: #666666">*</span>p1 <span style="color: #666666">=</span> creator<span style="color: #666666">-&gt;</span>createProductA();
+  std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;Product: &quot;</span> <span style="color: #666666">&lt;&lt;</span> p1<span style="color: #666666">-&gt;</span>getName() <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
+  creator<span style="color: #666666">-&gt;</span>removeProduct( p1 );
 
-  <span style="color: #f8f8f2">Product</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">p2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">creator</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">createProductB();</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot;Product: &quot;</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">p2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">getName()</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">endl;</span>
-  <span style="color: #f8f8f2">creator</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">removeProduct(</span> <span style="color: #f8f8f2">p2</span> <span style="color: #f8f8f2">);</span>
+  Product <span style="color: #666666">*</span>p2 <span style="color: #666666">=</span> creator<span style="color: #666666">-&gt;</span>createProductB();
+  std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;Product: &quot;</span> <span style="color: #666666">&lt;&lt;</span> p2<span style="color: #666666">-&gt;</span>getName() <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
+  creator<span style="color: #666666">-&gt;</span>removeProduct( p2 );
 
-  <span style="color: #f8f8f2">delete</span> <span style="color: #f8f8f2">creator;</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+  delete creator;
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3752,86 +3743,86 @@ What if System Design: how to make it be able to be played by multiple users?</p
 <li>Card: 1) Value, 2) Suit (Club, Diamond, Heart, Spade)</li>
 <li>Deck: 1) List<Card></li>
 </ol>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">public</span> <span style="color: #66d9ef">enum</span> <span style="color: #f8f8f2">Suit</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">Club,</span> <span style="color: #f8f8f2">Diamond,</span> <span style="color: #f8f8f2">Heart,</span> <span style="color: #f8f8f2">Spade</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">enum</span> Suit {
+  Club, Diamond, Heart, Spade
+}
 
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Card</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">faceValue;</span> <span style="color: #75715e">// 1 for A, 11 for J, 12 for Q, 13 for K. Or we can use Enum here.</span>
-    <span style="color: #66d9ef">private</span> <span style="color: #f8f8f2">Suit</span> <span style="color: #f8f8f2">suit;</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Card</span> {
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">int</span> faceValue; <span style="color: #408080; font-style: italic">// 1 for A, 11 for J, 12 for Q, 13 for K. Or we can use Enum here.</span>
+    <span style="color: #008000; font-weight: bold">private</span> Suit suit;
 
-    <span style="color: #66d9ef">public</span> <span style="color: #a6e22e">Card</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">c,</span> <span style="color: #f8f8f2">Suit</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">faceValue</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">c;</span>
-        <span style="color: #f8f8f2">suit</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">Card</span>(<span style="color: #B00040">int</span> c, Suit s) {
+        faceValue <span style="color: #666666">=</span> c;
+        suit <span style="color: #666666">=</span> s;
+    }
 
-    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">value</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">faceValue;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">value</span>() {
+        <span style="color: #008000; font-weight: bold">return</span> faceValue;
+    }
 
-    <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">Suit</span> <span style="color: #a6e22e">suit</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">suit;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> Suit <span style="color: #0000FF">suit</span>() {
+        <span style="color: #008000; font-weight: bold">return</span> suit;
+    }
+}
 
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Deck</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">static</span> <span style="color: #66d9ef">final</span> <span style="color: #f8f8f2">Random</span> <span style="color: #f8f8f2">random</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Random();</span> <span style="color: #75715e">// action</span>
-    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">final</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Card</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">cards</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">ArrayList</span><span style="color: #f92672">&lt;&gt;</span><span style="color: #f8f8f2">();</span> <span style="color: #75715e">// or Card[]</span>
-    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dealtIndex</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Deck</span> {
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #008000; font-weight: bold">final</span> Random random <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Random(); <span style="color: #408080; font-style: italic">// action</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">final</span> List<span style="color: #666666">&lt;</span>Card<span style="color: #666666">&gt;</span> cards <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;</span>(); <span style="color: #408080; font-style: italic">// or Card[]</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">int</span> dealtIndex <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
-    <span style="color: #66d9ef">public</span> <span style="color: #a6e22e">Deck</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">13</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(Suit</span> <span style="color: #f8f8f2">suit</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">Suit.</span><span style="color: #a6e22e">values</span><span style="color: #f8f8f2">())</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">cards.</span><span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Card(i,</span> <span style="color: #f8f8f2">suit));</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">Deck</span>() {
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> <span style="color: #666666">13</span>; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">for</span> (Suit suit : Suit.<span style="color: #7D9029">values</span>()) {
+                cards.<span style="color: #7D9029">add</span>(<span style="color: #008000; font-weight: bold">new</span> Card(i, suit));
+            }
+        }
+    }
 
-    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">shuffle</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">cards.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">random.</span><span style="color: #a6e22e">nextInt</span><span style="color: #f8f8f2">(cards.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">i)</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">i;</span>
-            <span style="color: #f8f8f2">Card</span> <span style="color: #f8f8f2">card1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cards.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(i);</span>
-            <span style="color: #f8f8f2">Card</span> <span style="color: #f8f8f2">card2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cards.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(j);</span>
-            <span style="color: #f8f8f2">cards.</span><span style="color: #a6e22e">set</span><span style="color: #f8f8f2">(i,</span> <span style="color: #f8f8f2">card2);</span>
-            <span style="color: #f8f8f2">cards.</span><span style="color: #a6e22e">set</span><span style="color: #f8f8f2">(j,</span> <span style="color: #f8f8f2">card1);</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">shuffle</span>() {
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> cards.<span style="color: #7D9029">size</span>() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; <span style="color: #666666">++</span>i) {
+            <span style="color: #B00040">int</span> j <span style="color: #666666">=</span> random.<span style="color: #7D9029">nextInt</span>(cards.<span style="color: #7D9029">size</span>() <span style="color: #666666">-</span> i) <span style="color: #666666">+</span> i;
+            Card card1 <span style="color: #666666">=</span> cards.<span style="color: #7D9029">get</span>(i);
+            Card card2 <span style="color: #666666">=</span> cards.<span style="color: #7D9029">get</span>(j);
+            cards.<span style="color: #7D9029">set</span>(i, card2);
+            cards.<span style="color: #7D9029">set</span>(j, card1);
+        }
+    }
 
-    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">remainingCards</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">cards.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">dealtIndex;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">remainingCards</span>() {
+        <span style="color: #008000; font-weight: bold">return</span> cards.<span style="color: #7D9029">size</span>() <span style="color: #666666">-</span> dealtIndex;
+    }
 
-    <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">Card</span><span style="color: #f92672">[]</span> <span style="color: #a6e22e">dealHand</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">number)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(remainingCards()</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">number)</span> <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">Card</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">cards</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">Card</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">number</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">number;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">card</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dealCard();</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">cards;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> Card<span style="color: #666666">[]</span> <span style="color: #0000FF">dealHand</span>(<span style="color: #B00040">int</span> number) {
+        <span style="color: #008000; font-weight: bold">if</span> (remainingCards() <span style="color: #666666">&lt;</span> number) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">null</span>;
+        Card<span style="color: #666666">[]</span> cards <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Card<span style="color: #666666">[</span>number<span style="color: #666666">]</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> number; <span style="color: #666666">++</span>i) card<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> dealCard();
+        <span style="color: #008000; font-weight: bold">return</span> cards;
+    }
 
-    <span style="color: #66d9ef">public</span> <span style="color: #f8f8f2">Card</span> <span style="color: #a6e22e">dealCard</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">remainingCards()</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">?</span> <span style="color: #66d9ef">null</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">cards.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(dealIndex</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> Card <span style="color: #0000FF">dealCard</span>() {
+        <span style="color: #008000; font-weight: bold">return</span> remainingCards() <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">?</span> <span style="color: #008000; font-weight: bold">null</span> : cards.<span style="color: #7D9029">get</span>(dealIndex<span style="color: #666666">++</span>);
+    }
+}
 
-<span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Hand</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">protected</span> <span style="color: #66d9ef">final</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Card</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">cards</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">ArrayList</span><span style="color: #f92672">&lt;&gt;</span><span style="color: #f8f8f2">();</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Hand</span> {
+    <span style="color: #008000; font-weight: bold">protected</span> <span style="color: #008000; font-weight: bold">final</span> List<span style="color: #666666">&lt;</span>Card<span style="color: #666666">&gt;</span> cards <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;</span>();
 
-    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">score</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// or design as an abstract class =&gt; more extenable: can be used by other game</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">score</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(Card</span> <span style="color: #f8f8f2">card</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">cards)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">score</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">card.</span><span style="color: #a6e22e">value</span><span style="color: #f8f8f2">();</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">score;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">score</span>() { <span style="color: #408080; font-style: italic">// or design as an abstract class =&gt; more extenable: can be used by other game</span>
+        <span style="color: #B00040">int</span> score <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (Card card : cards) {
+            score <span style="color: #666666">+=</span> card.<span style="color: #7D9029">value</span>();
+        }
+        <span style="color: #008000; font-weight: bold">return</span> score;
+    }
 
-    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">addCards</span><span style="color: #f8f8f2">(Card</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">c)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">Collections.</span><span style="color: #a6e22e">addAll</span><span style="color: #f8f8f2">(cards,</span> <span style="color: #f8f8f2">c);</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">addCards</span>(Card<span style="color: #666666">[]</span> c) {
+        Collections.<span style="color: #7D9029">addAll</span>(cards, c);
+    }
 
-    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">size</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">cards.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">();</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">size</span>() {
+        <span style="color: #008000; font-weight: bold">return</span> cards.<span style="color: #7D9029">size</span>();
+    }
+}
 </code></pre></div>
 
 
@@ -3841,48 +3832,48 @@ What if System Design: how to make it be able to be played by multiple users?</p
 - 2 ~ 10 scores its face value
 - J, Q, and K score 10
 - A score either 1 or 11 (store both, make decision later)</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">BlackJackHand</span> <span style="color: #66d9ef">extends</span> <span style="color: #f8f8f2">Hand</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #a6e22e">@Override</span>
-    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">final</span> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">score</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">scores</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">possibleScores();</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">maxUnder</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Integer.</span><span style="color: #a6e22e">MIN_VALUE</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// max score &lt;= 21</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">minUnder</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Integer.</span><span style="color: #a6e22e">MAX_VALUE</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// max score &lt;= 21</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">score</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">scores)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(score</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">21</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">score</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">minOver)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">minOver</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">score;</span>
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(score</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">21</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">score</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">maxUnder)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">maxUnder</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">score;</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">maxUnder</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">Integer.</span><span style="color: #a6e22e">MIN_VALUE</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">minOver</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">maxUnder;</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BlackJackHand</span> <span style="color: #008000; font-weight: bold">extends</span> Hand {
+    <span style="color: #AA22FF">@Override</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">score</span>() {
+        List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> scores <span style="color: #666666">=</span> possibleScores();
+        <span style="color: #B00040">int</span> maxUnder <span style="color: #666666">=</span> Integer.<span style="color: #7D9029">MIN_VALUE</span>; <span style="color: #408080; font-style: italic">// max score &lt;= 21</span>
+        <span style="color: #B00040">int</span> minUnder <span style="color: #666666">=</span> Integer.<span style="color: #7D9029">MAX_VALUE</span>; <span style="color: #408080; font-style: italic">// max score &lt;= 21</span>
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> score : scores) {
+            <span style="color: #008000; font-weight: bold">if</span> (score <span style="color: #666666">&gt;</span> <span style="color: #666666">21</span> <span style="color: #666666">&amp;&amp;</span> score <span style="color: #666666">&lt;</span> minOver) {
+                minOver <span style="color: #666666">=</span> score;
+            } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (score <span style="color: #666666">&lt;=</span> <span style="color: #666666">21</span> <span style="color: #666666">&amp;&amp;</span> score <span style="color: #666666">&gt;</span> maxUnder) {
+                maxUnder <span style="color: #666666">=</span> score;
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> maxUnder <span style="color: #666666">==</span> Integer.<span style="color: #7D9029">MIN_VALUE</span> <span style="color: #666666">?</span> minOver : maxUnder;
+    }
 
-    <span style="color: #66d9ef">private</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">possibleScores</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">scores</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #f8f8f2">ArrayList</span><span style="color: #f92672">&lt;&gt;</span><span style="color: #f8f8f2">();</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(Card</span> <span style="color: #f8f8f2">card</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">cards)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">updateScores(card,</span> <span style="color: #f8f8f2">scores);</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">scores;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">private</span> List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> <span style="color: #0000FF">possibleScores</span>() {
+        List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> scores <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;</span>();
+        <span style="color: #008000; font-weight: bold">for</span> (Card card : cards) {
+            updateScores(card, scores);
+        }
+        <span style="color: #008000; font-weight: bold">return</span> scores;
+    }
 
-    <span style="color: #66d9ef">private</span> <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">udpateScores</span><span style="color: #f8f8f2">(Card</span> <span style="color: #f8f8f2">card,</span> <span style="color: #f8f8f2">List</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Integer</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">scores)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">final</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">toAdd</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">getScore(card);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(scores.</span><span style="color: #a6e22e">isEmpty</span><span style="color: #f8f8f2">())</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">score</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">toAdd)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">scores.</span><span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(score);</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">final</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">length</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">scores.</span><span style="color: #a6e22e">size</span><span style="color: #f8f8f2">();</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">length;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">oldScore</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">scores.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(i);</span>
-                <span style="color: #f8f8f2">scores.</span><span style="color: #a6e22e">set</span><span style="color: #f8f8f2">(i,</span> <span style="color: #f8f8f2">oldScore</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">toAdd</span><span style="color: #f92672">[</span><span style="color: #ae81ff">0</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">);</span>
-                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">toAdd.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #f8f8f2">scores.</span><span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(oldScore</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">to)</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">udpateScores</span>(Card card, List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> scores) {
+        <span style="color: #008000; font-weight: bold">final</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span> toAdd <span style="color: #666666">=</span> getScore(card);
+        <span style="color: #008000; font-weight: bold">if</span> (scores.<span style="color: #7D9029">isEmpty</span>()) {
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> score : toAdd) {
+                scores.<span style="color: #7D9029">add</span>(score);
+            }
+        } <span style="color: #008000; font-weight: bold">else</span> {
+            <span style="color: #008000; font-weight: bold">final</span> <span style="color: #B00040">int</span> length <span style="color: #666666">=</span> scores.<span style="color: #7D9029">size</span>();
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> length; <span style="color: #666666">++</span>i) {
+                <span style="color: #B00040">int</span> oldScore <span style="color: #666666">=</span> scores.<span style="color: #7D9029">get</span>(i);
+                scores.<span style="color: #7D9029">set</span>(i, oldScore <span style="color: #666666">+</span> toAdd<span style="color: #666666">[0]</span>);
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&lt;</span> toAdd.<span style="color: #7D9029">length</span>; <span style="color: #666666">++</span>j) {
+                    scores.<span style="color: #7D9029">add</span>(oldScore <span style="color: #666666">+</span> to)
+                }
+            }
+        }
+    }
+}
 </code></pre></div>
 
 
@@ -4017,36 +4008,36 @@ What if System Design: how to make it be able to be played by multiple users?</p
 <li>hard to be wrong used</li>
 <li>e.g. : weekday using int -&gt; 8? doesn't exist</li>
 </ul>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ParkingLot</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">private:</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Level</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">levels;</span> <span style="color: #75715e">// what if no level class? -&gt; 2d array to represent the spot in different level</span>
-    <span style="color: #f8f8f2">public:</span>
-        <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">hasSpot(Vehicle</span> <span style="color: #f8f8f2">v)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #75715e">// check each level, for each level, call Level#hasSpot(Vehicle)</span>
-        <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class ParkingLot {
+    <span style="color: #A0A000">private</span>:
+        vector<span style="color: #666666">&lt;</span>Level<span style="color: #666666">&gt;</span> levels; <span style="color: #408080; font-style: italic">// what if no level class? -&gt; 2d array to represent the spot in different level</span>
+    <span style="color: #A0A000">public</span>:
+        <span style="color: #B00040">bool</span> hasSpot(Vehicle v) {
+            <span style="color: #408080; font-style: italic">// check each level, for each level, call Level#hasSpot(Vehicle)</span>
+        }
+}
 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Level</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">/*</span>
-<span style="color: #75715e">    public:</span>
-<span style="color: #75715e">        bool hasSpot(Vehicle v) {</span>
-<span style="color: #75715e">            // check current level, if has spot</span>
-<span style="color: #75715e">        }</span>
-<span style="color: #75715e">    */</span>
-<span style="color: #f8f8f2">}</span>
+class Level {
+    <span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic">    public:</span>
+<span style="color: #408080; font-style: italic">        bool hasSpot(Vehicle v) {</span>
+<span style="color: #408080; font-style: italic">            // check current level, if has spot</span>
+<span style="color: #408080; font-style: italic">        }</span>
+<span style="color: #408080; font-style: italic">    */</span>
+}
 
-<span style="color: #66d9ef">enum</span> <span style="color: #f8f8f2">SIZE{suv,</span> <span style="color: #f8f8f2">truck,</span> <span style="color: #f8f8f2">eco}</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">ParkingSpot</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">private:</span>
-        <span style="color: #66d9ef">enum</span> <span style="color: #f8f8f2">SIZE</span> <span style="color: #f8f8f2">size;</span>
-    <span style="color: #75715e">// bool fit(Vehice): check size and avaliability</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">enum</span> SIZE{suv, truck, eco}
+class ParkingSpot {
+    <span style="color: #A0A000">private</span>:
+        <span style="color: #008000; font-weight: bold">enum</span> SIZE size;
+    <span style="color: #408080; font-style: italic">// bool fit(Vehice): check size and avaliability</span>
+}
 
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Vehicle</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">public:</span>
-        <span style="color: #75715e">// data field</span>
-        <span style="color: #f8f8f2">virtual</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">getSize()</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+class Vehicle {
+    <span style="color: #A0A000">public</span>:
+        <span style="color: #408080; font-style: italic">// data field</span>
+        virtual <span style="color: #B00040">int</span> getSize() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 

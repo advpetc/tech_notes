@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2918,66 +2909,66 @@
 <p><img alt="Screen Shot 2020-05-22 at 4.58.19 PM.png" src="../resources/572637276F3659D8A4369BF5B8DD6655.png" /></p>
 <p>每次记录中心点的两端，两端只能取蓝色的长度，因为只有蓝色长度才可以保证所有的点从中心点到终点是完全cover到的。然后根据左点排序（从小到大），每次greedy取可以cover到的最右点，当可以取到的最右点比当前的面积的长度要大的时候，那么便停止。</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/*</span>
-<span style="color: #75715e"> * 喷水装置.cpp</span>
-<span style="color: #75715e"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
-<span style="color: #75715e"> *</span>
-<span style="color: #75715e"> * Distributed under terms of the MIT license.</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">maxn</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">2e4</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cnt;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">L,</span> <span style="color: #f8f8f2">W;</span>
-<span style="color: #66d9ef">struct</span> <span style="color: #f8f8f2">line</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">y;</span>
-<span style="color: #f8f8f2">};</span>
-<span style="color: #f8f8f2">line</span> <span style="color: #f8f8f2">lines[maxn];</span>
-<span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">cmp</span><span style="color: #f8f8f2">(line</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">line</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">a.x</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">b.x;</span> <span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">read</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">L</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">W;</span>
-  <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x,</span> <span style="color: #f8f8f2">r;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">r;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(r</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">W</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// skip if height cannot cover</span>
-    <span style="color: #f8f8f2">cnt</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">len</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">sqrt(r</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">W</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">W</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">4.0</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// blue len </span>
-    <span style="color: #f8f8f2">lines[cnt].x</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">len;</span>
-    <span style="color: #f8f8f2">lines[cnt].y</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">len;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">work</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">sort(lines</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">lines</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">cmp);</span>
-  <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">last</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">ans</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(last</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">L)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">ans</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">s</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">last;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">cnt;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(lines[i].x</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">last</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(last,</span> <span style="color: #f8f8f2">lines[i].y);</span>
-      <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(last</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">s</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">L)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
-      <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">ans</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k;</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">k;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">k;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">read();</span>
-    <span style="color: #f8f8f2">work();</span>
-  <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<span style="color: #408080; font-style: italic"> * 喷水装置.cpp</span>
+<span style="color: #408080; font-style: italic"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
+<span style="color: #408080; font-style: italic"> *</span>
+<span style="color: #408080; font-style: italic"> * Distributed under terms of the MIT license.</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> maxn <span style="color: #666666">=</span> <span style="color: #666666">2e4</span> <span style="color: #666666">+</span> <span style="color: #666666">5</span>;
+<span style="color: #B00040">int</span> cnt;
+<span style="color: #B00040">int</span> n, L, W;
+<span style="color: #008000; font-weight: bold">struct</span> line {
+  <span style="color: #B00040">double</span> x, y;
+};
+line lines[maxn];
+<span style="color: #B00040">bool</span> <span style="color: #0000FF">cmp</span>(line a, line b) { <span style="color: #008000; font-weight: bold">return</span> a.x <span style="color: #666666">&lt;</span> b.x; }
+<span style="color: #B00040">void</span> <span style="color: #0000FF">read</span>() {
+  cin <span style="color: #666666">&gt;&gt;</span> n <span style="color: #666666">&gt;&gt;</span> L <span style="color: #666666">&gt;&gt;</span> W;
+  cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #B00040">int</span> x, r;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; i<span style="color: #666666">++</span>) {
+    cin <span style="color: #666666">&gt;&gt;</span> x <span style="color: #666666">&gt;&gt;</span> r;
+    <span style="color: #008000; font-weight: bold">if</span> (r <span style="color: #666666">&lt;=</span> W <span style="color: #666666">/</span> <span style="color: #666666">2</span>) <span style="color: #008000; font-weight: bold">continue</span>; <span style="color: #408080; font-style: italic">// skip if height cannot cover</span>
+    cnt<span style="color: #666666">++</span>;
+    <span style="color: #B00040">double</span> len <span style="color: #666666">=</span> sqrt(r <span style="color: #666666">*</span> r <span style="color: #666666">-</span> W <span style="color: #666666">*</span> W <span style="color: #666666">/</span> <span style="color: #666666">4.0</span>); <span style="color: #408080; font-style: italic">// blue len </span>
+    lines[cnt].x <span style="color: #666666">=</span> x <span style="color: #666666">-</span> len;
+    lines[cnt].y <span style="color: #666666">=</span> x <span style="color: #666666">+</span> len;
+  }
+}
+<span style="color: #B00040">void</span> <span style="color: #0000FF">work</span>() {
+  sort(lines <span style="color: #666666">+</span> <span style="color: #666666">1</span>, lines <span style="color: #666666">+</span> cnt <span style="color: #666666">+</span> <span style="color: #666666">1</span>, cmp);
+  <span style="color: #B00040">double</span> last <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #B00040">int</span> ans <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #008000; font-weight: bold">while</span> (last <span style="color: #666666">&lt;</span> L) {
+    ans<span style="color: #666666">++</span>;
+    <span style="color: #B00040">double</span> s <span style="color: #666666">=</span> last;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> cnt; i<span style="color: #666666">++</span>) {
+      <span style="color: #008000; font-weight: bold">if</span> (lines[i].x <span style="color: #666666">&lt;=</span> s) {
+        last <span style="color: #666666">=</span> max(last, lines[i].y);
+      } <span style="color: #008000; font-weight: bold">else</span> {
+        <span style="color: #008000; font-weight: bold">break</span>;
+      }
+    }
+    <span style="color: #008000; font-weight: bold">if</span> (last <span style="color: #666666">==</span> s <span style="color: #666666">&amp;&amp;</span> s <span style="color: #666666">&lt;</span> L) {
+      cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #666666">-1</span> <span style="color: #666666">&lt;&lt;</span> endl;
+      <span style="color: #008000; font-weight: bold">return</span>;
+    }
+  }
+  cout <span style="color: #666666">&lt;&lt;</span> ans <span style="color: #666666">&lt;&lt;</span> endl;
+}
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+  <span style="color: #B00040">int</span> k;
+  cin <span style="color: #666666">&gt;&gt;</span> k;
+  <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> k; j<span style="color: #666666">++</span>) {
+    read();
+    work();
+  }
 
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
                 
               

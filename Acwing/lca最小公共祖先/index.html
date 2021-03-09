@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2925,102 +2916,102 @@
 <p>针对多个询问，但是非动态生成树的做法
 <img alt="Screen Shot 2020-07-16 at 11.38.28 AM.png" src="../resources/49820D778E90CD9B22834E2EA59642AC.png" /></p>
 <h3 id="_2">代码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;cstdio&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;cstring&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
-<span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;algorithm&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;cstdio&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;cstring&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;algorithm&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">40010</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">M</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">40010</span>, M <span style="color: #666666">=</span> N <span style="color: #666666">*</span> <span style="color: #666666">2</span>;
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">m;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">h[N],</span> <span style="color: #f8f8f2">e[M],</span> <span style="color: #f8f8f2">ne[M],</span> <span style="color: #f8f8f2">idx;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">depth[N],</span> <span style="color: #f8f8f2">fa[N][</span><span style="color: #ae81ff">16</span><span style="color: #f8f8f2">];</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">q[N];</span>
+<span style="color: #B00040">int</span> n, m;
+<span style="color: #B00040">int</span> h[N], e[M], ne[M], idx;
+<span style="color: #B00040">int</span> depth[N], fa[N][<span style="color: #666666">16</span>];
+<span style="color: #B00040">int</span> q[N];
 
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">e[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">ne[idx]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h[a],</span> <span style="color: #f8f8f2">h[a]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">idx</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
-<span style="color: #75715e">// 建树和向上递增序列</span>
-<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">bfs</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">root)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">memset(depth,</span> <span style="color: #ae81ff">0x3f</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">depth);</span>
-    <span style="color: #f8f8f2">depth[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">depth[root]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">hh</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">tt</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">q[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">root;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(hh</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">tt)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #75715e">// queue.top() queue.pop()</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q[hh</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">];</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">h[t];</span> <span style="color: #f92672">~</span><span style="color: #f8f8f2">i;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">ne[i])</span>
-        <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">e[i];</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(depth[j]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">depth[t]</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span>
-            <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">depth[j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">depth[t]</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">q[</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">tt]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">j;</span>
-                <span style="color: #f8f8f2">fa[j][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">t;</span>
-                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">15</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span>
-                    <span style="color: #f8f8f2">fa[j][k]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">fa[fa[j][k</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]][k</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">void</span> <span style="color: #0000FF">add</span>(<span style="color: #B00040">int</span> a, <span style="color: #B00040">int</span> b)
+{
+    e[idx] <span style="color: #666666">=</span> b, ne[idx] <span style="color: #666666">=</span> h[a], h[a] <span style="color: #666666">=</span> idx <span style="color: #666666">++</span> ;
+}
+<span style="color: #408080; font-style: italic">// 建树和向上递增序列</span>
+<span style="color: #B00040">void</span> <span style="color: #0000FF">bfs</span>(<span style="color: #B00040">int</span> root)
+{
+    memset(depth, <span style="color: #666666">0x3f</span>, <span style="color: #008000; font-weight: bold">sizeof</span> depth);
+    depth[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">0</span>, depth[root] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+    <span style="color: #B00040">int</span> hh <span style="color: #666666">=</span> <span style="color: #666666">0</span>, tt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    q[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> root;
+    <span style="color: #008000; font-weight: bold">while</span> (hh <span style="color: #666666">&lt;=</span> tt)
+    {
+        <span style="color: #408080; font-style: italic">// queue.top() queue.pop()</span>
+        <span style="color: #B00040">int</span> t <span style="color: #666666">=</span> q[hh <span style="color: #666666">++</span> ];
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> h[t]; <span style="color: #666666">~</span>i; i <span style="color: #666666">=</span> ne[i])
+        {
+            <span style="color: #B00040">int</span> j <span style="color: #666666">=</span> e[i];
+            <span style="color: #008000; font-weight: bold">if</span> (depth[j] <span style="color: #666666">&gt;</span> depth[t] <span style="color: #666666">+</span> <span style="color: #666666">1</span>)
+            {
+                depth[j] <span style="color: #666666">=</span> depth[t] <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+                q[ <span style="color: #666666">++</span> tt] <span style="color: #666666">=</span> j;
+                fa[j][<span style="color: #666666">0</span>] <span style="color: #666666">=</span> t;
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">1</span>; k <span style="color: #666666">&lt;=</span> <span style="color: #666666">15</span>; k <span style="color: #666666">++</span> )
+                    fa[j][k] <span style="color: #666666">=</span> fa[fa[j][k <span style="color: #666666">-</span> <span style="color: #666666">1</span>]][k <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
+            }
+        }
+    }
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">lca</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(depth[a]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">depth[b])</span> <span style="color: #f8f8f2">swap(a,</span> <span style="color: #f8f8f2">b);</span>
-    <span style="color: #75715e">// 跳到同层</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">15</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(depth[fa[a][k]]</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">depth[b])</span>
-            <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">fa[a][k];</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(a</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">b)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">a;</span>
-    <span style="color: #75715e">// 继续上跳知道相遇</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">15</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(fa[a][k]</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">fa[b][k])</span>
-        <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">fa[a][k];</span>
-            <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">fa[b][k];</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">fa[a][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">lca</span>(<span style="color: #B00040">int</span> a, <span style="color: #B00040">int</span> b)
+{
+    <span style="color: #008000; font-weight: bold">if</span> (depth[a] <span style="color: #666666">&lt;</span> depth[b]) swap(a, b);
+    <span style="color: #408080; font-style: italic">// 跳到同层</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">15</span>; k <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; k <span style="color: #666666">--</span> )
+        <span style="color: #008000; font-weight: bold">if</span> (depth[fa[a][k]] <span style="color: #666666">&gt;=</span> depth[b])
+            a <span style="color: #666666">=</span> fa[a][k];
+    <span style="color: #008000; font-weight: bold">if</span> (a <span style="color: #666666">==</span> b) <span style="color: #008000; font-weight: bold">return</span> a;
+    <span style="color: #408080; font-style: italic">// 继续上跳知道相遇</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">15</span>; k <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; k <span style="color: #666666">--</span> )
+        <span style="color: #008000; font-weight: bold">if</span> (fa[a][k] <span style="color: #666666">!=</span> fa[b][k])
+        {
+            a <span style="color: #666666">=</span> fa[a][k];
+            b <span style="color: #666666">=</span> fa[b][k];
+        }
+    <span style="color: #008000; font-weight: bold">return</span> fa[a][<span style="color: #666666">0</span>];
+}
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">n);</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">memset(h,</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">h);</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>()
+{
+    scanf(<span style="color: #BA2121">&quot;%d&quot;</span>, <span style="color: #666666">&amp;</span>n);
+    <span style="color: #B00040">int</span> root <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    memset(h, <span style="color: #666666">-1</span>, <span style="color: #008000; font-weight: bold">sizeof</span> h);
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">++</span> <span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b;</span>
-        <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">a,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">b);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(b</span> <span style="color: #f92672">==</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">root</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">a;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">add(a,</span> <span style="color: #f8f8f2">b),</span> <span style="color: #f8f8f2">add(b,</span> <span style="color: #f8f8f2">a);</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i <span style="color: #666666">++</span> )
+    {
+        <span style="color: #B00040">int</span> a, b;
+        scanf(<span style="color: #BA2121">&quot;%d%d&quot;</span>, <span style="color: #666666">&amp;</span>a, <span style="color: #666666">&amp;</span>b);
+        <span style="color: #008000; font-weight: bold">if</span> (b <span style="color: #666666">==</span> <span style="color: #666666">-1</span>) root <span style="color: #666666">=</span> a;
+        <span style="color: #008000; font-weight: bold">else</span> add(a, b), add(b, a);
+    }
 
-    <span style="color: #f8f8f2">bfs(root);</span>
+    bfs(root);
 
-    <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">m);</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(m</span> <span style="color: #f92672">--</span> <span style="color: #f8f8f2">)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b;</span>
-        <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d%d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">a,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">b);</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">lca(a,</span> <span style="color: #f8f8f2">b);</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(p</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">a)</span> <span style="color: #f8f8f2">puts(</span><span style="color: #e6db74">&quot;1&quot;</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(p</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">puts(</span><span style="color: #e6db74">&quot;2&quot;</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">puts(</span><span style="color: #e6db74">&quot;0&quot;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">}</span>
+    scanf(<span style="color: #BA2121">&quot;%d&quot;</span>, <span style="color: #666666">&amp;</span>m);
+    <span style="color: #008000; font-weight: bold">while</span> (m <span style="color: #666666">--</span> )
+    {
+        <span style="color: #B00040">int</span> a, b;
+        scanf(<span style="color: #BA2121">&quot;%d%d&quot;</span>, <span style="color: #666666">&amp;</span>a, <span style="color: #666666">&amp;</span>b);
+        <span style="color: #B00040">int</span> p <span style="color: #666666">=</span> lca(a, b);
+        <span style="color: #008000; font-weight: bold">if</span> (p <span style="color: #666666">==</span> a) puts(<span style="color: #BA2121">&quot;1&quot;</span>);
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (p <span style="color: #666666">==</span> b) puts(<span style="color: #BA2121">&quot;2&quot;</span>);
+        <span style="color: #008000; font-weight: bold">else</span> puts(<span style="color: #BA2121">&quot;0&quot;</span>);
+    }
 
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 
-<span style="color: #960050; background-color: #1e0010">作者：</span><span style="color: #f8f8f2">yxc</span>
-<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/activity/content/code/content/154772/</span>
-<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
-<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+<span style="border: 1px solid #FF0000">作者：</span>yxc
+<span style="border: 1px solid #FF0000">链接：</span><span style="color: #A0A000">https</span>:<span style="color: #408080; font-style: italic">//www.acwing.com/activity/content/code/content/154772/</span>
+<span style="border: 1px solid #FF0000">来源：</span>AcWing
+<span style="border: 1px solid #FF0000">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
                 
               

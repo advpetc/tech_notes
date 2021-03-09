@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3306,29 +3297,29 @@
 <li>M[i] = M[i-1] + 1 else</li>
 </ul>
 <h5 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h5>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">;</span>
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">1010</span>;
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num[N],</span> <span style="color: #f8f8f2">n;</span>
+<span style="color: #B00040">int</span> num[N], n;
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">num[i];</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">gMax</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dp[n];</span>
-    <span style="color: #f8f8f2">memset(dp,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">dp);</span>
-    <span style="color: #f8f8f2">dp[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(num[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">num[i])</span> <span style="color: #f8f8f2">dp[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">dp[i]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">gMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(gMax,</span> <span style="color: #f8f8f2">dp[i]);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">gMax;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) cin <span style="color: #666666">&gt;&gt;</span> num[i];
+    <span style="color: #B00040">int</span> gMax <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #B00040">int</span> dp[n];
+    memset(dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
+    dp[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+        <span style="color: #008000; font-weight: bold">if</span> (num[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">&lt;</span> num[i]) dp[i] <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+        <span style="color: #008000; font-weight: bold">else</span> dp[i] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+        gMax <span style="color: #666666">=</span> max(gMax, dp[i]);
+    }
+    cout <span style="color: #666666">&lt;&lt;</span> gMax;
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3338,25 +3329,25 @@
 - else: local max = 0
 - return global max</p>
 <h5 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h5>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">;</span>
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">1010</span>;
 
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">num[N],</span> <span style="color: #f8f8f2">n;</span>
+<span style="color: #B00040">int</span> num[N], n;
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">num[i];</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">lMax</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">gMax</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(num[i]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">num[i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">])</span> <span style="color: #f8f8f2">gMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">lMax,</span> <span style="color: #f8f8f2">gMax);</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">lMax</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">gMax;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) cin <span style="color: #666666">&gt;&gt;</span> num[i];
+    <span style="color: #B00040">int</span> lMax <span style="color: #666666">=</span> <span style="color: #666666">1</span>, gMax <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; <span style="color: #666666">++</span>i) {
+        <span style="color: #008000; font-weight: bold">if</span> (num[i] <span style="color: #666666">&lt;</span> num[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>]) gMax <span style="color: #666666">=</span> max(<span style="color: #666666">++</span>lMax, gMax);
+        <span style="color: #008000; font-weight: bold">else</span> lMax <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+    }
+    cout <span style="color: #666666">&lt;&lt;</span> gMax;
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 </code></pre></div>
 
 
@@ -3369,23 +3360,23 @@
 <li>keep i-- to find the first element j from 0 to i - 1 that is less than num[i], and update M[i] = M[j] + 1</li>
 </ul>
 <h5 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h5>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">longest(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">arr)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">arr.size(),</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">m(n,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">arr.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">lMax</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">i;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr[j]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">arr[i])</span> <span style="color: #f8f8f2">lMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(lMax,</span> <span style="color: #f8f8f2">m[j]);</span>
-      <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">m[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">lMax</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(res,</span> <span style="color: #f8f8f2">m[i]);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  <span style="color: #B00040">int</span> longest(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> arr) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> arr.size(), res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> m(n, <span style="color: #666666">0</span>);
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> arr.size(); <span style="color: #666666">++</span>i) {
+      <span style="color: #B00040">int</span> lMax <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> i; <span style="color: #666666">++</span>j) {
+        <span style="color: #008000; font-weight: bold">if</span> (arr[j] <span style="color: #666666">&lt;</span> arr[i]) lMax <span style="color: #666666">=</span> max(lMax, m[j]);
+      }
+      m[i] <span style="color: #666666">=</span> lMax <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+      res <span style="color: #666666">=</span> max(res, m[i]);
+    }
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
+};
 </code></pre></div>
 
 
@@ -3395,39 +3386,39 @@
   - if <code>lowest_ending[i - 1] &lt; num[i]</code> -- meaning <code>lowest_ending[i] = num[i]</code> because all the element in the front are less than num[i]
   - else: find the first <code>lowest_ending[j] &gt;= num[i]</code>, so that we can update the <code>lowest_ending[j] = num[i]</code></p>
 <h5 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h5>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;iostream&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
+using namespace std;
 
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1010</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">cnt;</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">w[N],</span> <span style="color: #f8f8f2">f[N];</span> <span style="color: #75715e">// w stores the input, f stores the lowest ending</span>
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">1010</span>;
+<span style="color: #B00040">int</span> n, cnt;
+<span style="color: #B00040">int</span> w[N], f[N]; <span style="color: #408080; font-style: italic">// w stores the input, f stores the lowest ending</span>
 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span> <span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">w[i];</span>
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span> ; i <span style="color: #666666">&lt;</span> n; i<span style="color: #666666">++</span>) cin <span style="color: #666666">&gt;&gt;</span> w[i];
 
-    <span style="color: #f8f8f2">f[cnt</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">w[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(w[i]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">f[cnt</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">])</span> <span style="color: #f8f8f2">f[cnt</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">w[i];</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(f[mid]</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">w[i])</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid;</span>
-                <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">f[r]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">w[i];</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">cnt</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">endl;</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
+    f[cnt<span style="color: #666666">++</span>] <span style="color: #666666">=</span> w[<span style="color: #666666">0</span>];
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;</span> n; i<span style="color: #666666">++</span>) {
+        <span style="color: #008000; font-weight: bold">if</span> (w[i] <span style="color: #666666">&gt;</span> f[cnt<span style="color: #666666">-1</span>]) f[cnt<span style="color: #666666">++</span>] <span style="color: #666666">=</span> w[i];
+        <span style="color: #008000; font-weight: bold">else</span> {
+            <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> cnt <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+            <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r) {
+                <span style="color: #B00040">int</span> mid <span style="color: #666666">=</span> (l <span style="color: #666666">+</span> r) <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>;
+                <span style="color: #008000; font-weight: bold">if</span> (f[mid] <span style="color: #666666">&gt;=</span> w[i]) r <span style="color: #666666">=</span> mid;
+                <span style="color: #008000; font-weight: bold">else</span> l <span style="color: #666666">=</span> mid <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+            }
+            f[r] <span style="color: #666666">=</span> w[i];
+        }
+    }
+    cout <span style="color: #666666">&lt;&lt;</span> cnt <span style="color: #666666">&lt;&lt;</span> endl;
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+}
 
-<span style="color: #960050; background-color: #1e0010">作者：</span><span style="color: #f8f8f2">VictorWu</span>
-<span style="color: #960050; background-color: #1e0010">链接：</span><span style="color: #f8f8f2">https:</span><span style="color: #75715e">//www.acwing.com/solution/content/4807/</span>
-<span style="color: #960050; background-color: #1e0010">来源：</span><span style="color: #f8f8f2">AcWing</span>
-<span style="color: #960050; background-color: #1e0010">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
+<span style="border: 1px solid #FF0000">作者：</span>VictorWu
+<span style="border: 1px solid #FF0000">链接：</span><span style="color: #A0A000">https</span>:<span style="color: #408080; font-style: italic">//www.acwing.com/solution/content/4807/</span>
+<span style="border: 1px solid #FF0000">来源：</span>AcWing
+<span style="border: 1px solid #FF0000">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span>
 </code></pre></div>
 
 
@@ -3444,38 +3435,38 @@
   lastIdx = pre[lastIdx];</code></p>
 <p>to update.</p>
 <h5 id="code_4">Code<a class="headerlink" href="#code_4" title="Permanent link">&para;</a></h5>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">longest(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">arr)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">arr.size(),</span> <span style="color: #f8f8f2">gMax</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">lastIdx</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">pre(n,</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">m(n,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">lMax</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">preIdx</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-      <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">i;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(arr[j]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">arr[i])</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(lMax</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m[j])</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">preIdx</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">j;</span>
-            <span style="color: #f8f8f2">lMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m[j];</span>
-          <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">}</span>
-      <span style="color: #f8f8f2">m[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">lMax</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #f8f8f2">pre[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">preIdx;</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(gMax</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m[i])</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">gMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m[i];</span>
-        <span style="color: #f8f8f2">lastIdx</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i;</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res(gMax);</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">gMax</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">res[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">arr[lastIdx];</span>
-      <span style="color: #f8f8f2">lastIdx</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pre[lastIdx];</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> longest(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> arr) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> arr.size(), gMax <span style="color: #666666">=</span> <span style="color: #666666">0</span>, lastIdx <span style="color: #666666">=</span> <span style="color: #666666">-1</span>;
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> pre(n, <span style="color: #666666">-1</span>);
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> m(n, <span style="color: #666666">0</span>);
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+      <span style="color: #B00040">int</span> lMax <span style="color: #666666">=</span> <span style="color: #666666">0</span>, preIdx <span style="color: #666666">=</span> i;
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> i; <span style="color: #666666">++</span>j) {
+        <span style="color: #008000; font-weight: bold">if</span> (arr[j] <span style="color: #666666">&lt;</span> arr[i]) {
+          <span style="color: #008000; font-weight: bold">if</span> (lMax <span style="color: #666666">&lt;</span> m[j]) {
+            preIdx <span style="color: #666666">=</span> j;
+            lMax <span style="color: #666666">=</span> m[j];
+          }
+        }
+      }
+      m[i] <span style="color: #666666">=</span> lMax <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+      pre[i] <span style="color: #666666">=</span> preIdx;
+      <span style="color: #008000; font-weight: bold">if</span> (gMax <span style="color: #666666">&lt;</span> m[i]) {
+        gMax <span style="color: #666666">=</span> m[i];
+        lastIdx <span style="color: #666666">=</span> i;
+      }
+    }
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res(gMax);
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> gMax <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
+      res[i] <span style="color: #666666">=</span> arr[lastIdx];
+      lastIdx <span style="color: #666666">=</span> pre[lastIdx];
+    }
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
+};
 </code></pre></div>
 
 
@@ -3488,21 +3479,21 @@
 </ul>
 <p>Base on the above oberservation, we can first sort (ascending order) the points based on x value, so that we can choose any element points[i].x - points[j].x &gt; 0 if i &gt; j. Now the problem is reduced into how to choose j such that points[i].y - points[j].y &gt; 0, which is equal to find the LIS of points.y in the sorted array.</p>
 <h4 id="code_5">Code<a class="headerlink" href="#code_5" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
- <span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">largest(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">points)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">sort(points.begin(),</span> <span style="color: #f8f8f2">points.end(),</span> <span style="color: #f8f8f2">[](pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">r){</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l.first</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r.first</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(l.first</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">r.first</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">l.second</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">r.second);</span>
-    <span style="color: #f8f8f2">});</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">lowest_end;</span> <span style="color: #75715e">// record the lowest possible ending lis where the length is idx</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">points.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sz</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">lower_bound(lowest_end.begin(),</span> <span style="color: #f8f8f2">lowest_end.end(),</span> <span style="color: #f8f8f2">points[i].second)</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">lowest_end.begin();</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(sz</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">lowest_end.size())</span> <span style="color: #f8f8f2">lowest_end.push_back(points[i].second);</span>
-      <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">lowest_end[sz]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">points[i].second;</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">lowest_end.size()</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">?</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">lowest_end.size();</span>
-  <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+ <span style="color: #A0A000">public</span>:
+  <span style="color: #B00040">int</span> largest(vector<span style="color: #666666">&lt;</span>pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&gt;</span> points) {
+    sort(points.begin(), points.end(), [](pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> l, pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> r){
+      <span style="color: #008000; font-weight: bold">return</span> l.first <span style="color: #666666">&lt;</span> r.first <span style="color: #666666">||</span> (l.first <span style="color: #666666">==</span> r.first <span style="color: #666666">&amp;&amp;</span> l.second <span style="color: #666666">&gt;</span> r.second);
+    });
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> lowest_end; <span style="color: #408080; font-style: italic">// record the lowest possible ending lis where the length is idx</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> points.size(); <span style="color: #666666">++</span>i) {
+      <span style="color: #B00040">int</span> sz <span style="color: #666666">=</span> lower_bound(lowest_end.begin(), lowest_end.end(), points[i].second) <span style="color: #666666">-</span> lowest_end.begin();
+      <span style="color: #008000; font-weight: bold">if</span> (sz <span style="color: #666666">&gt;=</span> lowest_end.size()) lowest_end.push_back(points[i].second);
+      <span style="color: #008000; font-weight: bold">else</span> lowest_end[sz] <span style="color: #666666">=</span> points[i].second;
+    }
+    <span style="color: #008000; font-weight: bold">return</span> lowest_end.size() <span style="color: #666666">==</span> <span style="color: #666666">1</span> <span style="color: #666666">?</span> <span style="color: #666666">0</span> <span style="color: #666666">:</span> lowest_end.size();
+  }
+};
 </code></pre></div>
 
 

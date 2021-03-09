@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2937,33 +2928,33 @@
   1. 判断能否将其放入现在的某个组中L[i] &gt; Max_r（判断上一个区间的最右是否包含当前点的最左端点）
   2. 更新当前的区间的最右</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&lt;bits/stdc++.h&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #f8f8f2">using</span> <span style="color: #f8f8f2">namespace</span> <span style="color: #f8f8f2">std;</span>
-<span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">N</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1e5</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">num[N];</span>
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span>
-        <span style="color: #f8f8f2">scanf(</span><span style="color: #e6db74">&quot;%d %d&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">num[i].first,</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">num[i].second);</span>
-    <span style="color: #f8f8f2">sort(num,</span> <span style="color: #f8f8f2">num</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">[](pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">l.first</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">r.first;</span>
-    <span style="color: #f8f8f2">});</span>
-    <span style="color: #f8f8f2">priority_queue</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">greater</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">pq;</span> <span style="color: #75715e">// min Heap</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">num[i];</span>    
-        <span style="color: #75715e">// need a new section since all the intervals in front all have an intersection with current one</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(pq.empty()</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">pq.top()</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">r.first)</span> <span style="color: #f8f8f2">pq.push(r.second);</span>
-        <span style="color: #75715e">// remove the smallest section and add the new one&#39;s end</span>
-        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pq.top();</span>
-            <span style="color: #f8f8f2">pq.pop();</span>
-            <span style="color: #f8f8f2">pq.push(r.second);</span>
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">pq.size();</span>
-<span style="color: #f8f8f2">}</span>
+using namespace std;
+<span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">1e5</span> <span style="color: #666666">+</span> <span style="color: #666666">10</span>;
+pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> num[N];
+<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
+    <span style="color: #B00040">int</span> n;
+    cin <span style="color: #666666">&gt;&gt;</span> n;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i)
+        scanf(<span style="color: #BA2121">&quot;%d %d&quot;</span>, <span style="color: #666666">&amp;</span>num[i].first, <span style="color: #666666">&amp;</span>num[i].second);
+    sort(num, num <span style="color: #666666">+</span> n, [](pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> l, pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> r) {
+        <span style="color: #008000; font-weight: bold">return</span> l.first <span style="color: #666666">&lt;</span> r.first;
+    });
+    priority_queue<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span>, greater<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> pq; <span style="color: #408080; font-style: italic">// min Heap</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+        <span style="color: #008000; font-weight: bold">auto</span> r <span style="color: #666666">=</span> num[i];    
+        <span style="color: #408080; font-style: italic">// need a new section since all the intervals in front all have an intersection with current one</span>
+        <span style="color: #008000; font-weight: bold">if</span> (pq.empty() <span style="color: #666666">||</span> pq.top() <span style="color: #666666">&gt;=</span> r.first) pq.push(r.second);
+        <span style="color: #408080; font-style: italic">// remove the smallest section and add the new one&#39;s end</span>
+        <span style="color: #008000; font-weight: bold">else</span> {
+            <span style="color: #B00040">int</span> t <span style="color: #666666">=</span> pq.top();
+            pq.pop();
+            pq.push(r.second);
+        }
+    }
+    cout <span style="color: #666666">&lt;&lt;</span> pq.size();
+}
 </code></pre></div>
                 
               

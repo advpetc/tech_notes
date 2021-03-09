@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2944,90 +2935,90 @@ Example 3:</p>
 <p>Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
 Output: false</p>
 <h2 id="cpp-dfs-with-memo">cpp: dfs with memo<a class="headerlink" href="#cpp-dfs-with-memo" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #66d9ef">bool</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">memo;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    unordered_map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">bool</span><span style="color: #666666">&gt;</span> memo;
 
-    <span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">wordBreak</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">wordDict)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">unordered_set</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dict(wordDict.begin(),</span> <span style="color: #f8f8f2">wordDict.end());</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dfs(s,</span> <span style="color: #f8f8f2">dict);</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">bool</span> <span style="color: #0000FF">wordBreak</span>(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> wordDict) {
+        unordered_set<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> dict(wordDict.begin(), wordDict.end());
+        <span style="color: #008000; font-weight: bold">return</span> dfs(s, dict);
+    }
 
-    <span style="color: #66d9ef">bool</span> <span style="color: #a6e22e">dfs</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">unordered_set</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">dict)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(memo.count(s))</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">memo[s];</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(dict.count(s))</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">memo[s]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">s.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(dict.count(s.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i))</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #75715e">// cannot split from here</span>
-                <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(dfs(s.substr(i),</span> <span style="color: #f8f8f2">dict))</span> <span style="color: #75715e">// 0-i do exist, now check the rest</span>
-                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">memo[s]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">memo[s]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span> <span style="color: #75715e">// has tried all options</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #B00040">bool</span> <span style="color: #0000FF">dfs</span>(string s, unordered_set<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> dict) {
+        <span style="color: #008000; font-weight: bold">if</span> (memo.count(s))
+            <span style="color: #008000; font-weight: bold">return</span> memo[s];
+        <span style="color: #008000; font-weight: bold">if</span> (dict.count(s))
+            <span style="color: #008000; font-weight: bold">return</span> memo[s] <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;</span> s.size(); <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">if</span> (dict.count(s.substr(<span style="color: #666666">0</span>, i)) <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #408080; font-style: italic">// cannot split from here</span>
+                <span style="color: #008000; font-weight: bold">continue</span>;
+            <span style="color: #008000; font-weight: bold">if</span> (dfs(s.substr(i), dict)) <span style="color: #408080; font-style: italic">// 0-i do exist, now check the rest</span>
+                <span style="color: #008000; font-weight: bold">return</span> memo[s] <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> memo[s] <span style="color: #666666">=</span> <span style="color: #008000">false</span>; <span style="color: #408080; font-style: italic">// has tried all options</span>
+    }
+};
 </code></pre></div>
 
 
 <h2 id="java-dp">java: dp<a class="headerlink" href="#java-dp" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">public</span> <span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">public</span> <span style="color: #66d9ef">boolean</span> <span style="color: #a6e22e">wordBreak</span><span style="color: #f8f8f2">(String</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">Set</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">String</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dict)</span> <span style="color: #f8f8f2">{</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">wordBreak</span>(String s, Set<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> dict) {
 
-        <span style="color: #66d9ef">boolean</span><span style="color: #f92672">[]</span> <span style="color: #f8f8f2">f</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #66d9ef">boolean</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">s.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> f <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">boolean</span><span style="color: #666666">[</span>s.<span style="color: #7D9029">length</span>() <span style="color: #666666">+</span> <span style="color: #666666">1]</span>;
 
-        <span style="color: #f8f8f2">f</span><span style="color: #f92672">[</span><span style="color: #ae81ff">0</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span>
+        f<span style="color: #666666">[0]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
 
 
-        <span style="color: #75715e">/* First DP</span>
-<span style="color: #75715e">        for(int i = 1; i &lt;= s.length(); i++){</span>
-<span style="color: #75715e">            for(String str: dict){ // check each element in dp</span>
-<span style="color: #75715e">                if(str.length() &lt;= i){</span>
-<span style="color: #75715e">                    if(f[i - str.length()]){ // complement exist</span>
-<span style="color: #75715e">                        if(s.substring(i-str.length(), i).equals(str)){</span>
-<span style="color: #75715e">                            f[i] = true;</span>
-<span style="color: #75715e">                            break;</span>
-<span style="color: #75715e">                        }</span>
-<span style="color: #75715e">                    }</span>
-<span style="color: #75715e">                }</span>
-<span style="color: #75715e">            }</span>
-<span style="color: #75715e">        }*/</span>
+        <span style="color: #408080; font-style: italic">/* First DP</span>
+<span style="color: #408080; font-style: italic">        for(int i = 1; i &lt;= s.length(); i++){</span>
+<span style="color: #408080; font-style: italic">            for(String str: dict){ // check each element in dp</span>
+<span style="color: #408080; font-style: italic">                if(str.length() &lt;= i){</span>
+<span style="color: #408080; font-style: italic">                    if(f[i - str.length()]){ // complement exist</span>
+<span style="color: #408080; font-style: italic">                        if(s.substring(i-str.length(), i).equals(str)){</span>
+<span style="color: #408080; font-style: italic">                            f[i] = true;</span>
+<span style="color: #408080; font-style: italic">                            break;</span>
+<span style="color: #408080; font-style: italic">                        }</span>
+<span style="color: #408080; font-style: italic">                    }</span>
+<span style="color: #408080; font-style: italic">                }</span>
+<span style="color: #408080; font-style: italic">            }</span>
+<span style="color: #408080; font-style: italic">        }*/</span>
 
-        <span style="color: #75715e">//Second DP</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">s.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">();</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">){</span>
-            <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">i;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">){</span> <span style="color: #75715e">// split current s into s[0:j] and s[j:i]</span>
-                <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(f</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">j</span><span style="color: #f92672">]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">dict.</span><span style="color: #a6e22e">contains</span><span style="color: #f8f8f2">(s.</span><span style="color: #a6e22e">substring</span><span style="color: #f8f8f2">(j,</span> <span style="color: #f8f8f2">i))){</span>
-                    <span style="color: #f8f8f2">f</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">i</span><span style="color: #f92672">]</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span>
-                    <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
+        <span style="color: #408080; font-style: italic">//Second DP</span>
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i<span style="color: #666666">=1</span>; i <span style="color: #666666">&lt;=</span> s.<span style="color: #7D9029">length</span>(); i<span style="color: #666666">++</span>){
+            <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=0</span>; j <span style="color: #666666">&lt;</span> i; j<span style="color: #666666">++</span>){ <span style="color: #408080; font-style: italic">// split current s into s[0:j] and s[j:i]</span>
+                <span style="color: #008000; font-weight: bold">if</span>(f<span style="color: #666666">[</span>j<span style="color: #666666">]</span> <span style="color: #666666">&amp;&amp;</span> dict.<span style="color: #7D9029">contains</span>(s.<span style="color: #7D9029">substring</span>(j, i))){
+                    f<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
+                    <span style="color: #008000; font-weight: bold">break</span>;
+                }
+            }
+        }
 
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">f</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">s.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">()</span><span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+        <span style="color: #008000; font-weight: bold">return</span> f<span style="color: #666666">[</span>s.<span style="color: #7D9029">length</span>()<span style="color: #666666">]</span>;
+    }
+}
 </code></pre></div>
 
 
 <p>f[i] stands for whether subarray(0, i) can be segmented into words from the dictionary. So f[0] means whether subarray(0, 0) (which is an empty string) can be segmented, and of course the answer is yes.</p>
 <p>The default value for boolean array is false. Therefore we need to set f[0] to be true.</p>
 <h2 id="cpp-w-optimization">cpp w/ optimization<a class="headerlink" href="#cpp-w-optimization" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">wordBreak(string</span> <span style="color: #f8f8f2">s,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">word)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s.size();</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">bool</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dp(n</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #f8f8f2">dp[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(dp[i])</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// only consider if s[0:i] already exists</span>
-            <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">str:</span> <span style="color: #f8f8f2">word)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">str.size();</span>
-                <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s.substr(i,</span> <span style="color: #f8f8f2">l)</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">str)</span> 
-                    <span style="color: #f8f8f2">dp[i</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">l]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span> <span style="color: #75715e">// s[0:i] and s[i+str.size()] all valid</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dp.back();</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">bool</span> wordBreak(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> word) {
+        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> s.size();
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">bool</span><span style="color: #666666">&gt;</span> dp(n<span style="color: #666666">+1</span>);
+        dp[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i<span style="color: #666666">=0</span>; i<span style="color: #666666">&lt;</span>n; i<span style="color: #666666">++</span>) <span style="color: #008000; font-weight: bold">if</span>(dp[i]) { <span style="color: #408080; font-style: italic">// only consider if s[0:i] already exists</span>
+            <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #666666">&amp;</span><span style="color: #A0A000">str</span>: word) {
+                <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> str.size();
+                <span style="color: #008000; font-weight: bold">if</span>(s.substr(i, l) <span style="color: #666666">==</span> str) 
+                    dp[i<span style="color: #666666">+</span>l] <span style="color: #666666">=</span> <span style="color: #008000">true</span>; <span style="color: #408080; font-style: italic">// s[0:i] and s[i+str.size()] all valid</span>
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> dp.back();
+    }
+};
 </code></pre></div>
 
 

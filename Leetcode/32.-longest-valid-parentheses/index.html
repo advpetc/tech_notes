@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2927,30 +2918,30 @@ Explanation: The longest valid parentheses substring is "()()"</p>
 i - dp[i] + 1: start index of the previous valid one (dp[i-1])
 why +2 : because the dp[prevStart-1] + ( + dp[i-1] + ), there are two elements</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code> <span style="color: #66d9ef">int</span> <span style="color: #a6e22e">longestValidParentheses</span><span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s.length()</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">curMax</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">longest(s.size(),</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">s.length();</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">){</span>
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(s[i]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;)&#39;</span><span style="color: #f8f8f2">){</span>
-            <span style="color: #75715e">/* this block could be ignored because the else block has already calculated it</span>
-<span style="color: #75715e">            if(s[i-1] == &#39;(&#39;){ // valid parethese with previous one</span>
-<span style="color: #75715e">                longest[i] = (i-2) &gt;= 0 ? (longest[i-2] + 2) : 2;</span>
-<span style="color: #75715e">                curMax = max(longest[i],curMax);</span>
-<span style="color: #75715e">            }</span>
-<span style="color: #75715e">            */</span>
-            <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">{</span> <span style="color: #75715e">// if s[i-1] == &#39;)&#39;, combine the previous length.</span>
-                <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">prevStart</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">longest[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// the one before the last start valid</span>
-                <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(prevStart</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">s[prevStart]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;(&#39;</span><span style="color: #f8f8f2">){</span>
-                    <span style="color: #f8f8f2">longest[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">longest[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">((prevStart</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">?</span><span style="color: #f8f8f2">longest[prevStart</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-                    <span style="color: #f8f8f2">curMax</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(longest[i],curMax);</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">//else if s[i] == &#39;(&#39;, skip it, because longest[i] must be 0</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">curMax;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code> <span style="color: #B00040">int</span> <span style="color: #0000FF">longestValidParentheses</span>(string s) {
+    <span style="color: #008000; font-weight: bold">if</span>(s.length() <span style="color: #666666">&lt;=</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+    <span style="color: #B00040">int</span> curMax <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> longest(s.size(),<span style="color: #666666">0</span>);
+    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i<span style="color: #666666">=1</span>; i <span style="color: #666666">&lt;</span> s.length(); i<span style="color: #666666">++</span>){
+        <span style="color: #008000; font-weight: bold">if</span>(s[i] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;)&#39;</span>){
+            <span style="color: #408080; font-style: italic">/* this block could be ignored because the else block has already calculated it</span>
+<span style="color: #408080; font-style: italic">            if(s[i-1] == &#39;(&#39;){ // valid parethese with previous one</span>
+<span style="color: #408080; font-style: italic">                longest[i] = (i-2) &gt;= 0 ? (longest[i-2] + 2) : 2;</span>
+<span style="color: #408080; font-style: italic">                curMax = max(longest[i],curMax);</span>
+<span style="color: #408080; font-style: italic">            }</span>
+<span style="color: #408080; font-style: italic">            */</span>
+            <span style="color: #008000; font-weight: bold">else</span>{ <span style="color: #408080; font-style: italic">// if s[i-1] == &#39;)&#39;, combine the previous length.</span>
+                <span style="color: #B00040">int</span> prevStart <span style="color: #666666">=</span> i <span style="color: #666666">-</span> longest[i<span style="color: #666666">-1</span>] <span style="color: #666666">-</span> <span style="color: #666666">1</span>; <span style="color: #408080; font-style: italic">// the one before the last start valid</span>
+                <span style="color: #008000; font-weight: bold">if</span>(prevStart <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> s[prevStart] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;(&#39;</span>){
+                    longest[i] <span style="color: #666666">=</span> longest[i<span style="color: #666666">-1</span>] <span style="color: #666666">+</span> <span style="color: #666666">2</span> <span style="color: #666666">+</span> ((prevStart <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>)<span style="color: #666666">?</span>longest[prevStart <span style="color: #666666">-</span> <span style="color: #666666">1</span>]<span style="color: #666666">:0</span>);
+                    curMax <span style="color: #666666">=</span> max(longest[i],curMax);
+                }
+            }
+        }
+        <span style="color: #408080; font-style: italic">//else if s[i] == &#39;(&#39;, skip it, because longest[i] must be 0</span>
+    }
+    <span style="color: #008000; font-weight: bold">return</span> curMax;
+}
 </code></pre></div>
                 
               

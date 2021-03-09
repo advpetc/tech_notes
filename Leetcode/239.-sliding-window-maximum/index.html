@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2948,7 +2939,7 @@ Could you solve it in linear time?</p>
 <p>Input: nums = [1,3,-1,-3,5,3,6,7], and k = 3
 Output: [3,3,5,5,6,7] 
 Explanation: </p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Window position                Max
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Window position                Max
 ---------------               -----
 [1  3  -1] -3  5  3  6  7       3
  1 [3  -1  -3] 5  3  6  7       3
@@ -2966,29 +2957,29 @@ Explanation: </p>
 <li>Space: <span><span class="MathJax_Preview">O(k)</span><script type="math/tex">O(k)</script></span> the maximum size of the deque is having all the window size elements (e.g. a decreasing array like: 5,4,3,2,1, so each element will be pushed into the deque).</li>
 </ul>
 <h2 id="code-1-using-deque">Code 1: using Deque<a class="headerlink" href="#code-1-using-deque" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">maxSlidingWindow(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">deque</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">dq;</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">nums.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(dq.empty())</span> <span style="color: #f8f8f2">dq.push_back(i);</span>
-            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #75715e">// remove idx that is out of bound</span>
-                <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">dq.empty()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">dq.front()</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">k)</span>
-                    <span style="color: #f8f8f2">dq.pop_front();</span>
-                <span style="color: #75715e">// remove the element in front of current that is less than current</span>
-                <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">dq.empty()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">(nums[dq.back()]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">nums[i]))</span>
-                    <span style="color: #f8f8f2">dq.pop_back();</span>
-                <span style="color: #f8f8f2">dq.push_back(i);</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// start pushing when the first window is of size k</span>
-                <span style="color: #f8f8f2">res.push_back(nums[dq.front()]);</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> maxSlidingWindow(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> k) {
+        deque<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dq;
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> nums.size(); <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">if</span> (dq.empty()) dq.push_back(i);
+            <span style="color: #008000; font-weight: bold">else</span> {
+                <span style="color: #408080; font-style: italic">// remove idx that is out of bound</span>
+                <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>dq.empty() <span style="color: #666666">&amp;&amp;</span> dq.front() <span style="color: #666666">&lt;=</span> i <span style="color: #666666">-</span> k)
+                    dq.pop_front();
+                <span style="color: #408080; font-style: italic">// remove the element in front of current that is less than current</span>
+                <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>dq.empty() <span style="color: #666666">&amp;&amp;</span> (nums[dq.back()] <span style="color: #666666">&lt;</span> nums[i]))
+                    dq.pop_back();
+                dq.push_back(i);
+            }
+            <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">&gt;=</span> k <span style="color: #666666">-</span> <span style="color: #666666">1</span>) { <span style="color: #408080; font-style: italic">// start pushing when the first window is of size k</span>
+                res.push_back(nums[dq.front()]);
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
 
 
@@ -2999,41 +2990,41 @@ Explanation: </p>
 <li>Space: same</li>
 </ul>
 <h2 id="code-2-montonic-deque">Code 2: Montonic Deque<a class="headerlink" href="#code-2-montonic-deque" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">MonoQueue</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">push(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">e)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">data_.empty()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">e</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">data_.back())</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">data_.pop_back();</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">data_.push_back(e);</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class MonoQueue {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">void</span> push(<span style="color: #B00040">int</span> e) {
+        <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>data_.empty() <span style="color: #666666">&amp;&amp;</span> e <span style="color: #666666">&gt;</span> data_.back()) {
+            data_.pop_back();
+        }
+        data_.push_back(e);
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">pop()</span> <span style="color: #f8f8f2">{</span> 
-        <span style="color: #f8f8f2">data_.pop_front();</span> 
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> pop() { 
+        data_.pop_front(); 
+    }
 
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">max()</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span> 
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">data_.front();</span> 
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">private:</span>
-    <span style="color: #f8f8f2">deque</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">data_;</span>
-<span style="color: #f8f8f2">};</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">maxSlidingWindow(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">nums,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">MonoQueue</span> <span style="color: #f8f8f2">q;</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">ans;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">nums.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">q.push(nums[i]);</span> <span style="color: #75715e">// we can push worry-free</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">ans.push_back(q.max());</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(nums[i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">q.max())</span> <span style="color: #75715e">// the front of the queue is the greatest element (duplicate is fine)</span>
-                    <span style="color: #f8f8f2">q.pop();</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">ans;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #B00040">int</span> max() <span style="color: #008000; font-weight: bold">const</span> { 
+        <span style="color: #008000; font-weight: bold">return</span> data_.front(); 
+    }
+<span style="color: #A0A000">private</span>:
+    deque<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> data_;
+};
+class Solution {
+<span style="color: #A0A000">public</span>:
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> maxSlidingWindow(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> k) {
+        MonoQueue q;
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> ans;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> nums.size(); <span style="color: #666666">++</span>i) {
+            q.push(nums[i]); <span style="color: #408080; font-style: italic">// we can push worry-free</span>
+            <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">-</span> k <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>) {
+                ans.push_back(q.max());
+                <span style="color: #008000; font-weight: bold">if</span> (nums[i <span style="color: #666666">-</span> k <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">==</span> q.max()) <span style="color: #408080; font-style: italic">// the front of the queue is the greatest element (duplicate is fine)</span>
+                    q.pop();
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> ans;
+    }
+};
 </code></pre></div>
                 
               

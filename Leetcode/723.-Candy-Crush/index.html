@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2923,7 +2914,7 @@
 </ol>
 <p>You need to perform the above rules until the board becomes stable, then return the current board.</p>
 <p><strong>Example:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input:
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input:
 board =
 [[110,5,112,113,114],[210,211,5,213,214],[310,311,3,313,314],[410,411,412,5,414],[5,1,512,3,3],[610,4,1,613,614],[710,1,2,713,714],[810,1,2,1,1],[1,1,2,2,2],[4,1,4,4,1014]]
 
@@ -2950,54 +2941,54 @@ Explanation:
 </ol>
 <p>We just need to follow these three cases to write the code. Note that for step 3, we need to use the same logic after we have fallen down all the candies, thus we need to use recrusion for that case.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">candyCrush(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;&amp;</span> <span style="color: #f8f8f2">board)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">board.size();</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(m</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">board;</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">board[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(n</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">board;</span>
-            <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">todo</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-<span style="color: #75715e">// step 1: mark all three-algined candy to negative with **up and down** directions</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">v</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">abs(board[i][j]);</span>
-                    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(v</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">v</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">abs(board[i][j</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">])</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">v</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">abs(board[i][j</span><span style="color: #f92672">+</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]))</span> <span style="color: #f8f8f2">{</span>
-                        <span style="color: #f8f8f2">board[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">v;</span>
-                        <span style="color: #f8f8f2">board[i][j</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">v;</span>
-                        <span style="color: #f8f8f2">board[i][j</span><span style="color: #f92672">+</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">v;</span>
-                        <span style="color: #f8f8f2">todo</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-                    <span style="color: #f8f8f2">}</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-<span style="color: #75715e">// step 2: mark all three-algined candy to negative with **left and right** directions</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">-</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">v</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">abs(board[i][j]);</span>
-                    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(v</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">v</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">abs(board[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j])</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">v</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">abs(board[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">][j]))</span> <span style="color: #f8f8f2">{</span>
-                        <span style="color: #f8f8f2">board[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">v;</span>
-                        <span style="color: #f8f8f2">board[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j]</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">v;</span>
-                        <span style="color: #f8f8f2">board[i</span><span style="color: #f92672">+</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">][j]</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">v;</span>
-                        <span style="color: #f8f8f2">todo</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-                    <span style="color: #f8f8f2">}</span>
-                <span style="color: #f8f8f2">}</span>
-            <span style="color: #f8f8f2">}</span>
-<span style="color: #75715e">// step 3: gravity part</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(todo)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">row</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// pointing at bottom</span>
-                    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// shift down </span>
-                        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(board[i][j]</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-                            <span style="color: #f8f8f2">board[row</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">board[i][j];</span>
-                    <span style="color: #f8f8f2">}</span>
-                    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(row</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #75715e">// fill the original candy loc to 0</span>
-                        <span style="color: #f8f8f2">board[row</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">][j]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">}</span>
-                <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">candyCrush(board);</span>
-            <span style="color: #f8f8f2">}</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">board;</span>
-        <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+    <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> candyCrush(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> board) {
+            <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> board.size();
+            <span style="color: #008000; font-weight: bold">if</span> (m <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> board;
+            <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> board[<span style="color: #666666">0</span>].size();
+            <span style="color: #008000; font-weight: bold">if</span> (n <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> board;
+            <span style="color: #B00040">bool</span> todo <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+<span style="color: #408080; font-style: italic">// step 1: mark all three-algined candy to negative with **up and down** directions</span>
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n<span style="color: #666666">-2</span>; <span style="color: #666666">++</span>j) {
+                    <span style="color: #B00040">int</span> v <span style="color: #666666">=</span> abs(board[i][j]);
+                    <span style="color: #008000; font-weight: bold">if</span> (v <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> v <span style="color: #666666">==</span> abs(board[i][j<span style="color: #666666">+1</span>]) <span style="color: #666666">&amp;&amp;</span> v <span style="color: #666666">==</span> abs(board[i][j<span style="color: #666666">+2</span>])) {
+                        board[i][j] <span style="color: #666666">=</span> <span style="color: #666666">-</span>v;
+                        board[i][j<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> <span style="color: #666666">-</span>v;
+                        board[i][j<span style="color: #666666">+2</span>] <span style="color: #666666">=</span> <span style="color: #666666">-</span>v;
+                        todo <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+                    }
+                }
+            }
+<span style="color: #408080; font-style: italic">// step 2: mark all three-algined candy to negative with **left and right** directions</span>
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m<span style="color: #666666">-2</span>; <span style="color: #666666">++</span>i) {
+                    <span style="color: #B00040">int</span> v <span style="color: #666666">=</span> abs(board[i][j]);
+                    <span style="color: #008000; font-weight: bold">if</span> (v <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> v <span style="color: #666666">==</span> abs(board[i<span style="color: #666666">+1</span>][j]) <span style="color: #666666">&amp;&amp;</span> v <span style="color: #666666">==</span> abs(board[i<span style="color: #666666">+2</span>][j])) {
+                        board[i][j] <span style="color: #666666">=</span> <span style="color: #666666">-</span>v;
+                        board[i<span style="color: #666666">+1</span>][j] <span style="color: #666666">=</span> <span style="color: #666666">-</span>v;
+                        board[i<span style="color: #666666">+2</span>][j] <span style="color: #666666">=</span> <span style="color: #666666">-</span>v;
+                        todo <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+                    }
+                }
+            }
+<span style="color: #408080; font-style: italic">// step 3: gravity part</span>
+            <span style="color: #008000; font-weight: bold">if</span> (todo) {
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
+                    <span style="color: #B00040">int</span> row <span style="color: #666666">=</span> m<span style="color: #666666">-1</span>; <span style="color: #408080; font-style: italic">// pointing at bottom</span>
+                    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> m<span style="color: #666666">-1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) { <span style="color: #408080; font-style: italic">// shift down </span>
+                        <span style="color: #008000; font-weight: bold">if</span> (board[i][j] <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>)
+                            board[row<span style="color: #666666">--</span>][j] <span style="color: #666666">=</span> board[i][j];
+                    }
+                    <span style="color: #008000; font-weight: bold">while</span> (row <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>) <span style="color: #408080; font-style: italic">// fill the original candy loc to 0</span>
+                        board[row<span style="color: #666666">--</span>][j] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+                }
+                <span style="color: #008000; font-weight: bold">return</span> candyCrush(board);
+            }
+            <span style="color: #008000; font-weight: bold">return</span> board;
+        }
+};
 </code></pre></div>
                 
               

@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2937,7 +2928,7 @@
 </ul>
 <p>You can assume all calls to <code>checkIn</code> and <code>checkOut</code> methods are consistent. That is, if a customer gets in at time <strong>t1</strong> at some station, then it gets out at time <strong>t2</strong> with <strong>t2 &gt; t1</strong>. All events happen in chronological order.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input
 [&quot;UndergroundSystem&quot;,&quot;checkIn&quot;,&quot;checkIn&quot;,&quot;checkIn&quot;,&quot;checkOut&quot;,&quot;checkOut&quot;,&quot;checkOut&quot;,&quot;getAverageTime&quot;,&quot;getAverageTime&quot;,&quot;checkIn&quot;,&quot;getAverageTime&quot;,&quot;checkOut&quot;,&quot;getAverageTime&quot;]
 [[],[45,&quot;Leyton&quot;,3],[32,&quot;Paradise&quot;,8],[27,&quot;Leyton&quot;,10],[45,&quot;Waterloo&quot;,15],[27,&quot;Waterloo&quot;,20],[32,&quot;Cambridge&quot;,22],[&quot;Paradise&quot;,&quot;Cambridge&quot;],[&quot;Leyton&quot;,&quot;Waterloo&quot;],[10,&quot;Leyton&quot;,24],[&quot;Leyton&quot;,&quot;Waterloo&quot;],[10,&quot;Waterloo&quot;,38],[&quot;Leyton&quot;,&quot;Waterloo&quot;]]
 
@@ -2962,7 +2953,7 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;);     
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input
 [&quot;UndergroundSystem&quot;,&quot;checkIn&quot;,&quot;checkOut&quot;,&quot;getAverageTime&quot;,&quot;checkIn&quot;,&quot;checkOut&quot;,&quot;getAverageTime&quot;,&quot;checkIn&quot;,&quot;checkOut&quot;,&quot;getAverageTime&quot;]
 [[],[10,&quot;Leyton&quot;,3],[10,&quot;Paradise&quot;,8],[&quot;Leyton&quot;,&quot;Paradise&quot;],[5,&quot;Leyton&quot;,10],[5,&quot;Paradise&quot;,16],[&quot;Leyton&quot;,&quot;Paradise&quot;],[2,&quot;Leyton&quot;,21],[2,&quot;Paradise&quot;,30],[&quot;Leyton&quot;,&quot;Paradise&quot;]]
 
@@ -3000,38 +2991,38 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // r
 <li>Space: <span><span class="MathJax_Preview">O(number of routes + total passengers)</span><script type="math/tex">O(number of routes + total passengers)</script></span></li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">UndergroundSystem</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">UndergroundSystem()</span> <span style="color: #f8f8f2">{</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">UndergroundSystem</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    UndergroundSystem() {
 
-    <span style="color: #f8f8f2">}</span>
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">checkIn(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">id,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">stationName,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">checkin[id]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{stationName,</span> <span style="color: #f8f8f2">t};</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> checkIn(<span style="color: #B00040">int</span> id, string stationName, <span style="color: #B00040">int</span> t) {
+        checkin[id] <span style="color: #666666">=</span> {stationName, t};
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">checkOut(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">id,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">stationName,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">route</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">checkin[id].first</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;-&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">stationName;</span>
-        <span style="color: #f8f8f2">checkout[route].first</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">checkin[id].second;</span>
-        <span style="color: #f8f8f2">checkout[route].second</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> checkOut(<span style="color: #B00040">int</span> id, string stationName, <span style="color: #B00040">int</span> t) {
+        string route <span style="color: #666666">=</span> checkin[id].first <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;-&quot;</span> <span style="color: #666666">+</span> stationName;
+        checkout[route].first <span style="color: #666666">+=</span> t <span style="color: #666666">-</span> checkin[id].second;
+        checkout[route].second <span style="color: #666666">++</span>;
+    }
 
-    <span style="color: #66d9ef">double</span> <span style="color: #f8f8f2">getAverageTime(string</span> <span style="color: #f8f8f2">startStation,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">endStation)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">route</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">startStation</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;-&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">endStation;</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">double</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">checkout[route].first</span> <span style="color: #f92672">/</span> <span style="color: #f8f8f2">checkout[route].second;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #66d9ef">private</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">checkin;</span> <span style="color: #75715e">// id -&gt; (start station, checkin time)</span>
-    <span style="color: #f8f8f2">unordered_map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">checkout;</span> <span style="color: #75715e">// route -&gt; (total time, cnt)</span>
-<span style="color: #f8f8f2">};</span>
+    <span style="color: #B00040">double</span> getAverageTime(string startStation, string endStation) {
+        string route <span style="color: #666666">=</span> startStation <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;-&quot;</span> <span style="color: #666666">+</span> endStation;
+        <span style="color: #008000; font-weight: bold">return</span> (<span style="color: #B00040">double</span>) checkout[route].first <span style="color: #666666">/</span> checkout[route].second;
+    }
+<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span>
+    unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, pair<span style="color: #666666">&lt;</span>string,<span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> checkin; <span style="color: #408080; font-style: italic">// id -&gt; (start station, checkin time)</span>
+    unordered_map<span style="color: #666666">&lt;</span>string, pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> checkout; <span style="color: #408080; font-style: italic">// route -&gt; (total time, cnt)</span>
+};
 
-<span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Your UndergroundSystem object will be instantiated and called as such:</span>
-<span style="color: #75715e"> * UndergroundSystem* obj = new UndergroundSystem();</span>
-<span style="color: #75715e"> * obj-&gt;checkIn(id,stationName,t);</span>
-<span style="color: #75715e"> * obj-&gt;checkOut(id,stationName,t);</span>
-<span style="color: #75715e"> * double param_3 = obj-&gt;getAverageTime(startStation,endStation);</span>
-<span style="color: #75715e"> */</span>
+<span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Your UndergroundSystem object will be instantiated and called as such:</span>
+<span style="color: #408080; font-style: italic"> * UndergroundSystem* obj = new UndergroundSystem();</span>
+<span style="color: #408080; font-style: italic"> * obj-&gt;checkIn(id,stationName,t);</span>
+<span style="color: #408080; font-style: italic"> * obj-&gt;checkOut(id,stationName,t);</span>
+<span style="color: #408080; font-style: italic"> * double param_3 = obj-&gt;getAverageTime(startStation,endStation);</span>
+<span style="color: #408080; font-style: italic"> */</span>
 </code></pre></div>
                 
               

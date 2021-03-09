@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2979,71 +2970,71 @@
 <li>A hash table (<strong>we can just lock the bucket we are accessing!</strong>)</li>
 </ul>
 <h3 id="example-implementation">Example implementation<a class="headerlink" href="#example-implementation" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">template</span> <span style="color: #f92672">&lt;</span><span style="color: #66d9ef">typename</span> <span style="color: #f8f8f2">Key,</span> <span style="color: #66d9ef">typename</span> <span style="color: #f8f8f2">Value,</span> <span style="color: #66d9ef">typename</span> <span style="color: #f8f8f2">Hash</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">hash</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Key</span><span style="color: #f92672">&gt;&gt;</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">threadsafe_lookup_table</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">private:</span>
-  <span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">bucket_type</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">Value</span> <span style="color: #f8f8f2">value_for(Key</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">key,</span> <span style="color: #f8f8f2">Value</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">default_value)</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">shared_lock</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">shared_mutex</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">lock(mutex);</span>
-      <span style="color: #f8f8f2">bucket_iterator</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">found_entry</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">find_entry_for(key);</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">(found_entry</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">data.end())</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">default_value</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">found_entry</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">second;</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>template <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">typename</span> Key, <span style="color: #008000; font-weight: bold">typename</span> Value, <span style="color: #008000; font-weight: bold">typename</span> Hash <span style="color: #666666">=</span> std<span style="color: #666666">::</span>hash<span style="color: #666666">&lt;</span>Key<span style="color: #666666">&gt;&gt;</span>
+class threadsafe_lookup_table {
+<span style="color: #A0A000">private</span>:
+  class bucket_type {
+  <span style="color: #A0A000">public</span>:
+    Value value_for(Key <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>key, Value <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>default_value) <span style="color: #008000; font-weight: bold">const</span> {
+      std<span style="color: #666666">::</span>shared_lock<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>shared_mutex<span style="color: #666666">&gt;</span> lock(mutex);
+      bucket_iterator <span style="color: #008000; font-weight: bold">const</span> found_entry <span style="color: #666666">=</span> find_entry_for(key);
+      <span style="color: #008000; font-weight: bold">return</span> (found_entry <span style="color: #666666">==</span> data.end()) <span style="color: #666666">?</span> <span style="color: #A0A000">default_value</span> : found_entry<span style="color: #666666">-&gt;</span>second;
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">add_or_update_mapping(Key</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">key,</span> <span style="color: #f8f8f2">Value</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">value)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">unique_lock</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">shared_mutex</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">lock(mutex);</span>
-      <span style="color: #f8f8f2">bucket_iterator</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">found_entry</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">find_entry_for(key);</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">(found_entry</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">data.end())</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">default_value</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">found_entry</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">second;</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> add_or_update_mapping(Key <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>key, Value <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>value) {
+      std<span style="color: #666666">::</span>unique_lock<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>shared_mutex<span style="color: #666666">&gt;</span> lock(mutex);
+      bucket_iterator <span style="color: #008000; font-weight: bold">const</span> found_entry <span style="color: #666666">=</span> find_entry_for(key);
+      <span style="color: #008000; font-weight: bold">return</span> (found_entry <span style="color: #666666">==</span> data.end()) <span style="color: #666666">?</span> <span style="color: #A0A000">default_value</span> : found_entry<span style="color: #666666">-&gt;</span>second;
+    }
 
-    <span style="color: #66d9ef">void</span> <span style="color: #f8f8f2">remove_mapping(Key</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">key)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">unique_lock</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">shared_mutex</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">lock(mutex);</span>
-      <span style="color: #f8f8f2">bucket_iterator</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">found_entry</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">find_entry_for(key);</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(found_entry</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">data.end())</span>
-        <span style="color: #f8f8f2">data.erase(found_entry);</span>
-    <span style="color: #f8f8f2">}</span>
+    <span style="color: #B00040">void</span> remove_mapping(Key <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>key) {
+      std<span style="color: #666666">::</span>unique_lock<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>shared_mutex<span style="color: #666666">&gt;</span> lock(mutex);
+      bucket_iterator <span style="color: #008000; font-weight: bold">const</span> found_entry <span style="color: #666666">=</span> find_entry_for(key);
+      <span style="color: #008000; font-weight: bold">if</span> (found_entry <span style="color: #666666">!=</span> data.end())
+        data.erase(found_entry);
+    }
 
-  <span style="color: #f8f8f2">private:</span>
-    <span style="color: #66d9ef">typedef</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">Key,</span> <span style="color: #f8f8f2">Value</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">bucket_value;</span>
-    <span style="color: #66d9ef">typedef</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">list</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">bucket_value</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">bucket_data;</span>
-    <span style="color: #66d9ef">typedef</span> <span style="color: #66d9ef">typename</span> <span style="color: #f8f8f2">bucket_data</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">iterator</span> <span style="color: #f8f8f2">bucket_iterator;</span>
-    <span style="color: #f8f8f2">bucket_data</span> <span style="color: #f8f8f2">data;</span>
-    <span style="color: #f8f8f2">mutable</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">shared_mutex</span> <span style="color: #f8f8f2">mutex;</span>
+  <span style="color: #A0A000">private</span>:
+    <span style="color: #008000; font-weight: bold">typedef</span> std<span style="color: #666666">::</span>pair<span style="color: #666666">&lt;</span>Key, Value<span style="color: #666666">&gt;</span> bucket_value;
+    <span style="color: #008000; font-weight: bold">typedef</span> std<span style="color: #666666">::</span>list<span style="color: #666666">&lt;</span>bucket_value<span style="color: #666666">&gt;</span> bucket_data;
+    <span style="color: #008000; font-weight: bold">typedef</span> <span style="color: #008000; font-weight: bold">typename</span> bucket_data<span style="color: #666666">::</span>iterator bucket_iterator;
+    bucket_data data;
+    mutable std<span style="color: #666666">::</span>shared_mutex mutex;
 
-    <span style="color: #f8f8f2">bucket_iterator</span> <span style="color: #a6e22e">find_entry_for</span><span style="color: #f8f8f2">(Key</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">key)</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">find_if(</span>
-          <span style="color: #f8f8f2">data.begin(),</span> <span style="color: #f8f8f2">data.end(),</span>
-          <span style="color: #f8f8f2">[</span><span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">](bucket_value</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">item)</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">item.first</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">key;</span> <span style="color: #f8f8f2">});</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">};</span>
-  <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #f8f8f2">unique_lock</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">bucket_type</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">buckets;</span>
-  <span style="color: #f8f8f2">Hash</span> <span style="color: #f8f8f2">hasher;</span>
-  <span style="color: #f8f8f2">bucket_type</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">get_bucket(Key</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">key)</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">std</span><span style="color: #f92672">::</span><span style="color: #66d9ef">size_t</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">bucket_index</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">hasher(key)</span> <span style="color: #f92672">%</span> <span style="color: #f8f8f2">buckets.size();</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">buckets[bucket_index];</span>
-  <span style="color: #f8f8f2">}</span>
+    bucket_iterator <span style="color: #0000FF">find_entry_for</span>(Key <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>key) <span style="color: #008000; font-weight: bold">const</span> {
+      <span style="color: #008000; font-weight: bold">return</span> std<span style="color: #666666">::</span>find_if(
+          data.begin(), data.end(),
+          [<span style="color: #666666">&amp;</span>](bucket_value <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>item) { <span style="color: #008000; font-weight: bold">return</span> item.first <span style="color: #666666">==</span> key; });
+    }
+  };
+  std<span style="color: #666666">::</span>vector<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>unique_lock<span style="color: #666666">&lt;</span>bucket_type<span style="color: #666666">&gt;&gt;</span> buckets;
+  Hash hasher;
+  bucket_type <span style="color: #666666">&amp;</span>get_bucket(Key <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>key) <span style="color: #008000; font-weight: bold">const</span> {
+    std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> <span style="color: #008000; font-weight: bold">const</span> bucket_index <span style="color: #666666">=</span> hasher(key) <span style="color: #666666">%</span> buckets.size();
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">*</span>buckets[bucket_index];
+  }
 
-<span style="color: #f8f8f2">public:</span>
-  <span style="color: #66d9ef">typedef</span> <span style="color: #f8f8f2">Key</span> <span style="color: #f8f8f2">key_type;</span>
-  <span style="color: #66d9ef">typedef</span> <span style="color: #f8f8f2">Value</span> <span style="color: #f8f8f2">mapped_type;</span>
-  <span style="color: #66d9ef">typedef</span> <span style="color: #f8f8f2">Hash</span> <span style="color: #f8f8f2">hash_type;</span>
-  <span style="color: #f8f8f2">threadsafe_lookup_table(</span><span style="color: #66d9ef">unsigned</span> <span style="color: #f8f8f2">num_buckets</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">19</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e">// arbitary prime number</span>
-                          <span style="color: #f8f8f2">Hash</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">hasher_</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Hash())</span>
-      <span style="color: #f92672">:</span> <span style="color: #f8f8f2">buckets(num_buckets),</span> <span style="color: #f8f8f2">hasher(hasher_)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">unsigned</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">num_buckets;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #f8f8f2">buckets[i].reset(new</span> <span style="color: #f8f8f2">bucket_type);</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">threadsafe_lookup_table(threadsafe_lookup_table</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">other)</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">delete;</span>
-  <span style="color: #f8f8f2">threadsafe_lookup_table</span> <span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">operator</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">(threadsafe_lookup_table</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">other)</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">delete;</span>
-  <span style="color: #f8f8f2">Value</span> <span style="color: #a6e22e">value_for</span><span style="color: #f8f8f2">(Key</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">key,</span> <span style="color: #f8f8f2">Value</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">default_value</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Value())</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">get_bucket(key).value_for(key,</span> <span style="color: #f8f8f2">default_value);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">add_or_update_mapping</span><span style="color: #f8f8f2">(Key</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">key,</span> <span style="color: #f8f8f2">Value</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">value)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">get_bucket(key).add_or_update_mapping(key,</span> <span style="color: #f8f8f2">value);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">void</span> <span style="color: #a6e22e">remove_mapping</span><span style="color: #f8f8f2">(Key</span> <span style="color: #66d9ef">const</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">key)</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">get_bucket(key).remove_mapping(key);</span> <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<span style="color: #A0A000">public</span>:
+  <span style="color: #008000; font-weight: bold">typedef</span> Key key_type;
+  <span style="color: #008000; font-weight: bold">typedef</span> Value mapped_type;
+  <span style="color: #008000; font-weight: bold">typedef</span> Hash hash_type;
+  threadsafe_lookup_table(<span style="color: #B00040">unsigned</span> num_buckets <span style="color: #666666">=</span> <span style="color: #666666">19</span>, <span style="color: #408080; font-style: italic">// arbitary prime number</span>
+                          Hash <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>hasher_ <span style="color: #666666">=</span> Hash())
+      <span style="color: #666666">:</span> buckets(num_buckets), hasher(hasher_) {
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">unsigned</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> num_buckets; <span style="color: #666666">++</span>i) {
+      buckets[i].reset(new bucket_type);
+    }
+  }
+  threadsafe_lookup_table(threadsafe_lookup_table <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>other) <span style="color: #666666">=</span> delete;
+  threadsafe_lookup_table <span style="color: #666666">&amp;</span> operator<span style="color: #666666">=</span>(threadsafe_lookup_table <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>other) <span style="color: #666666">=</span> delete;
+  Value <span style="color: #0000FF">value_for</span>(Key <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>key, Value <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>default_value <span style="color: #666666">=</span> Value()) <span style="color: #008000; font-weight: bold">const</span> {
+    <span style="color: #008000; font-weight: bold">return</span> get_bucket(key).value_for(key, default_value);
+  }
+  <span style="color: #B00040">void</span> <span style="color: #0000FF">add_or_update_mapping</span>(Key <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>key, Value <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>value) {
+    get_bucket(key).add_or_update_mapping(key, value);
+  }
+  <span style="color: #B00040">void</span> <span style="color: #0000FF">remove_mapping</span>(Key <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>key) { get_bucket(key).remove_mapping(key); }
+};
 </code></pre></div>
                 
               

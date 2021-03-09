@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2986,67 +2977,67 @@ Bellman Ford: cannot have a cycle from src but can deal with negative edge (sing
 <h2 id="dijkstra">Dijkstra<a class="headerlink" href="#dijkstra" title="Permanent link">&para;</a></h2>
 <p>More efficient than Bellman Ford but requires the edges are positive weight.</p>
 <p>The algorithm only traverse each node once, and greedily choose the shortest path to reach the current node (using priority queue).</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">distance[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">INF;</span> <span style="color: #f8f8f2">distance[x]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">q.push({</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,x});</span>
-<span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">q.empty())</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">q.top().second;</span> 
-    <span style="color: #f8f8f2">q.pop();</span> 
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(processed[a])</span> <span style="color: #66d9ef">continue</span><span style="color: #f8f8f2">;</span> 
-    <span style="color: #f8f8f2">processed[a]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">u</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">adj[a])</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">u.first,</span> <span style="color: #f8f8f2">w</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">u.second;</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(distance[a]</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">w</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">distance[b])</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">distance[b]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">distance[a]</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">w;</span>
-            <span style="color: #f8f8f2">q.push({</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">distance[b],b});</span> 
-        <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span> 
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; i<span style="color: #666666">++</span>) distance[i] <span style="color: #666666">=</span> INF; distance[x] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+q.push({<span style="color: #666666">0</span>,x});
+<span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>q.empty()) {
+    <span style="color: #B00040">int</span> a <span style="color: #666666">=</span> q.top().second; 
+    q.pop(); 
+    <span style="color: #008000; font-weight: bold">if</span> (processed[a]) <span style="color: #008000; font-weight: bold">continue</span>; 
+    processed[a] <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">u</span> : adj[a]) {
+        <span style="color: #B00040">int</span> b <span style="color: #666666">=</span> u.first, w <span style="color: #666666">=</span> u.second;
+        <span style="color: #008000; font-weight: bold">if</span> (distance[a]<span style="color: #666666">+</span>w <span style="color: #666666">&lt;</span> distance[b]) {
+            distance[b] <span style="color: #666666">=</span> distance[a]<span style="color: #666666">+</span>w;
+            q.push({<span style="color: #666666">-</span>distance[b],b}); 
+        }
+    } 
+}
 </code></pre></div>
 
 
 <p>Time: <span><span class="MathJax_Preview">O(n + m log m)</span><script type="math/tex">O(n + m log m)</script></span></p>
 <h2 id="bellman-ford">Bellman Ford<a class="headerlink" href="#bellman-ford" title="Permanent link">&para;</a></h2>
 <p>Find the shortest path from one src to all the others. If there is a negative cycle, it will be able to detect it.</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">distance[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">INF;</span> <span style="color: #f8f8f2">distance[x]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">e</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">edges)</span> <span style="color: #f8f8f2">{</span>
-       <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">w;</span>
-       <span style="color: #f8f8f2">tie(a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">w)</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">e;</span>
-       <span style="color: #f8f8f2">distance[b]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(distance[b],</span> <span style="color: #f8f8f2">distance[a]</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">w);</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; i<span style="color: #666666">++</span>) distance[i] <span style="color: #666666">=</span> INF; distance[x] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+<span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n<span style="color: #666666">-1</span>; i<span style="color: #666666">++</span>) {
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">e</span> : edges) {
+       <span style="color: #B00040">int</span> a, b, w;
+       tie(a, b, w) <span style="color: #666666">=</span> e;
+       distance[b] <span style="color: #666666">=</span> min(distance[b], distance[a]<span style="color: #666666">+</span>w);
+    }
+}
 
-<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">e</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">edge)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">w;</span>
-    <span style="color: #f8f8f2">tie(a,</span> <span style="color: #f8f8f2">b,</span> <span style="color: #f8f8f2">w)</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">e;</span>
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(distance[a]</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">w</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">distance[b])</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span> <span style="color: #75715e">// negative cycle</span>
-<span style="color: #f8f8f2">}</span>
+<span style="color: #008000; font-weight: bold">for</span> (<span style="color: #008000; font-weight: bold">auto</span> <span style="color: #A0A000">e</span> : edge) {
+    <span style="color: #B00040">int</span> a, b, w;
+    tie(a, b, w) <span style="color: #666666">=</span> e;
+    <span style="color: #008000; font-weight: bold">if</span> (distance[a] <span style="color: #666666">+</span> w <span style="color: #666666">&lt;</span> distance[b])
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>; <span style="color: #408080; font-style: italic">// negative cycle</span>
+}
 </code></pre></div>
 
 
 <p>Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span> n node with m edges</p>
 <h2 id="floyd-warshall-find-all-shortest-path-for-all-pairs">Floyd-Warshall (find all shortest path for all pairs)<a class="headerlink" href="#floyd-warshall-find-all-shortest-path-for-all-pairs" title="Permanent link">&para;</a></h2>
 <p>First initialize the distance list with direct connected nodes' distance.</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-       <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">distance[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-       <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(adj[i][j])</span> <span style="color: #f8f8f2">distance[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">adj[i][j];</span>
-       <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">distance[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">INF;</span> 
-    <span style="color: #f8f8f2">}</span> 
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; i<span style="color: #666666">++</span>) {
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&lt;=</span> n; j<span style="color: #666666">++</span>) {
+       <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">==</span> j) distance[i][j] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+       <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (adj[i][j]) distance[i][j] <span style="color: #666666">=</span> adj[i][j];
+       <span style="color: #008000; font-weight: bold">else</span> distance[i][j] <span style="color: #666666">=</span> INF; 
+    } 
+}
 </code></pre></div>
 
 
 <p>Then keep adding the intermediate nodes k, and base on the new graph update the distance list.</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">k</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// added node</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #f8f8f2">distance[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">min(distance[i][j],</span>
-                                 <span style="color: #f8f8f2">distance[i][k]</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">distance[k][j]);</span>
-        <span style="color: #f8f8f2">}</span> 
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">1</span>; k <span style="color: #666666">&lt;=</span> n; k<span style="color: #666666">++</span>) { <span style="color: #408080; font-style: italic">// added node</span>
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; i<span style="color: #666666">++</span>) {
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&lt;=</span> n; j<span style="color: #666666">++</span>) {
+            distance[i][j] <span style="color: #666666">=</span> min(distance[i][j],
+                                 distance[i][k] <span style="color: #666666">+</span> distance[k][j]);
+        } 
+    }
+}
 </code></pre></div>
 
 

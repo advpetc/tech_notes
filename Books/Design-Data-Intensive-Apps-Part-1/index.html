@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3008,10 +2999,10 @@
 <ol>
 <li>Approach 1: For <code>post</code>  request, it's simply "join" two tables:</li>
 </ol>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">select</span> <span style="color: #f8f8f2">tweets.</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">users.</span><span style="color: #f92672">*</span> <span style="color: #66d9ef">from</span> <span style="color: #f8f8f2">tweets</span>
-    <span style="color: #66d9ef">join</span> <span style="color: #f8f8f2">users</span> <span style="color: #66d9ef">on</span> <span style="color: #f8f8f2">tweets.sender_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">users.id</span>
-    <span style="color: #66d9ef">join</span> <span style="color: #f8f8f2">follows</span> <span style="color: #66d9ef">on</span> <span style="color: #f8f8f2">follows.followee_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">users.id</span>
-    <span style="color: #66d9ef">where</span> <span style="color: #f8f8f2">follows.follower_id</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">current_user</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">select</span> tweets.<span style="color: #666666">*</span>, users.<span style="color: #666666">*</span> <span style="color: #008000; font-weight: bold">from</span> tweets
+    <span style="color: #008000; font-weight: bold">join</span> users <span style="color: #008000; font-weight: bold">on</span> tweets.sender_id <span style="color: #666666">=</span> users.id
+    <span style="color: #008000; font-weight: bold">join</span> follows <span style="color: #008000; font-weight: bold">on</span> follows.followee_id <span style="color: #666666">=</span> users.id
+    <span style="color: #008000; font-weight: bold">where</span> follows.follower_id <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">current_user</span>
 </code></pre></div>
 
 

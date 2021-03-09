@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2920,7 +2911,7 @@
 <p>Return <em>the </em><em>exclusive time</em><em> of each function in an array, where the value at the</em> <code>ith</code> <em>index represents the exclusive time for the function with ID</em> <code>i</code>.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/diag1b.png" /></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;1:start:2&quot;,&quot;1:end:5&quot;,&quot;0:end:6&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;1:start:2&quot;,&quot;1:end:5&quot;,&quot;0:end:6&quot;]
 Output: [3,4]
 Explanation:
 Function 0 starts at the beginning of time 0, then it executes 2 for units of time and reaches the end of time 1.
@@ -2931,7 +2922,7 @@ So function 0 spends 2 + 1 = 3 units of total time executing, and function 1 spe
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: n = 1, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;0:start:6&quot;,&quot;0:end:6&quot;,&quot;0:end:7&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 1, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;0:start:6&quot;,&quot;0:end:6&quot;,&quot;0:end:7&quot;]
 Output: [8]
 Explanation:
 Function 0 starts at the beginning of time 0, executes for 2 units of time, and recursively calls itself.
@@ -2944,7 +2935,7 @@ So function 0 spends 2 + 4 + 1 + 1 = 8 units of total time executing.
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:6&quot;,&quot;1:end:6&quot;,&quot;0:end:7&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:6&quot;,&quot;1:end:6&quot;,&quot;0:end:7&quot;]
 Output: [7,1]
 Explanation:
 Function 0 starts at the beginning of time 0, executes for 2 units of time, and recursively calls itself.
@@ -2957,13 +2948,13 @@ So function 0 spends 2 + 4 + 1 = 7 units of total time executing, and function 1
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:7&quot;,&quot;1:end:7&quot;,&quot;0:end:8&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:7&quot;,&quot;1:end:7&quot;,&quot;0:end:8&quot;]
 Output: [8,1]
 </code></pre></div>
 
 
 <p><strong>Example 5:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: n = 1, logs = [&quot;0:start:0&quot;,&quot;0:end:0&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 1, logs = [&quot;0:start:0&quot;,&quot;0:end:0&quot;]
 Output: [1]
 </code></pre></div>
 
@@ -2987,45 +2978,45 @@ Output: [1]
 <p>Time: O(n) since each element is going to run into the stack once
 Space: O(n)</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #66d9ef">inline</span> <span style="color: #f8f8f2">parse(string</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">str)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">id,</span> <span style="color: #f8f8f2">status,</span> <span style="color: #f8f8f2">timestamp;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">str.length();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(str[i]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;:&#39;</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">str.substr(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">i);</span>
-                <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>            
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(str[i]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;:&#39;</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">status</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">str.substr(j,</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">j);</span>
-                <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">str.length()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">timestamp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">str.substr(j);</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">{id,</span> <span style="color: #f8f8f2">status,</span> <span style="color: #f8f8f2">timestamp};</span>
-    <span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">inline</span> parse(string<span style="color: #666666">&amp;</span> str) {
+        string id, status, timestamp;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> str.length(); <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">if</span> (str[i] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;:&#39;</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>j) {
+                id <span style="color: #666666">=</span> str.substr(<span style="color: #666666">0</span>, i);
+                j <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>;            
+            } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (str[i] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;:&#39;</span> <span style="color: #666666">&amp;&amp;</span> j) {
+                status <span style="color: #666666">=</span> str.substr(j, i <span style="color: #666666">-</span> j);
+                j <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+            } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">==</span> str.length() <span style="color: #666666">-</span> <span style="color: #666666">1</span>) {
+                timestamp <span style="color: #666666">=</span> str.substr(j);
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> {id, status, timestamp};
+    }
 
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">exclusiveTime(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">logs)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">time(n);</span>
-        <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">first</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">parse(logs[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]);</span>
-        <span style="color: #f8f8f2">stack</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">st{{</span> <span style="color: #f8f8f2">stoi(first[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">])</span> <span style="color: #f8f8f2">}};</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">prev</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">stoi(first[</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]);</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">logs.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">raw</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">parse(logs[i]);</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(raw[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;start&quot;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">st.empty())</span>
-                    <span style="color: #f8f8f2">time[st.top()]</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">stoi(raw[</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">])</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">prev;</span>
-                <span style="color: #f8f8f2">st.push(stoi(raw[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]));</span>
-                <span style="color: #f8f8f2">prev</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">stoi(raw[</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]);</span>
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #f8f8f2">time[st.top()]</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">stoi(raw[</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">])</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">prev</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #f8f8f2">st.pop();</span>
-                <span style="color: #f8f8f2">prev</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">stoi(raw[</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">])</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> exclusiveTime(<span style="color: #B00040">int</span> n, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> logs) {
+        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> time(n);
+        <span style="color: #008000; font-weight: bold">auto</span> first <span style="color: #666666">=</span> parse(logs[<span style="color: #666666">0</span>]);
+        stack<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> st{{ stoi(first[<span style="color: #666666">0</span>]) }};
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>, prev <span style="color: #666666">=</span> stoi(first[<span style="color: #666666">2</span>]); i <span style="color: #666666">&lt;</span> logs.size(); <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">auto</span> raw <span style="color: #666666">=</span> parse(logs[i]);
+            <span style="color: #008000; font-weight: bold">if</span> (raw[<span style="color: #666666">1</span>] <span style="color: #666666">==</span> <span style="color: #BA2121">&quot;start&quot;</span>) {
+                <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>st.empty())
+                    time[st.top()] <span style="color: #666666">+=</span> stoi(raw[<span style="color: #666666">2</span>]) <span style="color: #666666">-</span> prev;
+                st.push(stoi(raw[<span style="color: #666666">0</span>]));
+                prev <span style="color: #666666">=</span> stoi(raw[<span style="color: #666666">2</span>]);
+            } <span style="color: #008000; font-weight: bold">else</span> {
+                time[st.top()] <span style="color: #666666">+=</span> stoi(raw[<span style="color: #666666">2</span>]) <span style="color: #666666">-</span> prev <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+                st.pop();
+                prev <span style="color: #666666">=</span> stoi(raw[<span style="color: #666666">2</span>]) <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+            }
+        }
 
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">time;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+        <span style="color: #008000; font-weight: bold">return</span> time;
+    }
+};
 </code></pre></div>
                 
               

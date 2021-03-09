@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2923,37 +2914,37 @@ Explanation: 342 + 465 = 807.</p>
 <p>Two input linkedlists have already revsered, so we can just use two pointer to make the addition. To deal with carry bit, we need a integer to show the current sum. If the current sum is equal/greater than 10, then carry = 1 and sum %= 10
 Time: O(min(size of l1, size of l2))</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #75715e">/**</span>
-<span style="color: #75715e"> * Definition for singly-linked list.</span>
-<span style="color: #75715e"> * struct ListNode {</span>
-<span style="color: #75715e"> *     int val;</span>
-<span style="color: #75715e"> *     ListNode *next;</span>
-<span style="color: #75715e"> *     ListNode(int x) : val(x), next(NULL) {}</span>
-<span style="color: #75715e"> * };</span>
-<span style="color: #75715e"> */</span>
-<span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">addTwoNumbers(ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">l1,</span> <span style="color: #f8f8f2">ListNode</span><span style="color: #f92672">*</span> <span style="color: #f8f8f2">l2)</span>
-    <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">ListNode</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">dummy</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ListNode(</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">),</span> <span style="color: #f92672">*</span><span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dummy;</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">carry</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(l1</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">l2)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// either one is terminated</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l1</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">val2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l2</span> <span style="color: #f92672">?</span> <span style="color: #f8f8f2">l2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">val</span> <span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sum</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val1</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">val2</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">carry;</span>
-            <span style="color: #f8f8f2">carry</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">sum</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// if greater than 10 -&gt; carry &gt; 0</span>
-            <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ListNode(sum</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #f8f8f2">curr</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(l1)</span>
-                <span style="color: #f8f8f2">l1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l1</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(l2)</span>
-                <span style="color: #f8f8f2">l2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l2</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(carry)</span> <span style="color: #75715e">// final check</span>
-            <span style="color: #f8f8f2">curr</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">new</span> <span style="color: #f8f8f2">ListNode(</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dummy</span><span style="color: #f92672">-&gt;</span><span style="color: #f8f8f2">next;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Definition for singly-linked list.</span>
+<span style="color: #408080; font-style: italic"> * struct ListNode {</span>
+<span style="color: #408080; font-style: italic"> *     int val;</span>
+<span style="color: #408080; font-style: italic"> *     ListNode *next;</span>
+<span style="color: #408080; font-style: italic"> *     ListNode(int x) : val(x), next(NULL) {}</span>
+<span style="color: #408080; font-style: italic"> * };</span>
+<span style="color: #408080; font-style: italic"> */</span>
+class Solution {
+<span style="color: #A0A000">public</span>:
+    ListNode<span style="color: #666666">*</span> addTwoNumbers(ListNode<span style="color: #666666">*</span> l1, ListNode<span style="color: #666666">*</span> l2)
+    {
+        ListNode <span style="color: #666666">*</span>dummy <span style="color: #666666">=</span> new ListNode(<span style="color: #666666">-1</span>), <span style="color: #666666">*</span>curr <span style="color: #666666">=</span> dummy;
+        <span style="color: #B00040">int</span> carry <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">while</span> (l1 <span style="color: #666666">||</span> l2) { <span style="color: #408080; font-style: italic">// either one is terminated</span>
+            <span style="color: #B00040">int</span> val1 <span style="color: #666666">=</span> l1 <span style="color: #666666">?</span> l1<span style="color: #666666">-&gt;</span><span style="color: #A0A000">val</span> : <span style="color: #666666">0</span>;
+            <span style="color: #B00040">int</span> val2 <span style="color: #666666">=</span> l2 <span style="color: #666666">?</span> l2<span style="color: #666666">-&gt;</span><span style="color: #A0A000">val</span> : <span style="color: #666666">0</span>;
+            <span style="color: #B00040">int</span> sum <span style="color: #666666">=</span> val1 <span style="color: #666666">+</span> val2 <span style="color: #666666">+</span> carry;
+            carry <span style="color: #666666">=</span> sum <span style="color: #666666">/</span> <span style="color: #666666">10</span>; <span style="color: #408080; font-style: italic">// if greater than 10 -&gt; carry &gt; 0</span>
+            curr<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> new ListNode(sum <span style="color: #666666">%</span> <span style="color: #666666">10</span>);
+            curr <span style="color: #666666">=</span> curr<span style="color: #666666">-&gt;</span>next;
+            <span style="color: #008000; font-weight: bold">if</span> (l1)
+                l1 <span style="color: #666666">=</span> l1<span style="color: #666666">-&gt;</span>next;
+            <span style="color: #008000; font-weight: bold">if</span> (l2)
+                l2 <span style="color: #666666">=</span> l2<span style="color: #666666">-&gt;</span>next;
+        }
+        <span style="color: #008000; font-weight: bold">if</span> (carry) <span style="color: #408080; font-style: italic">// final check</span>
+            curr<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> new ListNode(<span style="color: #666666">1</span>);
+        <span style="color: #008000; font-weight: bold">return</span> dummy<span style="color: #666666">-&gt;</span>next;
+    }
+};
 </code></pre></div>
                 
               

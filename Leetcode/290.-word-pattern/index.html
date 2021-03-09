@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2916,25 +2907,25 @@
 <p>Given a <code>pattern</code> and a string <code>s</code>, find if <code>s</code> follows the same pattern.</p>
 <p>Here <strong>follow</strong> means a full match, such that there is a bijection between a letter in <code>pattern</code> and a <strong>non-empty</strong> word in <code>s</code>.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: pattern = &quot;abba&quot;, s = &quot;dog cat cat dog&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: pattern = &quot;abba&quot;, s = &quot;dog cat cat dog&quot;
 Output: true
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: pattern = &quot;abba&quot;, s = &quot;dog cat cat fish&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: pattern = &quot;abba&quot;, s = &quot;dog cat cat fish&quot;
 Output: false
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: pattern = &quot;aaaa&quot;, s = &quot;dog cat cat dog&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: pattern = &quot;aaaa&quot;, s = &quot;dog cat cat dog&quot;
 Output: false
 </code></pre></div>
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: pattern = &quot;abba&quot;, s = &quot;dog dog dog dog&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: pattern = &quot;abba&quot;, s = &quot;dog dog dog dog&quot;
 Output: false
 </code></pre></div>
 
@@ -2961,23 +2952,23 @@ Output: false
 <p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>
 Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #66d9ef">public</span><span style="color: #f92672">:</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">wordPattern(string</span> <span style="color: #f8f8f2">pattern,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">map</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">char</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">string</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">ps;</span> <span style="color: #75715e">// pattern to string</span>
-        <span style="color: #f8f8f2">map</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">string,</span> <span style="color: #66d9ef">char</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">sp;</span> <span style="color: #75715e">// string to pattern</span>
-        <span style="color: #f8f8f2">istringstream</span> <span style="color: #a6e22e">ss</span><span style="color: #f8f8f2">(s);</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(string</span> <span style="color: #f8f8f2">word;</span> <span style="color: #f8f8f2">ss</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">word;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">p)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">currp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pattern[p];</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(ps.count(currp)</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">ps[currp]</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">word)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-            <span style="color: #f8f8f2">ps[currp]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">word;</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(sp.count(word)</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">sp[word]</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">currp)</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-            <span style="color: #f8f8f2">sp[word]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">currp;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">p</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">pattern.size();</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    <span style="color: #B00040">bool</span> wordPattern(string pattern, string s) {
+        map<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span>, string<span style="color: #666666">&gt;</span> ps; <span style="color: #408080; font-style: italic">// pattern to string</span>
+        map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">char</span><span style="color: #666666">&gt;</span> sp; <span style="color: #408080; font-style: italic">// string to pattern</span>
+        istringstream <span style="color: #0000FF">ss</span>(s);
+        <span style="color: #B00040">int</span> p <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (string word; ss <span style="color: #666666">&gt;&gt;</span> word; <span style="color: #666666">++</span>p) {
+            <span style="color: #B00040">char</span> currp <span style="color: #666666">=</span> pattern[p];
+            <span style="color: #008000; font-weight: bold">if</span> (ps.count(currp) <span style="color: #666666">&amp;&amp;</span> ps[currp] <span style="color: #666666">!=</span> word) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+            ps[currp] <span style="color: #666666">=</span> word;
+            <span style="color: #008000; font-weight: bold">if</span> (sp.count(word) <span style="color: #666666">&amp;&amp;</span> sp[word] <span style="color: #666666">!=</span> currp) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+            sp[word] <span style="color: #666666">=</span> currp;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> p <span style="color: #666666">==</span> pattern.size();
+    }
+};
 </code></pre></div>
                 
               

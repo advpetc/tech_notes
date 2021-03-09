@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2928,26 +2919,26 @@ Output: 6</p>
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> stack can contain all the elements.</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">trap(vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&amp;</span> <span style="color: #f8f8f2">height)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">height.size(),</span> <span style="color: #f8f8f2">res</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">stack</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">st;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(st.empty())</span> <span style="color: #f8f8f2">st.push(i);</span>
-            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">st.empty()</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">height[st.top()]</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">height[i])</span> <span style="color: #f8f8f2">{</span>
-                    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">t</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">st.top();</span>
-                    <span style="color: #f8f8f2">st.pop();</span>
-                    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(st.empty())</span> <span style="color: #66d9ef">break</span><span style="color: #f8f8f2">;</span>
-                    <span style="color: #f8f8f2">res</span> <span style="color: #f92672">+=</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">st.top()</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">(min(height[i],</span> <span style="color: #f8f8f2">height[st.top()])</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">height[t]);</span>
-                <span style="color: #f8f8f2">}</span>
-                <span style="color: #f8f8f2">st.push(i);</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">int</span> trap(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> height) {
+        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> height.size(), res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        stack<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> st;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">if</span> (st.empty()) st.push(i);
+            <span style="color: #008000; font-weight: bold">else</span> {
+                <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>st.empty() <span style="color: #666666">&amp;&amp;</span> height[st.top()] <span style="color: #666666">&lt;</span> height[i]) {
+                    <span style="color: #B00040">int</span> t <span style="color: #666666">=</span> st.top();
+                    st.pop();
+                    <span style="color: #008000; font-weight: bold">if</span> (st.empty()) <span style="color: #008000; font-weight: bold">break</span>;
+                    res <span style="color: #666666">+=</span> (i <span style="color: #666666">-</span> st.top() <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">*</span> (min(height[i], height[st.top()]) <span style="color: #666666">-</span> height[t]);
+                }
+                st.push(i);
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
 </code></pre></div>
                 
               

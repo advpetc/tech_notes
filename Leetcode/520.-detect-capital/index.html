@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2936,19 +2927,19 @@ Output: False</p>
 <code>firstCap</code>: first character is capital.</p>
 <p>Note that <code>!allCap</code> is not <code>allLower</code>.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">detectCapitalUse(string</span> <span style="color: #f8f8f2">word)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(word.empty())</span> <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">true;</span>
-        <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">allCap</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true,</span> <span style="color: #f8f8f2">firstCap</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false,</span> <span style="color: #f8f8f2">allLower</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">word.size();</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">isupper(word[i]))</span> <span style="color: #f8f8f2">firstCap</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f92672">!</span><span style="color: #f8f8f2">isupper(word[i]))</span> <span style="color: #f8f8f2">allCap</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">!=</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">isupper(word[i]))</span> <span style="color: #f8f8f2">allLower</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">false;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span>  <span style="color: #f8f8f2">allLower</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(firstCap</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">allCap);</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">bool</span> detectCapitalUse(string word) {
+        <span style="color: #008000; font-weight: bold">if</span> (word.empty()) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
+        <span style="color: #B00040">bool</span> allCap <span style="color: #666666">=</span> <span style="color: #008000">true</span>, firstCap <span style="color: #666666">=</span> <span style="color: #008000">false</span>, allLower <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> word.size(); <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> isupper(word[i])) firstCap <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+            <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>isupper(word[i])) allCap <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+            <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> isupper(word[i])) allLower <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
+        }
+        <span style="color: #008000; font-weight: bold">return</span>  allLower <span style="color: #666666">||</span> (firstCap <span style="color: #666666">&amp;&amp;</span> allCap);
+    }
+};
 </code></pre></div>
                 
               

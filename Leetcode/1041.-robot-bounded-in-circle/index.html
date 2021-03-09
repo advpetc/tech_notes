@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2922,7 +2913,7 @@
 <p>The robot performs the <code>instructions</code> given in order, and repeats them forever.</p>
 <p>Return <code>true</code> if and only if there exists a circle in the plane such that the robot never leaves the circle.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GGLLGG&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GGLLGG&quot;
 Output: true
 Explanation: The robot moves from (0,0) to (0,2), turns 180 degrees, and then returns to (0,0).
 When repeating these instructions, the robot remains in the circle of radius 2 centered at the origin.
@@ -2930,14 +2921,14 @@ When repeating these instructions, the robot remains in the circle of radius 2 c
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GG&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GG&quot;
 Output: false
 Explanation: The robot moves north indefinitely.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GL&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GL&quot;
 Output: true
 Explanation: The robot moves from (0, 0) -&gt; (0, 1) -&gt; (-1, 1) -&gt; (-1, 0) -&gt; (0, 0) -&gt; ...
 </code></pre></div>
@@ -2954,23 +2945,23 @@ Explanation: The robot moves from (0, 0) -&gt; (0, 1) -&gt; (-1, 1) -&gt; (-1, 0
 <li>if after mimicing we ends up with a direction other than going up (if it's up, then that is the only direcion and we cannot go back), we can still make it a circle</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isRobotBounded(string</span> <span style="color: #f8f8f2">instructions)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">sx</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">sy</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">dir</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">// 0: up, 1: left, 2: down, 3: right</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">char</span> <span style="color: #f8f8f2">c</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">instructions)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(c</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;G&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(dir</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">sx</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(dir</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">sy</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(dir</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">sy</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-                <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">sx</span> <span style="color: #f92672">--</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(c</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;L&#39;</span><span style="color: #f8f8f2">)</span>  <span style="color: #f8f8f2">dir</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(dir</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">dir</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(dir</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">%</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">sx</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">sy</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">dir</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">bool</span> isRobotBounded(string instructions) {
+        <span style="color: #B00040">int</span> sx <span style="color: #666666">=</span> <span style="color: #666666">0</span>, sy <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+        <span style="color: #B00040">int</span> dir <span style="color: #666666">=</span> <span style="color: #666666">0</span>; <span style="color: #408080; font-style: italic">// 0: up, 1: left, 2: down, 3: right</span>
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">char</span> <span style="color: #A0A000">c</span> : instructions) {
+            <span style="color: #008000; font-weight: bold">if</span> (c <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;G&#39;</span>) {
+                <span style="color: #008000; font-weight: bold">if</span> (dir <span style="color: #666666">==</span> <span style="color: #666666">0</span>) sx <span style="color: #666666">++</span>;
+                <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (dir <span style="color: #666666">==</span> <span style="color: #666666">1</span>) sy <span style="color: #666666">--</span>;
+                <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (dir <span style="color: #666666">==</span> <span style="color: #666666">3</span>) sy <span style="color: #666666">++</span>;
+                <span style="color: #008000; font-weight: bold">else</span> sx <span style="color: #666666">--</span>;
+            } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (c <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;L&#39;</span>)  dir <span style="color: #666666">=</span> (dir <span style="color: #666666">+</span> <span style="color: #666666">1</span>) <span style="color: #666666">%</span> <span style="color: #666666">4</span>;
+            <span style="color: #008000; font-weight: bold">else</span> dir <span style="color: #666666">=</span> (dir <span style="color: #666666">+</span> <span style="color: #666666">3</span>) <span style="color: #666666">%</span> <span style="color: #666666">4</span>;
+        }
+        <span style="color: #008000; font-weight: bold">return</span> sx <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> sy <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> dir <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>;
+    }
+};
 </code></pre></div>
                 
               

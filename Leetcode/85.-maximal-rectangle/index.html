@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2916,7 +2907,7 @@
 <p>Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.</p>
 <p>Example:</p>
 <p>Input:</p>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>[
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>[
   [&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],
   [&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],
   [&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],
@@ -2952,35 +2943,35 @@ right[i] record the right most index j which satifies that for any index k from 
 0 0 3 2 3 0 0
 0 5 6 3 6 5 0</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{public:</span>
-<span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">maximalRectangle(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">char</span><span style="color: #f92672">&gt;</span> <span style="color: #f92672">&gt;</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">matrix)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(matrix.empty())</span> <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix.size();</span>
-    <span style="color: #66d9ef">const</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">matrix[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].size();</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">left[n],</span> <span style="color: #f8f8f2">right[n],</span> <span style="color: #f8f8f2">height[n];</span>
-    <span style="color: #f8f8f2">fill_n(left,n,</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">fill_n(right,n,n);</span> <span style="color: #f8f8f2">fill_n(height,n,</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">maxA</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">m;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">cur_left</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">cur_right</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">n;</span> 
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// compute height (can do this from either side)</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(matrix[i][j]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">height[j]</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span> 
-            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">height[j]</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// compute left (from left to right)</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(matrix[i][j]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">left[j]</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">max(left[j],cur_left);</span>
-            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{left[j]</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">cur_left</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">j</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">// compute right (from right to left)</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">&gt;=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">--</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(matrix[i][j]</span><span style="color: #f92672">==</span><span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">right[j]</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">min(right[j],cur_right);</span>
-            <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{right[j]</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">cur_right</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">j;}</span>    
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #75715e">// compute the area of rectangle (can do this from either side)</span>
-        <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">=</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">n;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
-            <span style="color: #f8f8f2">maxA</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">max(maxA,(right[j]</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">left[j])</span><span style="color: #f92672">*</span><span style="color: #f8f8f2">height[j]);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">maxA;</span>
-<span style="color: #f8f8f2">}</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {<span style="color: #A0A000">public</span>:
+<span style="color: #B00040">int</span> maximalRectangle(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>matrix) {
+    <span style="color: #008000; font-weight: bold">if</span>(matrix.empty()) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> matrix.size();
+    <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
+    <span style="color: #B00040">int</span> left[n], right[n], height[n];
+    fill_n(left,n,<span style="color: #666666">0</span>); fill_n(right,n,n); fill_n(height,n,<span style="color: #666666">0</span>);
+    <span style="color: #B00040">int</span> maxA <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i<span style="color: #666666">=0</span>; i<span style="color: #666666">&lt;</span>m; i<span style="color: #666666">++</span>) {
+        <span style="color: #B00040">int</span> cur_left<span style="color: #666666">=0</span>, cur_right<span style="color: #666666">=</span>n; 
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=0</span>; j<span style="color: #666666">&lt;</span>n; j<span style="color: #666666">++</span>) { <span style="color: #408080; font-style: italic">// compute height (can do this from either side)</span>
+            <span style="color: #008000; font-weight: bold">if</span>(matrix[i][j]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;1&#39;</span>) height[j]<span style="color: #666666">++</span>; 
+            <span style="color: #008000; font-weight: bold">else</span> height[j]<span style="color: #666666">=0</span>;
+        }
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=0</span>; j<span style="color: #666666">&lt;</span>n; j<span style="color: #666666">++</span>) { <span style="color: #408080; font-style: italic">// compute left (from left to right)</span>
+            <span style="color: #008000; font-weight: bold">if</span>(matrix[i][j]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;1&#39;</span>) left[j]<span style="color: #666666">=</span>max(left[j],cur_left);
+            <span style="color: #008000; font-weight: bold">else</span> {left[j]<span style="color: #666666">=0</span>; cur_left<span style="color: #666666">=</span>j<span style="color: #666666">+1</span>;}
+        }
+        <span style="color: #408080; font-style: italic">// compute right (from right to left)</span>
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=</span>n<span style="color: #666666">-1</span>; j<span style="color: #666666">&gt;=0</span>; j<span style="color: #666666">--</span>) {
+            <span style="color: #008000; font-weight: bold">if</span>(matrix[i][j]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;1&#39;</span>) right[j]<span style="color: #666666">=</span>min(right[j],cur_right);
+            <span style="color: #008000; font-weight: bold">else</span> {right[j]<span style="color: #666666">=</span>n; cur_right<span style="color: #666666">=</span>j;}    
+        }
+        <span style="color: #408080; font-style: italic">// compute the area of rectangle (can do this from either side)</span>
+        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=0</span>; j<span style="color: #666666">&lt;</span>n; j<span style="color: #666666">++</span>)
+            maxA <span style="color: #666666">=</span> max(maxA,(right[j]<span style="color: #666666">-</span>left[j])<span style="color: #666666">*</span>height[j]);
+    }
+    <span style="color: #008000; font-weight: bold">return</span> maxA;
+}
 </code></pre></div>
                 
               

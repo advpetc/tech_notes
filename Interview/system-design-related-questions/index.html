@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3152,29 +3143,29 @@
 <li>Binary Reduction: merge 1 &amp; 2, merge 3 &amp; 4 ... merge k - 1 &amp; k. -&gt; merge 12 &amp; 34 ... -&gt; merge k-3k-2 &amp; k-1k: Time <span><span class="MathJax_Preview">O(k \times n \times log_2{k})</span><script type="math/tex">O(k \times n \times log_2{k})</script></span>: <span><span class="MathJax_Preview">log_2{k}</span><script type="math/tex">log_2{k}</script></span>: merge ops, for each merge it takes n to merge and there are k arrays + Space <span><span class="MathJax_Preview">O(k \times n)</span><script type="math/tex">O(k \times n)</script></span>. This solution has the same compleixty as the <code>priority_queue</code> solution, however if the array size is too big, then we need to read and write multiple times.</li>
 </ul>
 <h4 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">merge(vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">nums)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #75715e">// write your solution here</span>
-    <span style="color: #66d9ef">typedef</span> <span style="color: #f8f8f2">pair</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">PII;</span>
-    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">nums.size();</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> merge(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> nums) {
+    <span style="color: #408080; font-style: italic">// write your solution here</span>
+    <span style="color: #008000; font-weight: bold">typedef</span> pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> PII;
+    <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> nums.size();
 
-    <span style="color: #66d9ef">auto</span> <span style="color: #f8f8f2">cmp</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[</span><span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">](</span><span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">PII</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">l,</span> <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">PII</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">r)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">nums[l.first][l.second]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">nums[r.first][r.second];</span>
-    <span style="color: #f8f8f2">};</span>
-    <span style="color: #f8f8f2">priority_queue</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">PII,</span> <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #f8f8f2">PII</span><span style="color: #f92672">&gt;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">decltype(cmp)</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">pq(cmp);</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">nums[i].empty())</span>
-        <span style="color: #f8f8f2">pq.push(make_pair(i,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">));</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">res;</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">pq.empty())</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r,</span> <span style="color: #f8f8f2">c;</span>
-      <span style="color: #f8f8f2">tie(r,</span> <span style="color: #f8f8f2">c)</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pq.top();</span>
-      <span style="color: #f8f8f2">pq.pop();</span>
-      <span style="color: #f8f8f2">res.push_back(nums[r][c]);</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(c</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">nums[r].size())</span> <span style="color: #f8f8f2">pq.push(make_pair(r,</span> <span style="color: #f8f8f2">c</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">));</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">res;</span>
-  <span style="color: #f8f8f2">}</span>
+    <span style="color: #008000; font-weight: bold">auto</span> cmp <span style="color: #666666">=</span> [<span style="color: #666666">&amp;</span>](<span style="color: #008000; font-weight: bold">const</span> PII<span style="color: #666666">&amp;</span> l, <span style="color: #008000; font-weight: bold">const</span> PII<span style="color: #666666">&amp;</span> r) {
+      <span style="color: #008000; font-weight: bold">return</span> nums[l.first][l.second] <span style="color: #666666">&gt;</span> nums[r.first][r.second];
+    };
+    priority_queue<span style="color: #666666">&lt;</span>PII, vector<span style="color: #666666">&lt;</span>PII<span style="color: #666666">&gt;</span>, decltype(cmp)<span style="color: #666666">&gt;</span> pq(cmp);
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>nums[i].empty())
+        pq.push(make_pair(i, <span style="color: #666666">0</span>));
+    }
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
+    <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>pq.empty()) {
+      <span style="color: #B00040">int</span> r, c;
+      tie(r, c) <span style="color: #666666">=</span> pq.top();
+      pq.pop();
+      res.push_back(nums[r][c]);
+      <span style="color: #008000; font-weight: bold">if</span> (c <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&lt;</span> nums[r].size()) pq.push(make_pair(r, c <span style="color: #666666">+</span> <span style="color: #666666">1</span>));
+    }
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
 </code></pre></div>
 
 
@@ -3191,7 +3182,7 @@
 <p>Below are quoted from <a href="https://en.wikipedia.org/wiki/External_sorting#:~:text=External%20sorting%20is%20a%20class,usually%20a%20hard%20disk%20drive.">wikipedia</a></p>
 </li>
 </ol>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code>One example of external sorting is the external merge sort algorithm, which is a K-way merge algorithm. It sorts chunks that each fit in RAM, then merges the sorted chunks together.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>One example of external sorting is the external merge sort algorithm, which is a K-way merge algorithm. It sorts chunks that each fit in RAM, then merges the sorted chunks together.
 
 The algorithm first sorts M items at a time and puts the sorted lists back into external memory. It then recursively does a M/B-way merge on those sorted lists. To do this merge, B elements from each sorted list are loaded into internal memory, and the minimum is repeatedly outputted.
 

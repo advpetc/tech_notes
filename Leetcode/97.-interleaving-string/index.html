@@ -27,12 +27,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546d78">
       
     
     
@@ -60,10 +54,7 @@
   </head>
   
   
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -2933,29 +2924,29 @@ Output: false</p>
 <li>Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span> since need to populate the entire dp matrix</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><code><span style="color: #f8f8f2">class</span> <span style="color: #f8f8f2">Solution</span> <span style="color: #f8f8f2">{</span>
-<span style="color: #f8f8f2">public:</span>
-    <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">isInterleave(string</span> <span style="color: #f8f8f2">s1,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s2,</span> <span style="color: #f8f8f2">string</span> <span style="color: #f8f8f2">s3)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s1.size(),</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s2.size(),</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">s3.size();</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(m</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">k)</span>
-            <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">false;</span>
-        <span style="color: #66d9ef">bool</span> <span style="color: #f8f8f2">dp[m</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][n</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-        <span style="color: #f8f8f2">memset(dp,</span> <span style="color: #f8f8f2">false,</span> <span style="color: #66d9ef">sizeof</span> <span style="color: #f8f8f2">dp);</span>
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">m;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-                <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-                    <span style="color: #f8f8f2">dp[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">true;</span>
-                <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-                    <span style="color: #f8f8f2">dp[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i][j</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">s2[j</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s3[i</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">j</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-                <span style="color: #66d9ef">else</span> <span style="color: #a6e22e">if</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">)</span>
-                    <span style="color: #f8f8f2">dp[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">s1[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s3[i</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">j</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">];</span>
-                <span style="color: #66d9ef">else</span>
-                    <span style="color: #f8f8f2">dp[i][j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(dp[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">][j]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">s1[i</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s3[i</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">j</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">])</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">(dp[i][j</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">s2[j</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">s3[i</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">j</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]);</span>
-            <span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">}</span>
-        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">dp[m][n];</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">};</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+    <span style="color: #B00040">bool</span> isInterleave(string s1, string s2, string s3) {
+        <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> s1.size(), n <span style="color: #666666">=</span> s2.size(), k <span style="color: #666666">=</span> s3.size();
+        <span style="color: #008000; font-weight: bold">if</span> (m <span style="color: #666666">+</span> n <span style="color: #666666">!=</span> k)
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
+        <span style="color: #B00040">bool</span> dp[m<span style="color: #666666">+1</span>][n<span style="color: #666666">+1</span>];
+        memset(dp, <span style="color: #008000">false</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;=</span> m; <span style="color: #666666">++</span>i) {
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>j) {
+                <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">==</span> <span style="color: #666666">0</span>)
+                    dp[i][j] <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
+                <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (i <span style="color: #666666">==</span> <span style="color: #666666">0</span>)
+                    dp[i][j] <span style="color: #666666">=</span> dp[i][j<span style="color: #666666">-1</span>] <span style="color: #666666">&amp;&amp;</span> s2[j<span style="color: #666666">-1</span>] <span style="color: #666666">==</span> s3[i<span style="color: #666666">+</span>j<span style="color: #666666">-1</span>];
+                <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (j <span style="color: #666666">==</span> <span style="color: #666666">0</span>)
+                    dp[i][j] <span style="color: #666666">=</span> dp[i<span style="color: #666666">-1</span>][j] <span style="color: #666666">&amp;&amp;</span> s1[i<span style="color: #666666">-1</span>] <span style="color: #666666">==</span> s3[i<span style="color: #666666">+</span>j<span style="color: #666666">-1</span>];
+                <span style="color: #008000; font-weight: bold">else</span>
+                    dp[i][j] <span style="color: #666666">=</span> (dp[i<span style="color: #666666">-1</span>][j] <span style="color: #666666">&amp;&amp;</span> s1[i<span style="color: #666666">-1</span>] <span style="color: #666666">==</span> s3[i<span style="color: #666666">+</span>j<span style="color: #666666">-1</span>]) <span style="color: #666666">||</span> (dp[i][j<span style="color: #666666">-1</span>] <span style="color: #666666">&amp;&amp;</span> s2[j<span style="color: #666666">-1</span>] <span style="color: #666666">==</span> s3[i<span style="color: #666666">+</span>j<span style="color: #666666">-1</span>]);
+            }
+        }
+        <span style="color: #008000; font-weight: bold">return</span> dp[m][n];
+    }
+};
 </code></pre></div>
                 
               
