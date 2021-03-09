@@ -2960,7 +2960,7 @@ so whatever n is, (10 * n + 1) % k equals to (10 * r + 1) % k, where r is n % k.
 
 
 <p>Or inituitively, we can see that reminder is always in the range from 0 to K. No mater how do we increase our number, we just need to keep the reminder (% K result), since we are only interested in the reminder of the long number.</p>
-<p>So we conclude that $r = (r \times 10 + 1) \mod K $, where left-side r is our new r.</p>
+<p>So we conclude that <code>r = (r * 10 + 1) % K</code>, where left-side r is our new r.</p>
 <p>However, there is a even smarter way to reduce the space: </p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Assume that N = 1 to N = K, if there isn&#39;t 111...11 % K == 0
 There are at most K - 1 different remainders: 1, 2, .... K - 1.

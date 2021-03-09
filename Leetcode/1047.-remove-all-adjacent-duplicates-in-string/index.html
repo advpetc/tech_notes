@@ -1409,30 +1409,17 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#analysis" class="md-nav__link">
-    Analysis
+  <a href="#analysis-using-stack" class="md-nav__link">
+    Analysis: using stack
   </a>
   
-    <nav class="md-nav" aria-label="Analysis">
+    <nav class="md-nav" aria-label="Analysis: using stack">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
-    Solution 1
+  <a href="#code-1" class="md-nav__link">
+    Code 1
   </a>
-  
-    <nav class="md-nav" aria-label="Solution 1">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    Code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1442,16 +1429,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
-    Solution 2
+  <a href="#analysis-two-pointers" class="md-nav__link">
+    Analysis: two pointers
   </a>
   
-    <nav class="md-nav" aria-label="Solution 2">
+    <nav class="md-nav" aria-label="Analysis: two pointers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#code_1" class="md-nav__link">
-    Code
+  <a href="#code-2" class="md-nav__link">
+    Code 2
   </a>
   
 </li>
@@ -2909,30 +2896,17 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#analysis" class="md-nav__link">
-    Analysis
+  <a href="#analysis-using-stack" class="md-nav__link">
+    Analysis: using stack
   </a>
   
-    <nav class="md-nav" aria-label="Analysis">
+    <nav class="md-nav" aria-label="Analysis: using stack">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
-    Solution 1
+  <a href="#code-1" class="md-nav__link">
+    Code 1
   </a>
-  
-    <nav class="md-nav" aria-label="Solution 1">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    Code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2942,16 +2916,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
-    Solution 2
+  <a href="#analysis-two-pointers" class="md-nav__link">
+    Analysis: two pointers
   </a>
   
-    <nav class="md-nav" aria-label="Solution 2">
+    <nav class="md-nav" aria-label="Analysis: two pointers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#code_1" class="md-nav__link">
-    Code
+  <a href="#code-2" class="md-nav__link">
+    Code 2
   </a>
   
 </li>
@@ -2998,11 +2972,10 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 <li><code>1 &lt;= S.length &lt;= 20000</code></li>
 <li><code>S</code> consists only of English lowercase letters.</li>
 </ol>
-<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
+<h2 id="analysis-using-stack">Analysis: using stack<a class="headerlink" href="#analysis-using-stack" title="Permanent link">&para;</a></h2>
 <p>Because it requires to continuously merge and delete char that are the same, we should think about using stack to solve this problem.</p>
-<h3 id="solution-1">Solution 1<a class="headerlink" href="#solution-1" title="Permanent link">&para;</a></h3>
+<h3 id="code-1">Code 1<a class="headerlink" href="#code-1" title="Permanent link">&para;</a></h3>
 <p>Using a stack to maintain resulting string, if there is a duplicate with the ongoing char, we just keep popping the stack (the top) in <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> and put ongoing char back to the stack.</p>
-<h4 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     string removeDuplicates(string s) {
@@ -3020,7 +2993,7 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 </code></pre></div>
 
 
-<h2 id="solution-2">Solution 2<a class="headerlink" href="#solution-2" title="Permanent link">&para;</a></h2>
+<h2 id="analysis-two-pointers">Analysis: two pointers<a class="headerlink" href="#analysis-two-pointers" title="Permanent link">&para;</a></h2>
 <p>The first solution requires to allocate a new string to be return (as a stack), which will create space overhead for the new string (if the string is all distinct, then the return string will have the same size of the input string). To solve this, we can use two pointer to mimic the stack operations, and then use <code>substr</code> from C++ to split the string (although <code>substr</code> also make copy, but if it's a linkedlist, we can just delete the remaining part in place).</p>
 <ol>
 <li>i: everything from 0:i are distinct (our returned string).</li>
@@ -3030,7 +3003,7 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 </ol>
 <p>e.g. s = "abbaca"</p>
 <p><img alt="IMAGE" src="../resources/078F3F512A44E2AE9EABEAE27307D119.jpg" /></p>
-<h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
+<h3 id="code-2">Code 2<a class="headerlink" href="#code-2" title="Permanent link">&para;</a></h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     string removeDuplicates(string s) {

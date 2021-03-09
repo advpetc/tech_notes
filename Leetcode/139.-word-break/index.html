@@ -2918,22 +2918,37 @@
                 
                 
                 <h1 id="word-break">Word Break<a class="headerlink" href="#word-break" title="Permanent link">&para;</a></h1>
-<p>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.</p>
-<p>Note:</p>
-<p>The same word in the dictionary may be reused multiple times in the segmentation.
-You may assume the dictionary does not contain duplicate words.
-Example 1:</p>
-<p>Input: s = "leetcode", wordDict = ["leet", "code"]
+<p>Given a string <code>s</code> and a dictionary of strings <code>wordDict</code>, return <code>true</code> if <code>s</code> can be segmented into a space-separated sequence of one or more dictionary words.</p>
+<p><strong>Note</strong> that the same word in the dictionary may be reused multiple times in the segmentation.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;leetcode&quot;, wordDict = [&quot;leet&quot;,&quot;code&quot;]
 Output: true
-Explanation: Return true because "leetcode" can be segmented as "leet code".
-Example 2:</p>
-<p>Input: s = "applepenapple", wordDict = ["apple", "pen"]
+Explanation: Return true because &quot;leetcode&quot; can be segmented as &quot;leet code&quot;.
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;applepenapple&quot;, wordDict = [&quot;apple&quot;,&quot;pen&quot;]
 Output: true
-Explanation: Return true because "applepenapple" can be segmented as "apple pen apple".
-             Note that you are allowed to reuse a dictionary word.
-Example 3:</p>
-<p>Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
-Output: false</p>
+Explanation: Return true because &quot;applepenapple&quot; can be segmented as &quot;apple pen apple&quot;.
+Note that you are allowed to reuse a dictionary word.
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;catsandog&quot;, wordDict = [&quot;cats&quot;,&quot;dog&quot;,&quot;sand&quot;,&quot;and&quot;,&quot;cat&quot;]
+Output: false
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 300</code></li>
+<li><code>1 &lt;= wordDict.length &lt;= 1000</code></li>
+<li><code>1 &lt;= wordDict[i].length &lt;= 20</code></li>
+<li><code>s</code> and <code>wordDict[i]</code> consist of only lowercase English letters.</li>
+<li>All the strings of <code>wordDict</code> are <strong>unique</strong>.</li>
+</ul>
 <h2 id="cpp-dfs-with-memo">cpp: dfs with memo<a class="headerlink" href="#cpp-dfs-with-memo" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
