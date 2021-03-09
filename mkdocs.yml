@@ -15,10 +15,6 @@ theme:
   font:
     text: Ubuntu Mono
   name: material
-  palette:
-    scheme: 'slate'
-    primary: 'blue grey'
-    accent: 'teal'
   include_search_page: false
   search_index_only: true
   favicon: 'assets/images/favicon.ico'
@@ -46,7 +42,6 @@ markdown_extensions:
       guess_lang: false
       use_pygments: true
       noclasses: true
-      pygments_style: monokai
   - def_list
   - footnotes
   - meta
