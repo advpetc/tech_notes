@@ -18,14 +18,10 @@ theme:
   include_search_page: false
   search_index_only: true
   favicon: 'assets/images/favicon.ico'
-  extra:
-    social:
-      - type: "linkedin"
-        link: "https://www.linkedin.com/in/haoyang-chen-113424ab/"
-
   logo: 'assets/images/logo.png'
   feature:
     tabs: true
+  custom_dir: overrides
 
 extra:
   pagetime: 'on'
@@ -62,3 +58,6 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+plugins:
+  - git-revision-date
