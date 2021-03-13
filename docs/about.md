@@ -1,6 +1,6 @@
 # About
 
-Hi, I'm Pete Chen. I major in Computer Science and Engineering.
+Hi, I'm Pete. I major in Computer Science and Engineering.
 
 Ping me AT peterchen.xyz.
 
