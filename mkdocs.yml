@@ -15,7 +15,7 @@ theme:
   font:
     text: Ubuntu Mono
   name: material
-  include_search_page: false
+  include_search_page: true
   search_index_only: true
   favicon: 'assets/images/favicon.ico'
   logo: 'assets/images/logo.png'
@@ -60,4 +60,5 @@ markdown_extensions:
   - pymdownx.tilde
 
 plugins:
+  - search
   - git-revision-date
