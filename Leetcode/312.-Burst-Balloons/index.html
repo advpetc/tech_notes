@@ -14,14 +14,14 @@
         <meta name="author" content="Pete">
       
       
-        <link rel="canonical" href="https://peterchen.xyz/Leetcode/96.-unique-binary-search-trees/">
+        <link rel="canonical" href="https://peterchen.xyz/Leetcode/312.-Burst-Balloons/">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
     
     
       
-        <title>Unique Binary Search Trees - Tech Notes</title>
+        <title>312. Burst Balloons - Tech Notes</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#unique-binary-search-trees" class="md-skip">
+        <a href="#312-burst-balloons" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Unique Binary Search Trees
+              312. Burst Balloons
             
           </span>
         </div>
@@ -1896,11 +1896,56 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../312.-Burst-Balloons/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          312. Burst Balloons
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         312. Burst Balloons
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2256,56 +2301,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Unique Binary Search Trees
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../96.-unique-binary-search-trees/" class="md-nav__link">
         Unique Binary Search Trees
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#analysis" class="md-nav__link">
-    Analysis
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-cpp" class="md-nav__link">
-    in cpp
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2925,8 +2925,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#in-cpp" class="md-nav__link">
-    in cpp
+  <a href="#code" class="md-nav__link">
+    Code
   </a>
   
 </li>
@@ -2943,75 +2943,72 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Leetcode/96.-unique-binary-search-trees.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Leetcode/312.-Burst-Balloons.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="unique-binary-search-trees">Unique Binary Search Trees<a class="headerlink" href="#unique-binary-search-trees" title="Permanent link">&para;</a></h1>
-<p>Given n, how many structurally unique BST's (binary search trees) that store values 1 ... n?</p>
-<p>Example:</p>
-<p>Input: 3
-Output: 5
+                <h1 id="312-burst-balloons">312. Burst Balloons<a class="headerlink" href="#312-burst-balloons" title="Permanent link">&para;</a></h1>
+<p>You are given <code>n</code> balloons, indexed from <code>0</code> to <code>n - 1</code>. Each balloon is painted with a number on it represented by an array <code>nums</code>. You are asked to burst all the balloons.</p>
+<p>If you burst the <code>ith</code> balloon, you will get <code>nums[i - 1] * nums[i] * nums[i + 1]</code> coins. If <code>i - 1</code> or <code>i + 1</code> goes out of bounds of the array, then treat it as if there is a balloon with a <code>1</code> painted on it.</p>
+<p>Return <em>the maximum coins you can collect by bursting the balloons wisely</em>.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [3,1,5,8]
+Output: 167
 Explanation:
-Given n = 3, there are a total of 5 unique BST's:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>   1         3     3      2      1
-    \       /     /      / \      \
-     3     2     1      1   3      2
-    /     /       \                 \
-   2     1         2                 3
+nums = [3,1,5,8] --&gt; [3,5,8] --&gt; [3,8] --&gt; [8] --&gt; []
+coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167
 </code></pre></div>
 
 
-<p>Constraints:</p>
-<p>1 &lt;= n &lt;= 19</p>
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [1,5]
+Output: 10
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == nums.length</code></li>
+<li><code>1 &lt;= n &lt;= 500</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>The problem can be solved in a dynamic programming way. I’ll explain the intuition and formulas in the following.</p>
-<p>Given a sequence 1…n, to construct a Binary Search Tree (BST) out of the sequence, we could enumerate each number i in the sequence, and use the number as the root, naturally, the subsequence 1…(i-1) on its left side would lay on the left branch of the root, and similarly the right subsequence (i+1)…n lay on the right branch of the root. We then can construct the subtree from the subsequence recursively. Through the above approach, we could ensure that the BST that we construct are all unique<strong>, since they have unique roots.</strong></p>
-<p>The problem is to calculate the number of unique BST. To do so, we need to define two functions:</p>
-<p>G(n): the number of unique BST for a sequence of length n.</p>
-<p>F(i, n), 1 &lt;= i &lt;= n: the <strong>number of unique BST</strong>, where the number<strong> i is the root of BST</strong>, and the sequence ranges from 1 to n.</p>
-<p>As one can see, G(n) is the actual function we need to calculate in order to solve the problem. And G(n) can be derived from F(i, n), which at the end, would recursively refer to G(n).</p>
-<p>First of all, given the above definitions, we can see that the <strong>total number of unique BST G(n), is the sum of BST F(i) using each number i as a root.</strong>
- i.e.</p>
-<p>G(n) = F(1, n) + F(2, n) + ... + F(n, n).
- Particularly, the bottom cases, there is only one combination to construct a BST out of a sequence of length 1 (only a root) or 0 (empty tree).
- i.e.</p>
-<p>G(0)=1, G(1)=1.
- Given a sequence 1…n, we pick a number i out of the sequence as the root, then the number of unique BST with the specified root F(i), is the cartesian product of the number of BST for its left and right subtrees. For example, F(3, 7): the number of unique BST tree with number 3 as its root. To construct an unique BST out of the entire sequence [1, 2, 3, 4, 5, 6, 7] with 3 as the root, which is to say, we need to construct an unique BST out of its left subsequence [1, 2] and another BST out of the right subsequence [4, 5, 6, 7], and then combine them together (i.e. cartesian product). The tricky part is that we could consider the number of unique BST out of sequence [1,2] as G(2), and the number of of unique BST out of sequence [4, 5, 6, 7] as G(4). Therefore, F(3,7) = G(2) * G(4).</p>
-<p>i.e.</p>
-<p>F(i, n) = G(i-1) * G(n-i) 1 &lt;= i &lt;= n
- Combining the above two formulas, we obtain the recursive formula for G(n). i.e.</p>
-<p>G(n) = G(0) * G(n-1) + G(1) * G(n-2) + … + G(n-1) * G(0)
- In terms of calculation, we need to start with the lower number, since the value of G(n) depends on the values of G(0) … G(n-1).</p>
-<p>With the above explanation and formulas, here is the implementation in Java.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>public <span style="color: #B00040">int</span> <span style="color: #0000FF">numTrees</span>(<span style="color: #B00040">int</span> n) {
-    <span style="color: #B00040">int</span> [] G <span style="color: #666666">=</span> new <span style="color: #B00040">int</span>[n<span style="color: #666666">+1</span>];
-    G[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> G[<span style="color: #666666">1</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
+<p>This is a "Interval DP" problem, which means you need to create a 2-d array represent the optimal solution for each interval from <code>start</code> to <code>end</code>. Using <code>dp[start][end]</code> to represent the maximum value.</p>
+<p>So for this problem, if <code>nums = [3,1,5,8]</code>, then <code>dp[1][4]</code> is our solution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We use 1-based index for easy representation, because the boundary case: burst first balloon or last ballon is easier to be calculated. We just need to add two 1s to the beginning and the ending.</p>
+</div>
+<p>Next, we just need to try all the smaller segaments first then calculate the final answer.</p>
+<p>First, we determine the length of each segament, and we start from <code>len = 1</code>, which means there is only one ballon, and ends at <code>len = n</code></p>
+<p>Second, we determine the starting and ending points. We use <code>i</code> to represent start and <code>j</code> to represent the end. Thus the range for start is from <code>1</code> to <code>n-len+1</code>, since we need to leave room for ending. If we have determined our <code>i</code>, then our ending point is fixed, which is <code>i+len-1</code>.</p>
+<p>Finally, we need to determine which ballon to be bursted from the <code>i</code> to <code>j</code> range. We use <code>k</code> to represent the bursting point, and we try all the possible point from <code>k = i</code> to <code>k=j</code>.</p>
+<ul>
+<li>Time: <span><span class="MathJax_Preview">O(n^3)</span><script type="math/tex">O(n^3)</script></span></li>
+<li>Space: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span> for the extra <code>dp</code> 2-d array</li>
+</ul>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
 
-    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i<span style="color: #666666">=2</span>; i<span style="color: #666666">&lt;=</span>n; <span style="color: #666666">++</span>i) {
-        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=1</span>; j<span style="color: #666666">&lt;=</span>i; <span style="color: #666666">++</span>j) {
-            G[i] <span style="color: #666666">+=</span> G[j<span style="color: #666666">-1</span>] <span style="color: #666666">*</span> G[i<span style="color: #666666">-</span>j];
+    <span style="color: #B00040">int</span> maxCoins(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>nums) {
+        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> nums.size();
+        nums.insert(nums.begin(), <span style="color: #666666">1</span>);
+        nums.push_back(<span style="color: #666666">1</span>);
+        vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> dp(n <span style="color: #666666">+</span> <span style="color: #666666">2</span>, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span>(n <span style="color: #666666">+</span> <span style="color: #666666">2</span>, <span style="color: #666666">0</span>));
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> len <span style="color: #666666">=</span> <span style="color: #666666">1</span>; len <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>len) {
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n <span style="color: #666666">-</span> len <span style="color: #666666">+</span> <span style="color: #666666">1</span>; <span style="color: #666666">++</span>i) {
+                <span style="color: #B00040">int</span> j <span style="color: #666666">=</span> i <span style="color: #666666">+</span> len <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+                <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> i; k <span style="color: #666666">&lt;=</span> j; <span style="color: #666666">++</span>k) {
+                    dp[i][j] <span style="color: #666666">=</span> max(dp[i][j], nums[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">*</span> nums[k] <span style="color: #666666">*</span> nums[j <span style="color: #666666">+</span> <span style="color: #666666">1</span>] <span style="color: #666666">+</span> 
+                                                        dp[i][k <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">+</span> dp[k <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j]);
+                }
+            }
         }
+        <span style="color: #008000; font-weight: bold">return</span> dp[<span style="color: #666666">1</span>][n];
     }
-    <span style="color: #008000; font-weight: bold">return</span> G[n];
-}
-</code></pre></div>
-
-
-<h2 id="in-cpp">in cpp<a class="headerlink" href="#in-cpp" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>public <span style="color: #B00040">int</span> <span style="color: #0000FF">numTrees</span>(<span style="color: #B00040">int</span> n) {
-    <span style="color: #B00040">int</span> G[n<span style="color: #666666">+1</span>];
-    fill_n(G, n<span style="color: #666666">+1</span>, <span style="color: #666666">0</span>);
-    G[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> G[<span style="color: #666666">1</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
-
-    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i<span style="color: #666666">=2</span>; i<span style="color: #666666">&lt;=</span>n; <span style="color: #666666">++</span>i) {
-        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=1</span>; j<span style="color: #666666">&lt;=</span>i; <span style="color: #666666">++</span>j) {
-            G[i] <span style="color: #666666">+=</span> G[j<span style="color: #666666">-1</span>] <span style="color: #666666">*</span> G[i<span style="color: #666666">-</span>j];
-        }
-    }
-    <span style="color: #008000; font-weight: bold">return</span> G[n];
-}
+};
 </code></pre></div>
                 
                   
@@ -3034,7 +3031,7 @@ Given n = 3, there are a total of 5 unique BST's:</p>
 
   <h2 id="__comments">Comments</h2>
   <div id="disqus_thread"></div>
-  <script>var disqus_config=function(){this.page.url="https://peterchen.xyz/Leetcode/96.-unique-binary-search-trees/",this.page.identifier="/Leetcode/96.-unique-binary-search-trees/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//tech-notes-2.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
+  <script>var disqus_config=function(){this.page.url="https://peterchen.xyz/Leetcode/312.-Burst-Balloons/",this.page.identifier="/Leetcode/312.-Burst-Balloons/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//tech-notes-2.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
 
               
             </article>
@@ -3048,7 +3045,7 @@ Given n = 3, there are a total of 5 unique BST's:</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -3057,19 +3054,19 @@ Given n = 3, there are a total of 5 unique BST's:</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Unique Binary Search Trees -- My Method
+                Longest Substring Without Repeating Characters
               </div>
             </div>
           </a>
         
         
-          <a href="../97.-interleaving-string/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../32.-longest-valid-parentheses/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Interleaving String
+                Longest Valid Parentheses
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
