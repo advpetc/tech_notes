@@ -15,7 +15,7 @@ theme:
   font:
     text: Ubuntu Mono
   name: material
-  include_search_page: true
+  include_search_page: false
   search_index_only: true
   favicon: 'assets/images/favicon.ico'
   logo: 'assets/images/logo.png'
