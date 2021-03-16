@@ -61,4 +61,6 @@ markdown_extensions:
 
 plugins:
   - search
-  - git-revision-date
+  - git-revision-date-localized:
+      exclude:
+        - index.md
