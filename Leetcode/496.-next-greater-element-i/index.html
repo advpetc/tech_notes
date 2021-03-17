@@ -1891,6 +1891,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../299.-Bulls-and-Cows/" class="md-nav__link">
+        Bulls and Cows
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-nav__link">
         Longest Substring Without Repeating Characters
       </a>
@@ -2979,7 +2991,7 @@ For number 4 in the first array, there is no next greater number for it in the s
 <p><strong>Follow up:</strong> Could you find an <code>O(nums1.length + nums2.length)</code> solution?</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>The naive solution is doing two linear scans: for each element in <code>nums1</code>, we check the current element's index and find the first index from <code>nums2</code> and return the element that it is pointing to. However, we want to improve this algorithm into <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>. </p>
-<p>For almost all the "find next greater/less" type of problem, we can thinking about using a monotonic stack to solve it with <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> time complexity. We bascially want to build up a mapping between <code>nums1[i]</code> and <code>nums2[j]</code> where <code>nums2[j]</code> is the next immediate greater element to current <code>nums1[i]</code>. We can use a map to store this info. We also need a stack to mimic the monotonic stack operation.</p>
+<p>For almost all the "find next greater/less" type of problem, we can thinking about using a monotonic stack to solve it with <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> time complexity. We basically want to build up a mapping between <code>nums1[i]</code> and <code>nums2[j]</code> where <code>nums2[j]</code> is the next immediate greater element to current <code>nums1[i]</code>. We can use a map to store this info. We also need a stack to mimic the monotonic stack operation.</p>
 <p>For monotonic stack part, we can follow the below template:</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> i, e <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(arr):
     <span style="color: #008000; font-weight: bold">while</span> stack <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> empty <span style="color: #AA22FF; font-weight: bold">and</span> stack top <span style="color: #666666">&lt;</span> e: <span style="color: #408080; font-style: italic"># for &quot;next greater&quot;</span>
