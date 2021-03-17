@@ -1832,7 +1832,7 @@
   
     <li class="md-nav__item">
       <a href="../274.-H-Index/" class="md-nav__link">
-        274. H-Index
+        H-Index
       </a>
     </li>
   
@@ -1904,7 +1904,7 @@
   
     <li class="md-nav__item">
       <a href="../312.-Burst-Balloons/" class="md-nav__link">
-        312. Burst Balloons
+        Burst Balloons
       </a>
     </li>
   
@@ -2032,6 +2032,13 @@
         <li class="md-nav__item">
   <a href="#analysis" class="md-nav__link">
     Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
   </a>
   
 </li>
@@ -2915,6 +2922,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2933,26 +2947,102 @@
                 
                 
                 <h1 id="next-greater-element-i">Next Greater Element I<a class="headerlink" href="#next-greater-element-i" title="Permanent link">&para;</a></h1>
-<p>You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.</p>
-<p>The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.</p>
-<p>Example 1:</p>
-<p>Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
+<p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> both of <strong>unique</strong> elements, where <code>nums1</code> is a subset of <code>nums2</code>.</p>
+<p>Find all the next greater numbers for <code>nums1</code>'s elements in the corresponding places of <code>nums2</code>.</p>
+<p>The Next Greater Number of a number <code>x</code> in <code>nums1</code> is the first greater number to its right in <code>nums2</code>. If it does not exist, return <code>-1</code> for this number.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
 Output: [-1,3,-1]
 Explanation:
-    For number 4 in the first array, you cannot find the next greater number for it in the second array, so output -1.
-    For number 1 in the first array, the next greater number for it in the second array is 3.
-    For number 2 in the first array, there is no next greater number for it in the second array, so output -1.
-Example 2:</p>
-<p>Input: nums1 = [2,4], nums2 = [1,2,3,4].
+For number 4 in the first array, you cannot find the next greater number for it in the second array, so output -1.
+For number 1 in the first array, the next greater number for it in the second array is 3.
+For number 2 in the first array, there is no next greater number for it in the second array, so output -1.
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums1 = [2,4], nums2 = [1,2,3,4]
 Output: [3,-1]
 Explanation:
-    For number 2 in the first array, the next greater number for it in the second array is 3.
-    For number 4 in the first array, there is no next greater number for it in the second array, so output -1.
-Note:</p>
-<p>All elements in nums1 and nums2 are unique.
-The length of both nums1 and nums2 would not exceed 1000</p>
+For number 2 in the first array, the next greater number for it in the second array is 3.
+For number 4 in the first array, there is no next greater number for it in the second array, so output -1.
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= nums1.length &lt;= nums2.length &lt;= 1000</code></li>
+<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 104</code></li>
+<li>All integers in <code>nums1</code> and <code>nums2</code> are <strong>unique</strong>.</li>
+<li>All the integers of <code>nums1</code> also appear in <code>nums2</code>.</li>
+</ul>
+<p><strong>Follow up:</strong> Could you find an <code>O(nums1.length + nums2.length)</code> solution?</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>To find the next greater/less element, we can immediately think of monotonic stack. </p>
+<p>The naive solution is doing two linear scans: for each element in <code>nums1</code>, we check the current element's index and find the first index from <code>nums2</code> and return the element that it is pointing to. However, we want to improve this algorithm into <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>. </p>
+<p>For almost all the "find next greater/less" type of problem, we can thinking about using a monotonic stack to solve it with <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> time complexity. We bascially want to build up a mapping between <code>nums1[i]</code> and <code>nums2[j]</code> where <code>nums2[j]</code> is the next immediate greater element to current <code>nums1[i]</code>. We can use a map to store this info. We also need a stack to mimic the monotonic stack operation.</p>
+<p>For monotonic stack part, we can follow the below template:</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> i, e <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(arr):
+    <span style="color: #008000; font-weight: bold">while</span> stack <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> empty <span style="color: #AA22FF; font-weight: bold">and</span> stack top <span style="color: #666666">&lt;</span> e: <span style="color: #408080; font-style: italic"># for &quot;next greater&quot;</span>
+      stack<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>) <span style="color: #408080; font-style: italic"># we remove the top since current element is the new &quot;next greater&quot;</span>
+
+      <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;ok, now we have the next greater element to arr[i-1], we could do something here</span>
+
+<span style="color: #BA2121; font-style: italic">      do your calculation&quot;&quot;&quot;</span>
+
+    stack<span style="color: #666666">.</span>push(e) <span style="color: #408080; font-style: italic"># use for next iteration</span>
+</code></pre></div>
+
+
+<p>As you can see, the worst case for the <code>while</code> loop to run multiple times is when we are having a decreasing order array followed by the last element being the greatest. However, don't forget for all the previous iterations, since the array is decreasing, we never get a chance to execute this <code>while</code> loop once (in all the previous iterations). So if you add it up, the precise complexity is <span><span class="MathJax_Preview">O(2 \times n)</span><script type="math/tex">O(2 \times n)</script></span>, which is still <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>.</p>
+<p>Now we have a stack that records all the "next greater" element, and we want to know which element it was greater to. To build up the mapping, we simply add the map in between.</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> i, e <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(arr):
+    <span style="color: #008000; font-weight: bold">while</span> stack <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> empty <span style="color: #AA22FF; font-weight: bold">and</span> stack top <span style="color: #666666">&lt;</span> e: <span style="color: #408080; font-style: italic"># for &quot;next greater&quot;</span>
+      stack<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>) <span style="color: #408080; font-style: italic"># we remove the top since current element is the new &quot;next greater&quot;</span>
+
+      <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;ok, now we have the next greater element to arr[i-1], we could do something here</span>
+
+<span style="color: #BA2121; font-style: italic">      do your calculation&quot;&quot;&quot;</span>
+      <span style="color: #408080; font-style: italic"># TODO: add to your map here</span>
+    stack<span style="color: #666666">.</span>push(e) <span style="color: #408080; font-style: italic"># use for next iteration</span>
+</code></pre></div>
+
+
+<p>Don't forget we also might see element that doesn't have element greater than itself, and those elements are storing in our stack. Reason is being we only keep the previous "unfounded yet" element in our stack. Using that info, we can correctly update our map to "-1".</p>
+<p>Finally we just need to extract the map's info to a new array, which only takes <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Don't forget all the elements in <code>nums1</code> are also in <code>nums2</code>, which means
+all keys are avalible. So we don't need to update our map.</p>
+</div>
+<ul>
+<li>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
+<li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> for decreasing order <code>nums2</code> case and the output array.</li>
+</ul>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+  vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> nextGreaterElement(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>nums1, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>nums2) {
+    stack<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> idx; <span style="color: #408080; font-style: italic">// store current greater&#39;s index</span>
+    map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> mp;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> nums2.size(); <span style="color: #666666">++</span>i) {
+      <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>idx.empty() <span style="color: #666666">&amp;&amp;</span> nums2[idx.top()] <span style="color: #666666">&lt;</span> nums2[i]) {
+        mp[nums2[idx.top()]] <span style="color: #666666">=</span> nums2[i];
+        idx.pop();
+      }
+      idx.push(i);
+    }
+    <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>idx.empty()) {
+      mp[nums2[idx.top()]] <span style="color: #666666">=</span> <span style="color: #666666">-1</span>;
+      idx.pop();
+    }
+    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res(nums1.size());
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> nums1.size(); <span style="color: #666666">++</span>i) {
+      res[i] <span style="color: #666666">=</span> mp[nums1[i]];
+    }
+    <span style="color: #008000; font-weight: bold">return</span> res;
+  }
+};
+</code></pre></div>
                 
                   
                     
@@ -2961,7 +3051,7 @@ The length of both nums1 and nums2 would not exceed 1000</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 17, 2021</span>
     
   </small>
 </div>
