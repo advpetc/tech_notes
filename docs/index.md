@@ -9,10 +9,6 @@
 * Books: various algorithm books notes.
 * Misc: miscellaneous (unorganized)
 
-## Schedule for a mock interview
-
-You can book me through [calendly.com](https://calendly.com/hychen1210/one-to-one-mock-interview) for a mock interview. 
-
 ## No Longer Update
 * [Old gitbook](https://advpetc-algorithm.gitbook.io/notes/)
 * [cnblog](https://www.cnblogs.com/goldenticket)
