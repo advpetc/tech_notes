@@ -11,11 +11,11 @@
 
 ## Schedule for a mock interview
 
-You can book me through [calendly.com](https://calendly.com/hychen1210/one-to-one-mock-interview) for a free mock interview. Since I am also trying to improve my technical skills, I believe it will be a great way to learn.
+You can book me through [calendly.com](https://calendly.com/hychen1210/one-to-one-mock-interview) for a mock interview. 
 
 ## No Longer Update
 * [Old gitbook](https://advpetc-algorithm.gitbook.io/notes/)
 * [cnblog](https://www.cnblogs.com/goldenticket)
-* iOS: desolate notes when I studied Objective-C for iOS dev.
-* Crypto: desolate notes when I studied cryptograp
+* iOS: no longer update
+* Crypto: no longer update
 
