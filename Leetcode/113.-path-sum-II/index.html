@@ -2959,28 +2959,34 @@
                 
                 
                 <h1 id="path-sum-ii">Path Sum II<a class="headerlink" href="#path-sum-ii" title="Permanent link">&para;</a></h1>
-<p>Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.</p>
-<p><strong>Note:</strong> A leaf is a node with no children.</p>
-<p><strong>Example:</strong></p>
-<p>Given the below binary tree and <code>sum = 22</code>,</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>      5
-     / \
-    4   8
-   /   / \
-  11  13  4
- /  \    / \
-7    2  5   1
+<p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return all <strong>root-to-leaf</strong> paths where each path's sum equals <code>targetSum</code>.</p>
+<p>A <strong>leaf</strong> is a node with no children.</p>
+<p><strong>Example 1:</strong></p>
+<p><img alt="img" src="../resources/113a.jpg" /></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+Output: [[5,4,11,2],[5,8,4,5]]
 </code></pre></div>
 
 
-<p>Return:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>[
-   [5,4,11,2],
-   [5,8,4,5]
-]
+<p><strong>Example 2:</strong></p>
+<p><img alt="img" src="../resources/113b.jpg" /></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = [1,2,3], targetSum = 5
+Output: []
 </code></pre></div>
 
 
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = [1,2], targetSum = 0
+Output: []
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[0, 5000]</code>.</li>
+<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
+<li><code>-1000 &lt;= targetSum &lt;= 1000</code></li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>Similar to path sum, this question requires us to return all the paths, so we need to maintain the path along the recrusion calls.</p>
 <ul>
@@ -3029,7 +3035,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

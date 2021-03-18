@@ -2959,36 +2959,35 @@
                 
                 
                 <h1 id="word-break-ii">Word Break II<a class="headerlink" href="#word-break-ii" title="Permanent link">&para;</a></h1>
-<p>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences.</p>
-<p>Note:</p>
-<p>The same word in the dictionary may be reused multiple times in the segmentation.
-You may assume the dictionary does not contain duplicate words.
-Example 1:</p>
-<p>Input:
-s = "catsanddog"
-wordDict = ["cat", "cats", "and", "sand", "dog"]
-Output:
-[
-  "cats and dog",
-  "cat sand dog"
-]
-Example 2:</p>
-<p>Input:
-s = "pineapplepenapple"
-wordDict = ["apple", "pen", "applepen", "pine", "pineapple"]
-Output:
-[
-  "pine apple pen apple",
-  "pineapple pen apple",
-  "pine applepen apple"
-]
+<p>Given a string <code>s</code> and a dictionary of strings <code>wordDict</code>, add spaces in <code>s</code> to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in <strong>any order</strong>.</p>
+<p><strong>Note</strong> that the same word in the dictionary may be reused multiple times in the segmentation.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;catsanddog&quot;, wordDict = [&quot;cat&quot;,&quot;cats&quot;,&quot;and&quot;,&quot;sand&quot;,&quot;dog&quot;]
+Output: [&quot;cats and dog&quot;,&quot;cat sand dog&quot;]
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;pineapplepenapple&quot;, wordDict = [&quot;apple&quot;,&quot;pen&quot;,&quot;applepen&quot;,&quot;pine&quot;,&quot;pineapple&quot;]
+Output: [&quot;pine apple pen apple&quot;,&quot;pineapple pen apple&quot;,&quot;pine applepen apple&quot;]
 Explanation: Note that you are allowed to reuse a dictionary word.
-Example 3:</p>
-<p>Input:
-s = "catsandog"
-wordDict = ["cats", "dog", "sand", "and", "cat"]
-Output:
-[]</p>
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;catsandog&quot;, wordDict = [&quot;cats&quot;,&quot;dog&quot;,&quot;sand&quot;,&quot;and&quot;,&quot;cat&quot;]
+Output: []
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 20</code></li>
+<li><code>1 &lt;= wordDict.length &lt;= 1000</code></li>
+<li><code>1 &lt;= wordDict[i].length &lt;= 10</code></li>
+<li><code>s</code> and <code>wordDict[i]</code> consist of only lowercase English letters.</li>
+<li>All the strings of <code>wordDict</code> are <strong>unique</strong>.</li>
+</ul>
 <h2 id="dfs-w-memo">dfs w/ memo<a class="headerlink" href="#dfs-w-memo" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
     unordered_map<span style="color: #666666">&lt;</span>string, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&gt;</span> m;
@@ -3060,7 +3059,7 @@ After memo:
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

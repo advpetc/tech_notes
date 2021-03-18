@@ -3135,18 +3135,49 @@
                 
                 
                 <h1 id="copy-list-with-random-pointer">Copy list with Random Pointer<a class="headerlink" href="#copy-list-with-random-pointer" title="Permanent link">&para;</a></h1>
-<p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
-<p>Return a deep copy of the list.</p>
-<p>The Linked List is represented in the input/output as a list of n nodes. Each node is represented as a pair of [val, random_index] where:</p>
-<p>val: an integer representing Node.val
-random_index: the index of the node (range from 0 to n-1) where random pointer points to, or null if it does not point to any node.</p>
-<p>Example 1:
-<img alt="e1.png" src="../resources/20B092AA2A45AAD196EB04C8F6001772.png" /></p>
+<p>A linked list of length <code>n</code> is given such that each node contains an additional random pointer, which could point to any node in the list, or <code>null</code>.</p>
+<p>Construct a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy"><strong>deep copy</strong></a> of the list. The deep copy should consist of exactly <code>n</code> <strong>brand new</strong>nodes, where each new node has its value set to the value of its corresponding original node. Both the <code>next</code> and <code>random</code> pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. <strong>None of the pointers in the new list should point to nodes in the original list</strong>.</p>
+<p>For example, if there are two nodes <code>X</code> and <code>Y</code> in the original list, where <code>X.random --&gt; Y</code>, then for the corresponding two nodes <code>x</code> and <code>y</code> in the copied list, <code>x.random --&gt; y</code>.</p>
+<p>Return <em>the head of the copied linked list</em>.</p>
+<p>The linked list is represented in the input/output as a list of <code>n</code> nodes. Each node is represented as a pair of <code>[val, random_index]</code> where:</p>
+<ul>
+<li><code>val</code>: an integer representing <code>Node.val</code></li>
+<li><code>random_index</code>: the index of the node (range from <code>0</code> to <code>n-1</code>) that the <code>random</code>pointer points to, or <code>null</code> if it does not point to any node.</li>
+</ul>
+<p>Your code will <strong>only</strong> be given the <code>head</code> of the original linked list.</p>
+<p><strong>Example 1:</strong><img alt="e1.png" src="../resources/20B092AA2A45AAD196EB04C8F6001772.png" /></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
 </code></pre></div>
 
 
+<p><strong>Example 2:</strong></p>
+<p><img alt="img" src="../resources/138b.png" /></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [[1,1],[2,1]]
+Output: [[1,1],[2,1]]
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<p><strong><img alt="img" src="../resources/138c.png" /></strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [[3,null],[3,0],[3,null]]
+Output: [[3,null],[3,0],[3,null]]
+</code></pre></div>
+
+
+<p><strong>Example 4:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = []
+Output: []
+Explanation: The given linked list is empty (null pointer), so return null.
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>0 &lt;= n &lt;= 1000</code></li>
+<li><code>-10000 &lt;= Node.val &lt;= 10000</code></li>
+<li><code>Node.random</code> is <code>null</code> or is pointing to some node in the linked list.</li>
+</ul>
 <h3 id="1">算法1<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <h5 id="onon">迭代+哈希表  <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span><a class="headerlink" href="#onon" title="Permanent link">&para;</a></h5>
 <p>因为使用next节点可以保证遍历到所有的节点，所以我们使用next节点进行遍历。在遍历的时候每次把next节点放入哈希表中，这样方便检查在检查是否生成random节点中防止重复生成。</p>
@@ -3290,7 +3321,7 @@ Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

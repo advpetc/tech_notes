@@ -2054,13 +2054,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#analysis" class="md-nav__link">
-    Analysis
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#code" class="md-nav__link">
     Code
   </a>
@@ -2928,13 +2921,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#analysis" class="md-nav__link">
-    Analysis
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#code" class="md-nav__link">
     Code
   </a>
@@ -2961,18 +2947,25 @@
                 <h1 id="detect-capital">Detect Capital<a class="headerlink" href="#detect-capital" title="Permanent link">&para;</a></h1>
 <p>Given a word, you need to judge whether the usage of capitals in it is right or not.</p>
 <p>We define the usage of capitals in a word to be right when one of the following cases holds:</p>
-<p>All letters in this word are capitals, like "USA".
-All letters in this word are not capitals, like "leetcode".
-Only the first letter in this word is capital, like "Google".
-Otherwise, we define that this word doesn't use capitals in a right way.</p>
-<p>Example 1:</p>
-<p>Input: "USA"
-Output: True</p>
-<p>Example 2:</p>
-<p>Input: "FlaG"
-Output: False</p>
-<p>Note: The input will be a non-empty word consisting of uppercase and lowercase latin letters.</p>
-<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
+<ol>
+<li>All letters in this word are capitals, like "USA".</li>
+<li>All letters in this word are not capitals, like "leetcode".</li>
+<li>Only the first letter in this word is capital, like "Google".</li>
+</ol>
+<p>Otherwise, we define that this word doesn't use capitals in a right way.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;USA&quot;
+Output: True
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;FlaG&quot;
+Output: False
+</code></pre></div>
+
+
+<p><strong>Note:</strong> The input will be a non-empty word consisting of uppercase and lowercase latin letters.Analysis</p>
 <p>There are two cases (it's actually three but we can merge the first two together) to consider:
 1. If first character is upper case, then the rest has to be <strong>all</strong> upper case <strong>or</strong> <strong>all</strong> lower case.
 2. If the first character is lower case, then the rest has to be <strong>all</strong> lower case.</p>
@@ -3004,7 +2997,7 @@ Output: False</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

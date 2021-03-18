@@ -2959,15 +2959,32 @@
                 
                 
                 <h1 id="longest-valid-parentheses">Longest Valid Parentheses<a class="headerlink" href="#longest-valid-parentheses" title="Permanent link">&para;</a></h1>
-<p>Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring.</p>
-<p>Example 1:</p>
-<p>Input: "(()"
+<p>Given a string containing just the characters <code>'('</code> and <code>')'</code>, find the length of the longest valid (well-formed) parentheses substring.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;(()&quot;
 Output: 2
-Explanation: The longest valid parentheses substring is "()"
-Example 2:</p>
-<p>Input: ")()())"
+Explanation: The longest valid parentheses substring is &quot;()&quot;.
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;)()())&quot;
 Output: 4
-Explanation: The longest valid parentheses substring is "()()"</p>
+Explanation: The longest valid parentheses substring is &quot;()()&quot;.
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;&quot;
+Output: 0
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>0 &lt;= s.length &lt;= 3 * 104</code></li>
+<li><code>s[i]</code> is <code>'('</code>, or <code>')'</code>.</li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>dp[i]: longest valid parentheses length ending with current [i]
 i - dp[i] + 1: start index of the previous valid one (dp[i-1])
@@ -3006,7 +3023,7 @@ why +2 : because the dp[prevStart-1] + ( + dp[i-1] + ), there are two elements</
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

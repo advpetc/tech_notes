@@ -2973,29 +2973,40 @@
                 
                 
                 <h1 id="longest-substring-without-repeating-characters">Longest Substring Without Repeating Characters<a class="headerlink" href="#longest-substring-without-repeating-characters" title="Permanent link">&para;</a></h1>
-<p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
+<p>Given a string <code>s</code>, find the length of the <strong>longest substring</strong> without repeating characters.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;abcabcbb&quot;
-Output: 3 
-Explanation: The answer is &quot;abc&quot;, with the length of 3. 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;abcabcbb&quot;
+Output: 3
+Explanation: The answer is &quot;abc&quot;, with the length of 3.
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;bbbbb&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;bbbbb&quot;
 Output: 1
 Explanation: The answer is &quot;b&quot;, with the length of 1.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;pwwkew&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;pwwkew&quot;
 Output: 3
-Explanation: The answer is &quot;wke&quot;, with the length of 3. 
-             Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
+Explanation: The answer is &quot;wke&quot;, with the length of 3.
+Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
 </code></pre></div>
 
 
+<p><strong>Example 4:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;&quot;
+Output: 0
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>0 &lt;= s.length &lt;= 5 * 104</code></li>
+<li><code>s</code> consists of English letters, digits, symbols and spaces.</li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Method 1: keep a 128 length <code>int cnt</code> array, when moving the sliding window:</li>
@@ -3059,7 +3070,7 @@ Explanation: The answer is &quot;wke&quot;, with the length of 3.
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

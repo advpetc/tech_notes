@@ -2959,13 +2959,40 @@
                 
                 
                 <h1 id="interleaving-string">Interleaving String<a class="headerlink" href="#interleaving-string" title="Permanent link">&para;</a></h1>
-<p>Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2.</p>
-<p>Example 1:</p>
-<p>Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
+<p>Given strings <code>s1</code>, <code>s2</code>, and <code>s3</code>, find whether <code>s3</code> is formed by an <strong>interleaving</strong> of <code>s1</code> and <code>s2</code>.</p>
+<p>An <strong>interleaving</strong> of two strings <code>s</code> and <code>t</code> is a configuration where they are divided into <strong>non-empty</strong> substrings such that:</p>
+<ul>
+<li><code>s = s1 + s2 + ... + sn</code></li>
+<li><code>t = t1 + t2 + ... + tm</code></li>
+<li><code>|n - m| &lt;= 1</code></li>
+<li>The <strong>interleaving</strong> is <code>s1 + t1 + s2 + t2 + s3 + t3 + ...</code> or <code>t1 + s1 + t2 + s2+ t3 + s3 + ...</code></li>
+</ul>
+<p><strong>Note:</strong> <code>a + b</code> is the concatenation of strings <code>a</code> and <code>b</code>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img alt="img" src="../resources/97.jpg" /></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbcbcac&quot;
 Output: true
-Example 2:</p>
-<p>Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc"
-Output: false</p>
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbbaccc&quot;
+Output: false
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s1 = &quot;&quot;, s2 = &quot;&quot;, s3 = &quot;&quot;
+Output: true
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>0 &lt;= s1.length, s2.length &lt;= 100</code></li>
+<li><code>0 &lt;= s3.length &lt;= 200</code></li>
+<li><code>s1</code>, <code>s2</code>, and <code>s3</code> consist of lower-case English letters.</li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p><code>dp[i][j]</code>: from s1[0:i] and s2[0:j] can be combined to s3[0:i+j-1]</p>
 <ol>
@@ -3011,7 +3038,7 @@ Output: false</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

@@ -2959,21 +2959,33 @@
                 
                 
                 <h1 id="word-search-ii">Word Search II<a class="headerlink" href="#word-search-ii" title="Permanent link">&para;</a></h1>
-<p>Given a 2D board and a list of words from the dictionary, find all words in the board.</p>
-<p>Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.</p>
-<p>Example:</p>
-<p>Input: 
-board = [
-  ['o','a','a','n'],
-  ['e','t','a','e'],
-  ['i','h','k','r'],
-  ['i','f','l','v']
-]
-words = ["oath","pea","eat","rain"]</p>
-<p>Output: ["eat","oath"]</p>
-<p>Note:</p>
-<p>All inputs are consist of lowercase letters a-z.
-The values of words are distinct.</p>
+<p>Given an <code>m x n</code> <code>board</code> of characters and a list of strings <code>words</code>, return <em>all words on the board</em>.</p>
+<p>Each word must be constructed from letters of sequentially adjacent cells, where <strong>adjacent cells</strong> are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.</p>
+<p><strong>Example 1:</strong></p>
+<p><img alt="img" src="../resources/212a.jpg" /></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: board = [[&quot;o&quot;,&quot;a&quot;,&quot;a&quot;,&quot;n&quot;],[&quot;e&quot;,&quot;t&quot;,&quot;a&quot;,&quot;e&quot;],[&quot;i&quot;,&quot;h&quot;,&quot;k&quot;,&quot;r&quot;],[&quot;i&quot;,&quot;f&quot;,&quot;l&quot;,&quot;v&quot;]], words = [&quot;oath&quot;,&quot;pea&quot;,&quot;eat&quot;,&quot;rain&quot;]
+Output: [&quot;eat&quot;,&quot;oath&quot;]
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<p><img alt="img" src="../resources/212b.jpg" /></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: board = [[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;]], words = [&quot;abcb&quot;]
+Output: []
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>m == board.length</code></li>
+<li><code>n == board[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 12</code></li>
+<li><code>board[i][j]</code> is a lowercase English letter.</li>
+<li><code>1 &lt;= words.length &lt;= 3 * 104</code></li>
+<li><code>1 &lt;= words[i].length &lt;= 10</code></li>
+<li><code>words[i]</code> consists of lowercase English letters.</li>
+<li>All the strings of <code>words</code> are unique.</li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>Notation:</p>
 <ol>
@@ -3054,7 +3066,7 @@ The values of words are distinct.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

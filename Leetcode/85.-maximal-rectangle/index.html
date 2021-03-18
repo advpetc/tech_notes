@@ -2959,19 +2959,46 @@
                 
                 
                 <h1 id="maximal-rectangle">Maximal Rectangle<a class="headerlink" href="#maximal-rectangle" title="Permanent link">&para;</a></h1>
-<p>Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.</p>
-<p>Example:</p>
-<p>Input:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>[
-  [&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],
-  [&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],
-  [&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],
-  [&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]
-]
+<p>Given a <code>rows x cols</code> binary <code>matrix</code> filled with <code>0</code>'s and <code>1</code>'s, find the largest rectangle containing only <code>1</code>'s and return <em>its area</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img alt="img" src="../resources/85.jpg" /></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]]
+Output: 6
+Explanation: The maximal rectangle is shown in the above picture.
 </code></pre></div>
 
 
-<p>Output: 6</p>
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = []
+Output: 0
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[&quot;0&quot;]]
+Output: 0
+</code></pre></div>
+
+
+<p><strong>Example 4:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[&quot;1&quot;]]
+Output: 1
+</code></pre></div>
+
+
+<p><strong>Example 5:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[&quot;0&quot;,&quot;0&quot;]]
+Output: 0
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>rows == matrix.length</code></li>
+<li><code>cols == matrix[i].length</code></li>
+<li><code>0 &lt;= row, cols &lt;= 200</code></li>
+<li><code>matrix[i][j]</code> is <code>'0'</code> or <code>'1'</code>.</li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>height[i] record the current number of countinous '1' in column i;
 left[i] record the left most index j which satisfies that for any index k from j to  i, height[k] &gt;= height[i];
@@ -3036,7 +3063,7 @@ right[i] record the right most index j which satifies that for any index k from 
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

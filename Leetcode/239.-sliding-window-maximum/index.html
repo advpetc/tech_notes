@@ -2987,14 +2987,13 @@
                 
                 
                 <h1 id="sliding-window-maximum">Sliding Window Maximum<a class="headerlink" href="#sliding-window-maximum" title="Permanent link">&para;</a></h1>
-<p>Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Return the max sliding window.</p>
-<p>Follow up:
-Could you solve it in linear time?</p>
-<p>Example:</p>
-<p>Input: nums = [1,3,-1,-3,5,3,6,7], and k = 3
-Output: [3,3,5,5,6,7] 
-Explanation: </p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Window position                Max
+<p>You are given an array of integers <code>nums</code>, there is a sliding window of size <code>k</code> which is moving from the very left of the array to the very right. You can only see the <code>k</code> numbers in the window. Each time the sliding window moves right by one position.</p>
+<p>Return <em>the max sliding window</em>.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [1,3,-1,-3,5,3,6,7], k = 3
+Output: [3,3,5,5,6,7]
+Explanation: 
+Window position                Max
 ---------------               -----
 [1  3  -1] -3  5  3  6  7       3
  1 [3  -1  -3] 5  3  6  7       3
@@ -3005,6 +3004,36 @@ Explanation: </p>
 </code></pre></div>
 
 
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [1], k = 1
+Output: [1]
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [1,-1], k = 1
+Output: [1,-1]
+</code></pre></div>
+
+
+<p><strong>Example 4:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [9,11], k = 2
+Output: [11]
+</code></pre></div>
+
+
+<p><strong>Example 5:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [4,-2], k = 2
+Output: [4]
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 105</code></li>
+<li><code>-104 &lt;= nums[i] &lt;= 104</code></li>
+<li><code>1 &lt;= k &lt;= nums.length</code></li>
+</ul>
 <h2 id="analysis-using-deque">Analysis: using Deque<a class="headerlink" href="#analysis-using-deque" title="Permanent link">&para;</a></h2>
 <p>We need to maintain a queue, where the front stores the current max in the sliding window. When we want to push new element to the queue, we first need to kick off all the elements that are not in the range (from i to i + k - 1), and then we need to keep <code>pop_back()</code> the element(s) that is/are less than current nums[i]. In order to achieve the <code>pop_front()</code> and <code>push_back()</code> operations, we need to use <code>std::dequeue</code> data structure in order to achieve these two operations running in <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>.</p>
 <ul>
@@ -3089,7 +3118,7 @@ class Solution {
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

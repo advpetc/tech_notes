@@ -2959,42 +2959,54 @@
                 
                 
                 <h1 id="regular-expression-matching">Regular Expression Matching<a class="headerlink" href="#regular-expression-matching" title="Permanent link">&para;</a></h1>
-<p>Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*'.</p>
-<p>'.' Matches any single character.
-'*' Matches zero or more of the preceding element.
-The matching should cover the entire input string (not partial).</p>
-<p>Note:</p>
-<p>s could be empty and contains only lowercase letters a-z.
-p could be empty and contains only lowercase letters a-z, and characters like . or *.
-Example 1:</p>
-<p>Input:
-s = "aa"
-p = "a"
+<p>Given an input string (<code>s</code>) and a pattern (<code>p</code>), implement regular expression matching with support for <code>'.'</code> and <code>'*'</code> where:<code></code></p>
+<ul>
+<li><code>'.'</code> Matches any single character.</li>
+<li><code>'*'</code> Matches zero or more of the preceding element.</li>
+</ul>
+<p>The matching should cover the <strong>entire</strong> input string (not partial).</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;aa&quot;, p = &quot;a&quot;
 Output: false
-Explanation: "a" does not match the entire string "aa".
-Example 2:</p>
-<p>Input:
-s = "aa"
-p = "a<em>"
+Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;aa&quot;, p = &quot;a*&quot;
 Output: true
-Explanation: '</em>' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
-Example 3:</p>
-<p>Input:
-s = "ab"
-p = ".<em>"
+Explanation: &#39;*&#39; means zero or more of the preceding element, &#39;a&#39;. Therefore, by repeating &#39;a&#39; once, it becomes &quot;aa&quot;.
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;ab&quot;, p = &quot;.*&quot;
 Output: true
-Explanation: ".</em>" means "zero or more (*) of any character (.)".
-Example 4:</p>
-<p>Input:
-s = "aab"
-p = "c<em>a</em>b"
+Explanation: &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.
+</code></pre></div>
+
+
+<p><strong>Example 4:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;aab&quot;, p = &quot;c*a*b&quot;
 Output: true
-Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore, it matches "aab".
-Example 5:</p>
-<p>Input:
-s = "mississippi"
-p = "mis<em>is</em>p*."
-Output: false</p>
+Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore, it matches &quot;aab&quot;.
+</code></pre></div>
+
+
+<p><strong>Example 5:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;mississippi&quot;, p = &quot;mis*is*p*.&quot;
+Output: false
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>0 &lt;= s.length &lt;= 20</code></li>
+<li><code>0 &lt;= p.length &lt;= 30</code></li>
+<li><code>s</code> contains only lowercase English letters.</li>
+<li><code>p</code> contains only lowercase English letters, <code>'.'</code>, and <code>'*'</code>.</li>
+<li>It is guaranteed for each appearance of the character <code>'*'</code>, there will be a previous valid character to match.</li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <ol>
 <li>dp[i][j]: s[0:i] matches p[0:j]</li>
@@ -3037,7 +3049,7 @@ Output: false</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

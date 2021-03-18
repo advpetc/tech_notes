@@ -2959,13 +2959,17 @@
                 
                 
                 <h1 id="valid-sudoku">Valid Sudoku<a class="headerlink" href="#valid-sudoku" title="Permanent link">&para;</a></h1>
-<p>Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:</p>
-<p>Each row must contain the digits 1-9 without repetition.
-Each column must contain the digits 1-9 without repetition.
-Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
-Note:</p>
-<p>A Sudoku board (partially filled) could be valid but is not necessarily solvable.
-Only the filled cells need to be validated according to the mentioned rules.</p>
+<p>Determine if a <code>9 x 9</code> Sudoku board is valid. Only the filled cells need to be validated <strong>according to the following rules</strong>:</p>
+<ol>
+<li>Each row must contain the digits <code>1-9</code> without repetition.</li>
+<li>Each column must contain the digits <code>1-9</code> without repetition.</li>
+<li>Each of the nine <code>3 x 3</code> sub-boxes of the grid must contain the digits <code>1-9</code> without repetition.</li>
+</ol>
+<p><strong>Note:</strong></p>
+<ul>
+<li>A Sudoku board (partially filled) could be valid but is not necessarily solvable.</li>
+<li>Only the filled cells need to be validated according to the mentioned rules.</li>
+</ul>
 <p><strong>Example 1:</strong></p>
 <p><img alt="IMAGE" src="../resources/B87070BDAFF19E912ECD2978BBD14088.jpg" /></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: board = 
@@ -2994,14 +2998,16 @@ Output: true
 ,[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;.&quot;,&quot;.&quot;,&quot;5&quot;]
 ,[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;]]
 Output: false
+Explanation: Same as Example 1, except with the 5 in the top left corner being modified to 8. Since there are two 8&#39;s in the top left 3x3 sub-box, it is invalid.
 </code></pre></div>
 
 
-<p>Explanation: Same as Example 1, except with the 5 in the top left corner being modified to 8. Since there are two 8's in the top left 3x3 sub-box, it is invalid.</p>
-<p>Constraints:</p>
-<p>board.length == 9
-board[i].length == 9
-board[i][j] is a digit or '.'.</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>board.length == 9</code></li>
+<li><code>board[i].length == 9</code></li>
+<li><code>board[i][j]</code> is a digit or <code>'.'</code>.</li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>There are three things we need to keep track: # of distinct row values, # of distinct columns values, # of box values. To calculate the first twos are fairly simple: keep a boolean array of size of 9, set row i to true for each iteration and check for conflict. </p>
 <p>To calculate box index, we can use the same method. By observation: 
@@ -3055,7 +3061,7 @@ every 3 row from left to right contains 3 boxes.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

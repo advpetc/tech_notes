@@ -3013,31 +3013,36 @@
                 
                 
                 <h1 id="flatten-binary-tree-to-linked-list">Flatten binary tree to linked list<a class="headerlink" href="#flatten-binary-tree-to-linked-list" title="Permanent link">&para;</a></h1>
-<p>Given a binary tree, flatten it to a linked list in-place.</p>
-<p>For example, given the following tree:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    1
-   / \
-  2   5
- / \   \
-3   4   6
+<p>Given the <code>root</code> of a binary tree, flatten the tree into a "linked list":</p>
+<ul>
+<li>The "linked list" should use the same <code>TreeNode</code> class where the <code>right</code> child pointer points to the next node in the list and the <code>left</code> child pointer is always <code>null</code>.</li>
+<li>The "linked list" should be in the same order as a <a href="https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR"><strong>pre-order</strong> <strong>traversal</strong></a> of the binary tree.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<p><img alt="img" src="../resources/114.jpg" /></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = [1,2,5,3,4,null,6]
+Output: [1,null,2,null,3,null,4,null,5,null,6]
 </code></pre></div>
 
 
-<p>The flattened tree should look like:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>1
- \
-  2
-   \
-    3
-     \
-      4
-       \
-        5
-         \
-          6
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = []
+Output: []
 </code></pre></div>
 
 
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = [0]
+Output: [0]
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<p><strong>Follow up:</strong> Can you flatten the tree in-place (with <code>O(1)</code> extra space)?</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <h3 id="method-1-flatten-left-and-right-tree-then-append-the-left-to-the-end-of-right">Method 1: flatten left and right tree, then append the left to the end of right.<a class="headerlink" href="#method-1-flatten-left-and-right-tree-then-append-the-left-to-the-end-of-right" title="Permanent link">&para;</a></h3>
 <p>Time Complexity: if the tree is fully balanced (left height - right height abs value &lt;= 1), then the tree will have at max <span><span class="MathJax_Preview">log(N)</span><script type="math/tex">log(N)</script></span> levels, each node in the recursion tree, it will require <span><span class="MathJax_Preview">log(N)</span><script type="math/tex">log(N)</script></span> runs for the <code>while</code> loop, so the time complexity is <span><span class="MathJax_Preview">O(log(N) \times N)</span><script type="math/tex">O(log(N) \times N)</script></span></p>
@@ -3127,7 +3132,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

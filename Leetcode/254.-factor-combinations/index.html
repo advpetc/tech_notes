@@ -2960,28 +2960,42 @@
                 
                 <h1 id="factor-combinations">Factor Combinations<a class="headerlink" href="#factor-combinations" title="Permanent link">&para;</a></h1>
 <p>Numbers can be regarded as product of its factors. For example,</p>
-<p>8 = 2 x 2 x 2;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>8 = 2 x 2 x 2;
   = 2 x 4.
-Write a function that takes an integer n and return all possible combinations of its factors.</p>
-<p>Note:</p>
-<p>You may assume that n is always positive.
-Factors should be greater than 1 and less than n.
-Example 1:</p>
-<p>Input: 1
+</code></pre></div>
+
+
+<p>Write a function that takes an integer <em>n</em> and return all possible combinations of its factors.</p>
+<p><strong>Note:</strong></p>
+<ol>
+<li>You may assume that <em>n</em> is always positive.</li>
+<li>Factors should be greater than 1 and less than <em>n</em>.</li>
+</ol>
+<p><strong>Example 1:</strong> </p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: 1
 Output: []
-Example 2:</p>
-<p>Input: 37
+</code></pre></div>
+
+
+<p><strong>Example 2:</strong> </p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: 37
 Output:[]
-Example 3:</p>
-<p>Input: 12
+</code></pre></div>
+
+
+<p><strong>Example 3:</strong> </p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: 12
 Output:
 [
   [2, 6],
   [2, 2, 3],
   [3, 4]
 ]
-Example 4:</p>
-<p>Input: 32
+</code></pre></div>
+
+
+<p><strong>Example 4:</strong> </p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: 32
 Output:
 [
   [2, 16],
@@ -2990,7 +3004,10 @@ Output:
   [2, 2, 2, 2, 2],
   [2, 4, 4],
   [4, 8]
-]</p>
+]
+</code></pre></div>
+
+
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>In order to generate all the valid factors, we need to make sure <code>target % factor == 0</code>. However, there is a problem: how to deal with duplication:</p>
 <p>We use a variable <code>index</code> to track the current factor, and if we choose current factor, we should <strong>not</strong> update <code>index</code>, because we can potentially reuse the same factor for multiple times.</p>
@@ -3025,7 +3042,7 @@ Output:
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>

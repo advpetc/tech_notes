@@ -2959,26 +2959,31 @@
                 
                 
                 <h1 id="binary-tree-zigzag-level-order-traversal">Binary Tree Zigzag Level Order Traversal<a class="headerlink" href="#binary-tree-zigzag-level-order-traversal" title="Permanent link">&para;</a></h1>
-<p>Given a binary tree, return the <em>zigzag level order</em> traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).</p>
-<p>For example:
-Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    3
-   / \
-  9  20
-    /  \
-   15   7
+<p>Given the <code>root</code> of a binary tree, return <em>the zigzag level order traversal of its nodes' values</em>. (i.e., from left to right, then right to left for the next level and alternate between).</p>
+<p><strong>Example 1:</strong></p>
+<p><img alt="img" src="../resources/103.jpg" /></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = [3,9,20,null,null,15,7]
+Output: [[3],[20,9],[15,7]]
 </code></pre></div>
 
 
-<p>return its zigzag level order traversal as:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>[
-  [3],
-  [20,9],
-  [15,7]
-]
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = [1]
+Output: [[1]]
 </code></pre></div>
 
 
+<p><strong>Example 3:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = []
+Output: []
+</code></pre></div>
+
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>When seeing level order traversal, we should think about BFS. Different from level order traversal problem, it also requires us to reverse the level as we proceed, so we can introduce a <code>bool right</code> variable to represent if we need to reverse the order.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
@@ -3029,7 +3034,7 @@ Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
     
   </small>
 </div>
