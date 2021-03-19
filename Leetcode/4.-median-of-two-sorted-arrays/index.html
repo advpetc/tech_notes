@@ -3003,14 +3003,14 @@ Output: 2.00000
 </ul>
 <p><strong>Follow up:</strong> The overall run time complexity should be <code>O(log (m+n))</code>.</p>
 <h2 id="anaysis">Anaysis<a class="headerlink" href="#anaysis" title="Permanent link">&para;</a></h2>
-<p>Binary Search:</p>
-<ol>
-<li>if median is in nums1, then <code>nums2[k - i - 2] &lt; nums1[i] &lt; nums2[k - i - 1]</code>, so that nums2[i] is the median. </li>
-<li>if nums1[i] is less than nums2[k - i - 2], then all the idx less than i are impossible -&gt; we can use binary search here</li>
-<li>if all nums1 are invalid, do the same search for nums2.</li>
-</ol>
-<p>Time: <span><span class="MathJax_Preview">O(log_2{m + n})</span><script type="math/tex">O(log_2{m + n})</script></span>
-Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></p>
+<p>Finding median is basically finding the <code>(m + n) // 2</code>th elements for the two sorted arrays. We can use binary search to find this element.</p>
+<p>We will use recursion to implement the binary search: <code>int findKth(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2, int i, int j, int k)</code>. <code>i</code> is the iterator pointing at <code>nums1</code>, and <code>j</code> is the iterator pointing at <code>nums2</code>, and <code>k</code> is the current k-th element we are interested in starting from <code>nums[i]</code> and <code>nums[j]</code> (note that both <code>i</code>, <code>j</code>, <code>k</code> are varibles, and they will change in each iteration).</p>
+<p>Now we consider what we do for each iteration. If we have reach to the end of <code>nums1</code>, which mean <code>i == nums1.size()</code>, then we will give up <code>nums1</code> and simply return the k-th element from <code>nums2</code>. In constrast, if we have reach to the end of <code>nums2</code>, which mean <code>j == nums2.size()</code>, then we will give up <code>nums2</code> and simply return the k-th element from <code>nums1</code>. Don't forget there is another base case: <code>k == 1</code>, which means there is only one element we are interested in, and we should return the smaller one from <code>nums1[i]</code> and <code>nums2[j]</code>. </p>
+<p>Then we will eagerly grow our poiners as far as possible, and we decide to grow half the size of k. If both <code>i + k/2 - 1</code> and <code>j + k/2 - 1</code> are in the range, then we determine the smaller one. Since we are determining the k-th largest element, if we can be sure that all the elements from <code>i</code> to <code>i + k</code> are smaller than <code>j</code> to <code>j + k</code> (assume <code>nums1[i + k/2 - 1] &lt; nums2[j + k/2 - 1]</code>), then we can safely discard all the elements from <code>i</code> to <code>i + k/2</code> (they will be used as a "placeholder" or 炮灰 in Chinese for <code>i</code> to <code>i + k/2</code>). This logic can apply to the case when <code>nums1[i + k/2 - 1] &gt;= nums2[j + k/2 - 1]</code> as well.</p>
+<ul>
+<li>Time: <span><span class="MathJax_Preview">O(log_2{m + n})</span><script type="math/tex">O(log_2{m + n})</script></span></li>
+<li>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></li>
+</ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
@@ -3038,7 +3038,7 @@ Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2021</span>
     
   </small>
 </div>
