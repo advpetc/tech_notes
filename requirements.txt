@@ -35,7 +35,7 @@ pymdown-extensions==8.0
 pynvim==0.4.1
 python-markdown-math==0.7
 pytz==2021.1
-PyYAML==5.3.1
+PyYAML==5.4
 regex==2020.7.14
 six==1.15.0
 smmap==3.0.5
