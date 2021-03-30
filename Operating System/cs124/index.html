@@ -3538,7 +3538,7 @@
 <blockquote>
 <p>two process <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span> and <span><span class="MathJax_Preview">P_1</span><script type="math/tex">P_1</script></span> repeatedly entering a critical section</p>
 </blockquote>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">while</span> (<span style="color: #008000">true</span>) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">while</span> (<span style="color: #008000">true</span>) {
   flag[i]<span style="color: #666666">=</span><span style="color: #008000">true</span>; <span style="color: #408080; font-style: italic">// i=0 for P_0, i=1 for P_1;j=1-i</span>
   turn<span style="color: #666666">=</span>j; <span style="color: #408080; font-style: italic">// state intention to enter critical section</span>
   <span style="color: #008000; font-weight: bold">while</span>(flag[j]<span style="color: #666666">&amp;&amp;</span>turn<span style="color: #666666">==</span>j); <span style="color: #408080; font-style: italic">// wait to enter critical section</span>
@@ -3582,7 +3582,7 @@
 <blockquote>
 <p><a href="https://en.wikipedia.org/wiki/Banker%27s_algorithm#:~:text=The%20Banker%20algorithm%2C%20sometimes%20referred,state%22%20check%20to%20test%20for">https://en.wikipedia.org/wiki/Banker%27s_algorithm#:~:text=The%20Banker%20algorithm%2C%20sometimes%20referred,state%22%20check%20to%20test%20for</a></p>
 </blockquote>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Total system resources are:
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Total system resources are:
 A B C D
 6 5 7 6
 Available system resources are:

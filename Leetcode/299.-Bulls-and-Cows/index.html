@@ -2980,7 +2980,7 @@
 <p>Given the secret number <code>secret</code> and your friend's guess <code>guess</code>, return <em>the hint for your friend's guess</em>.</p>
 <p>The hint should be formatted as <code>"xAyB"</code>, where <code>x</code> is the number of bulls and <code>y</code> is the number of cows. Note that both <code>secret</code> and <code>guess</code> may contain duplicate digits.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: secret = &quot;1807&quot;, guess = &quot;7810&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: secret = &quot;1807&quot;, guess = &quot;7810&quot;
 Output: &quot;1A3B&quot;
 Explanation: Bulls are connected with a &#39;|&#39; and cows are underlined:
 &quot;1807&quot;
@@ -2990,7 +2990,7 @@ Explanation: Bulls are connected with a &#39;|&#39; and cows are underlined:
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: secret = &quot;1123&quot;, guess = &quot;0111&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: secret = &quot;1123&quot;, guess = &quot;0111&quot;
 Output: &quot;1A1B&quot;
 Explanation: Bulls are connected with a &#39;|&#39; and cows are underlined:
 &quot;1123&quot;        &quot;1123&quot;
@@ -3001,13 +3001,13 @@ Note that only one of the two unmatched 1s is counted as a cow since the non-bul
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: secret = &quot;1&quot;, guess = &quot;0&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: secret = &quot;1&quot;, guess = &quot;0&quot;
 Output: &quot;0A0B&quot;
 </code></pre></div>
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: secret = &quot;1&quot;, guess = &quot;1&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: secret = &quot;1&quot;, guess = &quot;1&quot;
 Output: &quot;1A0B&quot;
 </code></pre></div>
 
@@ -3027,7 +3027,7 @@ Output: &quot;1A0B&quot;
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> when all characters in secret string are distinct.</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     string getHint(string secret, string guess) {
         <span style="color: #B00040">int</span> cows <span style="color: #666666">=</span> <span style="color: #666666">0</span>, bulls <span style="color: #666666">=</span> <span style="color: #666666">0</span>;

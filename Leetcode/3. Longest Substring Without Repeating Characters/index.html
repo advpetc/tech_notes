@@ -2987,21 +2987,21 @@
                 <h1 id="longest-substring-without-repeating-characters">Longest Substring Without Repeating Characters<a class="headerlink" href="#longest-substring-without-repeating-characters" title="Permanent link">&para;</a></h1>
 <p>Given a string <code>s</code>, find the length of the <strong>longest substring</strong> without repeating characters.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;abcabcbb&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;abcabcbb&quot;
 Output: 3
 Explanation: The answer is &quot;abc&quot;, with the length of 3.
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;bbbbb&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;bbbbb&quot;
 Output: 1
 Explanation: The answer is &quot;b&quot;, with the length of 1.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;pwwkew&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;pwwkew&quot;
 Output: 3
 Explanation: The answer is &quot;wke&quot;, with the length of 3.
 Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
@@ -3009,7 +3009,7 @@ Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence an
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;&quot;
 Output: 0
 </code></pre></div>
 
@@ -3040,7 +3040,7 @@ Output: 0
 <li>Space: <span><span class="MathJax_Preview">O(128)</span><script type="math/tex">O(128)</script></span> or <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> depending on the range of character</li>
 </ol>
 <h2 id="code-1">Code 1<a class="headerlink" href="#code-1" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> lengthOfLongestSubstring(string s) {
         <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
@@ -3060,7 +3060,7 @@ Output: 0
 
 
 <h2 id="code-2">Code 2<a class="headerlink" href="#code-2" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> lengthOfLongestSubstring(string s) {
         vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> idx(<span style="color: #666666">128</span>, <span style="color: #666666">-1</span>);

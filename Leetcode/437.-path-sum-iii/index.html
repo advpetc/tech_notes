@@ -3084,7 +3084,7 @@
 <h4 id="_1">样例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>Example:</p>
 <p>root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>      10
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>      10
      /  \
     5   -3
    / \    \
@@ -3107,7 +3107,7 @@
 <p>时间复杂度分析：brute force相当于每个节点都尝试一遍，所以对于每个节点都有两个operation，如果有
 n个节点，那么一共有2^n种选法。</p>
 <h2 id="c">C++<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> res;
     <span style="color: #B00040">int</span> <span style="color: #0000FF">pathSum</span>(TreeNode<span style="color: #666666">*</span> root, <span style="color: #B00040">int</span> sum) {
@@ -3141,7 +3141,7 @@ n个节点，那么一共有2^n种选法。</p>
 two sum那道题其实也是类似的思想，只不过是有两个，所以不用map来存个数，直接用set来看存不存在就可以了。</p>
 <p>时间复杂度分析：每个节点只要走一次，但是要牺牲space来存之前的sum，所以space是n，time是n。</p>
 <h4 id="c_1">C++<a class="headerlink" href="#c_1" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> res;
     unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> m; <span style="color: #408080; font-style: italic">// sum: number of ways to form this sum</span>

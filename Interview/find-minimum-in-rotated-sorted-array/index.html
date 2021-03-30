@@ -2998,7 +2998,7 @@
 <p>Two Situations:
 2 4 5 6 0 1: mid (5) &gt; r (1) -&gt; l-mid is sorted and pivot is on the right -&gt; if [right] &lt; [left] then min is not on the l-mid -&gt; search mid+1 - right (mid cannot be the minimum).
 6 0 1 2 4 5: mid (1) &lt; r -&gt; right is sorted -&gt; l-mid is what to be searched (minimum is located) -&gt; mid can be the minimum (e.g. 6 7 | 1 2 4 5)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// Assume array != null, array.length &gt;= 2</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// Assume array != null, array.length &gt;= 2</span>
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">shiftedMin</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> array) {
     <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> array.<span style="color: #7D9029">length</span> <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
     <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r) { 
@@ -3017,7 +3017,7 @@
 2. left &lt; right: &gt;= 2 elements
 3. left &lt; right - 1: &gt;= 3 elements</p>
 <h3 id="two-elements-left-l-r-1">Two elements left (l &lt; r - 1)<a class="headerlink" href="#two-elements-left-l-r-1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">shiftedMin</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> array) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">shiftedMin</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> array) {
     <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> array.<span style="color: #7D9029">length</span> <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
     <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> r <span style="color: #666666">-</span> <span style="color: #666666">1</span>) {
         <span style="color: #B00040">int</span> mid <span style="color: #666666">=</span> (l <span style="color: #666666">+</span> r) <span style="color: #666666">/</span> <span style="color: #666666">2</span>;

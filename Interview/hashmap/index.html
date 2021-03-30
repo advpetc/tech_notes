@@ -3037,7 +3037,7 @@
 <li>A hash table (<strong>we can just lock the bucket we are accessing!</strong>)</li>
 </ul>
 <h3 id="example-implementation">Example implementation<a class="headerlink" href="#example-implementation" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>template <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">typename</span> Key, <span style="color: #008000; font-weight: bold">typename</span> Value, <span style="color: #008000; font-weight: bold">typename</span> Hash <span style="color: #666666">=</span> std<span style="color: #666666">::</span>hash<span style="color: #666666">&lt;</span>Key<span style="color: #666666">&gt;&gt;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>template <span style="color: #666666">&lt;</span>typename Key, typename Value, typename Hash <span style="color: #666666">=</span> std<span style="color: #666666">::</span>hash<span style="color: #666666">&lt;</span>Key<span style="color: #666666">&gt;&gt;</span>
 class threadsafe_lookup_table {
 <span style="color: #A0A000">private</span>:
   class bucket_type {
@@ -3064,7 +3064,7 @@ class threadsafe_lookup_table {
   <span style="color: #A0A000">private</span>:
     <span style="color: #008000; font-weight: bold">typedef</span> std<span style="color: #666666">::</span>pair<span style="color: #666666">&lt;</span>Key, Value<span style="color: #666666">&gt;</span> bucket_value;
     <span style="color: #008000; font-weight: bold">typedef</span> std<span style="color: #666666">::</span>list<span style="color: #666666">&lt;</span>bucket_value<span style="color: #666666">&gt;</span> bucket_data;
-    <span style="color: #008000; font-weight: bold">typedef</span> <span style="color: #008000; font-weight: bold">typename</span> bucket_data<span style="color: #666666">::</span>iterator bucket_iterator;
+    <span style="color: #008000; font-weight: bold">typedef</span> typename bucket_data<span style="color: #666666">::</span>iterator bucket_iterator;
     bucket_data data;
     mutable std<span style="color: #666666">::</span>shared_mutex mutex;
 
@@ -3076,7 +3076,7 @@ class threadsafe_lookup_table {
   };
   std<span style="color: #666666">::</span>vector<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>unique_lock<span style="color: #666666">&lt;</span>bucket_type<span style="color: #666666">&gt;&gt;</span> buckets;
   Hash hasher;
-  bucket_type <span style="color: #666666">&amp;</span>get_bucket(Key <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>key) <span style="color: #008000; font-weight: bold">const</span> {
+  bucket_type <span style="color: #666666">&amp;</span><span style="color: #0000FF">get_bucket</span>(Key <span style="color: #008000; font-weight: bold">const</span> <span style="color: #666666">&amp;</span>key) <span style="color: #008000; font-weight: bold">const</span> {
     std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> <span style="color: #008000; font-weight: bold">const</span> bucket_index <span style="color: #666666">=</span> hasher(key) <span style="color: #666666">%</span> buckets.size();
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">*</span>buckets[bucket_index];
   }

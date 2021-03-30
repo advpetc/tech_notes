@@ -2978,7 +2978,7 @@
 <p>Return <em>the </em><em>exclusive time</em><em> of each function in an array, where the value at the</em> <code>ith</code> <em>index represents the exclusive time for the function with ID</em> <code>i</code>.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/diag1b.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;1:start:2&quot;,&quot;1:end:5&quot;,&quot;0:end:6&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;1:start:2&quot;,&quot;1:end:5&quot;,&quot;0:end:6&quot;]
 Output: [3,4]
 Explanation:
 Function 0 starts at the beginning of time 0, then it executes 2 for units of time and reaches the end of time 1.
@@ -2989,7 +2989,7 @@ So function 0 spends 2 + 1 = 3 units of total time executing, and function 1 spe
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 1, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;0:start:6&quot;,&quot;0:end:6&quot;,&quot;0:end:7&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: n = 1, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;0:start:6&quot;,&quot;0:end:6&quot;,&quot;0:end:7&quot;]
 Output: [8]
 Explanation:
 Function 0 starts at the beginning of time 0, executes for 2 units of time, and recursively calls itself.
@@ -3002,7 +3002,7 @@ So function 0 spends 2 + 4 + 1 + 1 = 8 units of total time executing.
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:6&quot;,&quot;1:end:6&quot;,&quot;0:end:7&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:6&quot;,&quot;1:end:6&quot;,&quot;0:end:7&quot;]
 Output: [7,1]
 Explanation:
 Function 0 starts at the beginning of time 0, executes for 2 units of time, and recursively calls itself.
@@ -3015,13 +3015,13 @@ So function 0 spends 2 + 4 + 1 = 7 units of total time executing, and function 1
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:7&quot;,&quot;1:end:7&quot;,&quot;0:end:8&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:7&quot;,&quot;1:end:7&quot;,&quot;0:end:8&quot;]
 Output: [8,1]
 </code></pre></div>
 
 
 <p><strong>Example 5:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 1, logs = [&quot;0:start:0&quot;,&quot;0:end:0&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: n = 1, logs = [&quot;0:start:0&quot;,&quot;0:end:0&quot;]
 Output: [1]
 </code></pre></div>
 
@@ -3045,7 +3045,7 @@ Output: [1]
 <p>Time: O(n) since each element is going to run into the stack once
 Space: O(n)</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #008000; font-weight: bold">inline</span> parse(string<span style="color: #666666">&amp;</span> str) {
         string id, status, timestamp;

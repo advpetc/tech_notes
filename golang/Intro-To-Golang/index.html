@@ -3079,7 +3079,7 @@
 <li>If our function had multiple return statements (perhaps one in an if and one in an else), Close will happen <strong>before</strong> both of them.</li>
 <li>Deferred functions are run even if a runtime panic occurs.</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> CopyFile(dstName, srcName <span style="color: #B00040">string</span>) (written <span style="color: #B00040">int64</span>, err <span style="color: #B00040">error</span>) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">func</span> CopyFile(dstName, srcName <span style="color: #B00040">string</span>) (written <span style="color: #B00040">int64</span>, err <span style="color: #B00040">error</span>) {
     src, err <span style="color: #666666">:=</span> os.Open(srcName)
     <span style="color: #008000; font-weight: bold">if</span> err <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> {
         <span style="color: #008000; font-weight: bold">return</span>
@@ -3099,7 +3099,7 @@
 
 
 <p>If the call to os.Create fails, the function will return without closing the source file. This can be easily remedied by putting a call to src.Close before the second return statement, but if the function were more complex the problem might not be so easily noticed and resolved. By introducing defer statements we can ensure that the files are always closed:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> CopyFile(dstName, srcName <span style="color: #B00040">string</span>) (written <span style="color: #B00040">int64</span>, err <span style="color: #B00040">error</span>) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">func</span> CopyFile(dstName, srcName <span style="color: #B00040">string</span>) (written <span style="color: #B00040">int64</span>, err <span style="color: #B00040">error</span>) {
     src, err <span style="color: #666666">:=</span> os.Open(srcName)
     <span style="color: #008000; font-weight: bold">if</span> err <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> {
         <span style="color: #008000; font-weight: bold">return</span>
@@ -3118,7 +3118,7 @@
 
 
 <p>However, there are some pitfalls:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> a() {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">func</span> a() {
     i <span style="color: #666666">:=</span> <span style="color: #666666">0</span>
     <span style="color: #008000; font-weight: bold">defer</span> fmt.Println(i)
     i<span style="color: #666666">++</span>
@@ -3128,7 +3128,7 @@
 
 
 <p>Instead of printing 1, it will print 0, although the <code>fmt.Println(i)</code> is being called after i++. <code>defer</code> will save the current state of the function — including local variable — to run before the very last line of the function.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> b() {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">func</span> b() {
     <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #666666">:=</span> <span style="color: #666666">0</span>; i &lt; <span style="color: #666666">4</span>; i<span style="color: #666666">++</span> {
         <span style="color: #008000; font-weight: bold">defer</span> fmt.Print(i)
     }
@@ -3144,7 +3144,7 @@
 </ol>
 </blockquote>
 <p>You can specify the return value and its type in the function signacture:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> a() (i <span style="color: #B00040">int</span>) { <span style="color: #408080; font-style: italic">// return 2 since it return nothing</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">func</span> a() (i <span style="color: #B00040">int</span>) { <span style="color: #408080; font-style: italic">// return 2 since it return nothing</span>
     i = <span style="color: #666666">2</span>
     <span style="color: #008000; font-weight: bold">return</span>
 }
@@ -3157,7 +3157,7 @@
 
 
 <p>So</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code> <span style="color: #008000; font-weight: bold">func</span> c() (i <span style="color: #B00040">int</span>) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> <span style="color: #008000; font-weight: bold">func</span> c() (i <span style="color: #B00040">int</span>) {
     <span style="color: #008000; font-weight: bold">defer</span> <span style="color: #008000; font-weight: bold">func</span>() { i<span style="color: #666666">++</span> }()
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">1</span>
 }
@@ -3166,7 +3166,7 @@
 
 <p>This deferred <code>func()</code> just specify the return value and type, and it got executed after 1 is returned </p>
 <h2 id="receiver">Receiver<a class="headerlink" href="#receiver" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// instead of using &amp;c to pass as reference to the function</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// instead of using &amp;c to pass as reference to the function</span>
 <span style="color: #008000; font-weight: bold">func</span> circleArea(c <span style="color: #666666">*</span>Circle) <span style="color: #B00040">float64</span> {
     <span style="color: #008000; font-weight: bold">return</span> math.Pi <span style="color: #666666">*</span> c.r <span style="color: #666666">*</span> c.r
 }
@@ -3183,7 +3183,7 @@ fmt.Println(c.area())
 
 
 <p>Has-a relationship with receiver</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">type</span> Person <span style="color: #008000; font-weight: bold">struct</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">type</span> Person <span style="color: #008000; font-weight: bold">struct</span> {
     Name <span style="color: #B00040">string</span>
 }
 
@@ -3203,7 +3203,7 @@ a.Talk()        <span style="color: #408080; font-style: italic">// will work as
 <h2 id="interface">Interface<a class="headerlink" href="#interface" title="Permanent link">&para;</a></h2>
 <p><a href="https://gobyexample.com/interfaces">url</a></p>
 <p>To use interface, there is no specific keyword such as <code>extends</code> in Java or <code>implement</code> in C++, we just implement all the method.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">package</span> main
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span> main
 
 <span style="color: #008000; font-weight: bold">import</span> (
     <span style="color: #BA2121">&quot;fmt&quot;</span>
@@ -3278,13 +3278,13 @@ a.Talk()        <span style="color: #408080; font-style: italic">// will work as
 <p>Difference between method and function in Golang: method has a receiver, while function
 doesn't have one. <code>func () a() float64 {}</code> vs <code>func a() float64 {}</code></p>
 <h2 id="fast-way-to-create-an-slicearray">Fast way to create an slice/array<a class="headerlink" href="#fast-way-to-create-an-slicearray" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    fmt.Println(strings.Join([]<span style="color: #B00040">string</span>{<span style="color: #BA2121">&quot;a&quot;</span>, <span style="color: #BA2121">&quot;b&quot;</span>}, <span style="color: #BA2121">&quot;-&quot;</span>))
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    fmt.Println(strings.Join([]<span style="color: #B00040">string</span>{<span style="color: #BA2121">&quot;a&quot;</span>, <span style="color: #BA2121">&quot;b&quot;</span>}, <span style="color: #BA2121">&quot;-&quot;</span>))
 </code></pre></div>
 
 
 <h2 id="reuse-variable">Reuse variable<a class="headerlink" href="#reuse-variable" title="Permanent link">&para;</a></h2>
 <p>This will work:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// err variable is reused</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// err variable is reused</span>
 dir, err <span style="color: #666666">:=</span> os.Open(<span style="color: #BA2121">&quot;.&quot;</span>)
 <span style="color: #008000; font-weight: bold">if</span> err <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> {
   <span style="color: #008000; font-weight: bold">return</span>
@@ -3298,7 +3298,7 @@ fileInfos, err <span style="color: #666666">:=</span> dir.Readdir(<span style="c
 
 
 <p>​   This will not work:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// this will not work</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// this will not work</span>
 err <span style="color: #666666">:=</span> <span style="color: #666666">3</span>
 err <span style="color: #666666">:=</span> <span style="color: #666666">4</span>
 
@@ -3308,13 +3308,13 @@ a, b <span style="color: #666666">:=</span> <span style="color: #666666">3</span
 
 
 <p>and will throw</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code># command-line-arguments
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># command-line-arguments
 ./main.go:110:6: no new variables on left side of :=
 </code></pre></div>
 
 
 <h2 id="read-all-the-file-recursively-under-specified-directory">Read all the file recursively under specified directory<a class="headerlink" href="#read-all-the-file-recursively-under-specified-directory" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">import</span> (
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> (
   <span style="color: #BA2121">&quot;fmt&quot;</span>
     <span style="color: #BA2121">&quot;os&quot;</span>
   <span style="color: #BA2121">&quot;path/filepath&quot;</span>
@@ -3333,7 +3333,7 @@ a, b <span style="color: #666666">:=</span> <span style="color: #666666">3</span
 <p><a href="https://stackoverflow.com/questions/26006856/why-use-the-go-keyword-when-calling-a-function">stackoverflow</a></p>
 <p>In writing a go server: to see the difference in action, try connecting twice (at the same time) to your server. You will find that without the word go, you will not accept the second tcp connection until the first one is done.</p>
 <h2 id="use-flag-to-parse-input-argument">Use <code>flag</code> to parse input argument<a class="headerlink" href="#use-flag-to-parse-input-argument" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">package</span> main
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span> main
 
 <span style="color: #008000; font-weight: bold">import</span> (
     <span style="color: #BA2121">&quot;flag&quot;</span>
@@ -3357,7 +3357,7 @@ a, b <span style="color: #666666">:=</span> <span style="color: #666666">3</span
 
 
 <h2 id="import-alias">Import alias<a class="headerlink" href="#import-alias" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">import</span> m <span style="color: #BA2121">&quot;golang-book/chapter8/math&quot;</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> m <span style="color: #BA2121">&quot;golang-book/chapter8/math&quot;</span>
 <span style="color: #008000; font-weight: bold">func</span> main() {
   xs <span style="color: #666666">:=</span> []<span style="color: #B00040">float64</span>{<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>} avg <span style="color: #666666">:=</span> m.Average(xs)
 }

@@ -2974,20 +2974,20 @@
 <p>Given a string <code>s</code> and a dictionary of strings <code>wordDict</code>, add spaces in <code>s</code> to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in <strong>any order</strong>.</p>
 <p><strong>Note</strong> that the same word in the dictionary may be reused multiple times in the segmentation.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;catsanddog&quot;, wordDict = [&quot;cat&quot;,&quot;cats&quot;,&quot;and&quot;,&quot;sand&quot;,&quot;dog&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;catsanddog&quot;, wordDict = [&quot;cat&quot;,&quot;cats&quot;,&quot;and&quot;,&quot;sand&quot;,&quot;dog&quot;]
 Output: [&quot;cats and dog&quot;,&quot;cat sand dog&quot;]
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;pineapplepenapple&quot;, wordDict = [&quot;apple&quot;,&quot;pen&quot;,&quot;applepen&quot;,&quot;pine&quot;,&quot;pineapple&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;pineapplepenapple&quot;, wordDict = [&quot;apple&quot;,&quot;pen&quot;,&quot;applepen&quot;,&quot;pine&quot;,&quot;pineapple&quot;]
 Output: [&quot;pine apple pen apple&quot;,&quot;pineapple pen apple&quot;,&quot;pine applepen apple&quot;]
 Explanation: Note that you are allowed to reuse a dictionary word.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;catsandog&quot;, wordDict = [&quot;cats&quot;,&quot;dog&quot;,&quot;sand&quot;,&quot;and&quot;,&quot;cat&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;catsandog&quot;, wordDict = [&quot;cats&quot;,&quot;dog&quot;,&quot;sand&quot;,&quot;and&quot;,&quot;cat&quot;]
 Output: []
 </code></pre></div>
 
@@ -3001,7 +3001,7 @@ Output: []
 <li>All the strings of <code>wordDict</code> are <strong>unique</strong>.</li>
 </ul>
 <h2 id="dfs-w-memo">dfs w/ memo<a class="headerlink" href="#dfs-w-memo" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
     unordered_map<span style="color: #666666">&lt;</span>string, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&gt;</span> m;
 
     vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #0000FF">combine</span>(string word, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> prev){
@@ -3041,7 +3041,7 @@ Output: []
 <p><img alt="IMAGE" src="../resources/A7A0D625067844E33F882924CF5DE648.jpg" />
 After memo:
 <img alt="IMAGE" src="../resources/52DABD0AB9F46F747AAF823A8EB8F99A.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span>:
     vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #0000FF">wordBreak</span>(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> wordDict) {
         unordered_map<span style="color: #666666">&lt;</span>string, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&gt;</span> m; <span style="color: #408080; font-style: italic">// word segment -&gt; using what words to form</span>

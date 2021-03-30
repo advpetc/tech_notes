@@ -3006,21 +3006,21 @@
 </ul>
 <p>Return the size of the largest connected component in the graph.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [4,6,15,35]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: [4,6,15,35]
 Output: 4
 </code></pre></div>
 
 
 <p><img alt="image" src="../resources/ex1.png" /></p>
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [20,50,9,63]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: [20,50,9,63]
 Output: 2
 </code></pre></div>
 
 
 <p><img alt="img" src="../resources/ex2.png" /></p>
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [2,3,6,7,4,12,21,39]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: [2,3,6,7,4,12,21,39]
 Output: 8
 </code></pre></div>
 
@@ -3045,7 +3045,7 @@ Output: 8
 <p>step 3 check the root and do the counting
 * now we have built our tree, and we can easily find the root node (or id) for each node, we can just count the number of id and find the max.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> p;
 
@@ -3078,7 +3078,7 @@ Output: 8
 
 <p>Q&amp;A:
 why</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>for (int a : A) 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>for (int a : A) 
     for (int i = 2; i &lt;= sqrt(a); ++i)
         if (a % i == 0) {
             p[find(a)] = p[find(i)];
@@ -3088,7 +3088,7 @@ why</p>
 
 
 <p>instead of</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>for (int a : A) 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>for (int a : A) 
     for (int i = 2; i &lt;= sqrt(a); ++i) {
         int root = find(a);
         if (a % i == 0) {
@@ -3102,7 +3102,7 @@ why</p>
 <p>Because our root is going to change every time when the p map is updated.</p>
 <h2 id="analysis-union-find-w-prime-sieve">Analysis: Union-Find w/ Prime Sieve<a class="headerlink" href="#analysis-union-find-w-prime-sieve" title="Permanent link">&para;</a></h2>
 <h2 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
     <span style="color: #008000; font-weight: bold">const</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">100001</span>;
     <span style="color: #B00040">int</span> parent[N];
     <span style="color: #B00040">int</span> m[N];

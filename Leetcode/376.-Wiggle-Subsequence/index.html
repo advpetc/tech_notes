@@ -3007,21 +3007,21 @@
 </ul>
 <p>A <strong>subsequence</strong> is obtained by deleting some elements (eventually, also zero) from the original sequence, leaving the remaining elements in their original order.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [1,7,4,9,2,5]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: nums = [1,7,4,9,2,5]
 Output: 6
 Explanation: The entire sequence is a wiggle sequence.
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [1,17,5,10,13,15,10,5,16,8]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: nums = [1,17,5,10,13,15,10,5,16,8]
 Output: 7
 Explanation: There are several subsequences that achieve this length. One is [1,17,10,13,10,16,8].
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums = [1,2,3,4,5,6,7,8,9]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: nums = [1,2,3,4,5,6,7,8,9]
 Output: 2
 </code></pre></div>
 
@@ -3037,7 +3037,7 @@ Output: 2
 <p><strong>Dynamic Programming</strong>: Another approach is using two arrays to record the current status' longest subsequence count (with the last element being <code>nums[i]</code>). For each point, we could choose either to append the previous "raising" subsequence or "falling" subsequence — thus we need two arrays. The time complexity for this approach is <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>, and the space complexity is <span><span class="MathJax_Preview">O(2 \times n)</span><script type="math/tex">O(2 \times n)</script></span>. </p>
 <p><strong>Dynmaic Programming Improved</strong>: If we think carefully, there are some correlation between our two arrays. If we mark one array as <code>up[i]</code> and another one as <code>down[i]</code>, we can find that if <code>nums[i] &gt; nums[i-1]</code> (going up), the previous one must be going down, and we will have the maximum value from <code>down[i - 1]</code>, since <code>down[i - 1] &gt;= down[i - 2] … &gt;= down[0]</code>. Same logic applies to <code>nums[i] &lt; nums[i - 1]</code>. Using this method we don't need to iterate through the <code>nums[i]</code> twice, but just a linear scan should be able to solve this problem. To further improve, since we are only interested in the previous <code>down</code> or <code>up</code>, we don't need to store all the result from <code>down[0] …  down[i-1]</code>, so we can minimize these arrays into two variables. Time complexity will be <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> and space is <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>.</p>
 <h2 id="code-brute-force">Code: brute force<a class="headerlink" href="#code-brute-force" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> dfs(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> a, <span style="color: #B00040">int</span> idx, <span style="color: #B00040">bool</span> status) {
         <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
@@ -3061,7 +3061,7 @@ Output: 2
 
 
 <h2 id="code-dp-with-two-arrays">Code: DP with two arrays<a class="headerlink" href="#code-dp-with-two-arrays" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> wiggleMaxLength(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> a) {
         <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> a.size();
@@ -3083,7 +3083,7 @@ Output: 2
 
 
 <h2 id="code-dp-with-two-variables">Code: DP with two variables<a class="headerlink" href="#code-dp-with-two-variables" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> wiggleMaxLength(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> a) {
         <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> a.size();

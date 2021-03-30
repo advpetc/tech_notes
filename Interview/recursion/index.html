@@ -3059,7 +3059,7 @@ Test</p>
 <p>Time Complexity: total nodes of the recursion tree
 Space Complexity: call stack (typically equals to the height of the recursion tree)</p>
 <h3 id="naive-approach">Naive Approach<a class="headerlink" href="#naive-approach" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">fib</span>(<span style="color: #B00040">int</span> n) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">fib</span>(<span style="color: #B00040">int</span> n) {
     <span style="color: #008000; font-weight: bold">if</span> (n <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">||</span> n <span style="color: #666666">==</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">return</span> n;
     <span style="color: #008000; font-weight: bold">return</span> fib(n <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">+</span> fib(n <span style="color: #666666">-</span> <span style="color: #666666">2</span>);
 }
@@ -3071,7 +3071,7 @@ Space: n</p>
 <h2 id="powa-b">pow(a, b)<a class="headerlink" href="#powa-b" title="Permanent link">&para;</a></h2>
 <p>don't care the case for a == 0 or b &lt; 0 for now</p>
 <h3 id="naive-approach_1">Naive Approach<a class="headerlink" href="#naive-approach_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">pow</span>(<span style="color: #B00040">int</span> a, <span style="color: #B00040">int</span> b) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">pow</span>(<span style="color: #B00040">int</span> a, <span style="color: #B00040">int</span> b) {
     <span style="color: #008000; font-weight: bold">if</span> (b <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">1</span>;
     <span style="color: #008000; font-weight: bold">return</span> pow(a, b <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">*</span> a;
 }
@@ -3092,7 +3092,7 @@ there are b nodes and the longest path is b
 Time: O(b)
 Space: O(b)</p>
 <h3 id="optimize-space">Optimize Space<a class="headerlink" href="#optimize-space" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">pow</span>(<span style="color: #B00040">int</span> a, <span style="color: #B00040">int</span> b) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">pow</span>(<span style="color: #B00040">int</span> a, <span style="color: #B00040">int</span> b) {
     <span style="color: #008000; font-weight: bold">if</span> (b <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">1</span>;
     <span style="color: #008000; font-weight: bold">return</span> pow(a, b <span style="color: #666666">/</span> <span style="color: #666666">2</span>)  <span style="color: #666666">*</span> pow(a, b <span style="color: #666666">-</span> b <span style="color: #666666">/</span> <span style="color: #666666">2</span>); <span style="color: #408080; font-style: italic">// why not using b/2? because 3/2 = 1.5 = 1</span>
 }

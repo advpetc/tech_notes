@@ -3070,7 +3070,7 @@
 <blockquote>
 <p><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/sliding-window-algorithm-template-to-solve-all-the-leetcode-substring-search-problem">https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/sliding-window-algorithm-template-to-solve-all-the-leetcode-substring-search-problem</a></p>
 </blockquote>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>public class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>public class Solution {
     public List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> slidingWindowTemplateByHarryChaoyangHe(String s, String t) {
         <span style="color: #408080; font-style: italic">//init a collection or int value to save the result according the question.</span>
         List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> result <span style="color: #666666">=</span> new LinkedList<span style="color: #666666">&lt;&gt;</span>();
@@ -3144,7 +3144,7 @@ s: "abab" p: "ab"</p>
 The substring with start index = 0 is "ab", which is an anagram of "ab".
 The substring with start index = 1 is "ba", which is an anagram of "ab".
 The substring with start index = 2 is "ab", which is an anagram of "ab".</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> findAnagrams(string s, string p)
     {
@@ -3175,7 +3175,7 @@ Output: "BANC"
 Note:</p>
 <p>If there is no such window in S that covers all characters in T, return the empty string "".
 If there is such window, you are guaranteed that there will always be only one unique minimum window in S.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     string minWindow(string s, string t) {
         unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> m;
@@ -3218,7 +3218,7 @@ Example 3:</p>
 Output: 3
 Explanation: The answer is "wke", with the length of 3. 
              Note that the answer must be a substring, "pwke" is a subsequence and not a substring.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">int</span> lengthOfLongestSubstring(string s) {
         <span style="color: #B00040">int</span> start <span style="color: #666666">=</span> <span style="color: #666666">0</span>, end <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
@@ -3251,7 +3251,7 @@ Example 2:</p>
   s = "wordgoodgoodgoodbestword",
   words = ["word","good","best","word"]
 Output: []</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> findSubstring(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> words) {
         <span style="color: #008000; font-weight: bold">if</span> (s.empty() <span style="color: #666666">||</span> words.empty()) <span style="color: #008000; font-weight: bold">return</span> {};
@@ -3292,7 +3292,7 @@ Example 2:</p>
   s = "wordgoodgoodgoodbestword",
   words = ["word","good","best","word"]
 Output: []</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> findSubstring(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> words) {
         <span style="color: #008000; font-weight: bold">if</span> (s.empty() <span style="color: #666666">||</span> words.empty()) <span style="color: #008000; font-weight: bold">return</span> {};
@@ -3332,7 +3332,7 @@ Explanation: tis "aabbb" which its length is 5.</p>
 <h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
 <p><strong>Use left only</strong></p>
 <p>Use <code>map&lt;char, int&gt;</code> to record the frequency of character in the range of left - i (inclusive). Once the keys is greater than 2, try moves left by 1 unit and update the map if the frequency is 0. Time: O(n), Space: O(1) because size if always 2 entry of key-value pair.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">int</span> lengthOfLongestSubstringTwoDistinct(string s) {
         <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, left <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
@@ -3353,7 +3353,7 @@ Explanation: tis "aabbb" which its length is 5.</p>
 
 <p><strong>Use left and right</strong> Space is optimized, but a little unintuitive.</p>
 <p>Use two pointers to represent the window. If s[i] == s[i-1], there is no update to the count of distinct elements. If right is not equal to the current one, that means there is a update (+1) to the total count, so we stop and update our res with the current i - left (window is now left - i). Because it only allows two characters, we should skip the ith character and start from right + 1 as left.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
 using namespace std;
 
@@ -3376,7 +3376,7 @@ using namespace std;
 
 <h3 id="variation-with-k-different-words">Variation: with K different words<a class="headerlink" href="#variation-with-k-different-words" title="Permanent link">&para;</a></h3>
 <p>if the character is in range of 'a' to 'z', then maintain a int array with size of 26.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   string longest(string input, <span style="color: #B00040">int</span> k) {
     <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> input.size();
@@ -3405,7 +3405,7 @@ using namespace std;
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">int</span> lengthOfLongestSubstringKDistinct(string s, <span style="color: #B00040">int</span> k) {
         <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, left <span style="color: #666666">=</span> <span style="color: #666666">0</span>;

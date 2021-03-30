@@ -2972,7 +2972,7 @@
                 
                 <h1 id="factor-combinations">Factor Combinations<a class="headerlink" href="#factor-combinations" title="Permanent link">&para;</a></h1>
 <p>Numbers can be regarded as product of its factors. For example,</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>8 = 2 x 2 x 2;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>8 = 2 x 2 x 2;
   = 2 x 4.
 </code></pre></div>
 
@@ -2984,19 +2984,19 @@
 <li>Factors should be greater than 1 and less than <em>n</em>.</li>
 </ol>
 <p><strong>Example 1:</strong> </p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: 1
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: 1
 Output: []
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong> </p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: 37
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: 37
 Output:[]
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong> </p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: 12
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: 12
 Output:
 [
   [2, 6],
@@ -3007,7 +3007,7 @@ Output:
 
 
 <p><strong>Example 4:</strong> </p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: 32
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: 32
 Output:
 [
   [2, 16],
@@ -3025,7 +3025,7 @@ Output:
 <p>We use a variable <code>index</code> to track the current factor, and if we choose current factor, we should <strong>not</strong> update <code>index</code>, because we can potentially reuse the same factor for multiple times.</p>
 <p>Note: since all the factors cannot be greater than sqrt(num), in the inner loop, we just need to loop from <code>index</code> to sqrt(n)</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> getFactors(<span style="color: #B00040">int</span> n) {
         vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;

@@ -2975,14 +2975,14 @@
 <p>Each word must be constructed from letters of sequentially adjacent cells, where <strong>adjacent cells</strong> are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/212a.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: board = [[&quot;o&quot;,&quot;a&quot;,&quot;a&quot;,&quot;n&quot;],[&quot;e&quot;,&quot;t&quot;,&quot;a&quot;,&quot;e&quot;],[&quot;i&quot;,&quot;h&quot;,&quot;k&quot;,&quot;r&quot;],[&quot;i&quot;,&quot;f&quot;,&quot;l&quot;,&quot;v&quot;]], words = [&quot;oath&quot;,&quot;pea&quot;,&quot;eat&quot;,&quot;rain&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: board = [[&quot;o&quot;,&quot;a&quot;,&quot;a&quot;,&quot;n&quot;],[&quot;e&quot;,&quot;t&quot;,&quot;a&quot;,&quot;e&quot;],[&quot;i&quot;,&quot;h&quot;,&quot;k&quot;,&quot;r&quot;],[&quot;i&quot;,&quot;f&quot;,&quot;l&quot;,&quot;v&quot;]], words = [&quot;oath&quot;,&quot;pea&quot;,&quot;eat&quot;,&quot;rain&quot;]
 Output: [&quot;eat&quot;,&quot;oath&quot;]
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
 <p><img alt="img" src="../resources/212b.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: board = [[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;]], words = [&quot;abcb&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: board = [[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;]], words = [&quot;abcb&quot;]
 Output: []
 </code></pre></div>
 
@@ -3012,9 +3012,9 @@ Output: []
 <li>Using Trie: we can do better for elimating the unnecessary checks mentioned in the DFS. We can cut off early if the neigbour of current Trie node doesn't exist, and we only proceed if exist. Thus, the optimized time complexity is <span><span class="MathJax_Preview">O(w \times len + m \times n \times 4 ^ {len})</span><script type="math/tex">O(w \times len + m \times n \times 4 ^ {len})</script></span> [building Trie + dfs search].</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
-  <span style="color: #008000; font-weight: bold">struct</span> Node {
+  <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
     Node <span style="color: #666666">*</span>nei[<span style="color: #666666">26</span>];
     <span style="color: #B00040">bool</span> end <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
   };
@@ -3061,7 +3061,7 @@ Output: []
     <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
       <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
         <span style="color: #008000; font-weight: bold">if</span> (root<span style="color: #666666">-&gt;</span>nei[matrix[i][j] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>]) {
-          string s(<span style="color: #666666">1</span>, matrix[i][j]);
+          string <span style="color: #0000FF">s</span>(<span style="color: #666666">1</span>, matrix[i][j]);
           dfs(i, j, s, root<span style="color: #666666">-&gt;</span>nei[matrix[i][j] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>]);
         }
       }

@@ -3066,7 +3066,7 @@
 <ol>
 <li>Approach 1: For <code>post</code>  request, it's simply "join" two tables:</li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">select</span> tweets.<span style="color: #666666">*</span>, users.<span style="color: #666666">*</span> <span style="color: #008000; font-weight: bold">from</span> tweets
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">select</span> tweets.<span style="color: #666666">*</span>, users.<span style="color: #666666">*</span> <span style="color: #008000; font-weight: bold">from</span> tweets
     <span style="color: #008000; font-weight: bold">join</span> users <span style="color: #008000; font-weight: bold">on</span> tweets.sender_id <span style="color: #666666">=</span> users.id
     <span style="color: #008000; font-weight: bold">join</span> follows <span style="color: #008000; font-weight: bold">on</span> follows.followee_id <span style="color: #666666">=</span> users.id
     <span style="color: #008000; font-weight: bold">where</span> follows.follower_id <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">current_user</span>

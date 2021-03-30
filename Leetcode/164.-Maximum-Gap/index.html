@@ -2974,7 +2974,7 @@
 <p>Given an unsorted array, find the maximum difference between the successive elements in its sorted form.</p>
 <p>Return 0 if the array contains less than 2 elements.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [3,6,9,1]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: [3,6,9,1]
 Output: 3
 Explanation: The sorted form of the array is [1,3,6,9], either
              (3,6) or (6,9) has the maximum difference 3.
@@ -2982,7 +2982,7 @@ Explanation: The sorted form of the array is [1,3,6,9], either
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [10]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: [10]
 Output: 0
 Explanation: The array contains less than 2 elements, therefore return 0.
 </code></pre></div>
@@ -2995,14 +2995,14 @@ Explanation: The array contains less than 2 elements, therefore return 0.
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>Let's first split the array into multiple equal size ranges, and the total number of ranges is n (the size of the input array). </p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>3, 6, 9, 1
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>3, 6, 9, 1
 -&gt; we have 4 numbers, so we will have four ranges
 (] (] (] (] 
 </code></pre></div>
 
 
 <p>Because we have n ranges, if we can know how big is each range, we can place each number to its correct range. For each range, we will keep a record of the maximum difference between current number and the sorted number.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>3, 6, 9, 1
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>3, 6, 9, 1
 -&gt; Let&#39;s assume the size of each range is len
 (a, a + len] (b, b + len] (c, c + len] (d, d + len]
 </code></pre></div>
@@ -3016,9 +3016,9 @@ Explanation: The array contains less than 2 elements, therefore return 0.
 <p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 <p>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
-    <span style="color: #008000; font-weight: bold">struct</span> Range{
+    <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Range</span>{
         <span style="color: #B00040">int</span> min,max;
         <span style="color: #B00040">bool</span> used;
         Range() <span style="color: #666666">:</span> min(INT_MAX), max(INT_MIN), used(<span style="color: #008000">false</span>) {}

@@ -3072,7 +3072,7 @@
 <h3 id="using-dfs">Using DFS<a class="headerlink" href="#using-dfs" title="Permanent link">&para;</a></h3>
 <p><img alt="Screen Shot 2020-09-11 at 9.15.07 PM.png" src="../resources/283D95D8921F6988C2D0F32CE3EAC7D8.png" /></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
 <span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
 <span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
 <span style="color: #408080; font-style: italic"> *     int val;</span>
@@ -3106,7 +3106,7 @@ class Solution {
 <li>if left subtree doesn't exist, visit right subtree of current root, insert left subtree to current root's right.</li>
 </ol>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
 <span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
 <span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
 <span style="color: #408080; font-style: italic"> *     int val;</span>
@@ -3139,7 +3139,7 @@ class Solution {
 <h2 id="given-a-binary-tree-flatten-it-to-a-doubly-linkedlist">Given a binary tree, flatten it to a <strong>doubly linkedlist</strong><a class="headerlink" href="#given-a-binary-tree-flatten-it-to-a-doubly-linkedlist" title="Permanent link">&para;</a></h2>
 <p><img alt="Screen Shot 2020-09-11 at 9.17.02 PM.png" src="../resources/DBCD62EC150295E2DBF29B8FE91ED2BC.png" /></p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>TreeNode<span style="color: #666666">*</span> <span style="color: #0000FF">helper</span>(Treenode<span style="color: #666666">*</span> root, TreeNode<span style="color: #666666">*</span> prev, TreeNode<span style="color: #666666">*</span> head) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TreeNode<span style="color: #666666">*</span> <span style="color: #0000FF">helper</span>(Treenode<span style="color: #666666">*</span> root, TreeNode<span style="color: #666666">*</span> prev, TreeNode<span style="color: #666666">*</span> head) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> ;
     helper(root <span style="color: #666666">-&gt;</span> left, prev, head);
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>pre) head <span style="color: #666666">=</span> root;

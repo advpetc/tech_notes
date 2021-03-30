@@ -2985,7 +2985,7 @@
 <li>Trickle Up (offer/push)</li>
 <li>adding new element to the tail</li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">while</span> ((i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> arr[i] <span style="color: #666666">&lt;</span> arr[(i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span>]) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">while</span> ((i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> arr[i] <span style="color: #666666">&lt;</span> arr[(i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span>]) {
   swap(arr[i], arr[(i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span>]);
   i <span style="color: #666666">=</span> (i <span style="color: #666666">-</span> <span style="color: #666666">1</span>) <span style="color: #666666">/</span> <span style="color: #666666">2</span>;
 }
@@ -2996,7 +2996,7 @@
 <li>Trickle Down (poll/pop)</li>
 <li>remove the root of the tree</li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#define (left) (i * 2 + 1)</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#define (left) (i * 2 + 1)</span>
 <span style="color: #BC7A00">#define (right) (i * 2 + 2)</span>
 <span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 <span style="color: #008000; font-weight: bold">while</span> (left <span style="color: #666666">&lt;</span> arr.size() <span style="color: #666666">&amp;&amp;</span> (arr[i] <span style="color: #666666">&gt;</span> arr[left] <span style="color: #666666">||</span> arr[i] <span style="color: #666666">&gt;</span> arr[right])) {

@@ -2963,7 +2963,7 @@
 <p>there must be exactly one instance of a class, and it must be accessible to clients from a well-known access point
 when the sole instance should be extensible by subclassing, and clients should be able to use an extended instance without modifying their code</p>
 <p>Lazy vs Eager initialization: create upon call or avaliable all the time. Below example is lazy initialization. Depending on use case.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic"> * C++ Design Patterns: Singleton</span>
 <span style="color: #408080; font-style: italic"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
 <span style="color: #408080; font-style: italic"> * 2016</span>
@@ -2992,7 +2992,7 @@ class Singleton
   Singleton( Singleton <span style="color: #008000; font-weight: bold">const</span><span style="color: #666666">&amp;</span> ) <span style="color: #666666">=</span> delete;
   Singleton<span style="color: #666666">&amp;</span> operator<span style="color: #666666">=</span>( Singleton <span style="color: #008000; font-weight: bold">const</span><span style="color: #666666">&amp;</span> ) <span style="color: #666666">=</span> delete;
 
-  <span style="color: #008000; font-weight: bold">static</span> Singleton<span style="color: #666666">*</span> <span style="color: #0000FF">get</span>()
+  <span style="color: #008000; font-weight: bold">static</span> Singleton<span style="color: #666666">*</span> get()
   {
     <span style="color: #008000; font-weight: bold">if</span> ( <span style="color: #666666">!</span>instance )
     {
@@ -3001,7 +3001,7 @@ class Singleton
     <span style="color: #008000; font-weight: bold">return</span> instance;
   }
 
-  <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">restart</span>()
+  <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> restart()
   {
     <span style="color: #008000; font-weight: bold">if</span> ( instance )
     {
@@ -3009,7 +3009,7 @@ class Singleton
     }
   }
 
-  <span style="color: #B00040">void</span> <span style="color: #0000FF">tell</span>()
+  <span style="color: #B00040">void</span> tell()
   {
     std<span style="color: #666666">::</span>cout <span style="color: #666666">&lt;&lt;</span> <span style="color: #BA2121">&quot;This is Singleton.&quot;</span> <span style="color: #666666">&lt;&lt;</span> std<span style="color: #666666">::</span>endl;
     <span style="color: #408080; font-style: italic">// ...</span>

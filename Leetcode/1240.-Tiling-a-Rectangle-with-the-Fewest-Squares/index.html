@@ -2974,7 +2974,7 @@
 <p>Given a rectangle of size <code>n</code> x <code>m</code>, find the minimum number of integer-sided squares that tile the rectangle.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/sample_11_1592.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 2, m = 3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: n = 2, m = 3
 Output: 3
 Explanation: 3 squares are necessary to coverthe rectangle.
 2 (squares of 1x1)
@@ -2984,14 +2984,14 @@ Explanation: 3 squares are necessary to coverthe rectangle.
 
 <p><strong>Example 2:</strong></p>
 <p><img alt="img" src="../resources/sample_22_1592.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 5, m = 8
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: n = 5, m = 8
 Output: 5
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
 <p><img alt="img" src="../resources/sample_33_1592.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 11, m = 13
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: n = 11, m = 13
 Output: 6
 </code></pre></div>
 
@@ -3005,7 +3005,7 @@ Output: 6
 <p>If you think about using greedy to solve this problem, you will probably fail. If you try to fill the rectangular space from largest to smallest, it will not guarantee to be the most optimal solution. Check <img alt="img" src="../resources/image_1572481565.png" /></p>
 <p>On the middle right, it has splayed the right down region with the upper right region, which breaks the greedy algorithm.</p>
 <p>So we go back to use the rudimentary DFS search solution. Imagine you can fill the rectangular as a skyline problem (from left to right, bottom to top). You task is to fill all parts of the rectangular. We use a <code>height[i]</code> array to represent the skyline. If our skyline has the same height as the given height <code>m</code>, then we have reach our base case. We update the answer with the current minimal.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">if</span> (min_height <span style="color: #666666">==</span> m) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">if</span> (min_height <span style="color: #666666">==</span> m) {
   res <span style="color: #666666">=</span> min(cnt, res);
   <span style="color: #008000; font-weight: bold">return</span>;
 }
@@ -3013,7 +3013,7 @@ Output: 6
 
 
 <p>To place next block, we try to eagerly find the next square from the current concave shape skyline. We need to first determine the largest block to be filled with, and then update the new height with the current skyline.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> left <span style="color: #666666">=</span> <span style="color: #666666">0</span>, min_height <span style="color: #666666">=</span> m;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> left <span style="color: #666666">=</span> <span style="color: #666666">0</span>, min_height <span style="color: #666666">=</span> m;
 <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
   <span style="color: #008000; font-weight: bold">if</span> (heights[i] <span style="color: #666666">&lt;</span> min_height)
     min_height <span style="color: #666666">=</span> heights[left <span style="color: #666666">=</span> i];
@@ -3036,7 +3036,7 @@ Output: 6
 
 
 <p>Now we have filled the next largest piece of square in the block, and we need to recursively find the next one from the current shape. However, at this point we cannot just keep doing it greedily , since we have prove it won't work for some cases. What we do is try all the square starting from the current largest square we have occupied, and decrease the <code>height[i]</code> one by one.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code> <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> size <span style="color: #666666">=</span> right <span style="color: #666666">-</span> left; size <span style="color: #666666">&gt;=</span> <span style="color: #666666">1</span>; <span style="color: #666666">--</span>size) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> size <span style="color: #666666">=</span> right <span style="color: #666666">-</span> left; size <span style="color: #666666">&gt;=</span> <span style="color: #666666">1</span>; <span style="color: #666666">--</span>size) {
    <span style="color: #408080; font-style: italic">// try the largest square first</span>
    dfs(n, m, heights, cnt <span style="color: #666666">+</span> <span style="color: #666666">1</span>, res);
    <span style="color: #408080; font-style: italic">// try other squares by decreasing the size of it, or &quot;recover&quot; the original block</span>
@@ -3052,7 +3052,7 @@ Output: 6
 <li>Space: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span> both the stack space and the <code>height[i]</code> array.</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
     <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">void</span> dfs(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> m, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> heights, <span style="color: #B00040">int</span> cnt, <span style="color: #B00040">int</span><span style="color: #666666">&amp;</span> res) {
         <span style="color: #008000; font-weight: bold">if</span> (cnt <span style="color: #666666">&gt;=</span> res) <span style="color: #008000; font-weight: bold">return</span>;

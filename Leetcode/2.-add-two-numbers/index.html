@@ -2975,20 +2975,20 @@
 <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/2.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: l1 = [2,4,3], l2 = [5,6,4]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: l1 = [2,4,3], l2 = [5,6,4]
 Output: [7,0,8]
 Explanation: 342 + 465 = 807.
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: l1 = [0], l2 = [0]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: l1 = [0], l2 = [0]
 Output: [0]
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 Output: [8,9,9,9,0,0,0,1]
 </code></pre></div>
 
@@ -3003,7 +3003,7 @@ Output: [8,9,9,9,0,0,0,1]
 <p>Two input linkedlists have already revsered, so we can just use two pointer to make the addition. To deal with carry bit, we need a integer to show the current sum. If the current sum is equal/greater than 10, then carry = 1 and sum %= 10
 Time: O(min(size of l1, size of l2))</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
 <span style="color: #408080; font-style: italic"> * Definition for singly-linked list.</span>
 <span style="color: #408080; font-style: italic"> * struct ListNode {</span>
 <span style="color: #408080; font-style: italic"> *     int val;</span>

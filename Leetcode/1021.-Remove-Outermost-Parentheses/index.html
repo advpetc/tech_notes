@@ -2976,7 +2976,7 @@
 <p>Given a valid parentheses string <code>S</code>, consider its primitive decomposition: <code>S = P_1 + P_2 + ... + P_k</code>, where <code>P_i</code> are primitive valid parentheses strings.</p>
 <p>Return <code>S</code> after removing the outermost parentheses of every primitive string in the primitive decomposition of <code>S</code>.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;(()())(())&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: &quot;(()())(())&quot;
 Output: &quot;()()()&quot;
 Explanation: 
 The input string is &quot;(()())(())&quot;, with primitive decomposition &quot;(()())&quot; + &quot;(())&quot;.
@@ -2985,7 +2985,7 @@ After removing outer parentheses of each part, this is &quot;()()&quot; + &quot;
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;(()())(())(()(()))&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: &quot;(()())(())(()(()))&quot;
 Output: &quot;()()()()(())&quot;
 Explanation: 
 The input string is &quot;(()())(())(()(()))&quot;, with primitive decomposition &quot;(()())&quot; + &quot;(())&quot; + &quot;(()(()))&quot;.
@@ -2994,7 +2994,7 @@ After removing outer parentheses of each part, this is &quot;()()&quot; + &quot;
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;()()&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: &quot;()()&quot;
 Output: &quot;&quot;
 Explanation: 
 The input string is &quot;()()&quot;, with primitive decomposition &quot;()&quot; + &quot;()&quot;.
@@ -3016,7 +3016,7 @@ After removing outer parentheses of each part, this is &quot;&quot; + &quot;&quo
 </ol>
 <p>Let's walk through an example:</p>
 <p>The left most column represents the current processing parthesis</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>For &quot;(()(()))&quot;:
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>For &quot;(()(()))&quot;:
 (    (|()(())): we have 1 unmatched pair -&gt; &quot;&quot; don&#39;t do anything here
 (    ((|)(())): we have 2 unmatched pair -&gt; &quot;(&quot;
 )    (()|(())): we have 1 unmatched pair -&gt; &quot;()&quot;
@@ -3032,7 +3032,7 @@ After removing outer parentheses of each part, this is &quot;&quot; + &quot;&quo
 <p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 <p>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     string removeOuterParentheses(string S) {
         string res;

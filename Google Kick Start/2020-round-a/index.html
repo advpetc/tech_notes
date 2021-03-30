@@ -3282,7 +3282,7 @@ we want to prove that A == O</p>
 <p>pick an ai that is in A, and replace it with oj. oj is not in A, so oj is less than ai. since size of B is the same, the solution is still the most optimal one. keep doing this until there is A == O.</p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
 <h4 id="sort-with-nlog-n">sort with nlog n<a class="headerlink" href="#sort-with-nlog-n" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic"> * allocation.cpp</span>
 <span style="color: #408080; font-style: italic"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
 <span style="color: #408080; font-style: italic"> *</span>
@@ -3318,7 +3318,7 @@ using namespace std;
 
 <h4 id="count-sort-with-n">count sort with n<a class="headerlink" href="#count-sort-with-n" title="Permanent link">&para;</a></h4>
 <p>because 1 ≤ Ai ≤ 1000, we can use count sort</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic"> * allocation.cpp</span>
 <span style="color: #408080; font-style: italic"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
 <span style="color: #408080; font-style: italic"> *</span>
@@ -3403,7 +3403,7 @@ dp[i][j] = max(dp[i][j], val[k] + dp[i - 1][p - k])</p>
 <p>for choosing current stack's top k plates, you need to give up the previous stacks k plates, so the previous state is dp[i - 1][p - k]
 the answer is dp[N][P]</p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic"> * plates.cpp</span>
 <span style="color: #408080; font-style: italic"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
 <span style="color: #408080; font-style: italic"> *</span>
@@ -3498,10 +3498,10 @@ In Case #1: Tambourine can add up to two sessions. The added sessions are marked
 </ol>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
 <h4 id="priority-queue">Priority Queue<a class="headerlink" href="#priority-queue" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
 using namespace std;
-<span style="color: #008000; font-weight: bold">struct</span> node {
+<span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">node</span> {
     <span style="color: #B00040">int</span> sum, cnt;
     node() {}
     node(<span style="color: #B00040">int</span> sum, <span style="color: #B00040">int</span> cnt)
@@ -3561,7 +3561,7 @@ using namespace std;
 
 
 <h4 id="binary-search">Binary search<a class="headerlink" href="#binary-search" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 using namespace std;
 
 <span style="color: #BC7A00">#define ll long long</span>
@@ -3683,7 +3683,7 @@ Each trie node has 26 children nodes, and one cnt int for counting the number of
 Insert: insert into trie and update the cnt for each ending character node. 
 Query: just search from the root of the trie and traverse through the last level of the trie, because all the nodes from root has a count that represent the occurance of word that is ended with node character.</p>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 using namespace std;
 
 <span style="color: #BC7A00">#define endl &quot;\n&quot;</span>
@@ -3691,7 +3691,7 @@ using namespace std;
 
 <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">1e5</span> <span style="color: #666666">+</span> <span style="color: #666666">5</span>;
 
-<span style="color: #008000; font-weight: bold">typedef</span> <span style="color: #008000; font-weight: bold">struct</span> data
+<span style="color: #008000; font-weight: bold">typedef</span> <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">data</span>
 {
     data<span style="color: #666666">*</span> bit[<span style="color: #666666">26</span>];
     <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;

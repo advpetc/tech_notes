@@ -2974,19 +2974,19 @@
 <p>Given the <code>root</code> of a binary tree, return <em>the zigzag level order traversal of its nodes' values</em>. (i.e., from left to right, then right to left for the next level and alternate between).</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/103.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = [3,9,20,null,null,15,7]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: root = [3,9,20,null,null,15,7]
 Output: [[3],[20,9],[15,7]]
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = [1]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: root = [1]
 Output: [[1]]
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: root = []
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: root = []
 Output: []
 </code></pre></div>
 
@@ -2999,7 +2999,7 @@ Output: []
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>When seeing level order traversal, we should think about BFS. Different from level order traversal problem, it also requires us to reverse the level as we proceed, so we can introduce a <code>bool right</code> variable to represent if we need to reverse the order.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
 <span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
 <span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
 <span style="color: #408080; font-style: italic"> *     int val;</span>

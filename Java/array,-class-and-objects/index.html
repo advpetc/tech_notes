@@ -3170,7 +3170,7 @@
 <h2 id="array">Array<a class="headerlink" href="#array" title="Permanent link">&para;</a></h2>
 <h3 id="1-d-array">1-D array<a class="headerlink" href="#1-d-array" title="Permanent link">&para;</a></h3>
 <p>create: <code>int[] array = new int[10];</code> once create, size cannot be modified</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span><span style="color: #666666">[]</span> numbers <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span>{<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span><span style="color: #666666">[]</span> numbers <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span>{<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>};
 <span style="color: #B00040">int</span> num <span style="color: #666666">=</span>  numbers<span style="color: #666666">[2]</span>;
 number<span style="color: #666666">[4]</span> <span style="color: #666666">=</span> <span style="color: #666666">15</span>;
 <span style="color: #B00040">int</span> size <span style="color: #666666">=</span> numbers.<span style="color: #7D9029">length</span>;
@@ -3181,13 +3181,13 @@ number<span style="color: #666666">[4]</span> <span style="color: #666666">=</sp
 
 
 <h3 id="max-value">Max value<a class="headerlink" href="#max-value" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Integer.<span style="color: #7D9029">MAX_VALUE</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Integer.<span style="color: #7D9029">MAX_VALUE</span>
 Integer.<span style="color: #7D9029">MIN_VALUE</span>
 </code></pre></div>
 
 
 <h3 id="insert">Insert<a class="headerlink" href="#insert" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span> <span style="color: #0000FF">reverse</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> arr) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span> <span style="color: #0000FF">reverse</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> arr) {
     <span style="color: #B00040">int</span><span style="color: #666666">[]</span> new_arr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[</span>arr.<span style="color: #7D9029">length</span> <span style="color: #666666">-</span> <span style="color: #666666">1]</span>;
     <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> position; <span style="color: #666666">++</span>i) {
         new_arr<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> arr<span style="color: #666666">[</span>i<span style="color: #666666">]</span>;
@@ -3203,7 +3203,7 @@ Integer.<span style="color: #7D9029">MIN_VALUE</span>
 
 <h3 id="reverse-array">Reverse Array<a class="headerlink" href="#reverse-array" title="Permanent link">&para;</a></h3>
 <p>swap</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span> <span style="color: #0000FF">reverse</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> arr) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span> <span style="color: #0000FF">reverse</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> arr) {
     <span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, j <span style="color: #666666">=</span> arr.<span style="color: #7D9029">length</span> <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
     <span style="color: #008000; font-weight: bold">while</span> (i <span style="color: #666666">&lt;</span> j) {
         <span style="color: #B00040">int</span> tmp <span style="color: #666666">=</span> array<span style="color: #666666">[</span>i<span style="color: #666666">]</span>;
@@ -3218,7 +3218,7 @@ Integer.<span style="color: #7D9029">MIN_VALUE</span>
 
 <h2 id="2-d-array">2-D Array<a class="headerlink" href="#2-d-array" title="Permanent link">&para;</a></h2>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span><span style="color: #666666">[][]</span> matrix <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[][]</span>{{<span style="color: #666666">2</span>,<span style="color: #666666">1</span>},{<span style="color: #666666">4</span>,<span style="color: #666666">7</span>},{<span style="color: #666666">5</span>,<span style="color: #666666">9</span>}};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span><span style="color: #666666">[][]</span> matrix <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[][]</span>{{<span style="color: #666666">2</span>,<span style="color: #666666">1</span>},{<span style="color: #666666">4</span>,<span style="color: #666666">7</span>},{<span style="color: #666666">5</span>,<span style="color: #666666">9</span>}};
 <span style="color: #B00040">int</span><span style="color: #666666">[]</span> firstRow <span style="color: #666666">=</span> matrix<span style="color: #666666">[0]</span>;
 <span style="color: #B00040">int</span> firstElementOfSecondRow <span style="color: #666666">=</span> matrix<span style="color: #666666">[1][0]</span>;
 <span style="color: #B00040">int</span> rows <span style="color: #666666">=</span> matrix.<span style="color: #7D9029">length</span>;
@@ -3229,7 +3229,7 @@ Integer.<span style="color: #7D9029">MIN_VALUE</span>
 
 <h3 id="calculate-g-the-diagonal-has-to-be-square-matrix">calculate "g": the diagonal -- has to be square matrix<a class="headerlink" href="#calculate-g-the-diagonal-has-to-be-square-matrix" title="Permanent link">&para;</a></h3>
 <p><img alt="Screen Shot 2020-05-01 at 9.56.26 PM.png" src="../resources/A217ED9366334656350B177F6FEA1822.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span> <span style="color: #0000FF">reverse</span>(<span style="color: #B00040">int</span><span style="color: #666666">[][]</span> matrix) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span> <span style="color: #0000FF">reverse</span>(<span style="color: #B00040">int</span><span style="color: #666666">[][]</span> matrix) {
     <span style="color: #B00040">int</span> g <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
     <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> matrix.<span style="color: #7D9029">length</span>; <span style="color: #666666">++</span>i) {
         g <span style="color: #666666">+=</span> matrix<span style="color: #666666">[</span>i<span style="color: #666666">][</span>i<span style="color: #666666">]</span>;
@@ -3241,7 +3241,7 @@ Integer.<span style="color: #7D9029">MIN_VALUE</span>
 
 <h3 id="calculate-sum-of-two-matrix-has-to-be-same-dimension">calculate sum of two matrix -- has to be same dimension<a class="headerlink" href="#calculate-sum-of-two-matrix-has-to-be-same-dimension" title="Permanent link">&para;</a></h3>
 <p><img alt="Screen Shot 2020-05-01 at 9.59.54 PM.png" src="../resources/F94FB003F75EC8008AB29F60D4445934.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span><span style="color: #666666">[][]</span> <span style="color: #0000FF">reverse</span>(<span style="color: #B00040">int</span><span style="color: #666666">[][]</span> matrix1, <span style="color: #B00040">int</span><span style="color: #666666">[][]</span> matrix2) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span><span style="color: #666666">[][]</span> <span style="color: #0000FF">reverse</span>(<span style="color: #B00040">int</span><span style="color: #666666">[][]</span> matrix1, <span style="color: #B00040">int</span><span style="color: #666666">[][]</span> matrix2) {
     <span style="color: #B00040">int</span> row <span style="color: #666666">=</span> matrix1.<span style="color: #7D9029">length</span>;
     <span style="color: #B00040">int</span> col <span style="color: #666666">=</span> matrix1<span style="color: #666666">[0]</span>.<span style="color: #7D9029">length</span>;
     <span style="color: #B00040">int</span><span style="color: #666666">[][]</span> result <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[][]</span>;
@@ -3256,7 +3256,7 @@ Integer.<span style="color: #7D9029">MIN_VALUE</span>
 
 
 <h2 id="main-function">Main Function<a class="headerlink" href="#main-function" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
     System.<span style="color: #7D9029">out</span>.<span style="color: #7D9029">println</span>(<span style="color: #BA2121">&quot;hello world.&quot;</span>);
 }
 </code></pre></div>

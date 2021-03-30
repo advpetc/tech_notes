@@ -2973,14 +2973,14 @@
                 <h1 id="all-vaid-permutation-of-parentheses">All Vaid Permutation of Parentheses<a class="headerlink" href="#all-vaid-permutation-of-parentheses" title="Permanent link">&para;</a></h1>
 <p>Get all valid permutations of l pairs of (), m pairs of &lt;&gt; and n pairs of {}, subject to the priority restriction: {} higher than &lt;&gt; higher than ().</p>
 <p>Assumptions</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>l, m, n &gt;= 0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>l, m, n &gt;= 0
 
 l + m + n &gt;= 0
 </code></pre></div>
 
 
 <p>Examples</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>l = 1, m = 1, n = 0, all the valid permutations are [&quot;()&lt;&gt;&quot;, &quot;&lt;()&gt;&quot;, &quot;&lt;&gt;()&quot;].
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>l = 1, m = 1, n = 0, all the valid permutations are [&quot;()&lt;&gt;&quot;, &quot;&lt;()&gt;&quot;, &quot;&lt;&gt;()&quot;].
 
 l = 2, m = 0, n = 1, all the valid permutations are [“()(){}”, “(){()}”, “(){}()”, “{()()}”, “{()}()”, “{}()()”].
 </code></pre></div>
@@ -2994,7 +2994,7 @@ l = 2, m = 0, n = 1, all the valid permutations are [“()(){}”, “(){()}”,
 <li>if no, check if previous one is the corresponding open parenthese and delete the previous open parenthese index from stack</li>
 </ul>
 <h2 id="java-code">Java Code<a class="headerlink" href="#java-code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
   <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #B00040">char</span><span style="color: #666666">[]</span> PS <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">char</span><span style="color: #666666">[]</span>{<span style="color: #BA2121">&#39;(&#39;</span>, <span style="color: #BA2121">&#39;)&#39;</span>, <span style="color: #BA2121">&#39;&lt;&#39;</span>, <span style="color: #BA2121">&#39;&gt;&#39;</span>, <span style="color: #BA2121">&#39;{&#39;</span>, <span style="color: #BA2121">&#39;}&#39;</span>};
   <span style="color: #008000; font-weight: bold">public</span> List<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> <span style="color: #0000FF">validParenthesesIII</span>(<span style="color: #B00040">int</span> l, <span style="color: #B00040">int</span> m, <span style="color: #B00040">int</span> n) {
     <span style="color: #B00040">int</span><span style="color: #666666">[]</span> remain <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span>{l, l, m, m, n, n};

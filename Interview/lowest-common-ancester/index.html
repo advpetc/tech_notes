@@ -3208,7 +3208,7 @@
   -&gt; return current root</p>
 <p>Time: <span><span class="MathJax_Preview">O(log_2{n})</span><script type="math/tex">O(log_2{n})</script></span></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>TreeNode<span style="color: #666666">*</span> <span style="color: #0000FF">lowestCommonAncestor</span>(TreeNode<span style="color: #666666">*</span> root, TreeNode<span style="color: #666666">*</span> p, TreeNode<span style="color: #666666">*</span> q) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TreeNode<span style="color: #666666">*</span> <span style="color: #0000FF">lowestCommonAncestor</span>(TreeNode<span style="color: #666666">*</span> root, TreeNode<span style="color: #666666">*</span> p, TreeNode<span style="color: #666666">*</span> q) {
     <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">1</span>) {
         <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">-&gt;</span> val <span style="color: #666666">&lt;</span> min(p <span style="color: #666666">-&gt;</span> val, q <span style="color: #666666">-&gt;</span> val))
             root <span style="color: #666666">=</span> root <span style="color: #666666">-&gt;</span> right;
@@ -3230,7 +3230,7 @@
 <p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>
 Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="math/tex">O(height)</script></span></p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   TreeNode<span style="color: #666666">*</span> solve(TreeNode<span style="color: #666666">*</span> root, TreeNode<span style="color: #666666">*</span> one, TreeNode<span style="color: #666666">*</span> two) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root <span style="color: #666666">||</span> root <span style="color: #666666">==</span> one <span style="color: #666666">||</span> two <span style="color: #666666">==</span> root) <span style="color: #008000; font-weight: bold">return</span> root;
@@ -3248,7 +3248,7 @@ Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="m
 <p>所以，我们其实不需要去计算他们到交点的高度差，我们把这两个节点成为a和b，交点称为i，链表结尾称为e，可以发现，两条链表的长度差就是i到a和b的长度差，所以当走到末尾时，我们让他从另一个链表的头部开始继续遍历，只要有交点，他们一定会碰在一起</p>
 <p>changeOne 和 changeTwo 在这里使得只会走一次，避免没有相交时进去死循环</p>
 <h3 id="code-1">Code 1<a class="headerlink" href="#code-1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
 <span style="color: #408080; font-style: italic"> * public class TreeNodeP {</span>
 <span style="color: #408080; font-style: italic"> *   public int key;</span>
 <span style="color: #408080; font-style: italic"> *   public TreeNodeP left;</span>
@@ -3296,7 +3296,7 @@ Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="m
 
 
 <h3 id="code-2-check-height-and-decide-which-node-to-proceed-up">Code 2: check height and decide which node to proceed up<a class="headerlink" href="#code-2-check-height-and-decide-which-node-to-proceed-up" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
 using namespace std;
 
@@ -3366,7 +3366,7 @@ class Solution {
 2. if a subset of the given node are under the root, return LCA of the nodes under root.
 3. if none of the nodes are under root, return null.</p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   TreeNode<span style="color: #666666">*</span> lca(TreeNode<span style="color: #666666">*</span> curr, unordered_set<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> st) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>curr <span style="color: #666666">||</span> st.count(curr)) <span style="color: #008000; font-weight: bold">return</span> curr;
@@ -3386,7 +3386,7 @@ class Solution {
 <h2 id="variant-5-find-lca-for-two-nodes-for-m-ary-tree">Variant 5: find LCA for two nodes for m-ary tree<a class="headerlink" href="#variant-5-find-lca-for-two-nodes-for-m-ary-tree" title="Permanent link">&para;</a></h2>
 <p>Use the same logic to find the two corresponding nodes from the binary tree, and then check if any <em>two</em> are sharing with the same root. If so, return the root, or return the one that isn't null.</p>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 
   <span style="color: #008000; font-weight: bold">public</span> KnaryTreeNode <span style="color: #0000FF">lowestCommonAncestor</span>(KnaryTreeNode root, KnaryTreeNode a, KnaryTreeNode b) {
     <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> root <span style="color: #666666">==</span> a <span style="color: #666666">||</span> root <span style="color: #666666">==</span> b) <span style="color: #008000; font-weight: bold">return</span> root;
@@ -3407,7 +3407,7 @@ class Solution {
 <p>Use the same logic to find the two corresponding nodes from the m-ary tree, and then check if any <em>two</em> are sharing with the same root. If so, return the root, or return the one that isn't null.</p>
 <p>In the base case, we only need to check if current searched node is one of the node in the set. We don't need to care about duplication, since, all the children of the current node are distinct, meaning if there are <em>two nodes</em> being found from the recursion call, we can guarantee that these two nodes are distint.</p>
 <h3 id="code_4">Code<a class="headerlink" href="#code_4" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
 <span style="color: #408080; font-style: italic">* public class KnaryTreeNode {</span>
 <span style="color: #408080; font-style: italic"> *     int key;</span>
 <span style="color: #408080; font-style: italic"> *     List&lt;KnaryTreeNode&gt; children;</span>

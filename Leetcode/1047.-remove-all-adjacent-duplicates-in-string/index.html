@@ -3027,7 +3027,7 @@
 <p>We repeatedly make duplicate removals on S until we no longer can.</p>
 <p>Return the final string after all such duplicate removals have been made. It is guaranteed the answer is unique.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: &quot;abbaca&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: &quot;abbaca&quot;
 Output: &quot;ca&quot;
 Explanation: 
 For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is &quot;aaca&quot;, of which only &quot;aa&quot; is possible, so the final string is &quot;ca&quot;.
@@ -3043,7 +3043,7 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 <p>Because it requires to continuously merge and delete char that are the same, we should think about using stack to solve this problem.</p>
 <h3 id="code-1">Code 1<a class="headerlink" href="#code-1" title="Permanent link">&para;</a></h3>
 <p>Using a stack to maintain resulting string, if there is a duplicate with the ongoing char, we just keep popping the stack (the top) in <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> and put ongoing char back to the stack.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     string removeDuplicates(string s) {
         <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> s.length();
@@ -3071,7 +3071,7 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 <p>e.g. s = "abbaca"</p>
 <p><img alt="IMAGE" src="../resources/078F3F512A44E2AE9EABEAE27307D119.jpg" /></p>
 <h3 id="code-2">Code 2<a class="headerlink" href="#code-2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     string removeDuplicates(string s) {
         <span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, n <span style="color: #666666">=</span> s.length();

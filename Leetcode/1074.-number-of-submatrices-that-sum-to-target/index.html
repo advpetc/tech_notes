@@ -3004,21 +3004,21 @@
 <p>Two submatrices <code>(x1, y1, x2, y2)</code> and <code>(x1', y1', x2', y2')</code> are different if they have some coordinate that is different: for example, if <code>x1 != x1'</code>.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="mate1.jpg" src="../resources/53531D9B7DBE536C8CFF31C76DB68116.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[0,1,0],[1,1,1],[0,1,0]], target = 0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: matrix = [[0,1,0],[1,1,1],[0,1,0]], target = 0
 Output: 4
 Explanation: The four 1x1 submatrices that only contain 0.
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[1,-1],[-1,1]], target = 0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: matrix = [[1,-1],[-1,1]], target = 0
 Output: 5
 Explanation: The two 1x2 submatrices, plus the two 2x1 submatrices, plus the 2x2 submatrix.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[904]], target = 0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: matrix = [[904]], target = 0
 Output: 0
 </code></pre></div>
 
@@ -3033,14 +3033,14 @@ Output: 0
 <h2 id="analysis-using-two-fixed-points">Analysis: using two fixed points<a class="headerlink" href="#analysis-using-two-fixed-points" title="Permanent link">&para;</a></h2>
 <p>Use prefix sum we can get the area of any submatrix in <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>. For example:</p>
 <p>Original matrix:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>0 1 0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0 1 0
 1 1 1
 0 1 0
 </code></pre></div>
 
 
 <p>After prefix sum  <code>area from (0,0) to (x,y) = sum(x,y-1)+sum(x-1,y)-sum(x-1,y-1)+matrix(x-1,y-1)</code>:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>0 0 0 0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0 0 0 0
 0 0 1 1
 0 1 3 4
 0 1 4 5
@@ -3049,7 +3049,7 @@ Output: 0
 
 <p>To calculate any submatrix sum from (x1, y1) to (x2, y2) where x1 &lt; x2 and y1 &lt; y2.</p>
 <p>For example, if (x1, y1) = (1, 1), (x2, y2) = (2, 2), area of (1+1, 1+1) to (2, 2) square is: 3-1-1+0=1</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>we are calculating this part of the submatrix (just a single element):
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>we are calculating this part of the submatrix (just a single element):
 1
 
 and the prefix sum is:
@@ -3065,7 +3065,7 @@ and the prefix sum is:
 <li>Space: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span> for the prefix sum matrix</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> numSubmatrixSumTarget(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> d, <span style="color: #B00040">int</span> target) {
         <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> d.size(), n <span style="color: #666666">=</span> d[<span style="color: #666666">0</span>].size(), res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
@@ -3103,7 +3103,7 @@ and the prefix sum is:
 <li>Space: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span> we could possibly have <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> different sum</li>
 </ul>
 <h2 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> numSubmatrixSumTarget(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> A, <span style="color: #B00040">int</span> target) {
         <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, m <span style="color: #666666">=</span> A.size(), n <span style="color: #666666">=</span> A[<span style="color: #666666">0</span>].size();

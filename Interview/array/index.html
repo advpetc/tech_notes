@@ -3164,7 +3164,7 @@
 <li>condition 2: put the non-duplicated element into the correct spot</li>
 </ol>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
  <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
   vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dedup(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
@@ -3193,7 +3193,7 @@
 i = 2 =&gt; 1, 2, 2 (keep second 2, since i - 2 = 0 -&gt; num[0] != num[2])
 i = 5 =&gt; 1, 2, 2, 3, 3 (discard the third 3, since i - 2 = 3 -&gt; num[3] == num[5])</p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
  <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
   vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dedup(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
@@ -3216,7 +3216,7 @@ i = 5 =&gt; 1, 2, 2, 3, 3 (discard the third 3, since i - 2 = 3 -&gt; num[3] == 
 <h3 id="analysis_2">Analysis<a class="headerlink" href="#analysis_2" title="Permanent link">&para;</a></h3>
 <p>If the top of stack is equal to current element, set the flag to true AND don't update the stack. If the flag is true and current element isn't the same as the top of the stack, unset the flag and use the current element as the new top of the stack, since the old top has a duplicated element already. If the current element isn't equal to the top of stack and the flag isn't true, we can normally proceed it to put the current element at the top of the stack. The meaning of flag is for checking any ongoing element other than current duplicated element on the stack, we keep it on the stack temporarily and replace it with the first element that is not equal to the duplicated element. Finally, if the flag is true, it means we should discard the last element since it is duplicate but we still keep it on the stack.</p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dedup(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
@@ -3251,7 +3251,7 @@ Examples</p>
 <li>if equal to the top, then we need to consectively deduplicate the same adjacent elements, and pop the element from the top of the stack (<code>slow--</code>).</li>
 </ol>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dedup(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> a) {
     <span style="color: #B00040">int</span> slow <span style="color: #666666">=</span> <span style="color: #666666">0</span>, fast <span style="color: #666666">=</span> <span style="color: #666666">0</span>, n <span style="color: #666666">=</span> a.size();

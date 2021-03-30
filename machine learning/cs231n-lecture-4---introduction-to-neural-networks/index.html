@@ -3127,7 +3127,7 @@ Use upstreaming compound and multiple with the local compound to derive the desi
 <script type="math/tex; mode=display">= 2^k q_i  x_j </script>
 </p>
 <h2 id="implement-forward-and-backword-for-different-gates">Implement forward and backword for different gates<a class="headerlink" href="#implement-forward-and-backword-for-different-gates" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MultiplyGate</span>(<span style="color: #008000">object</span>):
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MultiplyGate</span>(<span style="color: #008000">object</span>):
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">forward</span>(x,y):
         <span style="color: #008000; font-weight: bold">return</span> x <span style="color: #666666">*</span> y
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">backward</span>(dz):

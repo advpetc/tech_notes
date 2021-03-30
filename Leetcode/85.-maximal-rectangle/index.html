@@ -2974,32 +2974,32 @@
 <p>Given a <code>rows x cols</code> binary <code>matrix</code> filled with <code>0</code>'s and <code>1</code>'s, find the largest rectangle containing only <code>1</code>'s and return <em>its area</em>.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/85.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: matrix = [[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]]
 Output: 6
 Explanation: The maximal rectangle is shown in the above picture.
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = []
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: matrix = []
 Output: 0
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[&quot;0&quot;]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: matrix = [[&quot;0&quot;]]
 Output: 0
 </code></pre></div>
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[&quot;1&quot;]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: matrix = [[&quot;1&quot;]]
 Output: 1
 </code></pre></div>
 
 
 <p><strong>Example 5:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: matrix = [[&quot;0&quot;,&quot;0&quot;]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: matrix = [[&quot;0&quot;,&quot;0&quot;]]
 Output: 0
 </code></pre></div>
 
@@ -3037,7 +3037,7 @@ right[i] record the right most index j which satifies that for any index k from 
 0 0 3 2 3 0 0
 0 5 6 3 6 5 0</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {<span style="color: #A0A000">public</span>:
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {<span style="color: #A0A000">public</span>:
 <span style="color: #B00040">int</span> maximalRectangle(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>matrix) {
     <span style="color: #008000; font-weight: bold">if</span>(matrix.empty()) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
     <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> matrix.size();

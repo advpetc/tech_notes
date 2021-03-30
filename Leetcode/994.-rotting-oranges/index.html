@@ -2981,20 +2981,20 @@
 <p>Return <em>the minimum number of minutes that must elapse until no cell has a fresh orange</em>. If <em>this is impossible, return</em> <code>-1</code>.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="https://assets.leetcode.com/uploads/2019/02/16/oranges.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: grid = [[2,1,1],[1,1,0],[0,1,1]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: grid = [[2,1,1],[1,1,0],[0,1,1]]
 Output: 4
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: grid = [[2,1,1],[0,1,1],[1,0,1]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: grid = [[2,1,1],[0,1,1],[1,0,1]]
 Output: -1
 Explanation: The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: grid = [[0,2]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: grid = [[0,2]]
 Output: 0
 Explanation: Since there are already no fresh oranges at minute 0, the answer is just 0.
 </code></pre></div>
@@ -3014,7 +3014,7 @@ Explanation: Since there are already no fresh oranges at minute 0, the answer is
 <li>Space Complexity: <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span> since the worst case is when you put all the 1s into the queue.</li>
 </ul>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">int</span> orangesRotting(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> g) {
         <span style="color: #408080; font-style: italic">// step 1: check if possible</span>

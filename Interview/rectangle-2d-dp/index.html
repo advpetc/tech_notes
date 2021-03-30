@@ -3234,9 +3234,9 @@ Examples</p>
 <p>Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span>
 Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
-  <span style="color: #008000; font-weight: bold">struct</span> Node {
+  <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
     <span style="color: #B00040">int</span> left, right, down, up;
     <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() {
       <span style="color: #008000; font-weight: bold">return</span> min({left, right, down, up});
@@ -3309,9 +3309,9 @@ Examples</p>
 <p>Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span>
 Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
-  <span style="color: #008000; font-weight: bold">struct</span> Node {
+  <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
     <span style="color: #B00040">int</span> nw, ne, sw, se;
     <span style="color: #B00040">void</span> <span style="color: #0000FF">setN</span>(<span style="color: #B00040">int</span> val) {
       nw <span style="color: #666666">=</span> ne <span style="color: #666666">=</span> val;
@@ -3385,9 +3385,9 @@ Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math
 <p>Time: <span><span class="MathJax_Preview">O(m \times n \times max(m, n))</span><script type="math/tex">O(m \times n \times max(m, n))</script></span>
 Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
-  <span style="color: #008000; font-weight: bold">struct</span> Node {
+  <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
     <span style="color: #B00040">int</span> hor, ver;
     <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() {
       <span style="color: #008000; font-weight: bold">return</span> min(hor, ver);
@@ -3458,9 +3458,9 @@ Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="mat
 <p>Time: <span><span class="MathJax_Preview">O(m \times n \times max(n, m))</span><script type="math/tex">O(m \times n \times max(n, m))</script></span>
 Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
-  <span style="color: #008000; font-weight: bold">struct</span> Node {
+  <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
     <span style="color: #B00040">int</span> left, top;
     <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() { <span style="color: #008000; font-weight: bold">return</span> min(left, top); }
     <span style="color: #B00040">void</span> <span style="color: #0000FF">set</span>(<span style="color: #B00040">int</span> val) {
@@ -3522,7 +3522,7 @@ yyyy</p>
 <p>Time: <span><span class="MathJax_Preview">O(n \times n \times m)</span><script type="math/tex">O(n \times n \times m)</script></span> or <span><span class="MathJax_Preview">O(min(m, n)^2 \times max(m, n))</span><script type="math/tex">O(min(m, n)^2 \times max(m, n))</script></span>
 Space: because we just need one 1-d presum array: <span><span class="MathJax_Preview">O(min(m, n))</span><script type="math/tex">O(min(m, n))</script></span></p>
 <h3 id="code_4">Code<a class="headerlink" href="#code_4" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   <span style="color: #B00040">int</span> largest(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
     <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>][<span style="color: #666666">0</span>], m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();

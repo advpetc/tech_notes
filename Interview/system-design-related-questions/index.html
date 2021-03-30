@@ -3210,7 +3210,7 @@
 <li>Binary Reduction: merge 1 &amp; 2, merge 3 &amp; 4 ... merge k - 1 &amp; k. -&gt; merge 12 &amp; 34 ... -&gt; merge k-3k-2 &amp; k-1k: Time <span><span class="MathJax_Preview">O(k \times n \times log_2{k})</span><script type="math/tex">O(k \times n \times log_2{k})</script></span>: <span><span class="MathJax_Preview">log_2{k}</span><script type="math/tex">log_2{k}</script></span>: merge ops, for each merge it takes n to merge and there are k arrays + Space <span><span class="MathJax_Preview">O(k \times n)</span><script type="math/tex">O(k \times n)</script></span>. This solution has the same compleixty as the <code>priority_queue</code> solution, however if the array size is too big, then we need to read and write multiple times.</li>
 </ul>
 <h4 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> merge(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> nums) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> merge(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> nums) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
     <span style="color: #008000; font-weight: bold">typedef</span> pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> PII;
     <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> nums.size();
@@ -3249,7 +3249,7 @@
 <p>Below are quoted from <a href="https://en.wikipedia.org/wiki/External_sorting#:~:text=External%20sorting%20is%20a%20class,usually%20a%20hard%20disk%20drive.">wikipedia</a></p>
 </li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>One example of external sorting is the external merge sort algorithm, which is a K-way merge algorithm. It sorts chunks that each fit in RAM, then merges the sorted chunks together.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>One example of external sorting is the external merge sort algorithm, which is a K-way merge algorithm. It sorts chunks that each fit in RAM, then merges the sorted chunks together.
 
 The algorithm first sorts M items at a time and puts the sorted lists back into external memory. It then recursively does a M/B-way merge on those sorted lists. To do this merge, B elements from each sorted list are loaded into internal memory, and the minimum is repeatedly outputted.
 

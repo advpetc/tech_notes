@@ -2975,7 +2975,7 @@
 <p>Find all the next greater numbers for <code>nums1</code>'s elements in the corresponding places of <code>nums2</code>.</p>
 <p>The Next Greater Number of a number <code>x</code> in <code>nums1</code> is the first greater number to its right in <code>nums2</code>. If it does not exist, return <code>-1</code> for this number.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
 Output: [-1,3,-1]
 Explanation:
 For number 4 in the first array, you cannot find the next greater number for it in the second array, so output -1.
@@ -2985,7 +2985,7 @@ For number 2 in the first array, there is no next greater number for it in the s
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: nums1 = [2,4], nums2 = [1,2,3,4]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: nums1 = [2,4], nums2 = [1,2,3,4]
 Output: [3,-1]
 Explanation:
 For number 2 in the first array, the next greater number for it in the second array is 3.
@@ -3005,7 +3005,7 @@ For number 4 in the first array, there is no next greater number for it in the s
 <p>The naive solution is doing two linear scans: for each element in <code>nums1</code>, we check the current element's index and find the first index from <code>nums2</code> and return the element that it is pointing to. However, we want to improve this algorithm into <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>. </p>
 <p>For almost all the "find next greater/less" type of problem, we can thinking about using a monotonic stack to solve it with <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> time complexity. We basically want to build up a mapping between <code>nums1[i]</code> and <code>nums2[j]</code> where <code>nums2[j]</code> is the next immediate greater element to current <code>nums1[i]</code>. We can use a map to store this info. We also need a stack to mimic the monotonic stack operation.</p>
 <p>For monotonic stack part, we can follow the below template:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> i, e <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(arr):
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span> i, e <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(arr):
     <span style="color: #008000; font-weight: bold">while</span> stack <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> empty <span style="color: #AA22FF; font-weight: bold">and</span> stack top <span style="color: #666666">&lt;</span> e: <span style="color: #408080; font-style: italic"># for &quot;next greater&quot;</span>
       stack<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>) <span style="color: #408080; font-style: italic"># we remove the top since current element is the new &quot;next greater&quot;</span>
 
@@ -3019,7 +3019,7 @@ For number 4 in the first array, there is no next greater number for it in the s
 
 <p>As you can see, the worst case for the <code>while</code> loop to run multiple times is when we are having a decreasing order array followed by the last element being the greatest. However, don't forget for all the previous iterations, since the array is decreasing, we never get a chance to execute this <code>while</code> loop once (in all the previous iterations). So if you add it up, the precise complexity is <span><span class="MathJax_Preview">O(2 \times n)</span><script type="math/tex">O(2 \times n)</script></span>, which is still <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>.</p>
 <p>Now we have a stack that records all the "next greater" element, and we want to know which element it was greater to. To build up the mapping, we simply add the map in between.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> i, e <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(arr):
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span> i, e <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(arr):
     <span style="color: #008000; font-weight: bold">while</span> stack <span style="color: #AA22FF; font-weight: bold">is</span> <span style="color: #AA22FF; font-weight: bold">not</span> empty <span style="color: #AA22FF; font-weight: bold">and</span> stack top <span style="color: #666666">&lt;</span> e: <span style="color: #408080; font-style: italic"># for &quot;next greater&quot;</span>
       stack<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>) <span style="color: #408080; font-style: italic"># we remove the top since current element is the new &quot;next greater&quot;</span>
 
@@ -3043,7 +3043,7 @@ all keys are avalible. So we don't need to update our map.</p>
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> for decreasing order <code>nums2</code> case and the output array.</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
   vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> nextGreaterElement(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>nums1, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>nums2) {
     stack<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> idx; <span style="color: #408080; font-style: italic">// store current greater&#39;s index</span>

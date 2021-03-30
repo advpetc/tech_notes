@@ -2980,7 +2980,7 @@
 <p>The robot performs the <code>instructions</code> given in order, and repeats them forever.</p>
 <p>Return <code>true</code> if and only if there exists a circle in the plane such that the robot never leaves the circle.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GGLLGG&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: instructions = &quot;GGLLGG&quot;
 Output: true
 Explanation: The robot moves from (0,0) to (0,2), turns 180 degrees, and then returns to (0,0).
 When repeating these instructions, the robot remains in the circle of radius 2 centered at the origin.
@@ -2988,14 +2988,14 @@ When repeating these instructions, the robot remains in the circle of radius 2 c
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GG&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: instructions = &quot;GG&quot;
 Output: false
 Explanation: The robot moves north indefinitely.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: instructions = &quot;GL&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: instructions = &quot;GL&quot;
 Output: true
 Explanation: The robot moves from (0, 0) -&gt; (0, 1) -&gt; (-1, 1) -&gt; (-1, 0) -&gt; (0, 0) -&gt; ...
 </code></pre></div>
@@ -3012,7 +3012,7 @@ Explanation: The robot moves from (0, 0) -&gt; (0, 1) -&gt; (-1, 1) -&gt; (-1, 0
 <li>if after mimicing we ends up with a direction other than going up (if it's up, then that is the only direcion and we cannot go back), we can still make it a circle</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">bool</span> isRobotBounded(string instructions) {
         <span style="color: #B00040">int</span> sx <span style="color: #666666">=</span> <span style="color: #666666">0</span>, sy <span style="color: #666666">=</span> <span style="color: #666666">0</span>;

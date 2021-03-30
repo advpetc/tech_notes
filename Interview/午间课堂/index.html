@@ -3193,7 +3193,7 @@
 <li><strong>Not</strong> asking for total number, but ask for each configuration.</li>
 <li>When each element can have only two possibability: count or not count, then it's a subset problem.</li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">void</span> <span style="color: #0000FF">findSubset</span>(<span style="color: #B00040">int</span> idx, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> curr) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">void</span> <span style="color: #0000FF">findSubset</span>(<span style="color: #B00040">int</span> idx, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> curr) {
     <span style="color: #008000; font-weight: bold">if</span> (idx <span style="color: #666666">==</span> nums.size()) {
         cout <span style="color: #666666">&lt;&lt;</span> curr <span style="color: #666666">&lt;&lt;</span> endl;
         <span style="color: #008000; font-weight: bold">return</span> ;
@@ -3215,7 +3215,7 @@
 <ul>
 <li>Why cannot swap?</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>curr.push_back(nums[idx]);
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>curr.push_back(nums[idx]);
 findSubset(idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>, nums, curr);
 curr.pop_back(); <span style="color: #408080; font-style: italic">// revoke back</span>
 findSubset(idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>, nums, curr);
@@ -3223,7 +3223,7 @@ findSubset(idx <span style="color: #666666">+</span> <span style="color: #666666
 
 
 <p>cannot be:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>findSubset(idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>, nums, curr);
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>findSubset(idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>, nums, curr);
 curr.push_back(nums[idx]);
 findSubset(idx <span style="color: #666666">+</span> <span style="color: #666666">1</span>, nums, curr);
 </code></pre></div>
@@ -3245,13 +3245,13 @@ c: 0 or 1</p>
 <ul>
 <li>the recusion tree will look like:</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>a ---              {a} | {}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>a ---              {a} | {}
 b ---{a} {a,b} {a,b,b} | {} {b} {b,b}
 c ---...
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;
 <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(<span style="color: #B00040">int</span> idx, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> curr) {
     <span style="color: #008000; font-weight: bold">if</span> (idx <span style="color: #666666">==</span> nums.size()) {
         res.push_back(curr);
@@ -3280,7 +3280,7 @@ vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666"
 <li>calculate the total sum</li>
 <li>then our target sum is sum / 2, our task is to find the combination</li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
 <span style="color: #008000; font-weight: bold">using</span> <span style="color: #008000; font-weight: bold">namespace</span> std;
 
@@ -3320,7 +3320,7 @@ vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666"
 <li>Note: this code will check all the possible sum: e.g. given array 1, 1, 1, 1 -&gt; 1, 1 | 1, 1 | 1, 1 | 1, 1 since these are all the valid configurations (different 1s though)</li>
 </ul>
 <p>To determine if possible (without enumerating all the configurations, which means you can terminate early):</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
 <span style="color: #008000; font-weight: bold">using</span> <span style="color: #008000; font-weight: bold">namespace</span> std;
 
@@ -3356,7 +3356,7 @@ vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666"
 
 
 <h4 id="variant-find-minimal-diff-for-the-two-subset-sum">Variant: find minimal diff for the two subset sum<a class="headerlink" href="#variant-find-minimal-diff-for-the-two-subset-sum" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
 <span style="color: #008000; font-weight: bold">using</span> <span style="color: #008000; font-weight: bold">namespace</span> std;
 <span style="color: #B00040">int</span> gDiff <span style="color: #666666">=</span> INT_MAX;
@@ -3396,7 +3396,7 @@ vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666"
 <li>assume no duplication</li>
 <li>base case: curr.size() == k</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
 <span style="color: #008000; font-weight: bold">using</span> <span style="color: #008000; font-weight: bold">namespace</span> std;
 <span style="color: #B00040">void</span> <span style="color: #0000FF">findSubset</span>(<span style="color: #B00040">int</span> idx, <span style="color: #B00040">int</span> k, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> curr) {
@@ -3441,7 +3441,7 @@ vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666"
 <h2 id="graph-2">Graph 2<a class="headerlink" href="#graph-2" title="Permanent link">&para;</a></h2>
 <h3 id="parenthesis-problem">Parenthesis Problem<a class="headerlink" href="#parenthesis-problem" title="Permanent link">&para;</a></h3>
 <h4 id="p1-given-the-provided-parenthesis-find-all-valid-permutations">P1: ()()() given the provided parenthesis, find all valid permutations.<a class="headerlink" href="#p1-given-the-provided-parenthesis-find-all-valid-permutations" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> res;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> res;
 <span style="color: #B00040">void</span> <span style="color: #0000FF">helper</span>(<span style="color: #B00040">int</span> open, <span style="color: #B00040">int</span> close, <span style="color: #B00040">int</span> total, string<span style="color: #666666">&amp;</span> curr) {
     <span style="color: #008000; font-weight: bold">if</span> (curr.size() <span style="color: #666666">==</span> total <span style="color: #666666">*</span> <span style="color: #666666">2</span>) {
         res.push_back(curr);
@@ -3464,7 +3464,7 @@ vector<span style="color: #666666">&lt;</span>string<span style="color: #666666"
 <ul>
 <li>what if?</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> res;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> res;
 
 <span style="color: #B00040">bool</span> <span style="color: #0000FF">checkIfValid</span>(string<span style="color: #666666">&amp;</span> curr) {
     <span style="color: #408080; font-style: italic">// do the check for if open </span>
@@ -3501,7 +3501,7 @@ vector<span style="color: #666666">&lt;</span>string<span style="color: #666666"
 <li>ans: it will work but DON'T do check in BASE case! (unnecessary overhead)</li>
 </ul>
 <h4 id="p2-given-find-how-many-more-minimal-parenthese-to-be-added-to-make-it-valid">P2: given ((()) find how many more (minimal) parenthese to be added to make it valid<a class="headerlink" href="#p2-given-find-how-many-more-minimal-parenthese-to-be-added-to-make-it-valid" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">solve</span>(string<span style="color: #666666">&amp;</span> s) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">solve</span>(string<span style="color: #666666">&amp;</span> s) {
     stack<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;</span> st;
     <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">char</span> <span style="color: #A0A000">c</span> : s) {
         <span style="color: #008000; font-weight: bold">if</span> (st.empty() <span style="color: #666666">||</span> c <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;(&#39;</span>)
@@ -3515,7 +3515,7 @@ vector<span style="color: #666666">&lt;</span>string<span style="color: #666666"
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">solve</span>(String s){
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">solve</span>(String s){
     Deque<span style="color: #666666">&lt;</span>Character<span style="color: #666666">&gt;</span> stack <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayDeque<span style="color: #666666">&lt;&gt;</span>();
     <span style="color: #B00040">int</span> count <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
     <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">char</span> c : s.<span style="color: #7D9029">toCharArray</span>()){
@@ -3542,7 +3542,7 @@ vector<span style="color: #666666">&lt;</span>string<span style="color: #666666"
 1. {} -&gt; 0
 2. {}}{ -&gt; 2
 3. {}} -&gt; -1 (not possible)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">solve</span>(string s) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">solve</span>(string s) {
     stack<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;</span> st;
     <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">char</span> <span style="color: #A0A000">c</span> : s) {
         <span style="color: #008000; font-weight: bold">if</span> (st.empty() <span style="color: #666666">||</span> c <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;(&#39;</span>)
@@ -3576,7 +3576,7 @@ vector<span style="color: #666666">&lt;</span>string<span style="color: #666666"
 <h3 id="p5-split-array-into-k-subarray-st-each-subarray-shares-the-same-sum">P5: split array into k <strong>subarray</strong> s.t. each subarray shares the same sum.<a class="headerlink" href="#p5-split-array-into-k-subarray-st-each-subarray-shares-the-same-sum" title="Permanent link">&para;</a></h3>
 <p><a href="https://jackygao.wordpress.com/2014/09/04/the-painters-partition-problem-part-i/">here</a>
 <a href="https://jackygao.wordpress.com/2014/09/04/the-painters-partition-problem-part-ii/">and here</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&gt;</span> res;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&gt;</span> res;
 <span style="color: #B00040">void</span> <span style="color: #0000FF">helper</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> sol, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> curr, <span style="color: #B00040">int</span> sum, <span style="color: #B00040">int</span> target, <span style="color: #B00040">int</span> idx, <span style="color: #B00040">int</span> level, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
     <span style="color: #008000; font-weight: bold">if</span> (level <span style="color: #666666">==</span> <span style="color: #666666">0</span>) {
         res.push_back(sol);
@@ -3610,7 +3610,7 @@ solve(vector<span style="color: #666666">&lt;</span><span style="color: #B00040"
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">solve</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> array, <span style="color: #B00040">int</span> k){
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">solve</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> array, <span style="color: #B00040">int</span> k){
     <span style="color: #B00040">int</span> sum <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
     <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> a : array){
         sum<span style="color: #666666">+=</span>a;

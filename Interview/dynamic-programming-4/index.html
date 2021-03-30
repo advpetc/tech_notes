@@ -3364,7 +3364,7 @@
 <li>M[i] = M[i-1] + 1 else</li>
 </ul>
 <h5 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
 using namespace std;
 
@@ -3396,7 +3396,7 @@ using namespace std;
 - else: local max = 0
 - return global max</p>
 <h5 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
 
 using namespace std;
 
@@ -3427,7 +3427,7 @@ using namespace std;
 <li>keep i-- to find the first element j from 0 to i - 1 that is less than num[i], and update M[i] = M[j] + 1</li>
 </ul>
 <h5 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   <span style="color: #B00040">int</span> longest(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> arr) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
@@ -3453,7 +3453,7 @@ using namespace std;
   - if <code>lowest_ending[i - 1] &lt; num[i]</code> -- meaning <code>lowest_ending[i] = num[i]</code> because all the element in the front are less than num[i]
   - else: find the first <code>lowest_ending[j] &gt;= num[i]</code>, so that we can update the <code>lowest_ending[j] = num[i]</code></p>
 <h5 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
 
 using namespace std;
 
@@ -3502,7 +3502,7 @@ using namespace std;
   lastIdx = pre[lastIdx];</code></p>
 <p>to update.</p>
 <h5 id="code_4">Code<a class="headerlink" href="#code_4" title="Permanent link">&para;</a></h5>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> longest(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> arr) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
@@ -3546,7 +3546,7 @@ using namespace std;
 </ul>
 <p>Base on the above oberservation, we can first sort (ascending order) the points based on x value, so that we can choose any element points[i].x - points[j].x &gt; 0 if i &gt; j. Now the problem is reduced into how to choose j such that points[i].y - points[j].y &gt; 0, which is equal to find the LIS of points.y in the sorted array.</p>
 <h4 id="code_5">Code<a class="headerlink" href="#code_5" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   <span style="color: #B00040">int</span> largest(vector<span style="color: #666666">&lt;</span>pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&gt;</span> points) {
     sort(points.begin(), points.end(), [](pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> l, pair<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> r){

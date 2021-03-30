@@ -3010,7 +3010,7 @@
 <p>int: Integer.MAX_VALUE (<span><span class="MathJax_Preview">2^{31} - 1</span><script type="math/tex">2^{31} - 1</script></span>), Integer.MIN_VALUE (<span><span class="MathJax_Preview">-2^{31}</span><script type="math/tex">-2^{31}</script></span>)</p>
 <h2 id="data-structure">Data structure<a class="headerlink" href="#data-structure" title="Permanent link">&para;</a></h2>
 <h3 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Deque<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> stack <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> LinkedList<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span>();
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Deque<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> stack <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> LinkedList<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span>();
 
 stack.<span style="color: #7D9029">isEmpty</span>() 
 stack.<span style="color: #7D9029">peekFirst</span>()
@@ -3020,7 +3020,7 @@ stack.<span style="color: #7D9029">offerFirst</span>(<span style="color: #666666
 
 
 <h3 id="string">String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>StringBuilder cur <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> StringBuilder();
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>StringBuilder cur <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> StringBuilder();
 cur.<span style="color: #7D9029">append</span>(<span style="color: #BA2121">&#39;(&#39;</span>);
 cur.<span style="color: #7D9029">deleteCharAt</span>(cur.<span style="color: #7D9029">length</span>() <span style="color: #666666">-</span> <span style="color: #666666">1</span>); <span style="color: #408080; font-style: italic">// remove last char from the string</span>
 String result <span style="color: #666666">=</span> cur.<span style="color: #7D9029">toString</span>();

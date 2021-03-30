@@ -2973,21 +2973,21 @@
                 <h1 id="longest-valid-parentheses">Longest Valid Parentheses<a class="headerlink" href="#longest-valid-parentheses" title="Permanent link">&para;</a></h1>
 <p>Given a string containing just the characters <code>'('</code> and <code>')'</code>, find the length of the longest valid (well-formed) parentheses substring.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;(()&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;(()&quot;
 Output: 2
 Explanation: The longest valid parentheses substring is &quot;()&quot;.
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;)()())&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;)()())&quot;
 Output: 4
 Explanation: The longest valid parentheses substring is &quot;()()&quot;.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;&quot;
 Output: 0
 </code></pre></div>
 
@@ -3002,7 +3002,7 @@ Output: 0
 i - dp[i] + 1: start index of the previous valid one (dp[i-1])
 why +2 : because the dp[prevStart-1] + ( + dp[i-1] + ), there are two elements</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code> <span style="color: #B00040">int</span> <span style="color: #0000FF">longestValidParentheses</span>(string s) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> <span style="color: #B00040">int</span> <span style="color: #0000FF">longestValidParentheses</span>(string s) {
     <span style="color: #008000; font-weight: bold">if</span>(s.length() <span style="color: #666666">&lt;=</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
     <span style="color: #B00040">int</span> curMax <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
     vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> longest(s.size(),<span style="color: #666666">0</span>);

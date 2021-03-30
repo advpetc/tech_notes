@@ -3018,7 +3018,7 @@
 <h2 id="kruskal">分析：Kruskal<a class="headerlink" href="#kruskal" title="Permanent link">&para;</a></h2>
 <p>首先按照边排序，从小往大加边，当cover到所有点的时候结束，返回当前的最后加入的边的值，复杂度: <span><span class="MathJax_Preview">O(m \times log(m))</span><script type="math/tex">O(m \times log(m))</script></span></p>
 <h2 id="_1">代码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;cstring&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;cstring&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;algorithm&gt;</span><span style="color: #BC7A00"></span>
 
@@ -3027,7 +3027,7 @@ using namespace std;
 <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">310</span>, M <span style="color: #666666">=</span> <span style="color: #666666">10010</span>;
 
 <span style="color: #B00040">int</span> n, m;
-<span style="color: #008000; font-weight: bold">struct</span> Edge
+<span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Edge</span>
 {
     <span style="color: #B00040">int</span> a, b, w;
     <span style="color: #B00040">bool</span> operator<span style="color: #666666">&lt;</span> (<span style="color: #008000; font-weight: bold">const</span> Edge <span style="color: #666666">&amp;</span>t) <span style="color: #008000; font-weight: bold">const</span>

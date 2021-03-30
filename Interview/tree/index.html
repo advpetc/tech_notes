@@ -3322,7 +3322,7 @@
 <h2 id="balanced-tree">Balanced Tree<a class="headerlink" href="#balanced-tree" title="Permanent link">&para;</a></h2>
 <p>Def: height of the left and right subtrees of <strong>every node</strong> differ by 1 or less.</p>
 <h3 id="method-1-check-is-balanced">Method 1: check is balanced<a class="headerlink" href="#method-1-check-is-balanced" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">height</span>(TreeNode<span style="color: #666666">*</span> root) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">height</span>(TreeNode<span style="color: #666666">*</span> root) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
     <span style="color: #008000; font-weight: bold">return</span> max(height(root <span style="color: #666666">-&gt;</span> left), height(root <span style="color: #666666">-&gt;</span> right)) <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
 }
@@ -3339,7 +3339,7 @@
 <p>Time: worst case happens when tree is balanced, so there are log(n) levels. first level requires n ops to get height, second = n/2, ....1. So total complexity is <span><span class="MathJax_Preview">n + n / 2 + n / 4 + .... + n \times 2^{\log{n}} = n \log{n}</span><script type="math/tex">n + n / 2 + n / 4 + .... + n \times 2^{\log{n}} = n \log{n}</script></span>
 Space: <span><span class="MathJax_Preview">\log{n}</span><script type="math/tex">\log{n}</script></span></p>
 <h3 id="method-2-check-is-balanced">Method 2: check is balanced<a class="headerlink" href="#method-2-check-is-balanced" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">checkDepth</span>(TreeNode<span style="color: #666666">*</span> root) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">checkDepth</span>(TreeNode<span style="color: #666666">*</span> root) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root)
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
     <span style="color: #B00040">int</span> left <span style="color: #666666">=</span> checkDepth(root <span style="color: #666666">-&gt;</span> left);
@@ -3367,7 +3367,7 @@ Space: <span><span class="MathJax_Preview">\log{n}</span><script type="math/tex"
 Space Compleixty: the worst case would be like a linkedlist and the height is n, so <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 <h2 id="symmetric-tree">Symmetric Tree<a class="headerlink" href="#symmetric-tree" title="Permanent link">&para;</a></h2>
 <p>Assume if we tweak the lchild with rchild of an arbitrary node in a binary tree, then the "structure" of the tree are not changed. Then how can we determinte whether two binary trees' structures are identical.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code> <span style="color: #B00040">bool</span> <span style="color: #0000FF">isTweakedIdentical</span>(TreeNode<span style="color: #666666">*</span> l, TreeNode<span style="color: #666666">*</span> r) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> <span style="color: #B00040">bool</span> <span style="color: #0000FF">isTweakedIdentical</span>(TreeNode<span style="color: #666666">*</span> l, TreeNode<span style="color: #666666">*</span> r) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>l <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>r) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>l <span style="color: #666666">||</span> <span style="color: #666666">!</span>r) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
@@ -3391,7 +3391,7 @@ Space Compleixty: the worst case would be like a linkedlist and the height is n,
 </ul>
 <h3 id="pre-order">Pre-order<a class="headerlink" href="#pre-order" title="Permanent link">&para;</a></h3>
 <p><strong>recursion:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
 vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> preorderTraversal(TreeNode<span style="color: #666666">*</span> root) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> {};
     res.push_back(root <span style="color: #666666">-&gt;</span> val);
@@ -3406,7 +3406,7 @@ vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</
 
 
 <p><strong>iterative:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> preorderTraversal(TreeNode<span style="color: #666666">*</span> root) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> preorderTraversal(TreeNode<span style="color: #666666">*</span> root) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> {};
     vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
     stack<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> st{{root}};
@@ -3427,7 +3427,7 @@ vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</
 
 <h3 id="in-order">In-order<a class="headerlink" href="#in-order" title="Permanent link">&para;</a></h3>
 <p><strong>recursion:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
 vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> inorderTraversal(TreeNode<span style="color: #666666">*</span> root) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> {};
     <span style="color: #408080; font-style: italic">/* traverse a graph: all from 0 to current root</span>
@@ -3445,7 +3445,7 @@ vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</
 
 
 <p><strong>iterative:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code> vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> inorderTraversal(TreeNode<span style="color: #666666">*</span> root) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> inorderTraversal(TreeNode<span style="color: #666666">*</span> root) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> {};
     vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
     stack<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> st;
@@ -3466,7 +3466,7 @@ vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</
 
 <h3 id="post-order">Post-order<a class="headerlink" href="#post-order" title="Permanent link">&para;</a></h3>
 <p><strong>recursion:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
 vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> postorderTraversal(TreeNode<span style="color: #666666">*</span> root) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> {};
     postorderTraversal(root <span style="color: #666666">-&gt;</span> left);
@@ -3478,7 +3478,7 @@ vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</
 
 
 <p><strong>iterative:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code> vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> postorderTraversal(TreeNode<span style="color: #666666">*</span> root) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> postorderTraversal(TreeNode<span style="color: #666666">*</span> root) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> {};
     vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
     stack<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> s;
@@ -3501,14 +3501,14 @@ vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</
 <h2 id="binary-searh-tree">Binary Searh Tree<a class="headerlink" href="#binary-searh-tree" title="Permanent link">&para;</a></h2>
 <h3 id="query">Query<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
 <p><strong>find min/max:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">while</span> x.left<span style="color: #666666">/</span>x.right <span style="color: #666666">!=</span> <span style="color: #A0A000">null</span>:
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">while</span> x.left<span style="color: #666666">/</span>x.right <span style="color: #666666">!=</span> <span style="color: #A0A000">null</span>:
     x <span style="color: #666666">=</span> x.left<span style="color: #666666">/</span>x.right
 <span style="color: #008000; font-weight: bold">return</span> x <span style="color: #408080; font-style: italic">// if using x.left -&gt; min, x.right -&gt; max</span>
 </code></pre></div>
 
 
 <h3 id="insertion">Insertion<a class="headerlink" href="#insertion" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     TreeNode<span style="color: #666666">*</span> insertIntoBST(TreeNode<span style="color: #666666">*</span> root, <span style="color: #B00040">int</span> val) {
         <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root) <span style="color: #008000; font-weight: bold">return</span> new TreeNode(val);
@@ -3539,7 +3539,7 @@ vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</
 <h4 id="analysis_3">Analysis<a class="headerlink" href="#analysis_3" title="Permanent link">&para;</a></h4>
 <p>In order to have the shortest height, we need to make left subtree and right subtree as close size as possible. To do so, we can recursively find the middle value of the sorted array and then appoints that as the root node (left subtree and right subtree).</p>
 <h4 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>TreeNode<span style="color: #666666">*</span> <span style="color: #0000FF">h</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> arr, <span style="color: #B00040">int</span> l, <span style="color: #B00040">int</span> r) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TreeNode<span style="color: #666666">*</span> <span style="color: #0000FF">h</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> arr, <span style="color: #B00040">int</span> l, <span style="color: #B00040">int</span> r) {
   <span style="color: #008000; font-weight: bold">if</span> (l <span style="color: #666666">==</span> r) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">NULL</span>;
   <span style="color: #B00040">int</span> mid <span style="color: #666666">=</span> (l <span style="color: #666666">+</span> r) <span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">1</span>;
   TreeNode<span style="color: #666666">*</span> n <span style="color: #666666">=</span> new TreeNode(arr[mid]);
@@ -3564,7 +3564,7 @@ Examples</p>
 <p>levelorder traversal = {5, 3, 8, 1, 4, 11}</p>
 <p>inorder traversal = {1, 3, 4, 5, 8, 11}</p>
 <p>the corresponding binary tree is</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>        5
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>        5
 
       /    \
 
@@ -3580,7 +3580,7 @@ Examples</p>
 <p>We use  level order traversal sequence with a special symbol "#" denoting the null node.</p>
 <p>For Example:</p>
 <p>The sequence [1, 2, 3, #, #, 4] represents the following binary tree:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>    1
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    1
 
   /   \
 
@@ -3604,7 +3604,7 @@ Examples</p>
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 </ul>
 <h4 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">//class TreeNode {</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">//class TreeNode {</span>
 <span style="color: #408080; font-style: italic">// public:</span>
 <span style="color: #408080; font-style: italic">//  int value;</span>
 <span style="color: #408080; font-style: italic">//  TreeNode* left;</span>

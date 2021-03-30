@@ -2972,7 +2972,7 @@
                 
                 <h1 id="roman-to-integer">Roman to Integer<a class="headerlink" href="#roman-to-integer" title="Permanent link">&para;</a></h1>
 <p>Roman numerals are represented by seven different symbols: <code>I</code>, <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>, <code>D</code> and <code>M</code>.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Symbol       Value
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Symbol       Value
 I             1
 V             5
 X             10
@@ -2992,32 +2992,32 @@ M             1000
 </ul>
 <p>Given a roman numeral, convert it to an integer.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;III&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;III&quot;
 Output: 3
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;IV&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;IV&quot;
 Output: 4
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;IX&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;IX&quot;
 Output: 9
 </code></pre></div>
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;LVIII&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;LVIII&quot;
 Output: 58
 Explanation: L = 50, V= 5, III = 3.
 </code></pre></div>
 
 
 <p><strong>Example 5:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;MCMXCIV&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;MCMXCIV&quot;
 Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 </code></pre></div>
@@ -3040,7 +3040,7 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 1000: M, 2000: MM, 3000: MMM</p>
 <p>Notice that only 4, 40 and 400 are having the roman character reversed (smaller mapping is in the front the larger mapping), so we only need to handle the special case for that.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">int</span> romanToInt(string s) {
         unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> hash;

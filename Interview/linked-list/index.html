@@ -3078,7 +3078,7 @@
 <p>Need two pointers: one for previous, one for curr; reverse is simply change the direction</p>
 <h3 id="recursion">Recursion<a class="headerlink" href="#recursion" title="Permanent link">&para;</a></h3>
 <p><img alt="Screen Shot 2020-06-24 at 4.42.09 PM.png" src="../resources/2BF10CE1244D84ADE6BB83A9844AF015.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>ListNode<span style="color: #666666">*</span> <span style="color: #0000FF">reverse</span>(ListNode<span style="color: #666666">*</span> head) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span> <span style="color: #0000FF">reverse</span>(ListNode<span style="color: #666666">*</span> head) {
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>head <span style="color: #666666">||</span> <span style="color: #666666">!</span>head <span style="color: #666666">-&gt;</span> next) <span style="color: #008000; font-weight: bold">return</span> head;
     ListNode<span style="color: #666666">*</span> res <span style="color: #666666">=</span> reverse(head <span style="color: #666666">-&gt;</span> next); <span style="color: #408080; font-style: italic">// this will get the last node from the origional linkedlist</span>
     head <span style="color: #666666">-&gt;</span> next <span style="color: #666666">-&gt;</span> next <span style="color: #666666">=</span> head;
@@ -3089,7 +3089,7 @@
 
 
 <h3 id="iterative">Iterative<a class="headerlink" href="#iterative" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     ListNode<span style="color: #666666">*</span> reverseList(ListNode<span style="color: #666666">*</span> head) {
         <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>head) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">NULL</span>;
@@ -3108,7 +3108,7 @@
 
 
 <h2 id="q2-insert-into-sorted-linkedlist">Q2: insert into sorted linkedlist<a class="headerlink" href="#q2-insert-into-sorted-linkedlist" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>ListNode<span style="color: #666666">*</span> <span style="color: #0000FF">insert</span>(ListNode<span style="color: #666666">*</span> head, <span style="color: #B00040">int</span> value) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span> <span style="color: #0000FF">insert</span>(ListNode<span style="color: #666666">*</span> head, <span style="color: #B00040">int</span> value) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
     ListNode<span style="color: #666666">*</span> node <span style="color: #666666">=</span> new ListNode(value);
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>head <span style="color: #666666">||</span> head <span style="color: #666666">-&gt;</span> value <span style="color: #666666">&gt;=</span> value) {
@@ -3131,7 +3131,7 @@
 
 <h2 id="q3-reorganize-linkedlist">Q3: reorganize linkedlist<a class="headerlink" href="#q3-reorganize-linkedlist" title="Permanent link">&para;</a></h2>
 <p>Reorder the given singly-linked list N1 -&gt; N2 -&gt; N3 -&gt; N4 -&gt; … -&gt; Nn -&gt; null to be N1- &gt; Nn -&gt; N2 -&gt; Nn-1 -&gt; N3 -&gt; Nn-2 -&gt; … -&gt; null</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>ListNode<span style="color: #666666">*</span> <span style="color: #0000FF">reorder</span>(ListNode<span style="color: #666666">*</span> head) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span> <span style="color: #0000FF">reorder</span>(ListNode<span style="color: #666666">*</span> head) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
     <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>head <span style="color: #666666">||</span> <span style="color: #666666">!</span>head<span style="color: #666666">-&gt;</span>next)
       <span style="color: #008000; font-weight: bold">return</span> head;
@@ -3167,7 +3167,7 @@
 
 <h2 id="q4-partition-list">Q4: partition list<a class="headerlink" href="#q4-partition-list" title="Permanent link">&para;</a></h2>
 <p>L = 2 -&gt; 4 -&gt; 3 -&gt; 5 -&gt; 1 -&gt; null, T = 3, is partitioned to 2 -&gt; 1 -&gt; 4 -&gt; 3 -&gt; 5 -&gt; null</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>ListNode<span style="color: #666666">*</span> <span style="color: #0000FF">partition</span>(ListNode<span style="color: #666666">*</span> head, <span style="color: #B00040">int</span> x) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span> <span style="color: #0000FF">partition</span>(ListNode<span style="color: #666666">*</span> head, <span style="color: #B00040">int</span> x) {
     <span style="color: #008000; font-weight: bold">if</span> (head <span style="color: #666666">==</span> nullptr) <span style="color: #008000; font-weight: bold">return</span> head;
 
     ListNode lesser, greater;

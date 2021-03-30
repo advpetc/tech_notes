@@ -2975,7 +2975,7 @@
 <p>A string's <strong>subsequence</strong> is a new string formed from the original string by deleting some (can be none) of the characters without disturbing the remaining characters' relative positions. (i.e., <code>"ACE"</code> is a subsequence of <code>"ABCDE"</code> while <code>"AEC"</code> is not).</p>
 <p>It is guaranteed the answer fits on a 32-bit signed integer.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;rabbbit&quot;, t = &quot;rabbit&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;rabbbit&quot;, t = &quot;rabbit&quot;
 Output: 3
 Explanation:
 As shown below, there are 3 ways you can generate &quot;rabbit&quot; from S.
@@ -2986,7 +2986,7 @@ rabbbit
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;babgbag&quot;, t = &quot;bag&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;babgbag&quot;, t = &quot;bag&quot;
 Output: 5
 Explanation:
 As shown below, there are 5 ways you can generate &quot;bag&quot; from S.
@@ -3019,7 +3019,7 @@ rabbbit
 <li>if t[i] != s[j]: dp[i][j] = dp[i][j-1] -&gt; the extra one cannot be counted and should only use the previous stage result (delete current one)</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">int</span> numDistinct(string s, string t) {
         <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> t.length(), n <span style="color: #666666">=</span> s.length();

@@ -3010,7 +3010,7 @@ Output: 6</p>
 1 &lt;= profit[i] &lt;= 10^4</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>For this problem, we cannot use greedy algorithm, since each interval's contribution isn't uniform (not all 1), so we need dp to solve. Different from classic dp problem, which we need to store all the timestamp, in this problem, we just care about the timestamp that is one of the ending time of any task. For example:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>// if t is between two interval (w/o any intersection), dp[t] is equal to [dp[job1.end], dp[job1.start]], we don&#39;t need to record all the timestamp
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>// if t is between two interval (w/o any intersection), dp[t] is equal to [dp[job1.end], dp[job1.start]], we don&#39;t need to record all the timestamp
 job1: -----[ t ]
 job2:           ------
 </code></pre></div>
@@ -3023,7 +3023,7 @@ job2:           ------
 <p>Time: <span><span class="MathJax_Preview">O(n \log(n))</span><script type="math/tex">O(n \log(n))</script></span> for sorting, <span><span class="MathJax_Preview">O(n \log(n))</span><script type="math/tex">O(n \log(n))</script></span> for search last job ending (choose case from dp)
 Space:<span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> we need to store all the interval in the map.</p>
 <h2 id="code-link">Code <a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/409009/JavaC%2B%2BPython-DP-Solution">Link</a><a class="headerlink" href="#code-link" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> jobScheduling(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> startTime, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> endTime, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> profit) {
         <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> startTime.size();

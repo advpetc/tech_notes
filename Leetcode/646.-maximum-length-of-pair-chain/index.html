@@ -2975,7 +2975,7 @@
 <p>Now, we define a pair <code>(c, d)</code> can follow another pair <code>(a, b)</code> if and only if <code>b &lt; c</code>. Chain of pairs can be formed in this fashion. </p>
 <p>Given a set of pairs, find the length longest chain which can be formed. You needn't use up all the given pairs. You can select pairs in any order.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [[1,2], [2,3], [3,4]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: [[1,2], [2,3], [3,4]]
 Output: 2
 Explanation: The longest chain is [1,2] -&gt; [3,4]
 </code></pre></div>
@@ -2992,7 +2992,7 @@ Explanation: The longest chain is [1,2] -&gt; [3,4]
 </ul>
 <p>For interval question can always use greedy algorithm to solve, and by using greedy is usually sorting. In this question we sort by interval end in ascending order. After sorting, we can do a linear scan to find the maximum size of the chain. If there is an intersection between two consective intervals, we always choose the first one and update our current maximum right boundary. So the question become why do we choose first one instead of the second one? To answer this, we can simulate if we choose the second one from two consective intervals, which means we need to update our right boundary to second.end, where first.end &lt; second.end. To fit in more intervals in the future scan, we should always lower the right boundary, so we shouldn't choose the second one but the first one.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">int</span> findLongestChain(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> pairs) {
         sort(pairs.begin(), pairs.end(), 

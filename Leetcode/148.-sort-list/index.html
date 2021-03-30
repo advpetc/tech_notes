@@ -2975,20 +2975,20 @@
 <p><strong>Follow up:</strong> Can you sort the linked list in <code>O(n logn)</code> time and <code>O(1)</code> memory (i.e. constant space)?</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/148a.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [4,2,1,3]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: head = [4,2,1,3]
 Output: [1,2,3,4]
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
 <p><img alt="img" src="../resources/148b.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [-1,5,3,4,0]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: head = [-1,5,3,4,0]
 Output: [-1,0,3,4,5]
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = []
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: head = []
 Output: []
 </code></pre></div>
 
@@ -3020,7 +3020,7 @@ Output: []
 </ol>
 <p>Time: <span><span class="MathJax_Preview">O(n \times log_2{n})</span><script type="math/tex">O(n \times log_2{n})</script></span> for each break: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> + for merge: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> + for height <span><span class="MathJax_Preview">O(log_2{n})</span><script type="math/tex">O(log_2{n})</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     ListNode<span style="color: #666666">*</span> h(ListNode<span style="color: #666666">*</span> head) {
         <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>head <span style="color: #666666">||</span> <span style="color: #666666">!</span>head <span style="color: #666666">-&gt;</span> next) <span style="color: #008000; font-weight: bold">return</span> head;
@@ -3055,7 +3055,7 @@ Output: []
     }
 
     ListNode<span style="color: #666666">*</span> sortList(ListNode<span style="color: #666666">*</span> head) {
-        <span style="color: #008000; font-weight: bold">return</span> h(head);
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">h</span>(head);
     }
 };
 </code></pre></div>

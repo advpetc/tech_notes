@@ -2988,14 +2988,14 @@
 <p>Given a string <code>s</code> and a dictionary of strings <code>wordDict</code>, return <code>true</code> if <code>s</code> can be segmented into a space-separated sequence of one or more dictionary words.</p>
 <p><strong>Note</strong> that the same word in the dictionary may be reused multiple times in the segmentation.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;leetcode&quot;, wordDict = [&quot;leet&quot;,&quot;code&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;leetcode&quot;, wordDict = [&quot;leet&quot;,&quot;code&quot;]
 Output: true
 Explanation: Return true because &quot;leetcode&quot; can be segmented as &quot;leet code&quot;.
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;applepenapple&quot;, wordDict = [&quot;apple&quot;,&quot;pen&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;applepenapple&quot;, wordDict = [&quot;apple&quot;,&quot;pen&quot;]
 Output: true
 Explanation: Return true because &quot;applepenapple&quot; can be segmented as &quot;apple pen apple&quot;.
 Note that you are allowed to reuse a dictionary word.
@@ -3003,7 +3003,7 @@ Note that you are allowed to reuse a dictionary word.
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;catsandog&quot;, wordDict = [&quot;cats&quot;,&quot;dog&quot;,&quot;sand&quot;,&quot;and&quot;,&quot;cat&quot;]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;catsandog&quot;, wordDict = [&quot;cats&quot;,&quot;dog&quot;,&quot;sand&quot;,&quot;and&quot;,&quot;cat&quot;]
 Output: false
 </code></pre></div>
 
@@ -3017,7 +3017,7 @@ Output: false
 <li>All the strings of <code>wordDict</code> are <strong>unique</strong>.</li>
 </ul>
 <h2 id="cpp-dfs-with-memo">cpp: dfs with memo<a class="headerlink" href="#cpp-dfs-with-memo" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     unordered_map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">bool</span><span style="color: #666666">&gt;</span> memo;
 
@@ -3044,7 +3044,7 @@ Output: false
 
 
 <h2 id="java-dp">java: dp<a class="headerlink" href="#java-dp" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">wordBreak</span>(String s, Set<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> dict) {
 
         <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> f <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">boolean</span><span style="color: #666666">[</span>s.<span style="color: #7D9029">length</span>() <span style="color: #666666">+</span> <span style="color: #666666">1]</span>;
@@ -3085,7 +3085,7 @@ Output: false
 <p>f[i] stands for whether subarray(0, i) can be segmented into words from the dictionary. So f[0] means whether subarray(0, 0) (which is an empty string) can be segmented, and of course the answer is yes.</p>
 <p>The default value for boolean array is false. Therefore we need to set f[0] to be true.</p>
 <h2 id="cpp-w-optimization">cpp w/ optimization<a class="headerlink" href="#cpp-w-optimization" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">bool</span> wordBreak(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> word) {
         <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> s.size();

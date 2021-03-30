@@ -2975,7 +2975,7 @@
 <p>On each move, you can either go left or right. During the <em>n</em>-th move (starting from 1), you take <em>n</em> steps.</p>
 <p>Return the minimum number of steps required to reach the destination.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: target = 3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: target = 3
 Output: 2
 Explanation:
 On the first move we step from 0 to 1.
@@ -2984,7 +2984,7 @@ On the second step we step from 1 to 3.
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: target = 2
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: target = 2
 Output: 3
 Explanation:
 On the first move we step from 0 to 1.
@@ -3010,7 +3010,7 @@ On the third move we step from -1 to 2.
 <p>Why it can guarantee to be the optimal solution? <a href="https://leetcode.com/problems/reach-a-number/discuss/991187/C++-O(1)-math-solution-w-proof">leetcode url</a></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <p>Without using math:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> reachNumber(<span style="color: #B00040">int</span> target) {
         target <span style="color: #666666">=</span> abs(target);
@@ -3028,7 +3028,7 @@ On the third move we step from -1 to 2.
 
 
 <p>Using Pythagorean theorem:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> reachNumber(<span style="color: #B00040">int64_t</span> target) {
         target <span style="color: #666666">=</span> std<span style="color: #666666">::</span>abs(target);

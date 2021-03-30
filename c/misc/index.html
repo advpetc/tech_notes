@@ -3041,7 +3041,7 @@
 <p><a href="http://blog.providencezhang.cn/2019/02/18/lang-notebook/">http://blog.providencezhang.cn/2019/02/18/lang-notebook/</a></p>
 </blockquote>
 <p>decltype:有时我们希望从表达式的类型推断出要定义的变量类型，但是不想用该表达式的值初始化变量（初始化可以用auto）。为了满足这一需求，C++11新标准引入了decltype类型说明符，它的作用是选择并返回操作数的数据类型，在此过程中，编译器分析表达式并得到它的类型，却不实际计算表达式的值。</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">getSize</span>();
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">getSize</span>();
 <span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>(<span style="color: #B00040">void</span>)
 {
     <span style="color: #B00040">int</span> tempA <span style="color: #666666">=</span> <span style="color: #666666">2</span>;
@@ -3057,7 +3057,7 @@
 
 
 <h2 id="mod">mod<a class="headerlink" href="#mod" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #666666">1024</span> <span style="color: #666666">%</span> <span style="color: #666666">10</span>;<span style="color: #408080; font-style: italic">// = 4</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">1024</span> <span style="color: #666666">%</span> <span style="color: #666666">10</span>;<span style="color: #408080; font-style: italic">// = 4</span>
 <span style="color: #666666">-1024</span> <span style="color: #666666">%</span> <span style="color: #666666">10</span>; <span style="color: #408080; font-style: italic">//-4</span>
 </code></pre></div>
 
@@ -3066,7 +3066,7 @@
 <p>use 0x3f3f3f3f if there is a need to do addition
 else use 0x7fffffff</p>
 <h2 id="tuple">Tuple<a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// packing/unpacking tuples</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// packing/unpacking tuples</span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;     // std::cout</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;tuple&gt;        // std::tuple, std::make_tuple, std::tie</span><span style="color: #BC7A00"></span>
 
@@ -3096,13 +3096,13 @@ else use 0x7fffffff</p>
 </blockquote>
 <p>set kth bit to zero: x &amp; ~(1 &lt;&lt; k)</p>
 <h2 id="customize-hashing-for-your-class">Customize Hashing for your class<a class="headerlink" href="#customize-hashing-for-your-class" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iomanip&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;functional&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;string&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;unordered_set&gt;</span><span style="color: #BC7A00"></span>
 
-<span style="color: #008000; font-weight: bold">struct</span> S {
+<span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">S</span> {
     std<span style="color: #666666">::</span>string first_name;
     std<span style="color: #666666">::</span>string last_name;
 };
@@ -3111,7 +3111,7 @@ else use 0x7fffffff</p>
 }
 
 <span style="color: #408080; font-style: italic">// custom hash can be a standalone function object:</span>
-<span style="color: #008000; font-weight: bold">struct</span> MyHash
+<span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">MyHash</span>
 {
     std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> operator()(S <span style="color: #008000; font-weight: bold">const</span><span style="color: #666666">&amp;</span> s) <span style="color: #008000; font-weight: bold">const</span> noexcept
     {
@@ -3124,7 +3124,7 @@ else use 0x7fffffff</p>
 <span style="color: #408080; font-style: italic">// custom specialization of std::hash can be injected in namespace std</span>
 namespace std
 {
-    template<span style="color: #666666">&lt;&gt;</span> <span style="color: #008000; font-weight: bold">struct</span> hash<span style="color: #666666">&lt;</span>S<span style="color: #666666">&gt;</span>
+    template<span style="color: #666666">&lt;&gt;</span> <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">hash</span><span style="color: #666666">&lt;</span>S<span style="color: #666666">&gt;</span>
     {
         std<span style="color: #666666">::</span><span style="color: #B00040">size_t</span> operator()(S <span style="color: #008000; font-weight: bold">const</span><span style="color: #666666">&amp;</span> s) <span style="color: #008000; font-weight: bold">const</span> noexcept
         {

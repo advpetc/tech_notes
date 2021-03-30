@@ -2990,7 +2990,7 @@
 </blockquote>
 <h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">&para;</a></h2>
 <p>Given a matrix:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>0  0  0  0  0
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0  0  0  0  0
 0  0  0  0  0
 1  1  1  0  0
 1  9  1  0  0
@@ -3002,7 +3002,7 @@
 
 <p>where 9 indicates mine, 0 to 8 represents the number of mines in the 8 directions.</p>
 <p>The game start with a matrix with all "-", and if player clicks any position that is 0, it will keep expanding until to all the boundary:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>0  0  0  0  0 &lt; clicked this point
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>0  0  0  0  0 &lt; clicked this point
 0  0  0  0  0
 1  1  1  0  0
 -  -  1  0  0
@@ -3013,10 +3013,10 @@
 
 
 <p>You are given a <code>Matrix</code> class:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>template<span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">typename</span> T<span style="color: #666666">&gt;</span> 
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>template<span style="color: #666666">&lt;</span>typename T<span style="color: #666666">&gt;</span> 
 class Matrix { 
-  <span style="color: #B00040">void</span> resize(<span style="color: #B00040">int</span> rows, <span style="color: #B00040">int</span> cols); 
-  T<span style="color: #666666">&amp;</span> at(<span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> col); 
+  <span style="color: #B00040">void</span> <span style="color: #0000FF">resize</span>(<span style="color: #B00040">int</span> rows, <span style="color: #B00040">int</span> cols); 
+  T<span style="color: #666666">&amp;</span> <span style="color: #0000FF">at</span>(<span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> col); 
   <span style="color: #B00040">int</span> <span style="color: #0000FF">rows</span>(); 
   <span style="color: #B00040">int</span> <span style="color: #0000FF">cols</span>(); 
 }; 
@@ -3033,11 +3033,11 @@ class Matrix {
 <li>for the 0 case, we can use recursion to do the expanding.</li>
 </ol>
 <h2 id="code-link">Code: <a href="https://gist.github.com/dgossow/d28083522608771e1c65f49822820ba9">link</a><a class="headerlink" href="#code-link" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;stdlib.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;stdlib.h&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;vector&gt;</span><span style="color: #BC7A00"></span>
 
-template <span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">typename</span> T<span style="color: #666666">&gt;</span>
+template <span style="color: #666666">&lt;</span>typename T<span style="color: #666666">&gt;</span>
 class Matrix {
  <span style="color: #A0A000">public</span>:
   <span style="color: #B00040">void</span> resize(<span style="color: #B00040">int</span> rows, <span style="color: #B00040">int</span> cols) {
@@ -3062,7 +3062,7 @@ using std<span style="color: #666666">::</span>max;
 
 class MineField {
  <span style="color: #A0A000">private</span>:
-  <span style="color: #008000; font-weight: bold">struct</span> Cell {
+  <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Cell</span> {
     <span style="color: #B00040">int</span> value <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
     <span style="color: #B00040">bool</span> visible <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
   };

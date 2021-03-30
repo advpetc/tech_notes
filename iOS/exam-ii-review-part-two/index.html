@@ -3166,7 +3166,7 @@
 <li>No complex structure</li>
 <li>Not searchable</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000">NSString</span> <span style="color: #666666">*</span><span style="color: #008000; font-weight: bold">const</span> kCurrentIndexKey <span style="color: #666666">=</span> <span style="color: #BA2121">@&quot;CurrentIndex&quot;</span>;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000">NSString</span> <span style="color: #666666">*</span><span style="color: #008000; font-weight: bold">const</span> kCurrentIndexKey <span style="color: #666666">=</span> <span style="color: #BA2121">@&quot;CurrentIndex&quot;</span>;
 - (<span style="color: #B00040">void</span>) <span style="color: #0000FF">save</span>{
     <span style="color: #008000">NSUserDefaults</span> <span style="color: #666666">*</span>defaults <span style="color: #666666">=</span> [<span style="color: #008000">NSUserDefaults</span> standardUserDefaults];
     [defaults <span style="color: #A0A000">setObject</span>:[<span style="color: #008000">NSNumber</span> <span style="color: #A0A000">numberWithInt</span>:<span style="color: #008000">self</span>.currentIndex] <span style="color: #A0A000">forKey</span>:kCurrentIndexKey];
@@ -3191,7 +3191,7 @@
 <li>Text Files</li>
 <li>Archiving Objects -- <code>NSCoding</code> protocol</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code> <span style="color: #008000">NSString</span> <span style="color: #666666">*</span>documentsDirPath <span style="color: #666666">=</span> NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, <span style="color: #008000">YES</span>)[<span style="color: #666666">0</span>];
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> <span style="color: #008000">NSString</span> <span style="color: #666666">*</span>documentsDirPath <span style="color: #666666">=</span> NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, <span style="color: #008000">YES</span>)[<span style="color: #666666">0</span>];
  <span style="color: #408080; font-style: italic">// Create a file name for your file</span>
  <span style="color: #008000">NSString</span> <span style="color: #666666">*</span>filename <span style="color: #666666">=</span> <span style="color: #BA2121">@&quot;flashcards.plist&quot;</span>;
  <span style="color: #408080; font-style: italic">// Generate the full file path</span>
@@ -3246,7 +3246,7 @@
 * App Transport Security force to connect with web service through HTTPS</p>
 <p>Example:</p>
 <p>Read a pdf file</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>- (<span style="color: #B00040">void</span>)<span style="color: #0000FF">viewDidLoad</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- (<span style="color: #B00040">void</span>)<span style="color: #0000FF">viewDidLoad</span> {
 [<span style="color: #008000">super</span> viewDidLoad];
 <span style="color: #008000">NSString</span> <span style="color: #666666">*</span>path <span style="color: #666666">=</span> [[<span style="color: #008000">NSBundle</span> mainBundle] <span style="color: #A0A000">pathForResource</span>:<span style="color: #BA2121">@&quot;HIG&quot;</span> <span style="color: #A0A000">ofType</span>:<span style="color: #BA2121">@&quot;pdf&quot;</span>];
 <span style="color: #008000; font-weight: bold">if</span> (path){
@@ -3259,14 +3259,14 @@
 
 
 <p>Read a url</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000">NSURL</span> <span style="color: #666666">*</span>url <span style="color: #666666">=</span> [<span style="color: #008000">NSURL</span> <span style="color: #A0A000">URLWithString</span>:<span style="color: #BA2121">@&quot;https://www.apple.com&quot;</span>];
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000">NSURL</span> <span style="color: #666666">*</span>url <span style="color: #666666">=</span> [<span style="color: #008000">NSURL</span> <span style="color: #A0A000">URLWithString</span>:<span style="color: #BA2121">@&quot;https://www.apple.com&quot;</span>];
 <span style="color: #008000">NSURLRequest</span> <span style="color: #666666">*</span>request <span style="color: #666666">=</span> [<span style="color: #008000">NSURLRequest</span> <span style="color: #A0A000">requestWithURL</span>:url];
 [<span style="color: #008000">self</span>.myWebView <span style="color: #A0A000">loadRequest</span>: request];
 </code></pre></div>
 
 
 <p>Cancel a loading request</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>- (<span style="color: #B00040">void</span>)<span style="color: #0000FF">viewWillDisappear:</span>(<span style="color: #B00040">BOOL</span>)<span style="color: #19177C">animated</span>{
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- (<span style="color: #B00040">void</span>)<span style="color: #0000FF">viewWillDisappear:</span>(<span style="color: #B00040">BOOL</span>)<span style="color: #19177C">animated</span>{
 [<span style="color: #008000">super</span> <span style="color: #A0A000">viewWillDisappear</span>:animated];
 <span style="color: #008000; font-weight: bold">if</span> ([<span style="color: #008000">self</span>.myWebView isLoading]){
 [<span style="color: #008000">self</span>.myWebView stopLoading];
@@ -3278,7 +3278,7 @@
 
 
 <p>Animation loading in WebView</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>- (<span style="color: #B00040">void</span>)<span style="color: #0000FF">webViewDidStartLoad:</span>(<span style="color: #008000">UIWebView</span> <span style="color: #666666">*</span>)<span style="color: #19177C">webView</span>{
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- (<span style="color: #B00040">void</span>)<span style="color: #0000FF">webViewDidStartLoad:</span>(<span style="color: #008000">UIWebView</span> <span style="color: #666666">*</span>)<span style="color: #19177C">webView</span>{
 [<span style="color: #008000">self</span>.activityIndicator startAnimating];
 }
 - (<span style="color: #B00040">void</span>)<span style="color: #0000FF">webViewDidFinishLoad:</span>(<span style="color: #008000">UIWebView</span> <span style="color: #666666">*</span>)<span style="color: #19177C">webView</span>{
@@ -3302,7 +3302,7 @@
 * Enable edit button in <code>viewDidLoad</code> method
 * Use the public remove method in the model
 * Implement <code>tableView: commitEditingStyle: forRowAtIndexPath</code> method</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [self.model removeFlashcardAtIndex:indexPath.row];

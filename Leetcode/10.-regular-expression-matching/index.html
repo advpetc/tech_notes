@@ -2978,35 +2978,35 @@
 </ul>
 <p>The matching should cover the <strong>entire</strong> input string (not partial).</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;aa&quot;, p = &quot;a&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;aa&quot;, p = &quot;a&quot;
 Output: false
 Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;aa&quot;, p = &quot;a*&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;aa&quot;, p = &quot;a*&quot;
 Output: true
 Explanation: &#39;*&#39; means zero or more of the preceding element, &#39;a&#39;. Therefore, by repeating &#39;a&#39; once, it becomes &quot;aa&quot;.
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;ab&quot;, p = &quot;.*&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;ab&quot;, p = &quot;.*&quot;
 Output: true
 Explanation: &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.
 </code></pre></div>
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;aab&quot;, p = &quot;c*a*b&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;aab&quot;, p = &quot;c*a*b&quot;
 Output: true
 Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore, it matches &quot;aab&quot;.
 </code></pre></div>
 
 
 <p><strong>Example 5:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s = &quot;mississippi&quot;, p = &quot;mis*is*p*.&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s = &quot;mississippi&quot;, p = &quot;mis*is*p*.&quot;
 Output: false
 </code></pre></div>
 
@@ -3030,7 +3030,7 @@ Output: false
     set dp[i][j] = true</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">bool</span> isMatch(string s, string p) {
         <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> s.length(), m <span style="color: #666666">=</span> p.length();

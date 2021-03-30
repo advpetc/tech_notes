@@ -2974,19 +2974,19 @@
 <p>Given a <code>pattern</code> and a string <code>str</code>, find if <code>str</code> follows the same pattern.</p>
 <p>Here <strong>follow</strong> means a full match, such that there is a bijection between a letter in <code>pattern</code> and a <strong>non-empty</strong> substring in <code>str</code>.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: pattern = &quot;abab&quot;, str = &quot;redblueredblue&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: pattern = &quot;abab&quot;, str = &quot;redblueredblue&quot;
 Output: true
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: pattern = pattern = &quot;aaaa&quot;, str = &quot;asdasdasdasd&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: pattern = pattern = &quot;aaaa&quot;, str = &quot;asdasdasdasd&quot;
 Output: true
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: pattern = &quot;aabb&quot;, str = &quot;xyzabcxzyabc&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: pattern = &quot;aabb&quot;, str = &quot;xyzabcxzyabc&quot;
 Output: false
 </code></pre></div>
 
@@ -2996,7 +2996,7 @@ You may assume both <code>pattern</code> and <code>str</code> contains only lowe
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>Different from 290, this question requires us to try all the word in the string, and there is no better solution other than brute force search.</p>
 <h2 id="code-copied-from-grandyang">Code (copied from <a href="https://www.cnblogs.com/grandyang/p/5325761.html">Grandyang</a>)<a class="headerlink" href="#code-copied-from-grandyang" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">bool</span> wordPatternMatch(string pattern, string str) {
         unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span>, string<span style="color: #666666">&gt;</span> m; <span style="color: #408080; font-style: italic">// pattern to string</span>

@@ -2978,7 +2978,7 @@
 <li>A function <em>hasNext()</em> that returns <code>True</code> if and only if there exists a next combination.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>CombinationIterator iterator = new CombinationIterator(&quot;abc&quot;, 2); // creates the iterator.
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>CombinationIterator iterator = new CombinationIterator(&quot;abc&quot;, 2); // creates the iterator.
 
 iterator.next(); // returns &quot;ab&quot;
 iterator.hasNext(); // returns true
@@ -2998,7 +2998,7 @@ iterator.hasNext(); // returns false
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>When seeing combination problem, we can think of bit manipulation (0 represents not choose and 1 represents choose).</p>
 <p><strong>Take an example</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>   Num             bit_rep           no_of_set_bit       a   b   c              hold_set
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   Num             bit_rep           no_of_set_bit       a   b   c              hold_set
     1               0 0 1                 1              0   0   1              nothing   &lt;= because combinationLength != no_of_set_bit
     2               0 1 0                 1              0   1   0              same case like upper one
     3               0 1 1                 2              0   1   1              &quot;bc&quot; &lt;= combinationLength ==no_of
@@ -3012,7 +3012,7 @@ iterator.hasNext(); // returns false
 
 
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class CombinationIterator {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class CombinationIterator {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">int</span> len, mask;
     string s;

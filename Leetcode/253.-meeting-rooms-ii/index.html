@@ -2973,13 +2973,13 @@
                 <h1 id="meeting-rooms-ii">Meeting Rooms II<a class="headerlink" href="#meeting-rooms-ii" title="Permanent link">&para;</a></h1>
 <p>Given an array of meeting time intervals consisting of start and end times <code>[[s1,e1],[s2,e2],...]</code> (si &lt; ei), find the minimum number of conference rooms required.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [[0, 30],[5, 10],[15, 20]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: [[0, 30],[5, 10],[15, 20]]
 Output: 2
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [[7,10],[2,4]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: [[7,10],[2,4]]
 Output: 1
 </code></pre></div>
 
@@ -3003,7 +3003,7 @@ Output: 1
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> for sorting and priority queue.</li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">minMeetingRooms</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> intervals) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">minMeetingRooms</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> intervals) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
     <span style="color: #008000; font-weight: bold">auto</span> cmp <span style="color: #666666">=</span> [](vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> l, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> r) {<span style="color: #008000; font-weight: bold">return</span> l[<span style="color: #666666">0</span>] <span style="color: #666666">&lt;</span> r[<span style="color: #666666">0</span>];};
     sort(intervals.begin(), intervals.end(), cmp);

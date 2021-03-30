@@ -3058,7 +3058,7 @@ dp[i][1][1] = max(dp[i-1][1][1], dp[i-1][0][0] - prices[i])
 可以进行进一步化简去掉所有 k：
 dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
 dp[i][1] = max(dp[i-1][1], -prices[i])</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i<span style="color: #666666">++</span>) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i<span style="color: #666666">++</span>) {
     <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">==</span> <span style="color: #666666">-1</span>) { <span style="color: #408080; font-style: italic">// i==0</span>
         dp[i][<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
         <span style="color: #408080; font-style: italic">// 解释：</span>
@@ -3088,7 +3088,7 @@ dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
 <p>我们发现数组中的 k 已经不会改变了，也就是说不需要记录 k 这个状态了：
 dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
 dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i])</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">maxProfit_k_inf</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> prices) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">maxProfit_k_inf</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> prices) {
     <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> prices.size();
     <span style="color: #B00040">int</span> dp_i_0 <span style="color: #666666">=</span> <span style="color: #666666">0</span>, dp_i_1 <span style="color: #666666">=</span> INT_MIN;
     <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i<span style="color: #666666">++</span>) {

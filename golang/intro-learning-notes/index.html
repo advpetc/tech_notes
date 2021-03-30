@@ -3043,7 +3043,7 @@
                 <h1 id="learning-notes-from-geektutu">Learning notes from <a href="https://geektutu.com/post/quick-golang.html">geektutu</a><a class="headerlink" href="#learning-notes-from-geektutu" title="Permanent link">&para;</a></h1>
 <h2 id="array-and-slice">Array and Slice<a class="headerlink" href="#array-and-slice" title="Permanent link">&para;</a></h2>
 <p>Array:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">var</span> arr [<span style="color: #666666">5</span>]<span style="color: #B00040">int</span> <span style="color: #408080; font-style: italic">// declare 1-d array</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">var</span> arr [<span style="color: #666666">5</span>]<span style="color: #B00040">int</span> <span style="color: #408080; font-style: italic">// declare 1-d array</span>
 <span style="color: #008000; font-weight: bold">var</span> arr [<span style="color: #666666">5</span>][<span style="color: #666666">5</span>]<span style="color: #B00040">int</span> <span style="color: #408080; font-style: italic">// declare 2-d array</span>
 <span style="color: #008000; font-weight: bold">var</span> arr = [<span style="color: #666666">5</span>]<span style="color: #B00040">int</span>{<span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>}
 <span style="color: #008000; font-weight: bold">var</span> arr = [<span style="color: #666666">...</span>]<span style="color: #B00040">int</span>{<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>} <span style="color: #408080; font-style: italic">// compiler will count the array elements for you</span>
@@ -3052,30 +3052,30 @@
 
 <p>Slice:</p>
 <p>Slice is just a pointer that is pointing to the underlying array</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">var</span> slice = []<span style="color: #B00040">int</span>{<span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>} <span style="color: #408080; font-style: italic">// note that there is nothing inside the []</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">var</span> slice = []<span style="color: #B00040">int</span>{<span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>} <span style="color: #408080; font-style: italic">// note that there is nothing inside the []</span>
 </code></pre></div>
 
 
 <p>Can also use <code>make</code> to declare a slice:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>slice <span style="color: #666666">:=</span> <span style="color: #008000">make</span>([]<span style="color: #B00040">int</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>) <span style="color: #408080; font-style: italic">// with size of 4 and capacity of 5</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>slice <span style="color: #666666">:=</span> <span style="color: #008000">make</span>([]<span style="color: #B00040">int</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>) <span style="color: #408080; font-style: italic">// with size of 4 and capacity of 5</span>
 slice <span style="color: #666666">:=</span> <span style="color: #008000">make</span>([]<span style="color: #B00040">int</span>, <span style="color: #666666">4</span>) <span style="color: #408080; font-style: italic">// with size of 4 and capacity equals to size (4)</span>
 </code></pre></div>
 
 
 <p>Appending two slices:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000">append</span>([]<span style="color: #B00040">int</span>{<span style="color: #666666">1</span>,<span style="color: #666666">2</span>}, []<span style="color: #B00040">int</span>{<span style="color: #666666">3</span>,<span style="color: #666666">4</span>}<span style="color: #666666">...</span>) <span style="color: #408080; font-style: italic">// don&#39;t forget the ... at the end</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000">append</span>([]<span style="color: #B00040">int</span>{<span style="color: #666666">1</span>,<span style="color: #666666">2</span>}, []<span style="color: #B00040">int</span>{<span style="color: #666666">3</span>,<span style="color: #666666">4</span>}<span style="color: #666666">...</span>) <span style="color: #408080; font-style: italic">// don&#39;t forget the ... at the end</span>
 </code></pre></div>
 
 
 <h2 id="map">Map<a class="headerlink" href="#map" title="Permanent link">&para;</a></h2>
 <p>Declare a map:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>m1 = <span style="color: #008000">make</span>(<span style="color: #008000; font-weight: bold">map</span>[<span style="color: #B00040">string</span>]<span style="color: #B00040">int</span>)
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>m1 = <span style="color: #008000">make</span>(<span style="color: #008000; font-weight: bold">map</span>[<span style="color: #B00040">string</span>]<span style="color: #B00040">int</span>)
 </code></pre></div>
 
 
 <h2 id="enum">Enum<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h2>
 <p>There is no <code>enum</code> in Go, but it uses <code>const</code> to represent:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">type</span> Gender <span style="color: #B00040">int8</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">type</span> Gender <span style="color: #B00040">int8</span>
 <span style="color: #008000; font-weight: bold">const</span> (
     MALE   Gender = <span style="color: #666666">1</span> <span style="color: #408080; font-style: italic">// variable name, type, assigned value</span>
     FEMALE Gender = <span style="color: #666666">2</span>
@@ -3097,7 +3097,7 @@ gender <span style="color: #666666">:=</span> MALE
 
 <h2 id="defer-and-recover">Defer and recover<a class="headerlink" href="#defer-and-recover" title="Permanent link">&para;</a></h2>
 <p>Use <code>defer</code> and <code>recover</code> when as <code>try</code> and <code>catch</code>:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> get(index <span style="color: #B00040">int</span>) (ret <span style="color: #B00040">int</span>) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">func</span> get(index <span style="color: #B00040">int</span>) (ret <span style="color: #B00040">int</span>) {
     <span style="color: #008000; font-weight: bold">defer</span> <span style="color: #008000; font-weight: bold">func</span>() {
         <span style="color: #008000; font-weight: bold">if</span> r <span style="color: #666666">:=</span> <span style="color: #008000">recover</span>(); r <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">nil</span> { <span style="color: #408080; font-style: italic">// it will be called after the panic occurs</span>
             fmt.Println(<span style="color: #BA2121">&quot;Some error happened!&quot;</span>, r)
@@ -3117,7 +3117,7 @@ gender <span style="color: #666666">:=</span> MALE
 
 <h2 id="struct">Struct<a class="headerlink" href="#struct" title="Permanent link">&para;</a></h2>
 <p>Use <strong>method</strong> to call struct instance:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">type</span> Student <span style="color: #008000; font-weight: bold">struct</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">type</span> Student <span style="color: #008000; font-weight: bold">struct</span> {
     name <span style="color: #B00040">string</span>
     age  <span style="color: #B00040">int</span>
 }
@@ -3141,7 +3141,7 @@ gender <span style="color: #666666">:=</span> MALE
 
 
 <p>In Go, a function can return the reference of a local variable:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> myFunction() (<span style="color: #666666">*</span>MyStructType, <span style="color: #B00040">error</span>) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">func</span> myFunction() (<span style="color: #666666">*</span>MyStructType, <span style="color: #B00040">error</span>) {
     <span style="color: #008000; font-weight: bold">var</span> chunk <span style="color: #666666">*</span>MyStructType = <span style="color: #008000">new</span>(HeaderChunk)
 
     <span style="color: #666666">...</span>
@@ -3169,7 +3169,7 @@ gender <span style="color: #666666">:=</span> MALE
 <p>If function/interface/type/method/statement is capitalized, then these will be accessible from other files in the other package(s). If not capitalized, then it will not be accessible.</p>
 <h2 id="trick">Trick<a class="headerlink" href="#trick" title="Permanent link">&para;</a></h2>
 <p>Use empty interface to represent any type:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">func</span> main() {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">func</span> main() {
     m <span style="color: #666666">:=</span> <span style="color: #008000">make</span>(<span style="color: #008000; font-weight: bold">map</span>[<span style="color: #B00040">string</span>]<span style="color: #008000; font-weight: bold">interface</span>{})
     m[<span style="color: #BA2121">&quot;name&quot;</span>] = <span style="color: #BA2121">&quot;Tom&quot;</span>
     m[<span style="color: #BA2121">&quot;age&quot;</span>] = <span style="color: #666666">18</span>

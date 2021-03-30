@@ -2984,7 +2984,7 @@
 <ol>
 <li>reassignment</li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span><span style="color: #666666">[]</span> a <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span>{<span style="color: #666666">1</span>}; <span style="color: #408080; font-style: italic">// a is on stack</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span><span style="color: #666666">[]</span> a <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span>{<span style="color: #666666">1</span>}; <span style="color: #408080; font-style: italic">// a is on stack</span>
 <span style="color: #B00040">int</span><span style="color: #666666">[]</span> b <span style="color: #666666">=</span> a; <span style="color: #408080; font-style: italic">// b still store on stack</span>
 b <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span>{<span style="color: #666666">2</span>};
 <span style="color: #408080; font-style: italic">// if print a, it will output 1</span>
@@ -2992,7 +2992,7 @@ b <span style="color: #666666">=</span> <span style="color: #008000; font-weight
 
 
 <p><img alt="Screen Shot 2020-05-10 at 8.03.06 PM.png" src="../resources/1FFE01BC74499722A93728CFE1216FF9.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span><span style="color: #666666">[]</span> a <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span>{<span style="color: #666666">1</span>}; <span style="color: #408080; font-style: italic">// a is on stack</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span><span style="color: #666666">[]</span> a <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span>{<span style="color: #666666">1</span>}; <span style="color: #408080; font-style: italic">// a is on stack</span>
 <span style="color: #B00040">int</span><span style="color: #666666">[]</span> b <span style="color: #666666">=</span> a; <span style="color: #408080; font-style: italic">// b still store on stack</span>
 b<span style="color: #666666">[0]</span> <span style="color: #666666">=</span> <span style="color: #666666">2</span>;
 <span style="color: #408080; font-style: italic">// if print a, it will output 2</span>
@@ -3002,7 +3002,7 @@ b<span style="color: #666666">[0]</span> <span style="color: #666666">=</span> <
 <ol>
 <li>pass in as parameter</li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// anything &quot;new&quot; in function will stay local and will not modify the outter scope variable</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// anything &quot;new&quot; in function will stay local and will not modify the outter scope variable</span>
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">reassign</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> array) {
     array <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[]</span>{<span style="color: #666666">2</span>};
 }
@@ -3040,7 +3040,7 @@ b<span style="color: #666666">[0]</span> <span style="color: #666666">=</span> <
 <p><img alt="reassign" src="../resources/4ED71DE6EF426984675E837603275C6C.png" /></p>
 <p><img alt="modify" src="../resources/69DA2A1E9F25BB841C2D2DDF98048A70.png" /></p>
 <h2 id="debug">debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">reverse</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> array) {
    <span style="color: #B00040">int</span><span style="color: #666666">[]</span> array1 <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[</span>array.<span style="color: #7D9029">length</span><span style="color: #666666">]</span>;
    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i<span style="color: #666666">=0</span>; i<span style="color: #666666">&lt;</span>array.<span style="color: #7D9029">length</span>; i<span style="color: #666666">=</span>i<span style="color: #666666">+1</span>) {
@@ -3055,7 +3055,7 @@ b<span style="color: #666666">[0]</span> <span style="color: #666666">=</span> <
 Note: return 0 if the list is null or empty.</p>
 <p>Example:
 list = {1,2,3} → returns 14 (14=1<em>1+2</em>2+3*3)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">sumOfSquare</span>(List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> list) {
     <span style="color: #008000; font-weight: bold">if</span> (list <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> list.<span style="color: #7D9029">isEmpty</span>()) {
       <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;

@@ -3174,7 +3174,7 @@
 <p><a href="https://leetcode.com/problems/two-sum/">https://leetcode.com/problems/two-sum/</a></p>
 </blockquote>
 <h3 id="solution-1-use-hashmap">Solution 1 -- use hashmap<a class="headerlink" href="#solution-1-use-hashmap" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> twoSum(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> target) {
         unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> checker; <span style="color: #408080; font-style: italic">// val =&gt; index</span>
@@ -3195,7 +3195,7 @@
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 </ul>
 <h3 id="solution-2-input-array-is-sorted-two-pointers">Solution 2 (input array is sorted) -- two pointers<a class="headerlink" href="#solution-2-input-array-is-sorted-two-pointers" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">bool</span> twoSum(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> target) { <span style="color: #408080; font-style: italic">// return true if exit, else false;</span>
         <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, j <span style="color: #666666">=</span> nums.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;</span> j;) {
@@ -3215,7 +3215,7 @@
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> for sorting (aux array for merge sort, if using quick sort it will be <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>)</li>
 </ul>
 <h3 id="solution-4-unsorted-but-goal-is-optimize-for-space-and-the-input-array-is-mutable">Solution 4 (unsorted, but goal is optimize for space, and the input array is <strong>mutable</strong>)<a class="headerlink" href="#solution-4-unsorted-but-goal-is-optimize-for-space-and-the-input-array-is-mutable" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">bool</span> twoSum(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> target) { <span style="color: #408080; font-style: italic">// return true if exit, else false;</span>
         <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> nums.size(); <span style="color: #666666">++</span>i)
@@ -3232,7 +3232,7 @@
 <li>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></li>
 </ul>
 <h3 id="variant-1-with-duplicate-and-return-all-the-index-pairs">Variant 1: with duplicate and return all the index pairs<a class="headerlink" href="#variant-1-with-duplicate-and-return-all-the-index-pairs" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> allPairs(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array, <span style="color: #B00040">int</span> target) {
     unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> idx;
@@ -3254,7 +3254,7 @@
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 </ul>
 <h3 id="variant-2-with-duplicate-and-only-return-the-unique-pairs-not-index">Variant 2: with duplicate and only return the unique pairs (not index)<a class="headerlink" href="#variant-2-with-duplicate-and-only-return-the-unique-pairs-not-index" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> allPairs(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array, <span style="color: #B00040">int</span> target) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
@@ -3304,7 +3304,7 @@
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 </ol>
 <h3 id="solution-2-sort-then-two-pointers">Solution 2: sort then two pointers<a class="headerlink" href="#solution-2-sort-then-two-pointers" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> allTriples(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array, <span style="color: #B00040">int</span> target) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>
@@ -3345,7 +3345,7 @@
 <h3 id="solution-1-two-outter-forloop-then-include-a-2sum">Solution 1: two outter forloop then include a 2Sum<a class="headerlink" href="#solution-1-two-outter-forloop-then-include-a-2sum" title="Permanent link">&para;</a></h3>
 <p>assume <span><span class="MathJax_Preview">a_1 + a_2 + a_3 + a_4 == target</span><script type="math/tex">a_1 + a_2 + a_3 + a_4 == target</script></span>, then fix <span><span class="MathJax_Preview">a_1</span><script type="math/tex">a_1</script></span> and <span><span class="MathJax_Preview">a_2</span><script type="math/tex">a_2</script></span> from two outter loops. Use 2Sum to find the pair such that the <span><span class="MathJax_Preview">sum == target - a_1 - a_2</span><script type="math/tex">sum == target - a_1 - a_2</script></span></p>
 <p>pseudocode:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>define map&lt;key = sum, value = &lt;&lt;two index&gt;,&lt;two index&gt;, ... &gt;&gt;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>define map&lt;key = sum, value = &lt;&lt;two index&gt;,&lt;two index&gt;, ... &gt;&gt;
 for(i)
   for(j)
     curr pair&lt;i, j&gt;, pair_sum = a[i] + a[j]
@@ -3360,7 +3360,7 @@ for(i)
 </ul>
 <h3 id="solution-2-4sum-2sum-2sum">Solution 2: 4Sum = 2Sum + 2Sum<a class="headerlink" href="#solution-2-4sum-2sum-2sum" title="Permanent link">&para;</a></h3>
 <p><span><span class="MathJax_Preview">a_1 + a_2 + a_3 + a_4 = target</span><script type="math/tex">a_1 + a_2 + a_3 + a_4 = target</script></span>, since there is no duplicate, we can assume <span><span class="MathJax_Preview">a_1 &lt; a_2 &lt; a_3 &lt; a_4</span><script type="math/tex">a_1 < a_2 < a_3 < a_4</script></span>. By using this property, we can just ignore the case when idx for latter element is smaller than prevous element's idx.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
  <span style="color: #A0A000">public</span>:
   <span style="color: #B00040">bool</span> exist(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> array, <span style="color: #B00040">int</span> target) {
     <span style="color: #408080; font-style: italic">// write your solution here</span>

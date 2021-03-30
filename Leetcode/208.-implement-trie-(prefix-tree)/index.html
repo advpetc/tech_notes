@@ -2980,7 +2980,7 @@
 <li><code>boolean startsWith(String prefix)</code> returns <code>true</code> if there is a previously inserted string <code>word</code> that has the prefix <code>prefix</code>, and <code>false</code> otherwise.</li>
 </ul>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input
 [&quot;Trie&quot;, &quot;insert&quot;, &quot;search&quot;, &quot;search&quot;, &quot;startsWith&quot;, &quot;insert&quot;, &quot;search&quot;]
 [[], [&quot;apple&quot;], [&quot;apple&quot;], [&quot;app&quot;], [&quot;app&quot;], [&quot;app&quot;], [&quot;app&quot;]]
 Output
@@ -3016,7 +3016,7 @@ trie.search(&quot;app&quot;);     // return True
 <p><img alt="Screen Shot 2020-04-25 at 6.22.03 PM.png" src="../resources/53E2049F8A91A184083AB85827B4396D.png" /></p>
 <p>each node can has 26 (all lower case) children - <strong>pretty bad space complexity</strong></p>
 <h2 id="cpp-dynamically-generate-26-nodes-all-the-time">cpp: dynamically generate 26 nodes all the time<a class="headerlink" href="#cpp-dynamically-generate-26-nodes-all-the-time" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">struct</span> TrieNode {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">TrieNode</span> {
     TrieNode<span style="color: #666666">*</span> next[<span style="color: #666666">26</span>];
     <span style="color: #B00040">bool</span> is_word;
     TrieNode(<span style="color: #B00040">bool</span> b <span style="color: #666666">=</span> <span style="color: #008000">false</span>)
@@ -3063,7 +3063,7 @@ class Trie {
 
     <span style="color: #408080; font-style: italic">/** Returns if there is any word in the trie that starts with the given</span>
 <span style="color: #408080; font-style: italic">     * prefix. */</span>
-    <span style="color: #B00040">bool</span> startsWith(string prefix) { <span style="color: #008000; font-weight: bold">return</span> find(prefix) <span style="color: #666666">!=</span> <span style="color: #008000">NULL</span>; }
+    <span style="color: #B00040">bool</span> startsWith(string prefix) { <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">find</span>(prefix) <span style="color: #666666">!=</span> <span style="color: #008000">NULL</span>; }
 };
 
 <span style="color: #408080; font-style: italic">/**</span>

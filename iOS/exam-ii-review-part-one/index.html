@@ -3040,7 +3040,7 @@
 </ol>
 <p><strong>Add gesture recognizer in code</strong></p>
 <p>Single Tap</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// ViewController.m: Single Tap</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// ViewController.m: Single Tap</span>
 - (<span style="color: #B00040">void</span>)<span style="color: #0000FF">viewDidLoad</span> {
 [<span style="color: #008000">super</span> viewDidLoad];
 <span style="color: #008000">UITapGestureRecognizer</span> <span style="color: #666666">*</span>singleTap <span style="color: #666666">=</span> [[<span style="color: #008000">UITapGestureRecognizer</span> alloc] <span style="color: #A0A000">initWithTarget</span>:<span style="color: #008000">self</span>
@@ -3058,7 +3058,7 @@
 
 
 <p>Single &amp; Double Tap</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// double tap</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// double tap</span>
 <span style="color: #008000">UITapGestureRecognizer</span> <span style="color: #666666">*</span>singleTap <span style="color: #666666">=</span> [[<span style="color: #008000">UITapGestureRecognizer</span> alloc] <span style="color: #A0A000">initWithTarget</span>:<span style="color: #008000">self</span>
 <span style="color: #A0A000">action</span>:<span style="color: #008000; font-weight: bold">@selector</span>(<span style="color: #A0A000">singleTapRecognized</span>:)];
 [<span style="color: #008000">self</span>.view <span style="color: #A0A000">addGestureRecognizer</span>: singleTap];
@@ -3072,7 +3072,7 @@ doubleTap.numberOfTapsRequired <span style="color: #666666">=</span> <span style
 
 
 <p>Swipe: should add left and right separately</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000">UISwipeGestureRecognizer</span> <span style="color: #666666">*</span>swipeLeft <span style="color: #666666">=</span> [[<span style="color: #008000">UISwipeGestureRecognizer</span> alloc] <span style="color: #A0A000">initWithTarget</span>:<span style="color: #008000">self</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000">UISwipeGestureRecognizer</span> <span style="color: #666666">*</span>swipeLeft <span style="color: #666666">=</span> [[<span style="color: #008000">UISwipeGestureRecognizer</span> alloc] <span style="color: #A0A000">initWithTarget</span>:<span style="color: #008000">self</span>
 <span style="color: #A0A000">action</span>:<span style="color: #008000; font-weight: bold">@selector</span>(<span style="color: #A0A000">swipeGestureRecognized</span>:)];
 swipeLeft.direction <span style="color: #666666">=</span> UISwipeGestureRecognizerDirectionLeft;
 [<span style="color: #008000">self</span>.view <span style="color: #A0A000">addGestureRecognizer</span>:swipeLeft];
@@ -3099,19 +3099,19 @@ swipeRight.direction <span style="color: #666666">=</span> UISwipeGestureRecogni
 3. capture values from enclosing scope
 4. used for callback function: code to be exec when finish task</p>
 <p>Syntax</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #666666">^</span>{
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">^</span>{
 NSLog(<span style="color: #BA2121">@&quot;This is a block&quot;</span>);
 }
 </code></pre></div>
 
 
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> multiplier <span style="color: #666666">=</span> <span style="color: #666666">7</span>;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> multiplier <span style="color: #666666">=</span> <span style="color: #666666">7</span>;
 <span style="color: #B00040">int</span> (<span style="color: #666666">^</span>myBlock)(<span style="color: #B00040">int</span>) <span style="color: #666666">=</span> <span style="color: #666666">^</span>(<span style="color: #B00040">int</span> num) { <span style="color: #008000; font-weight: bold">return</span> num <span style="color: #666666">*</span> multiplier; }
 </code></pre></div>
 
 
 <p>fade-in example</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>- (<span style="color: #B00040">void</span>) <span style="color: #0000FF">fadeInStudent:</span>(<span style="color: #008000">NSString</span> <span style="color: #666666">*</span>) <span style="color: #19177C">name</span>{
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- (<span style="color: #B00040">void</span>) <span style="color: #0000FF">fadeInStudent:</span>(<span style="color: #008000">NSString</span> <span style="color: #666666">*</span>) <span style="color: #19177C">name</span>{
 <span style="color: #408080; font-style: italic">// Alpha = 0 means the text is transparent</span>
 <span style="color: #008000">self</span>.nameLabel.alpha <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 <span style="color: #008000">self</span>.nameLabel.text <span style="color: #666666">=</span> name;
@@ -3124,7 +3124,7 @@ NSLog(<span style="color: #BA2121">@&quot;This is a block&quot;</span>);
 
 
 <p>more examples:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// fade in nameLabel</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// fade in nameLabel</span>
 - (<span style="color: #B00040">void</span>) <span style="color: #0000FF">animateStudent:</span>(<span style="color: #008000">NSString</span> <span style="color: #666666">*</span>)<span style="color: #19177C">name</span>{
 <span style="color: #008000">self</span>.nameLabel.text <span style="color: #666666">=</span> name;
 [<span style="color: #008000">UIView</span> <span style="color: #A0A000">animateWithDuration</span>:<span style="color: #666666">1.0</span> <span style="color: #A0A000">animations</span>:<span style="color: #666666">^</span>{
@@ -3158,7 +3158,7 @@ NSLog(<span style="color: #BA2121">@&quot;This is a block&quot;</span>);
 4. General Orientation: </em></strong>UIDevice<strong><em>
 5. Cancel a motion event: An event is canceled if the shake motion is interrupted or if iOS determines that the motion is not valid after all – for example, if the shaking lasts too long. Use </em></strong>motionCancelled:withEvent:***</p>
 <p>Handle Shake Event</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>- (<span style="color: #B00040">BOOL</span>)<span style="color: #0000FF">canBecomeFirstResponder</span>{
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- (<span style="color: #B00040">BOOL</span>)<span style="color: #0000FF">canBecomeFirstResponder</span>{
 <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">YES</span>;
 }
 - (<span style="color: #B00040">void</span>)<span style="color: #0000FF">viewDidAppear:</span>(<span style="color: #B00040">BOOL</span>)<span style="color: #19177C">animated</span>{
@@ -3174,7 +3174,7 @@ NSLog(<span style="color: #BA2121">@&quot;You shook me!&quot;</span>);
 
 
 <p>Responding Changes in Orientation</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>- (<span style="color: #B00040">void</span>) <span style="color: #0000FF">viewDidLoad</span>{
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>- (<span style="color: #B00040">void</span>) <span style="color: #0000FF">viewDidLoad</span>{
 <span style="color: #408080; font-style: italic">// Request to turn on accelerometer and begin receiving accelerometer events</span>
 [[<span style="color: #008000">UIDevice</span> currentDevice] beginGeneratingDeviceOrientationNotifications];
 [[<span style="color: #008000">NSNotificationCenter</span> defaultCenter] <span style="color: #A0A000">addObserver</span>:<span style="color: #008000">self</span>
@@ -3249,7 +3249,7 @@ away with a lower bit rate.</p>
 <p><em>Add Audio Framework</em>
 * Add <code>AudioToolbox.framework</code> in project targets
 * Import</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// QuoteViewController.m</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// QuoteViewController.m</span>
 <span style="color: #BC7A00">#import &lt;AudioToolbox/AudioToolbox.h&gt;</span>
 <span style="color: #BC7A00">#import &quot;QuoteViewController.h&quot;</span>
 <span style="color: #008000; font-weight: bold">@interface</span> <span style="color: #0000FF; font-weight: bold">QuoteViewController</span> ()
@@ -3259,7 +3259,7 @@ away with a lower bit rate.</p>
 
 <p><strong>Examples</strong></p>
 <p>Setup for Sound</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// QuoteViewController.m</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// QuoteViewController.m</span>
 <span style="color: #008000">NSString</span> <span style="color: #666666">*</span>soundFilePath <span style="color: #666666">=</span> [[<span style="color: #008000">NSBundle</span> mainBundle] <span style="color: #A0A000">pathForResource</span>:<span style="color: #BA2121">@&quot;Tada&quot;</span> <span style="color: #A0A000">ofType</span>:<span style="color: #BA2121">@&quot;wav&quot;</span>];
 <span style="color: #008000">NSURL</span> <span style="color: #666666">*</span>soundURL <span style="color: #666666">=</span> [<span style="color: #008000">NSURL</span> <span style="color: #A0A000">fileURLWithPath</span>:soundFilePath];
 AudioServicesCreateSystemSoundID((<span style="color: #008000; font-weight: bold">__bridge</span> CFURLRef _Nonnull)(soundURL), <span style="color: #666666">&amp;</span>_soundFileID);
@@ -3274,7 +3274,7 @@ AudioServicesPlaySystemSound(<span style="color: #008000">self</span>.soundFileI
 
 
 <p>Setup for Vibration</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// QuoteViewController.m</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// QuoteViewController.m</span>
 - (<span style="color: #B00040">void</span>)<span style="color: #0000FF">doubleTapRecognized:</span> (<span style="color: #008000">UITapGestureRecognizer</span> <span style="color: #666666">*</span>)<span style="color: #19177C">recognizer</span>{
 <span style="color: #408080; font-style: italic">// Vibrate</span>
 AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
@@ -3284,7 +3284,7 @@ AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 
 
 <p>Create property using <strong>AVFoundation</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// QuoteViewController.m</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// QuoteViewController.m</span>
 <span style="color: #BC7A00">#import &lt;AVFoundation/AVFoundation.h&gt;</span>
 <span style="color: #408080; font-style: italic">// Other imports…</span>
 <span style="color: #008000; font-weight: bold">@interface</span> <span style="color: #0000FF; font-weight: bold">QuoteViewController</span> ()
@@ -3324,7 +3324,7 @@ resourcePath]];
 * Allowing some objects to be relatively fixed and others highly customized.
 * Maximum software reuse and MVC design pattern.</p>
 <p>Demo: or but not both</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// ViewController.h</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// ViewController.h</span>
 <span style="color: #008000; font-weight: bold">@interface</span> <span style="color: #0000FF; font-weight: bold">ViewController</span> <span style="color: #666666">&lt;</span>ProtocolName<span style="color: #666666">&gt;</span>
 <span style="color: #008000; font-weight: bold">@end</span>
 
@@ -3359,7 +3359,7 @@ resourcePath]];
     OR
     B. Create a new cell of the class you specified</p>
 <p><strong>Examples</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// ExampleTableViewController.m</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// ExampleTableViewController.m</span>
 <span style="color: #408080; font-style: italic">// Return the number of sections</span>
 - (NSInteger)<span style="color: #0000FF">numberOfSectionsInTableView:</span>(<span style="color: #008000">UITableView</span> <span style="color: #666666">*</span>)<span style="color: #19177C">tableView</span>{
 <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">1</span>;

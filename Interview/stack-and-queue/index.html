@@ -3052,7 +3052,7 @@
                 
                 <h1 id="stack-and-queue">Stack and Queue<a class="headerlink" href="#stack-and-queue" title="Permanent link">&para;</a></h1>
 <h2 id="use-array-to-mimic-stack">Use array to mimic stack<a class="headerlink" href="#use-array-to-mimic-stack" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// tt表示栈顶</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// tt表示栈顶</span>
 <span style="color: #B00040">int</span> stk[N], tt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
 <span style="color: #408080; font-style: italic">// 向栈顶插入一个数</span>
@@ -3073,7 +3073,7 @@ stk[tt];
 
 
 <h3 id="monotonic-stack">Monotonic Stack<a class="headerlink" href="#monotonic-stack" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// 常见模型：找出每个数左边离它最近的比它大/小的数</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// 常见模型：找出每个数左边离它最近的比它大/小的数</span>
 <span style="color: #B00040">int</span> tt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; i <span style="color: #666666">++</span> )
 {
@@ -3085,7 +3085,7 @@ stk[tt];
 
 <h2 id="use-array-to-mimic-queue">Use array to mimic queue<a class="headerlink" href="#use-array-to-mimic-queue" title="Permanent link">&para;</a></h2>
 <h3 id="ordinary-queue">Ordinary Queue<a class="headerlink" href="#ordinary-queue" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// hh 表示队头，tt表示队尾</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// hh 表示队头，tt表示队尾</span>
 <span style="color: #B00040">int</span> q[N], hh <span style="color: #666666">=</span> <span style="color: #666666">0</span>, tt <span style="color: #666666">=</span> <span style="color: #666666">-1</span>;
 
 <span style="color: #408080; font-style: italic">// 向队尾插入一个数</span>
@@ -3106,7 +3106,7 @@ q[hh];
 
 
 <h3 id="circular-queue-with-only-n-1-elements">Circular Queue (with only N - 1 elements)<a class="headerlink" href="#circular-queue-with-only-n-1-elements" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// hh 表示队头，tt表示队尾的后一个位置</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// hh 表示队头，tt表示队尾的后一个位置</span>
 <span style="color: #B00040">int</span> q[N], hh <span style="color: #666666">=</span> <span style="color: #666666">0</span>, tt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
 <span style="color: #408080; font-style: italic">// 向队尾插入一个数</span>
@@ -3129,7 +3129,7 @@ q[hh];
 
 
 <h3 id="monotonic-queue">Monotonic Queue<a class="headerlink" href="#monotonic-queue" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">// 常见模型：找出滑动窗口中的最大值/最小值</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// 常见模型：找出滑动窗口中的最大值/最小值</span>
 <span style="color: #B00040">int</span> hh <span style="color: #666666">=</span> <span style="color: #666666">0</span>, tt <span style="color: #666666">=</span> <span style="color: #666666">-1</span>;
 <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i <span style="color: #666666">++</span> )
 {

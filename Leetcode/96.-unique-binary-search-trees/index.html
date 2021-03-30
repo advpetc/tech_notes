@@ -2974,13 +2974,13 @@
 <p>Given an integer <code>n</code>, return <em>the number of structurally unique </em><em>BST'</em><em>s (binary search trees) which has exactly</em> <code>n</code> <em>nodes of unique values from</em> <code>1</code> <em>to</em> <code>n</code>.</p>
 <p><strong>Example 1:</strong></p>
 <p><img alt="img" src="../resources/96.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 3
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: n = 3
 Output: 5
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: n = 1
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: n = 1
 Output: 1
 </code></pre></div>
 
@@ -3009,7 +3009,7 @@ Output: 1
 <p>G(n) = G(0) * G(n-1) + G(1) * G(n-2) + … + G(n-1) * G(0)
  In terms of calculation, we need to start with the lower number, since the value of G(n) depends on the values of G(0) … G(n-1).</p>
 <p>With the above explanation and formulas, here is the implementation in Java.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>public <span style="color: #B00040">int</span> <span style="color: #0000FF">numTrees</span>(<span style="color: #B00040">int</span> n) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>public <span style="color: #B00040">int</span> numTrees(<span style="color: #B00040">int</span> n) {
     <span style="color: #B00040">int</span> [] G <span style="color: #666666">=</span> new <span style="color: #B00040">int</span>[n<span style="color: #666666">+1</span>];
     G[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> G[<span style="color: #666666">1</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;
 
@@ -3024,7 +3024,7 @@ Output: 1
 
 
 <h2 id="in-cpp">in cpp<a class="headerlink" href="#in-cpp" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>public <span style="color: #B00040">int</span> <span style="color: #0000FF">numTrees</span>(<span style="color: #B00040">int</span> n) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>public <span style="color: #B00040">int</span> numTrees(<span style="color: #B00040">int</span> n) {
     <span style="color: #B00040">int</span> G[n<span style="color: #666666">+1</span>];
     fill_n(G, n<span style="color: #666666">+1</span>, <span style="color: #666666">0</span>);
     G[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> G[<span style="color: #666666">1</span>] <span style="color: #666666">=</span> <span style="color: #666666">1</span>;

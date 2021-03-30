@@ -2976,7 +2976,7 @@
 <p><img alt="Screen Shot 2020-05-22 at 4.58.19 PM.png" src="../resources/572637276F3659D8A4369BF5B8DD6655.png" /></p>
 <p>每次记录中心点的两端，两端只能取蓝色的长度，因为只有蓝色长度才可以保证所有的点从中心点到终点是完全cover到的。然后根据左点排序（从小到大），每次greedy取可以cover到的最右点，当可以取到的最右点比当前的面积的长度要大的时候，那么便停止。</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic"> * 喷水装置.cpp</span>
 <span style="color: #408080; font-style: italic"> * Copyright (C) 2020 Haoyang &lt;peter@peterchen.xyz&gt;</span>
 <span style="color: #408080; font-style: italic"> *</span>
@@ -2987,7 +2987,7 @@ using namespace std;
 <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> maxn <span style="color: #666666">=</span> <span style="color: #666666">2e4</span> <span style="color: #666666">+</span> <span style="color: #666666">5</span>;
 <span style="color: #B00040">int</span> cnt;
 <span style="color: #B00040">int</span> n, L, W;
-<span style="color: #008000; font-weight: bold">struct</span> line {
+<span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">line</span> {
   <span style="color: #B00040">double</span> x, y;
 };
 line lines[maxn];

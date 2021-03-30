@@ -3158,27 +3158,27 @@
 </ul>
 <p>Your code will <strong>only</strong> be given the <code>head</code> of the original linked list.</p>
 <p><strong>Example 1:</strong><img alt="e1.png" src="../resources/20B092AA2A45AAD196EB04C8F6001772.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
 </code></pre></div>
 
 
 <p><strong>Example 2:</strong></p>
 <p><img alt="img" src="../resources/138b.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [[1,1],[2,1]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: head = [[1,1],[2,1]]
 Output: [[1,1],[2,1]]
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
 <p><strong><img alt="img" src="../resources/138c.png" /></strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = [[3,null],[3,0],[3,null]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: head = [[3,null],[3,0],[3,null]]
 Output: [[3,null],[3,0],[3,null]]
 </code></pre></div>
 
 
 <p><strong>Example 4:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: head = []
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: head = []
 Output: []
 Explanation: The given linked list is empty (null pointer), so return null.
 </code></pre></div>
@@ -3196,7 +3196,7 @@ Explanation: The given linked list is empty (null pointer), so return null.
 <h4 id="_1">时间复杂度<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>因为每次遍历整个链表需要<span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间上不算生成的节点需要<span><span class="MathJax_Preview">O(2 \times n)</span><script type="math/tex">O(2 \times n)</script></span>来建立哈希表。</p>
 <h4 id="c">C++ 代码<a class="headerlink" href="#c" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic">// Definition for a Node.</span>
 <span style="color: #408080; font-style: italic">class Node {</span>
 <span style="color: #408080; font-style: italic">public:</span>
@@ -3248,7 +3248,7 @@ Explanation: The given linked list is empty (null pointer), so return null.
 <h4 id="_2">时间复杂度<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p>由于每次recursion call最终会被call n次（不是random的指针的数量，因为如果多次访问已经存在的节点就可以直接剪枝使用之前已经生成的节点来返回，不会再进行递归调用），所以时间是<span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。空间上除了哈希表的大小还需要计算call stack的大小，即<span><span class="MathJax_Preview">O(n + 2 n)</span><script type="math/tex">O(n + 2 n)</script></span></p>
 <h4 id="c_1">C++ 代码<a class="headerlink" href="#c_1" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic">// Definition for a Node.</span>
 <span style="color: #408080; font-style: italic">class Node {</span>
 <span style="color: #408080; font-style: italic">public:</span>
@@ -3291,7 +3291,7 @@ Explanation: The given linked list is empty (null pointer), so return null.
 <h4 id="_3">时间复杂度<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>因为每次遍历整个链表需要<span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间上不再需要使用哈希表所以是<span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>.</p>
 <h4 id="c_2">C++ 代码<a class="headerlink" href="#c_2" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
 <span style="color: #408080; font-style: italic"> * Definition for singly-linked list with a random pointer.</span>
 <span style="color: #408080; font-style: italic"> * struct RandomListNode {</span>
 <span style="color: #408080; font-style: italic"> *     int label;</span>

@@ -2995,7 +2995,7 @@
 </ol>
 <p>Given two strings <code>s1</code> and <code>s2</code> of <strong>the same length</strong>, return <code>true</code> if <code>s2</code> is a scrambled string of <code>s1</code>, otherwise, return <code>false</code>.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s1 = &quot;great&quot;, s2 = &quot;rgeat&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s1 = &quot;great&quot;, s2 = &quot;rgeat&quot;
 Output: true
 Explanation: One possible scenario applied on s1 is:
 &quot;great&quot; --&gt; &quot;gr/eat&quot; // divide at random index.
@@ -3010,13 +3010,13 @@ As there is one possible scenario that led s1 to be scrambled to s2, we return t
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s1 = &quot;abcde&quot;, s2 = &quot;caebd&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s1 = &quot;abcde&quot;, s2 = &quot;caebd&quot;
 Output: false
 </code></pre></div>
 
 
 <p><strong>Example 3:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: s1 = &quot;a&quot;, s2 = &quot;a&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: s1 = &quot;a&quot;, s2 = &quot;a&quot;
 Output: true
 </code></pre></div>
 
@@ -3028,13 +3028,13 @@ Output: true
 <li><code>s1</code> and <code>s2</code> consist of lower-case English letters.</li>
 </ul>
 <h2 id="using-cache-recursion">Using cache + recursion<a class="headerlink" href="#using-cache-recursion" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
-    <span style="color: #B00040">bool</span> DP_helper(unordered_map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">bool</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>isScramblePair, string s1, string s2)
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
+    <span style="color: #B00040">bool</span> <span style="color: #0000FF">DP_helper</span>(unordered_map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">bool</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>isScramblePair, string s1, string s2)
     {
         <span style="color: #B00040">int</span> i,len <span style="color: #666666">=</span> s1.size();
         <span style="color: #B00040">bool</span> res <span style="color: #666666">=</span> <span style="color: #008000">false</span>;
         <span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">0==</span>len) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">true</span>;
-        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span>(<span style="color: #666666">1==</span>len) <span style="color: #008000; font-weight: bold">return</span> s1 <span style="color: #666666">==</span> s2;
+        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span>(<span style="color: #666666">1==</span>len) <span style="color: #008000; font-weight: bold">return</span> s1 <span style="color: #666666">==</span> s2;
         <span style="color: #008000; font-weight: bold">else</span>
         {
             <span style="color: #008000; font-weight: bold">if</span>(isScramblePair.count(s1<span style="color: #666666">+</span>s2)) <span style="color: #008000; font-weight: bold">return</span> isScramblePair[s1<span style="color: #666666">+</span>s2]; <span style="color: #408080; font-style: italic">// checked before, return intermediate result directly</span>
@@ -3073,7 +3073,7 @@ s2: 333i444len</p>
 <p>111 &amp;&amp; 444
 222 &amp;&amp; 333</p>
 <h2 id="dp-bottom-up">DP bottom-up<a class="headerlink" href="#dp-bottom-up" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">bool</span> isScramble(string s1, string s2) {
         <span style="color: #B00040">int</span> sSize <span style="color: #666666">=</span> s1.size(), len, i, j, k;

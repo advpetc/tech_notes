@@ -3219,7 +3219,7 @@
 <li>There are n levels, and the last level has <span><span class="MathJax_Preview">2^n</span><script type="math/tex">2^n</script></span> nodes, which means the time complexity is <span><span class="MathJax_Preview">O(2^n)</span><script type="math/tex">O(2^n)</script></span>, and space complexity is <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 </ul>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">package</span> <span style="color: #0000FF; font-weight: bold">test</span>;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span> <span style="color: #0000FF; font-weight: bold">test</span>;
 
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">RecruitingEventSchedules</span> {
     <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(String input, StringBuilder curr, <span style="color: #B00040">int</span> idx) {
@@ -3265,7 +3265,7 @@
 <h2 id="q2-cousins-in-a-binary-tree">Q2. Cousins in a Binary Tree<a class="headerlink" href="#q2-cousins-in-a-binary-tree" title="Permanent link">&para;</a></h2>
 <p>In a binary tree, two nodes are cousins of each other if they are at the same level and have different parents.</p>
 <p>For example, in the following tree:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>                     6
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>                     6
 
                   /     \
 
@@ -3289,7 +3289,7 @@
 <li>Space Complexity: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 </ul>
 <h3 id="code-in-cpp-bfs">Code in Cpp: BFS<a class="headerlink" href="#code-in-cpp-bfs" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
 <span style="color: #408080; font-style: italic"> * Definition for a binary tree node.</span>
 <span style="color: #408080; font-style: italic"> * struct TreeNode {</span>
 <span style="color: #408080; font-style: italic"> *     int val;</span>
@@ -3343,14 +3343,14 @@ class Solution {
 <li>Return: only return the level that has found the LCA.</li>
 </ul>
 <h3 id="code-lca">Code: LCA<a class="headerlink" href="#code-lca" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>public boolean <span style="color: #0000FF">findCusion</span>(TreeNode root, TreeNode a, TreeNode b) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>public boolean findCusion(TreeNode root, TreeNode a, TreeNode b) {
     <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> null <span style="color: #666666">||</span> a <span style="color: #666666">==</span> null <span style="color: #666666">||</span> b <span style="color: #666666">==</span> null) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">false</span>;
     boolean[] res <span style="color: #666666">=</span> new boolean[]{<span style="color: #008000">false</span>};
     dfs(root, a, b, <span style="color: #666666">0</span>, res);
     <span style="color: #008000; font-weight: bold">return</span> res[<span style="color: #666666">0</span>];
 }
 
-public <span style="color: #B00040">int</span> <span style="color: #0000FF">dfs</span>(TreeNode root, TreeNode a, TreeNode b, <span style="color: #B00040">int</span> level, boolean[] res) {
+public <span style="color: #B00040">int</span> dfs(TreeNode root, TreeNode a, TreeNode b, <span style="color: #B00040">int</span> level, boolean[] res) {
     <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> null) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
     <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> a <span style="color: #666666">||</span> root <span style="color: #666666">==</span> b) <span style="color: #008000; font-weight: bold">return</span> level;
     <span style="color: #B00040">int</span> left <span style="color: #666666">=</span> dfs(root.left, a, b, level <span style="color: #666666">+</span> <span style="color: #666666">1</span>, res);
@@ -3379,7 +3379,7 @@ Explanation: 13 = 4 + 9.</p>
 <li>Notice: don't forget the case when n == perfect square number, in this case, set it to 1</li>
 </ul>
 <h3 id="code-cpp">Code: Cpp<a class="headerlink" href="#code-cpp" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">int</span> numSquares(<span style="color: #B00040">int</span> n) {
         <span style="color: #B00040">int</span> dp[n <span style="color: #666666">+</span> <span style="color: #666666">1</span>], inf <span style="color: #666666">=</span> <span style="color: #666666">0x3f3f3f3f</span>;
@@ -3419,7 +3419,7 @@ Explanation: 13 = 4 + 9.</p>
 <li>Space Compleity: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 </ul>
 <h3 id="code-permutation">Code: Permutation<a class="headerlink" href="#code-permutation" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">canChain</span>(String<span style="color: #666666">[]</span> strArr) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">canChain</span>(String<span style="color: #666666">[]</span> strArr) {
     <span style="color: #008000; font-weight: bold">return</span> helper(strArr, <span style="color: #666666">1</span>);
 }
 

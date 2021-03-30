@@ -2937,7 +2937,7 @@ min_dp[i]: from 0-i, the minimum product</p>
 max_dp[i] = max(min_dp[i] * array[i], max_dp[i-1] * array[i], array[i])
 where min_dp[i] * array[i] is for calculating the case when both min_dp and array[i] are neg
 where max_dp[i] * array[i] is for calculating the case when both max_dp and array[i] are pos</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
     <span style="color: #B00040">int</span> maxProduct(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
         <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> nums.size();
@@ -2972,7 +2972,7 @@ min_dp: from 0-i, the minimum product</p>
 max_dp = max(min_dp * array[i], pre_max_dp * array[i], array[i])
 where min_dp * array[i] is for calculating the case when both min_dp and array[i] are neg
 where max_dp * array[i] is for calculating the case when both max_dp and array[i] are pos</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class Solution {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
     <span style="color: #A0A000">public</span>:
         <span style="color: #B00040">int</span> maxProduct(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
             <span style="color: #B00040">int</span> size <span style="color: #666666">=</span> nums.size();

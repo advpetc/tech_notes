@@ -2975,7 +2975,7 @@
 <p>A move consists of walking from one land square 4-directionally to another land square, or off the boundary of the grid.</p>
 <p>Return the number of land squares in the grid for which we <strong>cannot</strong> walk off the boundary of the grid in any number of moves.</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
 Output: 3
 Explanation: 
 There are three 1s that are enclosed by 0s, and one 1 that isn&#39;t enclosed because its on the boundary.
@@ -2983,7 +2983,7 @@ There are three 1s that are enclosed by 0s, and one 1 that isn&#39;t enclosed be
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: [[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: [[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]
 Output: 0
 Explanation: 
 All 1s are either on the boundary or can reach the boundary.
@@ -3006,7 +3006,7 @@ All 1s are either on the boundary or can reach the boundary.
 <p>Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <p>Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span> possible stack space allocated for the dfs call</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> dir[<span style="color: #666666">4</span>][<span style="color: #666666">2</span>] <span style="color: #666666">=</span> {{<span style="color: #666666">1</span>,<span style="color: #666666">0</span>},{<span style="color: #666666">-1</span>,<span style="color: #666666">0</span>},{<span style="color: #666666">0</span>,<span style="color: #666666">1</span>},{<span style="color: #666666">0</span>,<span style="color: #666666">-1</span>}};
     <span style="color: #B00040">int</span> m, n;

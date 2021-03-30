@@ -3313,7 +3313,7 @@
 <p>Core: create a builder class for top level abstraction and subclasses for specific constructions. When implementing, don't forget to <code>#include "builder.hpp"</code>.</p>
 </li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic"> * C++ Design Patterns: Builder</span>
 <span style="color: #408080; font-style: italic"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
 <span style="color: #408080; font-style: italic"> * 2016</span>
@@ -3373,8 +3373,8 @@ class Builder
   }
 
   virtual <span style="color: #B00040">void</span> buildPartA() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-  virtual <span style="color: #B00040">void</span> <span style="color: #0000FF">buildPartB</span>() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-  virtual <span style="color: #B00040">void</span> <span style="color: #0000FF">buildPartC</span>() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  virtual <span style="color: #B00040">void</span> buildPartB() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  virtual <span style="color: #B00040">void</span> buildPartC() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
   <span style="color: #408080; font-style: italic">// ...</span>
 
 <span style="color: #A0A000">protected</span>:
@@ -3492,7 +3492,7 @@ class Director {
 <li>it's a easy to extend: if you want to add a new type and add its creation and other <em>CURD</em>, just create a new method in the abstract factory class (implement the details in the subclass).</li>
 <li>example usage: when designing an application on different platforms, methods themselves don't need to change the logic when running on different platform =&gt; create a factory class for initialize different object on different platform</li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic"> * C++ Design Patterns: Abstract Factory</span>
 <span style="color: #408080; font-style: italic"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
 <span style="color: #408080; font-style: italic"> * 2016</span>
@@ -3598,7 +3598,7 @@ class AbstractFactory
   virtual <span style="color: #666666">~</span>AbstractFactory() {}
 
   virtual ProductA <span style="color: #666666">*</span>createProductA() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-  virtual ProductB <span style="color: #666666">*</span><span style="color: #0000FF">createProductB</span>() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  virtual ProductB <span style="color: #666666">*</span>createProductB() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 };
 
 <span style="color: #408080; font-style: italic">/*</span>
@@ -3666,7 +3666,7 @@ class <span style="color: #A0A000">ConcreteFactoryY</span> : public AbstractFact
 * a class cant anticipate the class of objects it must create
 * a class wants its subclasses to specify the objects it creates
 * classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic"> * C++ Design Patterns: Factory Method</span>
 <span style="color: #408080; font-style: italic"> * Author: Jakub Vojvoda [github.com/JakubVojvoda]</span>
 <span style="color: #408080; font-style: italic"> * 2016</span>
@@ -3736,9 +3736,9 @@ class Creator
   virtual <span style="color: #666666">~</span>Creator() {}
 
   virtual Product<span style="color: #666666">*</span> createProductA() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-  virtual Product<span style="color: #666666">*</span> <span style="color: #0000FF">createProductB</span>() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  virtual Product<span style="color: #666666">*</span> createProductB() <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
-  virtual <span style="color: #B00040">void</span> <span style="color: #0000FF">removeProduct</span>( Product <span style="color: #666666">*</span>product ) <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  virtual <span style="color: #B00040">void</span> removeProduct( Product <span style="color: #666666">*</span>product ) <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 
   <span style="color: #408080; font-style: italic">// ...</span>
 };
@@ -3810,7 +3810,7 @@ What if System Design: how to make it be able to be played by multiple users?</p
 <li>Card: 1) Value, 2) Suit (Club, Diamond, Heart, Spade)</li>
 <li>Deck: 1) List<Card></li>
 </ol>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">enum</span> Suit {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">enum</span> Suit {
   Club, Diamond, Heart, Spade
 }
 
@@ -3899,7 +3899,7 @@ What if System Design: how to make it be able to be played by multiple users?</p
 - 2 ~ 10 scores its face value
 - J, Q, and K score 10
 - A score either 1 or 11 (store both, make decision later)</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BlackJackHand</span> <span style="color: #008000; font-weight: bold">extends</span> Hand {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">BlackJackHand</span> <span style="color: #008000; font-weight: bold">extends</span> Hand {
     <span style="color: #AA22FF">@Override</span>
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">final</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">score</span>() {
         List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> scores <span style="color: #666666">=</span> possibleScores();
@@ -4075,7 +4075,7 @@ What if System Design: how to make it be able to be played by multiple users?</p
 <li>hard to be wrong used</li>
 <li>e.g. : weekday using int -&gt; 8? doesn't exist</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>class ParkingLot {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class ParkingLot {
     <span style="color: #A0A000">private</span>:
         vector<span style="color: #666666">&lt;</span>Level<span style="color: #666666">&gt;</span> levels; <span style="color: #408080; font-style: italic">// what if no level class? -&gt; 2d array to represent the spot in different level</span>
     <span style="color: #A0A000">public</span>:

@@ -2979,7 +2979,7 @@
 <li>Replace a character</li>
 </ul>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: word1 = &quot;horse&quot;, word2 = &quot;ros&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: word1 = &quot;horse&quot;, word2 = &quot;ros&quot;
 Output: 3
 Explanation: 
 horse -&gt; rorse (replace &#39;h&#39; with &#39;r&#39;)
@@ -2989,7 +2989,7 @@ rose -&gt; ros (remove &#39;e&#39;)
 
 
 <p><strong>Example 2:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input: word1 = &quot;intention&quot;, word2 = &quot;execution&quot;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: word1 = &quot;intention&quot;, word2 = &quot;execution&quot;
 Output: 5
 Explanation: 
 intention -&gt; inention (remove &#39;t&#39;)
@@ -3008,7 +3008,7 @@ exection -&gt; execution (insert &#39;u&#39;)
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>dp[i][j]: # of ops to transfer word1[0:i] to word2[0:j]</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">dp_sol</span>(string word1, string word2){
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">dp_sol</span>(string word1, string word2){
     <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> word1.size(), n <span style="color: #666666">=</span> word2.size();
     vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> dp(m <span style="color: #666666">+</span> <span style="color: #666666">1</span>, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span>(n <span style="color: #666666">+</span> <span style="color: #666666">1</span>));
     <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;=</span> m; <span style="color: #666666">++</span>i) {

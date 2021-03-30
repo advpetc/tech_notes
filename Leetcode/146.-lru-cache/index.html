@@ -3021,7 +3021,7 @@
 <p><strong>Follow up:</strong>
 Could you do <code>get</code> and <code>put</code> in <code>O(1)</code> time complexity?</p>
 <p><strong>Example 1:</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>Input
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input
 [&quot;LRUCache&quot;, &quot;put&quot;, &quot;put&quot;, &quot;get&quot;, &quot;put&quot;, &quot;get&quot;, &quot;put&quot;, &quot;get&quot;, &quot;get&quot;, &quot;get&quot;]
 [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
 Output
@@ -3049,7 +3049,7 @@ lRUCache.get(4);    // return 4
 <li>At most <code>3 * 104</code> calls will be made to <code>get</code> and <code>put</code>.</li>
 </ul>
 <h2 id="double-linked-list-with-map-java">double linked list with map (java)<a class="headerlink" href="#double-linked-list-with-map-java" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.Hashtable</span>;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.Hashtable</span>;
 
 
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">LRUCache</span> {
@@ -3179,7 +3179,7 @@ lRUCache.get(4);    // return 4
 <p>People who are wondering why we have double-linked list here instead of single-linked linked list :</p>
 <p>Yes, the purpose can be achieved with a single-linked LL with some hacks but NOT in java. Let's say I've to remove node n and it's previous node is p. If n is the last node in the list, I've to modify the next field of p to point to null. This can't be done if I don't have access to p.next since in java, method parameters are actually references of the objects and they are passed by value. So, let's say right now, n and p.next point to the same object (i.e. n of course). If I do n=null, that doesn't makes the object null. The object is still there and p.next points to that object. The only diff is that now n doesn't point to that object. In fact, it doesn't point to anything.</p>
 <p><strong>n=null doesn't remove n, but just send what it points-to to null</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">LRUCache</span>(<span style="color: #B00040">int</span> capacity) {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">LRUCache</span>(<span style="color: #B00040">int</span> capacity) {
   <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">count</span> <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
   <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">capacity</span> <span style="color: #666666">=</span> capacity;
 
@@ -3196,7 +3196,7 @@ lRUCache.get(4);    // return 4
 
 
 <p>if tail.pre is always pointing to head, and head.post always points to tail</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">removeNode</span>(DLinkedNode node){
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">removeNode</span>(DLinkedNode node){
   DLinkedNode pre <span style="color: #666666">=</span> node.<span style="color: #7D9029">pre</span>;
   DLinkedNode post <span style="color: #666666">=</span> node.<span style="color: #7D9029">post</span>;
 
@@ -3207,8 +3207,8 @@ lRUCache.get(4);    // return 4
 
 
 <h2 id="cpp">cpp<a class="headerlink" href="#cpp" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">LRUCache</span> {
-    <span style="color: #008000; font-weight: bold">struct</span> Node {
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">LRUCache</span> {
+    <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
         <span style="color: #B00040">int</span> key, val;
         Node <span style="color: #666666">*</span>next, <span style="color: #666666">*</span>pre;
         Node(<span style="color: #B00040">int</span> key, <span style="color: #B00040">int</span> val)

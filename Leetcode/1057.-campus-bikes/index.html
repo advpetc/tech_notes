@@ -3071,7 +3071,7 @@ All worker and bike locations are distinct.
 3. Bike index</p>
 <p>Using Priority Queue if the input is unbounded.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/*</span>
 <span style="color: #408080; font-style: italic"> * tmp.cpp</span>
 <span style="color: #408080; font-style: italic"> * Copyright (C) 2020 Haoyang &lt;me@peterchen.xyz&gt;</span>
 <span style="color: #408080; font-style: italic"> *</span>
@@ -3082,8 +3082,8 @@ All worker and bike locations are distinct.
 
 using namespace std;
 <span style="color: #008000; font-weight: bold">typedef</span> tuple<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, <span style="color: #B00040">int</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> TII;
-<span style="color: #B00040">int</span> <span style="color: #008000; font-weight: bold">inline</span> <span style="color: #0000FF">manhattan</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> p1, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> p2) {
-  <span style="color: #008000; font-weight: bold">return</span> abs(p1[<span style="color: #666666">0</span>] <span style="color: #666666">-</span> p2[<span style="color: #666666">0</span>]) <span style="color: #666666">+</span> abs(p1[<span style="color: #666666">1</span>] <span style="color: #666666">-</span> p2[<span style="color: #666666">1</span>]);
+<span style="color: #B00040">int</span> <span style="color: #008000; font-weight: bold">inline</span> manhattan(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> p1, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> p2) {
+  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">abs</span>(p1[<span style="color: #666666">0</span>] <span style="color: #666666">-</span> p2[<span style="color: #666666">0</span>]) <span style="color: #666666">+</span> abs(p1[<span style="color: #666666">1</span>] <span style="color: #666666">-</span> p2[<span style="color: #666666">1</span>]);
 }
 vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> assignBikes(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> workers,
                         vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;&amp;</span> bikes) {
@@ -3162,7 +3162,7 @@ vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</
 <h3 id="complete-bipartite-graph">Complete Bipartite graph<a class="headerlink" href="#complete-bipartite-graph" title="Permanent link">&para;</a></h3>
 <p>Since all workers can freely assigned with all the bikes, and bikes can "choose" any of the workers. It's a complete bipartitie graph. We should assume # of bikes != # of workes, or the ans is simply # of bikes or # of workers.</p>
 <p><img alt="IMAGE" src="../resources/8F3376215C804DE00F461F369BB276F6.jpg" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span><span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span><span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span><span style="color: #408080; font-style: italic">&lt;cstring&gt;</span><span style="color: #BC7A00"></span>
 using namespace std;
 <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> N <span style="color: #666666">=</span> <span style="color: #666666">510</span> , M <span style="color: #666666">=</span> <span style="color: #666666">100010</span>;
@@ -3243,7 +3243,7 @@ using namespace std;
 <p>Use binary search for finding the biggest distance where the graph is still bipartite
 Use dfs to check if all the other can have the coloring</p>
 <p><strong>Now we have a different problem: find the if the graph is bipartitie if max = ?, and we find the smallest max</strong></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;cstdio&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;cstdio&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;cstring&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;iostream&gt;</span><span style="color: #BC7A00"></span>
 <span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;algorithm&gt;</span><span style="color: #BC7A00"></span>

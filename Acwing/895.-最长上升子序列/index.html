@@ -3065,13 +3065,13 @@
 <p>1≤N≤1000，
 −109≤数列中的数≤109</p>
 <h4 id="_4">输入样例：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>7
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>7
 3 1 2 1 8 5 6
 </code></pre></div>
 
 
 <h4 id="_5">输出样例：<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>4
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>4
 </code></pre></div>
 
 
@@ -3082,7 +3082,7 @@
 <li>k[i]: 以a[k[i]]为结尾的最长子序列的长度</li>
 <li>答案即：k中的最大值</li>
 </ul>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> n, a[<span style="color: #666666">105</span>];
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> n, a[<span style="color: #666666">105</span>];
 <span style="color: #B00040">int</span> k[<span style="color: #666666">105</span>], ans;
 <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(<span style="color: #B00040">int</span> len) {
   <span style="color: #008000; font-weight: bold">if</span> (len <span style="color: #666666">&gt;</span> ans) ans <span style="color: #666666">=</span> len; 
@@ -3112,7 +3112,7 @@ dfs(<span style="color: #666666">0</span>); <span style="color: #408080; font-st
 </ul>
 <h2 id="dfs-enhanced">DFS Enhanced<a class="headerlink" href="#dfs-enhanced" title="Permanent link">&para;</a></h2>
 <p>不使用k数组，因为每次只需使用k[end]来比较k[end] ~ a[end]的部分中比a[k[end]]大的第一个数字即可</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code><span style="color: #B00040">int</span> n, ans, a[<span style="color: #666666">105</span>];
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> n, ans, a[<span style="color: #666666">105</span>];
 <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(<span style="color: #B00040">int</span> len, <span style="color: #B00040">int</span> tail) {
   <span style="color: #008000; font-weight: bold">if</span> (len <span style="color: #666666">&gt;</span> ans) ans <span style="color: #666666">=</span> len; 
   <span style="color: #408080; font-style: italic">// 找从当前最长的子序列的最后到a的结尾中--第一个比当前结尾要大的数字的index</span>
@@ -3139,7 +3139,7 @@ dfs(<span style="color: #666666">0</span>, <span style="color: #666666">0</span>
 <h2 id="dp">DP<a class="headerlink" href="#dp" title="Permanent link">&para;</a></h2>
 <p>找子结构：假设结尾为a[i]的最长子数组的长度是f[i]，那么结尾为a[i+1]的最长子数组的，最后答案是f[end]</p>
 <p><strong>方法一</strong>： 从前往后，每次更新新的元素的长度</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>f[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>f[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i)
   <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> i <span style="color: #666666">+</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>j) <span style="color: #408080; font-style: italic">// 从当前的下一个元素往后找，更新新的位置的最大子数组长度</span>
     <span style="color: #008000; font-weight: bold">if</span> (a[j] <span style="color: #666666">&gt;</span> a[i])
@@ -3148,7 +3148,7 @@ dfs(<span style="color: #666666">0</span>, <span style="color: #666666">0</span>
 
 
 <p><strong>方法二</strong>： 从后往前，每次更新当前元素的长度</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><code>f[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>f[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
 <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>i)
   <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> i; <span style="color: #666666">++</span>j) <span style="color: #408080; font-style: italic">// 从当前的上一个元素往前找，更新当前位置的最大子数组长度</span>
     <span style="color: #008000; font-weight: bold">if</span> (a[i] <span style="color: #666666">&gt;</span> a[j])
