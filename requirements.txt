@@ -30,7 +30,7 @@ multidict==4.7.6
 nltk==3.5
 Pillow==8.1.1
 pycodestyle==2.5.0
-Pygments==2.6.1
+Pygments==2.7.4
 pymdown-extensions==8.0
 pynvim==0.4.1
 python-markdown-math==0.7
