@@ -1733,6 +1733,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Leetcode/1996.-The-Number-of-Weak-Characters-in-the-Game/" class="md-nav__link">
+        1996. The Number of Weak Characters in the Game
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Leetcode/2.-add-two-numbers/" class="md-nav__link">
         Add Two Numbers
       </a>
@@ -2616,6 +2628,54 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#range-keyword" class="md-nav__link">
+    range keyword
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    Sorting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-search" class="md-nav__link">
+    Binary search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String
+  </a>
+  
+    <nav class="md-nav" aria-label="String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#replace-by-patternsubstring" class="md-nav__link">
+    replace by pattern/substring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-if-is-alpha-english-letter" class="md-nav__link">
+    Check if is alpha (english letter)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3020,6 +3080,54 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#range-keyword" class="md-nav__link">
+    range keyword
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    Sorting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-search" class="md-nav__link">
+    Binary search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String
+  </a>
+  
+    <nav class="md-nav" aria-label="String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#replace-by-patternsubstring" class="md-nav__link">
+    replace by pattern/substring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-if-is-alpha-english-letter" class="md-nav__link">
+    Check if is alpha (english letter)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3057,6 +3165,96 @@
 <blockquote>
 <p><a href="https://stackoverflow.com/a/27802189">https://stackoverflow.com/a/27802189</a></p>
 </blockquote>
+<h3 id="range-keyword"><code>range</code> keyword<a class="headerlink" href="#range-keyword" title="Permanent link">&para;</a></h3>
+<p>Start from 0 to 5:</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, <span style="color: #666666">6</span>):
+    <span style="color: #008000">print</span>(i) <span style="color: #408080; font-style: italic">## 0, 1, 2, 3, 4, 5</span>
+</code></pre></div>
+
+
+<p>Start from 5 to 0:</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">5</span>, <span style="color: #666666">-1</span>, <span style="color: #666666">-1</span>):
+    <span style="color: #008000">print</span>(i) <span style="color: #408080; font-style: italic">## 5, 4, 3, 2, 1, 0</span>
+</code></pre></div>
+
+
+<p>The range is (parameter order): [start, end) and the last parameter is the increment amount</p>
+<h3 id="sorting">Sorting<a class="headerlink" href="#sorting" title="Permanent link">&para;</a></h3>
+<p>Python 3 doesn't encourage to use custom comparater as a function any more, and it recommended to use a lambda expression for sorting, for example:</p>
+<p>We have a list of tuple <code>p</code>, and each tuple <code>p[i]</code> has two elements <code>p[i][0]</code> and <code>p[i][1]</code>. </p>
+<ol>
+<li>Default: sort the tuple <code>p</code> in increasing order, and if <code>p[i][0]</code> is equal to <code>p[i+1][0]</code>, we compare <code>p[i][1]</code> with <code>p[i+1][1]</code>, and choose the <strong>smaller</strong> one.</li>
+<li>What if: sort the tuple <code>p</code> in increasing order, and if <code>p[i][0]</code> is equal to <code>p[i+1][0]</code>, we compare <code>p[i][1]</code> with <code>p[i+1][1]</code>, and choose the <strong>larger</strong> one.</li>
+</ol>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">## 1. default sort</span>
+p<span style="color: #666666">.</span>sort() <span style="color: #408080; font-style: italic">## nothing to feed the key</span>
+<span style="color: #408080; font-style: italic">## 2. what if</span>
+p<span style="color: #666666">.</span>sort(key <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">lambda</span> x : (x[<span style="color: #666666">0</span>], <span style="color: #666666">-</span>x[<span style="color: #666666">1</span>])) <span style="color: #408080; font-style: italic">## sort by p[i][0] in increasing order, and then sort p[i][1] in decreasing order</span>
+</code></pre></div>
+
+
+<p>Notice the lambda expression here: on the right hand side, it feeds in to two paramters, which are actually expended by one <code>p[i]</code> because we use a parenthesis to enclose them. For each </p>
+<p>And there are two ways to sort, according to Python doc:</p>
+<blockquote>
+<p>Python lists have a built-in <a href="https://docs.python.org/3/library/stdtypes.html#list.sort"><code>list.sort()</code></a> method that modifies the list in-place. There is also a <a href="https://docs.python.org/3/library/functions.html#sorted"><code>sorted()</code></a> built-in function that builds a new sorted list from an iterable.</p>
+</blockquote>
+<h3 id="binary-search">Binary search<a class="headerlink" href="#binary-search" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><a href="https://docs.python.org/3/library/bisect.html">https://docs.python.org/3/library/bisect.html</a></p>
+</blockquote>
+<p><img alt="Screen Shot 2021-09-14 at 4.51.08 PM" src="../resources/Screen%20Shot%202021-09-14%20at%204.51.08%20PM.png" /></p>
+<p><img alt="Screen Shot 2021-09-14 at 4.53.00 PM" src="../resources/Screen%20Shot%202021-09-14%20at%204.53.00%20PM.png" /></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">index</span>(a, x):
+    <span style="color: #BA2121">&#39;Locate the leftmost value exactly equal to x&#39;</span>
+    i <span style="color: #666666">=</span> bisect_left(a, x)
+    <span style="color: #008000; font-weight: bold">if</span> i <span style="color: #666666">!=</span> <span style="color: #008000">len</span>(a) <span style="color: #AA22FF; font-weight: bold">and</span> a[i] <span style="color: #666666">==</span> x:
+        <span style="color: #008000; font-weight: bold">return</span> i
+    <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #D2413A; font-weight: bold">ValueError</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">find_lt</span>(a, x):
+    <span style="color: #BA2121">&#39;Find rightmost value less than x&#39;</span>
+    i <span style="color: #666666">=</span> bisect_left(a, x)
+    <span style="color: #008000; font-weight: bold">if</span> i:
+        <span style="color: #008000; font-weight: bold">return</span> a[i<span style="color: #666666">-1</span>]
+    <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #D2413A; font-weight: bold">ValueError</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">find_le</span>(a, x):
+    <span style="color: #BA2121">&#39;Find rightmost value less than or equal to x&#39;</span>
+    i <span style="color: #666666">=</span> bisect_right(a, x)
+    <span style="color: #008000; font-weight: bold">if</span> i:
+        <span style="color: #008000; font-weight: bold">return</span> a[i<span style="color: #666666">-1</span>]
+    <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #D2413A; font-weight: bold">ValueError</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">find_gt</span>(a, x):
+    <span style="color: #BA2121">&#39;Find leftmost value greater than x&#39;</span>
+    i <span style="color: #666666">=</span> bisect_right(a, x)
+    <span style="color: #008000; font-weight: bold">if</span> i <span style="color: #666666">!=</span> <span style="color: #008000">len</span>(a):
+        <span style="color: #008000; font-weight: bold">return</span> a[i]
+    <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #D2413A; font-weight: bold">ValueError</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">find_ge</span>(a, x):
+    <span style="color: #BA2121">&#39;Find leftmost item greater than or equal to x&#39;</span>
+    i <span style="color: #666666">=</span> bisect_left(a, x)
+    <span style="color: #008000; font-weight: bold">if</span> i <span style="color: #666666">!=</span> <span style="color: #008000">len</span>(a):
+        <span style="color: #008000; font-weight: bold">return</span> a[i]
+    <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #D2413A; font-weight: bold">ValueError</span>
+</code></pre></div>
+
+
+<p>Visually:</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>1, 1, 2, 2, 3, 4, 4, 5 find(2)
+     ^ bisect_left (&lt;)
+             ^ bisect/bisect_right (&lt;=)
+</code></pre></div>
+
+
+<p><strong>Note</strong>: for <code>bisect</code> and <code>bisect_right</code> it always returns the target index + 1, so don't forget to subtract 1 from it!</p>
+<h3 id="string">String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h3>
+<h4 id="replace-by-patternsubstring">replace by pattern/substring<a class="headerlink" href="#replace-by-patternsubstring" title="Permanent link">&para;</a></h4>
+<p><code>str.replace(*old*, *new*[, *count*])</code></p>
+<p>Return a copy of the string with all occurrences of substring <em>old</em> replaced by <em>new</em>. If the optional argument <em>count</em> is given, only the first <em>count</em> occurrences are replaced.</p>
+<h4 id="check-if-is-alpha-english-letter">Check if is alpha (english letter)<a class="headerlink" href="#check-if-is-alpha-english-letter" title="Permanent link">&para;</a></h4>
+<p><code>S[j].isalpha()</code></p>
                 
                   
                     
@@ -3065,7 +3263,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 11, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 15, 2021</span>
     
   </small>
 </div>
