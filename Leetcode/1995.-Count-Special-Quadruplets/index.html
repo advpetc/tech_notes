@@ -3112,7 +3112,7 @@ Explanation: The 4 quadruplets that satisfy the requirement are:
 <li>break <code>nums[a] + nums[b] + nums[c] == nums[d]</code> into <code>nums[a] + nums[b] = nums[d] - nums[c]</code></li>
 <li>it turns out to find how many sum are there for <code>nums[d] - nums[c]</code></li>
 </ol>
-<p>If we break the array into two parts: on the left side from <code>nums[0:i]</code> and right side from <code>nums[i:end]</code>. We choose any arbitary numbers from left side to add to the current value, and find how many pairs (each pair represent <code>nums[d] - nums[c]</code>) of number from <code>nums[i+1:end]</code> equals to current value. To accomplish it, we need to use a map or a counter to store all the pair sum that can be formed from the right side, and it has to be done <strong>after</strong> we set the pivot <code>i</code> so that we can first calculate the possible some for <code>nums[a] + nums[b]</code>.</p>
+<p>If we break the array into two parts: on the left side from <code>nums[0:i]</code> and right side from <code>nums[i:end]</code>. We choose any arbitary numbers from left side to add to the current value <code>nums[i]</code>, and find how many pairs (each pair represent <code>nums[d] - nums[c]</code>) of number from <code>nums[i+1:end]</code> equals to current value. To accomplish it, we need to use a map or a counter to store all the pair sum that can be formed from the right side, and it has to be done <strong>after</strong> we set the pivot <code>i</code> so that we can first calculate the possible sum for <code>nums[a] + nums[b]</code>.</p>
 <ul>
 <li>Time: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span></li>
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> storing all the possible sum, could only have n possible sum</li>
@@ -3126,7 +3126,8 @@ Explanation: The 4 quadruplets that satisfy the requirement are:
         count <span style="color: #666666">=</span> Counter()
         <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(l <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">-1</span>, <span style="color: #666666">-1</span>):         
             <span style="color: #008000; font-weight: bold">for</span> a <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(i <span style="color: #666666">-</span> <span style="color: #666666">1</span>, <span style="color: #666666">-1</span>, <span style="color: #666666">-1</span>):
-                res <span style="color: #666666">+=</span> count[nums[a] <span style="color: #666666">+</span> nums[i]]
+              <span style="color: #408080; font-style: italic"># if see the same sum again, the previous configurations should also work, since our i is going from right to left, every previous d and c is greater than current d and c</span>
+                res <span style="color: #666666">+=</span> count[nums[a] <span style="color: #666666">+</span> nums[i]] 
             <span style="color: #008000; font-weight: bold">for</span> d <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(l <span style="color: #666666">-</span> <span style="color: #666666">1</span>, i, <span style="color: #666666">-1</span>):
                 count[nums[d] <span style="color: #666666">-</span> nums[i]] <span style="color: #666666">+=</span> <span style="color: #666666">1</span>
         <span style="color: #008000; font-weight: bold">return</span> res
@@ -3139,7 +3140,7 @@ Explanation: The 4 quadruplets that satisfy the requirement are:
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 11, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2021</span>
     
   </small>
 </div>
