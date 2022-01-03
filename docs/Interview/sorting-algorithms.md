@@ -279,18 +279,26 @@ Best time complexity: $O(n \log n)$, Worst: $O(n^2)$. It works great in small si
 
 ### Q1: moving zeros
 
-Move 0s to the right end of the array, no need to keep the relative order of the elements in the origional array
+Move 0s to the right end of the array. ref: https://leetcode.com/problems/move-zeroes/
 
-```c
-vector<int> moveZeros(vector<int> arr) {
-    if (arr.size() <= 1) return arr;
-    int l = 0, r = arr.size() - 1;
-    while (l <= r) {
-        if (arr[l] != 0) l++;
-        else if (arr[r] == 0) r--;
-        else swap(arr[l++], arr[r--]);
+```c++
+// Method 1: use two pointer and cannot keep the relative order
+void moveZeros(vector<int>& arr) {
+	if (arr.size() <= 1) return arr;
+  int l = 0, r = arr.size() - 1;
+  while (l <= r) {
+    if (arr[l] != 0) l++;
+    else if (arr[r] == 0) r--;
+    else swap(arr[l++], arr[r--]);
+  }
+}
+// Method 2: use two pointers while maintaining the order
+void moveZeroes(vector<int>& nums) {
+	for (int i = 0, j = 0; i < nums.size(); ++i) {
+    if (nums[i]) {
+      swap(nums[j++], nums[i]);
     }
-    return arr;
+  }
 }
 ```
 
