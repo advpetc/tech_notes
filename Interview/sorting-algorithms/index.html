@@ -1955,6 +1955,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Leetcode/167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
+        Two Sum II - Input Array Is Sorted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Leetcode/169.-majority-element/" class="md-nav__link">
         Majority Element
       </a>
@@ -1969,6 +1981,30 @@
     <li class="md-nav__item">
       <a href="../../Leetcode/174.-Dungeon-Game/" class="md-nav__link">
         Dungeon Game
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Leetcode/189.-Rotate-Array/" class="md-nav__link">
+        Rotate Array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Leetcode/19.-Remove-Nth-Node-From-End-of-List/" class="md-nav__link">
+        Remove Nth Node From End of List
       </a>
     </li>
   
@@ -2123,6 +2159,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Leetcode/283.-Move-Zeroes/" class="md-nav__link">
+        Move Zeroes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Leetcode/287.-find-the-duplicate-number/" class="md-nav__link">
         Find the Duplicate Number
       </a>
@@ -2209,6 +2257,18 @@
     <li class="md-nav__item">
       <a href="../../Leetcode/32.-longest-valid-parentheses/" class="md-nav__link">
         Longest Valid Parentheses
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Leetcode/344.-Reverse-String/" class="md-nav__link">
+        Reverse String
       </a>
     </li>
   
@@ -2341,6 +2401,18 @@
     <li class="md-nav__item">
       <a href="../../Leetcode/54.-spiral-matrix/" class="md-nav__link">
         Spiral Matrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Leetcode/557.-Reverse-Words-in-a-String-III/" class="md-nav__link">
+        Reverse Words in a String III
       </a>
     </li>
   
@@ -2507,6 +2579,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Leetcode/876.-Middle-of-the-Linked-List/" class="md-nav__link">
+        Middle of the Linked List
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Leetcode/91.-decode-ways/" class="md-nav__link">
         Decode Ways
       </a>
@@ -2581,6 +2665,18 @@
     <li class="md-nav__item">
       <a href="../../Leetcode/97.-interleaving-string/" class="md-nav__link">
         Interleaving String
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Leetcode/977.-Squares-of-a-Sorted-Array/" class="md-nav__link">
+        Squares of a Sorted Array
       </a>
     </li>
   
@@ -3712,16 +3808,24 @@ using namespace std;
 </ul>
 <p>Best time complexity: <span><span class="MathJax_Preview">O(n \log n)</span><script type="math/tex">O(n \log n)</script></span>, Worst: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>. It works great in small size array, and for large size array it's better to use merge sort.</p>
 <h3 id="q1-moving-zeros">Q1: moving zeros<a class="headerlink" href="#q1-moving-zeros" title="Permanent link">&para;</a></h3>
-<p>Move 0s to the right end of the array, no need to keep the relative order of the elements in the origional array</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> moveZeros(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> arr) {
+<p>Move 0s to the right end of the array. ref: <a href="https://leetcode.com/problems/move-zeroes/">https://leetcode.com/problems/move-zeroes/</a></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// Method 1: use two pointer and cannot keep the relative order</span>
+<span style="color: #B00040">void</span> <span style="color: #0000FF">moveZeros</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> arr) {
     <span style="color: #008000; font-weight: bold">if</span> (arr.size() <span style="color: #666666">&lt;=</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">return</span> arr;
-    <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> arr.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
-    <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;=</span> r) {
-        <span style="color: #008000; font-weight: bold">if</span> (arr[l] <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) l<span style="color: #666666">++</span>;
-        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">if</span> (arr[r] <span style="color: #666666">==</span> <span style="color: #666666">0</span>) r<span style="color: #666666">--</span>;
-        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #0000FF">swap</span>(arr[l<span style="color: #666666">++</span>], arr[r<span style="color: #666666">--</span>]);
+  <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> arr.size() <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
+  <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;=</span> r) {
+    <span style="color: #008000; font-weight: bold">if</span> (arr[l] <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) l<span style="color: #666666">++</span>;
+    <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (arr[r] <span style="color: #666666">==</span> <span style="color: #666666">0</span>) r<span style="color: #666666">--</span>;
+    <span style="color: #008000; font-weight: bold">else</span> swap(arr[l<span style="color: #666666">++</span>], arr[r<span style="color: #666666">--</span>]);
+  }
+}
+<span style="color: #408080; font-style: italic">// Method 2: use two pointers while maintaining the order</span>
+<span style="color: #B00040">void</span> <span style="color: #0000FF">moveZeroes</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> nums.size(); <span style="color: #666666">++</span>i) {
+    <span style="color: #008000; font-weight: bold">if</span> (nums[i]) {
+      swap(nums[j<span style="color: #666666">++</span>], nums[i]);
     }
-    <span style="color: #008000; font-weight: bold">return</span> arr;
+  }
 }
 </code></pre></div>
 
@@ -3910,7 +4014,7 @@ using namespace std;
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 9, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 3, 2022</span>
     
   </small>
 </div>
