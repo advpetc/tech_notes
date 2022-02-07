@@ -2437,6 +2437,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#method-1" class="md-nav__link">
+    Method 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#method-2" class="md-nav__link">
     Method 2
   </a>
@@ -3266,6 +3273,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#method-1" class="md-nav__link">
+    Method 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#method-2" class="md-nav__link">
     Method 2
   </a>
@@ -3329,6 +3343,7 @@ Output: -1
 <h3 id="method-2-bfs-using-each-stop-as-a-node">Method 2: BFS using each stop as a node<a class="headerlink" href="#method-2-bfs-using-each-stop-as-a-node" title="Permanent link">&para;</a></h3>
 <p>Since we only care about which two stops are our source and target, and we want to know finding their related route, an easier way to construct our graph is simply by using the stop as a node. The map now looks like <code>map&lt;stop, vector&lt;index&gt;&gt;</code>, and it will only take <span><span class="MathJax_Preview">O(n \times m)</span><script type="math/tex">O(n \times m)</script></span> where <code>n</code> is route size and <code>m</code> is the average size of each route's stops. Now if we run the multi-source BFS again, we might iterate through the same route multiple times, but the total times are bounded by the total number of stops, so it will be <span><span class="MathJax_Preview">O(n \times m)</span><script type="math/tex">O(n \times m)</script></span>.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<h3 id="method-1">Method 1<a class="headerlink" href="#method-1" title="Permanent link">&para;</a></h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">// using route as node</span>
 <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
