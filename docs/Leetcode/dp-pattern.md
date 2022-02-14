@@ -8,29 +8,51 @@ Given a target find minimum (maximum) cost / path / sum to reach the target.
 
 ### 746. Min Cost Climbing Stairs
 
-On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).
+You are given an integer array `cost` where `cost[i]` is the cost of `ith` step on a staircase. Once you pay the cost, you can either climb one or two steps.
 
-Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.
+You can either start from the step with index `0`, or the step with index `1`.
 
-Example 1:
-Input: cost = [10, 15, 20]
+Return *the minimum cost to reach the top of the floor*.
+
+**Example 1:**
+
+```
+Input: cost = [10,15,20]
 Output: 15
-Explanation: Cheapest is start on cost[1], pay that cost and go to the top.
-Example 2:
-Input: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+Explanation: You will start at index 1.
+- Pay 15 and climb two steps to reach the top.
+The total cost is 15.
+```
+
+**Example 2:**
+
+```
+Input: cost = [1,100,1,1,1,100,1,1,100,1]
 Output: 6
-Explanation: Cheapest is start on cost[0], and only step on 1s, skipping cost[3].
-Note:
-cost will have a length in the range [2, 1000].
-Every cost[i] will be an integer in the range [0, 999].
+Explanation: You will start at index 0.
+- Pay 1 and climb two steps to reach index 2.
+- Pay 1 and climb two steps to reach index 4.
+- Pay 1 and climb two steps to reach index 6.
+- Pay 1 and climb one step to reach index 7.
+- Pay 1 and climb two steps to reach index 9.
+- Pay 1 and climb one step to reach the top.
+The total cost is 6.
+```
+
+ 
+
+**Constraints:**
+
+- `2 <= cost.length <= 1000`
+- `0 <= cost[i] <= 999`
 
 dp[i] min cost to reach ith stair.
 
 ```c
 for (int i = 2; i <= n; ++i) {
-   dp[i] = min(dp[i-1], dp[i-2]) + (i == n ? 0 : cost[i]); // on last step, there is no need to proceed further. 
+  	// on last step, there is no need to proceed further. 
+   dp[i] = min(dp[i-1], dp[i-2]) + (i == n ? 0 : cost[i]); 
 }
- 
 return dp[n]
 ```
 
@@ -48,20 +70,37 @@ return p1;
 
 ### 64. Minimum Path Sum
 
-Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
+Given a `m x n` `grid` filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.
 
-Note: You can only move either down or right at any point in time.
+**Note:** You can only move either down or right at any point in time.
 
-Example:
+ 
 
-Input:
-[
-  [1,3,1],
-  [1,5,1],
-  [4,2,1]
-]
+**Example 1:**
+
+![img](https://assets.leetcode.com/uploads/2020/11/05/minpath.jpg)
+
+```
+Input: grid = [[1,3,1],[1,5,1],[4,2,1]]
 Output: 7
-Explanation: Because the path 1→3→1→1→1 minimizes the sum.
+Explanation: Because the path 1 → 3 → 1 → 1 → 1 minimizes the sum.
+```
+
+**Example 2:**
+
+```
+Input: grid = [[1,2,3],[4,5,6]]
+Output: 12
+```
+
+ 
+
+**Constraints:**
+
+- `m == grid.length`
+- `n == grid[i].length`
+- `1 <= m, n <= 200`
+- `0 <= grid[i][j] <= 100`
 
 dp[i][j]: min sum to reach x=i,y=j, dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + cost[i][j]
 
@@ -77,19 +116,43 @@ return grid[n-1][m-1]
 
 ### 322. Coin Change
 
-You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money.
 
-Example 1:
+Return *the fewest number of coins that you need to make up that amount*. If that amount of money cannot be made up by any combination of the coins, return `-1`.
 
-Input: coins = [1, 2, 5], amount = 11
-Output: 3 
+You may assume that you have an infinite number of each kind of coin.
+
+ 
+
+**Example 1:**
+
+```
+Input: coins = [1,2,5], amount = 11
+Output: 3
 Explanation: 11 = 5 + 5 + 1
-Example 2:
+```
 
+**Example 2:**
+
+```
 Input: coins = [2], amount = 3
 Output: -1
-Note:
-You may assume that you have an infinite number of each kind of coin.
+```
+
+**Example 3:**
+
+```
+Input: coins = [1], amount = 0
+Output: 0
+```
+
+ 
+
+**Constraints:**
+
+- `1 <= coins.length <= 12`
+- `1 <= coins[i] <= 231 - 1`
+- `0 <= amount <= 104`
 
 dp[j]: min # of coins to be used for j amount
 
@@ -114,22 +177,39 @@ i.e. {1,2,3} works because [1,3] and [2,2] add to the same value however {1, 15,
 
 ### 931. Minimum Falling Path Sum
 
-Given a square array of integers A, we want the minimum sum of a falling path through A.
+Given an `n x n` array of integers `matrix`, return *the **minimum sum** of any **falling path** through* `matrix`.
 
-A falling path starts at any element in the first row, and chooses one element from each row.  The next row's choice must be in a column that is different from the previous row's column by at most one.
+A **falling path** starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position `(row, col)` will be `(row + 1, col - 1)`, `(row + 1, col)`, or `(row + 1, col + 1)`.
 
  
 
-Example 1:
+**Example 1:**
 
-Input: [[1,2,3],[4,5,6],[7,8,9]]
-Output: 12
-Explanation: 
-The possible falling paths are:
-[1,4,7], [1,4,8], [1,5,7], [1,5,8], [1,5,9]
-[2,4,7], [2,4,8], [2,5,7], [2,5,8], [2,5,9], [2,6,8], [2,6,9]
-[3,5,7], [3,5,8], [3,5,9], [3,6,8], [3,6,9]
-The falling path with the smallest sum is [1,4,7], so the answer is 12.
+![img](https://assets.leetcode.com/uploads/2021/11/03/failing1-grid.jpg)
+
+```
+Input: matrix = [[2,1,3],[6,5,4],[7,8,9]]
+Output: 13
+Explanation: There are two falling paths with a minimum sum as shown.
+```
+
+**Example 2:**
+
+![img](https://assets.leetcode.com/uploads/2021/11/03/failing2-grid.jpg)
+
+```
+Input: matrix = [[-19,57],[-40,-5]]
+Output: -59
+Explanation: The falling path with a minimum sum is shown.
+```
+
+ 
+
+**Constraints:**
+
+- `n == matrix.length == matrix[i].length`
+- `1 <= n <= 100`
+- `-100 <= matrix[i][j] <= 100`
 
 A[i][j]: min sum from all upper level to current level i and position j, to get the ans, just find the min on the last row
 
@@ -150,47 +230,54 @@ int minFallingPathSum(vector<vector<int>>& A) {
 
 ### 983. Minimum Cost For Tickets
 
-In a country popular for train travel, you have planned some train travelling one year in advance.  The days of the year that you will travel is given as an array days.  Each day is an integer from 1 to 365.
+You have planned some train traveling one year in advance. The days of the year in which you will travel are given as an integer array `days`. Each day is an integer from `1` to `365`.
 
-Train tickets are sold in 3 different ways:
+Train tickets are sold in **three different ways**:
 
-a 1-day pass is sold for costs[0] dollars;
-a 7-day pass is sold for costs[1] dollars;
-a 30-day pass is sold for costs[2] dollars.
-The passes allow that many days of consecutive travel.  For example, if we get a 7-day pass on day 2, then we can travel for 7 days: day 2, 3, 4, 5, 6, 7, and 8.
+- a **1-day** pass is sold for `costs[0]` dollars,
+- a **7-day** pass is sold for `costs[1]` dollars, and
+- a **30-day** pass is sold for `costs[2]` dollars.
 
-Return the minimum number of dollars you need to travel every day in the given list of days.
+The passes allow that many days of consecutive travel.
+
+- For example, if we get a **7-day** pass on day `2`, then we can travel for `7` days: `2`, `3`, `4`, `5`, `6`, `7`, and `8`.
+
+Return *the minimum number of dollars you need to travel every day in the given list of days*.
 
  
 
-Example 1:
+**Example 1:**
 
+```
 Input: days = [1,4,6,7,8,20], costs = [2,7,15]
 Output: 11
-Explanation: 
-For example, here is one way to buy passes that lets you travel your travel plan:
-On day 1, you bought a 1-day pass for costs[0] = 2, which covered day 1.
-On day 3, you bought a 7-day pass for costs[1] = ​7, which covered days 3, 4, ..., 9.
-On day 20, you bought a 1-day pass for costs[0] = 2, which covered day 20.
-In total you spent 11 and covered all the days of your travel.
-Example 2:
+Explanation: For example, here is one way to buy passes that lets you travel your travel plan:
+On day 1, you bought a 1-day pass for costs[0] = $2, which covered day 1.
+On day 3, you bought a 7-day pass for costs[1] = $7, which covered days 3, 4, ..., 9.
+On day 20, you bought a 1-day pass for costs[0] = $2, which covered day 20.
+In total, you spent $11 and covered all the days of your travel.
+```
 
+**Example 2:**
+
+```
 Input: days = [1,2,3,4,5,6,7,8,9,10,30,31], costs = [2,7,15]
 Output: 17
-Explanation: 
-For example, here is one way to buy passes that lets you travel your travel plan:
+Explanation: For example, here is one way to buy passes that lets you travel your travel plan:
 On day 1, you bought a 30-day pass for costs[2] = $15 which covered days 1, 2, ..., 30.
 On day 31, you bought a 1-day pass for costs[0] = $2 which covered day 31.
-In total you spent $17 and covered all the days of your travel.
+In total, you spent $17 and covered all the days of your travel.
+```
 
+ 
 
-Note:
+**Constraints:**
 
-1 <= days.length <= 365
-1 <= days[i] <= 365
-days is in strictly increasing order.
-costs.length == 3
-1 <= costs[i] <= 1000
+- `1 <= days.length <= 365`
+- `1 <= days[i] <= 365`
+- `days` is in strictly increasing order.
+- `costs.length == 3`
+- `1 <= costs[i] <= 1000`
 
 dp[i]: min cost for ith day. Note: if there is no travel plan, the cost will stay the same as the i-1 th day.
 
@@ -208,28 +295,38 @@ int mincostTickets(vector<int>& days, vector<int>& costs) {
 
 ### 650. 2 Keys Keyboard
 
-Initially on a notepad only one character 'A' is present. You can perform two operations on this notepad for each step:
+There is only one character `'A'` on the screen of a notepad. You can perform two operations on this notepad for each step:
 
-Copy All: You can copy all the characters present on the notepad (partial copy is not allowed).
-Paste: You can paste the characters which are copied last time.
+- Copy All: You can copy all the characters present on the screen (a partial copy is not allowed).
+- Paste: You can paste the characters which are copied last time.
 
+Given an integer `n`, return *the minimum number of operations to get the character* `'A'` *exactly* `n` *times on the screen*.
 
-Given a number n. You have to get exactly n 'A' on the notepad by performing the minimum number of steps permitted. Output the minimum number of steps to get n 'A'.
+ 
 
-Example 1:
+**Example 1:**
 
-Input: 3
+```
+Input: n = 3
 Output: 3
-Explanation:
-Intitally, we have one character 'A'.
+Explanation: Intitally, we have one character 'A'.
 In step 1, we use Copy All operation.
 In step 2, we use Paste operation to get 'AA'.
 In step 3, we use Paste operation to get 'AAA'.
+```
 
+**Example 2:**
 
-Note:
+```
+Input: n = 1
+Output: 0
+```
 
-The n will be in the range [1, 1000].
+ 
+
+**Constraints:**
+
+- `1 <= n <= 1000`
 
 dp[i]: min steps to get to get i 'A' characters.
 
@@ -263,18 +360,33 @@ return s;
 
 ### 279. Perfect Squares
 
-Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.
+Given an integer `n`, return *the least number of perfect square numbers that sum to* `n`.
 
-Example 1:
+A **perfect square** is an integer that is the square of an integer; in other words, it is the product of some integer with itself. For example, `1`, `4`, `9`, and `16` are perfect squares while `3` and `11` are not.
 
+ 
+
+**Example 1:**
+
+```
 Input: n = 12
-Output: 3 
+Output: 3
 Explanation: 12 = 4 + 4 + 4.
-Example 2:
+```
 
+**Example 2:**
+
+```
 Input: n = 13
 Output: 2
 Explanation: 13 = 4 + 9.
+```
+
+ 
+
+**Constraints:**
+
+- `1 <= n <= 10^4`
 
 dp[i]: min # of perfect squares to form i
 
@@ -294,31 +406,44 @@ int numSquares(int n) {
 
 ### 1049. Last Stone Weight II
 
-We have a collection of rocks, each rock has a positive integer weight.
+You are given an array of integers `stones` where `stones[i]` is the weight of the `ith` stone.
 
-Each turn, we choose any two rocks and smash them together.  Suppose the stones have weights x and y with x <= y.  The result of this smash is:
+We are playing a game with the stones. On each turn, we choose any two stones and smash them together. Suppose the stones have weights `x` and `y` with `x <= y`. The result of this smash is:
 
-If x == y, both stones are totally destroyed;
-If x != y, the stone of weight x is totally destroyed, and the stone of weight y has new weight y-x.
-At the end, there is at most 1 stone left.  Return the smallest possible weight of this stone (the weight is 0 if there are no stones left.)
+- If `x == y`, both stones are destroyed, and
+- If `x != y`, the stone of weight `x` is destroyed, and the stone of weight `y` has new weight `y - x`.
+
+At the end of the game, there is **at most one** stone left.
+
+Return *the smallest possible weight of the left stone*. If there are no stones left, return `0`.
 
  
 
-Example 1:
+**Example 1:**
 
-Input: [2,7,4,1,8,1]
+```
+Input: stones = [2,7,4,1,8,1]
 Output: 1
-Explanation: 
-We can combine 2 and 4 to get 2 so the array converts to [2,7,1,8,1] then,
-we can combine 7 and 8 to get 1 so the array converts to [2,1,1,1] then,
-we can combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
-we can combine 1 and 1 to get 0 so the array converts to [1] then that's the optimal value.
+Explanation:
+We can combine 2 and 4 to get 2, so the array converts to [2,7,1,8,1] then,
+we can combine 7 and 8 to get 1, so the array converts to [2,1,1,1] then,
+we can combine 2 and 1 to get 1, so the array converts to [1,1,1] then,
+we can combine 1 and 1 to get 0, so the array converts to [1], then that's the optimal value.
+```
 
+**Example 2:**
 
-Note:
+```
+Input: stones = [31,26,33,21,40]
+Output: 5
+```
 
-1 <= stones.length <= 30
-1 <= stones[i] <= 100
+ 
+
+**Constraints:**
+
+- `1 <= stones.length <= 30`
+- `1 <= stones[i] <= 100`
 
 ![Screen Shot 2020-05-27 at 12.50.09 PM.png](resources/9098C6FF17DA6BA42E21378368C3D8DD.png)
 
@@ -340,24 +465,44 @@ int lastStoneWeightII(vector<int>& stones) {
 
 ### 120. Triangle
 
-Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
+Given a `triangle` array, return *the minimum path sum from top to bottom*.
 
-For example, given the following triangle
+For each step, you may move to an adjacent number of the row below. More formally, if you are on index `i` on the current row, you may move to either index `i` or index `i + 1` on the next row.
+
+ 
+
+**Example 1:**
 
 ```
-[
-     [2],
-    [3,4],
-   [6,5,7],
-  [4,1,8,3]
-]
+Input: triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
+Output: 11
+Explanation: The triangle looks like:
+   2
+  3 4
+ 6 5 7
+4 1 8 3
+The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above).
 ```
 
-The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
+**Example 2:**
 
-Note:
+```
+Input: triangle = [[-10]]
+Output: -10
+```
 
-Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.
+ 
+
+**Constraints:**
+
+- `1 <= triangle.length <= 200`
+- `triangle[0].length == 1`
+- `triangle[i].length == triangle[i - 1].length + 1`
+- `-104 <= triangle[i][j] <= 104`
+
+ 
+
+**Follow up:** Could you do this using only `O(n)` extra space, where `n` is the total number of rows in the triangle?
 
 dp[i]: min cost from bottom to i-th row
 
@@ -376,22 +521,40 @@ int minimumTotal(vector<vector<int>>& triangle) {
 
 ### 474. Ones and Zeroes
 
-Given an array, strs, with strings consisting of only 0s and 1s. Also two integers m and n.
+You are given an array of binary strings `strs` and two integers `m` and `n`.
 
-Now your task is to find the maximum number of strings that you can form with given m 0s and n 1s. Each 0 and 1 can be used at most once.
+Return *the size of the largest subset of `strs` such that there are **at most*** `m` `0`*'s and* `n` `1`*'s in the subset*.
+
+A set `x` is a **subset** of a set `y` if all elements of `x` are also elements of `y`.
 
  
 
-Example 1:
+**Example 1:**
 
+```
 Input: strs = ["10","0001","111001","1","0"], m = 5, n = 3
 Output: 4
-Explanation: This are totally 4 strings can be formed by the using of 5 0s and 3 1s, which are "10","0001","1","0".
-Example 2:
+Explanation: The largest subset with at most 5 0's and 3 1's is {"10", "0001", "1", "0"}, so the answer is 4.
+Other valid but smaller subsets include {"0001", "1"} and {"10", "1", "0"}.
+{"111001"} is an invalid subset because it contains 4 1's, greater than the maximum of 3.
+```
 
+**Example 2:**
+
+```
 Input: strs = ["10","0","1"], m = 1, n = 1
 Output: 2
-Explanation: You could form "10", but then you'd have nothing left. Better form "0" and "1".
+Explanation: The largest subset is {"0", "1"}, so the answer is 2.
+```
+
+ 
+
+**Constraints:**
+
+- `1 <= strs.length <= 600`
+- `1 <= strs[i].length <= 100`
+- `strs[i]` consists only of digits `'0'` and `'1'`.
+- `1 <= m, n <= 100`
 
 My dp[i][j] means with i zeros and j ones, what is the max strings to be chosen from the strs. In order to calculate it, we find there is a relationship between # of 1 and 0, which is # of 1 + # of 0 = string size, this pattern of constraint usually leads to a knapsack problem. We can visualize it with the problem of knapsack:
 
@@ -426,21 +589,43 @@ int findMaxForm(vector<string>& strs, int m, int n) {
 
 ### 221. Maximal Square
 
-Given a 2D binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
+Given an `m x n` binary `matrix` filled with `0`'s and `1`'s, *find the largest square containing only* `1`'s *and return its area*.
 
-Example:
+ 
 
-Input: 
+**Example 1:**
 
-```
-1 0 1 0 0
-1 0 1 1 1
-1 1 1 1 1
-1 0 0 1 0
+![img](https://assets.leetcode.com/uploads/2020/11/26/max1grid.jpg)
 
 ```
-
+Input: matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
 Output: 4
+```
+
+**Example 2:**
+
+![img](https://assets.leetcode.com/uploads/2020/11/26/max2grid.jpg)
+
+```
+Input: matrix = [["0","1"],["1","0"]]
+Output: 1
+```
+
+**Example 3:**
+
+```
+Input: matrix = [["0"]]
+Output: 0
+```
+
+ 
+
+**Constraints:**
+
+- `m == matrix.length`
+- `n == matrix[i].length`
+- `1 <= m, n <= 300`
+- `matrix[i][j]` is `'0'` or `'1'`.
 
 
 

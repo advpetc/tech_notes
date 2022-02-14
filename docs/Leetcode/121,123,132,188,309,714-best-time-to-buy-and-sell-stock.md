@@ -18,7 +18,7 @@ Example 1:
 Input: [7,1,5,3,6,4]
 Output: 5
 Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-             Not 7-1 = 6, as selling price needs to be larger than buying price.
+             Not 7-1 = 6, as the selling price needs to be larger than buying price.
 Example 2:
 
 Input: [7,6,4,3,1]
@@ -28,7 +28,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 ## presumptions
 
 1. there is only one stock to be bought
-2. no consective buy or sell happens (buy on day one and buy one day two, instead, can only choose rest or sell)
+2. no consecutive buy or sell happens (buy on day one and buy one day two, instead, can only choose rest or sell)
 
 ## state machine
 
