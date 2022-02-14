@@ -3322,14 +3322,20 @@ Output: true
 
 
 <p>A string can be rotated anyway.</p>
-<p>There are four things to compare between two strings:
-s1: 111i222len
-s2: 333i444len</p>
-<p>111 &amp;&amp; 333
-222 &amp;&amp; 444</p>
-<p>or</p>
-<p>111 &amp;&amp; 444
-222 &amp;&amp; 333</p>
+<p>There are four things to compare between two strings:</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>s1: 111i222len
+s2: 333i444len
+
+111 &amp;&amp; 333
+222 &amp;&amp; 444
+
+or
+
+111 &amp;&amp; 444
+222 &amp;&amp; 333
+</code></pre></div>
+
+
 <h2 id="dp-bottom-up">DP bottom-up<a class="headerlink" href="#dp-bottom-up" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
@@ -3361,12 +3367,13 @@ s2: 333i444len</p>
 </code></pre></div>
 
 
-<p>dp[len][i][j]:
-s1[i..i+len-1] is a scramble of s2[j..j+len-1]
-1. init: all single char can match if they are the same (line 11)
-2. dp[len][i][j] = (dp[k][i][j] &amp;&amp; dp[len-k][i+k][j+k]) || (dp[k][i+len-k][j] &amp;&amp; dp[len-k][i][j+k])</p>
+<p><code>dp[len][i][j]: s1[i..i+len-1]</code> is a scramble of <code>s2[j..j+len-1]</code></p>
+<ol>
+<li>init: all single char can match if they are the same (line 11)</li>
+<li><code>dp[len][i][j] = (dp[k][i][j] &amp;&amp; dp[len-k][i+k][j+k]) || (dp[k][i+len-k][j] &amp;&amp; dp[len-k][i][j+k])</code></li>
+</ol>
 <h2 id="time-complexity">Time Complexity<a class="headerlink" href="#time-complexity" title="Permanent link">&para;</a></h2>
-<p>n^4 for all cases</p>
+<p><span><span class="MathJax_Preview">O(n^4)</span><script type="math/tex">O(n^4)</script></span> for all cases</p>
                 
                   
                     
@@ -3375,7 +3382,7 @@ s1[i..i+len-1] is a scramble of s2[j..j+len-1]
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

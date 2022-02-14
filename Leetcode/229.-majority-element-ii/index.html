@@ -3260,9 +3260,9 @@ Output: [1,2]
 <p><a href="https://leetcode.com/problems/majority-element-ii/discuss/63520/Boyer-Moore-Majority-Vote-algorithm-and-my-elaboration/112881">https://leetcode.com/problems/majority-element-ii/discuss/63520/Boyer-Moore-Majority-Vote-algorithm-and-my-elaboration/112881</a> </p>
 </blockquote>
 <ol>
-<li>there are no elements that appears more than n/3 times, then whatever the algorithm  got from 1<sup>st</sup> round would be rejected in the second round.</li>
-<li>there are only one elements that appears more than n/3 times, after 1<sup>st</sup> round one of  the candicate must be that appears more than n/3 times(&lt;2n/3 other elements could only pair out for &lt;n/3 times), the other candicate is not necessarily be the second most frequent but it would be rejected in 2<sup>nd</sup> round.</li>
-<li>there are two elments appears more than n/3 times, candicates would contain both of them. (&lt;n/3 other elements couldn't pair out any of the majorities.)</li>
+<li>there are no elements that appear more than n/3 times, then whatever the algorithm got from 1<sup>st</sup> round would be rejected in the second round.</li>
+<li>there is only one element that appears more than n/3 times, after 1<sup>st</sup> round one of the candidates must be that appears more than n/3 times(&lt;2n/3 other elements could only pair out for &lt;n/3 times), the other candidate is not necessarily the second most frequent but it would be rejected in 2<sup>nd</sup> round.</li>
+<li>there are two elements that appear more than n/3 times, candidates would contain both of them. (&lt;n/3 other elements couldn't pair out any of the majorities.)</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
@@ -3315,7 +3315,7 @@ Output: [1,2]
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

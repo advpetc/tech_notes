@@ -3256,9 +3256,11 @@ Output: 0
 <li><code>s[i]</code> is <code>'('</code>, or <code>')'</code>.</li>
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>dp[i]: longest valid parentheses length ending with current [i]
-i - dp[i] + 1: start index of the previous valid one (dp[i-1])
-why +2 : because the dp[prevStart-1] + ( + dp[i-1] + ), there are two elements</p>
+<ol>
+<li>dp[i]: longest valid parentheses length ending with current [i]</li>
+<li>i - dp[i] + 1: start index of the previous valid one (dp[i-1])</li>
+<li>why +2 : because the dp[prevStart-1] + ( + dp[i-1] + ), there are two elements</li>
+</ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> <span style="color: #B00040">int</span> <span style="color: #0000FF">longestValidParentheses</span>(string s) {
     <span style="color: #008000; font-weight: bold">if</span>(s.length() <span style="color: #666666">&lt;=</span> <span style="color: #666666">1</span>) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
@@ -3293,7 +3295,7 @@ why +2 : because the dp[prevStart-1] + ( + dp[i-1] + ), there are two elements</
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

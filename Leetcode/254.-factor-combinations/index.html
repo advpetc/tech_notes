@@ -3280,7 +3280,7 @@ Output:
 
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>In order to generate all the valid factors, we need to make sure <code>target % factor == 0</code>. However, there is a problem: how to deal with duplication:</p>
-<p>We use a variable <code>index</code> to track the current factor, and if we choose current factor, we should <strong>not</strong> update <code>index</code>, because we can potentially reuse the same factor for multiple times.</p>
+<p>We use a variable <code>index</code> to track the current factor, and if we choose the current factor, we should <strong>not</strong> update the <code>index</code>, because we can potentially reuse the same factor multiple times.</p>
 <p>Note: since all the factors cannot be greater than sqrt(num), in the inner loop, we just need to loop from <code>index</code> to sqrt(n)</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
@@ -3312,7 +3312,7 @@ Output:
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

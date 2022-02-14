@@ -2164,6 +2164,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#using-swap" class="md-nav__link">
+    Using Swap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-1" class="md-nav__link">
+    Method 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-2" class="md-nav__link">
+    Code 2
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3218,6 +3252,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#using-swap" class="md-nav__link">
+    Using Swap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-1" class="md-nav__link">
+    Method 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-2" class="md-nav__link">
+    Code 2
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3269,6 +3337,62 @@ Output: [[1]]
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <h3 id="traditional-dfs">Traditional DFS<a class="headerlink" href="#traditional-dfs" title="Permanent link">&para;</a></h3>
 <p>There are two recursive ways to solve this problem. One way is the traditional DFS with the help of using an additional memory to record any existed configuration. For each iteration, we use an index to locate which index we are going to place our number, and the base case is when this index reaches the end. When placing our number to this index, we should try out all the numbers from <code>nums[0]</code> to <code>nums[end]</code>, and compare them with the current visited memory to decide if we can put that number to the index. This process for each iteration will take up <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> complexity, and there will be <code>n!</code> results at the bottom level, so the total time complexity is $O(n \times n!) $</p>
+<h3 id="using-swap">Using Swap<a class="headerlink" href="#using-swap" title="Permanent link">&para;</a></h3>
+<p>We could also use a different way to generate each configuration by using a swap operation. For each iteration, we require an index to represent: from <code>nums[0]</code> to <code>nums[i]</code> we will maintain the current order, and starting from <code>i + 1</code> we will start to swap with each <code>j</code> where <code>j</code> is in <code>[i + 1, n)</code> , so that it could help to eliminate the visited memory. However, the time complexity is still <span><span class="MathJax_Preview">O(n \times n!)</span><script type="math/tex">O(n \times n!)</script></span></p>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<h3 id="method-1">Method 1<a class="headerlink" href="#method-1" title="Permanent link">&para;</a></h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> ret;
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> permute(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+        helper ({}, nums);
+        <span style="color: #008000; font-weight: bold">return</span> ret;
+    }
+    <span style="color: #B00040">void</span> helper (vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> curr, vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums)
+    {
+        <span style="color: #008000; font-weight: bold">if</span> (curr.size () <span style="color: #666666">==</span> nums.size ())
+            ret.push_back (curr);
+        <span style="color: #008000; font-weight: bold">else</span>
+        {
+            unordered_set<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> s(curr.begin (), curr.end ());
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> nums.size (); <span style="color: #666666">++</span>i)
+            {
+                <span style="color: #008000; font-weight: bold">if</span> (s.find (nums[i]) <span style="color: #666666">!=</span> s.end ())
+                    <span style="color: #008000; font-weight: bold">continue</span>;
+                <span style="color: #008000; font-weight: bold">else</span>
+                {
+                    curr.push_back (nums[i]);
+                    helper (curr, nums);
+                    curr.pop_back ();
+                }
+            }
+        }
+    }
+};
+</code></pre></div>
+
+
+<h3 id="code-2">Code 2<a class="headerlink" href="#code-2" title="Permanent link">&para;</a></h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> res;
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">h</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> curr, <span style="color: #B00040">int</span> index) {
+        <span style="color: #008000; font-weight: bold">if</span> (index <span style="color: #666666">==</span> curr.size()) {
+            res.push_back(curr);
+            <span style="color: #008000; font-weight: bold">return</span>;
+        }
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> index; i <span style="color: #666666">&lt;</span> curr.size(); <span style="color: #666666">++</span>i) {
+            swap(curr[i], curr[index]);
+            h(curr, index <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
+            swap(curr[i], curr[index]);
+        }
+    }
+    vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> permute(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums) {
+        h(nums, <span style="color: #666666">0</span>);
+        <span style="color: #008000; font-weight: bold">return</span> res;
+    }
+};
+</code></pre></div>
                 
                   
                     
@@ -3277,7 +3401,7 @@ Output: [[1]]
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 7, 2022</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

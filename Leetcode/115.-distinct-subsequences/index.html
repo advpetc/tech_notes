@@ -3262,13 +3262,16 @@ babgbag
 <li><code>s</code> and <code>t</code> consist of English letters.</li>
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>S = "rabbbit", T = "rabbit"
+<p>S = "rabbbit", T = "rabbit"</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>rabbbit
+^^^^ ^^
 rabbbit
-<sup>^</sup>^ ^^
+^^ ^^^^
 rabbbit
-^^ <sup>^</sup>^
-rabbbit
-<sup>^</sup> <sup>^</sup></p>
+^^^ ^^^
+</code></pre></div>
+
+
 <p><strong>note: can only delete</strong></p>
 <p>dp[i][j]: ways to transform S[0:i] to T[0:j]</p>
 <ol>
@@ -3299,7 +3302,7 @@ rabbbit
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 9, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

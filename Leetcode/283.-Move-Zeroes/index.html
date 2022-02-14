@@ -3250,7 +3250,7 @@ Output: [0]
 </ul>
 <p><strong>Follow up:</strong> Could you minimize the total number of operations done?</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>All the questions regarding displacing from one to the other can be solved by using two pointers. For this question, we need to track the current <strong>zero</strong> position (<code>j</code>) and current <strong>processing</strong> position (<code>i</code>). We don't need to care about the sequence of zeros, but we need to take care of the sequence of non-zeros. Thus, we should loop from the <strong>processing</strong> position from begining to the end. If we see any zero while processing, we should move the next element that is non-zero (<code>i</code>) to the current zero position (<code>j</code>). We should also increase <code>j</code> by 1 since the next zero position to mark current <code>j</code> has been swapped with non-zero. Now, the new <code>j</code> can either be zero or non-zero, but what can be sure is that for next swap the current <code>j</code> will be non-zero and the sequence is always correct.</p>
+<p>All the questions regarding displacing from one to the other can be solved by using two pointers. For this question, we need to track the current <strong>zero</strong> position (<code>j</code>) and current <strong>processing</strong> position (<code>i</code>). We don't need to care about the sequence of zeros, but we need to take care of the sequence of non-zeros. Thus, we should loop from the <strong>processing</strong> position from the begining to the end. If we see any zero while processing, we should move the next element that is non-zero (<code>i</code>) to the current zero position (<code>j</code>). We should also increase <code>j</code> by 1 since the next zero position to mark current <code>j</code> has been swapped with non-zero. Now, the new <code>j</code> can either be zero or non-zero, but what can be sure is that for the next swap the current <code>j</code> will be non-zero and the sequence is always correct.</p>
 <ul>
 <li>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
 <li>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></li>
@@ -3276,7 +3276,7 @@ Output: [0]
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 3, 2022</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

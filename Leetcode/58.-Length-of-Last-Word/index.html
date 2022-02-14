@@ -3249,7 +3249,7 @@ Output: 0
 <li><code>s</code> consists of only English letters and spaces <code>' '</code>.</li>
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>Our goal is to find first word that is either between two spaces or the left char is a space. In order to do so, we just need to check from the right most pos to left, once we find a character that is not space, we update our counter. If the counter is greater than one and we meet another space, that means we have already found our target string, and we can just return the couter. The worst case is when the whole world is space OR no space at all -- in such case, we need to iterate the entire string from the end to the start.</p>
+<p>Our goal is to find the first word that is either between two spaces or the left char is a space. In order to do so, we just need to check from the rightmost pos to left, once we find a character that is not space, we update our counter. If the counter is greater than one and we meet another space, that means we have already found our target string, and we can just return the counter. The worst case is when the whole world is space OR no space at all -- in such case, we need to iterate the entire string from the end to the start.</p>
 <p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 <p>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
@@ -3273,7 +3273,7 @@ Output: 0
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

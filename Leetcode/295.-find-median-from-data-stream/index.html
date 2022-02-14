@@ -3311,15 +3311,11 @@
                 
                 
                 <h1 id="find-median-from-data-stream">Find Median From Data Stream<a class="headerlink" href="#find-median-from-data-stream" title="Permanent link">&para;</a></h1>
-<ol>
-<li>
 <p>The <strong>median</strong> is the middle value in an ordered integer list. If the size of the list is even, there is no middle value and the median is the mean of the two middle values.</p>
-</li>
-<li>
-<p>For example, for <code>arr = [2,3,4]</code>, the median is <code>3</code>.</p>
-</li>
+<ul>
+<li>For example, for <code>arr = [2,3,4]</code>, the median is <code>3</code>.</li>
 <li>For example, for <code>arr = [2,3]</code>, the median is <code>(2 + 3) / 2 = 2.5</code>.</li>
-</ol>
+</ul>
 <p>Implement the MedianFinder class:</p>
 <ul>
 <li><code>MedianFinder()</code> initializes the <code>MedianFinder</code> object.</li>
@@ -3327,20 +3323,22 @@
 <li><code>double findMedian()</code> returns the median of all elements so far. Answers within <code>10-5</code> of the actual answer will be accepted.</li>
 </ul>
 <p><strong>Example 1:</strong></p>
-<p>```
-   Input
-   ["MedianFinder", "addNum", "addNum", "findMedian", "addNum", "findMedian"]
-   [[], [1], [2], [], [3], []]
-   Output
-   [null, null, null, 1.5, null, 2.0]</p>
-<p>Explanation
-   MedianFinder medianFinder = new MedianFinder();
-   medianFinder.addNum(1);    // arr = [1]
-   medianFinder.addNum(2);    // arr = [1, 2]
-   medianFinder.findMedian(); // return 1.5 (i.e., (1 + 2) / 2)
-   medianFinder.addNum(3);    // arr[1, 2, 3]
-   medianFinder.findMedian(); // return 2.0
-   ```</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input
+[&quot;MedianFinder&quot;, &quot;addNum&quot;, &quot;addNum&quot;, &quot;findMedian&quot;, &quot;addNum&quot;, &quot;findMedian&quot;]
+[[], [1], [2], [], [3], []]
+Output
+[null, null, null, 1.5, null, 2.0]
+
+Explanation
+MedianFinder medianFinder = new MedianFinder();
+medianFinder.addNum(1);    // arr = [1]
+medianFinder.addNum(2);    // arr = [1, 2]
+medianFinder.findMedian(); // return 1.5 (i.e., (1 + 2) / 2)
+medianFinder.addNum(3);    // arr[1, 2, 3]
+medianFinder.findMedian(); // return 2.0
+</code></pre></div>
+
+
 <p><strong>Constraints:</strong></p>
 <ul>
 <li><code>-105 &lt;= num &lt;= 105</code></li>
@@ -3353,25 +3351,35 @@
 <li>If <code>99%</code> of all integer numbers from the stream are in the range <code>[0, 100]</code>, how would you optimize your solution?</li>
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>To find the median, we need to split data into two halfs, and then use (first half's last element + second half's first element) / 2 (even) or first half's last (odd) to find the median. First half's last should be the value that is greater or equal to all the values from the first half of the data, and the second half's first is less than all the elements following. To find such two elements, we can use priority queue.</p>
-<p>Use one queue for finding the large median (max heap), and use the other queue to find the smaller median (min heap). To make two queues with the size difference at most 1, we need to find a way to balance the two queues.</p>
+<p>To find the median, we need to split data into two halves, and then use (first half's last element + second half's first element) / 2 (even) or first half's last (odd) to find the median. The first half's last should be the value that is greater or equal to all the values from the first half of the data, and the second half's first is less than all the elements following. To find such two elements, we can use a priority queue.</p>
+<p>Use one queue for finding the large median (max heap), and use the other queue to find the smaller median (min-heap). To make two queues with the size difference at most 1, we need to find a way to balance the two queues.</p>
 <p>Complexity:
 Time: add takes <span><span class="MathJax_Preview">O(\log{n})</span><script type="math/tex">O(\log{n})</script></span> + find takes <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>
 Space: two queues take <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 <h2 id="solution-1-recommend-use-global-odd-or-even-to-determine-median">Solution 1 [Recommend]: use global odd or even to determine median<a class="headerlink" href="#solution-1-recommend-use-global-odd-or-even-to-determine-median" title="Permanent link">&para;</a></h2>
-<p>xxxx m yyyy
-q1: xxxx
-q2: yyyy</p>
-<p>xxxxm yyyy z // push from odd
-1. xxxxzm yyyy -&gt; xxxxxx yyyy -&gt; xxxxx yyyyx -&gt; xxxxx yyyyy -&gt; m = (x + y) / 2
-2. xxxxm zyyyy -&gt; xxxxm yyyyy -&gt;  xxxxx yyyyy -&gt; m = (x + y) / 2</p>
-<p>xxxm yyyy z // push from even
-1. xxxzm yyyy -&gt; xxxx yyyyx -&gt; xxxxm yyyy
-2. xxxm yyyyz -&gt; xxxx yyyyy -&gt; xxxxm yyyy</p>
-<p>if there are even num of nodes
-  then push to large then push the top of large to small // now it's odd
+<p><code>xxxx m yyyy</code></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>q1: xxxx
+q2: yyyy
+</code></pre></div>
+
+
+<p><code>xxxxm yyyy z // push from odd</code></p>
+<ol>
+<li>xxxxzm yyyy -&gt; xxxxxx yyyy -&gt; xxxxx yyyyx -&gt; xxxxx yyyyy -&gt; m = (x + y) / 2</li>
+<li>xxxxm zyyyy -&gt; xxxxm yyyyy -&gt;  xxxxx yyyyy -&gt; m = (x + y) / 2</li>
+</ol>
+<p><code>xxxm yyyy z // push from even</code></p>
+<ol>
+<li>xxxzm yyyy -&gt; xxxx yyyyx -&gt; xxxxm yyyy</li>
+<li>xxxm yyyyz -&gt; xxxx yyyyy -&gt; xxxxm yyyy</li>
+</ol>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>if there are even num of nodes
+  then push to large then push the top of large to small // now it&#39;s odd
 else 
-  then push to small then push the top of small to large // now it's even</p>
+  then push to small then push the top of small to large // now it&#39;s even
+</code></pre></div>
+
+
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class MedianFinder {
 <span style="color: #A0A000">private</span>:
@@ -3413,19 +3421,24 @@ else
 
 
 <h2 id="solution-2-without-even-boolean">Solution 2: without even boolean<a class="headerlink" href="#solution-2-without-even-boolean" title="Permanent link">&para;</a></h2>
-<p>Use two priority queues to store the streaming element.
-2
+<p>Use two priority queues to store the streaming element.</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>2
 small: 2 -&gt; empty -&gt; 2
 large: -2 -&gt; empty
-median: 2</p>
-<p>2, 3
+median: 2
+
+2, 3
 small: 2 -&gt; 3,2 -&gt; 2
 large: empty -&gt; -3 
-median: <span><span class="MathJax_Preview">\frac{2 - (-3)}{2} = 2.5</span><script type="math/tex">\frac{2 - (-3)}{2} = 2.5</script></span></p>
-<p>2, 3, 4
+median: (2-(-3))/2 = 2.5
+
+2, 3, 4
 small: 2 -&gt; 4, 2 -&gt; 2 -&gt; 3, 2
 large: -3 -&gt; -3, -4 -&gt; -4
-median: 3</p>
+median: 3
+</code></pre></div>
+
+
 <h2 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class MedianFinder {
 <span style="color: #A0A000">private</span>:
@@ -3518,7 +3531,7 @@ median: 3</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

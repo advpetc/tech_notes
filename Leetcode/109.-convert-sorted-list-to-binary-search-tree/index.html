@@ -1472,6 +1472,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3197,6 +3204,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3249,11 +3263,52 @@ Output: [3,1]
 <li><code>-10^5 &lt;= Node.val &lt;= 10^5</code></li>
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>To build a bst from a sorted <strong>array</strong>, we can do so by recursively finding the middle of the array to generate the tree. However, we need extra time to find the middle of a linkedlist (use fast slow pointer requires <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
-<p>We can definitely use fast slow pointer to find the mid in each iteration and the psuedo code would like</p>
-<p>sort(node):
-  set mid = find_min_for_head
-  set root-&gt;value = mid-&gt;value</p>
+<p>To build a bst from a sorted <strong>array</strong>, we can do so by recursively finding the middle of the array to generate the tree. However, we need extra time to find the middle of a LinkedList (use a fast-slow pointer requires <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>)</p>
+<p>We can definitely use fast-slow pointer to find the mid in each iteration and the pseudo code would like</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  sort(node):
+        set mid = find_min_for_head
+    set root-&gt;value = mid-&gt;value
+    set root -&gt; left = sort(node)
+    set root -&gt; right = sort(node)
+</code></pre></div>
+
+
+<p>Using this way, we can generate the balanced search tree.</p>
+<ul>
+<li>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
+<li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> for call stack</li>
+</ul>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
+<span style="color: #408080; font-style: italic"> * Definition for singly-linked list.</span>
+<span style="color: #408080; font-style: italic"> * struct ListNode {</span>
+<span style="color: #408080; font-style: italic"> *     int val;</span>
+<span style="color: #408080; font-style: italic"> *     ListNode *next;</span>
+<span style="color: #408080; font-style: italic"> *     ListNode() : val(0), next(nullptr) {}</span>
+<span style="color: #408080; font-style: italic"> *     ListNode(int x) : val(x), next(nullptr) {}</span>
+<span style="color: #408080; font-style: italic"> *     ListNode(int x, ListNode *next) : val(x), next(next) {}</span>
+<span style="color: #408080; font-style: italic"> * };</span>
+<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    TreeNode<span style="color: #666666">*</span> dfs(ListNode<span style="color: #666666">*</span> head, ListNode<span style="color: #666666">*</span> tail) {
+        <span style="color: #008000; font-weight: bold">if</span> (head <span style="color: #666666">==</span> tail) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">nullptr</span>;
+        ListNode<span style="color: #666666">*</span> mid <span style="color: #666666">=</span> head, <span style="color: #666666">*</span>curr <span style="color: #666666">=</span> head;
+        <span style="color: #008000; font-weight: bold">while</span> (curr <span style="color: #666666">!=</span> tail <span style="color: #666666">&amp;&amp;</span> curr <span style="color: #666666">-&gt;</span> next <span style="color: #666666">!=</span> tail) {
+            mid <span style="color: #666666">=</span> mid <span style="color: #666666">-&gt;</span> next;
+            curr <span style="color: #666666">=</span> curr <span style="color: #666666">-&gt;</span> next <span style="color: #666666">-&gt;</span> next;
+        }
+        TreeNode<span style="color: #666666">*</span> root <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> TreeNode(mid <span style="color: #666666">-&gt;</span> val);
+        root <span style="color: #666666">-&gt;</span> left <span style="color: #666666">=</span> dfs(head, mid);
+        root <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> dfs(mid <span style="color: #666666">-&gt;</span> next, tail);
+        <span style="color: #008000; font-weight: bold">return</span> root;
+    }
+
+    TreeNode<span style="color: #666666">*</span> sortedListToBST(ListNode<span style="color: #666666">*</span> head) {
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">dfs</span>(head, <span style="color: #008000; font-weight: bold">nullptr</span>);
+    }
+};
+</code></pre></div>
                 
                   
                     
@@ -3262,7 +3317,7 @@ Output: [3,1]
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

@@ -1697,8 +1697,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-cannot-converted-to-singly-linked-list-in-java" class="md-nav__link">
-    why cannot converted to singly linked list in Java
+  <a href="#why-cannot-be-converted-to-a-singly-linked-list-in-java" class="md-nav__link">
+    why cannot be converted to a singly linked list in Java
   </a>
   
 </li>
@@ -3233,8 +3233,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-cannot-converted-to-singly-linked-list-in-java" class="md-nav__link">
-    why cannot converted to singly linked list in Java
+  <a href="#why-cannot-be-converted-to-a-singly-linked-list-in-java" class="md-nav__link">
+    why cannot be converted to a singly linked list in Java
   </a>
   
 </li>
@@ -3433,9 +3433,9 @@ lRUCache.get(4);    // return 4
 <h2 id="why-bother-doubly-linked-list">why bother doubly linked list<a class="headerlink" href="#why-bother-doubly-linked-list" title="Permanent link">&para;</a></h2>
 <p>Fast removal. Doubly linked lists let us remove and insert in constant time if we have access to a node directly. The hashtable gives us access to a node directly.</p>
 <p>If we use a singly linked list we will need to spend O(n) time to remove a node even if we have direct reference to the node that needs to get removed. (This is because to remove in a singly linked list we need to point nodeToDelete's previous node to nodeToDelete's next node. Finding nodeToDelete's previous is expensive if nodeToDelete is the last node in the list.)</p>
-<h3 id="why-cannot-converted-to-singly-linked-list-in-java">why cannot converted to singly linked list in Java<a class="headerlink" href="#why-cannot-converted-to-singly-linked-list-in-java" title="Permanent link">&para;</a></h3>
-<p>People who are wondering why we have double-linked list here instead of single-linked linked list :</p>
-<p>Yes, the purpose can be achieved with a single-linked LL with some hacks but NOT in java. Let's say I've to remove node n and it's previous node is p. If n is the last node in the list, I've to modify the next field of p to point to null. This can't be done if I don't have access to p.next since in java, method parameters are actually references of the objects and they are passed by value. So, let's say right now, n and p.next point to the same object (i.e. n of course). If I do n=null, that doesn't makes the object null. The object is still there and p.next points to that object. The only diff is that now n doesn't point to that object. In fact, it doesn't point to anything.</p>
+<h3 id="why-cannot-be-converted-to-a-singly-linked-list-in-java">why cannot be converted to a singly linked list in Java<a class="headerlink" href="#why-cannot-be-converted-to-a-singly-linked-list-in-java" title="Permanent link">&para;</a></h3>
+<p>People who are wondering why we have a double-linked list here instead of a single-linked linked list :</p>
+<p>Yes, the purpose can be achieved with a single-linked LL with some hacks but NOT in java. Let's say I've to remove node n and its previous node is p. If n is the last node in the list, I've to modify the next field of p to point to null. This can't be done if I don't have access to p.next since in java, method parameters are actually references of the objects and they are passed by value. So, let's say right now, n and p.next point to the same object (i.e. n of course). If I do n=null, that doesn't make the object null. The object is still there and p.next points to that object. The only diff is that now n doesn't point to that object. In fact, it doesn't point to anything.</p>
 <p><strong>n=null doesn't remove n, but just send what it points-to to null</strong></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">LRUCache</span>(<span style="color: #B00040">int</span> capacity) {
   <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">count</span> <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
@@ -3559,8 +3559,10 @@ lRUCache.get(4);    // return 4
 </code></pre></div>
 
 
-<p>head: least recent used node
-tail: most recent used node</p>
+<ul>
+<li>head: least recent used node</li>
+<li>tail: most recent used node</li>
+</ul>
                 
                   
                     
@@ -3569,7 +3571,7 @@ tail: most recent used node</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

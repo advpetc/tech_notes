@@ -3270,15 +3270,15 @@ Output: 1
 <li>Can you solve the problem with runtime complexity less than <code>O(n2)</code>?</li>
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>We can think about this problem similer to <a href="https://leetcode.com/problems/linked-list-cycle-ii/">linkedlist cycle II</a>. For each element in the array:
-<strong>i has an edge to nums[i]</strong>. If we find a cycle, that means there are two index pointing to one same element from the array.</p>
+<p>We can think about this problem similar to <a href="https://leetcode.com/problems/linked-list-cycle-ii/">linkedlist cycle II</a>. For each element in the array:
+<strong>i has an edge to nums[i]</strong>. If we find a cycle, that means there are two indexes pointing to the same element from the array.</p>
 <p>For example, nums = [1,3,4,2,2], using graph it will represent:
 <img alt="Screen Shot 2020-08-28 at 5.41.14 PM.png" src="../resources/DA8A7D1672BF53EEBA8436037A32904B.png" /></p>
 <p>There is one and only one node with in degree of two, which makes the "linkedlist" a cycle, and our task is to find the one with in degree of two.</p>
 <ol>
-<li>using two pointers to get into the cycle: one pointer move by one step each time, the other move by two steps.</li>
+<li>using two pointers to get into the cycle: one pointer moves by one step each time, the other move by two steps.</li>
 <li>
-<p>reset one of the pointers to 0, so that it's outside the cycle, keep going the other one and the current one until they meet. The only node that these two pointers will meet is the one with in-degree of 2.</p>
+<p>reset one of the pointers to 0, so that it's outside the cycle, keep going the other one and the current one until they meet. The only node that these two pointers will meet is the one with an in-degree of 2.</p>
 </li>
 <li>
 <p>Time: <span><span class="MathJax_Preview">O(2 \times n)</span><script type="math/tex">O(2 \times n)</script></span></p>
@@ -3311,7 +3311,7 @@ Output: 1
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

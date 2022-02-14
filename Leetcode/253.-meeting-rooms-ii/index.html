@@ -3255,7 +3255,7 @@ Output: 1
 <li>Adding [7, 10]: now we check if any room that can finish the meeting earlier than 7, and we find [1, 5], so we can reuse this room for [7, 10].</li>
 </ol>
 <p><strong>Note</strong>: on step 4, why don't we just reuse [2, 3]? Yes, you can reuse that room, but there is a chance that some other interval whose start is less than 5 and greater 3 -- [4, 5]. If we reuse [2, 3], we cannot know if this new interval can be reused by [2,3] since we only keep track of the latest used room.</p>
-<p>In order to keep track of the <strong>earliest finishing time</strong> from all the allocated room (from this we can determine if we need to allocate a new room), we can use a priority queue to keep track of all the allocated rooms' ending time (note that it will be a min heap since we want to the smallest element from the queue). Before we adding time to the priority queue, we also need to make sure that for every two interval i and interval i + 1, interval i's start should be less or equal than interval i + 1's start, so that we can allocate in sequence in a greedy manner so that we can make sure our allocation is always the most optimal.</p>
+<p>In order to keep track of the <strong>earliest finishing time</strong> from all the allocated room (from this we can determine if we need to allocate a new room), we can use a priority queue to keep track of all the allocated rooms' ending times (note that it will be a min-heap since we want to the smallest element from the queue). Before we add time to the priority queue, we also need to make sure that for every two intervals i and interval i + 1, interval i's start should be less or equal than interval i + 1's start, so that we can allocate in sequence in a greedy manner so that we can make sure our allocation is always the most optimal.</p>
 <ul>
 <li>Time: <span><span class="MathJax_Preview">O(n \times log(n))</span><script type="math/tex">O(n \times log(n))</script></span> (sort + priority queue)</li>
 <li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> for sorting and priority queue.</li>
@@ -3281,7 +3281,7 @@ Output: 1
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

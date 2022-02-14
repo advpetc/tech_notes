@@ -3270,60 +3270,79 @@ Output: 0
 <li><code>matrix[i][j]</code> is <code>'0'</code> or <code>'1'</code>.</li>
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>height[i] record the current number of countinous '1' in column i;
-left[i] record the left most index j which satisfies that for any index k from j to  i, height[k] &gt;= height[i];
-right[i] record the right most index j which satifies that for any index k from i to  j, height[k] &gt;= height[i];</p>
-<p>if j doesn't exist, then use size of matrix to represent j for right, use 0 to represent j for left</p>
-<p>matrix
+<p><code>height[i]</code> record the current number of countinous '1' in column i; <code>left[i]</code> record the left most index j which satisfies that for any index k from j to  i, <code>height[k] &gt;= height[i]</code>, <code>right[i]</code> record the right most index j which satifies that for any index k from i to  j, <code>height[k] &gt;= height[i]</code> if j doesn't exist, then use size of matrix to represent j for right, use 0 to represent j for left.</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>matrix
 0 0 0 1 0 0 0
 0 0 1 1 1 0 0
-0 1 1 1 1 1 0</p>
-<p>height
+0 1 1 1 1 1 0
+
+height
 0 0 0 1 0 0 0
 0 0 1 2 1 0 0
-0 1 2 3 2 1 0</p>
-<p>left
+0 1 2 3 2 1 0
+
+left
 0 0 0 3 0 0 0
 0 0 2 3 2 0 0
-0 1 2 3 2 1 0</p>
-<p>right
+0 1 2 3 2 1 0
+
+right
 7 7 7 4 7 7 7 // at index i from right to left, if height[i] &gt;= height[i+1], set right[i]=i or keep going
 7 7 5 4 5 7 7
-7 6 5 4 5 4 7</p>
-<p>result
+7 6 5 4 5 4 7
+
+result
 0 0 0 1 0 0 0
 0 0 3 2 3 0 0
-0 5 6 3 6 5 0</p>
+0 5 6 3 6 5 0
+</code></pre></div>
+
+
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {<span style="color: #A0A000">public</span>:
-<span style="color: #B00040">int</span> maximalRectangle(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;</span> <span style="color: #666666">&gt;</span> <span style="color: #666666">&amp;</span>matrix) {
-    <span style="color: #008000; font-weight: bold">if</span>(matrix.empty()) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
+<span style="color: #A0A000">public</span>:
+  <span style="color: #B00040">int</span> maximalRectangle(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span><span style="color: #666666">&gt;&gt;</span> <span style="color: #666666">&amp;</span>matrix) {
+    <span style="color: #008000; font-weight: bold">if</span> (matrix.empty())
+      <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
     <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> matrix.size();
     <span style="color: #008000; font-weight: bold">const</span> <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
     <span style="color: #B00040">int</span> left[n], right[n], height[n];
-    fill_n(left,n,<span style="color: #666666">0</span>); fill_n(right,n,n); fill_n(height,n,<span style="color: #666666">0</span>);
+    fill_n(left, n, <span style="color: #666666">0</span>);
+    fill_n(right, n, n);
+    fill_n(height, n, <span style="color: #666666">0</span>);
     <span style="color: #B00040">int</span> maxA <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-    <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> i<span style="color: #666666">=0</span>; i<span style="color: #666666">&lt;</span>m; i<span style="color: #666666">++</span>) {
-        <span style="color: #B00040">int</span> cur_left<span style="color: #666666">=0</span>, cur_right<span style="color: #666666">=</span>n; 
-        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=0</span>; j<span style="color: #666666">&lt;</span>n; j<span style="color: #666666">++</span>) { <span style="color: #408080; font-style: italic">// compute height (can do this from either side)</span>
-            <span style="color: #008000; font-weight: bold">if</span>(matrix[i][j]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;1&#39;</span>) height[j]<span style="color: #666666">++</span>; 
-            <span style="color: #008000; font-weight: bold">else</span> height[j]<span style="color: #666666">=0</span>;
+    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; i<span style="color: #666666">++</span>) {
+      <span style="color: #B00040">int</span> cur_left <span style="color: #666666">=</span> <span style="color: #666666">0</span>, cur_right <span style="color: #666666">=</span> n;
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n;
+           j<span style="color: #666666">++</span>) { <span style="color: #408080; font-style: italic">// compute height (can do this from either side)</span>
+        <span style="color: #008000; font-weight: bold">if</span> (matrix[i][j] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;1&#39;</span>)
+          height[j]<span style="color: #666666">++</span>;
+        <span style="color: #008000; font-weight: bold">else</span>
+          height[j] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+      }
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; j<span style="color: #666666">++</span>) { <span style="color: #408080; font-style: italic">// compute left (from left to right)</span>
+        <span style="color: #008000; font-weight: bold">if</span> (matrix[i][j] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;1&#39;</span>)
+          left[j] <span style="color: #666666">=</span> max(left[j], cur_left);
+        <span style="color: #008000; font-weight: bold">else</span> {
+          left[j] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+          cur_left <span style="color: #666666">=</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
         }
-        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=0</span>; j<span style="color: #666666">&lt;</span>n; j<span style="color: #666666">++</span>) { <span style="color: #408080; font-style: italic">// compute left (from left to right)</span>
-            <span style="color: #008000; font-weight: bold">if</span>(matrix[i][j]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;1&#39;</span>) left[j]<span style="color: #666666">=</span>max(left[j],cur_left);
-            <span style="color: #008000; font-weight: bold">else</span> {left[j]<span style="color: #666666">=0</span>; cur_left<span style="color: #666666">=</span>j<span style="color: #666666">+1</span>;}
+      }
+      <span style="color: #408080; font-style: italic">// compute right (from right to left)</span>
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; j<span style="color: #666666">--</span>) {
+        <span style="color: #008000; font-weight: bold">if</span> (matrix[i][j] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;1&#39;</span>)
+          right[j] <span style="color: #666666">=</span> min(right[j], cur_right);
+        <span style="color: #008000; font-weight: bold">else</span> {
+          right[j] <span style="color: #666666">=</span> n;
+          cur_right <span style="color: #666666">=</span> j;
         }
-        <span style="color: #408080; font-style: italic">// compute right (from right to left)</span>
-        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=</span>n<span style="color: #666666">-1</span>; j<span style="color: #666666">&gt;=0</span>; j<span style="color: #666666">--</span>) {
-            <span style="color: #008000; font-weight: bold">if</span>(matrix[i][j]<span style="color: #666666">==</span><span style="color: #BA2121">&#39;1&#39;</span>) right[j]<span style="color: #666666">=</span>min(right[j],cur_right);
-            <span style="color: #008000; font-weight: bold">else</span> {right[j]<span style="color: #666666">=</span>n; cur_right<span style="color: #666666">=</span>j;}    
-        }
-        <span style="color: #408080; font-style: italic">// compute the area of rectangle (can do this from either side)</span>
-        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">int</span> j<span style="color: #666666">=0</span>; j<span style="color: #666666">&lt;</span>n; j<span style="color: #666666">++</span>)
-            maxA <span style="color: #666666">=</span> max(maxA,(right[j]<span style="color: #666666">-</span>left[j])<span style="color: #666666">*</span>height[j]);
+      }
+      <span style="color: #408080; font-style: italic">// compute the area of rectangle (can do this from either side)</span>
+      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; j<span style="color: #666666">++</span>)
+        maxA <span style="color: #666666">=</span> max(maxA, (right[j] <span style="color: #666666">-</span> left[j]) <span style="color: #666666">*</span> height[j]);
     }
     <span style="color: #008000; font-weight: bold">return</span> maxA;
-}
+  }
 </code></pre></div>
                 
                   
@@ -3333,7 +3352,7 @@ right[i] record the right most index j which satifies that for any index k from 
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

@@ -3235,11 +3235,13 @@
 <p>Output: 5</p>
 <p><img alt="Screen Shot 2020-06-18 at 12.36.05 PM.png" src="../resources/3E4267B406035BA277085EB1C62F4270.png" /></p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>We don't need to find the detail configuration for the trees, so we can use DP.</p>
-<p>DP[i]: from 0~i, total number of subtrees
+<p>We don't need to find the detailed configuration for the trees, so we can use DP.</p>
+<p>DP[i]: from 0~i, the total number of subtrees
 DP[i + 1] = left subtree * right subtree = dp[left to root] * dp[root to right] </p>
-<p>Time Complexity: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>
-Space Complexity: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
+<ul>
+<li>Time Complexity: <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span></li>
+<li>Space Complexity: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
+</ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
 <span style="color: #A0A000">public</span>:
@@ -3264,7 +3266,7 @@ Space Complexity: <span><span class="MathJax_Preview">O(n)</span><script type="m
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

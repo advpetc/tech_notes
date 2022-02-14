@@ -3281,14 +3281,14 @@ Output: 1
 <li><code>0 &lt;= citations[i] &lt;= 1000</code></li>
 </ul>
 <h2 id="analysis-using-sort-binary-search">Analysis: using sort + binary search<a class="headerlink" href="#analysis-using-sort-binary-search" title="Permanent link">&para;</a></h2>
-<p>Given the definition of "H-index", we can find out that <code>h</code> is just a measurement of the maximum amount of paper that has the citation number greater or equal to <code>h</code>. So in a sorted array, we just need to find the lower bound of the any <code>h</code> that satisfies this criteria, because finding the lower bound in a sorted array is alway <span><span class="MathJax_Preview">O(\log(n))</span><script type="math/tex">O(\log(n))</script></span>.</p>
+<p>Given the definition of "H-index", we can find out that <code>h</code> is just a measurement of the maximum amount of paper that has the citation number greater or equal to <code>h</code>. So in a sorted array, we just need to find the lower bound of any <code>h</code> that satisfies this criterion, because finding the lower bound in a sorted array is always <span><span class="MathJax_Preview">O(\log(n))</span><script type="math/tex">O(\log(n))</script></span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In Cpp, the <code>upper_bound</code> and <code>lower_bound</code> differ in the way of locating the first and last element of the same value with the target value. For <code>upper_bound</code>, it finds the first equal value, and <code>lower_bound</code> finds the last one.</p>
 </div>
 <ul>
 <li>Time: <span><span class="MathJax_Preview">O(n \times \log(n))</span><script type="math/tex">O(n \times \log(n))</script></span> sorting + finding</li>
-<li>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> if we use quick sort without auxiliary array</li>
+<li>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> if we use quick sort without an auxiliary array</li>
 </ul>
 <h2 id="code-1">Code 1<a class="headerlink" href="#code-1" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
@@ -3310,12 +3310,12 @@ Output: 1
 
 <h2 id="analysis-using-bucket-sort">Analysis: using Bucket sort<a class="headerlink" href="#analysis-using-bucket-sort" title="Permanent link">&para;</a></h2>
 <p>Since our data isn't large (the range is also small), we can use bucket sort to solve this particular problem with <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> complexity.</p>
-<p>Since we are only interested in the <code>h</code> in the range from 0 to n, we can create an array with size of n. Each element in the array represents the frequency of the that amount of citation.</p>
+<p>Since we are only interested in the <code>h</code> in the range from 0 to n, we can create an array with a size of n. Each element in the array represents the frequency of that amount of citation.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For all the citations that are greater than n, we put them into n-th bucket, since that is the same effect for the placing the paper into its citation's bucket.</p>
+<p>For all the citations that are greater than n, we put them into an n-th bucket, since that is the same effect for placing the paper into its citation's bucket.</p>
 </div>
-<p>Then we start from n, and keep a counter to record the current number of paper
+<p>Then we start from n and keep a counter to record the current number of papers
 that fulfill the requirement, which is <code>counter &gt;= h</code>. If this requirement is
 fulfilled, then we can return the value from here.</p>
 <ul>
@@ -3350,7 +3350,7 @@ fulfilled, then we can return the value from here.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 17, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

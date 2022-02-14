@@ -3305,10 +3305,10 @@ Output: [4]
 <li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 <h2 id="analysis-using-deque">Analysis: using Deque<a class="headerlink" href="#analysis-using-deque" title="Permanent link">&para;</a></h2>
-<p>We need to maintain a queue, where the front stores the current max in the sliding window. When we want to push new element to the queue, we first need to kick off all the elements that are not in the range (from i to i + k - 1), and then we need to keep <code>pop_back()</code> the element(s) that is/are less than current nums[i]. In order to achieve the <code>pop_front()</code> and <code>push_back()</code> operations, we need to use <code>std::dequeue</code> data structure in order to achieve these two operations running in <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>.</p>
+<p>We need to maintain a queue, where the front stores the current max in the sliding window. When we want to push a new element to the queue, we first need to kick off all the elements that are not in the range (from i to i + k - 1), and then we need to keep <code>pop_back()</code> the element(s) that is/are less than current nums[i]. In order to achieve the <code>pop_front()</code> and <code>push_back()</code> operations, we need to use <code>std::dequeue</code> data structure in order to achieve these two operations running in <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>.</p>
 <ul>
 <li>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> since each element can get in and get out of the deque <strong>only</strong> once</li>
-<li>Space: <span><span class="MathJax_Preview">O(k)</span><script type="math/tex">O(k)</script></span> the maximum size of the deque is having all the window size elements (e.g. a decreasing array like: 5,4,3,2,1, so each element will be pushed into the deque).</li>
+<li>Space: <span><span class="MathJax_Preview">O(k)</span><script type="math/tex">O(k)</script></span> the maximum size of the deque is having all the window size elements (e.g. a decreasing array-like 5,4,3,2,1, so each element will be pushed into the deque).</li>
 </ul>
 <h2 id="code-1-using-deque">Code 1: using Deque<a class="headerlink" href="#code-1-using-deque" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
@@ -3388,7 +3388,7 @@ class Solution {
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

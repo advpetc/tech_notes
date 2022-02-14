@@ -3271,7 +3271,7 @@
 <p>Input: [7,1,5,3,6,4]
 Output: 5
 Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-             Not 7-1 = 6, as selling price needs to be larger than buying price.
+             Not 7-1 = 6, as the selling price needs to be larger than buying price.
 Example 2:</p>
 <p>Input: [7,6,4,3,1]
 Output: 0
@@ -3279,7 +3279,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.</p>
 <h2 id="presumptions">presumptions<a class="headerlink" href="#presumptions" title="Permanent link">&para;</a></h2>
 <ol>
 <li>there is only one stock to be bought</li>
-<li>no consective buy or sell happens (buy on day one and buy one day two, instead, can only choose rest or sell)</li>
+<li>no consecutive buy or sell happens (buy on day one and buy one day two, instead, can only choose rest or sell)</li>
 </ol>
 <h2 id="state-machine">state machine<a class="headerlink" href="#state-machine" title="Permanent link">&para;</a></h2>
 <p><img alt="IMAGE" src="../resources/99D80789E081E0FCC5FDC25FAA929DB2.jpg" /></p>
@@ -3365,7 +3365,7 @@ dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i])</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>

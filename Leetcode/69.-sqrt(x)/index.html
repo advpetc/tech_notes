@@ -3263,13 +3263,13 @@ Explanation: The square root of 8 is 2.82842..., and since
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>we could "try" all the values from 0 to x, and find the largest value y where y * y is less than x. y is our answer — we can use binary search for this problem. Don't forget to subtract 1 after calculation, since the question want to discard all the digits after the decimal (1.2-&gt;1).</p>
+<p>we could "try" all the values from 0 to x, and find the largest value y where y * y is less than x. y is our answer — we can use binary search for this problem. Don't forget to subtract 1 after calculation, since the question wants to discard all the digits after the decimal (1.2-&gt;1).</p>
 </li>
 <li>
 <p>Newton Iteration: to find <span><span class="MathJax_Preview">x^2=n</span><script type="math/tex">x^2=n</script></span>, we can first rearrange our function into <span><span class="MathJax_Preview">f(x)=n-x^2</span><script type="math/tex">f(x)=n-x^2</script></span>, and we want to find the solution when <span><span class="MathJax_Preview">f(x)=0</span><script type="math/tex">f(x)=0</script></span>. The key point is the average result is calculate by "ans = (ans + x / ans) / 2";</p>
 </li>
 </ol>
-<p>For instance, when calculate sqrt(2) :</p>
+<p>For instance, when calculating sqrt(2) :</p>
 <p><code>Guess Result        Quotient                             Average Result
              1              2 / 1 = 2                            (2 + 1) / 2 = 1.5
             1.5         2 / 1.5 = 1.3333                (1.3333 + 1.5) / 2 = 1.4167
@@ -3315,7 +3315,7 @@ Explanation: The square root of 8 is 2.82842..., and since
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
     
   </small>
 </div>
