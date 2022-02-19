@@ -1687,18 +1687,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../152.-maximum-product-subarray/" class="md-nav__link">
-        Maximum Product Subarray
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../164.-Maximum-Gap/" class="md-nav__link">
         Maximum Gap
       </a>
@@ -1713,6 +1701,18 @@
     <li class="md-nav__item">
       <a href="../167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
         Two Sum II - Input Array Is Sorted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1675.-Minimize-Deviation-in-Array/" class="md-nav__link">
+        Minimize Deviation in Array
       </a>
     </li>
   
@@ -1866,6 +1866,18 @@
     <li class="md-nav__item">
       <a href="../212.-word-search-ii/" class="md-nav__link">
         Word Search II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2141.-Maximum-Running-Time-of-N-Computers/" class="md-nav__link">
+        Maximum Running Time of N Computers
       </a>
     </li>
   
@@ -2032,7 +2044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-nav__link">
+      <a href="../3.-Longest-Substring-Without-Repeating-Characters/" class="md-nav__link">
         Longest Substring Without Repeating Characters
       </a>
     </li>
@@ -2118,6 +2130,18 @@
     <li class="md-nav__item">
       <a href="../4.-median-of-two-sorted-arrays/" class="md-nav__link">
         Median of Two Sorted Arrays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../402.-Remove-K-Digits/" class="md-nav__link">
+        Remove K Digits
       </a>
     </li>
   
@@ -2502,18 +2526,6 @@
     <li class="md-nav__item">
       <a href="../952.-largest-component-size-by-common-factor/" class="md-nav__link">
         Largest Component Size by Common Factor
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" class="md-nav__link">
-        Unique Binary Search Trees -- My Method
       </a>
     </li>
   
@@ -3124,8 +3136,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" class="md-nav__link">
-        Cs231n lecture 3   loss function
+      <a href="../../machine%20learning/cs231n-lecture-3-loss-function/" class="md-nav__link">
+        Cs231n lecture 3 loss function
       </a>
     </li>
   
@@ -3136,8 +3148,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" class="md-nav__link">
-        Cs231n lecture 4   introduction to neural networks
+      <a href="../../machine%20learning/cs231n-lecture-4-introduction-to-neural-networks/" class="md-nav__link">
+        Cs231n lecture 4 introduction to neural networks
       </a>
     </li>
   
@@ -3148,8 +3160,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" class="md-nav__link">
-        Cs231n lecture 5   convolutional neural networks
+      <a href="../../machine%20learning/cs231n-lecture-5-convolutional-neural-networks/" class="md-nav__link">
+        Cs231n lecture 5 convolutional neural networks
       </a>
     </li>
   
@@ -3160,8 +3172,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" class="md-nav__link">
-        Cs231n lecture 6   training neural networks i
+      <a href="../../machine%20learning/cs231n-lecture-6-training-neural-networks-i/" class="md-nav__link">
+        Cs231n lecture 6 training neural networks i
       </a>
     </li>
   
@@ -3284,8 +3296,8 @@ trie.search(&quot;app&quot;);     // return True
     }
 };
 
-class Trie {
-<span style="color: #A0A000">private</span>:
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Trie</span> {
+<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span>
     TrieNode<span style="color: #666666">*</span> root;
     TrieNode<span style="color: #666666">*</span> <span style="color: #0000FF">find</span>(string key)
     {
@@ -3296,9 +3308,9 @@ class Trie {
         <span style="color: #008000; font-weight: bold">return</span> p;
     }
 
-<span style="color: #A0A000">public</span>:
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #408080; font-style: italic">/** Initialize your data structure here. */</span>
-    Trie() { root <span style="color: #666666">=</span> new TrieNode(); }
+    Trie() { root <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> TrieNode(); }
 
     <span style="color: #408080; font-style: italic">/** Inserts a word into the trie. */</span>
     <span style="color: #B00040">void</span> insert(string word)
@@ -3306,7 +3318,7 @@ class Trie {
         TrieNode<span style="color: #666666">*</span> p <span style="color: #666666">=</span> root;
         <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> word.size(); <span style="color: #666666">++</span>i) {
             <span style="color: #008000; font-weight: bold">if</span> (p<span style="color: #666666">-&gt;</span>next[word[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #666666">==</span> <span style="color: #008000">NULL</span>) <span style="color: #408080; font-style: italic">// not assign any value yet</span>
-                p<span style="color: #666666">-&gt;</span>next[word[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #666666">=</span> new TrieNode(); <span style="color: #408080; font-style: italic">// only new when </span>
+                p<span style="color: #666666">-&gt;</span>next[word[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> TrieNode(); <span style="color: #408080; font-style: italic">// only new when </span>
             p <span style="color: #666666">=</span> p<span style="color: #666666">-&gt;</span>next[word[i] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>];
         }
         p<span style="color: #666666">-&gt;</span>is_word <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
@@ -3340,7 +3352,7 @@ class Trie {
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2022</span>
     
   </small>
 </div>

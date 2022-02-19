@@ -1685,18 +1685,6 @@
             
   
   
-  
-    <li class="md-nav__item">
-      <a href="../152.-maximum-product-subarray/" class="md-nav__link">
-        Maximum Product Subarray
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
     
   
   
@@ -1758,6 +1746,18 @@
     <li class="md-nav__item">
       <a href="../167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
         Two Sum II - Input Array Is Sorted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1675.-Minimize-Deviation-in-Array/" class="md-nav__link">
+        Minimize Deviation in Array
       </a>
     </li>
   
@@ -1866,6 +1866,18 @@
     <li class="md-nav__item">
       <a href="../212.-word-search-ii/" class="md-nav__link">
         Word Search II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2141.-Maximum-Running-Time-of-N-Computers/" class="md-nav__link">
+        Maximum Running Time of N Computers
       </a>
     </li>
   
@@ -2032,7 +2044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-nav__link">
+      <a href="../3.-Longest-Substring-Without-Repeating-Characters/" class="md-nav__link">
         Longest Substring Without Repeating Characters
       </a>
     </li>
@@ -2118,6 +2130,18 @@
     <li class="md-nav__item">
       <a href="../4.-median-of-two-sorted-arrays/" class="md-nav__link">
         Median of Two Sorted Arrays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../402.-Remove-K-Digits/" class="md-nav__link">
+        Remove K Digits
       </a>
     </li>
   
@@ -2502,18 +2526,6 @@
     <li class="md-nav__item">
       <a href="../952.-largest-component-size-by-common-factor/" class="md-nav__link">
         Largest Component Size by Common Factor
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" class="md-nav__link">
-        Unique Binary Search Trees -- My Method
       </a>
     </li>
   
@@ -3124,8 +3136,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" class="md-nav__link">
-        Cs231n lecture 3   loss function
+      <a href="../../machine%20learning/cs231n-lecture-3-loss-function/" class="md-nav__link">
+        Cs231n lecture 3 loss function
       </a>
     </li>
   
@@ -3136,8 +3148,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" class="md-nav__link">
-        Cs231n lecture 4   introduction to neural networks
+      <a href="../../machine%20learning/cs231n-lecture-4-introduction-to-neural-networks/" class="md-nav__link">
+        Cs231n lecture 4 introduction to neural networks
       </a>
     </li>
   
@@ -3148,8 +3160,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" class="md-nav__link">
-        Cs231n lecture 5   convolutional neural networks
+      <a href="../../machine%20learning/cs231n-lecture-5-convolutional-neural-networks/" class="md-nav__link">
+        Cs231n lecture 5 convolutional neural networks
       </a>
     </li>
   
@@ -3160,8 +3172,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" class="md-nav__link">
-        Cs231n lecture 6   training neural networks i
+      <a href="../../machine%20learning/cs231n-lecture-6-training-neural-networks-i/" class="md-nav__link">
+        Cs231n lecture 6 training neural networks i
       </a>
     </li>
   
@@ -3252,14 +3264,14 @@ Explanation: The array contains less than 2 elements, therefore return 0.
 <li>Try to solve it in linear time/space.</li>
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>Let's first split the array into multiple equal size ranges, and the total number of ranges is n (the size of the input array). </p>
+<p>Let's first split the array into multiple equal-size ranges, and the total number of ranges is n (the size of the input array). </p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>3, 6, 9, 1
 -&gt; we have 4 numbers, so we will have four ranges
 (] (] (] (] 
 </code></pre></div>
 
 
-<p>Because we have n ranges, if we can know how big is each range, we can place each number to its correct range. For each range, we will keep a record of the maximum difference between current number and the sorted number.</p>
+<p>Because we have n ranges, if we can know how big is each range, we can place each number to its correct range. For each range, we will keep a record of the maximum difference between a current number and the sorted number.</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>3, 6, 9, 1
 -&gt; Let&#39;s assume the size of each range is len
 (a, a + len] (b, b + len] (c, c + len] (d, d + len]
@@ -3267,12 +3279,14 @@ Explanation: The array contains less than 2 elements, therefore return 0.
 
 
 <p>To determine which range should each number be placed into, we use a math trick:</p>
-<p><span><span class="MathJax_Preview">idx = \frac{x-a-1}{n-1}</span><script type="math/tex">idx = \frac{x-a-1}{n-1}</script></span>, where a is the minimal value or the starting value of our ranges.</p>
-<p>Given these information, we can just find and compare the maximum difference across each two ranges. Now we have n numbers, and there are len - 1 numbers in each range. If we have relatively small length of each range, the maximum difference cannot exist in each range, but across two successive ranges.</p>
-<p>$ (n-1)(len-1) &lt; Max - Min$, which yield </p>
+<p><span><span class="MathJax_Preview">idx = \frac{x-a-1}{n-1}</span><script type="math/tex">idx = \frac{x-a-1}{n-1}</script></span>, where a is the minimum value or the starting value of our ranges.</p>
+<p>Given this information, we can just find and compare the maximum difference across every two ranges. Now we have n numbers, and there are len - 1 numbers in each range. If we have a relatively small length of each range, the maximum difference cannot exist in each range, but across two successive ranges.</p>
+<p><code>(n-1)(len-1) &lt; Max - Min</code>, which yield </p>
 <p><code>(Max - Min + n - 2)/(n - 1)</code> after rearrangement.</p>
-<p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
-<p>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
+<ul>
+<li>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
+<li>Space: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
+</ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
@@ -3321,7 +3335,7 @@ Explanation: The array contains less than 2 elements, therefore return 0.
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 25, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2022</span>
     
   </small>
 </div>
@@ -3347,7 +3361,7 @@ Explanation: The array contains less than 2 elements, therefore return 0.
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../152.-maximum-product-subarray/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../149.-max-points-on-a-line/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -3356,7 +3370,7 @@ Explanation: The array contains less than 2 elements, therefore return 0.
               <span class="md-footer__direction">
                 Previous
               </span>
-              Maximum Product Subarray
+              Max Points on a line
             </div>
           </div>
         </a>

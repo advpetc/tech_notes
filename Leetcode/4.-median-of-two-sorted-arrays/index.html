@@ -1687,18 +1687,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../152.-maximum-product-subarray/" class="md-nav__link">
-        Maximum Product Subarray
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../164.-Maximum-Gap/" class="md-nav__link">
         Maximum Gap
       </a>
@@ -1713,6 +1701,18 @@
     <li class="md-nav__item">
       <a href="../167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
         Two Sum II - Input Array Is Sorted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1675.-Minimize-Deviation-in-Array/" class="md-nav__link">
+        Minimize Deviation in Array
       </a>
     </li>
   
@@ -1821,6 +1821,18 @@
     <li class="md-nav__item">
       <a href="../212.-word-search-ii/" class="md-nav__link">
         Word Search II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2141.-Maximum-Running-Time-of-N-Computers/" class="md-nav__link">
+        Maximum Running Time of N Computers
       </a>
     </li>
   
@@ -1987,7 +1999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-nav__link">
+      <a href="../3.-Longest-Substring-Without-Repeating-Characters/" class="md-nav__link">
         Longest Substring Without Repeating Characters
       </a>
     </li>
@@ -2102,8 +2114,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anaysis" class="md-nav__link">
-    Anaysis
+  <a href="#analysis" class="md-nav__link">
+    Analysis
   </a>
   
 </li>
@@ -2119,6 +2131,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../402.-Remove-K-Digits/" class="md-nav__link">
+        Remove K Digits
+      </a>
     </li>
   
 
@@ -2502,18 +2526,6 @@
     <li class="md-nav__item">
       <a href="../952.-largest-component-size-by-common-factor/" class="md-nav__link">
         Largest Component Size by Common Factor
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" class="md-nav__link">
-        Unique Binary Search Trees -- My Method
       </a>
     </li>
   
@@ -3124,8 +3136,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" class="md-nav__link">
-        Cs231n lecture 3   loss function
+      <a href="../../machine%20learning/cs231n-lecture-3-loss-function/" class="md-nav__link">
+        Cs231n lecture 3 loss function
       </a>
     </li>
   
@@ -3136,8 +3148,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" class="md-nav__link">
-        Cs231n lecture 4   introduction to neural networks
+      <a href="../../machine%20learning/cs231n-lecture-4-introduction-to-neural-networks/" class="md-nav__link">
+        Cs231n lecture 4 introduction to neural networks
       </a>
     </li>
   
@@ -3148,8 +3160,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" class="md-nav__link">
-        Cs231n lecture 5   convolutional neural networks
+      <a href="../../machine%20learning/cs231n-lecture-5-convolutional-neural-networks/" class="md-nav__link">
+        Cs231n lecture 5 convolutional neural networks
       </a>
     </li>
   
@@ -3160,8 +3172,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" class="md-nav__link">
-        Cs231n lecture 6   training neural networks i
+      <a href="../../machine%20learning/cs231n-lecture-6-training-neural-networks-i/" class="md-nav__link">
+        Cs231n lecture 6 training neural networks i
       </a>
     </li>
   
@@ -3198,8 +3210,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anaysis" class="md-nav__link">
-    Anaysis
+  <a href="#analysis" class="md-nav__link">
+    Analysis
   </a>
   
 </li>
@@ -3272,13 +3284,13 @@ Output: 2.00000
 <li><code>-106 &lt;= nums1[i], nums2[i] &lt;= 106</code></li>
 </ul>
 <p><strong>Follow up:</strong> The overall run time complexity should be <code>O(log (m+n))</code>.</p>
-<h2 id="anaysis">Anaysis<a class="headerlink" href="#anaysis" title="Permanent link">&para;</a></h2>
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>Finding median is basically finding the <code>(m + n) // 2</code>th elements for the two sorted arrays. We can use binary search to find this element.</p>
 <p>We will use recursion to implement the binary search: <code>int findKth(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2, int i, int j, int k)</code>. <code>i</code> is the iterator pointing at <code>nums1</code>, and <code>j</code> is the iterator pointing at <code>nums2</code>, and <code>k</code> is the current k-th element we are interested in starting from <code>nums[i]</code> and <code>nums[j]</code> (note that both <code>i</code>, <code>j</code>, <code>k</code> are varibles, and they will change in each iteration).</p>
 <p>Now we consider what we do for each iteration. If we have reach to the end of <code>nums1</code>, which mean <code>i == nums1.size()</code>, then we will give up <code>nums1</code> and simply return the k-th element from <code>nums2</code>. In constrast, if we have reach to the end of <code>nums2</code>, which mean <code>j == nums2.size()</code>, then we will give up <code>nums2</code> and simply return the k-th element from <code>nums1</code>. Don't forget there is another base case: <code>k == 1</code>, which means there is only one element we are interested in, and we should return the smaller one from <code>nums1[i]</code> and <code>nums2[j]</code>. </p>
 <p>Then we will eagerly grow our poiners as far as possible, and we decide to grow half the size of k. If both <code>i + k/2 - 1</code> and <code>j + k/2 - 1</code> are in the range, then we determine the smaller one. Since we are determining the k-th largest element, if we can be sure that all the elements from <code>i</code> to <code>i + k</code> are smaller than <code>j</code> to <code>j + k</code> (assume <code>nums1[i + k/2 - 1] &lt; nums2[j + k/2 - 1]</code>), then we can safely discard all the elements from <code>i</code> to <code>i + k/2</code> (they will be used as a "placeholder" or 炮灰 in Chinese for <code>i</code> to <code>i + k/2</code>). This logic can apply to the case when <code>nums1[i + k/2 - 1] &gt;= nums2[j + k/2 - 1]</code> as well.</p>
 <ul>
-<li>Time: <span><span class="MathJax_Preview">O(log_2{m + n})</span><script type="math/tex">O(log_2{m + n})</script></span></li>
+<li>Time: <span><span class="MathJax_Preview">O(\log_2{m + n})</span><script type="math/tex">O(\log_2{m + n})</script></span></li>
 <li>Space: <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span></li>
 </ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
@@ -3308,7 +3320,7 @@ Output: 2.00000
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2022</span>
     
   </small>
 </div>
@@ -3349,13 +3361,13 @@ Output: 2.00000
         </a>
       
       
-        <a href="../42.-trapping-rain-water/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../402.-Remove-K-Digits/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Trapping Rain Water
+              Remove K Digits
             </div>
           </div>
           <div class="md-footer__button md-icon">

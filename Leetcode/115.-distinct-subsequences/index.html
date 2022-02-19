@@ -1732,18 +1732,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../152.-maximum-product-subarray/" class="md-nav__link">
-        Maximum Product Subarray
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../164.-Maximum-Gap/" class="md-nav__link">
         Maximum Gap
       </a>
@@ -1758,6 +1746,18 @@
     <li class="md-nav__item">
       <a href="../167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
         Two Sum II - Input Array Is Sorted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1675.-Minimize-Deviation-in-Array/" class="md-nav__link">
+        Minimize Deviation in Array
       </a>
     </li>
   
@@ -1866,6 +1866,18 @@
     <li class="md-nav__item">
       <a href="../212.-word-search-ii/" class="md-nav__link">
         Word Search II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2141.-Maximum-Running-Time-of-N-Computers/" class="md-nav__link">
+        Maximum Running Time of N Computers
       </a>
     </li>
   
@@ -2032,7 +2044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-nav__link">
+      <a href="../3.-Longest-Substring-Without-Repeating-Characters/" class="md-nav__link">
         Longest Substring Without Repeating Characters
       </a>
     </li>
@@ -2118,6 +2130,18 @@
     <li class="md-nav__item">
       <a href="../4.-median-of-two-sorted-arrays/" class="md-nav__link">
         Median of Two Sorted Arrays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../402.-Remove-K-Digits/" class="md-nav__link">
+        Remove K Digits
       </a>
     </li>
   
@@ -2502,18 +2526,6 @@
     <li class="md-nav__item">
       <a href="../952.-largest-component-size-by-common-factor/" class="md-nav__link">
         Largest Component Size by Common Factor
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" class="md-nav__link">
-        Unique Binary Search Trees -- My Method
       </a>
     </li>
   
@@ -3124,8 +3136,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" class="md-nav__link">
-        Cs231n lecture 3   loss function
+      <a href="../../machine%20learning/cs231n-lecture-3-loss-function/" class="md-nav__link">
+        Cs231n lecture 3 loss function
       </a>
     </li>
   
@@ -3136,8 +3148,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" class="md-nav__link">
-        Cs231n lecture 4   introduction to neural networks
+      <a href="../../machine%20learning/cs231n-lecture-4-introduction-to-neural-networks/" class="md-nav__link">
+        Cs231n lecture 4 introduction to neural networks
       </a>
     </li>
   
@@ -3148,8 +3160,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" class="md-nav__link">
-        Cs231n lecture 5   convolutional neural networks
+      <a href="../../machine%20learning/cs231n-lecture-5-convolutional-neural-networks/" class="md-nav__link">
+        Cs231n lecture 5 convolutional neural networks
       </a>
     </li>
   
@@ -3160,8 +3172,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" class="md-nav__link">
-        Cs231n lecture 6   training neural networks i
+      <a href="../../machine%20learning/cs231n-lecture-6-training-neural-networks-i/" class="md-nav__link">
+        Cs231n lecture 6 training neural networks i
       </a>
     </li>
   
@@ -3273,15 +3285,15 @@ rabbbit
 
 
 <p><strong>note: can only delete</strong></p>
-<p>dp[i][j]: ways to transform S[0:i] to T[0:j]</p>
+<p><code>dp[i][j]</code>: ways to transform <code>S[0:i]</code>to <code>T[0:j]</code></p>
 <ol>
 <li>if t is "", then only one way to form t from s (delete all)</li>
-<li>if t[i] == s[j]: dp[i][j] = dp[i-1][j-1]+dp[i][j-1] -&gt; t can choose either delete the current one or not, both are valid</li>
-<li>if t[i] != s[j]: dp[i][j] = dp[i][j-1] -&gt; the extra one cannot be counted and should only use the previous stage result (delete current one)</li>
+<li>if <code>t[i] == s[j]</code>: <code>dp[i][j] = dp[i-1][j-1]+dp[i][j-1] -&gt; t</code> can choose either delete the current one or not, both are valid</li>
+<li>if <code>t[i] != s[j]</code>: <code>dp[i][j] = dp[i][j-1]</code> -&gt; the extra one cannot be counted and should only use the previous stage result (delete current one)</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
-<span style="color: #A0A000">public</span>:
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">int</span> numDistinct(string s, string t) {
         <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> t.length(), n <span style="color: #666666">=</span> s.length();
         <span style="color: #B00040">int64_t</span> dp[m<span style="color: #666666">+1</span>][n<span style="color: #666666">+1</span>];
@@ -3302,7 +3314,7 @@ rabbbit
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2022</span>
     
   </small>
 </div>

@@ -1732,18 +1732,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../152.-maximum-product-subarray/" class="md-nav__link">
-        Maximum Product Subarray
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../164.-Maximum-Gap/" class="md-nav__link">
         Maximum Gap
       </a>
@@ -1758,6 +1746,18 @@
     <li class="md-nav__item">
       <a href="../167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
         Two Sum II - Input Array Is Sorted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1675.-Minimize-Deviation-in-Array/" class="md-nav__link">
+        Minimize Deviation in Array
       </a>
     </li>
   
@@ -1866,6 +1866,18 @@
     <li class="md-nav__item">
       <a href="../212.-word-search-ii/" class="md-nav__link">
         Word Search II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2141.-Maximum-Running-Time-of-N-Computers/" class="md-nav__link">
+        Maximum Running Time of N Computers
       </a>
     </li>
   
@@ -2032,7 +2044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-nav__link">
+      <a href="../3.-Longest-Substring-Without-Repeating-Characters/" class="md-nav__link">
         Longest Substring Without Repeating Characters
       </a>
     </li>
@@ -2118,6 +2130,18 @@
     <li class="md-nav__item">
       <a href="../4.-median-of-two-sorted-arrays/" class="md-nav__link">
         Median of Two Sorted Arrays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../402.-Remove-K-Digits/" class="md-nav__link">
+        Remove K Digits
       </a>
     </li>
   
@@ -2502,18 +2526,6 @@
     <li class="md-nav__item">
       <a href="../952.-largest-component-size-by-common-factor/" class="md-nav__link">
         Largest Component Size by Common Factor
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" class="md-nav__link">
-        Unique Binary Search Trees -- My Method
       </a>
     </li>
   
@@ -3124,8 +3136,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" class="md-nav__link">
-        Cs231n lecture 3   loss function
+      <a href="../../machine%20learning/cs231n-lecture-3-loss-function/" class="md-nav__link">
+        Cs231n lecture 3 loss function
       </a>
     </li>
   
@@ -3136,8 +3148,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" class="md-nav__link">
-        Cs231n lecture 4   introduction to neural networks
+      <a href="../../machine%20learning/cs231n-lecture-4-introduction-to-neural-networks/" class="md-nav__link">
+        Cs231n lecture 4 introduction to neural networks
       </a>
     </li>
   
@@ -3148,8 +3160,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" class="md-nav__link">
-        Cs231n lecture 5   convolutional neural networks
+      <a href="../../machine%20learning/cs231n-lecture-5-convolutional-neural-networks/" class="md-nav__link">
+        Cs231n lecture 5 convolutional neural networks
       </a>
     </li>
   
@@ -3160,8 +3172,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" class="md-nav__link">
-        Cs231n lecture 6   training neural networks i
+      <a href="../../machine%20learning/cs231n-lecture-6-training-neural-networks-i/" class="md-nav__link">
+        Cs231n lecture 6 training neural networks i
       </a>
     </li>
   
@@ -3292,32 +3304,32 @@ Output: []
 
 
 <ol>
-<li>dfs always takes in from s[0:i], and check s[i:] for current branch</li>
-<li>the cache is the map of current s[0:i] to all the combination for this substring, so for s[0:i+1], to check s[0:i], just uses the cached one and combine with s[:i]</li>
+<li>dfs always takes in from <code>s[0:i]</code>, and check <code>s[i:]</code> for current branch</li>
+<li>the cache is the map of current <code>s[0:i]</code> to all the combination for this substring, so for <code>s[0:i+1]</code>, to check <code>s[0:i]</code>, just uses the cached one and combine with <code>s[:i]</code></li>
 </ol>
 <h2 id="another-way-w-memo">Another way w/ memo<a class="headerlink" href="#another-way-w-memo" title="Permanent link">&para;</a></h2>
 <p><img alt="IMAGE" src="../resources/A7A0D625067844E33F882924CF5DE648.jpg" />
 After memo:
 <img alt="IMAGE" src="../resources/52DABD0AB9F46F747AAF823A8EB8F99A.jpg" /></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
-<span style="color: #008000; font-weight: bold">public</span>:
-    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #0000FF">wordBreak</span>(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> wordDict) {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> wordBreak(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> wordDict) {
         unordered_map<span style="color: #666666">&lt;</span>string, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&gt;</span> m; <span style="color: #408080; font-style: italic">// word segment -&gt; using what words to form</span>
-        <span style="color: #008000; font-weight: bold">return</span> helper(s, wordDict, m);
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">helper</span>(s, wordDict, m);
     }
     <span style="color: #408080; font-style: italic">// will return all ways to combine this word</span>
-    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> <span style="color: #0000FF">helper</span>(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> wordDict, unordered_map<span style="color: #666666">&lt;</span>string, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&gt;&amp;</span> m) {
-        <span style="color: #008000; font-weight: bold">if</span> (m.<span style="color: #7D9029">count</span>(s)) <span style="color: #008000; font-weight: bold">return</span> m<span style="color: #666666">[</span>s<span style="color: #666666">]</span>;
-        <span style="color: #008000; font-weight: bold">if</span> (s.<span style="color: #7D9029">empty</span>()) <span style="color: #008000; font-weight: bold">return</span> {<span style="color: #BA2121">&quot;&quot;</span>};
+    vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> helper(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> wordDict, unordered_map<span style="color: #666666">&lt;</span>string, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&gt;&amp;</span> m) {
+        <span style="color: #008000; font-weight: bold">if</span> (m.count(s)) <span style="color: #008000; font-weight: bold">return</span> m[s];
+        <span style="color: #008000; font-weight: bold">if</span> (s.empty()) <span style="color: #008000; font-weight: bold">return</span> {<span style="color: #BA2121">&quot;&quot;</span>};
         vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> res;
-        <span style="color: #008000; font-weight: bold">for</span> (string word : wordDict) { <span style="color: #408080; font-style: italic">// try all words</span>
-            <span style="color: #008000; font-weight: bold">if</span> (s.<span style="color: #7D9029">substr</span>(<span style="color: #666666">0</span>, word.<span style="color: #7D9029">size</span>()) <span style="color: #666666">!=</span> word) <span style="color: #008000; font-weight: bold">continue</span>;
-            vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> rem <span style="color: #666666">=</span> helper(s.<span style="color: #7D9029">substr</span>(word.<span style="color: #7D9029">size</span>()), wordDict, m);
-            <span style="color: #008000; font-weight: bold">for</span> (string str : rem) {
-                res.<span style="color: #7D9029">push_back</span>(word <span style="color: #666666">+</span> (str.<span style="color: #7D9029">empty</span>() <span style="color: #666666">?</span> <span style="color: #BA2121">&quot;&quot;</span> : <span style="color: #BA2121">&quot; &quot;</span>) <span style="color: #666666">+</span> str);
+        <span style="color: #008000; font-weight: bold">for</span> (string <span style="color: #A0A000">word</span> : wordDict) { <span style="color: #408080; font-style: italic">// try all words</span>
+            <span style="color: #008000; font-weight: bold">if</span> (s.substr(<span style="color: #666666">0</span>, word.size()) <span style="color: #666666">!=</span> word) <span style="color: #008000; font-weight: bold">continue</span>;
+            vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;</span> rem <span style="color: #666666">=</span> helper(s.substr(word.size()), wordDict, m);
+            <span style="color: #008000; font-weight: bold">for</span> (string <span style="color: #A0A000">str</span> : rem) {
+                res.push_back(word <span style="color: #666666">+</span> (str.empty() <span style="color: #666666">?</span> <span style="color: #BA2121">&quot;&quot;</span> <span style="color: #666666">:</span> <span style="color: #BA2121">&quot; &quot;</span>) <span style="color: #666666">+</span> str);
             }
         }
-        <span style="color: #008000; font-weight: bold">return</span> m<span style="color: #666666">[</span>s<span style="color: #666666">]</span> <span style="color: #666666">=</span> res;
+        <span style="color: #008000; font-weight: bold">return</span> m[s] <span style="color: #666666">=</span> res;
     }
 };
 </code></pre></div>
@@ -3329,7 +3341,7 @@ After memo:
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2022</span>
     
   </small>
 </div>

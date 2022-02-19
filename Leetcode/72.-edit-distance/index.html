@@ -1687,18 +1687,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../152.-maximum-product-subarray/" class="md-nav__link">
-        Maximum Product Subarray
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../164.-Maximum-Gap/" class="md-nav__link">
         Maximum Gap
       </a>
@@ -1713,6 +1701,18 @@
     <li class="md-nav__item">
       <a href="../167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
         Two Sum II - Input Array Is Sorted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1675.-Minimize-Deviation-in-Array/" class="md-nav__link">
+        Minimize Deviation in Array
       </a>
     </li>
   
@@ -1821,6 +1821,18 @@
     <li class="md-nav__item">
       <a href="../212.-word-search-ii/" class="md-nav__link">
         Word Search II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2141.-Maximum-Running-Time-of-N-Computers/" class="md-nav__link">
+        Maximum Running Time of N Computers
       </a>
     </li>
   
@@ -1987,7 +1999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-nav__link">
+      <a href="../3.-Longest-Substring-Without-Repeating-Characters/" class="md-nav__link">
         Longest Substring Without Repeating Characters
       </a>
     </li>
@@ -2073,6 +2085,18 @@
     <li class="md-nav__item">
       <a href="../4.-median-of-two-sorted-arrays/" class="md-nav__link">
         Median of Two Sorted Arrays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../402.-Remove-K-Digits/" class="md-nav__link">
+        Remove K Digits
       </a>
     </li>
   
@@ -2502,18 +2526,6 @@
     <li class="md-nav__item">
       <a href="../952.-largest-component-size-by-common-factor/" class="md-nav__link">
         Largest Component Size by Common Factor
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" class="md-nav__link">
-        Unique Binary Search Trees -- My Method
       </a>
     </li>
   
@@ -3124,8 +3136,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" class="md-nav__link">
-        Cs231n lecture 3   loss function
+      <a href="../../machine%20learning/cs231n-lecture-3-loss-function/" class="md-nav__link">
+        Cs231n lecture 3 loss function
       </a>
     </li>
   
@@ -3136,8 +3148,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" class="md-nav__link">
-        Cs231n lecture 4   introduction to neural networks
+      <a href="../../machine%20learning/cs231n-lecture-4-introduction-to-neural-networks/" class="md-nav__link">
+        Cs231n lecture 4 introduction to neural networks
       </a>
     </li>
   
@@ -3148,8 +3160,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" class="md-nav__link">
-        Cs231n lecture 5   convolutional neural networks
+      <a href="../../machine%20learning/cs231n-lecture-5-convolutional-neural-networks/" class="md-nav__link">
+        Cs231n lecture 5 convolutional neural networks
       </a>
     </li>
   
@@ -3160,8 +3172,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" class="md-nav__link">
-        Cs231n lecture 6   training neural networks i
+      <a href="../../machine%20learning/cs231n-lecture-6-training-neural-networks-i/" class="md-nav__link">
+        Cs231n lecture 6 training neural networks i
       </a>
     </li>
   
@@ -3264,7 +3276,7 @@ exection -&gt; execution (insert &#39;u&#39;)
 <li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>dp[i][j]: # of ops to transfer word1[0:i] to word2[0:j]</p>
+<p><code>dp[i][j]</code>: # of ops to transfer <code>word1[0:i]</code> to <code>word2[0:j]</code></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">int</span> <span style="color: #0000FF">dp_sol</span>(string word1, string word2){
     <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> word1.size(), n <span style="color: #666666">=</span> word2.size();
@@ -3279,9 +3291,13 @@ exection -&gt; execution (insert &#39;u&#39;)
 
     <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;=</span> m; <span style="color: #666666">++</span>i) {
         <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&lt;=</span> n; <span style="color: #666666">++</span>j) {
-            <span style="color: #008000; font-weight: bold">if</span> (word1[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">==</span> word2[j <span style="color: #666666">-</span> <span style="color: #666666">1</span>]) { <span style="color: #408080; font-style: italic">// nothing needs to be changed, because they are the same</span>
+            <span style="color: #408080; font-style: italic">// nothing needs to be changed, because they are the same</span>
+            <span style="color: #008000; font-weight: bold">if</span> (word1[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">==</span> word2[j <span style="color: #666666">-</span> <span style="color: #666666">1</span>]) { 
                 dp[i][j] <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
-            } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #408080; font-style: italic">// now you can either remove previous one from word1, add is equal to remove one from word2, or replace current one (no change)</span>
+            } <span style="color: #008000; font-weight: bold">else</span> { 
+            <span style="color: #408080; font-style: italic">// now you can either remove previous one from word1, </span>
+            <span style="color: #408080; font-style: italic">// add is equal to remove one from word2, </span>
+            <span style="color: #408080; font-style: italic">// or replace current one (no change)</span>
                 dp[i][j] <span style="color: #666666">=</span> min(dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>], min(dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j], dp[i][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>])) <span style="color: #666666">+</span> <span style="color: #666666">1</span>; <span style="color: #408080; font-style: italic">// +1 for the current op</span>
             }
         }
@@ -3297,7 +3313,7 @@ exection -&gt; execution (insert &#39;u&#39;)
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 5, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2022</span>
     
   </small>
 </div>

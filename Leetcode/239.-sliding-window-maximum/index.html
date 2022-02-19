@@ -1687,18 +1687,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../152.-maximum-product-subarray/" class="md-nav__link">
-        Maximum Product Subarray
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../164.-Maximum-Gap/" class="md-nav__link">
         Maximum Gap
       </a>
@@ -1713,6 +1701,18 @@
     <li class="md-nav__item">
       <a href="../167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
         Two Sum II - Input Array Is Sorted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1675.-Minimize-Deviation-in-Array/" class="md-nav__link">
+        Minimize Deviation in Array
       </a>
     </li>
   
@@ -1821,6 +1821,18 @@
     <li class="md-nav__item">
       <a href="../212.-word-search-ii/" class="md-nav__link">
         Word Search II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2141.-Maximum-Running-Time-of-N-Computers/" class="md-nav__link">
+        Maximum Running Time of N Computers
       </a>
     </li>
   
@@ -2046,7 +2058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-nav__link">
+      <a href="../3.-Longest-Substring-Without-Repeating-Characters/" class="md-nav__link">
         Longest Substring Without Repeating Characters
       </a>
     </li>
@@ -2132,6 +2144,18 @@
     <li class="md-nav__item">
       <a href="../4.-median-of-two-sorted-arrays/" class="md-nav__link">
         Median of Two Sorted Arrays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../402.-Remove-K-Digits/" class="md-nav__link">
+        Remove K Digits
       </a>
     </li>
   
@@ -2516,18 +2540,6 @@
     <li class="md-nav__item">
       <a href="../952.-largest-component-size-by-common-factor/" class="md-nav__link">
         Largest Component Size by Common Factor
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" class="md-nav__link">
-        Unique Binary Search Trees -- My Method
       </a>
     </li>
   
@@ -3138,8 +3150,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" class="md-nav__link">
-        Cs231n lecture 3   loss function
+      <a href="../../machine%20learning/cs231n-lecture-3-loss-function/" class="md-nav__link">
+        Cs231n lecture 3 loss function
       </a>
     </li>
   
@@ -3150,8 +3162,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" class="md-nav__link">
-        Cs231n lecture 4   introduction to neural networks
+      <a href="../../machine%20learning/cs231n-lecture-4-introduction-to-neural-networks/" class="md-nav__link">
+        Cs231n lecture 4 introduction to neural networks
       </a>
     </li>
   
@@ -3162,8 +3174,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" class="md-nav__link">
-        Cs231n lecture 5   convolutional neural networks
+      <a href="../../machine%20learning/cs231n-lecture-5-convolutional-neural-networks/" class="md-nav__link">
+        Cs231n lecture 5 convolutional neural networks
       </a>
     </li>
   
@@ -3174,8 +3186,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" class="md-nav__link">
-        Cs231n lecture 6   training neural networks i
+      <a href="../../machine%20learning/cs231n-lecture-6-training-neural-networks-i/" class="md-nav__link">
+        Cs231n lecture 6 training neural networks i
       </a>
     </li>
   
@@ -3305,14 +3317,14 @@ Output: [4]
 <li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 <h2 id="analysis-using-deque">Analysis: using Deque<a class="headerlink" href="#analysis-using-deque" title="Permanent link">&para;</a></h2>
-<p>We need to maintain a queue, where the front stores the current max in the sliding window. When we want to push a new element to the queue, we first need to kick off all the elements that are not in the range (from i to i + k - 1), and then we need to keep <code>pop_back()</code> the element(s) that is/are less than current nums[i]. In order to achieve the <code>pop_front()</code> and <code>push_back()</code> operations, we need to use <code>std::dequeue</code> data structure in order to achieve these two operations running in <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>.</p>
+<p>We need to maintain a queue, where the front stores the current max in the sliding window. When we want to push a new element to the queue, we first need to kick off all the elements that are not in the range (from i to i + k - 1), and then we need to keep <code>pop_back()</code> the element(s) that is/are less than current <code>nums[i]</code>. In order to achieve the <code>pop_front()</code> and <code>push_back()</code> operations, we need to use <code>std::dequeue</code> data structure in order to achieve these two operations running in <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>.</p>
 <ul>
 <li>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> since each element can get in and get out of the deque <strong>only</strong> once</li>
 <li>Space: <span><span class="MathJax_Preview">O(k)</span><script type="math/tex">O(k)</script></span> the maximum size of the deque is having all the window size elements (e.g. a decreasing array-like 5,4,3,2,1, so each element will be pushed into the deque).</li>
 </ul>
 <h2 id="code-1-using-deque">Code 1: using Deque<a class="headerlink" href="#code-1-using-deque" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
-<span style="color: #A0A000">public</span>:
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> maxSlidingWindow(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> k) {
         deque<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> dq;
         vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
@@ -3344,8 +3356,8 @@ Output: [4]
 <li>Space: same</li>
 </ul>
 <h2 id="code-2-montonic-deque">Code 2: Montonic Deque<a class="headerlink" href="#code-2-montonic-deque" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class MonoQueue {
-<span style="color: #A0A000">public</span>:
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MonoQueue</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     <span style="color: #B00040">void</span> push(<span style="color: #B00040">int</span> e) {
         <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">!</span>data_.empty() <span style="color: #666666">&amp;&amp;</span> e <span style="color: #666666">&gt;</span> data_.back()) {
             data_.pop_back();
@@ -3360,11 +3372,11 @@ Output: [4]
     <span style="color: #B00040">int</span> max() <span style="color: #008000; font-weight: bold">const</span> { 
         <span style="color: #008000; font-weight: bold">return</span> data_.front(); 
     }
-<span style="color: #A0A000">private</span>:
+<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span>
     deque<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> data_;
 };
-class Solution {
-<span style="color: #A0A000">public</span>:
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
     vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> maxSlidingWindow(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span> nums, <span style="color: #B00040">int</span> k) {
         MonoQueue q;
         vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> ans;
@@ -3388,7 +3400,7 @@ class Solution {
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2022</span>
     
   </small>
 </div>

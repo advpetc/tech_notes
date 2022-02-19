@@ -1687,18 +1687,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../152.-maximum-product-subarray/" class="md-nav__link">
-        Maximum Product Subarray
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../164.-Maximum-Gap/" class="md-nav__link">
         Maximum Gap
       </a>
@@ -1713,6 +1701,18 @@
     <li class="md-nav__item">
       <a href="../167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
         Two Sum II - Input Array Is Sorted
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1675.-Minimize-Deviation-in-Array/" class="md-nav__link">
+        Minimize Deviation in Array
       </a>
     </li>
   
@@ -1821,6 +1821,18 @@
     <li class="md-nav__item">
       <a href="../212.-word-search-ii/" class="md-nav__link">
         Word Search II
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2141.-Maximum-Running-Time-of-N-Computers/" class="md-nav__link">
+        Maximum Running Time of N Computers
       </a>
     </li>
   
@@ -1987,7 +1999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.%20Longest%20Substring%20Without%20Repeating%20Characters/" class="md-nav__link">
+      <a href="../3.-Longest-Substring-Without-Repeating-Characters/" class="md-nav__link">
         Longest Substring Without Repeating Characters
       </a>
     </li>
@@ -2073,6 +2085,18 @@
     <li class="md-nav__item">
       <a href="../4.-median-of-two-sorted-arrays/" class="md-nav__link">
         Median of Two Sorted Arrays
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../402.-Remove-K-Digits/" class="md-nav__link">
+        Remove K Digits
       </a>
     </li>
   
@@ -2542,18 +2566,6 @@
     <li class="md-nav__item">
       <a href="../952.-largest-component-size-by-common-factor/" class="md-nav__link">
         Largest Component Size by Common Factor
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../96.-unique-binary-search-trees-%E2%80%94-my-method/" class="md-nav__link">
-        Unique Binary Search Trees -- My Method
       </a>
     </li>
   
@@ -3164,8 +3176,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-3---loss-function/" class="md-nav__link">
-        Cs231n lecture 3   loss function
+      <a href="../../machine%20learning/cs231n-lecture-3-loss-function/" class="md-nav__link">
+        Cs231n lecture 3 loss function
       </a>
     </li>
   
@@ -3176,8 +3188,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-4---introduction-to-neural-networks/" class="md-nav__link">
-        Cs231n lecture 4   introduction to neural networks
+      <a href="../../machine%20learning/cs231n-lecture-4-introduction-to-neural-networks/" class="md-nav__link">
+        Cs231n lecture 4 introduction to neural networks
       </a>
     </li>
   
@@ -3188,8 +3200,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-5---convolutional-neural-networks/" class="md-nav__link">
-        Cs231n lecture 5   convolutional neural networks
+      <a href="../../machine%20learning/cs231n-lecture-5-convolutional-neural-networks/" class="md-nav__link">
+        Cs231n lecture 5 convolutional neural networks
       </a>
     </li>
   
@@ -3200,8 +3212,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../machine%20learning/cs231n-lecture-6---training-neural-networks-i/" class="md-nav__link">
-        Cs231n lecture 6   training neural networks i
+      <a href="../../machine%20learning/cs231n-lecture-6-training-neural-networks-i/" class="md-nav__link">
+        Cs231n lecture 6 training neural networks i
       </a>
     </li>
   
@@ -3336,7 +3348,7 @@ Output: [[1]]
 </ul>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <h3 id="traditional-dfs">Traditional DFS<a class="headerlink" href="#traditional-dfs" title="Permanent link">&para;</a></h3>
-<p>There are two recursive ways to solve this problem. One way is the traditional DFS with the help of using an additional memory to record any existed configuration. For each iteration, we use an index to locate which index we are going to place our number, and the base case is when this index reaches the end. When placing our number to this index, we should try out all the numbers from <code>nums[0]</code> to <code>nums[end]</code>, and compare them with the current visited memory to decide if we can put that number to the index. This process for each iteration will take up <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> complexity, and there will be <code>n!</code> results at the bottom level, so the total time complexity is $O(n \times n!) $</p>
+<p>There are two recursive ways to solve this problem. One way is the traditional DFS with the help of using an additional memory to record any existed configuration. For each iteration, we use an index to locate which index we are going to place our number, and the base case is when this index reaches the end. When placing our number to this index, we should try out all the numbers from <code>nums[0]</code> to <code>nums[end]</code>, and compare them with the current visited memory to decide if we can put that number to the index. This process for each iteration will take up <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> complexity, and there will be <code>n!</code> results at the bottom level, so the total time complexity is <span><span class="MathJax_Preview">O(n \times n!)</span><script type="math/tex">O(n \times n!)</script></span></p>
 <h3 id="using-swap">Using Swap<a class="headerlink" href="#using-swap" title="Permanent link">&para;</a></h3>
 <p>We could also use a different way to generate each configuration by using a swap operation. For each iteration, we require an index to represent: from <code>nums[0]</code> to <code>nums[i]</code> we will maintain the current order, and starting from <code>i + 1</code> we will start to swap with each <code>j</code> where <code>j</code> is in <code>[i + 1, n)</code> , so that it could help to eliminate the visited memory. However, the time complexity is still <span><span class="MathJax_Preview">O(n \times n!)</span><script type="math/tex">O(n \times n!)</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
@@ -3401,7 +3413,7 @@ Output: [[1]]
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2022</span>
     
   </small>
 </div>
