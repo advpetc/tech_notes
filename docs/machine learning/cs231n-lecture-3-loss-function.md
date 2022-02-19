@@ -44,8 +44,8 @@ The min loss is 0 and max loss is +inf
 
 ## Finding the lowest score (with respect to W) -- Optimization
 
-1. ramdon (never use)
-2. find the slope (using gradient: numberic for debugging and analytic for calculating)
+1. random (never use)
+2. find the slope (using gradient: numeric for debugging and analytic for calculating)
 
 ### Gradient Descent
 

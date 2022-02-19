@@ -1,5 +1,5 @@
 ## Overview
-1. One time setup: activation functions, preprocessing, weight initialization, regularization, gradient checking
+1. One-time setup: activation functions, preprocessing, weight initialization, regularization, gradient checking
 2. Training dynamics: babysitting the learning process, parameter updates, hyperparameter optimization
 3. Evaluation: model ensembles
 
@@ -57,7 +57,7 @@
 - Does not saturate
 - Computationally efficient
 - Converge much faster than sigmoid/tanh in practice
-- will not "die"  (no platu)
+- will not "die"  (no plateau)
 
 #### Exponential Linear Unit (ELU)
 
@@ -68,7 +68,7 @@ f(x)= alpha (exp(x)-1) if x <= 0
 
 - all benefits of ReLU
 - closer to zero mean outputs
-- negative sarturation regime compared with Leaky ReLU adds some robustness to noise
+- negative saturation regime compared with Leaky ReLU adds some robustness to noise
 - problem 1: computation requires exp()
 
 #### Conclusion

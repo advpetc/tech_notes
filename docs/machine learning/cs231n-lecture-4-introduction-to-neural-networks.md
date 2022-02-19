@@ -2,7 +2,7 @@
 
 ![Screen Shot 2020-04-29 at 8.25.32 PM.png](resources/694CE60B58AE2525CF1FE633A6CE7880.png)
 
-## Backpropagation: used for finding gradient
+## Backpropagation: used for finding the gradient
 
 e.g.
 \[f(x,y,z) = (x + y) z\]
@@ -31,7 +31,7 @@ Then find the following in sequences:
 4. \[\frac{\partial f}{\partial x} = \frac{\partial f}{\partial q} \frac{\partial q}{\partial x} = -4 \times 1 = -4 \] -- using chain rule
 
 Using Chain rule:
-Use upstreaming compound and multiple with the local compound to derive the desire partial derivative
+Use upstreaming compound and multiple with the local compound to derive the desired partial derivative
 
 For each node, we just need "local gradient" which is the new upstream for the next level node.
 
@@ -57,7 +57,7 @@ Because we already know the gradient for sigmoid function, we can just replace t
 
 Jacobian Matrix for derivative for each vector.
 
-However, we don't need to calculate Jacobian matrix, because each x in the row only affect the result element in the same row. Thus the matrix is diagonal.
+However, we don't need to calculate the Jacobian matrix, because each x in the row only affects the result element in the same row. Thus the matrix is diagonal.
 
 ![Screen Shot 2020-04-29 at 9.25.24 PM.png](resources/7672AA5D5DCADE68F2E7634AFED07A31.png)
 

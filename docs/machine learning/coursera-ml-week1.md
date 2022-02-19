@@ -1,13 +1,13 @@
 ## Coursera Machine Learning — Week 1
 
-Course by Adrew Ng from Coursera.org
+Course by Andrew Ng from Coursera.org
 
-## Definition of Machine Learing
+## Definition of Machine Learning
 
 * Field of study that gives computers the ability to learn without being explicitly programmed.
 *  A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.
 
-Suppose your email program watches which emails you do or do not mark as spam, and based on that learns how to better filter spam. What is the task T in this setting?
+Suppose your email program watches which emails you do or do not mark as spam, and based on that learns how to better filter spam. What is task T in this setting?
 
 ans: Classifying emails as spam or not spam.
 
@@ -23,15 +23,15 @@ Housing price prediction:  -> predict price given size![Screen Shot 2021-02-24 a
 
 **classification problem**
 
-Breast cancer (malignant or benign):  given size predict if is malignant or benign, or the possibility of being malignant. Here tumer size called **attribute** 
+Breast cancer (malignant or benign):  given size predict if is malignant or benign, or the possibility of being malignant. Here tumor size called **attribute** 
 
 ![Screen Shot 2021-02-24 at 9.06.05 AM](resources/2.png)
 
 There could be more than one attribute, such as age, etc.
 
-## Unsupervied Learning
+Unsupervised Learning
 
-The given data doesn't have any labels (there is no labelled data avalible), and find the structure from the data.
+The given data doesn't have any labels (there is no labeled data avalible), and find the structure from the data.
 
 **Google News**: look up stories and categorize
 
