@@ -22,11 +22,23 @@ theme:
   feature:
     tabs: true
   custom_dir: overrides
+  palette: 
+  - scheme: default
+    toggle:
+      icon: material/toggle-switch-off-outline 
+      name: Switch to dark mode
+  - scheme: slate 
+    toggle:
+      icon: material/toggle-switch
+      name: Switch to light mode
 
 extra:
   pagetime: 'on'
   manifest: 'assets/images/site.webmanifest'
   disqus: 'tech-notes-2'
+  analytics:
+      provider: google
+      property: G-304400452
 extra_css:
   - css/extra.css
 extra_javascript:
