@@ -17,6 +17,6 @@
   * M ^ e mod n
   * the result **C** is the encrypted message
 
-## Decrypt C using private key
+## Decrypt C using a private key
 1. M = c ^ d mod n
 2. Sometimes it's being called the signature sign
