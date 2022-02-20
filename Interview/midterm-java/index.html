@@ -10,14 +10,13 @@
         <meta name="description" content="Keep track of all the learning">
       
       
-      
         <meta name="author" content="Pete">
       
       
         <link rel="canonical" href="https://peterchen.xyz/Interview/midterm-java/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.0.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
     
     
       
@@ -25,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -42,21 +41,26 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Ubuntu Mono";--md-code-font-family:""}</style>
+        <style>:root{--md-text-font:"Ubuntu Mono";--md-code-font:""}</style>
       
-    
-    
-      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
     
       <link rel="stylesheet" href="../../css/extra.css">
     
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-168812075-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-304400452"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-304400452",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-304400452"></script>
+
+
     
     
   </head>
@@ -64,12 +68,16 @@
   
     
     
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
       
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -86,7 +94,10 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+    
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Tech Notes" class="md-header__button md-logo" aria-label="Tech Notes" data-md-component="logo">
       
@@ -112,26 +123,50 @@
         </div>
       </div>
     </div>
-    <div class="md-header__options">
-      
-    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -148,11 +183,10 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     advpetc/Tech_Notes
@@ -161,11 +195,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -190,11 +227,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     advpetc/Tech_Notes
@@ -247,10 +283,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
-      <label class="md-nav__link" for="__nav_3">
-        Acwing
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Acwing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Acwing" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
@@ -259,6 +299,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -269,8 +310,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -281,8 +324,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -293,8 +338,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -305,8 +352,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -317,8 +366,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -329,8 +380,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -341,8 +394,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -353,8 +408,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -365,6 +422,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -385,10 +443,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
-      <label class="md-nav__link" for="__nav_4">
-        Books
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Books
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Books" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
@@ -397,6 +459,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -407,8 +470,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -419,8 +484,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -431,8 +498,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -443,8 +512,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -455,8 +526,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -467,8 +540,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -479,8 +554,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -491,6 +568,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -511,10 +589,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="__nav_5">
-        Google Kick Start
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Google Kick Start
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Google Kick Start" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
@@ -523,6 +605,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -533,8 +616,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -545,8 +630,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -557,6 +644,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -579,10 +667,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
-      <label class="md-nav__link" for="__nav_6">
-        Interview
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Interview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Interview" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
@@ -591,6 +683,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -601,8 +694,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -613,8 +708,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -625,8 +722,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -637,8 +736,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -649,8 +750,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -661,8 +764,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -673,8 +778,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -685,8 +792,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -697,8 +806,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -709,8 +820,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -721,8 +834,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -733,8 +848,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -745,8 +862,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -757,8 +876,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -769,8 +890,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -781,8 +904,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -793,8 +918,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -805,8 +932,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -817,8 +946,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -829,8 +960,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -841,8 +974,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -853,8 +988,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -865,8 +1002,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -877,8 +1016,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -889,8 +1030,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -901,8 +1044,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -913,8 +1058,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -925,8 +1072,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -937,8 +1086,10 @@
     </li>
   
 
+            
           
             
+              
   
   
     
@@ -947,6 +1098,7 @@
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
       
         
       
@@ -961,7 +1113,9 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1095,8 +1249,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1107,8 +1263,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1119,8 +1277,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1131,8 +1291,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1143,8 +1305,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1155,8 +1319,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1167,8 +1333,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1179,8 +1347,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1191,8 +1361,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1203,8 +1375,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1215,8 +1389,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1227,8 +1403,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1239,8 +1417,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1251,8 +1431,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1263,8 +1445,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1275,8 +1459,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1287,8 +1473,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1299,6 +1487,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1319,10 +1508,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="__nav_7">
-        Java
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Java
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Java" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
@@ -1331,6 +1524,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1341,8 +1535,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1353,8 +1549,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1365,8 +1563,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1377,8 +1577,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1389,8 +1591,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1401,8 +1605,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1413,6 +1619,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1433,10 +1640,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
-      <label class="md-nav__link" for="__nav_8">
-        Leetcode
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Leetcode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Leetcode" data-md-level="1">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
@@ -1445,6 +1656,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1455,8 +1667,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1467,8 +1681,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1479,8 +1695,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1491,8 +1709,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1503,8 +1723,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1515,8 +1737,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1527,8 +1751,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1539,8 +1765,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1551,8 +1779,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1563,8 +1793,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1575,8 +1807,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1587,8 +1821,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1599,8 +1835,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1611,8 +1849,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1623,8 +1863,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1635,8 +1877,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1647,8 +1891,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1659,8 +1905,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1671,8 +1919,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1683,8 +1933,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1695,8 +1947,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1707,8 +1961,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1719,8 +1975,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1731,8 +1989,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1743,8 +2003,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1755,8 +2017,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1767,8 +2031,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1779,8 +2045,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1791,8 +2059,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1803,8 +2073,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1815,8 +2087,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1827,8 +2101,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1839,8 +2115,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1851,8 +2129,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1863,8 +2143,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1875,8 +2157,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1887,8 +2171,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1899,8 +2185,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1911,8 +2199,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1923,8 +2213,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1935,8 +2227,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1947,8 +2241,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1959,8 +2255,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1971,8 +2269,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1983,8 +2283,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1995,8 +2297,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2007,8 +2311,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2019,8 +2325,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2031,8 +2339,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2043,8 +2353,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2055,8 +2367,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2067,8 +2381,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2079,8 +2395,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2091,8 +2409,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2103,8 +2423,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2115,8 +2437,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2127,8 +2451,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2139,8 +2465,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2151,8 +2479,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2163,8 +2493,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2175,8 +2507,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2187,8 +2521,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2199,8 +2535,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2211,8 +2549,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2223,8 +2563,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2235,8 +2577,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2247,8 +2591,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2259,8 +2605,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2271,8 +2619,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2283,8 +2633,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2295,8 +2647,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2307,8 +2661,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2319,8 +2675,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2331,8 +2689,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2343,8 +2703,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2355,8 +2717,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2367,8 +2731,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2379,8 +2745,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2391,8 +2759,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2403,8 +2773,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2415,8 +2787,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2427,8 +2801,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2439,8 +2815,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2451,8 +2829,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2463,8 +2843,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2475,8 +2857,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2487,8 +2871,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2499,8 +2885,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2511,8 +2899,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2523,8 +2913,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2535,8 +2927,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2547,8 +2941,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2559,8 +2955,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2571,8 +2969,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2583,8 +2983,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2595,8 +2997,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2607,8 +3011,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2619,8 +3025,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2631,8 +3039,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2643,8 +3053,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2655,8 +3067,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2667,8 +3081,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2679,8 +3095,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2691,8 +3109,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2703,8 +3123,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2715,6 +3137,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2735,10 +3158,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
-      <label class="md-nav__link" for="__nav_9">
-        LibreOJ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          LibreOJ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="LibreOJ" data-md-level="1">
         <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
@@ -2747,6 +3174,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2757,8 +3185,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2769,8 +3199,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2781,8 +3213,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2793,6 +3227,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2813,10 +3248,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
-      <label class="md-nav__link" for="__nav_10">
-        Misc
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Misc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Misc" data-md-level="1">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
@@ -2825,6 +3264,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2835,8 +3275,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2847,6 +3289,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2867,10 +3310,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
-      <label class="md-nav__link" for="__nav_11">
-        Operating System
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Operating System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Operating System" data-md-level="1">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
@@ -2879,6 +3326,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2889,6 +3337,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2909,10 +3358,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
-      <label class="md-nav__link" for="__nav_12">
-        Python
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Python" data-md-level="1">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
@@ -2921,6 +3374,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2931,6 +3385,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2951,10 +3406,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
       
-      <label class="md-nav__link" for="__nav_13">
-        C
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          C
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="C" data-md-level="1">
         <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
@@ -2963,6 +3422,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2973,8 +3433,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2985,8 +3447,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2997,8 +3461,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3009,8 +3475,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3021,8 +3489,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3033,6 +3503,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3053,10 +3524,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
       
-      <label class="md-nav__link" for="__nav_14">
-        Golang
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Golang" data-md-level="1">
         <label class="md-nav__title" for="__nav_14">
           <span class="md-nav__icon md-icon"></span>
@@ -3065,6 +3540,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3075,8 +3551,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3087,8 +3565,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3099,8 +3579,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3111,6 +3593,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3131,10 +3614,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
       
-      <label class="md-nav__link" for="__nav_15">
-        iOS
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          iOS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="iOS" data-md-level="1">
         <label class="md-nav__title" for="__nav_15">
           <span class="md-nav__icon md-icon"></span>
@@ -3143,6 +3630,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3153,8 +3641,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3165,8 +3655,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3177,8 +3669,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3189,6 +3683,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3209,10 +3704,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
       
-      <label class="md-nav__link" for="__nav_16">
-        Machine learning
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Machine learning" data-md-level="1">
         <label class="md-nav__title" for="__nav_16">
           <span class="md-nav__icon md-icon"></span>
@@ -3221,6 +3720,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3231,8 +3731,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3243,8 +3745,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3255,8 +3759,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3267,8 +3773,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3279,6 +3787,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3298,7 +3807,9 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -3437,12 +3948,13 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Interview/midterm-java.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="midterm">Midterm<a class="headerlink" href="#midterm" title="Permanent link">&para;</a></h1>
+<a href="https://github.com/advpetc/tech_notes/edit/master/docs/Interview/midterm-java.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="midterm">Midterm<a class="headerlink" href="#midterm" title="Permanent link">&para;</a></h1>
 <h2 id="p1-n-queens">P1: N queens<a class="headerlink" href="#p1-n-queens" title="Permanent link">&para;</a></h2>
 <p>Find all valid ways of putting N Queens on an N * N chessboard so that no two Queens can attack each other (two queens can attack each other if they are on the same row/column or same diagonal line). </p>
 <p>You can define your own way of how to print the solution, e.g. using a size N array/List to record which column the queen occupies on each row</p>
@@ -3463,8 +3975,8 @@
   - Base case: if we can successfully reach the last row with all the N placement of the queens, then the current configuration is one of the solution.
 3. Recursion Tree: <img alt="IMG_F5A2347185F0-1.jpeg" src="../resources/197480C129B5000B97ADDB0EF3442ED4.jpg" /></p>
 <p>Complexity:
-- Time: <span><span class="MathJax_Preview">O(N^N)</span><script type="math/tex">O(N^N)</script></span>
-- Space: <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></p>
+- Time: <span class="arithmatex"><span class="MathJax_Preview">O(N^N)</span><script type="math/tex">O(N^N)</script></span>
+- Space: <span class="arithmatex"><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span> <span style="color: #0000FF; font-weight: bold">test</span>;
 
@@ -3472,94 +3984,94 @@
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.List</span>;
 
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">test</span> {
-    <span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">     * convert int[] to List&lt;Integer&gt;: List can track the size of the container</span>
-<span style="color: #408080; font-style: italic">     * @param array</span>
-<span style="color: #408080; font-style: italic">     * @return resulting List&lt;Integer&gt;</span>
-<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">     * convert int[] to List&lt;Integer&gt;: List can track the size of the container</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param array</span>
+<span style="color: #3D7B7B; font-style: italic">     * @return resulting List&lt;Integer&gt;</span>
+<span style="color: #3D7B7B; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">private</span> List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> <span style="color: #0000FF">toList</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> array) {
         List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> list <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;</span>();
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> num : array) list.<span style="color: #7D9029">add</span>(num);
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> num : array) list.<span style="color: #687822">add</span>(num);
         <span style="color: #008000; font-weight: bold">return</span> list;
     }
-    <span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">     * check if the current placement is valid or not</span>
-<span style="color: #408080; font-style: italic">     * @param n</span>
-<span style="color: #408080; font-style: italic">     * @param row</span>
-<span style="color: #408080; font-style: italic">     * @param column</span>
-<span style="color: #408080; font-style: italic">     * @param usedColumns</span>
-<span style="color: #408080; font-style: italic">     * @param usedDiagonals</span>
-<span style="color: #408080; font-style: italic">     * @param usedAntiDiagonals</span>
-<span style="color: #408080; font-style: italic">     * @return true: is valid, false: invalid</span>
-<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">     * check if the current placement is valid or not</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param n</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param row</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param column</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedColumns</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedDiagonals</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedAntiDiagonals</span>
+<span style="color: #3D7B7B; font-style: italic">     * @return true: is valid, false: invalid</span>
+<span style="color: #3D7B7B; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">valid</span>(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> column, 
             <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedColumns, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedDiagonals, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedAntiDiagonals) {
         <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">!</span>usedColumns<span style="color: #666666">[</span>column<span style="color: #666666">]</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>usedDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">+</span> row<span style="color: #666666">]</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>usedAntiDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">-</span> row <span style="color: #666666">+</span> n <span style="color: #666666">-</span> <span style="color: #666666">1]</span>;
     }
-    <span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">     * mark the current placement (if is valid)</span>
-<span style="color: #408080; font-style: italic">     * @param n</span>
-<span style="color: #408080; font-style: italic">     * @param row</span>
-<span style="color: #408080; font-style: italic">     * @param column</span>
-<span style="color: #408080; font-style: italic">     * @param usedColumns</span>
-<span style="color: #408080; font-style: italic">     * @param usedDiagonals</span>
-<span style="color: #408080; font-style: italic">     * @param usedAntiDiagonals</span>
-<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">     * mark the current placement (if is valid)</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param n</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param row</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param column</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedColumns</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedDiagonals</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedAntiDiagonals</span>
+<span style="color: #3D7B7B; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">mark</span>(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> column, 
             <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedColumns, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedDiagonals, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedAntiDiagonals) {
         usedColumns<span style="color: #666666">[</span>column<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
         usedDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">+</span> row<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
         usedAntiDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">-</span> row <span style="color: #666666">+</span> n <span style="color: #666666">-</span> <span style="color: #666666">1]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
     }
-    <span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">     * unmark the current placement</span>
-<span style="color: #408080; font-style: italic">     * @param n</span>
-<span style="color: #408080; font-style: italic">     * @param row</span>
-<span style="color: #408080; font-style: italic">     * @param column</span>
-<span style="color: #408080; font-style: italic">     * @param usedColumns</span>
-<span style="color: #408080; font-style: italic">     * @param usedDiagonals</span>
-<span style="color: #408080; font-style: italic">     * @param usedAntiDiagonals</span>
-<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">     * unmark the current placement</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param n</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param row</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param column</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedColumns</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedDiagonals</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedAntiDiagonals</span>
+<span style="color: #3D7B7B; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">unMark</span>(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> column, 
             <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedColumns, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedDiagonals, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedAntiDiagonals) {
         usedColumns<span style="color: #666666">[</span>column<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>;
         usedDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">+</span> row<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>;
         usedAntiDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">-</span> row <span style="color: #666666">+</span> n <span style="color: #666666">-</span> <span style="color: #666666">1]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>;
     }
-    <span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">     * main DFS logic to iterate through all the rows and valid columns</span>
-<span style="color: #408080; font-style: italic">     * @param n</span>
-<span style="color: #408080; font-style: italic">     * @param row</span>
-<span style="color: #408080; font-style: italic">     * @param curr</span>
-<span style="color: #408080; font-style: italic">     * @param result</span>
-<span style="color: #408080; font-style: italic">     * @param usedColumns</span>
-<span style="color: #408080; font-style: italic">     * @param usedDiagonals</span>
-<span style="color: #408080; font-style: italic">     * @param usedAntiDiagonals</span>
-<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">     * main DFS logic to iterate through all the rows and valid columns</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param n</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param row</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param curr</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param result</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedColumns</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedDiagonals</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param usedAntiDiagonals</span>
+<span style="color: #3D7B7B; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span><span style="color: #666666">[]</span> curr, List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> result, 
             <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedColumns, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedDiagonals, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedAntiDiagonals) {
-        <span style="color: #408080; font-style: italic">// base case: reach the last row, so we add the current configuration to the result</span>
+        <span style="color: #3D7B7B; font-style: italic">// base case: reach the last row, so we add the current configuration to the result</span>
         <span style="color: #008000; font-weight: bold">if</span> (row <span style="color: #666666">==</span> n) {
-            result.<span style="color: #7D9029">add</span>(toList(curr));
+            result.<span style="color: #687822">add</span>(toList(curr));
             <span style="color: #008000; font-weight: bold">return</span>;
         }
         <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
-            <span style="color: #408080; font-style: italic">// first check if current placement is valid or not</span>
+            <span style="color: #3D7B7B; font-style: italic">// first check if current placement is valid or not</span>
             <span style="color: #008000; font-weight: bold">if</span> (valid(n, row, i, usedColumns, usedDiagonals, usedAntiDiagonals)) {
-                <span style="color: #408080; font-style: italic">// if is valid, mark it down</span>
+                <span style="color: #3D7B7B; font-style: italic">// if is valid, mark it down</span>
                 mark(n, row, i, usedColumns, usedDiagonals, usedAntiDiagonals);
-                curr<span style="color: #666666">[</span>row<span style="color: #666666">]</span> <span style="color: #666666">=</span> i; <span style="color: #408080; font-style: italic">// place to current column</span>
+                curr<span style="color: #666666">[</span>row<span style="color: #666666">]</span> <span style="color: #666666">=</span> i; <span style="color: #3D7B7B; font-style: italic">// place to current column</span>
                 dfs(n, row <span style="color: #666666">+</span> <span style="color: #666666">1</span>, curr, result, usedColumns, usedDiagonals, usedAntiDiagonals);
-                <span style="color: #408080; font-style: italic">// don&#39;t forget to unmark it so that it will go back to the previous stage</span>
+                <span style="color: #3D7B7B; font-style: italic">// don&#39;t forget to unmark it so that it will go back to the previous stage</span>
                 unMark(n, row, i, usedColumns, usedDiagonals, usedAntiDiagonals);
             }
         }
     }
-    <span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">     * driver method: user input a n, and we should return all the configurations that it should have</span>
-<span style="color: #408080; font-style: italic">     * @param n</span>
-<span style="color: #408080; font-style: italic">     * @return List&lt;List&lt;Integer&gt;&gt; result array (configurations)</span>
-<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">     * driver method: user input a n, and we should return all the configurations that it should have</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param n</span>
+<span style="color: #3D7B7B; font-style: italic">     * @return List&lt;List&lt;Integer&gt;&gt; result array (configurations)</span>
+<span style="color: #3D7B7B; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">public</span> List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">nqueens</span>(<span style="color: #B00040">int</span> n) {
         <span style="color: #B00040">int</span><span style="color: #666666">[]</span> curr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[</span>n<span style="color: #666666">]</span>;
         List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> result <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span>();
@@ -3571,18 +4083,17 @@
     }
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
         test s <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> test();
-        List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> list <span style="color: #666666">=</span> s.<span style="color: #7D9029">nqueens</span>(<span style="color: #666666">4</span>);
+        List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> list <span style="color: #666666">=</span> s.<span style="color: #687822">nqueens</span>(<span style="color: #666666">4</span>);
 
         <span style="color: #008000; font-weight: bold">for</span> (List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> l : list) {
             <span style="color: #008000; font-weight: bold">for</span> (Integer i : l)
-                System.<span style="color: #7D9029">out</span>.<span style="color: #7D9029">println</span>(i);
-            System.<span style="color: #7D9029">out</span>.<span style="color: #7D9029">println</span>();
+                System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(i);
+            System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>();
         }
 
     }
 }
 </code></pre></div>
-
 
 <h2 id="p2-maximum-leaf-sum">P2: Maximum leaf sum<a class="headerlink" href="#p2-maximum-leaf-sum" title="Permanent link">&para;</a></h2>
 <p>Given a binary tree in which each node contains an int number.</p>
@@ -3607,44 +4118,43 @@
 3. Recursion Tree:
     <img alt="IMG_297F00263AF2-1.jpeg" src="../resources/0C0517AF12F1676BFC97F78B3FD29C3E.jpg" /></p>
 <p>Complexity:
-- Time: <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span>
-- Space: <span><span class="MathJax_Preview">O(height)</span><script type="math/tex">O(height)</script></span> or <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></p>
+- Time: <span class="arithmatex"><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span>
+- Space: <span class="arithmatex"><span class="MathJax_Preview">O(height)</span><script type="math/tex">O(height)</script></span> or <span class="arithmatex"><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic"> * public class TreeNode {</span>
-<span style="color: #408080; font-style: italic"> *   public int key;</span>
-<span style="color: #408080; font-style: italic"> *   public TreeNode left;</span>
-<span style="color: #408080; font-style: italic"> *   public TreeNode right;</span>
-<span style="color: #408080; font-style: italic"> *   public TreeNode(int key) {</span>
-<span style="color: #408080; font-style: italic"> *     this.key = key;</span>
-<span style="color: #408080; font-style: italic"> *   }</span>
-<span style="color: #408080; font-style: italic"> * }</span>
-<span style="color: #408080; font-style: italic"> */</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic"> * public class TreeNode {</span>
+<span style="color: #3D7B7B; font-style: italic"> *   public int key;</span>
+<span style="color: #3D7B7B; font-style: italic"> *   public TreeNode left;</span>
+<span style="color: #3D7B7B; font-style: italic"> *   public TreeNode right;</span>
+<span style="color: #3D7B7B; font-style: italic"> *   public TreeNode(int key) {</span>
+<span style="color: #3D7B7B; font-style: italic"> *     this.key = key;</span>
+<span style="color: #3D7B7B; font-style: italic"> *   }</span>
+<span style="color: #3D7B7B; font-style: italic"> * }</span>
+<span style="color: #3D7B7B; font-style: italic"> */</span>
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
   <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">postOrder</span>(TreeNode root, <span style="color: #B00040">int</span><span style="color: #666666">[]</span> result) {
     <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
-    <span style="color: #B00040">int</span> leftSum <span style="color: #666666">=</span> postOrder(root.<span style="color: #7D9029">left</span>, result);
-    <span style="color: #B00040">int</span> rightSum <span style="color: #666666">=</span> postOrder(root.<span style="color: #7D9029">right</span>, result);
-    <span style="color: #408080; font-style: italic">// case 1: if current root has both left and right child,</span>
-    <span style="color: #408080; font-style: italic">// then update the result and choose the bigger sum between the left and right children</span>
-    <span style="color: #008000; font-weight: bold">if</span> (root.<span style="color: #7D9029">left</span> <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> root.<span style="color: #7D9029">right</span> <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span>) {
-      result<span style="color: #666666">[0]</span> <span style="color: #666666">=</span> Math.<span style="color: #7D9029">max</span>(root.<span style="color: #7D9029">key</span> <span style="color: #666666">+</span> leftSum <span style="color: #666666">+</span> rightSum, result<span style="color: #666666">[0]</span>);
-      <span style="color: #008000; font-weight: bold">return</span> Math.<span style="color: #7D9029">max</span>(root.<span style="color: #7D9029">key</span> <span style="color: #666666">+</span> leftSum, root.<span style="color: #7D9029">key</span> <span style="color: #666666">+</span> rightSum);
+    <span style="color: #B00040">int</span> leftSum <span style="color: #666666">=</span> postOrder(root.<span style="color: #687822">left</span>, result);
+    <span style="color: #B00040">int</span> rightSum <span style="color: #666666">=</span> postOrder(root.<span style="color: #687822">right</span>, result);
+    <span style="color: #3D7B7B; font-style: italic">// case 1: if current root has both left and right child,</span>
+    <span style="color: #3D7B7B; font-style: italic">// then update the result and choose the bigger sum between the left and right children</span>
+    <span style="color: #008000; font-weight: bold">if</span> (root.<span style="color: #687822">left</span> <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> root.<span style="color: #687822">right</span> <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span>) {
+      result<span style="color: #666666">[0]</span> <span style="color: #666666">=</span> Math.<span style="color: #687822">max</span>(root.<span style="color: #687822">key</span> <span style="color: #666666">+</span> leftSum <span style="color: #666666">+</span> rightSum, result<span style="color: #666666">[0]</span>);
+      <span style="color: #008000; font-weight: bold">return</span> Math.<span style="color: #687822">max</span>(root.<span style="color: #687822">key</span> <span style="color: #666666">+</span> leftSum, root.<span style="color: #687822">key</span> <span style="color: #666666">+</span> rightSum);
     }
-    <span style="color: #408080; font-style: italic">// case 2: if only one child exist, return the one with leaf</span>
-    <span style="color: #008000; font-weight: bold">if</span> (root.<span style="color: #7D9029">left</span> <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">return</span> root.<span style="color: #7D9029">key</span> <span style="color: #666666">+</span> rightSum;
-    <span style="color: #008000; font-weight: bold">return</span> root.<span style="color: #7D9029">key</span> <span style="color: #666666">+</span> leftSum;
+    <span style="color: #3D7B7B; font-style: italic">// case 2: if only one child exist, return the one with leaf</span>
+    <span style="color: #008000; font-weight: bold">if</span> (root.<span style="color: #687822">left</span> <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">return</span> root.<span style="color: #687822">key</span> <span style="color: #666666">+</span> rightSum;
+    <span style="color: #008000; font-weight: bold">return</span> root.<span style="color: #687822">key</span> <span style="color: #666666">+</span> leftSum;
   }
   <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">maxPathSum</span>(TreeNode root) {
-    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> root.<span style="color: #7D9029">left</span> <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> root.<span style="color: #7D9029">right</span> <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) 
-        <span style="color: #008000; font-weight: bold">return</span> Integer.<span style="color: #7D9029">MIN_VALUE</span>;
-    <span style="color: #B00040">int</span><span style="color: #666666">[]</span> result <span style="color: #666666">=</span> {Integer.<span style="color: #7D9029">MIN_VALUE</span>};
+    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> root.<span style="color: #687822">left</span> <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> root.<span style="color: #687822">right</span> <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) 
+        <span style="color: #008000; font-weight: bold">return</span> Integer.<span style="color: #687822">MIN_VALUE</span>;
+    <span style="color: #B00040">int</span><span style="color: #666666">[]</span> result <span style="color: #666666">=</span> {Integer.<span style="color: #687822">MIN_VALUE</span>};
     postOrder(root, result);
     <span style="color: #008000; font-weight: bold">return</span> result<span style="color: #666666">[0]</span>;
   }
 }
 </code></pre></div>
-
 
 <h2 id="p3-minimal-cuts-to-form-palindrome">P3: minimal cuts to form palindrome<a class="headerlink" href="#p3-minimal-cuts-to-form-palindrome" title="Permanent link">&para;</a></h2>
 <p>Given a string, a partitioning of the string is a palindrome partitioning if every partition is a palindrome.</p>
@@ -3671,27 +4181,27 @@
     <img alt="Screen Shot 2020-07-19 at 5.08.18 PM.png" src="../resources/1C4193DA144B00F0E217312D7B1F6ADC.png" />
     <img alt="Screen Shot 2020-07-19 at 5.08.51 PM.png" src="../resources/34D0AAEFEAFF13F86648E5AA0ADD1E32.png" /></p>
 <p>Complexity:
-Time: <span><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">O(N^2)</script></span>
-Space: <span><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">O(N^2)</script></span></p>
+Time: <span class="arithmatex"><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">O(N^2)</script></span>
+Space: <span class="arithmatex"><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">O(N^2)</script></span></p>
 <h3 id="code-java">Code Java<a class="headerlink" href="#code-java" title="Permanent link">&para;</a></h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span> <span style="color: #0000FF; font-weight: bold">test</span>;
 
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MinimalCutsPalindrome</span> {
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">minCuts</span>(String s) {
-        <span style="color: #B00040">char</span><span style="color: #666666">[]</span> ch <span style="color: #666666">=</span> s.<span style="color: #7D9029">toCharArray</span>(); <span style="color: #408080; font-style: italic">// convert to char array so that there is no overhead of substring</span>
-        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> ch.<span style="color: #7D9029">length</span>;
-        <span style="color: #B00040">int</span><span style="color: #666666">[]</span> cut <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[</span>n<span style="color: #666666">]</span>; <span style="color: #408080; font-style: italic">// cut[i]: minimal cuts from 0-i in ch array</span>
-        <span style="color: #B00040">boolean</span><span style="color: #666666">[][]</span> pal <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">boolean</span><span style="color: #666666">[</span>n<span style="color: #666666">][</span>n<span style="color: #666666">]</span>; <span style="color: #408080; font-style: italic">// pal[i][j]: s[i-j] is a palindrome or not</span>
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i<span style="color: #666666">++</span>) { <span style="color: #408080; font-style: italic">// grow 1 letter by 1 letter</span>
+        <span style="color: #B00040">char</span><span style="color: #666666">[]</span> ch <span style="color: #666666">=</span> s.<span style="color: #687822">toCharArray</span>(); <span style="color: #3D7B7B; font-style: italic">// convert to char array so that there is no overhead of substring</span>
+        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> ch.<span style="color: #687822">length</span>;
+        <span style="color: #B00040">int</span><span style="color: #666666">[]</span> cut <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[</span>n<span style="color: #666666">]</span>; <span style="color: #3D7B7B; font-style: italic">// cut[i]: minimal cuts from 0-i in ch array</span>
+        <span style="color: #B00040">boolean</span><span style="color: #666666">[][]</span> pal <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">boolean</span><span style="color: #666666">[</span>n<span style="color: #666666">][</span>n<span style="color: #666666">]</span>; <span style="color: #3D7B7B; font-style: italic">// pal[i][j]: s[i-j] is a palindrome or not</span>
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i<span style="color: #666666">++</span>) { <span style="color: #3D7B7B; font-style: italic">// grow 1 letter by 1 letter</span>
             <span style="color: #B00040">int</span> min <span style="color: #666666">=</span> i;
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;=</span> i; j<span style="color: #666666">++</span>) { <span style="color: #408080; font-style: italic">// j is the start index of the right section</span>
+            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;=</span> i; j<span style="color: #666666">++</span>) { <span style="color: #3D7B7B; font-style: italic">// j is the start index of the right section</span>
                 <span style="color: #008000; font-weight: bold">if</span> (ch<span style="color: #666666">[</span>j<span style="color: #666666">]</span> <span style="color: #666666">==</span> ch<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">&amp;&amp;</span> (j <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&gt;</span> i <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">||</span> pal<span style="color: #666666">[</span>j <span style="color: #666666">+</span> <span style="color: #666666">1][</span>i <span style="color: #666666">-</span> <span style="color: #666666">1]</span>)) {
                     pal<span style="color: #666666">[</span>j<span style="color: #666666">][</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
-                    min <span style="color: #666666">=</span> j <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">?</span> <span style="color: #666666">0</span> : Math.<span style="color: #7D9029">min</span>(min, cut<span style="color: #666666">[</span>j <span style="color: #666666">-</span> <span style="color: #666666">1]</span> <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
+                    min <span style="color: #666666">=</span> j <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">?</span> <span style="color: #666666">0</span> : Math.<span style="color: #687822">min</span>(min, cut<span style="color: #666666">[</span>j <span style="color: #666666">-</span> <span style="color: #666666">1]</span> <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
                 }
             }
             cut<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> min;
-            System.<span style="color: #7D9029">out</span>.<span style="color: #7D9029">println</span>();
+            System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>();
         }
 
         <span style="color: #008000; font-weight: bold">return</span> cut<span style="color: #666666">[</span>n <span style="color: #666666">-</span> <span style="color: #666666">1]</span>;
@@ -3699,39 +4209,37 @@ Space: <span><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">
 
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
         MinimalCutsPalindrome solution <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> MinimalCutsPalindrome();
-        System.<span style="color: #7D9029">out</span>.<span style="color: #7D9029">println</span>(solution.<span style="color: #7D9029">minCuts</span>(<span style="color: #BA2121">&quot;abaacda&quot;</span>));
+        System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(solution.<span style="color: #687822">minCuts</span>(<span style="color: #BA2121">&quot;abaacda&quot;</span>));
     }
 }
 </code></pre></div>
 
-
 <h3 id="code-cpp">Code Cpp<a class="headerlink" href="#code-cpp" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
- <span style="color: #A0A000">public</span>:
-  <span style="color: #B00040">int</span> minCuts(string input) {
-    <span style="color: #408080; font-style: italic">// write your solution here</span>
-    <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> input.size(), inf <span style="color: #666666">=</span> <span style="color: #666666">0x3f3f3f3f</span>;
-    <span style="color: #B00040">int</span> dp[n];
-    <span style="color: #B00040">bool</span> pal[n][n];
-    memset(pal, <span style="color: #008000">false</span>, <span style="color: #008000; font-weight: bold">sizeof</span> pal);
-    memset(dp, inf, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
-    dp[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
-      pal[i][i] <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
-    }
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i)
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;=</span> i; <span style="color: #666666">++</span>j) {
-        <span style="color: #008000; font-weight: bold">if</span> (input[i] <span style="color: #666666">==</span> input[j] <span style="color: #666666">&amp;&amp;</span> (j <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&gt;</span> i <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">||</span> pal[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j <span style="color: #666666">+</span> <span style="color: #666666">1</span>])) {
-          <span style="color: #008000; font-weight: bold">if</span> (j <span style="color: #666666">==</span> <span style="color: #666666">0</span>) dp[i] <span style="color: #666666">=</span> <span style="color: #666666">0</span>; <span style="color: #408080; font-style: italic">// </span>
-          <span style="color: #008000; font-weight: bold">else</span> dp[i] <span style="color: #666666">=</span> min(dp[i], dp[j <span style="color: #666666">-</span> <span style="color: #666666">1</span>] <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
-          pal[i][j] <span style="color: #666666">=</span> <span style="color: #008000">true</span>;
-        }
-      }
-    <span style="color: #008000; font-weight: bold">return</span> dp[n <span style="color: #666666">-</span> <span style="color: #666666">1</span>];
-  }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>minCuts(string<span style="color: #bbbbbb"> </span>input)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// write your solution here</span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>input.size(),<span style="color: #bbbbbb"> </span>inf<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0x3f3f3f3f</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>dp[n];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span>pal[n][n];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>memset(pal,<span style="color: #bbbbbb"> </span><span style="color: #008000">false</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>pal);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>memset(dp,<span style="color: #bbbbbb"> </span>inf,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>dp);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>dp[<span style="color: #666666">0</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>pal[i][i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">true</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(input[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>input[j]<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>pal[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]))<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>dp[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// </span>
+<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>dp[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>min(dp[i],<span style="color: #bbbbbb"> </span>dp[j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>pal[i][j]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">true</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>dp[n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="p4-print-all-the-if-and">P4: Print all the <code>if {</code> and <code>}</code><a class="headerlink" href="#p4-print-all-the-if-and" title="Permanent link">&para;</a></h2>
 <p>Given an integer n, print/output all possible ways of writing n pairs of if blocks with correct indentation.</p>
@@ -3759,21 +4267,21 @@ Space: <span><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">
 3. Recursion Tree:
     <img alt="IMG_3D4DF44B9120-1.jpeg" src="../resources/2AF834A3A13D16292AC30D0ED41A1F65.jpg" /></p>
 <p>Complexity:
-Time: <span><span class="MathJax_Preview">O(2^n)</span><script type="math/tex">O(2^n)</script></span>
-Space: <span><span class="MathJax_Preview">O(2 \times N)</span><script type="math/tex">O(2 \times N)</script></span></p>
+Time: <span class="arithmatex"><span class="MathJax_Preview">O(2^n)</span><script type="math/tex">O(2^n)</script></span>
+Space: <span class="arithmatex"><span class="MathJax_Preview">O(2 \times N)</span><script type="math/tex">O(2 \times N)</script></span></p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span> <span style="color: #0000FF; font-weight: bold">test</span>;
 
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">PrintAllBlock</span> {
-    <span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">     * dfs method that keep generate the valid string of { and }</span>
-<span style="color: #408080; font-style: italic">     * @param leftRemain</span>
-<span style="color: #408080; font-style: italic">     * @param rightRemain</span>
-<span style="color: #408080; font-style: italic">     * @param index</span>
-<span style="color: #408080; font-style: italic">     * @param curr</span>
-<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">     * dfs method that keep generate the valid string of { and }</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param leftRemain</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param rightRemain</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param index</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param curr</span>
+<span style="color: #3D7B7B; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">helper</span>(<span style="color: #B00040">int</span> leftRemain, <span style="color: #B00040">int</span> rightRemain, <span style="color: #B00040">int</span> index, <span style="color: #B00040">char</span><span style="color: #666666">[]</span> curr) {
-        <span style="color: #408080; font-style: italic">// base case</span>
+        <span style="color: #3D7B7B; font-style: italic">// base case</span>
         <span style="color: #008000; font-weight: bold">if</span> (leftRemain <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> rightRemain <span style="color: #666666">==</span> <span style="color: #666666">0</span>) {
             printBlock(curr);
             <span style="color: #008000; font-weight: bold">return</span>;
@@ -3787,39 +4295,39 @@ Space: <span><span class="MathJax_Preview">O(2 \times N)</span><script type="mat
             helper(leftRemain, rightRemain <span style="color: #666666">-</span> <span style="color: #666666">1</span>, index <span style="color: #666666">+</span> <span style="color: #666666">1</span>, curr);
         }
     }
-    <span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">     * print the space for indentation</span>
-<span style="color: #408080; font-style: italic">     * @param n</span>
-<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">     * print the space for indentation</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param n</span>
+<span style="color: #3D7B7B; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">printSpace</span>(<span style="color: #B00040">int</span> n) {
         <span style="color: #008000; font-weight: bold">while</span> (n <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>) {
-            System.<span style="color: #7D9029">out</span>.<span style="color: #7D9029">print</span>(<span style="color: #BA2121">&quot; &quot;</span>);
+            System.<span style="color: #687822">out</span>.<span style="color: #687822">print</span>(<span style="color: #BA2121">&quot; &quot;</span>);
             n<span style="color: #666666">--</span>;
         }
     }
-    <span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">     * print the corrected format from valid { and } string</span>
-<span style="color: #408080; font-style: italic">     * @param curr</span>
-<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">     * print the corrected format from valid { and } string</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param curr</span>
+<span style="color: #3D7B7B; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">printBlock</span>(<span style="color: #B00040">char</span><span style="color: #666666">[]</span> curr) {
         <span style="color: #B00040">int</span> space <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> curr.<span style="color: #7D9029">length</span>; <span style="color: #666666">++</span>i) {
+        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> curr.<span style="color: #687822">length</span>; <span style="color: #666666">++</span>i) {
             <span style="color: #008000; font-weight: bold">if</span> (curr<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;{&#39;</span>) {
                 printSpace(space);
-                System.<span style="color: #7D9029">out</span>.<span style="color: #7D9029">println</span>(<span style="color: #BA2121">&quot;if {&quot;</span>);
+                System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(<span style="color: #BA2121">&quot;if {&quot;</span>);
                 space <span style="color: #666666">+=</span> <span style="color: #666666">2</span>;
             } <span style="color: #008000; font-weight: bold">else</span> {
                 space <span style="color: #666666">-=</span> <span style="color: #666666">2</span>;
                 printSpace(space);
-                System.<span style="color: #7D9029">out</span>.<span style="color: #7D9029">println</span>(<span style="color: #BA2121">&quot;}&quot;</span>);
+                System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(<span style="color: #BA2121">&quot;}&quot;</span>);
             }
         }
-        System.<span style="color: #7D9029">out</span>.<span style="color: #7D9029">println</span>();
+        System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>();
     }
-    <span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">     * driver method: takes in a number represents the number of if { and } that it will have</span>
-<span style="color: #408080; font-style: italic">     * @param n</span>
-<span style="color: #408080; font-style: italic">     */</span>
+    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">     * driver method: takes in a number represents the number of if { and } that it will have</span>
+<span style="color: #3D7B7B; font-style: italic">     * @param n</span>
+<span style="color: #3D7B7B; font-style: italic">     */</span>
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">printBlocks</span>(<span style="color: #B00040">int</span> n) {
         <span style="color: #008000; font-weight: bold">if</span> (n <span style="color: #666666">&lt;=</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span>;
         <span style="color: #B00040">char</span><span style="color: #666666">[]</span> curr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">char</span><span style="color: #666666">[2</span> <span style="color: #666666">*</span> n<span style="color: #666666">]</span>;
@@ -3829,45 +4337,35 @@ Space: <span><span class="MathJax_Preview">O(2 \times N)</span><script type="mat
 
     <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> argc) {
         PrintAllBlock s <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> PrintAllBlock();
-        s.<span style="color: #7D9029">printBlocks</span>(<span style="color: #666666">3</span>);
+        s.<span style="color: #687822">printBlocks</span>(<span style="color: #666666">3</span>);
     }
 }
 </code></pre></div>
-                
-                  
-                    
 
-<hr>
-<div class="md-source-date">
+  <hr>
+<div class="md-source-file">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 9, 2021</span>
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 9, 2021</span>
+      
     
   </small>
 </div>
-                  
-                
-              
-              
-                
-
-
-  <h2 id="__comments">Comments</h2>
-  <div id="disqus_thread"></div>
-  <script>var disqus_config=function(){this.page.url="https://peterchen.xyz/Interview/midterm-java/",this.page.identifier="Interview/midterm-java/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//tech-notes-2.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
 
               
             </article>
           </div>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../maximum-product-subarray/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../maximum-product-subarray/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Maximum Product Subarray" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -3882,7 +4380,8 @@ Space: <span><span class="MathJax_Preview">O(2 \times N)</span><script type="mat
         </a>
       
       
-        <a href="../ood/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../ood/" class="md-footer__link md-footer__link--next" aria-label="Next: Object Oriented Design" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -3900,14 +4399,15 @@ Space: <span><span class="MathJax_Preview">O(2 \times N)</span><script type="mat
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -3917,10 +4417,10 @@ Space: <span><span class="MathJax_Preview">O(2 \times N)</span><script type="mat
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

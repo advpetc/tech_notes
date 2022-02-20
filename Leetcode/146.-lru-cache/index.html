@@ -10,14 +10,13 @@
         <meta name="description" content="Keep track of all the learning">
       
       
-      
         <meta name="author" content="Pete">
       
       
         <link rel="canonical" href="https://peterchen.xyz/Leetcode/146.-lru-cache/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.0.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
     
     
       
@@ -25,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -42,21 +41,26 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Ubuntu Mono";--md-code-font-family:""}</style>
+        <style>:root{--md-text-font:"Ubuntu Mono";--md-code-font:""}</style>
       
-    
-    
-      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
     
       <link rel="stylesheet" href="../../css/extra.css">
     
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-168812075-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-304400452"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-304400452",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-304400452"></script>
+
+
     
     
   </head>
@@ -64,12 +68,16 @@
   
     
     
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
       
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -86,7 +94,10 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+    
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Tech Notes" class="md-header__button md-logo" aria-label="Tech Notes" data-md-component="logo">
       
@@ -112,26 +123,50 @@
         </div>
       </div>
     </div>
-    <div class="md-header__options">
-      
-    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -148,11 +183,10 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     advpetc/Tech_Notes
@@ -161,11 +195,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -190,11 +227,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     advpetc/Tech_Notes
@@ -247,10 +283,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
-      <label class="md-nav__link" for="__nav_3">
-        Acwing
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Acwing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Acwing" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
@@ -259,6 +299,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -269,8 +310,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -281,8 +324,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -293,8 +338,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -305,8 +352,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -317,8 +366,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -329,8 +380,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -341,8 +394,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -353,8 +408,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -365,6 +422,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -385,10 +443,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
-      <label class="md-nav__link" for="__nav_4">
-        Books
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Books
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Books" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
@@ -397,6 +459,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -407,8 +470,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -419,8 +484,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -431,8 +498,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -443,8 +512,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -455,8 +526,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -467,8 +540,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -479,8 +554,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -491,6 +568,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -511,10 +589,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="__nav_5">
-        Google Kick Start
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Google Kick Start
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Google Kick Start" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
@@ -523,6 +605,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -533,8 +616,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -545,8 +630,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -557,6 +644,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -577,10 +665,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      <label class="md-nav__link" for="__nav_6">
-        Interview
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Interview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Interview" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
@@ -589,6 +681,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -599,8 +692,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -611,8 +706,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -623,8 +720,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -635,8 +734,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -647,8 +748,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -659,8 +762,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -671,8 +776,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -683,8 +790,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -695,8 +804,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -707,8 +818,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -719,8 +832,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -731,8 +846,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -743,8 +860,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -755,8 +874,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -767,8 +888,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -779,8 +902,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -791,8 +916,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -803,8 +930,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -815,8 +944,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -827,8 +958,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -839,8 +972,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -851,8 +986,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -863,8 +1000,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -875,8 +1014,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -887,8 +1028,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -899,8 +1042,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -911,8 +1056,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -923,8 +1070,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -935,8 +1084,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -947,8 +1098,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -959,8 +1112,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -971,8 +1126,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -983,8 +1140,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -995,8 +1154,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1007,8 +1168,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1019,8 +1182,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1031,8 +1196,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1043,8 +1210,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1055,8 +1224,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1067,8 +1238,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1079,8 +1252,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1091,8 +1266,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1103,8 +1280,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1115,8 +1294,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1127,8 +1308,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1139,8 +1322,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1151,6 +1336,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1171,10 +1357,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="__nav_7">
-        Java
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Java
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Java" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
@@ -1183,6 +1373,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1193,8 +1384,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1205,8 +1398,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1217,8 +1412,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1229,8 +1426,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1241,8 +1440,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1253,8 +1454,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1265,6 +1468,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1287,10 +1491,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
       
-      <label class="md-nav__link" for="__nav_8">
-        Leetcode
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Leetcode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Leetcode" data-md-level="1">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
@@ -1299,6 +1507,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1309,8 +1518,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1321,8 +1532,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1333,8 +1546,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1345,8 +1560,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1357,8 +1574,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1369,8 +1588,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1381,8 +1602,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1393,8 +1616,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1405,8 +1630,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1417,8 +1644,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1429,8 +1658,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1441,8 +1672,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1453,8 +1686,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1465,8 +1700,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1477,8 +1714,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1489,8 +1728,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1501,8 +1742,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1513,8 +1756,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1525,8 +1770,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1537,8 +1784,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1549,8 +1798,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1561,8 +1812,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1573,8 +1826,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1585,8 +1840,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1597,8 +1854,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1609,8 +1868,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1621,8 +1882,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1633,8 +1896,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1645,8 +1910,10 @@
     </li>
   
 
+            
           
             
+              
   
   
     
@@ -1655,6 +1922,7 @@
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
       
         
       
@@ -1669,7 +1937,9 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1722,8 +1992,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1734,8 +2006,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1746,8 +2020,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1758,8 +2034,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1770,8 +2048,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1782,8 +2062,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1794,8 +2076,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1806,8 +2090,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1818,8 +2104,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1830,8 +2118,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1842,8 +2132,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1854,8 +2146,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1866,8 +2160,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1878,8 +2174,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1890,8 +2188,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1902,8 +2202,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1914,8 +2216,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1926,8 +2230,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1938,8 +2244,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1950,8 +2258,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1962,8 +2272,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1974,8 +2286,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1986,8 +2300,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1998,8 +2314,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2010,8 +2328,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2022,8 +2342,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2034,8 +2356,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2046,8 +2370,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2058,8 +2384,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2070,8 +2398,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2082,8 +2412,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2094,8 +2426,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2106,8 +2440,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2118,8 +2454,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2130,8 +2468,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2142,8 +2482,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2154,8 +2496,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2166,8 +2510,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2178,8 +2524,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2190,8 +2538,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2202,8 +2552,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2214,8 +2566,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2226,8 +2580,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2238,8 +2594,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2250,8 +2608,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2262,8 +2622,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2274,8 +2636,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2286,8 +2650,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2298,8 +2664,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2310,8 +2678,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2322,8 +2692,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2334,8 +2706,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2346,8 +2720,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2358,8 +2734,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2370,8 +2748,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2382,8 +2762,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2394,8 +2776,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2406,8 +2790,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2418,8 +2804,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2430,8 +2818,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2442,8 +2832,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2454,8 +2846,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2466,8 +2860,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2478,8 +2874,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2490,8 +2888,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2502,8 +2902,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2514,8 +2916,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2526,8 +2930,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2538,8 +2944,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2550,8 +2958,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2562,8 +2972,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2574,8 +2986,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2586,8 +3000,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2598,8 +3014,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2610,8 +3028,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2622,8 +3042,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2634,6 +3056,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2654,10 +3077,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
-      <label class="md-nav__link" for="__nav_9">
-        LibreOJ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          LibreOJ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="LibreOJ" data-md-level="1">
         <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
@@ -2666,6 +3093,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2676,8 +3104,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2688,8 +3118,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2700,8 +3132,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2712,6 +3146,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2732,10 +3167,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
-      <label class="md-nav__link" for="__nav_10">
-        Misc
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Misc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Misc" data-md-level="1">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
@@ -2744,6 +3183,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2754,8 +3194,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2766,6 +3208,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2786,10 +3229,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
-      <label class="md-nav__link" for="__nav_11">
-        Operating System
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Operating System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Operating System" data-md-level="1">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
@@ -2798,6 +3245,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2808,6 +3256,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2828,10 +3277,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
-      <label class="md-nav__link" for="__nav_12">
-        Python
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Python" data-md-level="1">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
@@ -2840,6 +3293,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2850,6 +3304,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2870,10 +3325,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
       
-      <label class="md-nav__link" for="__nav_13">
-        C
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          C
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="C" data-md-level="1">
         <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
@@ -2882,6 +3341,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2892,8 +3352,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2904,8 +3366,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2916,8 +3380,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2928,8 +3394,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2940,8 +3408,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2952,6 +3422,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2972,10 +3443,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
       
-      <label class="md-nav__link" for="__nav_14">
-        Golang
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Golang" data-md-level="1">
         <label class="md-nav__title" for="__nav_14">
           <span class="md-nav__icon md-icon"></span>
@@ -2984,6 +3459,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2994,8 +3470,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3006,8 +3484,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3018,8 +3498,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3030,6 +3512,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3050,10 +3533,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
       
-      <label class="md-nav__link" for="__nav_15">
-        iOS
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          iOS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="iOS" data-md-level="1">
         <label class="md-nav__title" for="__nav_15">
           <span class="md-nav__icon md-icon"></span>
@@ -3062,6 +3549,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3072,8 +3560,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3084,8 +3574,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3096,8 +3588,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3108,6 +3602,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3128,10 +3623,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
       
-      <label class="md-nav__link" for="__nav_16">
-        Machine learning
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Machine learning" data-md-level="1">
         <label class="md-nav__title" for="__nav_16">
           <span class="md-nav__icon md-icon"></span>
@@ -3140,6 +3639,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3150,8 +3650,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3162,8 +3664,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3174,8 +3678,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3186,8 +3692,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3198,6 +3706,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3217,7 +3726,9 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -3275,12 +3786,13 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Leetcode/146.-lru-cache.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="lru-cache">LRU Cache<a class="headerlink" href="#lru-cache" title="Permanent link">&para;</a></h1>
+<a href="https://github.com/advpetc/tech_notes/edit/master/docs/Leetcode/146.-lru-cache.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="lru-cache">LRU Cache<a class="headerlink" href="#lru-cache" title="Permanent link">&para;</a></h1>
 <p>Design a data structure that follows the constraints of a <strong><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU">Least Recently Used (LRU) cache</a></strong>.</p>
 <p>Implement the <code>LRUCache</code> class:</p>
 <ul>
@@ -3310,7 +3822,6 @@ lRUCache.get(3);    // return 3
 lRUCache.get(4);    // return 4
 </code></pre></div>
 
-
 <p><strong>Constraints:</strong></p>
 <ul>
 <li><code>1 &lt;= capacity &lt;= 3000</code></li>
@@ -3331,48 +3842,48 @@ lRUCache.get(4);    // return 4
   DLinkedNode post;
 }
 
-<span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic"> * Always add the new node right after head;</span>
-<span style="color: #408080; font-style: italic"> */</span>
-<span style="color: #408080; font-style: italic">/* before:</span>
-<span style="color: #408080; font-style: italic">    node.pre - node - node.post</span>
-<span style="color: #408080; font-style: italic">    head - head.post (tail)</span>
-<span style="color: #408080; font-style: italic">   after:</span>
-<span style="color: #408080; font-style: italic">    head - node - head.post (tail)</span>
-<span style="color: #408080; font-style: italic">*/</span> 
+<span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic"> * Always add the new node right after head;</span>
+<span style="color: #3D7B7B; font-style: italic"> */</span>
+<span style="color: #3D7B7B; font-style: italic">/* before:</span>
+<span style="color: #3D7B7B; font-style: italic">    node.pre - node - node.post</span>
+<span style="color: #3D7B7B; font-style: italic">    head - head.post (tail)</span>
+<span style="color: #3D7B7B; font-style: italic">   after:</span>
+<span style="color: #3D7B7B; font-style: italic">    head - node - head.post (tail)</span>
+<span style="color: #3D7B7B; font-style: italic">*/</span> 
 <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">addNode</span>(DLinkedNode node) {
 
-  node.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> head;
-  node.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> head.<span style="color: #7D9029">post</span>;
+  node.<span style="color: #687822">pre</span> <span style="color: #666666">=</span> head;
+  node.<span style="color: #687822">post</span> <span style="color: #666666">=</span> head.<span style="color: #687822">post</span>;
 
-  head.<span style="color: #7D9029">post</span>.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> node;
-  head.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> node;
+  head.<span style="color: #687822">post</span>.<span style="color: #687822">pre</span> <span style="color: #666666">=</span> node;
+  head.<span style="color: #687822">post</span> <span style="color: #666666">=</span> node;
 }
 
-<span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic"> * Remove an existing node from the linked list.</span>
-<span style="color: #408080; font-style: italic"> */</span>
-<span style="color: #408080; font-style: italic">// pre - node - post -&gt; pre - post</span>
+<span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic"> * Remove an existing node from the linked list.</span>
+<span style="color: #3D7B7B; font-style: italic"> */</span>
+<span style="color: #3D7B7B; font-style: italic">// pre - node - post -&gt; pre - post</span>
 <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">removeNode</span>(DLinkedNode node){
-  DLinkedNode pre <span style="color: #666666">=</span> node.<span style="color: #7D9029">pre</span>;
-  DLinkedNode post <span style="color: #666666">=</span> node.<span style="color: #7D9029">post</span>;
+  DLinkedNode pre <span style="color: #666666">=</span> node.<span style="color: #687822">pre</span>;
+  DLinkedNode post <span style="color: #666666">=</span> node.<span style="color: #687822">post</span>;
 
-  pre.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> post; 
-  post.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> pre;
+  pre.<span style="color: #687822">post</span> <span style="color: #666666">=</span> post; 
+  post.<span style="color: #687822">pre</span> <span style="color: #666666">=</span> pre;
 }
 
-<span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic"> * Move certain node in between to the head.</span>
-<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic"> * Move certain node in between to the head.</span>
+<span style="color: #3D7B7B; font-style: italic"> */</span>
 <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">moveToHead</span>(DLinkedNode node){
-  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">removeNode</span>(node);
-  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">addNode</span>(node); <span style="color: #408080; font-style: italic">// head-&gt;post now point to node</span>
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">removeNode</span>(node);
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">addNode</span>(node); <span style="color: #3D7B7B; font-style: italic">// head-&gt;post now point to node</span>
 }
 
-<span style="color: #408080; font-style: italic">// pop the current tail. </span>
+<span style="color: #3D7B7B; font-style: italic">// pop the current tail. </span>
 <span style="color: #008000; font-weight: bold">private</span> DLinkedNode <span style="color: #0000FF">popTail</span>(){
-  DLinkedNode res <span style="color: #666666">=</span> tail.<span style="color: #7D9029">pre</span>;
-  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">removeNode</span>(res); <span style="color: #408080; font-style: italic">// </span>
+  DLinkedNode res <span style="color: #666666">=</span> tail.<span style="color: #687822">pre</span>;
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">removeNode</span>(res); <span style="color: #3D7B7B; font-style: italic">// </span>
   <span style="color: #008000; font-weight: bold">return</span> res;
 }
 
@@ -3380,67 +3891,66 @@ lRUCache.get(4);    // return 4
 <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">int</span> count;
 <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">int</span> capacity;
 <span style="color: #008000; font-weight: bold">private</span> DLinkedNode head, tail;
-<span style="color: #408080; font-style: italic">// head.pre (null) - head - head.post (tail)</span>
-<span style="color: #408080; font-style: italic">// tail.pre (head) - tail - tail.post (null)</span>
+<span style="color: #3D7B7B; font-style: italic">// head.pre (null) - head - head.post (tail)</span>
+<span style="color: #3D7B7B; font-style: italic">// tail.pre (head) - tail - tail.post (null)</span>
 
-<span style="color: #408080; font-style: italic">// -&gt; head.pre (null) - head - tail - tail.post (null)</span>
+<span style="color: #3D7B7B; font-style: italic">// -&gt; head.pre (null) - head - tail - tail.post (null)</span>
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">LRUCache</span>(<span style="color: #B00040">int</span> capacity) {
-  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">count</span> <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">capacity</span> <span style="color: #666666">=</span> capacity;
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">count</span> <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">capacity</span> <span style="color: #666666">=</span> capacity;
 
   head <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> DLinkedNode();
-  head.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
+  head.<span style="color: #687822">pre</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
 
   tail <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> DLinkedNode();
-  tail.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
+  tail.<span style="color: #687822">post</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
 
-  head.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> tail;
-  tail.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> head;
+  head.<span style="color: #687822">post</span> <span style="color: #666666">=</span> tail;
+  tail.<span style="color: #687822">pre</span> <span style="color: #666666">=</span> head;
 }
 
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">get</span>(<span style="color: #B00040">int</span> key) {
 
-  DLinkedNode node <span style="color: #666666">=</span> cache.<span style="color: #7D9029">get</span>(key);
+  DLinkedNode node <span style="color: #666666">=</span> cache.<span style="color: #687822">get</span>(key);
   <span style="color: #008000; font-weight: bold">if</span>(node <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>){
-    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>; <span style="color: #408080; font-style: italic">// should raise exception here.</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>; <span style="color: #3D7B7B; font-style: italic">// should raise exception here.</span>
   }
 
-  <span style="color: #408080; font-style: italic">// move the accessed node to the head;</span>
-  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">moveToHead</span>(node);
+  <span style="color: #3D7B7B; font-style: italic">// move the accessed node to the head;</span>
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">moveToHead</span>(node);
 
-  <span style="color: #008000; font-weight: bold">return</span> node.<span style="color: #7D9029">value</span>;
+  <span style="color: #008000; font-weight: bold">return</span> node.<span style="color: #687822">value</span>;
 }
 
 
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">put</span>(<span style="color: #B00040">int</span> key, <span style="color: #B00040">int</span> value) {
-  DLinkedNode node <span style="color: #666666">=</span> cache.<span style="color: #7D9029">get</span>(key);
+  DLinkedNode node <span style="color: #666666">=</span> cache.<span style="color: #687822">get</span>(key);
 
-  <span style="color: #008000; font-weight: bold">if</span>(node <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>){ <span style="color: #408080; font-style: italic">// need to insert new key-value pair into the list</span>
+  <span style="color: #008000; font-weight: bold">if</span>(node <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>){ <span style="color: #3D7B7B; font-style: italic">// need to insert new key-value pair into the list</span>
 
     DLinkedNode newNode <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> DLinkedNode();
-    newNode.<span style="color: #7D9029">key</span> <span style="color: #666666">=</span> key;
-    newNode.<span style="color: #7D9029">value</span> <span style="color: #666666">=</span> value;
+    newNode.<span style="color: #687822">key</span> <span style="color: #666666">=</span> key;
+    newNode.<span style="color: #687822">value</span> <span style="color: #666666">=</span> value;
 
-    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">cache</span>.<span style="color: #7D9029">put</span>(key, newNode);
-    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">addNode</span>(newNode);
+    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">cache</span>.<span style="color: #687822">put</span>(key, newNode);
+    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">addNode</span>(newNode);
 
-    <span style="color: #666666">++</span>count; <span style="color: #408080; font-style: italic">// same as the size of cache.size()</span>
+    <span style="color: #666666">++</span>count; <span style="color: #3D7B7B; font-style: italic">// same as the size of cache.size()</span>
 
     <span style="color: #008000; font-weight: bold">if</span>(count <span style="color: #666666">&gt;</span> capacity){
-      <span style="color: #408080; font-style: italic">// pop the tail</span>
-      DLinkedNode tail <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">popTail</span>();
-      <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">cache</span>.<span style="color: #7D9029">remove</span>(tail.<span style="color: #7D9029">key</span>);
+      <span style="color: #3D7B7B; font-style: italic">// pop the tail</span>
+      DLinkedNode tail <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">popTail</span>();
+      <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">cache</span>.<span style="color: #687822">remove</span>(tail.<span style="color: #687822">key</span>);
       <span style="color: #666666">--</span>count;
     }
-  }<span style="color: #008000; font-weight: bold">else</span>{ <span style="color: #408080; font-style: italic">// just swap to the head and update value</span>
-    node.<span style="color: #7D9029">value</span> <span style="color: #666666">=</span> value;
-    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">moveToHead</span>(node);
+  }<span style="color: #008000; font-weight: bold">else</span>{ <span style="color: #3D7B7B; font-style: italic">// just swap to the head and update value</span>
+    node.<span style="color: #687822">value</span> <span style="color: #666666">=</span> value;
+    <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">moveToHead</span>(node);
   }
 }
 
 }
 </code></pre></div>
-
 
 <h2 id="why-bother-doubly-linked-list">why bother doubly linked list<a class="headerlink" href="#why-bother-doubly-linked-list" title="Permanent link">&para;</a></h2>
 <p>Fast removal. Doubly linked lists let us remove and insert in constant time if we have access to a node directly. The hashtable gives us access to a node directly.</p>
@@ -3450,166 +3960,153 @@ lRUCache.get(4);    // return 4
 <p>Yes, the purpose can be achieved with a single-linked LL with some hacks but NOT in java. Let's say I've to remove node n and its previous node is p. If n is the last node in the list, I've to modify the next field of p to point to null. This can't be done if I don't have access to p.next since in java, method parameters are actually references of the objects and they are passed by value. So, let's say right now, n and p.next point to the same object (i.e. n of course). If I do n=null, that doesn't make the object null. The object is still there and p.next points to that object. The only diff is that now n doesn't point to that object. In fact, it doesn't point to anything.</p>
 <p><strong>n=null doesn't remove n, but just send what it points-to to null</strong></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">LRUCache</span>(<span style="color: #B00040">int</span> capacity) {
-  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">count</span> <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #7D9029">capacity</span> <span style="color: #666666">=</span> capacity;
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">count</span> <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+  <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">capacity</span> <span style="color: #666666">=</span> capacity;
 
   head <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> DLinkedNode();
-  head.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
+  head.<span style="color: #687822">pre</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
 
   tail <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> DLinkedNode();
-  tail.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
+  tail.<span style="color: #687822">post</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
 
-  head.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> tail;
-  tail.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> head;
+  head.<span style="color: #687822">post</span> <span style="color: #666666">=</span> tail;
+  tail.<span style="color: #687822">pre</span> <span style="color: #666666">=</span> head;
 }
 </code></pre></div>
-
 
 <p>if tail.pre is always pointing to head, and head.post always points to tail</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">removeNode</span>(DLinkedNode node){
-  DLinkedNode pre <span style="color: #666666">=</span> node.<span style="color: #7D9029">pre</span>;
-  DLinkedNode post <span style="color: #666666">=</span> node.<span style="color: #7D9029">post</span>;
+  DLinkedNode pre <span style="color: #666666">=</span> node.<span style="color: #687822">pre</span>;
+  DLinkedNode post <span style="color: #666666">=</span> node.<span style="color: #687822">post</span>;
 
-  pre.<span style="color: #7D9029">post</span> <span style="color: #666666">=</span> post;
-  post.<span style="color: #7D9029">pre</span> <span style="color: #666666">=</span> pre;
+  pre.<span style="color: #687822">post</span> <span style="color: #666666">=</span> post;
+  post.<span style="color: #687822">pre</span> <span style="color: #666666">=</span> pre;
 }
 </code></pre></div>
 
-
 <h2 id="cpp">cpp<a class="headerlink" href="#cpp" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">LRUCache</span> {
-    <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
-        <span style="color: #B00040">int</span> key, val;
-        Node <span style="color: #666666">*</span>next, <span style="color: #666666">*</span>pre;
-        Node(<span style="color: #B00040">int</span> key, <span style="color: #B00040">int</span> val)
-            <span style="color: #666666">:</span> key(key)
-            , val(val)
-        {
-        }
-    };
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">LRUCache</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">struct</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Node</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>key,<span style="color: #bbbbbb"> </span>val;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>Node<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>next,<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>pre;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>Node(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>key,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>key(key)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>,<span style="color: #bbbbbb"> </span>val(val)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>};<span style="color: #bbbbbb"></span>
 
-<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span>
-    unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>, Node<span style="color: #666666">*&gt;</span> map;
-    <span style="color: #B00040">int</span> cap;
-    Node <span style="color: #666666">*</span>head, <span style="color: #666666">*</span>tail;
+<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>,<span style="color: #bbbbbb"> </span>Node<span style="color: #666666">*&gt;</span><span style="color: #bbbbbb"> </span>map;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>cap;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>Node<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>head,<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>tail;<span style="color: #bbbbbb"></span>
 
-<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
-    LRUCache(<span style="color: #B00040">int</span> capacity)
-    {
-        cap <span style="color: #666666">=</span> capacity;
-        head <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>, tail <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
-    }
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>LRUCache(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>capacity)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>cap<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>capacity;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>,<span style="color: #bbbbbb"> </span>tail<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
 
-    <span style="color: #B00040">int</span> get(<span style="color: #B00040">int</span> key)
-    {
-        <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>map.count(key))
-            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>;
-        Node<span style="color: #666666">*</span> node <span style="color: #666666">=</span> map[key];
-        <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">!=</span> tail) {
-            <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">==</span> head) {
-                head <span style="color: #666666">=</span> head<span style="color: #666666">-&gt;</span>next; <span style="color: #408080; font-style: italic">// leave space for head to move node to the back</span>
-            } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #408080; font-style: italic">// pre &lt;-&gt; node &lt;-&gt; next =&gt; pre &lt;-&gt; next</span>
-                node<span style="color: #666666">-&gt;</span>pre<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> node<span style="color: #666666">-&gt;</span>next;
-                node<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>pre <span style="color: #666666">=</span> node<span style="color: #666666">-&gt;</span>pre;
-            }
-            tail<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> node; <span style="color: #408080; font-style: italic">// now tail points to the latest node</span>
-            node<span style="color: #666666">-&gt;</span>pre <span style="color: #666666">=</span> tail;
-            node<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
-            tail <span style="color: #666666">=</span> node;
-        }
-        <span style="color: #008000; font-weight: bold">return</span> node<span style="color: #666666">-&gt;</span>val;
-    }
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>get(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>key)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>map.count(key))<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">-1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>Node<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>map[key];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(node<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>tail)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(node<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>head)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// leave space for head to move node to the back</span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// pre &lt;-&gt; node &lt;-&gt; next =&gt; pre &lt;-&gt; next</span>
+<span style="color: #bbbbbb">                </span>node<span style="color: #666666">-&gt;</span>pre<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>node<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node<span style="color: #666666">-&gt;</span>pre;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>tail<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// now tail points to the latest node</span>
+<span style="color: #bbbbbb">            </span>node<span style="color: #666666">-&gt;</span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>tail;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>node<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>tail<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>node<span style="color: #666666">-&gt;</span>val;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
 
-    <span style="color: #B00040">void</span> put(<span style="color: #B00040">int</span> key, <span style="color: #B00040">int</span> value)
-    {
-        <span style="color: #408080; font-style: italic">// exist</span>
-        <span style="color: #008000; font-weight: bold">if</span> (map.count(key)) {
-            Node<span style="color: #666666">*</span> node <span style="color: #666666">=</span> map[key];
-            node<span style="color: #666666">-&gt;</span>val <span style="color: #666666">=</span> value; <span style="color: #408080; font-style: italic">// update value</span>
-            <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">!=</span> tail) { <span style="color: #408080; font-style: italic">// here are the same logic as in get()</span>
-                <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">==</span> head) { <span style="color: #408080; font-style: italic">// head now points to the second recent used node</span>
-                    head <span style="color: #666666">=</span> head<span style="color: #666666">-&gt;</span>next;
-                } <span style="color: #008000; font-weight: bold">else</span> {<span style="color: #408080; font-style: italic">// split out node, now node.pre - node.next</span>
-                    node<span style="color: #666666">-&gt;</span>pre<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> node<span style="color: #666666">-&gt;</span>next;
-                    node<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>pre <span style="color: #666666">=</span> node<span style="color: #666666">-&gt;</span>pre;
-                }
-                tail<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> node;
-                node<span style="color: #666666">-&gt;</span>pre <span style="color: #666666">=</span> tail;
-                node<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
-                tail <span style="color: #666666">=</span> node;
-            }
-        } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #408080; font-style: italic">// not exit</span>
-            Node<span style="color: #666666">*</span> newNode <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Node(key, value);
-            <span style="color: #008000; font-weight: bold">if</span> (cap <span style="color: #666666">==</span> <span style="color: #666666">0</span>) { <span style="color: #408080; font-style: italic">// cap == capacity - map.size()</span>
-                Node<span style="color: #666666">*</span> temp <span style="color: #666666">=</span> head;
-                head <span style="color: #666666">=</span> head<span style="color: #666666">-&gt;</span>next; <span style="color: #408080; font-style: italic">// always remove the least recent used node</span>
-                map.erase(temp<span style="color: #666666">-&gt;</span>key);
-                cap<span style="color: #666666">++</span>;
-            }
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>put(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>key,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>value)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">// exist</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(map.count(key))<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>Node<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>map[key];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>node<span style="color: #666666">-&gt;</span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>value;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// update value</span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(node<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>tail)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// here are the same logic as in get()</span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(node<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>head)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// head now points to the second recent used node</span>
+<span style="color: #bbbbbb">                    </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #3D7B7B; font-style: italic">// split out node, now node.pre - node.next</span>
+<span style="color: #bbbbbb">                    </span>node<span style="color: #666666">-&gt;</span>pre<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span>node<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node<span style="color: #666666">-&gt;</span>pre;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>tail<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>node<span style="color: #666666">-&gt;</span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>tail;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>node<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>tail<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// not exit</span>
+<span style="color: #bbbbbb">            </span>Node<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>newNode<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Node(key,<span style="color: #bbbbbb"> </span>value);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(cap<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// cap == capacity - map.size()</span>
+<span style="color: #bbbbbb">                </span>Node<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>temp<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// always remove the least recent used node</span>
+<span style="color: #bbbbbb">                </span>map.erase(temp<span style="color: #666666">-&gt;</span>key);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>cap<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
 
-            <span style="color: #408080; font-style: italic">// what could happen after removal?</span>
-            <span style="color: #008000; font-weight: bold">if</span> (head <span style="color: #666666">==</span> <span style="color: #008000">NULL</span> <span style="color: #666666">&amp;&amp;</span> tail <span style="color: #666666">==</span> <span style="color: #008000">NULL</span>) {
-                head <span style="color: #666666">=</span> newNode;
-            } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #408080; font-style: italic">// let tail point to the newly inserted node</span>
-                tail<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> newNode;
-                newNode<span style="color: #666666">-&gt;</span>pre <span style="color: #666666">=</span> tail;
-                newNode<span style="color: #666666">-&gt;</span>next <span style="color: #666666">=</span> <span style="color: #008000">NULL</span>;
-            }
-            tail <span style="color: #666666">=</span> newNode;
-            map[key] <span style="color: #666666">=</span> newNode;
-            cap<span style="color: #666666">--</span>;
-        }
-    }
-};
+<span style="color: #bbbbbb">            </span><span style="color: #3D7B7B; font-style: italic">// what could happen after removal?</span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(head<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>tail<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>newNode;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// let tail point to the newly inserted node</span>
+<span style="color: #bbbbbb">                </span>tail<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>newNode;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>newNode<span style="color: #666666">-&gt;</span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>tail;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>newNode<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>tail<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>newNode;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>map[key]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>newNode;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>cap<span style="color: #666666">--</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 
-<span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic"> * Your LRUCache object will be instantiated and called as such:</span>
-<span style="color: #408080; font-style: italic"> * LRUCache* obj = new LRUCache(capacity);</span>
-<span style="color: #408080; font-style: italic"> * int param_1 = obj-&gt;get(key);</span>
-<span style="color: #408080; font-style: italic"> * obj-&gt;put(key,value);</span>
-<span style="color: #408080; font-style: italic"> */</span>
+<span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic"> * Your LRUCache object will be instantiated and called as such:</span>
+<span style="color: #3D7B7B; font-style: italic"> * LRUCache* obj = new LRUCache(capacity);</span>
+<span style="color: #3D7B7B; font-style: italic"> * int param_1 = obj-&gt;get(key);</span>
+<span style="color: #3D7B7B; font-style: italic"> * obj-&gt;put(key,value);</span>
+<span style="color: #3D7B7B; font-style: italic"> */</span><span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <ul>
 <li>head: least recent used node</li>
 <li>tail: most recent used node</li>
 </ul>
-                
-                  
-                    
 
-<hr>
-<div class="md-source-date">
+  <hr>
+<div class="md-source-file">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2022</span>
+      
     
   </small>
 </div>
-                  
-                
-              
-              
-                
-
-
-  <h2 id="__comments">Comments</h2>
-  <div id="disqus_thread"></div>
-  <script>var disqus_config=function(){this.page.url="https://peterchen.xyz/Leetcode/146.-lru-cache/",this.page.identifier="Leetcode/146.-lru-cache/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//tech-notes-2.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
 
               
             </article>
           </div>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../140.-word-break-ii/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../140.-word-break-ii/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Word Break II" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -3624,7 +4121,8 @@ lRUCache.get(4);    // return 4
         </a>
       
       
-        <a href="../148.-sort-list/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../148.-sort-list/" class="md-footer__link md-footer__link--next" aria-label="Next: Sort List" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -3642,14 +4140,15 @@ lRUCache.get(4);    // return 4
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -3659,10 +4158,10 @@ lRUCache.get(4);    // return 4
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

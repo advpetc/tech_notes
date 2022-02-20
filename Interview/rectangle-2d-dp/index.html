@@ -10,14 +10,13 @@
         <meta name="description" content="Keep track of all the learning">
       
       
-      
         <meta name="author" content="Pete">
       
       
         <link rel="canonical" href="https://peterchen.xyz/Interview/rectangle-2d-dp/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.0.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
     
     
       
@@ -25,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -42,21 +41,26 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Ubuntu Mono";--md-code-font-family:""}</style>
+        <style>:root{--md-text-font:"Ubuntu Mono";--md-code-font:""}</style>
       
-    
-    
-      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
     
       <link rel="stylesheet" href="../../css/extra.css">
     
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-168812075-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-304400452"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-304400452",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-304400452"></script>
+
+
     
     
   </head>
@@ -64,12 +68,16 @@
   
     
     
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
       
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -86,7 +94,10 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+    
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Tech Notes" class="md-header__button md-logo" aria-label="Tech Notes" data-md-component="logo">
       
@@ -112,26 +123,50 @@
         </div>
       </div>
     </div>
-    <div class="md-header__options">
-      
-    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -148,11 +183,10 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     advpetc/Tech_Notes
@@ -161,11 +195,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -190,11 +227,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     advpetc/Tech_Notes
@@ -247,10 +283,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
-      <label class="md-nav__link" for="__nav_3">
-        Acwing
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Acwing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Acwing" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
@@ -259,6 +299,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -269,8 +310,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -281,8 +324,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -293,8 +338,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -305,8 +352,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -317,8 +366,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -329,8 +380,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -341,8 +394,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -353,8 +408,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -365,6 +422,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -385,10 +443,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
-      <label class="md-nav__link" for="__nav_4">
-        Books
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Books
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Books" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
@@ -397,6 +459,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -407,8 +470,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -419,8 +484,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -431,8 +498,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -443,8 +512,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -455,8 +526,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -467,8 +540,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -479,8 +554,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -491,6 +568,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -511,10 +589,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="__nav_5">
-        Google Kick Start
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Google Kick Start
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Google Kick Start" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
@@ -523,6 +605,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -533,8 +616,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -545,8 +630,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -557,6 +644,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -579,10 +667,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
-      <label class="md-nav__link" for="__nav_6">
-        Interview
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Interview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Interview" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
@@ -591,6 +683,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -601,8 +694,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -613,8 +708,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -625,8 +722,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -637,8 +736,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -649,8 +750,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -661,8 +764,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -673,8 +778,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -685,8 +792,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -697,8 +806,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -709,8 +820,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -721,8 +834,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -733,8 +848,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -745,8 +862,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -757,8 +876,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -769,8 +890,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -781,8 +904,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -793,8 +918,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -805,8 +932,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -817,8 +946,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -829,8 +960,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -841,8 +974,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -853,8 +988,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -865,8 +1002,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -877,8 +1016,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -889,8 +1030,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -901,8 +1044,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -913,8 +1058,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -925,8 +1072,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -937,8 +1086,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -949,8 +1100,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -961,8 +1114,10 @@
     </li>
   
 
+            
           
             
+              
   
   
     
@@ -971,6 +1126,7 @@
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
       
         
       
@@ -985,7 +1141,9 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1139,8 +1297,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1151,8 +1311,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1163,8 +1325,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1175,8 +1339,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1187,8 +1353,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1199,8 +1367,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1211,8 +1381,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1223,8 +1395,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1235,8 +1409,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1247,8 +1423,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1259,8 +1437,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1271,8 +1451,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1283,8 +1465,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1295,8 +1479,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1307,8 +1493,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1319,6 +1507,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1339,10 +1528,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="__nav_7">
-        Java
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Java
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Java" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
@@ -1351,6 +1544,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1361,8 +1555,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1373,8 +1569,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1385,8 +1583,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1397,8 +1597,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1409,8 +1611,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1421,8 +1625,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1433,6 +1639,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1453,10 +1660,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
-      <label class="md-nav__link" for="__nav_8">
-        Leetcode
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Leetcode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Leetcode" data-md-level="1">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
@@ -1465,6 +1676,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1475,8 +1687,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1487,8 +1701,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1499,8 +1715,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1511,8 +1729,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1523,8 +1743,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1535,8 +1757,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1547,8 +1771,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1559,8 +1785,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1571,8 +1799,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1583,8 +1813,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1595,8 +1827,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1607,8 +1841,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1619,8 +1855,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1631,8 +1869,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1643,8 +1883,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1655,8 +1897,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1667,8 +1911,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1679,8 +1925,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1691,8 +1939,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1703,8 +1953,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1715,8 +1967,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1727,8 +1981,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1739,8 +1995,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1751,8 +2009,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1763,8 +2023,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1775,8 +2037,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1787,8 +2051,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1799,8 +2065,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1811,8 +2079,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1823,8 +2093,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1835,8 +2107,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1847,8 +2121,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1859,8 +2135,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1871,8 +2149,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1883,8 +2163,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1895,8 +2177,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1907,8 +2191,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1919,8 +2205,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1931,8 +2219,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1943,8 +2233,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1955,8 +2247,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1967,8 +2261,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1979,8 +2275,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1991,8 +2289,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2003,8 +2303,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2015,8 +2317,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2027,8 +2331,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2039,8 +2345,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2051,8 +2359,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2063,8 +2373,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2075,8 +2387,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2087,8 +2401,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2099,8 +2415,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2111,8 +2429,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2123,8 +2443,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2135,8 +2457,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2147,8 +2471,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2159,8 +2485,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2171,8 +2499,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2183,8 +2513,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2195,8 +2527,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2207,8 +2541,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2219,8 +2555,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2231,8 +2569,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2243,8 +2583,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2255,8 +2597,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2267,8 +2611,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2279,8 +2625,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2291,8 +2639,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2303,8 +2653,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2315,8 +2667,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2327,8 +2681,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2339,8 +2695,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2351,8 +2709,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2363,8 +2723,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2375,8 +2737,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2387,8 +2751,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2399,8 +2765,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2411,8 +2779,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2423,8 +2793,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2435,8 +2807,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2447,8 +2821,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2459,8 +2835,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2471,8 +2849,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2483,8 +2863,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2495,8 +2877,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2507,8 +2891,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2519,8 +2905,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2531,8 +2919,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2543,8 +2933,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2555,8 +2947,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2567,8 +2961,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2579,8 +2975,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2591,8 +2989,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2603,8 +3003,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2615,8 +3017,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2627,8 +3031,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2639,8 +3045,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2651,8 +3059,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2663,8 +3073,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2675,8 +3087,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2687,8 +3101,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2699,8 +3115,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2711,8 +3129,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2723,8 +3143,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2735,6 +3157,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2755,10 +3178,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
-      <label class="md-nav__link" for="__nav_9">
-        LibreOJ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          LibreOJ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="LibreOJ" data-md-level="1">
         <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
@@ -2767,6 +3194,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2777,8 +3205,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2789,8 +3219,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2801,8 +3233,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2813,6 +3247,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2833,10 +3268,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
-      <label class="md-nav__link" for="__nav_10">
-        Misc
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Misc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Misc" data-md-level="1">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
@@ -2845,6 +3284,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2855,8 +3295,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2867,6 +3309,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2887,10 +3330,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
-      <label class="md-nav__link" for="__nav_11">
-        Operating System
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Operating System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Operating System" data-md-level="1">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
@@ -2899,6 +3346,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2909,6 +3357,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2929,10 +3378,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
-      <label class="md-nav__link" for="__nav_12">
-        Python
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Python" data-md-level="1">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
@@ -2941,6 +3394,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2951,6 +3405,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2971,10 +3426,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
       
-      <label class="md-nav__link" for="__nav_13">
-        C
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          C
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="C" data-md-level="1">
         <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
@@ -2983,6 +3442,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2993,8 +3453,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3005,8 +3467,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3017,8 +3481,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3029,8 +3495,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3041,8 +3509,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3053,6 +3523,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3073,10 +3544,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
       
-      <label class="md-nav__link" for="__nav_14">
-        Golang
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Golang" data-md-level="1">
         <label class="md-nav__title" for="__nav_14">
           <span class="md-nav__icon md-icon"></span>
@@ -3085,6 +3560,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3095,8 +3571,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3107,8 +3585,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3119,8 +3599,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3131,6 +3613,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3151,10 +3634,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
       
-      <label class="md-nav__link" for="__nav_15">
-        iOS
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          iOS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="iOS" data-md-level="1">
         <label class="md-nav__title" for="__nav_15">
           <span class="md-nav__icon md-icon"></span>
@@ -3163,6 +3650,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3173,8 +3661,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3185,8 +3675,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3197,8 +3689,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3209,6 +3703,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3229,10 +3724,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
       
-      <label class="md-nav__link" for="__nav_16">
-        Machine learning
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Machine learning" data-md-level="1">
         <label class="md-nav__title" for="__nav_16">
           <span class="md-nav__icon md-icon"></span>
@@ -3241,6 +3740,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3251,8 +3751,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3263,8 +3765,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3275,8 +3779,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3287,8 +3793,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3299,6 +3807,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3318,7 +3827,9 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -3477,12 +3988,13 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Interview/rectangle-2d-dp.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="2-dimension-dynamic-programming">2 Dimension Dynamic Programming<a class="headerlink" href="#2-dimension-dynamic-programming" title="Permanent link">&para;</a></h1>
+<a href="https://github.com/advpetc/tech_notes/edit/master/docs/Interview/rectangle-2d-dp.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="2-dimension-dynamic-programming">2 Dimension Dynamic Programming<a class="headerlink" href="#2-dimension-dynamic-programming" title="Permanent link">&para;</a></h1>
 <h2 id="longest-cross-of-1s">Longest Cross Of 1s<a class="headerlink" href="#longest-cross-of-1s" title="Permanent link">&para;</a></h2>
 <p>Given a matrix that contains only 1s and 0s, find the largest cross which contains only 1s, with the same arm lengths and the four arms joining at the central point.</p>
 <p>Return the arm length of the largest cross.</p>
@@ -3501,62 +4013,61 @@ Examples</p>
 3. prefix sum from top to i, j
 4. prefix sum from bottom to i, j</p>
 <p>After finishing the calcualtion, we find the min of each prefix sum on curr i, j, update the answer with the larger min prefix sum.</p>
-<p>Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span>
-Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
+<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span>
+Time: <span class="arithmatex"><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
- <span style="color: #A0A000">public</span>:
-  <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
-    <span style="color: #B00040">int</span> left, right, down, up;
-    <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() {
-      <span style="color: #008000; font-weight: bold">return</span> min({left, right, down, up});
-    }
-    <span style="color: #B00040">void</span> <span style="color: #0000FF">setRD</span>(<span style="color: #B00040">int</span> val) {
-      right <span style="color: #666666">=</span> val;
-      down <span style="color: #666666">=</span> val;
-    }
-    <span style="color: #B00040">void</span> <span style="color: #0000FF">setLU</span>(<span style="color: #B00040">int</span> val) {
-      left <span style="color: #666666">=</span> val;
-      up <span style="color: #666666">=</span> val;
-    }
-  };
-  <span style="color: #B00040">int</span> <span style="color: #0000FF">largest</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
-    <span style="color: #408080; font-style: italic">// write your solution here</span>
-    <span style="color: #B00040">int</span> m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
-    Node dp[m][n];
-    memset(dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
-    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
-        <span style="color: #B00040">int</span> one <span style="color: #666666">=</span> matrix[i][j];
-        dp[i][j].setRD(one);
-        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> one)
-          dp[i][j].right <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j].right <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-        <span style="color: #008000; font-weight: bold">if</span> (j <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> one)
-          dp[i][j].down <span style="color: #666666">=</span> dp[i][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>].down <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-      }
-    }
-    <span style="color: #408080; font-style: italic">// Note: direction is reversed, or there is no precalculation</span>
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>j) {
-        <span style="color: #B00040">int</span> one <span style="color: #666666">=</span> matrix[i][j];
-        dp[i][j].setLU(one);
-        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> one)
-          dp[i][j].left <span style="color: #666666">=</span> dp[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j].left <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-        <span style="color: #008000; font-weight: bold">if</span> (j <span style="color: #666666">!=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> one)
-          dp[i][j].up <span style="color: #666666">=</span> dp[i][j <span style="color: #666666">+</span> <span style="color: #666666">1</span>].up <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-      }
-    }
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">struct</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Node</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>left,<span style="color: #bbbbbb"> </span>right,<span style="color: #bbbbbb"> </span>down,<span style="color: #bbbbbb"> </span>up;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">minVal</span>()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>min({left,<span style="color: #bbbbbb"> </span>right,<span style="color: #bbbbbb"> </span>down,<span style="color: #bbbbbb"> </span>up});<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setRD</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>right<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>val;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>down<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>val;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setLU</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>val;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>up<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>val;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">largest</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>matrix)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// write your solution here</span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix.size(),<span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[<span style="color: #666666">0</span>].size();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>Node<span style="color: #bbbbbb"> </span>dp[m][n];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>memset(dp,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>dp);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>one<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[i][j];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>dp[i][j].setRD(one);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>one)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>dp[i][j].right<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j].right<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>one)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>dp[i][j].down<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i][j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>].down<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// Note: direction is reversed, or there is no precalculation</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>one<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[i][j];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>dp[i][j].setLU(one);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>one)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>dp[i][j].left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j].left<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>one)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>dp[i][j].up<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i][j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>].up<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
 
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i)
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j)
-        res <span style="color: #666666">=</span> max(res, dp[i][j].minVal());
-    <span style="color: #008000; font-weight: bold">return</span> res;
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>j)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>max(res,<span style="color: #bbbbbb"> </span>dp[i][j].minVal());<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
 
-  }
-};
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="largest-x-of-1s">Largest X Of 1s<a class="headerlink" href="#largest-x-of-1s" title="Permanent link">&para;</a></h2>
 <p>Given a matrix that contains only 1s and 0s, find the largest X shape which contains only 1s, with the same arm lengths and the four arms joining at the central point.</p>
@@ -3576,62 +4087,61 @@ Examples</p>
 3. prefix sum from bottom left to i, j
 4. prefix sum from bottom left to i, j</p>
 <p>After finishing the calcualtion, we find the min of each prefix sum on curr i, j, update the answer with the larger min prefix sum.</p>
-<p>Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span>
-Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
+<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span>
+Time: <span class="arithmatex"><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
- <span style="color: #A0A000">public</span>:
-  <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
-    <span style="color: #B00040">int</span> nw, ne, sw, se;
-    <span style="color: #B00040">void</span> <span style="color: #0000FF">setN</span>(<span style="color: #B00040">int</span> val) {
-      nw <span style="color: #666666">=</span> ne <span style="color: #666666">=</span> val;
-    }
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">struct</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Node</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>nw,<span style="color: #bbbbbb"> </span>ne,<span style="color: #bbbbbb"> </span>sw,<span style="color: #bbbbbb"> </span>se;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setN</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>nw<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>ne<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>val;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
 
-    <span style="color: #B00040">void</span> <span style="color: #0000FF">setS</span>(<span style="color: #B00040">int</span> val) {
-      sw <span style="color: #666666">=</span> se <span style="color: #666666">=</span> val;
-    }
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setS</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>sw<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>se<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>val;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
 
-    <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() {
-      <span style="color: #008000; font-weight: bold">return</span> min({nw, ne, sw, se});
-    }
-  };
-  <span style="color: #B00040">int</span> <span style="color: #0000FF">largest</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
-    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
-    Node dp[m][n];
-    memset(dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
-        <span style="color: #B00040">int</span> val <span style="color: #666666">=</span> matrix[i][j];
-        dp[i][j].setN(val);
-        <span style="color: #008000; font-weight: bold">if</span> (val <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">continue</span>;
-        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) 
-          dp[i][j].nw <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>].nw <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">!=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
-          dp[i][j].ne <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j <span style="color: #666666">+</span> <span style="color: #666666">1</span>].ne <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">minVal</span>()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>min({nw,<span style="color: #bbbbbb"> </span>ne,<span style="color: #bbbbbb"> </span>sw,<span style="color: #bbbbbb"> </span>se});<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">largest</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>matrix)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix.size(),<span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[<span style="color: #666666">0</span>].size();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>Node<span style="color: #bbbbbb"> </span>dp[m][n];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>memset(dp,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>dp);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[i][j];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>dp[i][j].setN(val);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(val<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">continue</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">          </span>dp[i][j].nw<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>].nw<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>dp[i][j].ne<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>].ne<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
 
-      }
-    }
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
 
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>j) {
-        <span style="color: #B00040">int</span> val <span style="color: #666666">=</span> matrix[i][j];
-        dp[i][j].setS(val);
-        <span style="color: #008000; font-weight: bold">if</span> (val <span style="color: #666666">==</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">continue</span>;
-        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">!=</span> <span style="color: #666666">0</span>) 
-          dp[i][j].sw <span style="color: #666666">=</span> dp[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>].sw <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-        <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">!=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
-          dp[i][j].se <span style="color: #666666">=</span> dp[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j <span style="color: #666666">+</span> <span style="color: #666666">1</span>].se <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-      }
-    }
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[i][j];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>dp[i][j].setS(val);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(val<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">continue</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">          </span>dp[i][j].sw<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>].sw<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>dp[i][j].se<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>].se<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
 
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i)
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j)
-        res <span style="color: #666666">=</span> max(res, dp[i][j].minVal());
-    <span style="color: #008000; font-weight: bold">return</span> res;
-  }
-};
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>j)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>max(res,<span style="color: #bbbbbb"> </span>dp[i][j].minVal());<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="largest-square-surrounded-by-one">Largest Square Surrounded By One<a class="headerlink" href="#largest-square-surrounded-by-one" title="Permanent link">&para;</a></h2>
 <p>Determine the largest square surrounded by 1s in a binary matrix (a binary matrix only contains 0 and 1), return the length of the largest square.</p>
@@ -3652,54 +4162,53 @@ Time: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math
 1111 </p>
 <p>and the answer is 4.</p>
 <p>In order to find the largest submatrix, we need to determine the smallest "stretching length" for its width and height. To find the "stretching" width and height, we can use prefix sum to do so. After we maintained the two "stretching length", we should find the minimal and find the longest size of the submatrix.</p>
-<p>Time: <span><span class="MathJax_Preview">O(m \times n \times max(m, n))</span><script type="math/tex">O(m \times n \times max(m, n))</script></span>
-Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
+<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(m \times n \times max(m, n))</span><script type="math/tex">O(m \times n \times max(m, n))</script></span>
+Space: <span class="arithmatex"><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
- <span style="color: #A0A000">public</span>:
-  <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
-    <span style="color: #B00040">int</span> hor, ver;
-    <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() {
-      <span style="color: #008000; font-weight: bold">return</span> min(hor, ver);
-    }
-    <span style="color: #B00040">void</span> <span style="color: #0000FF">set</span>(<span style="color: #B00040">int</span> val) {
-      hor <span style="color: #666666">=</span> ver <span style="color: #666666">=</span> val;
-    }
-  };
-  <span style="color: #B00040">int</span> <span style="color: #0000FF">largestSquareSurroundedByOne</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
-    <span style="color: #008000; font-weight: bold">if</span> (matrix.empty() <span style="color: #666666">||</span> matrix[<span style="color: #666666">0</span>].empty()) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
-    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
-    Node dp[m][n];
-    memset(dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
-        <span style="color: #B00040">int</span> val <span style="color: #666666">=</span> matrix[i][j];
-        dp[i][j].set(val);
-        <span style="color: #008000; font-weight: bold">if</span> (val <span style="color: #666666">==</span> <span style="color: #666666">1</span>) {
-          <span style="color: #008000; font-weight: bold">if</span> (i <span style="color: #666666">!=</span> <span style="color: #666666">0</span>)
-            dp[i][j].ver <span style="color: #666666">=</span> dp[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>][j].ver <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-          <span style="color: #008000; font-weight: bold">if</span> (j <span style="color: #666666">!=</span> <span style="color: #666666">0</span>)
-            dp[i][j].hor <span style="color: #666666">=</span> dp[i][j <span style="color: #666666">-</span> <span style="color: #666666">1</span>].hor <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-        }
-      }
-    }
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">struct</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Node</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>hor,<span style="color: #bbbbbb"> </span>ver;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">minVal</span>()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>min(hor,<span style="color: #bbbbbb"> </span>ver);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">set</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>hor<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>ver<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>val;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">largestSquareSurroundedByOne</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>matrix)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(matrix.empty()<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>matrix[<span style="color: #666666">0</span>].empty())<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix.size(),<span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[<span style="color: #666666">0</span>].size();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>Node<span style="color: #bbbbbb"> </span>dp[m][n];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>memset(dp,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>dp);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[i][j];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>dp[i][j].set(val);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(val<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>dp[i][j].ver<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j].ver<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>dp[i][j].hor<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i][j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>].hor<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
 
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>j) {
-        <span style="color: #B00040">int</span> small <span style="color: #666666">=</span> dp[i][j].minVal();
-        <span style="color: #008000; font-weight: bold">while</span> (small <span style="color: #666666">&gt;</span> res) {
-          <span style="color: #408080; font-style: italic">// horizonal grow requires vertial has the same stretching size, vice versa for vertial grow</span>
-          <span style="color: #008000; font-weight: bold">if</span> (dp[i][j <span style="color: #666666">-</span> small <span style="color: #666666">+</span> <span style="color: #666666">1</span>].ver <span style="color: #666666">&gt;=</span> small <span style="color: #666666">&amp;&amp;</span> dp[i <span style="color: #666666">-</span> small <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j].hor <span style="color: #666666">&gt;=</span> small)
-            res <span style="color: #666666">=</span> small;
-          small<span style="color: #666666">--</span>;
-        }
-      }
-    }
-    <span style="color: #008000; font-weight: bold">return</span> res;
-  }
-};
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>small<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i][j].minVal();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(small<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>res)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span><span style="color: #3D7B7B; font-style: italic">// horizonal grow requires vertial has the same stretching size, vice versa for vertial grow</span>
+<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(dp[i][j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>small<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>].ver<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span>small<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>small<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j].hor<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span>small)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>small;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>small<span style="color: #666666">--</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="largest-square-of-matches">Largest Square Of Matches<a class="headerlink" href="#largest-square-of-matches" title="Permanent link">&para;</a></h2>
 <p>Determine the largest square surrounded by a bunch of matches (each match is either horizontal or vertical), return the length of the largest square.</p>
@@ -3725,49 +4234,48 @@ Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="mat
 2. if matrix[i][j] == 2 || matrix[i][j] == 3: dp[i][j].top = dp[i + 1][j].top + 1;</p>
 <p>Note that it's <code>[i][j + 1]</code> and <code>[i + 1][j]</code>, which means we need to make sure the two locations have already populated, so we should going from bottom to top and right to left.</p>
 <p>Also note that the way to find largest submatrix is different from largest square surround by ones, because the direction of the presum is flipped. And the element stored is offset by 1, because the number represent the number of matches on its right or top, so we need to check one more.</p>
-<p>Time: <span><span class="MathJax_Preview">O(m \times n \times max(n, m))</span><script type="math/tex">O(m \times n \times max(n, m))</script></span>
-Space: <span><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
+<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(m \times n \times max(n, m))</span><script type="math/tex">O(m \times n \times max(n, m))</script></span>
+Space: <span class="arithmatex"><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span></p>
 <h3 id="code_3">Code<a class="headerlink" href="#code_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
- <span style="color: #A0A000">public</span>:
-  <span style="color: #008000; font-weight: bold">struct</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
-    <span style="color: #B00040">int</span> left, top;
-    <span style="color: #B00040">int</span> <span style="color: #0000FF">minVal</span>() { <span style="color: #008000; font-weight: bold">return</span> min(left, top); }
-    <span style="color: #B00040">void</span> <span style="color: #0000FF">set</span>(<span style="color: #B00040">int</span> val) {
-        left <span style="color: #666666">=</span> top <span style="color: #666666">=</span> val;
-    }
-  };
-  <span style="color: #B00040">int</span> <span style="color: #0000FF">largestSquareOfMatches</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
-    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
-    Node dp[m][n];
-    memset(dp, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> dp);
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>i) {
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>; j <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>; <span style="color: #666666">--</span>j) {
-        <span style="color: #B00040">int</span> val <span style="color: #666666">=</span> matrix[i][j];
-        dp[i][j].set(<span style="color: #666666">0</span>);
-        <span style="color: #008000; font-weight: bold">if</span> ((val <span style="color: #666666">==</span> <span style="color: #666666">1</span> <span style="color: #666666">||</span> val <span style="color: #666666">==</span> <span style="color: #666666">3</span>) <span style="color: #666666">&amp;&amp;</span> j <span style="color: #666666">!=</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
-          dp[i][j].left <span style="color: #666666">=</span> dp[i][j <span style="color: #666666">+</span> <span style="color: #666666">1</span>].left <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-        <span style="color: #008000; font-weight: bold">if</span> ((val <span style="color: #666666">==</span> <span style="color: #666666">2</span> <span style="color: #666666">||</span> val <span style="color: #666666">==</span> <span style="color: #666666">3</span>) <span style="color: #666666">&amp;&amp;</span> i <span style="color: #666666">!=</span> m <span style="color: #666666">-</span> <span style="color: #666666">1</span>)
-          dp[i][j].top <span style="color: #666666">=</span> dp[i <span style="color: #666666">+</span> <span style="color: #666666">1</span>][j].top <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-      }
-    }
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>j) {
-        <span style="color: #B00040">int</span> small <span style="color: #666666">=</span> dp[i][j].minVal();
-        <span style="color: #008000; font-weight: bold">while</span> (small <span style="color: #666666">&gt;</span> res) {
-          <span style="color: #408080; font-style: italic">// j + small but not j + small - 1</span>
-          <span style="color: #008000; font-weight: bold">if</span> (dp[i][j <span style="color: #666666">+</span> small].top <span style="color: #666666">&gt;=</span> small <span style="color: #666666">&amp;&amp;</span>
-              dp[i <span style="color: #666666">+</span> small][j].left <span style="color: #666666">&gt;=</span> small)
-            res <span style="color: #666666">=</span> small;
-          small<span style="color: #666666">--</span>;
-        }
-      }
-    }
-    <span style="color: #008000; font-weight: bold">return</span> res;
-  }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">struct</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Node</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>left,<span style="color: #bbbbbb"> </span>top;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">minVal</span>()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>min(left,<span style="color: #bbbbbb"> </span>top);<span style="color: #bbbbbb"> </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">set</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>top<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>val;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">largestSquareOfMatches</span>(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>matrix)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix.size(),<span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[<span style="color: #666666">0</span>].size();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>Node<span style="color: #bbbbbb"> </span>dp[m][n];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>memset(dp,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>dp);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[i][j];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>dp[i][j].set(<span style="color: #666666">0</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>((val<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>)<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>dp[i][j].left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i][j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>].left<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>((val<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>)<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>dp[i][j].top<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j].top<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>small<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i][j].minVal();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(small<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>res)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span><span style="color: #3D7B7B; font-style: italic">// j + small but not j + small - 1</span>
+<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(dp[i][j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>small].top<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span>small<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">              </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>small][j].left<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span>small)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>small;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>small<span style="color: #666666">--</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="largest-submatrix-sum">Largest SubMatrix Sum<a class="headerlink" href="#largest-submatrix-sum" title="Permanent link">&para;</a></h2>
 <p>Given a matrix that contains integers, find the submatrix with the largest sum.</p>
@@ -3789,64 +4297,54 @@ yyyy</p>
 <hr />
 <p>xxxx</p>
 <p>Your job is to find the maximum area sum generated by the two line (max y's sum). If we can compress the area between the two horizon lines, we can use the technique for finding the largest subarray sum to solve this problem.</p>
-<p>Time: <span><span class="MathJax_Preview">O(n \times n \times m)</span><script type="math/tex">O(n \times n \times m)</script></span> or <span><span class="MathJax_Preview">O(min(m, n)^2 \times max(m, n))</span><script type="math/tex">O(min(m, n)^2 \times max(m, n))</script></span>
-Space: because we just need one 1-d presum array: <span><span class="MathJax_Preview">O(min(m, n))</span><script type="math/tex">O(min(m, n))</script></span></p>
+<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(n \times n \times m)</span><script type="math/tex">O(n \times n \times m)</script></span> or <span class="arithmatex"><span class="MathJax_Preview">O(min(m, n)^2 \times max(m, n))</span><script type="math/tex">O(min(m, n)^2 \times max(m, n))</script></span>
+Space: because we just need one 1-d presum array: <span class="arithmatex"><span class="MathJax_Preview">O(min(m, n))</span><script type="math/tex">O(min(m, n))</script></span></p>
 <h3 id="code_4">Code<a class="headerlink" href="#code_4" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
- <span style="color: #A0A000">public</span>:
-  <span style="color: #B00040">int</span> largest(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span> matrix) {
-    <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>][<span style="color: #666666">0</span>], m <span style="color: #666666">=</span> matrix.size(), n <span style="color: #666666">=</span> matrix[<span style="color: #666666">0</span>].size();
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>i) {
-      vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> preSum(n); <span style="color: #408080; font-style: italic">// keep adding from i - j rows&#39; sum</span>
-      <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> i; j <span style="color: #666666">&lt;</span> m; <span style="color: #666666">++</span>j) {
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">0</span>; k <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>k)
-          preSum[k] <span style="color: #666666">+=</span> matrix[j][k];
-        <span style="color: #B00040">int</span> currMax <span style="color: #666666">=</span> preSum[<span style="color: #666666">0</span>];
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">1</span>; k <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>k) { <span style="color: #408080; font-style: italic">// find largest subarray</span>
-          currMax <span style="color: #666666">=</span> max(currMax <span style="color: #666666">+</span> preSum[k], preSum[k]);
-          res <span style="color: #666666">=</span> max(res, currMax);
-        }
-      }
-    }
-    <span style="color: #008000; font-weight: bold">return</span> res;
-  }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>largest(vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>matrix)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[<span style="color: #666666">0</span>][<span style="color: #666666">0</span>],<span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix.size(),<span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>matrix[<span style="color: #666666">0</span>].size();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>preSum(n);<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// keep adding from i - j rows&#39; sum</span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>k<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>k<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>k)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>preSum[k]<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>matrix[j][k];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>currMax<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>preSum[<span style="color: #666666">0</span>];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>k<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>k<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>k)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// find largest subarray</span>
+<span style="color: #bbbbbb">          </span>currMax<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>max(currMax<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>preSum[k],<span style="color: #bbbbbb"> </span>preSum[k]);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>max(res,<span style="color: #bbbbbb"> </span>currMax);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-                
-                  
-                    
 
-<hr>
-<div class="md-source-date">
+  <hr>
+<div class="md-source-file">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 9, 2021</span>
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 9, 2021</span>
+      
     
   </small>
 </div>
-                  
-                
-              
-              
-                
-
-
-  <h2 id="__comments">Comments</h2>
-  <div id="disqus_thread"></div>
-  <script>var disqus_config=function(){this.page.url="https://peterchen.xyz/Interview/rectangle-2d-dp/",this.page.identifier="Interview/rectangle-2d-dp/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//tech-notes-2.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
 
               
             </article>
           </div>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../ood/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../ood/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Object Oriented Design" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -3861,7 +4359,8 @@ Space: because we just need one 1-d presum array: <span><span class="MathJax_Pre
         </a>
       
       
-        <a href="../recursion-tree/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../recursion-tree/" class="md-footer__link md-footer__link--next" aria-label="Next: Recursion and Tree" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -3879,14 +4378,15 @@ Space: because we just need one 1-d presum array: <span><span class="MathJax_Pre
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -3896,10 +4396,10 @@ Space: because we just need one 1-d presum array: <span><span class="MathJax_Pre
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

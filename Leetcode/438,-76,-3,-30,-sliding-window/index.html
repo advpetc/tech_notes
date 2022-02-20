@@ -10,14 +10,13 @@
         <meta name="description" content="Keep track of all the learning">
       
       
-      
         <meta name="author" content="Pete">
       
       
         <link rel="canonical" href="https://peterchen.xyz/Leetcode/438%2C-76%2C-3%2C-30%2C-sliding-window/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.0.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
     
     
       
@@ -25,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -42,21 +41,26 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Ubuntu Mono";--md-code-font-family:""}</style>
+        <style>:root{--md-text-font:"Ubuntu Mono";--md-code-font:""}</style>
       
-    
-    
-      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
     
       <link rel="stylesheet" href="../../css/extra.css">
     
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-168812075-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-304400452"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-304400452",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-304400452"></script>
+
+
     
     
   </head>
@@ -64,12 +68,16 @@
   
     
     
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
       
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -86,7 +94,10 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+    
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Tech Notes" class="md-header__button md-logo" aria-label="Tech Notes" data-md-component="logo">
       
@@ -112,26 +123,50 @@
         </div>
       </div>
     </div>
-    <div class="md-header__options">
-      
-    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -148,11 +183,10 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     advpetc/Tech_Notes
@@ -161,11 +195,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -190,11 +227,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     advpetc/Tech_Notes
@@ -247,10 +283,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
-      <label class="md-nav__link" for="__nav_3">
-        Acwing
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Acwing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Acwing" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
@@ -259,6 +299,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -269,8 +310,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -281,8 +324,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -293,8 +338,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -305,8 +352,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -317,8 +366,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -329,8 +380,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -341,8 +394,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -353,8 +408,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -365,6 +422,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -385,10 +443,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
-      <label class="md-nav__link" for="__nav_4">
-        Books
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Books
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Books" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
@@ -397,6 +459,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -407,8 +470,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -419,8 +484,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -431,8 +498,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -443,8 +512,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -455,8 +526,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -467,8 +540,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -479,8 +554,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -491,6 +568,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -511,10 +589,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="__nav_5">
-        Google Kick Start
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Google Kick Start
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Google Kick Start" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
@@ -523,6 +605,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -533,8 +616,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -545,8 +630,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -557,6 +644,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -577,10 +665,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      <label class="md-nav__link" for="__nav_6">
-        Interview
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Interview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Interview" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
@@ -589,6 +681,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -599,8 +692,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -611,8 +706,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -623,8 +720,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -635,8 +734,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -647,8 +748,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -659,8 +762,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -671,8 +776,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -683,8 +790,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -695,8 +804,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -707,8 +818,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -719,8 +832,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -731,8 +846,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -743,8 +860,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -755,8 +874,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -767,8 +888,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -779,8 +902,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -791,8 +916,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -803,8 +930,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -815,8 +944,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -827,8 +958,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -839,8 +972,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -851,8 +986,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -863,8 +1000,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -875,8 +1014,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -887,8 +1028,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -899,8 +1042,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -911,8 +1056,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -923,8 +1070,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -935,8 +1084,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -947,8 +1098,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -959,8 +1112,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -971,8 +1126,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -983,8 +1140,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -995,8 +1154,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1007,8 +1168,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1019,8 +1182,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1031,8 +1196,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1043,8 +1210,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1055,8 +1224,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1067,8 +1238,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1079,8 +1252,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1091,8 +1266,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1103,8 +1280,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1115,8 +1294,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1127,8 +1308,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1139,8 +1322,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1151,6 +1336,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1171,10 +1357,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="__nav_7">
-        Java
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Java
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Java" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
@@ -1183,6 +1373,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1193,8 +1384,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1205,8 +1398,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1217,8 +1412,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1229,8 +1426,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1241,8 +1440,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1253,8 +1454,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1265,6 +1468,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1287,10 +1491,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
       
-      <label class="md-nav__link" for="__nav_8">
-        Leetcode
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Leetcode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Leetcode" data-md-level="1">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
@@ -1299,6 +1507,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1309,8 +1518,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1321,8 +1532,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1333,8 +1546,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1345,8 +1560,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1357,8 +1574,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1369,8 +1588,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1381,8 +1602,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1393,8 +1616,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1405,8 +1630,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1417,8 +1644,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1429,8 +1658,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1441,8 +1672,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1453,8 +1686,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1465,8 +1700,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1477,8 +1714,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1489,8 +1728,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1501,8 +1742,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1513,8 +1756,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1525,8 +1770,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1537,8 +1784,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1549,8 +1798,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1561,8 +1812,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1573,8 +1826,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1585,8 +1840,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1597,8 +1854,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1609,8 +1868,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1621,8 +1882,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1633,8 +1896,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1645,8 +1910,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1657,8 +1924,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1669,8 +1938,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1681,8 +1952,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1693,8 +1966,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1705,8 +1980,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1717,8 +1994,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1729,8 +2008,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1741,8 +2022,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1753,8 +2036,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1765,8 +2050,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1777,8 +2064,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1789,8 +2078,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1801,8 +2092,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1813,8 +2106,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1825,8 +2120,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1837,8 +2134,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1849,8 +2148,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1861,8 +2162,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1873,8 +2176,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1885,8 +2190,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1897,8 +2204,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1909,8 +2218,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1921,8 +2232,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1933,8 +2246,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1945,8 +2260,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1957,8 +2274,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1969,8 +2288,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1981,8 +2302,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1993,8 +2316,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2005,8 +2330,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2017,8 +2344,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2029,8 +2358,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2041,8 +2372,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2053,8 +2386,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2065,8 +2400,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2077,8 +2414,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2089,8 +2428,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2101,8 +2442,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2113,8 +2456,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2125,8 +2470,10 @@
     </li>
   
 
+            
           
             
+              
   
   
     
@@ -2135,6 +2482,7 @@
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
       
         
       
@@ -2149,7 +2497,9 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -2230,8 +2580,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2242,8 +2594,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2254,8 +2608,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2266,8 +2622,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2278,8 +2636,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2290,8 +2650,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2302,8 +2664,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2314,8 +2678,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2326,8 +2692,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2338,8 +2706,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2350,8 +2720,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2362,8 +2734,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2374,8 +2748,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2386,8 +2762,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2398,8 +2776,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2410,8 +2790,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2422,8 +2804,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2434,8 +2818,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2446,8 +2832,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2458,8 +2846,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2470,8 +2860,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2482,8 +2874,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2494,8 +2888,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2506,8 +2902,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2518,8 +2916,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2530,8 +2930,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2542,8 +2944,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2554,8 +2958,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2566,8 +2972,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2578,8 +2986,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2590,8 +3000,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2602,8 +3014,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2614,8 +3028,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2626,8 +3042,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2638,8 +3056,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2650,8 +3070,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2662,6 +3084,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2682,10 +3105,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
-      <label class="md-nav__link" for="__nav_9">
-        LibreOJ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          LibreOJ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="LibreOJ" data-md-level="1">
         <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
@@ -2694,6 +3121,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2704,8 +3132,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2716,8 +3146,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2728,8 +3160,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2740,6 +3174,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2760,10 +3195,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
-      <label class="md-nav__link" for="__nav_10">
-        Misc
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Misc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Misc" data-md-level="1">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
@@ -2772,6 +3211,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2782,8 +3222,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2794,6 +3236,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2814,10 +3257,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
-      <label class="md-nav__link" for="__nav_11">
-        Operating System
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Operating System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Operating System" data-md-level="1">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
@@ -2826,6 +3273,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2836,6 +3284,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2856,10 +3305,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
-      <label class="md-nav__link" for="__nav_12">
-        Python
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Python" data-md-level="1">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
@@ -2868,6 +3321,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2878,6 +3332,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2898,10 +3353,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
       
-      <label class="md-nav__link" for="__nav_13">
-        C
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          C
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="C" data-md-level="1">
         <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
@@ -2910,6 +3369,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2920,8 +3380,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2932,8 +3394,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2944,8 +3408,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2956,8 +3422,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2968,8 +3436,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2980,6 +3450,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3000,10 +3471,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
       
-      <label class="md-nav__link" for="__nav_14">
-        Golang
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Golang" data-md-level="1">
         <label class="md-nav__title" for="__nav_14">
           <span class="md-nav__icon md-icon"></span>
@@ -3012,6 +3487,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3022,8 +3498,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3034,8 +3512,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3046,8 +3526,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3058,6 +3540,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3078,10 +3561,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
       
-      <label class="md-nav__link" for="__nav_15">
-        iOS
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          iOS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="iOS" data-md-level="1">
         <label class="md-nav__title" for="__nav_15">
           <span class="md-nav__icon md-icon"></span>
@@ -3090,6 +3577,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3100,8 +3588,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3112,8 +3602,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3124,8 +3616,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3136,6 +3630,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3156,10 +3651,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
       
-      <label class="md-nav__link" for="__nav_16">
-        Machine learning
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Machine learning" data-md-level="1">
         <label class="md-nav__title" for="__nav_16">
           <span class="md-nav__icon md-icon"></span>
@@ -3168,6 +3667,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3178,8 +3678,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3190,8 +3692,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3202,8 +3706,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3214,8 +3720,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3226,6 +3734,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3245,7 +3754,9 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -3331,67 +3842,67 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Leetcode/438,-76,-3,-30,-sliding-window.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="sliding-window-pattern">Sliding Window Pattern<a class="headerlink" href="#sliding-window-pattern" title="Permanent link">&para;</a></h1>
+<a href="https://github.com/advpetc/tech_notes/edit/master/docs/Leetcode/438,-76,-3,-30,-sliding-window.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="sliding-window-pattern">Sliding Window Pattern<a class="headerlink" href="#sliding-window-pattern" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/sliding-window-algorithm-template-to-solve-all-the-leetcode-substring-search-problem">https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/sliding-window-algorithm-template-to-solve-all-the-leetcode-substring-search-problem</a></p>
 </blockquote>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>public class Solution {
-    public List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> slidingWindowTemplateByHarryChaoyangHe(String s, String t) {
-        <span style="color: #408080; font-style: italic">//init a collection or int value to save the result according the question.</span>
-        List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> result <span style="color: #666666">=</span> new LinkedList<span style="color: #666666">&lt;&gt;</span>();
-        <span style="color: #008000; font-weight: bold">if</span>(t.length()<span style="color: #666666">&gt;</span> s.length()) <span style="color: #008000; font-weight: bold">return</span> result;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>public<span style="color: #bbbbbb"> </span>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>public<span style="color: #bbbbbb"> </span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>slidingWindowTemplateByHarryChaoyangHe(String<span style="color: #bbbbbb"> </span>s,<span style="color: #bbbbbb"> </span>String<span style="color: #bbbbbb"> </span>t)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">//init a collection or int value to save the result according the question.</span>
+<span style="color: #bbbbbb">        </span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>result<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>new<span style="color: #bbbbbb"> </span>LinkedList<span style="color: #666666">&lt;&gt;</span>();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span>(t.length()<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>s.length())<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>result;<span style="color: #bbbbbb"></span>
 
-        <span style="color: #408080; font-style: italic">//create a hashmap to save the Characters of the target substring.</span>
-        <span style="color: #408080; font-style: italic">//(K, V) = (Character, Frequence of the Characters)</span>
-        Map<span style="color: #666666">&lt;</span>Character, Integer<span style="color: #666666">&gt;</span> map <span style="color: #666666">=</span> new HashMap<span style="color: #666666">&lt;&gt;</span>();
-        <span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">char</span> <span style="color: #A0A000">c</span> : t.toCharArray()){
-            map.put(c, map.getOrDefault(c, <span style="color: #666666">0</span>) <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
-        }
-        <span style="color: #408080; font-style: italic">//maintain a counter to check whether match the target string.</span>
-        <span style="color: #B00040">int</span> counter <span style="color: #666666">=</span> map.size();<span style="color: #408080; font-style: italic">//must be the map size, NOT the string size because the char may be duplicate.</span>
+<span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">//create a hashmap to save the Characters of the target substring.</span>
+<span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">//(K, V) = (Character, Frequence of the Characters)</span>
+<span style="color: #bbbbbb">        </span>Map<span style="color: #666666">&lt;</span>Character,<span style="color: #bbbbbb"> </span>Integer<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>map<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>new<span style="color: #bbbbbb"> </span>HashMap<span style="color: #666666">&lt;&gt;</span>();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span>(<span style="color: #B00040">char</span><span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>t.toCharArray()){<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>map.put(c,<span style="color: #bbbbbb"> </span>map.getOrDefault(c,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">//maintain a counter to check whether match the target string.</span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>counter<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>map.size();<span style="color: #3D7B7B; font-style: italic">//must be the map size, NOT the string size because the char may be duplicate.</span>
 
-        <span style="color: #408080; font-style: italic">//Two Pointers: begin - left pointer of the window; end - right pointer of the window</span>
-        <span style="color: #B00040">int</span> begin <span style="color: #666666">=</span> <span style="color: #666666">0</span>, end <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">//Two Pointers: begin - left pointer of the window; end - right pointer of the window</span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>begin<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>end<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
 
-        <span style="color: #408080; font-style: italic">//the length of the substring which match the target string.</span>
-        <span style="color: #B00040">int</span> len <span style="color: #666666">=</span> Integer.MAX_VALUE; 
+<span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">//the length of the substring which match the target string.</span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>Integer.MAX_VALUE;<span style="color: #bbbbbb"> </span>
 
-        <span style="color: #408080; font-style: italic">//loop at the begining of the source string</span>
-        <span style="color: #008000; font-weight: bold">while</span>(end <span style="color: #666666">&lt;</span> s.length()){
+<span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">//loop at the begining of the source string</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span>(end<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>s.length()){<span style="color: #bbbbbb"></span>
 
-            <span style="color: #B00040">char</span> c <span style="color: #666666">=</span> s.charAt(end);<span style="color: #408080; font-style: italic">//get a character</span>
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">char</span><span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.charAt(end);<span style="color: #3D7B7B; font-style: italic">//get a character</span>
 
-            <span style="color: #008000; font-weight: bold">if</span>( map.containsKey(c) ){
-                map.put(c, map.get(c)<span style="color: #666666">-1</span>);<span style="color: #408080; font-style: italic">// plus or minus one</span>
-                <span style="color: #008000; font-weight: bold">if</span>(map.get(c) <span style="color: #666666">==</span> <span style="color: #666666">0</span>) counter<span style="color: #666666">--</span>;<span style="color: #408080; font-style: italic">//modify the counter according the requirement(different condition).</span>
-            }
-            end<span style="color: #666666">++</span>;
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span>(<span style="color: #bbbbbb"> </span>map.containsKey(c)<span style="color: #bbbbbb"> </span>){<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>map.put(c,<span style="color: #bbbbbb"> </span>map.get(c)<span style="color: #666666">-1</span>);<span style="color: #3D7B7B; font-style: italic">// plus or minus one</span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span>(map.get(c)<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>counter<span style="color: #666666">--</span>;<span style="color: #3D7B7B; font-style: italic">//modify the counter according the requirement(different condition).</span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>end<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
 
-            <span style="color: #408080; font-style: italic">//increase begin pointer to make it invalid/valid again</span>
-            <span style="color: #008000; font-weight: bold">while</span>(counter <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #408080; font-style: italic">/* counter condition. different question may have different condition */</span>){
+<span style="color: #bbbbbb">            </span><span style="color: #3D7B7B; font-style: italic">//increase begin pointer to make it invalid/valid again</span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span>(counter<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">/* counter condition. different question may have different condition */</span>){<span style="color: #bbbbbb"></span>
 
-                <span style="color: #B00040">char</span> tempc <span style="color: #666666">=</span> s.charAt(begin);<span style="color: #408080; font-style: italic">//***be careful here: choose the char at begin pointer, NOT the end pointer</span>
-                <span style="color: #008000; font-weight: bold">if</span>(map.containsKey(tempc)){
-                    map.put(tempc, map.get(tempc) <span style="color: #666666">+</span> <span style="color: #666666">1</span>);<span style="color: #408080; font-style: italic">//plus or minus one</span>
-                    <span style="color: #008000; font-weight: bold">if</span>(map.get(tempc) <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>) counter<span style="color: #666666">++</span>;<span style="color: #408080; font-style: italic">//modify the counter according the requirement(different condition).</span>
-                }
+<span style="color: #bbbbbb">                </span><span style="color: #B00040">char</span><span style="color: #bbbbbb"> </span>tempc<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.charAt(begin);<span style="color: #3D7B7B; font-style: italic">//***be careful here: choose the char at begin pointer, NOT the end pointer</span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span>(map.containsKey(tempc)){<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span>map.put(tempc,<span style="color: #bbbbbb"> </span>map.get(tempc)<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);<span style="color: #3D7B7B; font-style: italic">//plus or minus one</span>
+<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">if</span>(map.get(tempc)<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>counter<span style="color: #666666">++</span>;<span style="color: #3D7B7B; font-style: italic">//modify the counter according the requirement(different condition).</span>
+<span style="color: #bbbbbb">                </span>}<span style="color: #bbbbbb"></span>
 
-                <span style="color: #408080; font-style: italic">/* save / update(min/max) the result if find a target*/</span>
-                <span style="color: #408080; font-style: italic">// result collections or result int value</span>
+<span style="color: #bbbbbb">                </span><span style="color: #3D7B7B; font-style: italic">/* save / update(min/max) the result if find a target*/</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #3D7B7B; font-style: italic">// result collections or result int value</span>
 
-                begin<span style="color: #666666">++</span>;
-            }
-        }
-        <span style="color: #008000; font-weight: bold">return</span> result;
-    }
-}
+<span style="color: #bbbbbb">                </span>begin<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>result;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="438-find-all-anagrams-in-a-string">438. Find All Anagrams in a String<a class="headerlink" href="#438-find-all-anagrams-in-a-string" title="Permanent link">&para;</a></h2>
 <p>Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.</p>
@@ -3414,28 +3925,27 @@ s: "abab" p: "ab"</p>
 The substring with start index = 0 is "ab", which is an anagram of "ab".
 The substring with start index = 1 is "ba", which is an anagram of "ab".
 The substring with start index = 2 is "ab", which is an anagram of "ab".</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
-<span style="color: #A0A000">public</span>:
-    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> findAnagrams(string s, string p)
-    {
-        <span style="color: #008000; font-weight: bold">if</span> (s.empty())
-            <span style="color: #008000; font-weight: bold">return</span> {};
-        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res, m(<span style="color: #666666">256</span>, <span style="color: #666666">0</span>);
-        <span style="color: #B00040">int</span> left <span style="color: #666666">=</span> <span style="color: #666666">0</span>, right <span style="color: #666666">=</span> <span style="color: #666666">0</span>, cnt <span style="color: #666666">=</span> p.size(), n <span style="color: #666666">=</span> s.size();
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">char</span> <span style="color: #A0A000">c</span> : p)
-            <span style="color: #666666">++</span>m[c];
-        <span style="color: #008000; font-weight: bold">while</span> (right <span style="color: #666666">&lt;</span> n) {
-            <span style="color: #008000; font-weight: bold">if</span> (m[s[right<span style="color: #666666">++</span>]]<span style="color: #666666">--</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">1</span>)
-                <span style="color: #666666">--</span>cnt;
-            <span style="color: #008000; font-weight: bold">if</span> (cnt <span style="color: #666666">==</span> <span style="color: #666666">0</span>)
-                res.push_back(left);
-            <span style="color: #008000; font-weight: bold">if</span> (right <span style="color: #666666">-</span> left <span style="color: #666666">==</span> p.size() <span style="color: #666666">&amp;&amp;</span> m[s[left<span style="color: #666666">++</span>]]<span style="color: #666666">++</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>)
-                <span style="color: #666666">++</span>cnt;
-        }
-    }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>findAnagrams(string<span style="color: #bbbbbb"> </span>s,<span style="color: #bbbbbb"> </span>string<span style="color: #bbbbbb"> </span>p)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(s.empty())<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>{};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>res,<span style="color: #bbbbbb"> </span>m(<span style="color: #666666">256</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>right<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>p.size(),<span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.size();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">char</span><span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>p)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #666666">++</span>m[c];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(right<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(m[s[right<span style="color: #666666">++</span>]]<span style="color: #666666">--</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #666666">--</span>cnt;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>res.push_back(left);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(right<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>p.size()<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>m[s[left<span style="color: #666666">++</span>]]<span style="color: #666666">++</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #666666">++</span>cnt;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="76-minimum-window-substring">76. Minimum Window Substring<a class="headerlink" href="#76-minimum-window-substring" title="Permanent link">&para;</a></h2>
 <p>Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).</p>
@@ -3445,33 +3955,32 @@ Output: "BANC"
 Note:</p>
 <p>If there is no such window in S that covers all characters in T, return the empty string "".
 If there is such window, you are guaranteed that there will always be only one unique minimum window in S.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
-<span style="color: #A0A000">public</span>:
-    string minWindow(string s, string t) {
-        unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> m;
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">char</span> <span style="color: #A0A000">c</span> : t) {
-            m[c]<span style="color: #666666">++</span>;
-        }
-        <span style="color: #B00040">int</span> sz <span style="color: #666666">=</span> m.size();
-        string res;
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, j <span style="color: #666666">=</span> <span style="color: #666666">0</span>, cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> s.size(); <span style="color: #666666">++</span>i) {
-            <span style="color: #008000; font-weight: bold">if</span> (m[s[i]] <span style="color: #666666">==</span> <span style="color: #666666">1</span>)
-                cnt<span style="color: #666666">++</span>;
-            m[s[i]]<span style="color: #666666">--</span>;
-            <span style="color: #008000; font-weight: bold">while</span> (m[s[j]] <span style="color: #666666">&lt;</span> <span style="color: #666666">0</span>) {
-                m[s[j<span style="color: #666666">++</span>]]<span style="color: #666666">++</span>;
-            }
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>string<span style="color: #bbbbbb"> </span>minWindow(string<span style="color: #bbbbbb"> </span>s,<span style="color: #bbbbbb"> </span>string<span style="color: #bbbbbb"> </span>t)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span>,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">char</span><span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>t)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>m[c]<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>sz<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>m.size();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>string<span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>s.size();<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(m[s[i]]<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>cnt<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>m[s[i]]<span style="color: #666666">--</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(m[s[j]]<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>m[s[j<span style="color: #666666">++</span>]]<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
 
-            <span style="color: #008000; font-weight: bold">if</span> (cnt <span style="color: #666666">==</span> sz) {
-                <span style="color: #008000; font-weight: bold">if</span> (res.empty() <span style="color: #666666">||</span> res.size() <span style="color: #666666">&gt;</span> i <span style="color: #666666">-</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>)
-                    res <span style="color: #666666">=</span> s.substr(j, i <span style="color: #666666">-</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
-            }
-        }
-        <span style="color: #008000; font-weight: bold">return</span> res;
-    }
-};
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>sz)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(res.empty()<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>res.size()<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.substr(j,<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="3-longest-substring-without-repeating-characters">3. Longest Substring Without Repeating Characters<a class="headerlink" href="#3-longest-substring-without-repeating-characters" title="Permanent link">&para;</a></h2>
 <p>Given a string, find the length of the longest substring without repeating characters.</p>
@@ -3488,24 +3997,23 @@ Example 3:</p>
 Output: 3
 Explanation: The answer is "wke", with the length of 3. 
              Note that the answer must be a substring, "pwke" is a subsequence and not a substring.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
-<span style="color: #A0A000">public</span>:
-    <span style="color: #B00040">int</span> lengthOfLongestSubstring(string s) {
-        <span style="color: #B00040">int</span> start <span style="color: #666666">=</span> <span style="color: #666666">0</span>, end <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> v(<span style="color: #666666">128</span>, <span style="color: #666666">0</span>);
-        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>, j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> s.size(); <span style="color: #666666">++</span>i) {
-            v[s[i]]<span style="color: #666666">++</span>;
-            <span style="color: #008000; font-weight: bold">while</span> (v[s[i]] <span style="color: #666666">&gt;</span> <span style="color: #666666">1</span>) {
-                v[s[j<span style="color: #666666">++</span>]]<span style="color: #666666">--</span>;
-            }
-            res <span style="color: #666666">=</span> max(res, i <span style="color: #666666">-</span> j <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
-        }
-        <span style="color: #008000; font-weight: bold">return</span> res;
-    }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>lengthOfLongestSubstring(string<span style="color: #bbbbbb"> </span>s)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>start<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>end<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>v(<span style="color: #666666">128</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>s.size();<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>v[s[i]]<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(v[s[i]]<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>v[s[j<span style="color: #666666">++</span>]]<span style="color: #666666">--</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>max(res,<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="30-substring-with-concatenation-of-all-words">30. Substring with Concatenation of All Words<a class="headerlink" href="#30-substring-with-concatenation-of-all-words" title="Permanent link">&para;</a></h2>
 <p>You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters.</p>
@@ -3521,32 +4029,31 @@ Example 2:</p>
   s = "wordgoodgoodgoodbestword",
   words = ["word","good","best","word"]
 Output: []</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
-<span style="color: #A0A000">public</span>:
-    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> findSubstring(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> words) {
-        <span style="color: #008000; font-weight: bold">if</span> (s.empty() <span style="color: #666666">||</span> words.empty()) <span style="color: #008000; font-weight: bold">return</span> {};
-        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> s.size(), len <span style="color: #666666">=</span> words[<span style="color: #666666">0</span>].size(), total <span style="color: #666666">=</span> words.size(), cnt <span style="color: #666666">=</span> total;
-        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
-        unordered_map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> counts;
-        <span style="color: #008000; font-weight: bold">for</span> (string <span style="color: #A0A000">s</span> : words) counts[s]<span style="color: #666666">++</span>;
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> len; i<span style="color: #666666">++</span>) {
-            unordered_map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> wordcnt <span style="color: #666666">=</span> counts;
-            cnt <span style="color: #666666">=</span> total;
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> i; j <span style="color: #666666">+</span> len <span style="color: #666666">&lt;=</span> n; j <span style="color: #666666">+=</span> len) {
-                string cur <span style="color: #666666">=</span> s.substr(j, len);
-                <span style="color: #008000; font-weight: bold">if</span> (wordcnt[cur]<span style="color: #666666">--</span> <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>) cnt<span style="color: #666666">--</span>;
-                <span style="color: #008000; font-weight: bold">if</span> (j <span style="color: #666666">-</span> total<span style="color: #666666">*</span>len <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>) {                  
-                    string out <span style="color: #666666">=</span> s.substr(j <span style="color: #666666">-</span> total<span style="color: #666666">*</span>len, len); <span style="color: #408080; font-style: italic">// the word out side of current sliding window</span>
-                    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">++</span>wordcnt[out] <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>) cnt<span style="color: #666666">++</span>;
-                }
-                <span style="color: #008000; font-weight: bold">if</span> (cnt <span style="color: #666666">==</span> <span style="color: #666666">0</span>) res.push_back(j <span style="color: #666666">-</span> (total<span style="color: #666666">-1</span>)<span style="color: #666666">*</span>len);                
-            }
-        }
-        <span style="color: #008000; font-weight: bold">return</span> res;
-    }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>findSubstring(string<span style="color: #bbbbbb"> </span>s,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>words)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(s.empty()<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>words.empty())<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>{};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.size(),<span style="color: #bbbbbb"> </span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>words[<span style="color: #666666">0</span>].size(),<span style="color: #bbbbbb"> </span>total<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>words.size(),<span style="color: #bbbbbb"> </span>cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>total;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>unordered_map<span style="color: #666666">&lt;</span>string,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>counts;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(string<span style="color: #bbbbbb"> </span>s<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>words)<span style="color: #bbbbbb"> </span>counts[s]<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>len;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>unordered_map<span style="color: #666666">&lt;</span>string,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>wordcnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>counts;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>total;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>len)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>string<span style="color: #bbbbbb"> </span>cur<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.substr(j,<span style="color: #bbbbbb"> </span>len);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(wordcnt[cur]<span style="color: #666666">--</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>cnt<span style="color: #666666">--</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>total<span style="color: #666666">*</span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb">                  </span>
+<span style="color: #bbbbbb">                    </span>string<span style="color: #bbbbbb"> </span>out<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.substr(j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>total<span style="color: #666666">*</span>len,<span style="color: #bbbbbb"> </span>len);<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// the word out side of current sliding window</span>
+<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">++</span>wordcnt[out]<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>cnt<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>res.push_back(j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>(total<span style="color: #666666">-1</span>)<span style="color: #666666">*</span>len);<span style="color: #bbbbbb">                </span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="30-substring-with-concatenation-of-all-words_1">30. Substring with Concatenation of All Words<a class="headerlink" href="#30-substring-with-concatenation-of-all-words_1" title="Permanent link">&para;</a></h2>
 <p>You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters.</p>
@@ -3562,32 +4069,31 @@ Example 2:</p>
   s = "wordgoodgoodgoodbestword",
   words = ["word","good","best","word"]
 Output: []</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
-<span style="color: #A0A000">public</span>:
-    vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> findSubstring(string s, vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span> words) {
-        <span style="color: #008000; font-weight: bold">if</span> (s.empty() <span style="color: #666666">||</span> words.empty()) <span style="color: #008000; font-weight: bold">return</span> {};
-        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> s.size(), len <span style="color: #666666">=</span> words[<span style="color: #666666">0</span>].size(), total <span style="color: #666666">=</span> words.size(), cnt <span style="color: #666666">=</span> total;
-        vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> res;
-        unordered_map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> counts;
-        <span style="color: #008000; font-weight: bold">for</span> (string <span style="color: #A0A000">s</span> : words) counts[s]<span style="color: #666666">++</span>;
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> len; i<span style="color: #666666">++</span>) {
-            unordered_map<span style="color: #666666">&lt;</span>string, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> wordcnt <span style="color: #666666">=</span> counts;
-            cnt <span style="color: #666666">=</span> total;
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> i; j <span style="color: #666666">+</span> len <span style="color: #666666">&lt;=</span> n; j <span style="color: #666666">+=</span> len) {
-                string cur <span style="color: #666666">=</span> s.substr(j, len);
-                <span style="color: #008000; font-weight: bold">if</span> (wordcnt[cur]<span style="color: #666666">--</span> <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>) cnt<span style="color: #666666">--</span>;
-                <span style="color: #008000; font-weight: bold">if</span> (j <span style="color: #666666">-</span> total<span style="color: #666666">*</span>len <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span>) {                  
-                    string out <span style="color: #666666">=</span> s.substr(j <span style="color: #666666">-</span> total<span style="color: #666666">*</span>len, len); <span style="color: #408080; font-style: italic">// the word out side of current sliding window</span>
-                    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">++</span>wordcnt[out] <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>) cnt<span style="color: #666666">++</span>;
-                }
-                <span style="color: #008000; font-weight: bold">if</span> (cnt <span style="color: #666666">==</span> <span style="color: #666666">0</span>) res.push_back(j <span style="color: #666666">-</span> (total<span style="color: #666666">-1</span>)<span style="color: #666666">*</span>len);                
-            }
-        }
-        <span style="color: #008000; font-weight: bold">return</span> res;
-    }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>findSubstring(string<span style="color: #bbbbbb"> </span>s,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span>string<span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>words)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(s.empty()<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>words.empty())<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>{};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.size(),<span style="color: #bbbbbb"> </span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>words[<span style="color: #666666">0</span>].size(),<span style="color: #bbbbbb"> </span>total<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>words.size(),<span style="color: #bbbbbb"> </span>cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>total;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>unordered_map<span style="color: #666666">&lt;</span>string,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>counts;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(string<span style="color: #bbbbbb"> </span>s<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>words)<span style="color: #bbbbbb"> </span>counts[s]<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>len;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>unordered_map<span style="color: #666666">&lt;</span>string,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>wordcnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>counts;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>total;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>len)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>string<span style="color: #bbbbbb"> </span>cur<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.substr(j,<span style="color: #bbbbbb"> </span>len);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(wordcnt[cur]<span style="color: #666666">--</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>cnt<span style="color: #666666">--</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>total<span style="color: #666666">*</span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb">                  </span>
+<span style="color: #bbbbbb">                    </span>string<span style="color: #bbbbbb"> </span>out<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.substr(j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>total<span style="color: #666666">*</span>len,<span style="color: #bbbbbb"> </span>len);<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// the word out side of current sliding window</span>
+<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">++</span>wordcnt[out]<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>cnt<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>res.push_back(j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>(total<span style="color: #666666">-1</span>)<span style="color: #666666">*</span>len);<span style="color: #bbbbbb">                </span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="159-longest-substring-with-at-most-two-distinct-characters">159. Longest Substring with At Most Two Distinct Characters<a class="headerlink" href="#159-longest-substring-with-at-most-two-distinct-characters" title="Permanent link">&para;</a></h2>
 <p>Given a string s , find the length of the longest substring t  that contains at most 2 distinct characters.</p>
@@ -3602,131 +4108,118 @@ Explanation: tis "aabbb" which its length is 5.</p>
 <h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
 <p><strong>Use left only</strong></p>
 <p>Use <code>map&lt;char, int&gt;</code> to record the frequency of character in the range of left - i (inclusive). Once the keys is greater than 2, try moves left by 1 unit and update the map if the frequency is 0. Time: O(n), Space: O(1) because size if always 2 entry of key-value pair.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
-<span style="color: #A0A000">public</span>:
-    <span style="color: #B00040">int</span> lengthOfLongestSubstringTwoDistinct(string s) {
-        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, left <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-        unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> m;
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> s.size(); <span style="color: #666666">++</span>i) {
-            m[s[i]]<span style="color: #666666">++</span>;
-            <span style="color: #008000; font-weight: bold">while</span> (m.size() <span style="color: #666666">&gt;</span> <span style="color: #666666">2</span>) {
-                <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">--</span>m[s[left]] <span style="color: #666666">==</span> <span style="color: #666666">0</span>) m.erase(s[left]);
-                <span style="color: #666666">++</span>left;
-            }
-            res <span style="color: #666666">=</span> max(res, i <span style="color: #666666">-</span> left <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
-        }
-        <span style="color: #008000; font-weight: bold">return</span> res;
-    }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>lengthOfLongestSubstringTwoDistinct(string<span style="color: #bbbbbb"> </span>s)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span>,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>s.size();<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>m[s[i]]<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(m.size()<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">--</span>m[s[left]]<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>m.erase(s[left]);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #666666">++</span>left;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>max(res,<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <p><strong>Use left and right</strong> Space is optimized, but a little unintuitive.</p>
 <p>Use two pointers to represent the window. If s[i] == s[i-1], there is no update to the count of distinct elements. If right is not equal to the current one, that means there is a update (+1) to the total count, so we stop and update our res with the current i - left (window is now left - i). Because it only allows two characters, we should skip the ith character and start from right + 1 as left.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #9C6500">#include</span><span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #9C6500"></span>
 
-using namespace std;
+using<span style="color: #bbbbbb"> </span>namespace<span style="color: #bbbbbb"> </span>std;<span style="color: #bbbbbb"></span>
 
-<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
-    cin <span style="color: #666666">&gt;&gt;</span> s;
-    <span style="color: #B00040">int</span> left <span style="color: #666666">=</span> <span style="color: #666666">0</span>, right <span style="color: #666666">=</span> <span style="color: #666666">-1</span>, res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, sz <span style="color: #666666">=</span> s.size();
-    <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">1</span>; i <span style="color: #666666">&lt;</span> sz; <span style="color: #666666">++</span>i) {
-        <span style="color: #008000; font-weight: bold">if</span> (s[i] <span style="color: #666666">==</span> s[i <span style="color: #666666">-</span> <span style="color: #666666">1</span>]) <span style="color: #008000; font-weight: bold">continue</span>;
-        <span style="color: #008000; font-weight: bold">if</span> (right <span style="color: #666666">&gt;=</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> s[right] <span style="color: #666666">!=</span> s[i]) {
-            res <span style="color: #666666">=</span> max(res, i <span style="color: #666666">-</span> left);
-            left <span style="color: #666666">=</span> right <span style="color: #666666">+</span> <span style="color: #666666">1</span>;
-        }
-        right <span style="color: #666666">=</span> i <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
-    }
-    cout <span style="color: #666666">&lt;&lt;</span> max(res, sz <span style="color: #666666">-</span> left);
-    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
-}
+<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">main</span>()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>cin<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>s;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>right<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">-1</span>,<span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>sz<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.size();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>sz;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(s[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>s[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>])<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">continue</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(right<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>s[right]<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>s[i])<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>max(res,<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>left);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>right<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>right<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>cout<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;&lt;</span><span style="color: #bbbbbb"> </span>max(res,<span style="color: #bbbbbb"> </span>sz<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>left);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h3 id="variation-with-k-different-words">Variation: with K different words<a class="headerlink" href="#variation-with-k-different-words" title="Permanent link">&para;</a></h3>
 <p>if the character is in range of 'a' to 'z', then maintain a int array with size of 26.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
- <span style="color: #A0A000">public</span>:
-  string longest(string input, <span style="color: #B00040">int</span> k) {
-    <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> input.size();
-    <span style="color: #B00040">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">0</span>, r <span style="color: #666666">=</span> <span style="color: #666666">0</span>, cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>, len <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-    string res <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;&quot;</span>;
-    <span style="color: #B00040">int</span> v[<span style="color: #666666">26</span>];
-    memset(v, <span style="color: #666666">0</span>, <span style="color: #008000; font-weight: bold">sizeof</span> v);
-    <span style="color: #008000; font-weight: bold">while</span> (l <span style="color: #666666">&lt;</span> n <span style="color: #666666">-</span> <span style="color: #666666">1</span>) {
-      <span style="color: #008000; font-weight: bold">while</span> (cnt <span style="color: #666666">&lt;</span> k <span style="color: #666666">&amp;&amp;</span> r <span style="color: #666666">&lt;</span> n) {
-        <span style="color: #008000; font-weight: bold">if</span> (v[input[r] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>]<span style="color: #666666">++</span> <span style="color: #666666">==</span> <span style="color: #666666">0</span>) cnt<span style="color: #666666">++</span>;
-        r<span style="color: #666666">++</span>;
-      }
-      <span style="color: #008000; font-weight: bold">if</span> (cnt <span style="color: #666666">==</span> k <span style="color: #666666">&amp;&amp;</span> len <span style="color: #666666">&lt;</span> r <span style="color: #666666">-</span> l) { <span style="color: #408080; font-style: italic">// case 1: cnt still in the range so, r doesn&#39;t overcount</span>
-        len <span style="color: #666666">=</span> r <span style="color: #666666">-</span> l;
-        res <span style="color: #666666">=</span> input.substr(l, len);
-      } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (len <span style="color: #666666">&lt;</span> r <span style="color: #666666">-</span> l <span style="color: #666666">-</span> <span style="color: #666666">1</span>) { <span style="color: #408080; font-style: italic">// case 2: cnt is greater than k by 1, r overcount by 1</span>
-        len <span style="color: #666666">=</span> r <span style="color: #666666">-</span> l <span style="color: #666666">-</span> <span style="color: #666666">1</span>;
-        res <span style="color: #666666">=</span> input.substr(l, len);
-      }
-      <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">--</span>v[input[l] <span style="color: #666666">-</span> <span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #666666">==</span> <span style="color: #666666">0</span>) cnt<span style="color: #666666">--</span>;
-      l<span style="color: #666666">++</span>;
-    }
-    <span style="color: #008000; font-weight: bold">return</span> res;
-  }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>string<span style="color: #bbbbbb"> </span>longest(string<span style="color: #bbbbbb"> </span>input,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>k)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>input.size();<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>l<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>string<span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;&quot;</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>v[<span style="color: #666666">26</span>];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>memset(v,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>v);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(l<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>k<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(v[input[r]<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&#39;a&#39;</span>]<span style="color: #666666">++</span><span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>cnt<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>r<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>k<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>l)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// case 1: cnt still in the range so, r doesn&#39;t overcount</span>
+<span style="color: #bbbbbb">        </span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>l;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>input.substr(l,<span style="color: #bbbbbb"> </span>len);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(len<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>l<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// case 2: cnt is greater than k by 1, r overcount by 1</span>
+<span style="color: #bbbbbb">        </span>len<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>l<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>input.substr(l,<span style="color: #bbbbbb"> </span>len);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">--</span>v[input[l]<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&#39;a&#39;</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>cnt<span style="color: #666666">--</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span>l<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
-
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
-<span style="color: #A0A000">public</span>:
-    <span style="color: #B00040">int</span> lengthOfLongestSubstringKDistinct(string s, <span style="color: #B00040">int</span> k) {
-        <span style="color: #B00040">int</span> res <span style="color: #666666">=</span> <span style="color: #666666">0</span>, left <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-        unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span>, <span style="color: #B00040">int</span><span style="color: #666666">&gt;</span> m;
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> s.size(); <span style="color: #666666">++</span>i) {
-            <span style="color: #666666">++</span>m[s[i]];
-            <span style="color: #008000; font-weight: bold">while</span> (m.size() <span style="color: #666666">&gt;</span> k) {
-                <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">--</span>m[s[left]] <span style="color: #666666">==</span> <span style="color: #666666">0</span>) m.erase(s[left]);
-                <span style="color: #666666">++</span>left;
-            }
-            res <span style="color: #666666">=</span> max(res, i <span style="color: #666666">-</span> left <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
-        }
-        <span style="color: #008000; font-weight: bold">return</span> res;
-    }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>lengthOfLongestSubstringKDistinct(string<span style="color: #bbbbbb"> </span>s,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>k)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>unordered_map<span style="color: #666666">&lt;</span><span style="color: #B00040">char</span>,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>m;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>s.size();<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #666666">++</span>m[s[i]];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(m.size()<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>k)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">--</span>m[s[left]]<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>m.erase(s[left]);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #666666">++</span>left;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>max(res,<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-                
-                  
-                    
 
-<hr>
-<div class="md-source-date">
+  <hr>
+<div class="md-source-file">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2020</span>
+      
     
   </small>
 </div>
-                  
-                
-              
-              
-                
-
-
-  <h2 id="__comments">Comments</h2>
-  <div id="disqus_thread"></div>
-  <script>var disqus_config=function(){this.page.url="https://peterchen.xyz/Leetcode/438%2C-76%2C-3%2C-30%2C-sliding-window/",this.page.identifier="Leetcode/438%2C-76%2C-3%2C-30%2C-sliding-window/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//tech-notes-2.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
 
               
             </article>
           </div>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../437.-path-sum-iii/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../437.-path-sum-iii/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Path Sum III" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -3741,7 +4234,8 @@ using namespace std;
         </a>
       
       
-        <a href="../46.-Permutations/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../46.-Permutations/" class="md-footer__link md-footer__link--next" aria-label="Next: Permutations" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -3759,14 +4253,15 @@ using namespace std;
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -3776,10 +4271,10 @@ using namespace std;
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

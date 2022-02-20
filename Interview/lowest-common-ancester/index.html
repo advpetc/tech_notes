@@ -10,14 +10,13 @@
         <meta name="description" content="Keep track of all the learning">
       
       
-      
         <meta name="author" content="Pete">
       
       
         <link rel="canonical" href="https://peterchen.xyz/Interview/lowest-common-ancester/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.0.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
     
     
       
@@ -25,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2c0c5eaf.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -42,21 +41,26 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Ubuntu Mono";--md-code-font-family:""}</style>
+        <style>:root{--md-text-font:"Ubuntu Mono";--md-code-font:""}</style>
       
-    
-    
-      <link rel="manifest" href="../../assets/images/site.webmanifest" crossorigin="use-credentials">
     
     
       <link rel="stylesheet" href="../../css/extra.css">
     
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-168812075-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-304400452"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-304400452",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-304400452"></script>
+
+
     
     
   </head>
@@ -64,12 +68,16 @@
   
     
     
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
       
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -86,7 +94,10 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+    
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Tech Notes" class="md-header__button md-logo" aria-label="Tech Notes" data-md-component="logo">
       
@@ -112,26 +123,50 @@
         </div>
       </div>
     </div>
-    <div class="md-header__options">
-      
-    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -148,11 +183,10 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     advpetc/Tech_Notes
@@ -161,11 +195,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -190,11 +227,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/advpetc/tech_notes/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     advpetc/Tech_Notes
@@ -247,10 +283,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
-      <label class="md-nav__link" for="__nav_3">
-        Acwing
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Acwing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Acwing" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
@@ -259,6 +299,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -269,8 +310,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -281,8 +324,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -293,8 +338,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -305,8 +352,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -317,8 +366,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -329,8 +380,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -341,8 +394,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -353,8 +408,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -365,6 +422,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -385,10 +443,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
-      <label class="md-nav__link" for="__nav_4">
-        Books
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Books
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Books" data-md-level="1">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
@@ -397,6 +459,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -407,8 +470,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -419,8 +484,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -431,8 +498,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -443,8 +512,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -455,8 +526,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -467,8 +540,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -479,8 +554,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -491,6 +568,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -511,10 +589,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="__nav_5">
-        Google Kick Start
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Google Kick Start
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Google Kick Start" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
@@ -523,6 +605,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -533,8 +616,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -545,8 +630,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -557,6 +644,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -579,10 +667,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
-      <label class="md-nav__link" for="__nav_6">
-        Interview
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Interview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Interview" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
@@ -591,6 +683,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -601,8 +694,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -613,8 +708,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -625,8 +722,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -637,8 +736,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -649,8 +750,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -661,8 +764,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -673,8 +778,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -685,8 +792,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -697,8 +806,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -709,8 +820,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -721,8 +834,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -733,8 +848,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -745,8 +862,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -757,8 +876,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -769,8 +890,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -781,8 +904,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -793,8 +918,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -805,8 +932,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -817,8 +946,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -829,8 +960,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -841,8 +974,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -853,8 +988,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -865,8 +1002,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -877,8 +1016,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -889,8 +1030,10 @@
     </li>
   
 
+            
           
             
+              
   
   
     
@@ -899,6 +1042,7 @@
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
       
         
       
@@ -913,7 +1057,9 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1059,8 +1205,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1071,8 +1219,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1083,8 +1233,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1095,8 +1247,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1107,8 +1261,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1119,8 +1275,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1131,8 +1289,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1143,8 +1303,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1155,8 +1317,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1167,8 +1331,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1179,8 +1345,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1191,8 +1359,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1203,8 +1373,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1215,8 +1387,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1227,8 +1401,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1239,8 +1415,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1251,8 +1429,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1263,8 +1443,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1275,8 +1457,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1287,8 +1471,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1299,8 +1485,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1311,6 +1499,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1331,10 +1520,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
-      <label class="md-nav__link" for="__nav_7">
-        Java
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Java
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Java" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
@@ -1343,6 +1536,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1353,8 +1547,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1365,8 +1561,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1377,8 +1575,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1389,8 +1589,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1401,8 +1603,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1413,8 +1617,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1425,6 +1631,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1445,10 +1652,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
-      <label class="md-nav__link" for="__nav_8">
-        Leetcode
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Leetcode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Leetcode" data-md-level="1">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
@@ -1457,6 +1668,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1467,8 +1679,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1479,8 +1693,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1491,8 +1707,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1503,8 +1721,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1515,8 +1735,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1527,8 +1749,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1539,8 +1763,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1551,8 +1777,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1563,8 +1791,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1575,8 +1805,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1587,8 +1819,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1599,8 +1833,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1611,8 +1847,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1623,8 +1861,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1635,8 +1875,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1647,8 +1889,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1659,8 +1903,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1671,8 +1917,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1683,8 +1931,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1695,8 +1945,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1707,8 +1959,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1719,8 +1973,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1731,8 +1987,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1743,8 +2001,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1755,8 +2015,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1767,8 +2029,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1779,8 +2043,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1791,8 +2057,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1803,8 +2071,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1815,8 +2085,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1827,8 +2099,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1839,8 +2113,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1851,8 +2127,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1863,8 +2141,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1875,8 +2155,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1887,8 +2169,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1899,8 +2183,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1911,8 +2197,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1923,8 +2211,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1935,8 +2225,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1947,8 +2239,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1959,8 +2253,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1971,8 +2267,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1983,8 +2281,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1995,8 +2295,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2007,8 +2309,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2019,8 +2323,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2031,8 +2337,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2043,8 +2351,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2055,8 +2365,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2067,8 +2379,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2079,8 +2393,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2091,8 +2407,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2103,8 +2421,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2115,8 +2435,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2127,8 +2449,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2139,8 +2463,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2151,8 +2477,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2163,8 +2491,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2175,8 +2505,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2187,8 +2519,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2199,8 +2533,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2211,8 +2547,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2223,8 +2561,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2235,8 +2575,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2247,8 +2589,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2259,8 +2603,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2271,8 +2617,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2283,8 +2631,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2295,8 +2645,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2307,8 +2659,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2319,8 +2673,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2331,8 +2687,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2343,8 +2701,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2355,8 +2715,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2367,8 +2729,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2379,8 +2743,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2391,8 +2757,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2403,8 +2771,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2415,8 +2785,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2427,8 +2799,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2439,8 +2813,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2451,8 +2827,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2463,8 +2841,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2475,8 +2855,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2487,8 +2869,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2499,8 +2883,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2511,8 +2897,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2523,8 +2911,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2535,8 +2925,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2547,8 +2939,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2559,8 +2953,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2571,8 +2967,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2583,8 +2981,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2595,8 +2995,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2607,8 +3009,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2619,8 +3023,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2631,8 +3037,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2643,8 +3051,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2655,8 +3065,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2667,8 +3079,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2679,8 +3093,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2691,8 +3107,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2703,8 +3121,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2715,8 +3135,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2727,6 +3149,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2747,10 +3170,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
-      <label class="md-nav__link" for="__nav_9">
-        LibreOJ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          LibreOJ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="LibreOJ" data-md-level="1">
         <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
@@ -2759,6 +3186,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2769,8 +3197,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2781,8 +3211,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2793,8 +3225,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2805,6 +3239,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2825,10 +3260,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
-      <label class="md-nav__link" for="__nav_10">
-        Misc
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Misc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Misc" data-md-level="1">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
@@ -2837,6 +3276,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2847,8 +3287,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2859,6 +3301,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2879,10 +3322,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
-      <label class="md-nav__link" for="__nav_11">
-        Operating System
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Operating System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Operating System" data-md-level="1">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
@@ -2891,6 +3338,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2901,6 +3349,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2921,10 +3370,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
-      <label class="md-nav__link" for="__nav_12">
-        Python
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Python" data-md-level="1">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
@@ -2933,6 +3386,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2943,6 +3397,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2963,10 +3418,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
       
-      <label class="md-nav__link" for="__nav_13">
-        C
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13">
+          C
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="C" data-md-level="1">
         <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
@@ -2975,6 +3434,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2985,8 +3445,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2997,8 +3459,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3009,8 +3473,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3021,8 +3487,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3033,8 +3501,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3045,6 +3515,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3065,10 +3536,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
       
-      <label class="md-nav__link" for="__nav_14">
-        Golang
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14">
+          Golang
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Golang" data-md-level="1">
         <label class="md-nav__title" for="__nav_14">
           <span class="md-nav__icon md-icon"></span>
@@ -3077,6 +3552,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3087,8 +3563,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3099,8 +3577,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3111,8 +3591,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3123,6 +3605,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3143,10 +3626,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" >
       
-      <label class="md-nav__link" for="__nav_15">
-        iOS
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15">
+          iOS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="iOS" data-md-level="1">
         <label class="md-nav__title" for="__nav_15">
           <span class="md-nav__icon md-icon"></span>
@@ -3155,6 +3642,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3165,8 +3653,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3177,8 +3667,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3189,8 +3681,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3201,6 +3695,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3221,10 +3716,14 @@
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
       
-      <label class="md-nav__link" for="__nav_16">
-        Machine learning
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16">
+          Machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Machine learning" data-md-level="1">
         <label class="md-nav__title" for="__nav_16">
           <span class="md-nav__icon md-icon"></span>
@@ -3233,6 +3732,7 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -3243,8 +3743,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3255,8 +3757,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3267,8 +3771,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3279,8 +3785,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -3291,6 +3799,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -3310,7 +3819,9 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -3461,12 +3972,13 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/advpetc/tech_notes/edit/master/docs/Interview/lowest-common-ancester.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="lowest-common-ancester-problems">Lowest Common Ancester Problems<a class="headerlink" href="#lowest-common-ancester-problems" title="Permanent link">&para;</a></h1>
+<a href="https://github.com/advpetc/tech_notes/edit/master/docs/Interview/lowest-common-ancester.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="lowest-common-ancester-problems">Lowest Common Ancester Problems<a class="headerlink" href="#lowest-common-ancester-problems" title="Permanent link">&para;</a></h1>
 <h2 id="variant-1-input-is-a-bst">Variant 1: input is a BST<a class="headerlink" href="#variant-1-input-is-a-bst" title="Permanent link">&para;</a></h2>
 <p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/">https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/</a></p>
 <p>To utilize the property of BST, we should keep elimate either the right or the left subtree of the input tree:</p>
@@ -3476,60 +3988,58 @@
   -&gt; so we don't need to search the root -&gt; right subtree</p>
 <p>If p is in root -&gt; left subtree and p is in root -&gt; right subtree (order doesn't matter), then we juet need to find the first root that satisfy this situation
   -&gt; return current root</p>
-<p>Time: <span><span class="MathJax_Preview">O(log_2{n})</span><script type="math/tex">O(log_2{n})</script></span></p>
+<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(log_2{n})</span><script type="math/tex">O(log_2{n})</script></span></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TreeNode<span style="color: #666666">*</span> <span style="color: #0000FF">lowestCommonAncestor</span>(TreeNode<span style="color: #666666">*</span> root, TreeNode<span style="color: #666666">*</span> p, TreeNode<span style="color: #666666">*</span> q) {
-    <span style="color: #008000; font-weight: bold">while</span> (<span style="color: #666666">1</span>) {
-        <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">-&gt;</span> val <span style="color: #666666">&lt;</span> min(p <span style="color: #666666">-&gt;</span> val, q <span style="color: #666666">-&gt;</span> val))
-            root <span style="color: #666666">=</span> root <span style="color: #666666">-&gt;</span> right;
-        <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">-&gt;</span> val <span style="color: #666666">&gt;</span> max(p <span style="color: #666666">-&gt;</span> val, q <span style="color: #666666">-&gt;</span> val))
-            root <span style="color: #666666">=</span> root <span style="color: #666666">-&gt;</span> left;
-        <span style="color: #008000; font-weight: bold">else</span>
-            <span style="color: #008000; font-weight: bold">break</span>;
-    }
-    <span style="color: #008000; font-weight: bold">return</span> root;
-}
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">lowestCommonAncestor</span>(TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>root,<span style="color: #bbbbbb"> </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>p,<span style="color: #bbbbbb"> </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>q)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">1</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(root<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>min(p<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>val,<span style="color: #bbbbbb"> </span>q<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>val))<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>root<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>root<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>right;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(root<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>max(p<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>val,<span style="color: #bbbbbb"> </span>q<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>val))<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>root<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>root<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>left;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">break</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>root;<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="variant-2-input-is-a-binary-tree">Variant 2: input is a binary tree<a class="headerlink" href="#variant-2-input-is-a-binary-tree" title="Permanent link">&para;</a></h2>
 <p>If the two nodes are all existed in the binary tree, then if we start from the root of the tree
 1. if find <code>one</code> -&gt; <code>two</code> is somewhere deeper than <code>one</code>, so <code>one</code> is the LCA
 2. if find <code>two</code> -&gt; <code>one</code> is somewhere deeper than <code>two</code>, so <code>two</code> is the LCA</p>
 <p>Now the problem reduced to how to find the two nodes from the binay tree.</p>
-<p>Time: <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>
-Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="math/tex">O(height)</script></span></p>
+<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>
+Stack Space: <span class="arithmatex"><span class="MathJax_Preview">O(height)</span><script type="math/tex">O(height)</script></span></p>
 <h3 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
- <span style="color: #A0A000">public</span>:
-  TreeNode<span style="color: #666666">*</span> solve(TreeNode<span style="color: #666666">*</span> root, TreeNode<span style="color: #666666">*</span> one, TreeNode<span style="color: #666666">*</span> two) {
-    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>root <span style="color: #666666">||</span> root <span style="color: #666666">==</span> one <span style="color: #666666">||</span> two <span style="color: #666666">==</span> root) <span style="color: #008000; font-weight: bold">return</span> root;
-    TreeNode<span style="color: #666666">*</span> left <span style="color: #666666">=</span> solve(root <span style="color: #666666">-&gt;</span> left, one, two);
-    TreeNode<span style="color: #666666">*</span> right <span style="color: #666666">=</span> solve(root <span style="color: #666666">-&gt;</span> right, one, two);
-    <span style="color: #008000; font-weight: bold">if</span> (left <span style="color: #666666">&amp;&amp;</span> right) <span style="color: #008000; font-weight: bold">return</span> root; <span style="color: #408080; font-style: italic">// both exist, so current root is the LCA</span>
-    <span style="color: #008000; font-weight: bold">return</span> left <span style="color: #666666">?</span> <span style="color: #A0A000">left</span> : right; <span style="color: #408080; font-style: italic">// return the one that is found</span>
-  }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>solve(TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>root,<span style="color: #bbbbbb"> </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>one,<span style="color: #bbbbbb"> </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>two)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>root<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>root<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>one<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>two<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>root)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>root;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>solve(root<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>left,<span style="color: #bbbbbb"> </span>one,<span style="color: #bbbbbb"> </span>two);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>right<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>solve(root<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>right,<span style="color: #bbbbbb"> </span>one,<span style="color: #bbbbbb"> </span>two);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(left<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>right)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>root;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// both exist, so current root is the LCA</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">?</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>right;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// return the one that is found</span>
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="variant-3-treenode-has-a-parent-pointer">Variant 3: TreeNode has a parent pointer<a class="headerlink" href="#variant-3-treenode-has-a-parent-pointer" title="Permanent link">&para;</a></h2>
 <p>这个题目分析一下可以看出和树并没有什么关系，我们把parent指针看成next，这个题目就变成了给你两条链表，返回他们的交点，若没有返回null</p>
 <p>所以，我们其实不需要去计算他们到交点的高度差，我们把这两个节点成为a和b，交点称为i，链表结尾称为e，可以发现，两条链表的长度差就是i到a和b的长度差，所以当走到末尾时，我们让他从另一个链表的头部开始继续遍历，只要有交点，他们一定会碰在一起</p>
 <p>changeOne 和 changeTwo 在这里使得只会走一次，避免没有相交时进去死循环</p>
 <h3 id="code-1">Code 1<a class="headerlink" href="#code-1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic"> * public class TreeNodeP {</span>
-<span style="color: #408080; font-style: italic"> *   public int key;</span>
-<span style="color: #408080; font-style: italic"> *   public TreeNodeP left;</span>
-<span style="color: #408080; font-style: italic"> *   public TreeNodeP right;</span>
-<span style="color: #408080; font-style: italic"> *   public TreeNodeP parent;</span>
-<span style="color: #408080; font-style: italic"> *   public TreeNodeP(int key, TreeNodeP parent) {</span>
-<span style="color: #408080; font-style: italic"> *     this.key = key;</span>
-<span style="color: #408080; font-style: italic"> *     this.parent = parent;</span>
-<span style="color: #408080; font-style: italic"> *   }</span>
-<span style="color: #408080; font-style: italic"> * }</span>
-<span style="color: #408080; font-style: italic"> */</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic"> * public class TreeNodeP {</span>
+<span style="color: #3D7B7B; font-style: italic"> *   public int key;</span>
+<span style="color: #3D7B7B; font-style: italic"> *   public TreeNodeP left;</span>
+<span style="color: #3D7B7B; font-style: italic"> *   public TreeNodeP right;</span>
+<span style="color: #3D7B7B; font-style: italic"> *   public TreeNodeP parent;</span>
+<span style="color: #3D7B7B; font-style: italic"> *   public TreeNodeP(int key, TreeNodeP parent) {</span>
+<span style="color: #3D7B7B; font-style: italic"> *     this.key = key;</span>
+<span style="color: #3D7B7B; font-style: italic"> *     this.parent = parent;</span>
+<span style="color: #3D7B7B; font-style: italic"> *   }</span>
+<span style="color: #3D7B7B; font-style: italic"> * }</span>
+<span style="color: #3D7B7B; font-style: italic"> */</span>
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
   <span style="color: #008000; font-weight: bold">public</span> TreeNodeP <span style="color: #0000FF">lowestCommonAncestor</span>(TreeNodeP one, TreeNodeP two) {
     <span style="color: #008000; font-weight: bold">if</span>(one <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> two <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>){
@@ -3540,23 +4050,23 @@ Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="m
     <span style="color: #B00040">boolean</span> changeOne <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>, changeTwo <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>;
 
     <span style="color: #008000; font-weight: bold">while</span>(oneCurr <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> twoCurr <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> oneCurr <span style="color: #666666">!=</span> twoCurr){
-      oneCurr <span style="color: #666666">=</span> oneCurr.<span style="color: #7D9029">parent</span>; <span style="color: #408080; font-style: italic">// keep going up</span>
-      twoCurr <span style="color: #666666">=</span> twoCurr.<span style="color: #7D9029">parent</span>;
+      oneCurr <span style="color: #666666">=</span> oneCurr.<span style="color: #687822">parent</span>; <span style="color: #3D7B7B; font-style: italic">// keep going up</span>
+      twoCurr <span style="color: #666666">=</span> twoCurr.<span style="color: #687822">parent</span>;
 
-      <span style="color: #008000; font-weight: bold">if</span>(oneCurr <span style="color: #666666">==</span> twoCurr){ <span style="color: #408080; font-style: italic">// terminate if meet up</span>
+      <span style="color: #008000; font-weight: bold">if</span>(oneCurr <span style="color: #666666">==</span> twoCurr){ <span style="color: #3D7B7B; font-style: italic">// terminate if meet up</span>
         <span style="color: #008000; font-weight: bold">return</span> oneCurr;
       }
 
-      <span style="color: #008000; font-weight: bold">if</span>(oneCurr <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> changeOne <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">false</span>){ <span style="color: #408080; font-style: italic">// only alternate once</span>
-        oneCurr <span style="color: #666666">=</span> two; <span style="color: #408080; font-style: italic">// finish oneCurr, now start with two&#39;s head</span>
+      <span style="color: #008000; font-weight: bold">if</span>(oneCurr <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> changeOne <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">false</span>){ <span style="color: #3D7B7B; font-style: italic">// only alternate once</span>
+        oneCurr <span style="color: #666666">=</span> two; <span style="color: #3D7B7B; font-style: italic">// finish oneCurr, now start with two&#39;s head</span>
         changeOne <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
       }
-      <span style="color: #008000; font-weight: bold">if</span>(twoCurr <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> changeTwo <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">false</span>){ <span style="color: #408080; font-style: italic">// only alternate once</span>
+      <span style="color: #008000; font-weight: bold">if</span>(twoCurr <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> changeTwo <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">false</span>){ <span style="color: #3D7B7B; font-style: italic">// only alternate once</span>
         twoCurr <span style="color: #666666">=</span> one;
         changeTwo <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
       }
     }
-    <span style="color: #008000; font-weight: bold">if</span>(oneCurr <span style="color: #666666">==</span> twoCurr){ <span style="color: #408080; font-style: italic">// possible that after the for loop they meet</span>
+    <span style="color: #008000; font-weight: bold">if</span>(oneCurr <span style="color: #666666">==</span> twoCurr){ <span style="color: #3D7B7B; font-style: italic">// possible that after the for loop they meet</span>
       <span style="color: #008000; font-weight: bold">return</span> oneCurr;
     }
     <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">null</span>;
@@ -3564,70 +4074,68 @@ Stack Space: <span><span class="MathJax_Preview">O(height)</span><script type="m
 }
 </code></pre></div>
 
-
 <h3 id="code-2-check-height-and-decide-which-node-to-proceed-up">Code 2: check height and decide which node to proceed up<a class="headerlink" href="#code-2-check-height-and-decide-which-node-to-proceed-up" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #BC7A00">#include</span> <span style="color: #408080; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #BC7A00"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #9C6500">#include</span><span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">&lt;bits/stdc++.h&gt;</span><span style="color: #9C6500"></span>
 
-using namespace std;
+using<span style="color: #bbbbbb"> </span>namespace<span style="color: #bbbbbb"> </span>std;<span style="color: #bbbbbb"></span>
 
-class TreeNodeP {
- <span style="color: #A0A000">public</span>:
-  <span style="color: #B00040">int</span> value;
-  TreeNodeP<span style="color: #666666">*</span> left;
-  TreeNodeP<span style="color: #666666">*</span> right;
-  TreeNodeP<span style="color: #666666">*</span> parent;
-  TreeNodeP(<span style="color: #B00040">int</span> v, TreeNodeP<span style="color: #666666">*</span> p)
-      <span style="color: #666666">:</span> value(v), left(<span style="color: #008000">NULL</span>), right(<span style="color: #008000">NULL</span>), parent(p) {}
-};
+class<span style="color: #bbbbbb"> </span>TreeNodeP<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>value;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNodeP<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>left;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNodeP<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>right;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNodeP<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>parent;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNodeP(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>v,<span style="color: #bbbbbb"> </span>TreeNodeP<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>p)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">      </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>value(v),<span style="color: #bbbbbb"> </span>left(<span style="color: #008000">NULL</span>),<span style="color: #bbbbbb"> </span>right(<span style="color: #008000">NULL</span>),<span style="color: #bbbbbb"> </span>parent(p)<span style="color: #bbbbbb"> </span>{}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 
-class Solution {
- <span style="color: #A0A000">public</span>:
-     <span style="color: #B00040">int</span> height(TreeNodeP<span style="color: #666666">*</span> node) {
-         <span style="color: #B00040">int</span> cnt <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-         <span style="color: #008000; font-weight: bold">while</span> (node) {
-             cnt<span style="color: #666666">++</span>;
-             node <span style="color: #666666">=</span> node <span style="color: #666666">-&gt;</span> parent;
-         }
-         <span style="color: #008000; font-weight: bold">return</span> cnt;
-     }
+class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">     </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>height(TreeNodeP<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>node)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">         </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">         </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(node)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">             </span>cnt<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">             </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>parent;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">         </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">         </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>cnt;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">     </span>}<span style="color: #bbbbbb"></span>
 
-  TreeNodeP<span style="color: #666666">*</span> solve(TreeNodeP<span style="color: #666666">*</span> one, TreeNodeP<span style="color: #666666">*</span> two) {
-    <span style="color: #008000; font-weight: bold">if</span> (one <span style="color: #666666">==</span> two) <span style="color: #008000; font-weight: bold">return</span> one;
-    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>one <span style="color: #666666">||</span> <span style="color: #666666">!</span>two) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">NULL</span>;
-    TreeNodeP<span style="color: #666666">*</span> res;
-    <span style="color: #B00040">int</span> h1 <span style="color: #666666">=</span> height(one), h2 <span style="color: #666666">=</span> height(two);
-    <span style="color: #008000; font-weight: bold">if</span> (h1 <span style="color: #666666">&gt;</span> h2) {          
-            <span style="color: #008000; font-weight: bold">if</span> ((res <span style="color: #666666">=</span> solve(one<span style="color: #666666">-&gt;</span>parent, two))) <span style="color: #008000; font-weight: bold">return</span> res;
-    } <span style="color: #008000; font-weight: bold">else</span> <span style="color: #008000; font-weight: bold">if</span> (h1 <span style="color: #666666">&lt;</span> h2) {       
-        <span style="color: #008000; font-weight: bold">if</span> ((res <span style="color: #666666">=</span> solve(one, two<span style="color: #666666">-&gt;</span>parent))) <span style="color: #008000; font-weight: bold">return</span> res;
-    }
-    <span style="color: #008000; font-weight: bold">return</span> solve(one<span style="color: #666666">-&gt;</span>parent, two<span style="color: #666666">-&gt;</span>parent);
-  }
-};
+<span style="color: #bbbbbb">  </span>TreeNodeP<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>solve(TreeNodeP<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>one,<span style="color: #bbbbbb"> </span>TreeNodeP<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>two)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(one<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>two)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>one;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>one<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>two)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>TreeNodeP<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>h1<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>height(one),<span style="color: #bbbbbb"> </span>h2<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>height(two);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(h1<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>h2)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb">          </span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>((res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>solve(one<span style="color: #666666">-&gt;</span>parent,<span style="color: #bbbbbb"> </span>two)))<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(h1<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>h2)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb">       </span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>((res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>solve(one,<span style="color: #bbbbbb"> </span>two<span style="color: #666666">-&gt;</span>parent)))<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>solve(one<span style="color: #666666">-&gt;</span>parent,<span style="color: #bbbbbb"> </span>two<span style="color: #666666">-&gt;</span>parent);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 
-<span style="color: #B00040">int</span> <span style="color: #0000FF">main</span>() {
-  TreeNodeP <span style="color: #666666">*</span>p1 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">5</span>, <span style="color: #008000">NULL</span>);
-  TreeNodeP <span style="color: #666666">*</span>p2 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">9</span>, p1);
-  TreeNodeP <span style="color: #666666">*</span>p3 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">12</span>, p1);
-  TreeNodeP <span style="color: #666666">*</span>p4 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">2</span>, p2);
-  TreeNodeP <span style="color: #666666">*</span>p5 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">3</span>, p2);
-  TreeNodeP <span style="color: #666666">*</span>p6 <span style="color: #666666">=</span> new TreeNodeP(<span style="color: #666666">14</span>, p3);
+<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">main</span>()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNodeP<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>p1<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>new<span style="color: #bbbbbb"> </span>TreeNodeP(<span style="color: #666666">5</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNodeP<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>p2<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>new<span style="color: #bbbbbb"> </span>TreeNodeP(<span style="color: #666666">9</span>,<span style="color: #bbbbbb"> </span>p1);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNodeP<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>p3<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>new<span style="color: #bbbbbb"> </span>TreeNodeP(<span style="color: #666666">12</span>,<span style="color: #bbbbbb"> </span>p1);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNodeP<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>p4<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>new<span style="color: #bbbbbb"> </span>TreeNodeP(<span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span>p2);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNodeP<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>p5<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>new<span style="color: #bbbbbb"> </span>TreeNodeP(<span style="color: #666666">3</span>,<span style="color: #bbbbbb"> </span>p2);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNodeP<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>p6<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>new<span style="color: #bbbbbb"> </span>TreeNodeP(<span style="color: #666666">14</span>,<span style="color: #bbbbbb"> </span>p3);<span style="color: #bbbbbb"></span>
 
-  p1 <span style="color: #666666">-&gt;</span> left <span style="color: #666666">=</span> p2;
-  p1 <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> p3;
+<span style="color: #bbbbbb">  </span>p1<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>p2;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>p1<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>right<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>p3;<span style="color: #bbbbbb"></span>
 
-  p2 <span style="color: #666666">-&gt;</span> left <span style="color: #666666">=</span> p4;
-  p2 <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> p5;
+<span style="color: #bbbbbb">  </span>p2<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>p4;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>p2<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>right<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>p5;<span style="color: #bbbbbb"></span>
 
-  p3 <span style="color: #666666">-&gt;</span> right <span style="color: #666666">=</span> p6;
+<span style="color: #bbbbbb">  </span>p3<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>right<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>p6;<span style="color: #bbbbbb"></span>
 
-  Solution s;
-  <span style="color: #408080; font-style: italic">// TreeNodeP *tmp = new TreeNodeP(-1, NULL);</span>
-  cout <span style="color: #666666">&lt;&lt;</span> s.solve(p5, p2) <span style="color: #666666">-&gt;</span> value;
-  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
-}
+<span style="color: #bbbbbb">  </span>Solution<span style="color: #bbbbbb"> </span>s;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #3D7B7B; font-style: italic">// TreeNodeP *tmp = new TreeNodeP(-1, NULL);</span>
+<span style="color: #bbbbbb">  </span>cout<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;&lt;</span><span style="color: #bbbbbb"> </span>s.solve(p5,<span style="color: #bbbbbb"> </span>p2)<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>value;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+}<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="variant-4-find-lca-for-multiple-nodes-in-the-binary-tree">Variant 4: find LCA for multiple nodes in the Binary Tree<a class="headerlink" href="#variant-4-find-lca-for-multiple-nodes-in-the-binary-tree" title="Permanent link">&para;</a></h2>
 <p>Use the same logic: find then check if use root as lca.</p>
@@ -3636,22 +4144,21 @@ class Solution {
 2. if a subset of the given node are under the root, return LCA of the nodes under root.
 3. if none of the nodes are under root, return null.</p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class Solution {
- <span style="color: #A0A000">public</span>:
-  TreeNode<span style="color: #666666">*</span> lca(TreeNode<span style="color: #666666">*</span> curr, unordered_set<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> st) {
-    <span style="color: #008000; font-weight: bold">if</span> (<span style="color: #666666">!</span>curr <span style="color: #666666">||</span> st.count(curr)) <span style="color: #008000; font-weight: bold">return</span> curr;
-    TreeNode<span style="color: #666666">*</span> left <span style="color: #666666">=</span> lca(curr <span style="color: #666666">-&gt;</span> left, st); <span style="color: #408080; font-style: italic">// if left is under root</span>
-    TreeNode<span style="color: #666666">*</span> right <span style="color: #666666">=</span> lca(curr <span style="color: #666666">-&gt;</span> right, st); <span style="color: #408080; font-style: italic">// if right is under root</span>
-    <span style="color: #008000; font-weight: bold">if</span> (left <span style="color: #666666">&amp;&amp;</span> right) <span style="color: #008000; font-weight: bold">return</span> curr;
-    <span style="color: #008000; font-weight: bold">return</span> left <span style="color: #666666">?</span> <span style="color: #A0A000">left</span> : right;
-  }
-  TreeNode<span style="color: #666666">*</span> solve(TreeNode<span style="color: #666666">*</span> root, vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> nodes) {
-    unordered_set<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span> st(nodes.begin(), nodes.end());
-    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #0000FF">lca</span>(root, st);
-  }
-};
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>lca(TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>curr,<span style="color: #bbbbbb"> </span>unordered_set<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span><span style="color: #bbbbbb"> </span>st)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>curr<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>st.count(curr))<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>curr;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>lca(curr<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>left,<span style="color: #bbbbbb"> </span>st);<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// if left is under root</span>
+<span style="color: #bbbbbb">    </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>right<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>lca(curr<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>right,<span style="color: #bbbbbb"> </span>st);<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// if right is under root</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(left<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>right)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>curr;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">?</span><span style="color: #bbbbbb"> </span>left<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>right;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>solve(TreeNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>root,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span><span style="color: #bbbbbb"> </span>nodes)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>unordered_set<span style="color: #666666">&lt;</span>TreeNode<span style="color: #666666">*&gt;</span><span style="color: #bbbbbb"> </span>st(nodes.begin(),<span style="color: #bbbbbb"> </span>nodes.end());<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>lca(root,<span style="color: #bbbbbb"> </span>st);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
 
 <h2 id="variant-5-find-lca-for-two-nodes-for-m-ary-tree">Variant 5: find LCA for two nodes for m-ary tree<a class="headerlink" href="#variant-5-find-lca-for-two-nodes-for-m-ary-tree" title="Permanent link">&para;</a></h2>
 <p>Use the same logic to find the two corresponding nodes from the binary tree, and then check if any <em>two</em> are sharing with the same root. If so, return the root, or return the one that isn't null.</p>
@@ -3660,11 +4167,11 @@ class Solution {
 
   <span style="color: #008000; font-weight: bold">public</span> KnaryTreeNode <span style="color: #0000FF">lowestCommonAncestor</span>(KnaryTreeNode root, KnaryTreeNode a, KnaryTreeNode b) {
     <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> root <span style="color: #666666">==</span> a <span style="color: #666666">||</span> root <span style="color: #666666">==</span> b) <span style="color: #008000; font-weight: bold">return</span> root;
-    KnaryTreeNode found <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>; <span style="color: #408080; font-style: italic">// at least two children are found, or just return the one that is found or just null</span>
-    <span style="color: #008000; font-weight: bold">for</span> (KnaryTreeNode node : root.<span style="color: #7D9029">children</span>) {
+    KnaryTreeNode found <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>; <span style="color: #3D7B7B; font-style: italic">// at least two children are found, or just return the one that is found or just null</span>
+    <span style="color: #008000; font-weight: bold">for</span> (KnaryTreeNode node : root.<span style="color: #687822">children</span>) {
       KnaryTreeNode curr <span style="color: #666666">=</span> lowestCommonAncestor(node, a, b);
       <span style="color: #008000; font-weight: bold">if</span> (curr <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">continue</span>;
-      <span style="color: #008000; font-weight: bold">if</span> (found <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">return</span> root; <span style="color: #408080; font-style: italic">// already two nodes are sharing with the current root</span>
+      <span style="color: #008000; font-weight: bold">if</span> (found <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">return</span> root; <span style="color: #3D7B7B; font-style: italic">// already two nodes are sharing with the current root</span>
       <span style="color: #008000; font-weight: bold">if</span> (found <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) found <span style="color: #666666">=</span> curr;
     }
     <span style="color: #008000; font-weight: bold">return</span> found;
@@ -3672,26 +4179,25 @@ class Solution {
 }
 </code></pre></div>
 
-
 <h2 id="variant-6-find-lca-for-n-nodes-for-m-ary-tree">Variant 6: find LCA for n nodes for m-ary tree<a class="headerlink" href="#variant-6-find-lca-for-n-nodes-for-m-ary-tree" title="Permanent link">&para;</a></h2>
 <p>Use the same logic to find the two corresponding nodes from the m-ary tree, and then check if any <em>two</em> are sharing with the same root. If so, return the root, or return the one that isn't null.</p>
 <p>In the base case, we only need to check if current searched node is one of the node in the set. We don't need to care about duplication, since, all the children of the current node are distinct, meaning if there are <em>two nodes</em> being found from the recursion call, we can guarantee that these two nodes are distint.</p>
 <h3 id="code_4">Code<a class="headerlink" href="#code_4" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #408080; font-style: italic">/**</span>
-<span style="color: #408080; font-style: italic">* public class KnaryTreeNode {</span>
-<span style="color: #408080; font-style: italic"> *     int key;</span>
-<span style="color: #408080; font-style: italic"> *     List&lt;KnaryTreeNode&gt; children;</span>
-<span style="color: #408080; font-style: italic"> *     public KnaryTreeNode(int key) {</span>
-<span style="color: #408080; font-style: italic"> *         this.key = key;</span>
-<span style="color: #408080; font-style: italic"> *         this.children = new ArrayList&lt;&gt;();</span>
-<span style="color: #408080; font-style: italic"> *     }</span>
-<span style="color: #408080; font-style: italic"> * }</span>
-<span style="color: #408080; font-style: italic"> */</span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #3D7B7B; font-style: italic">* public class KnaryTreeNode {</span>
+<span style="color: #3D7B7B; font-style: italic"> *     int key;</span>
+<span style="color: #3D7B7B; font-style: italic"> *     List&lt;KnaryTreeNode&gt; children;</span>
+<span style="color: #3D7B7B; font-style: italic"> *     public KnaryTreeNode(int key) {</span>
+<span style="color: #3D7B7B; font-style: italic"> *         this.key = key;</span>
+<span style="color: #3D7B7B; font-style: italic"> *         this.children = new ArrayList&lt;&gt;();</span>
+<span style="color: #3D7B7B; font-style: italic"> *     }</span>
+<span style="color: #3D7B7B; font-style: italic"> * }</span>
+<span style="color: #3D7B7B; font-style: italic"> */</span>
 <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
   KnaryTreeNode <span style="color: #0000FF">helper</span>(KnaryTreeNode root, Set<span style="color: #666666">&lt;</span>KnaryTreeNode<span style="color: #666666">&gt;</span> set) {
-    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> set.<span style="color: #7D9029">contains</span>(root)) <span style="color: #008000; font-weight: bold">return</span> root;
+    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> set.<span style="color: #687822">contains</span>(root)) <span style="color: #008000; font-weight: bold">return</span> root;
     KnaryTreeNode found <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
-    <span style="color: #008000; font-weight: bold">for</span> (KnaryTreeNode nei : root.<span style="color: #7D9029">children</span>) {
+    <span style="color: #008000; font-weight: bold">for</span> (KnaryTreeNode nei : root.<span style="color: #687822">children</span>) {
       KnaryTreeNode node <span style="color: #666666">=</span> helper(nei, set);
       <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">continue</span>;
       <span style="color: #008000; font-weight: bold">if</span> (found <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) found <span style="color: #666666">=</span> node;
@@ -3701,47 +4207,37 @@ class Solution {
   }
 
   <span style="color: #008000; font-weight: bold">public</span> KnaryTreeNode <span style="color: #0000FF">lowestCommonAncestor</span>(KnaryTreeNode root, List<span style="color: #666666">&lt;</span>KnaryTreeNode<span style="color: #666666">&gt;</span> nodes) {
-    <span style="color: #408080; font-style: italic">// Write your solution here</span>
+    <span style="color: #3D7B7B; font-style: italic">// Write your solution here</span>
     Set<span style="color: #666666">&lt;</span>KnaryTreeNode<span style="color: #666666">&gt;</span> set <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashSet<span style="color: #666666">&lt;</span>KnaryTreeNode<span style="color: #666666">&gt;</span>(nodes);
     <span style="color: #008000; font-weight: bold">return</span> helper(root, set);
   }
 }
 </code></pre></div>
-                
-                  
-                    
 
-<hr>
-<div class="md-source-date">
+  <hr>
+<div class="md-source-file">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 9, 2021</span>
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 9, 2021</span>
+      
     
   </small>
 </div>
-                  
-                
-              
-              
-                
-
-
-  <h2 id="__comments">Comments</h2>
-  <div id="disqus_thread"></div>
-  <script>var disqus_config=function(){this.page.url="https://peterchen.xyz/Interview/lowest-common-ancester/",this.page.identifier="Interview/lowest-common-ancester/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//tech-notes-2.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
 
               
             </article>
           </div>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../linked-list/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../linked-list/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Linked List" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -3756,7 +4252,8 @@ class Solution {
         </a>
       
       
-        <a href="../majority-element-with-k-times/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../majority-element-with-k-times/" class="md-footer__link md-footer__link--next" aria-label="Next: Majority Element with k times" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -3774,14 +4271,15 @@ class Solution {
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -3791,10 +4289,10 @@ class Solution {
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
