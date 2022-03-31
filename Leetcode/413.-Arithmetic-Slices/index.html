@@ -13,14 +13,14 @@
         <meta name="author" content="Pete">
       
       
-        <link rel="canonical" href="https://peterchen.xyz/Books/shortest-path-problem/">
+        <link rel="canonical" href="https://peterchen.xyz/Leetcode/413.-Arithmetic-Slices/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.1">
     
     
       
-        <title>Shortest Path Problem - Tech Notes</title>
+        <title>413. Arithmetic Slices - Tech Notes</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#shortest-path-problem" class="md-skip">
+        <a href="#413-arithmetic-slices" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Shortest Path Problem
+              413. Arithmetic Slices
             
           </span>
         </div>
@@ -436,247 +436,23 @@
 
   
   
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          Books
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Books" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Books
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
-        Book notes for `Design Data Intensive Apps`
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../binomial-coefficient/" class="md-nav__link">
-        Binomial Coefficient
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../fibonacci-squence/" class="md-nav__link">
-        Fibonacci Sequence
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../harmonic-numbers/" class="md-nav__link">
-        Harmonic Numbers
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lca/" class="md-nav__link">
-        Lowest Common Ancestor Problem with Advanced Methods to Solve
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../max-flow/" class="md-nav__link">
-        Max Flow Problem
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../minimal-spanning-tree/" class="md-nav__link">
-        Minimal Spanning Tree
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Shortest Path Problem
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Shortest Path Problem
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#single-source-shortest-path-problem" class="md-nav__link">
-    Single Source shortest path problem
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#negative-edge" class="md-nav__link">
-    Negative Edge
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uniqueness" class="md-nav__link">
-    Uniqueness
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dijkstra" class="md-nav__link">
-    Dijkstra
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bellman-ford" class="md-nav__link">
-    Bellman Ford
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#floyd-warshall-find-all-shortest-path-for-all-pairs" class="md-nav__link">
-    Floyd-Warshall (find all shortest path for all pairs)
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
   
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_5">
+        <label class="md-nav__link" for="__nav_4">
           Google Kick Start
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Google Kick Start" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Google Kick Start
         </label>
@@ -741,18 +517,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_6">
+        <label class="md-nav__link" for="__nav_5">
           Interview
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Interview" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Interview
         </label>
@@ -766,6 +542,20 @@
     <li class="md-nav__item">
       <a href="../../Interview/Internet%20Protocol/" class="md-nav__link">
         Internet Protocol (计算机网络)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/Links/" class="md-nav__link">
+        Interview questions and their answers
       </a>
     </li>
   
@@ -1433,18 +1223,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_7">
+        <label class="md-nav__link" for="__nav_6">
           Java
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Java" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Java
         </label>
@@ -1560,23 +1350,25 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
       
-        <label class="md-nav__link" for="__nav_8">
+        <label class="md-nav__link" for="__nav_7">
           Leetcode
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Leetcode" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Leetcode
         </label>
@@ -1588,8 +1380,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/10.-regular-expression-matching/" class="md-nav__link">
-        Regular Expression Matching
+      <a href="../10.-regular-expression-matching/" class="md-nav__link">
+        10. Regular Expression Matching
       </a>
     </li>
   
@@ -1602,8 +1394,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1011.-Capacity-To-Ship-Packages-Within-D-Days/" class="md-nav__link">
-        Capacity To Ship Packages Within D Days
+      <a href="../1011.-Capacity-To-Ship-Packages-Within-D-Days/" class="md-nav__link">
+        1011. Capacity To Ship Packages Within D Days
       </a>
     </li>
   
@@ -1616,8 +1408,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1014.-Best-Sightseeing-Pair/" class="md-nav__link">
-        Best Sightseeing Pair
+      <a href="../1014.-Best-Sightseeing-Pair/" class="md-nav__link">
+        1014. Best Sightseeing Pair
       </a>
     </li>
   
@@ -1630,8 +1422,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1015.-Smallest-Integer-Divisible-by-K/" class="md-nav__link">
-        Smallest Integer Divisible by K
+      <a href="../1015.-Smallest-Integer-Divisible-by-K/" class="md-nav__link">
+        1015. Smallest Integer Divisible by K
       </a>
     </li>
   
@@ -1644,8 +1436,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1020.-Number-of-Enclaves/" class="md-nav__link">
-        Number of Enclaves
+      <a href="../1020.-Number-of-Enclaves/" class="md-nav__link">
+        1020. Number of Enclaves
       </a>
     </li>
   
@@ -1658,8 +1450,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1021.-Remove-Outermost-Parentheses/" class="md-nav__link">
-        Remove Outermost Parentheses
+      <a href="../1021.-Remove-Outermost-Parentheses/" class="md-nav__link">
+        1021. Remove Outermost Parentheses
       </a>
     </li>
   
@@ -1672,8 +1464,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/103.-binary-tree-zigzag-level-order-traversal/" class="md-nav__link">
-        Binary Tree Zigzag Level Order Traversal
+      <a href="../103.-binary-tree-zigzag-level-order-traversal/" class="md-nav__link">
+        103. Binary Tree Zigzag Level Order Traversal
       </a>
     </li>
   
@@ -1686,8 +1478,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1041.-robot-bounded-in-circle/" class="md-nav__link">
-        Robot Bounded in Circle
+      <a href="../1041.-robot-bounded-in-circle/" class="md-nav__link">
+        1041. Robot Bounded in Circle
       </a>
     </li>
   
@@ -1700,8 +1492,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1047.-remove-all-adjacent-duplicates-in-string/" class="md-nav__link">
-        Remove all Adjacent Duplicates in String
+      <a href="../1047.-remove-all-adjacent-duplicates-in-string/" class="md-nav__link">
+        1047. Remove all Adjacent Duplicates in String
       </a>
     </li>
   
@@ -1714,8 +1506,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1057.-campus-bikes/" class="md-nav__link">
-        Campus Bikes
+      <a href="../1057.-campus-bikes/" class="md-nav__link">
+        1057. Campus Bikes
       </a>
     </li>
   
@@ -1728,8 +1520,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1074.-number-of-submatrices-that-sum-to-target/" class="md-nav__link">
-        Number of Submatrices that sum to Target
+      <a href="../1074.-number-of-submatrices-that-sum-to-target/" class="md-nav__link">
+        1074. Number of Submatrices that sum to Target
       </a>
     </li>
   
@@ -1742,8 +1534,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/109.-convert-sorted-list-to-binary-search-tree/" class="md-nav__link">
-        Convert Sorted List to Binary Search Tree
+      <a href="../109.-convert-sorted-list-to-binary-search-tree/" class="md-nav__link">
+        109. Convert Sorted List to Binary Search Tree
       </a>
     </li>
   
@@ -1756,8 +1548,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/11.-container-with-most-water/" class="md-nav__link">
-        Container with Most Water
+      <a href="../11.-container-with-most-water/" class="md-nav__link">
+        11. Container with Most Water
       </a>
     </li>
   
@@ -1770,8 +1562,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/112.-path-sum/" class="md-nav__link">
-        Path Sum
+      <a href="../112.-path-sum/" class="md-nav__link">
+        112. Path Sum
       </a>
     </li>
   
@@ -1784,8 +1576,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/113.-path-sum-II/" class="md-nav__link">
-        Path Sum II
+      <a href="../113.-path-sum-II/" class="md-nav__link">
+        113. Path Sum II
       </a>
     </li>
   
@@ -1798,8 +1590,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/114.-flatten-binary-tree-to-linked-list/" class="md-nav__link">
-        Flatten binary tree to linked list
+      <a href="../114.-flatten-binary-tree-to-linked-list/" class="md-nav__link">
+        114. Flatten binary tree to linked list
       </a>
     </li>
   
@@ -1812,8 +1604,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/115.-distinct-subsequences/" class="md-nav__link">
-        Distinct Subsequences
+      <a href="../115.-distinct-subsequences/" class="md-nav__link">
+        115. Distinct Subsequences
       </a>
     </li>
   
@@ -1826,8 +1618,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/116.-Populating-Next-Right-Pointers-in-Each-Node/" class="md-nav__link">
-        Populating Next Right Pointers in Each Node
+      <a href="../116.-Populating-Next-Right-Pointers-in-Each-Node/" class="md-nav__link">
+        116. Populating Next Right Pointers in Each Node
       </a>
     </li>
   
@@ -1840,8 +1632,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/12.-integer-to-roman/" class="md-nav__link">
-        Integer to Roman
+      <a href="../12.-integer-to-roman/" class="md-nav__link">
+        12. Integer to Roman
       </a>
     </li>
   
@@ -1854,7 +1646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/121%2C123%2C132%2C188%2C309%2C714-best-time-to-buy-and-sell-stock/" class="md-nav__link">
+      <a href="../121%2C123%2C132%2C188%2C309%2C714-best-time-to-buy-and-sell-stock/" class="md-nav__link">
         Best Time to Buy and Sell Stock -- Summary
       </a>
     </li>
@@ -1868,8 +1660,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1235.-maximum-profit-in-job-scheduling/" class="md-nav__link">
-        Maximum Profit in job scheduling
+      <a href="../1235.-maximum-profit-in-job-scheduling/" class="md-nav__link">
+        1235. Maximum Profit in job scheduling
       </a>
     </li>
   
@@ -1882,8 +1674,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1240.-Tiling-a-Rectangle-with-the-Fewest-Squares/" class="md-nav__link">
-        Tiling a Rectangle with the Fewest Squares
+      <a href="../1240.-Tiling-a-Rectangle-with-the-Fewest-Squares/" class="md-nav__link">
+        1240. Tiling a Rectangle with the Fewest Squares
       </a>
     </li>
   
@@ -1896,8 +1688,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1286.-iterator-for-combination/" class="md-nav__link">
-        Iterator for Combination
+      <a href="../1286.-iterator-for-combination/" class="md-nav__link">
+        1286. Iterator for Combination
       </a>
     </li>
   
@@ -1910,8 +1702,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/13.-roman-to-integer/" class="md-nav__link">
-        Roman to Integer
+      <a href="../1288.-Remove-Covered-Intervals/" class="md-nav__link">
+        1288. Remove Covered Intervals
       </a>
     </li>
   
@@ -1924,8 +1716,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/130.-surrounded-regions/" class="md-nav__link">
-        Surrounded Regions
+      <a href="../13.-roman-to-integer/" class="md-nav__link">
+        13. Roman to Integer
       </a>
     </li>
   
@@ -1938,8 +1730,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/138.-copy-list-with-random-pointer/" class="md-nav__link">
-        Copy list with Random Pointer
+      <a href="../130.-surrounded-regions/" class="md-nav__link">
+        130. Surrounded Regions
       </a>
     </li>
   
@@ -1952,8 +1744,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/139.-word-break/" class="md-nav__link">
-        Word Break
+      <a href="../138.-copy-list-with-random-pointer/" class="md-nav__link">
+        138. Copy list with Random Pointer
       </a>
     </li>
   
@@ -1966,8 +1758,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1396.-design-underground-system/" class="md-nav__link">
-        Design Underground System
+      <a href="../139.-word-break/" class="md-nav__link">
+        139. Word Break
       </a>
     </li>
   
@@ -1980,8 +1772,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/140.-word-break-ii/" class="md-nav__link">
-        Word Break II
+      <a href="../1396.-design-underground-system/" class="md-nav__link">
+        1396. Design Underground System
       </a>
     </li>
   
@@ -1994,8 +1786,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/146.-lru-cache/" class="md-nav__link">
-        LRU Cache
+      <a href="../140.-word-break-ii/" class="md-nav__link">
+        140. Word Break II
       </a>
     </li>
   
@@ -2008,8 +1800,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/148.-sort-list/" class="md-nav__link">
-        Sort List
+      <a href="../146.-lru-cache/" class="md-nav__link">
+        146. LRU Cache
       </a>
     </li>
   
@@ -2022,8 +1814,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/149.-max-points-on-a-line/" class="md-nav__link">
-        Max Points on a line
+      <a href="../148.-sort-list/" class="md-nav__link">
+        148. Sort List
       </a>
     </li>
   
@@ -2036,8 +1828,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/164.-Maximum-Gap/" class="md-nav__link">
-        Maximum Gap
+      <a href="../149.-max-points-on-a-line/" class="md-nav__link">
+        149. Max Points on a line
       </a>
     </li>
   
@@ -2050,8 +1842,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
-        Two Sum II - Input Array Is Sorted
+      <a href="../164.-Maximum-Gap/" class="md-nav__link">
+        164. Maximum Gap
       </a>
     </li>
   
@@ -2064,8 +1856,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1675.-Minimize-Deviation-in-Array/" class="md-nav__link">
-        Minimize Deviation in Array
+      <a href="../167.-Two-Sum-II-Input-Array-Is-Sorted/" class="md-nav__link">
+        167. Two Sum II - Input Array Is Sorted
       </a>
     </li>
   
@@ -2078,8 +1870,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/169.-majority-element/" class="md-nav__link">
-        Majority Element
+      <a href="../1675.-Minimize-Deviation-in-Array/" class="md-nav__link">
+        1675. Minimize Deviation in Array
       </a>
     </li>
   
@@ -2092,8 +1884,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/174.-Dungeon-Game/" class="md-nav__link">
-        Dungeon Game
+      <a href="../169.-majority-element/" class="md-nav__link">
+        169. Majority Element
       </a>
     </li>
   
@@ -2106,8 +1898,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/189.-Rotate-Array/" class="md-nav__link">
-        Rotate Array
+      <a href="../174.-Dungeon-Game/" class="md-nav__link">
+        174. Dungeon Game
       </a>
     </li>
   
@@ -2120,8 +1912,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/19.-Remove-Nth-Node-From-End-of-List/" class="md-nav__link">
-        Remove Nth Node From End of List
+      <a href="../189.-Rotate-Array/" class="md-nav__link">
+        189. Rotate Array
       </a>
     </li>
   
@@ -2134,7 +1926,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1995.-Count-Special-Quadruplets/" class="md-nav__link">
+      <a href="../19.-Remove-Nth-Node-From-End-of-List/" class="md-nav__link">
+        19. Remove Nth Node From End of List
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1995.-Count-Special-Quadruplets/" class="md-nav__link">
         1995. Count Special Quadruplets
       </a>
     </li>
@@ -2148,7 +1954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/1996.-The-Number-of-Weak-Characters-in-the-Game/" class="md-nav__link">
+      <a href="../1996.-The-Number-of-Weak-Characters-in-the-Game/" class="md-nav__link">
         1996. The Number of Weak Characters in the Game
       </a>
     </li>
@@ -2162,8 +1968,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/2.-add-two-numbers/" class="md-nav__link">
-        Add Two Numbers
+      <a href="../2.-add-two-numbers/" class="md-nav__link">
+        2. Add Two Numbers
       </a>
     </li>
   
@@ -2176,8 +1982,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/208.-implement-trie-%28prefix-tree%29/" class="md-nav__link">
-        Implement Trie (Prefix Tree)
+      <a href="../208.-implement-trie-%28prefix-tree%29/" class="md-nav__link">
+        208. Implement Trie (Prefix Tree)
       </a>
     </li>
   
@@ -2190,8 +1996,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/212.-word-search-ii/" class="md-nav__link">
-        Word Search II
+      <a href="../212.-word-search-ii/" class="md-nav__link">
+        212. Word Search II
       </a>
     </li>
   
@@ -2204,8 +2010,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/2141.-Maximum-Running-Time-of-N-Computers/" class="md-nav__link">
-        Maximum Running Time of N Computers
+      <a href="../2141.-Maximum-Running-Time-of-N-Computers/" class="md-nav__link">
+        2141. Maximum Running Time of N Computers
       </a>
     </li>
   
@@ -2218,8 +2024,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/222.-count-complete-tree-node/" class="md-nav__link">
-        Count Complete Tree Nodes
+      <a href="../2180.-Count-Integers-With-Even-Digit-Sum/" class="md-nav__link">
+        2180. Count Integers With Even Digit Sum
       </a>
     </li>
   
@@ -2232,8 +2038,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/229.-majority-element-ii/" class="md-nav__link">
-        Majority Element II
+      <a href="../222.-count-complete-tree-node/" class="md-nav__link">
+        222. Count Complete Tree Nodes
       </a>
     </li>
   
@@ -2246,8 +2052,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/239.-sliding-window-maximum/" class="md-nav__link">
-        Sliding Window Maximum
+      <a href="../229.-majority-element-ii/" class="md-nav__link">
+        229. Majority Element II
       </a>
     </li>
   
@@ -2260,8 +2066,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/24.-Swap-Nodes-in-Pairs/" class="md-nav__link">
-        Swap Nodes in Pairs
+      <a href="../239.-sliding-window-maximum/" class="md-nav__link">
+        239. Sliding Window Maximum
       </a>
     </li>
   
@@ -2274,8 +2080,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/253.-meeting-rooms-ii/" class="md-nav__link">
-        Meeting Rooms II
+      <a href="../24.-Swap-Nodes-in-Pairs/" class="md-nav__link">
+        24. Swap Nodes in Pairs
       </a>
     </li>
   
@@ -2288,8 +2094,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/254.-factor-combinations/" class="md-nav__link">
-        Factor Combinations
+      <a href="../253.-meeting-rooms-ii/" class="md-nav__link">
+        253. Meeting Rooms II
       </a>
     </li>
   
@@ -2302,8 +2108,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/274.-H-Index/" class="md-nav__link">
-        H-Index
+      <a href="../254.-factor-combinations/" class="md-nav__link">
+        254. Factor Combinations
       </a>
     </li>
   
@@ -2316,8 +2122,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/283.-Move-Zeroes/" class="md-nav__link">
-        Move Zeroes
+      <a href="../274.-H-Index/" class="md-nav__link">
+        274. H-Index
       </a>
     </li>
   
@@ -2330,8 +2136,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/287.-find-the-duplicate-number/" class="md-nav__link">
-        Find the Duplicate Number
+      <a href="../283.-Move-Zeroes/" class="md-nav__link">
+        283. Move Zeroes
       </a>
     </li>
   
@@ -2344,8 +2150,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/290.-word-pattern/" class="md-nav__link">
-        Word Pattern
+      <a href="../287.-find-the-duplicate-number/" class="md-nav__link">
+        287. Find the Duplicate Number
       </a>
     </li>
   
@@ -2358,8 +2164,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/291.-word-pattern-II/" class="md-nav__link">
-        Word Pattern II
+      <a href="../290.-word-pattern/" class="md-nav__link">
+        290. Word Pattern
       </a>
     </li>
   
@@ -2372,8 +2178,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/295.-find-median-from-data-stream/" class="md-nav__link">
-        Find Median From Data Stream
+      <a href="../291.-word-pattern-II/" class="md-nav__link">
+        291. Word Pattern II
       </a>
     </li>
   
@@ -2386,8 +2192,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/299.-Bulls-and-Cows/" class="md-nav__link">
-        Bulls and Cows
+      <a href="../295.-find-median-from-data-stream/" class="md-nav__link">
+        295. Find Median From Data Stream
       </a>
     </li>
   
@@ -2400,8 +2206,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/3.-Longest-Substring-Without-Repeating-Characters/" class="md-nav__link">
-        Longest Substring Without Repeating Characters
+      <a href="../299.-Bulls-and-Cows/" class="md-nav__link">
+        299. Bulls and Cows
       </a>
     </li>
   
@@ -2414,8 +2220,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/312.-Burst-Balloons/" class="md-nav__link">
-        Burst Balloons
+      <a href="../3.-Longest-Substring-Without-Repeating-Characters/" class="md-nav__link">
+        3. Longest Substring Without Repeating Characters
       </a>
     </li>
   
@@ -2428,8 +2234,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/32.-longest-valid-parentheses/" class="md-nav__link">
-        Longest Valid Parentheses
+      <a href="../312.-Burst-Balloons/" class="md-nav__link">
+        312. Burst Balloons
       </a>
     </li>
   
@@ -2442,8 +2248,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/344.-Reverse-String/" class="md-nav__link">
-        Reverse String
+      <a href="../32.-longest-valid-parentheses/" class="md-nav__link">
+        32. Longest Valid Parentheses
       </a>
     </li>
   
@@ -2456,8 +2262,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/36.-valid-sudoku/" class="md-nav__link">
-        Valid Sudoku
+      <a href="../344.-Reverse-String/" class="md-nav__link">
+        344. Reverse String
       </a>
     </li>
   
@@ -2470,8 +2276,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/376.-Wiggle-Subsequence/" class="md-nav__link">
-        Wiggle Subsequence
+      <a href="../36.-valid-sudoku/" class="md-nav__link">
+        36. Valid Sudoku
       </a>
     </li>
   
@@ -2484,8 +2290,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/394.-decode-string/" class="md-nav__link">
-        Decode String
+      <a href="../376.-Wiggle-Subsequence/" class="md-nav__link">
+        376. Wiggle Subsequence
       </a>
     </li>
   
@@ -2498,8 +2304,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/4.-median-of-two-sorted-arrays/" class="md-nav__link">
-        Median of Two Sorted Arrays
+      <a href="../394.-decode-string/" class="md-nav__link">
+        394. Decode String
       </a>
     </li>
   
@@ -2512,8 +2318,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/402.-Remove-K-Digits/" class="md-nav__link">
-        Remove K Digits
+      <a href="../4.-median-of-two-sorted-arrays/" class="md-nav__link">
+        4. Median of Two Sorted Arrays
       </a>
     </li>
   
@@ -2526,8 +2332,104 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/42.-trapping-rain-water/" class="md-nav__link">
-        Trapping Rain Water
+      <a href="../402.-Remove-K-Digits/" class="md-nav__link">
+        402. Remove K Digits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          413. Arithmetic Slices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        413. Arithmetic Slices
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-my-dp-equation" class="md-nav__link">
+    Using my DP equation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-dp-equation-from-discussion" class="md-nav__link">
+    Using DP equation from discussion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42.-trapping-rain-water/" class="md-nav__link">
+        42. Trapping Rain Water
       </a>
     </li>
   
@@ -2540,8 +2442,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/437.-path-sum-iii/" class="md-nav__link">
-        Path Sum III
+      <a href="../437.-path-sum-iii/" class="md-nav__link">
+        437. Path Sum III
       </a>
     </li>
   
@@ -2554,7 +2456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/438%2C-76%2C-3%2C-30%2C-sliding-window/" class="md-nav__link">
+      <a href="../438%2C-76%2C-3%2C-30%2C-sliding-window/" class="md-nav__link">
         Sliding Window Pattern
       </a>
     </li>
@@ -2568,8 +2470,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/46.-Permutations/" class="md-nav__link">
-        Permutations
+      <a href="../46.-Permutations/" class="md-nav__link">
+        46. Permutations
       </a>
     </li>
   
@@ -2582,8 +2484,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/496.-next-greater-element-i/" class="md-nav__link">
-        Next Greater Element I
+      <a href="../496.-next-greater-element-i/" class="md-nav__link">
+        496. Next Greater Element I
       </a>
     </li>
   
@@ -2596,8 +2498,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/520.-detect-capital/" class="md-nav__link">
-        Detect Capital
+      <a href="../520.-detect-capital/" class="md-nav__link">
+        520. Detect Capital
       </a>
     </li>
   
@@ -2610,8 +2512,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/532.-k-diff-pairs-in-an-array/" class="md-nav__link">
-        K diff Pairs in an Array
+      <a href="../532.-k-diff-pairs-in-an-array/" class="md-nav__link">
+        532. K diff Pairs in an Array
       </a>
     </li>
   
@@ -2624,8 +2526,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/54.-spiral-matrix/" class="md-nav__link">
-        Spiral Matrix
+      <a href="../54.-spiral-matrix/" class="md-nav__link">
+        54. Spiral Matrix
       </a>
     </li>
   
@@ -2638,8 +2540,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/542.-01-Matrix/" class="md-nav__link">
-        01 Matrix
+      <a href="../542.-01-Matrix/" class="md-nav__link">
+        542. 01 Matrix
       </a>
     </li>
   
@@ -2652,8 +2554,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/557.-Reverse-Words-in-a-String-III/" class="md-nav__link">
-        Reverse Words in a String III
+      <a href="../557.-Reverse-Words-in-a-String-III/" class="md-nav__link">
+        557. Reverse Words in a String III
       </a>
     </li>
   
@@ -2666,8 +2568,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/560.-Subarray-Sum-Equals-K/" class="md-nav__link">
-        Subarray Sum Equals K
+      <a href="../560.-Subarray-Sum-Equals-K/" class="md-nav__link">
+        560. Subarray Sum Equals K
       </a>
     </li>
   
@@ -2680,8 +2582,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/568.-maximum-vacation-days/" class="md-nav__link">
-        Maximum Vacation Days
+      <a href="../568.-maximum-vacation-days/" class="md-nav__link">
+        568. Maximum Vacation Days
       </a>
     </li>
   
@@ -2694,8 +2596,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/58.-Length-of-Last-Word/" class="md-nav__link">
-        Length of Last Word
+      <a href="../58.-Length-of-Last-Word/" class="md-nav__link">
+        58. Length of Last Word
       </a>
     </li>
   
@@ -2708,8 +2610,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/617.-Merge-Two-Binary-Trees/" class="md-nav__link">
-        Merge Two Binary Trees
+      <a href="../617.-Merge-Two-Binary-Trees/" class="md-nav__link">
+        617. Merge Two Binary Trees
       </a>
     </li>
   
@@ -2722,8 +2624,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/636.-exclusive-time-of-functions/" class="md-nav__link">
-        Exclusive Time of Functions
+      <a href="../636.-exclusive-time-of-functions/" class="md-nav__link">
+        636. Exclusive Time of Functions
       </a>
     </li>
   
@@ -2736,8 +2638,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/646.-maximum-length-of-pair-chain/" class="md-nav__link">
-        Maximum Length of Pair Chain
+      <a href="../646.-maximum-length-of-pair-chain/" class="md-nav__link">
+        646. Maximum Length of Pair Chain
       </a>
     </li>
   
@@ -2750,8 +2652,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/647.-palindromic-substrings/" class="md-nav__link">
-        Palindromic Substrings
+      <a href="../647.-palindromic-substrings/" class="md-nav__link">
+        647. Palindromic Substrings
       </a>
     </li>
   
@@ -2764,8 +2666,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/684.-Redundant-Connection/" class="md-nav__link">
-        Redundant Connection
+      <a href="../684.-Redundant-Connection/" class="md-nav__link">
+        684.  Redundant Connection
       </a>
     </li>
   
@@ -2778,8 +2680,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/69.-sqrt%28x%29/" class="md-nav__link">
-        Sqrt(t)
+      <a href="../69.-sqrt%28x%29/" class="md-nav__link">
+        69. Sqrt(t)
       </a>
     </li>
   
@@ -2792,8 +2694,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/695.-Max-Area-of-Island/" class="md-nav__link">
-        Max Area of Island
+      <a href="../695.-Max-Area-of-Island/" class="md-nav__link">
+        695. Max Area of Island
       </a>
     </li>
   
@@ -2806,8 +2708,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/72.-edit-distance/" class="md-nav__link">
-        Edit Distance
+      <a href="../72.-edit-distance/" class="md-nav__link">
+        72. Edit Distance
       </a>
     </li>
   
@@ -2820,8 +2722,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/723.-Candy-Crush/" class="md-nav__link">
-        Candy Crush
+      <a href="../723.-Candy-Crush/" class="md-nav__link">
+        723. Candy Crush
       </a>
     </li>
   
@@ -2834,8 +2736,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/733.-Flood-Fill/" class="md-nav__link">
-        Flood Fill
+      <a href="../733.-Flood-Fill/" class="md-nav__link">
+        733. Flood Fill
       </a>
     </li>
   
@@ -2848,8 +2750,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/754.-Reach-a-Number/" class="md-nav__link">
-        Reach a Number
+      <a href="../754.-Reach-a-Number/" class="md-nav__link">
+        754. Reach a Number
       </a>
     </li>
   
@@ -2862,8 +2764,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/815.-Bus-Routes/" class="md-nav__link">
-        Bus Routes
+      <a href="../815.-Bus-Routes/" class="md-nav__link">
+        815. Bus Routes
       </a>
     </li>
   
@@ -2876,8 +2778,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/85.-maximal-rectangle/" class="md-nav__link">
-        Maximal Rectangle
+      <a href="../85.-maximal-rectangle/" class="md-nav__link">
+        85. Maximal Rectangle
       </a>
     </li>
   
@@ -2890,8 +2792,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/87.-scramble-string/" class="md-nav__link">
-        Scramble String
+      <a href="../87.-scramble-string/" class="md-nav__link">
+        87. Scramble String
       </a>
     </li>
   
@@ -2904,8 +2806,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/876.-Middle-of-the-Linked-List/" class="md-nav__link">
-        Middle of the Linked List
+      <a href="../876.-Middle-of-the-Linked-List/" class="md-nav__link">
+        876. Middle of the Linked List
       </a>
     </li>
   
@@ -2918,8 +2820,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/91.-decode-ways/" class="md-nav__link">
-        Decode Ways
+      <a href="../91.-decode-ways/" class="md-nav__link">
+        91. Decode Ways
       </a>
     </li>
   
@@ -2932,8 +2834,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/93.-restore-ip-addresses/" class="md-nav__link">
-        Restore IP addresses
+      <a href="../93.-restore-ip-addresses/" class="md-nav__link">
+        93. Restore IP addresses
       </a>
     </li>
   
@@ -2946,8 +2848,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/95.-unique-binary-search-trees-ii/" class="md-nav__link">
-        Unique Binary Search Trees II
+      <a href="../95.-unique-binary-search-trees-ii/" class="md-nav__link">
+        95. Unique Binary Search Trees II
       </a>
     </li>
   
@@ -2960,8 +2862,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/952.-largest-component-size-by-common-factor/" class="md-nav__link">
-        Largest Component Size by Common Factor
+      <a href="../952.-largest-component-size-by-common-factor/" class="md-nav__link">
+        952. Largest Component Size by Common Factor
       </a>
     </li>
   
@@ -2974,8 +2876,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/96.-unique-binary-search-trees/" class="md-nav__link">
-        Unique Binary Search Trees
+      <a href="../96.-unique-binary-search-trees/" class="md-nav__link">
+        96. Unique Binary Search Trees
       </a>
     </li>
   
@@ -2988,8 +2890,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/97.-interleaving-string/" class="md-nav__link">
-        Interleaving String
+      <a href="../97.-interleaving-string/" class="md-nav__link">
+        97. Interleaving String
       </a>
     </li>
   
@@ -3002,8 +2904,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/977.-Squares-of-a-Sorted-Array/" class="md-nav__link">
-        Squares of a Sorted Array
+      <a href="../977.-Squares-of-a-Sorted-Array/" class="md-nav__link">
+        977. Squares of a Sorted Array
       </a>
     </li>
   
@@ -3016,8 +2918,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/987.-Vertical-Order-Traversal-of-a-binary-tree/" class="md-nav__link">
-        Vertical Order Traversal of a Binary Tree
+      <a href="../987.-Vertical-Order-Traversal-of-a-binary-tree/" class="md-nav__link">
+        987. Vertical Order Traversal of a Binary Tree
       </a>
     </li>
   
@@ -3030,8 +2932,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/99.-recover-binary-search-tree/" class="md-nav__link">
-        Recover Binary Search Tree
+      <a href="../99.-recover-binary-search-tree/" class="md-nav__link">
+        99. Recover Binary Search Tree
       </a>
     </li>
   
@@ -3044,8 +2946,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/994.-rotting-oranges/" class="md-nav__link">
-        Rotting Oranges
+      <a href="../994.-rotting-oranges/" class="md-nav__link">
+        994. Rotting Oranges
       </a>
     </li>
   
@@ -3058,7 +2960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Leetcode/dp-pattern/" class="md-nav__link">
+      <a href="../dp-pattern/" class="md-nav__link">
         DP pattern summary
       </a>
     </li>
@@ -3083,18 +2985,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_9">
+        <label class="md-nav__link" for="__nav_8">
           LibreOJ
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="LibreOJ" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           LibreOJ
         </label>
@@ -3173,18 +3075,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_10">
+        <label class="md-nav__link" for="__nav_9">
           Misc
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Misc" data-md-level="1">
-        <label class="md-nav__title" for="__nav_10">
+        <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
           Misc
         </label>
@@ -3235,18 +3137,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_11">
+        <label class="md-nav__link" for="__nav_10">
           Operating System
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Operating System" data-md-level="1">
-        <label class="md-nav__title" for="__nav_11">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Operating System
         </label>
@@ -3283,18 +3185,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_12">
+        <label class="md-nav__link" for="__nav_11">
           Python
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Python" data-md-level="1">
-        <label class="md-nav__title" for="__nav_12">
+        <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
           Python
         </label>
@@ -3308,6 +3210,166 @@
     <li class="md-nav__item">
       <a href="../../Python/Tips/" class="md-nav__link">
         Tips
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12">
+          Reading notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reading notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          Reading notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Apache%20Solr/" class="md-nav__link">
+        Apache Solr
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
+        Book notes for `Design Data Intensive Apps`
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/binomial-coefficient/" class="md-nav__link">
+        Binomial Coefficient
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/fibonacci-squence/" class="md-nav__link">
+        Fibonacci Sequence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/harmonic-numbers/" class="md-nav__link">
+        Harmonic Numbers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/lca/" class="md-nav__link">
+        Lowest Common Ancestor Problem with Advanced Methods to Solve
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/max-flow/" class="md-nav__link">
+        Max Flow Problem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/minimal-spanning-tree/" class="md-nav__link">
+        Minimal Spanning Tree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/shortest-path-problem/" class="md-nav__link">
+        Shortest Path Problem
       </a>
     </li>
   
@@ -3749,44 +3811,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#single-source-shortest-path-problem" class="md-nav__link">
-    Single Source shortest path problem
+  <a href="#analysis" class="md-nav__link">
+    Analysis
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#negative-edge" class="md-nav__link">
-    Negative Edge
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-my-dp-equation" class="md-nav__link">
+    Using my DP equation
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#uniqueness" class="md-nav__link">
-    Uniqueness
+        
+          <li class="md-nav__item">
+  <a href="#using-dp-equation-from-discussion" class="md-nav__link">
+    Using DP equation from discussion
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#dijkstra" class="md-nav__link">
-    Dijkstra
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bellman-ford" class="md-nav__link">
-    Bellman Ford
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#floyd-warshall-find-all-shortest-path-for-all-pairs" class="md-nav__link">
-    Floyd-Warshall (find all shortest path for all pairs)
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3802,98 +3856,120 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/advpetc/tech_notes/edit/master/docs/Books/shortest-path-problem.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/advpetc/tech_notes/edit/master/docs/Leetcode/413.-Arithmetic-Slices.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="shortest-path-problem">Shortest Path Problem<a class="headerlink" href="#shortest-path-problem" title="Permanent link">&para;</a></h1>
-<h2 id="single-source-shortest-path-problem">Single Source shortest path problem<a class="headerlink" href="#single-source-shortest-path-problem" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Find the shortest src to a target dest: reversing the direction of the DAG -&gt; find the shortest path starting from dest</li>
-<li>Find shortest path between u and v.</li>
-<li>Find shortest path for all pair u and v.</li>
-</ol>
-<h2 id="negative-edge">Negative Edge<a class="headerlink" href="#negative-edge" title="Permanent link">&para;</a></h2>
-<p>If graph has cycle: short path isn't well defined.</p>
-<p>Dijkstra: has to be positive edge, can deal with cycle
-Bellman Ford: cannot have a cycle from src but can deal with negative edge (single source shortest path)</p>
-<p>Shortest path cannot contain a cycle</p>
-<h2 id="uniqueness">Uniqueness<a class="headerlink" href="#uniqueness" title="Permanent link">&para;</a></h2>
-<p>Shortest paths are not necessary unique:
-<img alt="Screen Shot 2020-07-01 at 9.18.31 PM.png" src="../resources/B1535511508F1BCED54301598FD08C0B.png" /></p>
-<h2 id="dijkstra">Dijkstra<a class="headerlink" href="#dijkstra" title="Permanent link">&para;</a></h2>
-<p>More efficient than Bellman Ford but requires the edges are positive weight.</p>
-<p>The algorithm only traverse each node once, and greedily choose the shortest path to reach the current node (using priority queue).</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>distance[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>INF;<span style="color: #bbbbbb"> </span>distance[x]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-q.push({<span style="color: #666666">0</span>,x});<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>q.empty())<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>q.top().second;<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">    </span>q.pop();<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(processed[a])<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">continue</span>;<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">    </span>processed[a]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">true</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #008000; font-weight: bold">auto</span><span style="color: #bbbbbb"> </span>u<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>adj[a])<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>b<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>u.first,<span style="color: #bbbbbb"> </span>w<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>u.second;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(distance[a]<span style="color: #666666">+</span>w<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>distance[b])<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>distance[b]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>distance[a]<span style="color: #666666">+</span>w;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>q.push({<span style="color: #666666">-</span>distance[b],b});<span style="color: #bbbbbb"> </span>
+<h1 id="413-arithmetic-slices">413. Arithmetic Slices<a class="headerlink" href="#413-arithmetic-slices" title="Permanent link">&para;</a></h1>
+<p>An integer array is called arithmetic if it consists of <strong>at least three elements</strong> and if the difference between any two consecutive elements is the same.</p>
+<ul>
+<li>For example, <code>[1,3,5,7,9]</code>, <code>[7,7,7,7]</code>, and <code>[3,-1,-5,-9]</code> are arithmetic sequences.</li>
+</ul>
+<p>Given an integer array <code>nums</code>, return <em>the number of arithmetic <strong>subarrays</strong> of</em> <code>nums</code>.</p>
+<p>A <strong>subarray</strong> is a contiguous subsequence of the array.</p>
+<p><strong>Example 1:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: nums = [1,2,3,4]
+Output: 3
+Explanation: We have 3 arithmetic slices in nums: [1, 2, 3], [2, 3, 4] and [1,2,3,4] itself.
+</code></pre></div>
+
+<p><strong>Example 2:</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Input: nums = [1]
+Output: 0
+</code></pre></div>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
+<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
+</ul>
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
+<p>This question can be solved using math. We can try to answer the subarray with the size of 3 first, and it will only form 1 arithmetic slice.  Now we think of the subarray with the size of 4. We can split the size 4 subarray with 2 size-three subarrays:</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>1,2,3,4 -&gt; 1,2,3 + 2,3,4 + 1,2,3,4
+size-four -&gt; size-three + size-three + 1 = 1 + 1 + 1 = 3
+</code></pre></div>
+
+<p>Now we can find some relationship between the current size subarray with its previous size subarray.</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>1,2,3,4,5 -&gt; 1,2,3,4 + 2,3,4,5 + 1,2,3,4,5
+size-five -&gt; size-four + size-four + 1 = 7 (incorrect, should be 6 instead)
+</code></pre></div>
+
+<p>However, the above result is incorrect, and it should be 6 instead.  What we have done wrong here? We double count the <code>2,3,4</code> because it's included in both <code>1,2,3,4</code> and <code>2,3,4,5</code> subarrays. </p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>1~n -&gt; 1~n-1 + 2~n + 1~n - 2~n-1 (for n &gt; 3)
+size-n -&gt; size-(n-1) + size-(n-1) - size-(n-2) + 1
+</code></pre></div>
+
+<p>So right now we can already start implementing this using: <code>dp[i] = 2 * dp[i - 1] - dp[i - 2] + 1</code>, but I have found another simpler equation: <code>dp[i] = dp[i - 1] + i - 2</code> and I am unable to proof the correctness.  This equation is from <a href="https://leetcode.com/problems/arithmetic-slices/discuss/1814595/Python3-CACHE-()-Explained">Leetcode discussion</a></p>
+<ul>
+<li>Time: <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
+<li>Space: <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
+</ul>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
+<h3 id="using-my-dp-equation">Using my DP equation<a class="headerlink" href="#using-my-dp-equation" title="Permanent link">&para;</a></h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>numberOfArithmeticSlices(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>nums)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>nums.size();<span style="color: #bbbbbb">        </span>
+<span style="color: #bbbbbb">        </span>map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>dp;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// cnt -&gt; slices</span>
+<span style="color: #bbbbbb">        </span>dp[<span style="color: #666666">3</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb">        </span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>diff<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>nums[j]<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>nums[j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>];<span style="color: #bbbbbb">            </span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>nums[j]<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>nums[j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>diff)<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(dp.count(cnt))<span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>dp[cnt];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">4</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>cnt;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// there is only duplication when middle subarray is longer than 3</span>
+<span style="color: #bbbbbb">                        </span>dp[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                        </span>dp[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>dp[cnt];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb">                </span>
+
 <span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"> </span>
-}<span style="color: #bbbbbb"></span>
-</code></pre></div>
-
-<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(n + m log m)</span><script type="math/tex">O(n + m log m)</script></span></p>
-<h2 id="bellman-ford">Bellman Ford<a class="headerlink" href="#bellman-ford" title="Permanent link">&para;</a></h2>
-<p>Find the shortest path from one src to all the others. If there is a negative cycle, it will be able to detect it.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>distance[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>INF;<span style="color: #bbbbbb"> </span>distance[x]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n<span style="color: #666666">-1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #008000; font-weight: bold">auto</span><span style="color: #bbbbbb"> </span>e<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>edges)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">       </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>a,<span style="color: #bbbbbb"> </span>b,<span style="color: #bbbbbb"> </span>w;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">       </span>tie(a,<span style="color: #bbbbbb"> </span>b,<span style="color: #bbbbbb"> </span>w)<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>e;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">       </span>distance[b]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>min(distance[b],<span style="color: #bbbbbb"> </span>distance[a]<span style="color: #666666">+</span>w);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
 <span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
-
-<span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #008000; font-weight: bold">auto</span><span style="color: #bbbbbb"> </span>e<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>edge)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>a,<span style="color: #bbbbbb"> </span>b,<span style="color: #bbbbbb"> </span>w;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>tie(a,<span style="color: #bbbbbb"> </span>b,<span style="color: #bbbbbb"> </span>w)<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>e;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(distance[a]<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>w<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>distance[b])<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #008000">false</span>;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// negative cycle</span>
-}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
-<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(m \times n)</span><script type="math/tex">O(m \times n)</script></span> n node with m edges</p>
-<h2 id="floyd-warshall-find-all-shortest-path-for-all-pairs">Floyd-Warshall (find all shortest path for all pairs)<a class="headerlink" href="#floyd-warshall-find-all-shortest-path-for-all-pairs" title="Permanent link">&para;</a></h2>
-<p>First initialize the distance list with direct connected nodes' distance.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>j<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">       </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>j)<span style="color: #bbbbbb"> </span>distance[i][j]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">       </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(adj[i][j])<span style="color: #bbbbbb"> </span>distance[i][j]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>adj[i][j];<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">       </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>distance[i][j]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>INF;<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"> </span>
-}<span style="color: #bbbbbb"></span>
-</code></pre></div>
+<h3 id="using-dp-equation-from-discussion">Using DP equation from discussion<a class="headerlink" href="#using-dp-equation-from-discussion" title="Permanent link">&para;</a></h3>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>numberOfArithmeticSlices(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>nums)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>nums.size();<span style="color: #bbbbbb">        </span>
+<span style="color: #bbbbbb">        </span>map<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span>,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>dp;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// cnt -&gt; slices</span>
+<span style="color: #bbbbbb">        </span>dp[<span style="color: #666666">3</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb">        </span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>diff<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>nums[j]<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>nums[j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>];<span style="color: #bbbbbb">            </span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>nums[j]<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>nums[j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>diff)<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>cnt<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(dp.count(cnt))<span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>dp[cnt];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">4</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>cnt;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                    </span>dp[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>dp[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">                </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>dp[cnt];<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb">                </span>
 
-<p>Then keep adding the intermediate nodes k, and base on the new graph update the distance list.</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>k<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>k<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>k<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// added node</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>j<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>distance[i][j]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>min(distance[i][j],<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                                 </span>distance[i][k]<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>distance[k][j]);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
 <span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+};<span style="color: #bbbbbb"></span>
 </code></pre></div>
-
-<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(n^3)</span><script type="math/tex">O(n^3)</script></span> for the second step</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 9, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2022</span>
       
     
   </small>
@@ -3911,7 +3987,7 @@ q.push({<span style="color: #666666">0</span>,x});<span style="color: #bbbbbb"><
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../minimal-spanning-tree/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Minimal Spanning Tree" rel="prev">
+        <a href="../402.-Remove-K-Digits/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 402. Remove K Digits" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -3920,20 +3996,20 @@ q.push({<span style="color: #666666">0</span>,x});<span style="color: #bbbbbb"><
               <span class="md-footer__direction">
                 Previous
               </span>
-              Minimal Spanning Tree
+              402. Remove K Digits
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../Google%20Kick%20Start/2020-round-a/" class="md-footer__link md-footer__link--next" aria-label="Next: 2020 Round A" rel="next">
+        <a href="../42.-trapping-rain-water/" class="md-footer__link md-footer__link--next" aria-label="Next: 42. Trapping Rain Water" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              2020 Round A
+              42. Trapping Rain Water
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -3963,7 +4039,7 @@ q.push({<span style="color: #666666">0</span>,x});<span style="color: #bbbbbb"><
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
