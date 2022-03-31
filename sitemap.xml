@@ -441,11 +441,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://peterchen.xyz/Leetcode/121%2C123%2C132%2C188%2C309%2C714-best-time-to-buy-and-sell-stock/</loc>
-         <lastmod>2022-03-31</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://peterchen.xyz/Leetcode/1235.-maximum-profit-in-job-scheduling/</loc>
          <lastmod>2022-03-31</lastmod>
          <changefreq>daily</changefreq>
@@ -586,6 +581,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://peterchen.xyz/Leetcode/224.-Basic-Calculator/</loc>
+         <lastmod>2022-03-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://peterchen.xyz/Leetcode/227.-Basic-Calculator-II/</loc>
+         <lastmod>2022-03-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://peterchen.xyz/Leetcode/229.-majority-element-ii/</loc>
          <lastmod>2022-03-31</lastmod>
          <changefreq>daily</changefreq>
@@ -702,11 +707,6 @@
     </url>
     <url>
          <loc>https://peterchen.xyz/Leetcode/437.-path-sum-iii/</loc>
-         <lastmod>2022-03-31</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://peterchen.xyz/Leetcode/438%2C-76%2C-3%2C-30%2C-sliding-window/</loc>
          <lastmod>2022-03-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -886,7 +886,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://peterchen.xyz/Leetcode/dp-pattern/</loc>
+         <loc>https://peterchen.xyz/Leetcode/topics/121%2C123%2C132%2C188%2C309%2C714-best-time-to-buy-and-sell-stock/</loc>
+         <lastmod>2022-03-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://peterchen.xyz/Leetcode/topics/438%2C-76%2C-3%2C-30%2C-sliding-window/</loc>
+         <lastmod>2022-03-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://peterchen.xyz/Leetcode/topics/dp-pattern/</loc>
          <lastmod>2022-03-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
