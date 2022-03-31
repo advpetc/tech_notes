@@ -1,11 +1,11 @@
 # Best Time to Buy and Sell Stock -- Summary
 
 >solution all referenced from:
-
 作者：labuladong
 链接：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/yi-ge-tong-yong-fang-fa-tuan-mie-6-dao-gu-piao-wen/
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 
 Say you have an array for which the ith element is the price of a given stock on day i.
 
@@ -25,7 +25,7 @@ Input: [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
-## presumptions
+## Assumptions
 
 1. there is only one stock to be bought
 2. no consecutive buy or sell happens (buy on day one and buy one day two, instead, can only choose rest or sell)

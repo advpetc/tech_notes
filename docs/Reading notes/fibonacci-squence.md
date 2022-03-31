@@ -21,7 +21,7 @@ The important property of the number $\phi$ is that:
 
 \[ 1 + \phi = \phi^2 \]
 
-Plugging this into the preious equation gives $F_{n + 1} \leq \phi^n$, so we prove the inductive step where if $F_n$ is true then $F_{n + 1}$ is true.
+Plugging this into the previous equation gives $F_{n + 1} \leq \phi^n$, so we prove the inductive step where if $F_n$ is true then $F_{n + 1}$ is true.
 
 ## Relationship between $F_m$ and $F_n$
 

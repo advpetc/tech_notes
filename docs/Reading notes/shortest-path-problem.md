@@ -18,7 +18,7 @@ Shortest path cannot contain a cycle
 ## Uniqueness
 
 Shortest paths are not necessary unique:
-![Screen Shot 2020-07-01 at 9.18.31 PM.png](resources/B1535511508F1BCED54301598FD08C0B.png)
+![Screen Shot 2020-07-01 at 9.18.31 PM.png](B1535511508F1BCED54301598FD08C0B.png)
 
 ## Dijkstra
 
