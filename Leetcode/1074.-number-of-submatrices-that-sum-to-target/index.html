@@ -3998,7 +3998,7 @@ and the prefix sum is:
 </code></pre></div>
 
 <h2 id="analysis-using-map">Analysis: using map<a class="headerlink" href="#analysis-using-map" title="Permanent link">&para;</a></h2>
-<p>Similar to finding the <a href="560.-Subarray-Sum-Equals-K.md">target subarray</a>, this problem can use a map to record all the previous existing sum, and try to find the complement for the current sum.</p>
+<p>Similar to finding the <a href="../0560.-Subarray-Sum-Equals-K.md">target subarray</a>, this problem can use a map to record all the previous existing sum, and try to find the complement for the current sum.</p>
 <p>The smaller number represents the prefix sum by row:</p>
 <p><img alt="img" src="../resources/1074.png" /></p>
 <p>The red rectangular represents the condition when we want to calculate all the submatrix sum from <code>left=0</code> and <code>right=2</code> and <code>row=1</code>. To find if current [i, j] is the right down point of the target submatrix (and how many), we just need to check if there are any submatrix whose area is equal to the complement of the current sum.</p>
@@ -4040,7 +4040,7 @@ and the prefix sum is:
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 1, 2022</span>
       
     
   </small>
