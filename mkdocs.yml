@@ -7,10 +7,6 @@ site_author: Pete
 repo_name: 'advpetc/Tech_Notes'
 repo_url: 'https://github.com/advpetc/tech_notes/'
 
-google_analytics:
-  - UA-168812075-1
-  - auto
-
 theme:
   font:
     text: Ubuntu Mono
@@ -38,7 +34,7 @@ extra:
   disqus: 'tech-notes-2'
   analytics:
       provider: google
-      property: G-304400452
+      property: UA-168812075-1
 extra_css:
   - css/extra.css
 extra_javascript:
