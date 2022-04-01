@@ -57,8 +57,8 @@
   
 
 
-  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-304400452"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-304400452",{page_path:e.pathname})})})</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-304400452"></script>
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-168812075-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
     
@@ -3998,7 +3998,7 @@ and the prefix sum is:
 </code></pre></div>
 
 <h2 id="analysis-using-map">Analysis: using map<a class="headerlink" href="#analysis-using-map" title="Permanent link">&para;</a></h2>
-<p>Similar to finding the <a href="../0560.-Subarray-Sum-Equals-K.md">target subarray</a>, this problem can use a map to record all the previous existing sum, and try to find the complement for the current sum.</p>
+<p>Similar to finding the <a href="../0560.-Subarray-Sum-Equals-K">target subarray</a>, this problem can use a map to record all the previous existing sum, and try to find the complement for the current sum.</p>
 <p>The smaller number represents the prefix sum by row:</p>
 <p><img alt="img" src="../resources/1074.png" /></p>
 <p>The red rectangular represents the condition when we want to calculate all the submatrix sum from <code>left=0</code> and <code>right=2</code> and <code>row=1</code>. To find if current [i, j] is the right down point of the target submatrix (and how many), we just need to check if there are any submatrix whose area is equal to the complement of the current sum.</p>
