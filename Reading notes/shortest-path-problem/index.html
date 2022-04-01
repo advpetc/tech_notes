@@ -2889,22 +2889,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../Leetcode/871.%20Minimum%20Number%20of%20Refueling%20Stops/" class="md-nav__link">
+        871. Minimum Number of Refueling Stops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_109" type="checkbox" id="__nav_7_109" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_110" type="checkbox" id="__nav_7_110" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_7_109">
+        <label class="md-nav__link" for="__nav_7_110">
           Topics
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Topics" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_109">
+        <label class="md-nav__title" for="__nav_7_110">
           <span class="md-nav__icon md-icon"></span>
           Topics
         </label>
@@ -2947,6 +2961,109 @@
       <a href="../../Leetcode/topics/dp-pattern/" class="md-nav__link">
         DP pattern summary
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_110_4" type="checkbox" id="__nav_7_110_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_110_4">
+          Dp patterns
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dp patterns" data-md-level="3">
+        <label class="md-nav__title" for="__nav_7_110_4">
+          <span class="md-nav__icon md-icon"></span>
+          Dp patterns
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Leetcode/topics/dp-patterns/decision-making/" class="md-nav__link">
+        Decision making
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Leetcode/topics/dp-patterns/distinct-ways/" class="md-nav__link">
+        Distinct ways
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Leetcode/topics/dp-patterns/dp-on-strings/" class="md-nav__link">
+        Dp on strings
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Leetcode/topics/dp-patterns/merging-intervals/" class="md-nav__link">
+        Merging intervals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Leetcode/topics/dp-patterns/min-max-path/" class="md-nav__link">
+        Minimum (Maximum) Path to Reach a Target
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -3953,7 +4070,7 @@ Bellman Ford: cannot have a cycle from src but can deal with negative edge (sing
 <p>Shortest path cannot contain a cycle</p>
 <h2 id="uniqueness">Uniqueness<a class="headerlink" href="#uniqueness" title="Permanent link">&para;</a></h2>
 <p>Shortest paths are not necessary unique:
-<img alt="Screen Shot 2020-07-01 at 9.18.31 PM.png" src="B1535511508F1BCED54301598FD08C0B.png" /></p>
+<img alt="Screen Shot 2020-07-01 at 9.18.31 PM.png" src="../resources/B1535511508F1BCED54301598FD08C0B.png" /></p>
 <h2 id="dijkstra">Dijkstra<a class="headerlink" href="#dijkstra" title="Permanent link">&para;</a></h2>
 <p>More efficient than Bellman Ford but requires the edges are positive weight.</p>
 <p>The algorithm only traverse each node once, and greedily choose the shortest path to reach the current node (using priority queue).</p>
@@ -3974,7 +4091,7 @@ q.push({<span style="color: #666666">0</span>,x});<span style="color: #bbbbbb"><
 }<span style="color: #bbbbbb"></span>
 </code></pre></div>
 
-<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(n + m log m)</span><script type="math/tex">O(n + m log m)</script></span></p>
+<p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(n + m \times \log m)</span><script type="math/tex">O(n + m \times \log m)</script></span></p>
 <h2 id="bellman-ford">Bellman Ford<a class="headerlink" href="#bellman-ford" title="Permanent link">&para;</a></h2>
 <p>Find the shortest path from one src to all the others. If there is a negative cycle, it will be able to detect it.</p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>distance[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>INF;<span style="color: #bbbbbb"> </span>distance[x]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
@@ -4024,7 +4141,7 @@ q.push({<span style="color: #666666">0</span>,x});<span style="color: #bbbbbb"><
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 1, 2022</span>
       
     
   </small>
