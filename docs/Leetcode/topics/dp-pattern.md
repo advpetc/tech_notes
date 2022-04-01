@@ -646,11 +646,11 @@ return res * res;
 
 ### 1240. Tiling a Rectangle with the Fewest Squares
 
-[analysis link](1240.-Tiling-a-Rectangle-with-the-Fewest-Squares.md)
+[analysis link](../../1240.-Tiling-a-Rectangle-with-the-Fewest-Squares)
 
 ### 174. Dungeon Game
 
-[analysis link](174.-Dungeon-Game.md)
+[analysis link](../../0174.-Dungeon-Game)
 
 
 
