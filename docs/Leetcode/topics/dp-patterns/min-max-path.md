@@ -2,7 +2,7 @@
 
 Given a target find minimum (maximum) cost / path / sum to reach the target.
 
-## 746. Min Cost Climbing Stairs
+## 0746. Min Cost Climbing Stairs
 
 You are given an integer array `cost` where `cost[i]` is the cost of `ith` step on a staircase. Once you pay the cost, you can either climb one or two steps.
 
@@ -64,7 +64,7 @@ for (int i = 2; i <= cost.size(); ++i) {
 return p1;
 ```
 
-## 64. Minimum Path Sum
+## 0064. Minimum Path Sum
 
 Given a `m x n` `grid` filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.
 
@@ -110,7 +110,7 @@ for (int i = 1; i < n; ++i) {
 return grid[n-1][m-1]
 ```
 
-## 322. Coin Change
+## 0322. Coin Change
 
 You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money.
 
@@ -171,7 +171,7 @@ Exception:
 > In any case where there is no coin whose value, when added to the lowest denomination, is lower than twice that of the denomination immediately less than it, the greedy algorithm works.
 i.e. {1,2,3} works because [1,3] and [2,2] add to the same value however {1, 15, 25} doesn't work because (for the change 30) 15+15>25+1
 
-## 931. Minimum Falling Path Sum
+## 0931. Minimum Falling Path Sum
 
 Given an `n x n` array of integers `matrix`, return *the **minimum sum** of any **falling path** through* `matrix`.
 
@@ -224,7 +224,7 @@ int minFallingPathSum(vector<vector<int>>& A) {
 }
 ```
 
-## 983. Minimum Cost For Tickets
+## 0983. Minimum Cost For Tickets
 
 You have planned some train traveling one year in advance. The days of the year in which you will travel are given as an integer array `days`. Each day is an integer from `1` to `365`.
 
@@ -289,7 +289,7 @@ int mincostTickets(vector<int>& days, vector<int>& costs) {
 }
 ```
 
-## 650. 2 Keys Keyboard
+## 0650. 2 Keys Keyboard
 
 There is only one character `'A'` on the screen of a notepad. You can perform two operations on this notepad for each step:
 
@@ -343,7 +343,7 @@ return dp[n];
 
 **Optimize**
 
-```c
+```c++
 int s = 0;
 for (int d = 2; d <= n; d++) {
     while (n % d == 0) {
@@ -354,7 +354,7 @@ for (int d = 2; d <= n; d++) {
 return s;
 ```
 
-## 279. Perfect Squares
+## 0279. Perfect Squares
 
 Given an integer `n`, return *the least number of perfect square numbers that sum to* `n`.
 
@@ -642,12 +642,12 @@ return res * res;
 
 ## 1240. Tiling a Rectangle with the Fewest Squares
 
-[link](../../1240.-Tiling-a-Rectangle-with-the-Fewest-Squares)
+[link](../../../1240.-Tiling-a-Rectangle-with-the-Fewest-Squares)
 
 ## 0174. Dungeon Game
 
-[link](../../0174.-Dungeon-Game)
+[link](../../../0174.-Dungeon-Game)
 
 ## 0871. Minimum Number of Refueling Stops
-[link](../../0871.-Minimum-Number-of-Refueling-Stops)
+[link](../../../0871.-Minimum-Number-of-Refueling-Stops)
 

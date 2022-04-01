@@ -16,7 +16,7 @@ theme:
   favicon: 'assets/images/favicon.ico'
   logo: 'assets/images/logo.png'
   feature:
-    tabs: true
+    - navigation.top
   custom_dir: overrides
   palette: 
   - scheme: default
