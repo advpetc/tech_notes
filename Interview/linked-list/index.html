@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://peterchen.xyz/Interview/linked-list/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.1">
     
     
       
@@ -3111,7 +3111,7 @@
   
     <li class="md-nav__item">
       <a href="../../Leetcode/topics/dp-patterns/distinct-ways/" class="md-nav__link">
-        Distinct ways
+        Distinct Ways
       </a>
     </li>
   
@@ -3477,7 +3477,21 @@
   
     <li class="md-nav__item">
       <a href="../../Reading%20notes/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
-        Book notes for `Design Data Intensive Apps`
+        Book notes for Design Data Intensive Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Streaming%20Systems/" class="md-nav__link">
+        Streaming Systems
       </a>
     </li>
   
@@ -3741,7 +3755,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/Intro-To-Golang/" class="md-nav__link">
-        Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+        Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs
       </a>
     </li>
   
@@ -3769,7 +3783,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/intro-learning-notes/" class="md-nav__link">
-        Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+        Learning notes from geektutu
       </a>
     </li>
   
@@ -4108,113 +4122,113 @@
 <p>Need two pointers: one for previous, one for curr; reverse is simply change the direction</p>
 <h3 id="recursion">Recursion<a class="headerlink" href="#recursion" title="Permanent link">&para;</a></h3>
 <p><img alt="Screen Shot 2020-06-24 at 4.42.09 PM.png" src="../resources/2BF10CE1244D84ADE6BB83A9844AF015.png" /></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">reverse</span>(ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>head)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">reverse</span>(ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>head)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head;
 <span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>reverse(head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next);<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// this will get the last node from the origional linkedlist</span>
-<span style="color: #bbbbbb">    </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;
+<span style="color: #bbbbbb">    </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;
+}
 </code></pre></div>
 
 <h3 id="iterative">Iterative<a class="headerlink" href="#iterative" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>reverseList(ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>head)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>head)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">auto</span><span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head,<span style="color: #bbbbbb"> </span>b<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>a<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(b)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">auto</span><span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>b<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>b<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>a;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>a<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>b;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>b<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>c;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>head<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>a;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-};<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{
+public<span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>reverseList(ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>head)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>head)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">auto</span><span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head,<span style="color: #bbbbbb"> </span>b<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>a<span style="color: #666666">-&gt;</span>next;
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(b)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">auto</span><span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>b<span style="color: #666666">-&gt;</span>next;
+<span style="color: #bbbbbb">            </span>b<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>a;
+<span style="color: #bbbbbb">            </span>a<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>b;
+<span style="color: #bbbbbb">            </span>b<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>c;
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span>head<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>a;
+<span style="color: #bbbbbb">    </span>}
+};
 </code></pre></div>
 
 <h2 id="q2-insert-into-sorted-linkedlist">Q2: insert into sorted linkedlist<a class="headerlink" href="#q2-insert-into-sorted-linkedlist" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">insert</span>(ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>head,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>value)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">insert</span>(ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>head,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>value)<span style="color: #bbbbbb"> </span>{
 <span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// write your solution here</span>
-<span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>new<span style="color: #bbbbbb"> </span>ListNode(value);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>value<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span>value)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>ListNode<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>curr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next,<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(curr)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(curr<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>value<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span>value<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>value<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>value)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">break</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>curr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>curr<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>curr;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>new<span style="color: #bbbbbb"> </span>ListNode(value);
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>value<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span>value)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;
+<span style="color: #bbbbbb">      </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node;
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span>ListNode<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>curr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next,<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(curr)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(curr<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>value<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span>value<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>value<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>value)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">break</span>;
+<span style="color: #bbbbbb">      </span>curr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>curr<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next;
+<span style="color: #bbbbbb">      </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node;
+<span style="color: #bbbbbb">    </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">-&gt;</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>curr;
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head;
+}
 </code></pre></div>
 
 <h2 id="q3-reorganize-linkedlist">Q3: reorganize linkedlist<a class="headerlink" href="#q3-reorganize-linkedlist" title="Permanent link">&para;</a></h2>
 <p>Reorder the given singly-linked list N1 -&gt; N2 -&gt; N3 -&gt; N4 -&gt; … -&gt; Nn -&gt; null to be N1- &gt; Nn -&gt; N2 -&gt; Nn-1 -&gt; N3 -&gt; Nn-2 -&gt; … -&gt; null</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">reorder</span>(ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>head)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">reorder</span>(ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>head)<span style="color: #bbbbbb"> </span>{
 <span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// write your solution here</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>head<span style="color: #666666">-&gt;</span>next)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>ListNode<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>ListNode<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>slow<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head,<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>fast<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">!</span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>head<span style="color: #666666">-&gt;</span>next)
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head;
+<span style="color: #bbbbbb">    </span>ListNode<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>res<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;
+<span style="color: #bbbbbb">    </span>ListNode<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>slow<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head,<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>fast<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;
 <span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// find mid point</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(fast<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>fast<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>next)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>slow<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>slow<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>fast<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>fast<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>mid<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>slow<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(fast<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>fast<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>next)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span>slow<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>slow<span style="color: #666666">-&gt;</span>next;
+<span style="color: #bbbbbb">      </span>fast<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>fast<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>next;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>mid<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>slow<span style="color: #666666">-&gt;</span>next;
 <span style="color: #bbbbbb">    </span>slow<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// break the list</span>
 <span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// reverse the mid - end</span>
-<span style="color: #bbbbbb">    </span>ListNode<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>last<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>mid,<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(last)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>last<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>last<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>pre;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>last;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>last<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>ListNode<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>last<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>mid,<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">NULL</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(last)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>last<span style="color: #666666">-&gt;</span>next;
+<span style="color: #bbbbbb">      </span>last<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>pre;
+<span style="color: #bbbbbb">      </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>last;
+<span style="color: #bbbbbb">      </span>last<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>next;
+<span style="color: #bbbbbb">    </span>}
 <span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// re-combine together</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(head<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>pre)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>head<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>pre;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>pre<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>head<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(head<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>pre)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head<span style="color: #666666">-&gt;</span>next;
+<span style="color: #bbbbbb">      </span>head<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>pre;
+<span style="color: #bbbbbb">      </span>pre<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>pre<span style="color: #666666">-&gt;</span>next;
+<span style="color: #bbbbbb">      </span>head<span style="color: #666666">-&gt;</span>next<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>next;
+<span style="color: #bbbbbb">      </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>next;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;
+}
 </code></pre></div>
 
 <h2 id="q4-partition-list">Q4: partition list<a class="headerlink" href="#q4-partition-list" title="Permanent link">&para;</a></h2>
 <p>L = 2 -&gt; 4 -&gt; 3 -&gt; 5 -&gt; 1 -&gt; null, T = 3, is partitioned to 2 -&gt; 1 -&gt; 4 -&gt; 3 -&gt; 5 -&gt; null</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">partition</span>(ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>head,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>x)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(head<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>nullptr)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">partition</span>(ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>head,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>x)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(head<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>nullptr)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head;
 
-<span style="color: #bbbbbb">    </span>ListNode<span style="color: #bbbbbb"> </span>lesser,<span style="color: #bbbbbb"> </span>greater;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>p1<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;</span>lesser;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>p2<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;</span>greater;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>ListNode<span style="color: #bbbbbb"> </span>lesser,<span style="color: #bbbbbb"> </span>greater;
+<span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>p1<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;</span>lesser;
+<span style="color: #bbbbbb">    </span>ListNode<span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>p2<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;</span>greater;
 
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(head)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(head<span style="color: #666666">-&gt;</span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>x)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>p1<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>p1<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>p1<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>p2<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>p2<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>p2<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head<span style="color: #666666">-&gt;</span>next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(head)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(head<span style="color: #666666">-&gt;</span>val<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>x)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>p1<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;
+<span style="color: #bbbbbb">            </span>p1<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>p1<span style="color: #666666">-&gt;</span>next;
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>p2<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;
+<span style="color: #bbbbbb">            </span>p2<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>p2<span style="color: #666666">-&gt;</span>next;
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head<span style="color: #666666">-&gt;</span>next;
+<span style="color: #bbbbbb">    </span>}
 
-<span style="color: #bbbbbb">    </span>p1<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>greater.next;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>p2<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>nullptr;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>p1<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>greater.next;
+<span style="color: #bbbbbb">    </span>p2<span style="color: #666666">-&gt;</span>next<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>nullptr;
 <span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>lesser.next;<span style="color: #bbbbbb"> </span>
-}<span style="color: #bbbbbb"></span>
+}
 </code></pre></div>
 
   <hr>

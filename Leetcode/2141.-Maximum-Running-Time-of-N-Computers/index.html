@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://peterchen.xyz/Leetcode/2141.-Maximum-Running-Time-of-N-Computers/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.1">
     
     
       
@@ -3123,7 +3123,7 @@
   
     <li class="md-nav__item">
       <a href="../topics/dp-patterns/distinct-ways/" class="md-nav__link">
-        Distinct ways
+        Distinct Ways
       </a>
     </li>
   
@@ -3489,7 +3489,21 @@
   
     <li class="md-nav__item">
       <a href="../../Reading%20notes/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
-        Book notes for `Design Data Intensive Apps`
+        Book notes for Design Data Intensive Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Streaming%20Systems/" class="md-nav__link">
+        Streaming Systems
       </a>
     </li>
   
@@ -3753,7 +3767,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/Intro-To-Golang/" class="md-nav__link">
-        Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+        Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs
       </a>
     </li>
   
@@ -3781,7 +3795,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/intro-learning-notes/" class="md-nav__link">
-        Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+        Learning notes from geektutu
       </a>
     </li>
   
@@ -4171,78 +4185,78 @@ We can run the two computers simultaneously for at most 2 minutes, so we return 
 <h2 id="binary-search_1">Binary search<a class="headerlink" href="#binary-search_1" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #9C6500">#define LL long long</span>
 
-<span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span>check(LL<span style="color: #bbbbbb"> </span>t,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;</span>batteries)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>LL<span style="color: #bbbbbb"> </span>tot<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(LL<span style="color: #bbbbbb"> </span>x<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>batteries)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>tot<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>min(t,<span style="color: #bbbbbb"> </span>x);<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span>check(LL<span style="color: #bbbbbb"> </span>t,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;</span>batteries)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>LL<span style="color: #bbbbbb"> </span>tot<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(LL<span style="color: #bbbbbb"> </span>x<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>batteries)
+<span style="color: #bbbbbb">            </span>tot<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>min(t,<span style="color: #bbbbbb"> </span>x);
 
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>tot<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span>t<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>tot<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span>t<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>n;
+<span style="color: #bbbbbb">    </span>}
 
-<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>LL<span style="color: #bbbbbb"> </span>maxRunTime(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>batteries)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>LL<span style="color: #bbbbbb"> </span>l<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">100000000000000l</span>l;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(l<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>r)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>LL<span style="color: #bbbbbb"> </span>mid<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>(l<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>r)<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(check(mid<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span>batteries))<span style="color: #bbbbbb"> </span>l<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>mid<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>mid;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span>LL<span style="color: #bbbbbb"> </span>maxRunTime(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>batteries)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>LL<span style="color: #bbbbbb"> </span>l<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">100000000000000l</span>l;
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(l<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>r)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>LL<span style="color: #bbbbbb"> </span>mid<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>(l<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>r)<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(check(mid<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span>batteries))<span style="color: #bbbbbb"> </span>l<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>mid<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>mid;
+<span style="color: #bbbbbb">        </span>}
 
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>l;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>l;
+<span style="color: #bbbbbb">    </span>}
+};
 
-作者<span style="border: 1px solid #FF0000">：</span>wzc1995<span style="color: #bbbbbb"></span>
+作者<span style="border: 1px solid #FF0000">：</span>wzc1995
 链接<span style="border: 1px solid #FF0000">：</span>https<span style="color: #666666">:</span><span style="color: #3D7B7B; font-style: italic">//www.acwing.com/solution/content/85703/</span>
-来源<span style="border: 1px solid #FF0000">：</span>AcWing<span style="color: #bbbbbb"></span>
-著作权归作者所有<span style="border: 1px solid #FF0000">。</span>商业转载请联系作者获得授权<span style="border: 1px solid #FF0000">，</span>非商业转载请注明出处<span style="border: 1px solid #FF0000">。</span><span style="color: #bbbbbb"></span>
+来源<span style="border: 1px solid #FF0000">：</span>AcWing
+著作权归作者所有<span style="border: 1px solid #FF0000">。</span>商业转载请联系作者获得授权<span style="border: 1px solid #FF0000">，</span>非商业转载请注明出处<span style="border: 1px solid #FF0000">。</span>
 </code></pre></div>
 
 <h3 id="greedy_1">Greedy<a class="headerlink" href="#greedy_1" title="Permanent link">&para;</a></h3>
 <h4 id="priority-queue">Priority queue<a class="headerlink" href="#priority-queue" title="Permanent link">&para;</a></h4>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">long</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">long</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">maxRunTime</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>bat)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">long</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">long</span><span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>accumulate(begin(bat),<span style="color: #bbbbbb"> </span>end(bat),<span style="color: #bbbbbb"> </span><span style="color: #666666">0L</span>L);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>priority_queue<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>pq(begin(bat),<span style="color: #bbbbbb"> </span>end(bat));<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(pq.top()<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span>n)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">-=</span><span style="color: #bbbbbb"> </span>pq.top();<span style="color: #bbbbbb"> </span>pq.pop();<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #666666">--</span>n;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #B00040">long</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">long</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">maxRunTime</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>bat)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">long</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">long</span><span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>accumulate(begin(bat),<span style="color: #bbbbbb"> </span>end(bat),<span style="color: #bbbbbb"> </span><span style="color: #666666">0L</span>L);
+<span style="color: #bbbbbb">    </span>priority_queue<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>pq(begin(bat),<span style="color: #bbbbbb"> </span>end(bat));
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(pq.top()<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span>n)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">-=</span><span style="color: #bbbbbb"> </span>pq.top();<span style="color: #bbbbbb"> </span>pq.pop();
+<span style="color: #bbbbbb">        </span><span style="color: #666666">--</span>n;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span>n;
+}
 </code></pre></div>
 
 <h4 id="sort">Sort<a class="headerlink" href="#sort" title="Permanent link">&para;</a></h4>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #9C6500">#define LL long long</span>
 
-<span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>LL<span style="color: #bbbbbb"> </span>maxRunTime(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>batteries)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>batteries.size();<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>sort(batteries.begin(),<span style="color: #bbbbbb"> </span>batteries.end());<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span>LL<span style="color: #bbbbbb"> </span>maxRunTime(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>batteries)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>batteries.size();
+<span style="color: #bbbbbb">        </span>sort(batteries.begin(),<span style="color: #bbbbbb"> </span>batteries.end());
 
-<span style="color: #bbbbbb">        </span>LL<span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>x<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>batteries)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>x;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>LL<span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>x<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>batteries)
+<span style="color: #bbbbbb">            </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>x;
 
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">--</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>LL<span style="color: #bbbbbb"> </span>avg<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(batteries[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>avg)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>avg;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">--</span>)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>LL<span style="color: #bbbbbb"> </span>avg<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span>n;
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(batteries[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>avg)
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>avg;
 
-<span style="color: #bbbbbb">            </span>n<span style="color: #666666">--</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">-=</span><span style="color: #bbbbbb"> </span>batteries[i];<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>n<span style="color: #666666">--</span>;
+<span style="color: #bbbbbb">            </span>sum<span style="color: #bbbbbb"> </span><span style="color: #666666">-=</span><span style="color: #bbbbbb"> </span>batteries[i];
+<span style="color: #bbbbbb">        </span>}
 
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;
+<span style="color: #bbbbbb">    </span>}
+};
 
-作者<span style="border: 1px solid #FF0000">：</span>wzc1995<span style="color: #bbbbbb"></span>
+作者<span style="border: 1px solid #FF0000">：</span>wzc1995
 链接<span style="border: 1px solid #FF0000">：</span>https<span style="color: #666666">:</span><span style="color: #3D7B7B; font-style: italic">//www.acwing.com/solution/content/85703/</span>
-来源<span style="border: 1px solid #FF0000">：</span>AcWing<span style="color: #bbbbbb"></span>
-著作权归作者所有<span style="border: 1px solid #FF0000">。</span>商业转载请联系作者获得授权<span style="border: 1px solid #FF0000">，</span>非商业转载请注明出处<span style="border: 1px solid #FF0000">。</span><span style="color: #bbbbbb"></span>
+来源<span style="border: 1px solid #FF0000">：</span>AcWing
+著作权归作者所有<span style="border: 1px solid #FF0000">。</span>商业转载请联系作者获得授权<span style="border: 1px solid #FF0000">，</span>非商业转载请注明出处<span style="border: 1px solid #FF0000">。</span>
 </code></pre></div>
 
   <hr>

@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://peterchen.xyz/Leetcode/0046.-Permutations/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.1">
     
     
       
@@ -3103,7 +3103,7 @@
   
     <li class="md-nav__item">
       <a href="../topics/dp-patterns/distinct-ways/" class="md-nav__link">
-        Distinct ways
+        Distinct Ways
       </a>
     </li>
   
@@ -3469,7 +3469,21 @@
   
     <li class="md-nav__item">
       <a href="../../Reading%20notes/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
-        Book notes for `Design Data Intensive Apps`
+        Book notes for Design Data Intensive Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Streaming%20Systems/" class="md-nav__link">
+        Streaming Systems
       </a>
     </li>
   
@@ -3733,7 +3747,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/Intro-To-Golang/" class="md-nav__link">
-        Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+        Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs
       </a>
     </li>
   
@@ -3761,7 +3775,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/intro-learning-notes/" class="md-nav__link">
-        Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+        Learning notes from geektutu
       </a>
     </li>
   
@@ -4110,56 +4124,56 @@ Output: [[1]]
 <p>We could also use a different way to generate each configuration by using a swap operation. For each iteration, we require an index to represent: from <code>nums[0]</code> to <code>nums[i]</code> we will maintain the current order, and starting from <code>i + 1</code> we will start to swap with each <code>j</code> where <code>j</code> is in <code>[i + 1, n)</code> , so that it could help to eliminate the visited memory. However, the time complexity is still <span class="arithmatex"><span class="MathJax_Preview">O(n \times n!)</span><script type="math/tex">O(n \times n!)</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <h3 id="method-1">Method 1<a class="headerlink" href="#method-1" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>ret;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>permute(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>nums)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>helper<span style="color: #bbbbbb"> </span>({},<span style="color: #bbbbbb"> </span>nums);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>ret;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>helper<span style="color: #bbbbbb"> </span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>curr,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>nums)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(curr.size<span style="color: #bbbbbb"> </span>()<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>nums.size<span style="color: #bbbbbb"> </span>())<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>ret.push_back<span style="color: #bbbbbb"> </span>(curr);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>unordered_set<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>s(curr.begin<span style="color: #bbbbbb"> </span>(),<span style="color: #bbbbbb"> </span>curr.end<span style="color: #bbbbbb"> </span>());<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>nums.size<span style="color: #bbbbbb"> </span>();<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(s.find<span style="color: #bbbbbb"> </span>(nums[i])<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>s.end<span style="color: #bbbbbb"> </span>())<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">continue</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                    </span>curr.push_back<span style="color: #bbbbbb"> </span>(nums[i]);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                    </span>helper<span style="color: #bbbbbb"> </span>(curr,<span style="color: #bbbbbb"> </span>nums);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                    </span>curr.pop_back<span style="color: #bbbbbb"> </span>();<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-};<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>ret;
+<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>permute(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>nums)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>helper<span style="color: #bbbbbb"> </span>({},<span style="color: #bbbbbb"> </span>nums);
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>ret;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>helper<span style="color: #bbbbbb"> </span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>curr,<span style="color: #bbbbbb"> </span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>nums)
+<span style="color: #bbbbbb">    </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(curr.size<span style="color: #bbbbbb"> </span>()<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>nums.size<span style="color: #bbbbbb"> </span>())
+<span style="color: #bbbbbb">            </span>ret.push_back<span style="color: #bbbbbb"> </span>(curr);
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">else</span>
+<span style="color: #bbbbbb">        </span>{
+<span style="color: #bbbbbb">            </span>unordered_set<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>s(curr.begin<span style="color: #bbbbbb"> </span>(),<span style="color: #bbbbbb"> </span>curr.end<span style="color: #bbbbbb"> </span>());
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>nums.size<span style="color: #bbbbbb"> </span>();<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)
+<span style="color: #bbbbbb">            </span>{
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(s.find<span style="color: #bbbbbb"> </span>(nums[i])<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>s.end<span style="color: #bbbbbb"> </span>())
+<span style="color: #bbbbbb">                    </span><span style="color: #008000; font-weight: bold">continue</span>;
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">else</span>
+<span style="color: #bbbbbb">                </span>{
+<span style="color: #bbbbbb">                    </span>curr.push_back<span style="color: #bbbbbb"> </span>(nums[i]);
+<span style="color: #bbbbbb">                    </span>helper<span style="color: #bbbbbb"> </span>(curr,<span style="color: #bbbbbb"> </span>nums);
+<span style="color: #bbbbbb">                    </span>curr.pop_back<span style="color: #bbbbbb"> </span>();
+<span style="color: #bbbbbb">                </span>}
+<span style="color: #bbbbbb">            </span>}
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">    </span>}
+};
 </code></pre></div>
 
 <h3 id="code-2">Code 2<a class="headerlink" href="#code-2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">h</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>curr,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>index)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(index<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>curr.size())<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>res.push_back(curr);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>index;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>curr.size();<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>swap(curr[i],<span style="color: #bbbbbb"> </span>curr[index]);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>h(curr,<span style="color: #bbbbbb"> </span>index<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>swap(curr[i],<span style="color: #bbbbbb"> </span>curr[index]);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>permute(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>nums)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>h(nums,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-};<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>res;
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">h</span>(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>curr,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>index)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(index<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>curr.size())<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>res.push_back(curr);
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span>;
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>index;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>curr.size();<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>swap(curr[i],<span style="color: #bbbbbb"> </span>curr[index]);
+<span style="color: #bbbbbb">            </span>h(curr,<span style="color: #bbbbbb"> </span>index<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);
+<span style="color: #bbbbbb">            </span>swap(curr[i],<span style="color: #bbbbbb"> </span>curr[index]);
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span>vector<span style="color: #666666">&lt;</span>vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>permute(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>nums)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>h(nums,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>);
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>res;
+<span style="color: #bbbbbb">    </span>}
+};
 </code></pre></div>
 
   <hr>

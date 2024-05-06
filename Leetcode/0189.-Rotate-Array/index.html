@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://peterchen.xyz/Leetcode/0189.-Rotate-Array/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.1">
     
     
       
@@ -3076,7 +3076,7 @@
   
     <li class="md-nav__item">
       <a href="../topics/dp-patterns/distinct-ways/" class="md-nav__link">
-        Distinct ways
+        Distinct Ways
       </a>
     </li>
   
@@ -3442,7 +3442,21 @@
   
     <li class="md-nav__item">
       <a href="../../Reading%20notes/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
-        Book notes for `Design Data Intensive Apps`
+        Book notes for Design Data Intensive Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Streaming%20Systems/" class="md-nav__link">
+        Streaming Systems
       </a>
     </li>
   
@@ -3706,7 +3720,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/Intro-To-Golang/" class="md-nav__link">
-        Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+        Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs
       </a>
     </li>
   
@@ -3734,7 +3748,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/intro-learning-notes/" class="md-nav__link">
-        Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+        Learning notes from geektutu
       </a>
     </li>
   
@@ -4071,40 +4085,40 @@ rotate 2 steps to the right: [3,99,-1,-100]
 <li>Space: <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>  – we don't need the auxiliary array to placehold the reverse</li>
 </ol>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>rotate(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>nums,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>k)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>k<span style="color: #bbbbbb"> </span><span style="color: #666666">%=</span><span style="color: #bbbbbb"> </span>nums.size();<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>reverse(nums.begin(),<span style="color: #bbbbbb"> </span>nums.end());<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>reverse(nums.begin(),<span style="color: #bbbbbb"> </span>nums.begin()<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>k);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>reverse(nums.begin()<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>k,<span style="color: #bbbbbb"> </span>nums.end());<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-};<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>rotate(vector<span style="color: #666666">&lt;</span><span style="color: #B00040">int</span><span style="color: #666666">&gt;&amp;</span><span style="color: #bbbbbb"> </span>nums,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>k)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>k<span style="color: #bbbbbb"> </span><span style="color: #666666">%=</span><span style="color: #bbbbbb"> </span>nums.size();
+<span style="color: #bbbbbb">        </span>reverse(nums.begin(),<span style="color: #bbbbbb"> </span>nums.end());
+<span style="color: #bbbbbb">        </span>reverse(nums.begin(),<span style="color: #bbbbbb"> </span>nums.begin()<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>k);
+<span style="color: #bbbbbb">        </span>reverse(nums.begin()<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>k,<span style="color: #bbbbbb"> </span>nums.end());
+<span style="color: #bbbbbb">    </span>}
+};
 </code></pre></div>
 
 <h3 id="stl-implementaton-of-reverse">STL implementaton of <code>reverse</code><a class="headerlink" href="#stl-implementaton-of-reverse" title="Permanent link">&para;</a></h3>
 <p>STL doesn't require an aux array to swap, ref: <a href="https://en.cppreference.com/w/cpp/algorithm/reverse">https://en.cppreference.com/w/cpp/algorithm/reverse</a></p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">template</span><span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">BidirIt</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">template</span><span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">BidirIt</span><span style="color: #666666">&gt;</span>
 <span style="color: #008000; font-weight: bold">constexpr</span><span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// since C++20</span>
-<span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>reverse(BidirIt<span style="color: #bbbbbb"> </span>first,<span style="color: #bbbbbb"> </span>BidirIt<span style="color: #bbbbbb"> </span>last)<span style="color: #bbbbbb"></span>
-{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">using</span><span style="color: #bbbbbb"> </span>iter_cat<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">typename</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">std</span><span style="color: #666666">::</span>iterator_traits<span style="color: #666666">&lt;</span>BidirIt<span style="color: #666666">&gt;::</span>iterator_category;<span style="color: #bbbbbb"></span>
+<span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>reverse(BidirIt<span style="color: #bbbbbb"> </span>first,<span style="color: #bbbbbb"> </span>BidirIt<span style="color: #bbbbbb"> </span>last)
+{
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">using</span><span style="color: #bbbbbb"> </span>iter_cat<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">typename</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">std</span><span style="color: #666666">::</span>iterator_traits<span style="color: #666666">&lt;</span>BidirIt<span style="color: #666666">&gt;::</span>iterator_category;
 
 <span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// Tag dispatch, e.g. calling reverse_impl(first, last, iter_cat()),</span>
 <span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// can be used in C++14 and earlier modes.</span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">constexpr</span><span style="color: #bbbbbb"> </span>(std<span style="color: #666666">::</span>is_base_of_v<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>random_access_iterator_tag,<span style="color: #bbbbbb"> </span>iter_cat<span style="color: #666666">&gt;</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(first<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>last)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">--</span>last;<span style="color: #bbbbbb"> </span>first<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>last;<span style="color: #bbbbbb"> </span>(<span style="color: #B00040">void</span>)<span style="color: #666666">++</span>first,<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>last)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>std<span style="color: #666666">::</span>iter_swap(first,<span style="color: #bbbbbb"> </span>last);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>((first<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>last)<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>(first<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>last))<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>std<span style="color: #666666">::</span>iter_swap(first<span style="color: #666666">++</span>,<span style="color: #bbbbbb"> </span>last);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">constexpr</span><span style="color: #bbbbbb"> </span>(std<span style="color: #666666">::</span>is_base_of_v<span style="color: #666666">&lt;</span>std<span style="color: #666666">::</span>random_access_iterator_tag,<span style="color: #bbbbbb"> </span>iter_cat<span style="color: #666666">&gt;</span>)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(first<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>last)
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">--</span>last;<span style="color: #bbbbbb"> </span>first<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>last;<span style="color: #bbbbbb"> </span>(<span style="color: #B00040">void</span>)<span style="color: #666666">++</span>first,<span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>last)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>std<span style="color: #666666">::</span>iter_swap(first,<span style="color: #bbbbbb"> </span>last);
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>((first<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>last)<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>(first<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">--</span>last))<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>std<span style="color: #666666">::</span>iter_swap(first<span style="color: #666666">++</span>,<span style="color: #bbbbbb"> </span>last);
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">    </span>}
+}
 </code></pre></div>
 
   <hr>

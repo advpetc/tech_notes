@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://peterchen.xyz/Interview/balanced-search-trees/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.1">
     
     
       
@@ -3090,7 +3090,7 @@
   
     <li class="md-nav__item">
       <a href="../../Leetcode/topics/dp-patterns/distinct-ways/" class="md-nav__link">
-        Distinct ways
+        Distinct Ways
       </a>
     </li>
   
@@ -3456,7 +3456,21 @@
   
     <li class="md-nav__item">
       <a href="../../Reading%20notes/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
-        Book notes for `Design Data Intensive Apps`
+        Book notes for Design Data Intensive Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Streaming%20Systems/" class="md-nav__link">
+        Streaming Systems
       </a>
     </li>
   
@@ -3720,7 +3734,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/Intro-To-Golang/" class="md-nav__link">
-        Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+        Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs
       </a>
     </li>
   
@@ -3748,7 +3762,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/intro-learning-notes/" class="md-nav__link">
-        Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+        Learning notes from geektutu
       </a>
     </li>
   
@@ -4064,36 +4078,36 @@
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #9C6500">#ifndef _TRI_NODE</span>
 <span style="color: #9C6500">#define _TRI_NODE</span>
 
-<span style="color: #008000; font-weight: bold">template</span><span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">ItemType</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">TriNode</span><span style="color: #bbbbbb"></span>
-{<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">template</span><span style="color: #666666">&lt;</span><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">ItemType</span><span style="color: #666666">&gt;</span>
+<span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">TriNode</span>
+{
+<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span>
 <span style="color: #bbbbbb">    </span>ItemType<span style="color: #bbbbbb"> </span>smallItem,<span style="color: #bbbbbb"> </span>largeItem;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// Data portion</span>
-<span style="color: #bbbbbb">    </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>leftChildPtr;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>midChildPtr;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>rightChildPtr;<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>TriNode();<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>TriNode(<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>ItemType<span style="color: #666666">&amp;</span><span style="color: #bbbbbb"> </span>anItem);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>leftChildPtr;
+<span style="color: #bbbbbb">    </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>midChildPtr;
+<span style="color: #bbbbbb">    </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>rightChildPtr;
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span>TriNode();
+<span style="color: #bbbbbb">    </span>TriNode(<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>ItemType<span style="color: #666666">&amp;</span><span style="color: #bbbbbb"> </span>anItem);
 <span style="color: #bbbbbb">    </span>TriNode(<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>ItemType<span style="color: #666666">&amp;</span><span style="color: #bbbbbb"> </span>anItem,<span style="color: #bbbbbb"> </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>leftPtr,<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">            </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>midPtr,<span style="color: #bbbbbb"> </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>rightPtr);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">isLeaf</span>()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">isTwoNode</span>()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">isThreeNode</span>()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>midPtr,<span style="color: #bbbbbb"> </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>rightPtr);
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">isLeaf</span>()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">isTwoNode</span>()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">isThreeNode</span>()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;
 
-<span style="color: #bbbbbb">    </span>ItemType<span style="color: #bbbbbb"> </span><span style="color: #0000FF">getSmallItem</span>()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>ItemType<span style="color: #bbbbbb"> </span><span style="color: #0000FF">getLargeItem</span>()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>ItemType<span style="color: #bbbbbb"> </span><span style="color: #0000FF">getSmallItem</span>()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;
+<span style="color: #bbbbbb">    </span>ItemType<span style="color: #bbbbbb"> </span><span style="color: #0000FF">getLargeItem</span>()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;
 
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setSamllItem</span>(<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>ItemType<span style="color: #666666">&amp;</span><span style="color: #bbbbbb"> </span>anItem);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setLargeItem</span>(<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>ItemType<span style="color: #666666">&amp;</span><span style="color: #bbbbbb"> </span>anItem);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setSamllItem</span>(<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>ItemType<span style="color: #666666">&amp;</span><span style="color: #bbbbbb"> </span>anItem);
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setLargeItem</span>(<span style="color: #008000; font-weight: bold">const</span><span style="color: #bbbbbb"> </span>ItemType<span style="color: #666666">&amp;</span><span style="color: #bbbbbb"> </span>anItem);
 <span style="color: #bbbbbb">    </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>getLeftChildPtr()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;<span style="color: #bbbbbb"> </span>
 <span style="color: #bbbbbb">    </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>getMidChildPtr()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">    </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>getRightChildPtr()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>getRightChildPtr()<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">const</span>;
 <span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setLeftChildPtr</span>(TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>leftPtr);<span style="color: #bbbbbb"> </span>
 <span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setMidChildPtr</span>(TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>midPtr);<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setRightChildPtr</span>(TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>rightPtr);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">setRightChildPtr</span>(TriNode<span style="color: #666666">&lt;</span>ItemType<span style="color: #666666">&gt;*</span><span style="color: #bbbbbb"> </span>rightPtr);
 };<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// end TriNode</span>
-<span style="color: #9C6500">#include</span><span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">&quot;TriNode&quot;</span><span style="color: #9C6500"></span>
+<span style="color: #9C6500">#include</span><span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">&quot;TriNode&quot;</span>
 <span style="color: #9C6500">#endif</span>
 </code></pre></div>
 
@@ -4116,17 +4130,17 @@
 <img alt="Screen Shot 2020-07-10 at 5.13.40 PM.png" src="../resources/B960E3DBFD20EC398B876992BB7DF0FC.png" /></p>
 <h3 id="traverse">Traverse<a class="headerlink" href="#traverse" title="Permanent link">&para;</a></h3>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #3D7B7B; font-style: italic">// Traverses a nonempty 2-3 tree in sorted order. </span>
-inorder(<span style="color: #666666">23</span>Tree<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>TwoThreeTree)<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root<span style="color: #bbbbbb"> </span>node<span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>leaf)<span style="color: #bbbbbb"> </span>Visit<span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span>item(s)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(r<span style="color: #bbbbbb"> </span>has<span style="color: #bbbbbb"> </span>two<span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span>items)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>inorder(left<span style="color: #bbbbbb"> </span>subtree<span style="color: #bbbbbb"> </span>of<span style="color: #bbbbbb"> </span><span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root)<span style="color: #bbbbbb"> </span>Visit<span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>first<span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span>item<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>inorder(middle<span style="color: #bbbbbb"> </span>subtree<span style="color: #bbbbbb"> </span>of<span style="color: #bbbbbb"> </span><span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root)<span style="color: #bbbbbb"> </span>Visit<span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>second<span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span>item<span style="color: #bbbbbb"></span>
+inorder(<span style="color: #666666">23</span>Tree<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>TwoThreeTree)<span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(<span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root<span style="color: #bbbbbb"> </span>node<span style="color: #bbbbbb"> </span>r<span style="color: #bbbbbb"> </span>is<span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>leaf)<span style="color: #bbbbbb"> </span>Visit<span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span>item(s)
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(r<span style="color: #bbbbbb"> </span>has<span style="color: #bbbbbb"> </span>two<span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span>items)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span>inorder(left<span style="color: #bbbbbb"> </span>subtree<span style="color: #bbbbbb"> </span>of<span style="color: #bbbbbb"> </span><span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root)<span style="color: #bbbbbb"> </span>Visit<span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>first<span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span>item
+<span style="color: #bbbbbb">      </span>inorder(middle<span style="color: #bbbbbb"> </span>subtree<span style="color: #bbbbbb"> </span>of<span style="color: #bbbbbb"> </span><span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root)<span style="color: #bbbbbb"> </span>Visit<span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>second<span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span>item
 <span style="color: #bbbbbb">      </span>inorder(right<span style="color: #bbbbbb"> </span>subtree<span style="color: #bbbbbb"> </span>of<span style="color: #bbbbbb"> </span><span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root)<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">  </span>}
 <span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// r has one data item {</span>
-<span style="color: #bbbbbb">    </span>inorder(left<span style="color: #bbbbbb"> </span>subtree<span style="color: #bbbbbb"> </span>of<span style="color: #bbbbbb"> </span><span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root)<span style="color: #bbbbbb"> </span>Visit<span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span>item<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>inorder(right<span style="color: #bbbbbb"> </span>subtree<span style="color: #bbbbbb"> </span>of<span style="color: #bbbbbb"> </span><span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>inorder(left<span style="color: #bbbbbb"> </span>subtree<span style="color: #bbbbbb"> </span>of<span style="color: #bbbbbb"> </span><span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root)<span style="color: #bbbbbb"> </span>Visit<span style="color: #bbbbbb"> </span>the<span style="color: #bbbbbb"> </span>data<span style="color: #bbbbbb"> </span>item
+<span style="color: #bbbbbb">    </span>inorder(right<span style="color: #bbbbbb"> </span>subtree<span style="color: #bbbbbb"> </span>of<span style="color: #bbbbbb"> </span><span style="color: #666666">23</span>Tree<span style="border: 1px solid #FF0000">’</span>s<span style="color: #bbbbbb"> </span>root)
+<span style="color: #bbbbbb">  </span>}
 </code></pre></div>
 
   <hr>

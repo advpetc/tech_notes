@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://peterchen.xyz/golang/data-structure/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.1">
     
     
       
@@ -3013,7 +3013,7 @@
   
     <li class="md-nav__item">
       <a href="../../Leetcode/topics/dp-patterns/distinct-ways/" class="md-nav__link">
-        Distinct ways
+        Distinct Ways
       </a>
     </li>
   
@@ -3379,7 +3379,21 @@
   
     <li class="md-nav__item">
       <a href="../../Reading%20notes/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
-        Book notes for `Design Data Intensive Apps`
+        Book notes for Design Data Intensive Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Streaming%20Systems/" class="md-nav__link">
+        Streaming Systems
       </a>
     </li>
   
@@ -3645,7 +3659,7 @@
   
     <li class="md-nav__item">
       <a href="../Intro-To-Golang/" class="md-nav__link">
-        Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+        Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs
       </a>
     </li>
   
@@ -3813,7 +3827,7 @@
   
     <li class="md-nav__item">
       <a href="../intro-learning-notes/" class="md-nav__link">
-        Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+        Learning notes from geektutu
       </a>
     </li>
   
@@ -4194,17 +4208,17 @@
 <h3 id="declaration">Declaration<a class="headerlink" href="#declaration" title="Permanent link">&para;</a></h3>
 <p>Declare a map using <code>m := make(map[int]int)</code></p>
 <h3 id="check-if-exist">Check if exist<a class="headerlink" href="#check-if-exist" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">func</span><span style="color: #bbbbbb"> </span>twoSum(nums<span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span>,<span style="color: #bbbbbb"> </span>target<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span>)<span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">make</span>(<span style="color: #008000; font-weight: bold">map</span>[<span style="color: #B00040">int</span>]<span style="color: #B00040">int</span>)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// map[key]value</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>k,<span style="color: #bbbbbb"> </span>v<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">range</span><span style="color: #bbbbbb"> </span>nums<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// k: idx, v: value</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// check if targe - v is in the map</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>idx,<span style="color: #bbbbbb"> </span>ok<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>m[target<span style="color: #666666">-</span>v];<span style="color: #bbbbbb"> </span>ok<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span>{idx,<span style="color: #bbbbbb"> </span>k}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>m[v]<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>k<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">nil</span><span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">func</span><span style="color: #bbbbbb"> </span>twoSum(nums<span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span>,<span style="color: #bbbbbb"> </span>target<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span>)<span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>m<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">make</span>(<span style="color: #008000; font-weight: bold">map</span>[<span style="color: #B00040">int</span>]<span style="color: #B00040">int</span>)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// map[key]value</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>k,<span style="color: #bbbbbb"> </span>v<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">range</span><span style="color: #bbbbbb"> </span>nums<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// k: idx, v: value</span>
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// check if targe - v is in the map</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>idx,<span style="color: #bbbbbb"> </span>ok<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>m[target<span style="color: #666666">-</span>v];<span style="color: #bbbbbb"> </span>ok<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span>{idx,<span style="color: #bbbbbb"> </span>k}
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span>m[v]<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>k
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">nil</span>
+}
 </code></pre></div>
 
 <h2 id="linkedlist">Linkedlist<a class="headerlink" href="#linkedlist" title="Permanent link">&para;</a></h2>
@@ -4215,37 +4229,37 @@
 <span style="color: #3D7B7B; font-style: italic"> *     Val int</span>
 <span style="color: #3D7B7B; font-style: italic"> *     Next *ListNode</span>
 <span style="color: #3D7B7B; font-style: italic"> * }</span>
-<span style="color: #3D7B7B; font-style: italic"> */</span><span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic"> */</span>
 
-<span style="color: #008000; font-weight: bold">func</span><span style="color: #bbbbbb"> </span>addTwoNumbers(l1<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>ListNode,<span style="color: #bbbbbb"> </span>l2<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>ListNode)<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>ListNode<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;</span>ListNode{Val:<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>n1,<span style="color: #bbbbbb"> </span>n2,<span style="color: #bbbbbb"> </span>carry,<span style="color: #bbbbbb"> </span>current<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>head<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #3D7B7B; font-style: italic">// no while loop in Go</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>l1<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">nil</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>l2<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">nil</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>carry<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>l1<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">nil</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>n1<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>n1<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>l1.Val<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>l1<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>l1.Next<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>l2<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">nil</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>n2<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>n2<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>l2.Val<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>l2<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>l2.Next<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>current.Next<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;</span>ListNode{Val:<span style="color: #bbbbbb"> </span>(n1<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>n2<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>carry)<span style="color: #bbbbbb"> </span><span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #666666">10</span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>current<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>current.Next<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>carry<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>(n1<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>n2<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>carry)<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span><span style="color: #666666">10</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head.Next<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">func</span><span style="color: #bbbbbb"> </span>addTwoNumbers(l1<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>ListNode,<span style="color: #bbbbbb"> </span>l2<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>ListNode)<span style="color: #bbbbbb"> </span><span style="color: #666666">*</span>ListNode<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;</span>ListNode{Val:<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>}
+<span style="color: #bbbbbb">    </span>n1,<span style="color: #bbbbbb"> </span>n2,<span style="color: #bbbbbb"> </span>carry,<span style="color: #bbbbbb"> </span>current<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>head
+<span style="color: #bbbbbb">  </span><span style="color: #3D7B7B; font-style: italic">// no while loop in Go</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>l1<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">nil</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>l2<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">nil</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>carry<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>l1<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">nil</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>n1<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>n1<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>l1.Val
+<span style="color: #bbbbbb">            </span>l1<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>l1.Next
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>l2<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">nil</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>n2<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>
+<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>n2<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>l2.Val
+<span style="color: #bbbbbb">            </span>l2<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>l2.Next
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span>current.Next<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;</span>ListNode{Val:<span style="color: #bbbbbb"> </span>(n1<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>n2<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>carry)<span style="color: #bbbbbb"> </span><span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #666666">10</span>}
+<span style="color: #bbbbbb">        </span>current<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>current.Next
+<span style="color: #bbbbbb">        </span>carry<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>(n1<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>n2<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>carry)<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span><span style="color: #666666">10</span>
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head.Next
+}
 </code></pre></div>
 
 <h2 id="casting">Casting<a class="headerlink" href="#casting" title="Permanent link">&para;</a></h2>
 <p>Down/Up casting:</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>a,<span style="color: #bbbbbb"> </span>b<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"></span>
-<span style="color: #008000">float64</span>(a<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>b)<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// this will convert interger to float64</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>a,<span style="color: #bbbbbb"> </span>b<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>
+<span style="color: #008000">float64</span>(a<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>b)<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// this will convert interger to float64</span>
 </code></pre></div>
 
 <h2 id="slice-and-array">Slice and Array<a class="headerlink" href="#slice-and-array" title="Permanent link">&para;</a></h2>
@@ -4257,65 +4271,65 @@
 <p class="admonition-title">Note</p>
 <p>the difference between slice and array is array need to provide a constant size</p>
 </div>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>c<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">5</span>][<span style="color: #666666">5</span>]<span style="color: #B00040">uint8</span>{}<span style="color: #bbbbbb"></span>
-fmt.Println(c)<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>c<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">5</span>][<span style="color: #666666">5</span>]<span style="color: #B00040">uint8</span>{}
+fmt.Println(c)
 <span style="color: #3D7B7B; font-style: italic">/*</span>
 <span style="color: #3D7B7B; font-style: italic">[[0 0 0 0 0] [0 0 0 0 0] [0 0 0 0 0] [0 0 0 0 0] [0 0 0 0 0]]</span>
-<span style="color: #3D7B7B; font-style: italic">*/</span><span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">*/</span>
 </code></pre></div>
 
 <h3 id="create-2d-slice">Create 2d slice:<a class="headerlink" href="#create-2d-slice" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>a<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">make</span>([][]<span style="color: #B00040">uint8</span>,<span style="color: #bbbbbb"> </span>dy)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// dy is the number of rows</span><span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">range</span><span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// have to write a loop to initialize the columns</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>a[i]<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #008000">make</span>([]<span style="color: #B00040">uint8</span>,<span style="color: #bbbbbb"> </span>dx)<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>a<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">make</span>([][]<span style="color: #B00040">uint8</span>,<span style="color: #bbbbbb"> </span>dy)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// dy is the number of rows</span>
+<span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">range</span><span style="color: #bbbbbb"> </span>a<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// have to write a loop to initialize the columns</span>
+<span style="color: #bbbbbb">    </span>a[i]<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #008000">make</span>([]<span style="color: #B00040">uint8</span>,<span style="color: #bbbbbb"> </span>dx)
+}
 </code></pre></div>
 
 <h3 id="initialize-slice-with-default-values">Initialize slice with default values<a class="headerlink" href="#initialize-slice-with-default-values" title="Permanent link">&para;</a></h3>
 <p>if you have default values (composite literal):</p>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>a<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[][]<span style="color: #B00040">uint8</span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>{<span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>},<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>{<span style="color: #666666">4</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">6</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">7</span>},<span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
-fmt.Println(a)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// Output is [[0 1 2 3] [4 5 6 7]]</span><span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>a<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[][]<span style="color: #B00040">uint8</span>{
+<span style="color: #bbbbbb">    </span>{<span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>},
+<span style="color: #bbbbbb">    </span>{<span style="color: #666666">4</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">6</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">7</span>},
+}
+fmt.Println(a)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// Output is [[0 1 2 3] [4 5 6 7]]</span>
 
 
-b<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">uint</span>{<span style="color: #666666">10</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>}<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// first 10 values are 1s </span><span style="color: #bbbbbb"></span>
-fmt.Println(b)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// Prints [0 0 0 0 0 0 0 0 0 0 1 2]</span><span style="color: #bbbbbb"></span>
+b<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">uint</span>{<span style="color: #666666">10</span>:<span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>}<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// first 10 values are 1s </span>
+fmt.Println(b)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// Prints [0 0 0 0 0 0 0 0 0 0 1 2]</span>
 </code></pre></div>
 
 <h3 id="append">Append<a class="headerlink" href="#append" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>newS<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">make</span>([]<span style="color: #B00040">rune</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb">  </span><span style="color: #3D7B7B; font-style: italic">// create an array</span><span style="color: #bbbbbb"></span>
-newS<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #008000">append</span>(newS,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&#39;#&#39;</span>)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// append to the end</span><span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>_,<span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">range</span><span style="color: #bbbbbb"> </span>s<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>newS<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #008000">append</span>(newS,<span style="color: #bbbbbb"> </span>c)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>newS<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #008000">append</span>(newS,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&#39;#&#39;</span>)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// add a # for each character</span><span style="color: #bbbbbb"></span>
-}<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>newS<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">make</span>([]<span style="color: #B00040">rune</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb">  </span><span style="color: #3D7B7B; font-style: italic">// create an array</span>
+newS<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #008000">append</span>(newS,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&#39;#&#39;</span>)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// append to the end</span>
+<span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>_,<span style="color: #bbbbbb"> </span>c<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">range</span><span style="color: #bbbbbb"> </span>s<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">  </span>newS<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #008000">append</span>(newS,<span style="color: #bbbbbb"> </span>c)
+<span style="color: #bbbbbb">  </span>newS<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span><span style="color: #008000">append</span>(newS,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&#39;#&#39;</span>)<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// add a # for each character</span>
+}
 </code></pre></div>
 
 <h3 id="select">Select<a class="headerlink" href="#select" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>primes<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">6</span>]<span style="color: #B00040">int</span>{<span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">7</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">11</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">13</span>}<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>primes<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[<span style="color: #666666">6</span>]<span style="color: #B00040">int</span>{<span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">7</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">11</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">13</span>}
 
-<span style="color: #008000; font-weight: bold">var</span><span style="color: #bbbbbb"> </span>s<span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>primes[<span style="color: #666666">1</span>:<span style="color: #666666">4</span>]<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// selected [3 5 7]</span><span style="color: #bbbbbb"></span>
+<span style="color: #008000; font-weight: bold">var</span><span style="color: #bbbbbb"> </span>s<span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>primes[<span style="color: #666666">1</span>:<span style="color: #666666">4</span>]<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// selected [3 5 7]</span>
 
-s<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span>{<span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">7</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">11</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">13</span>}<span style="color: #bbbbbb"></span>
+s<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span>{<span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">7</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">11</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">13</span>}
 
-<span style="color: #3D7B7B; font-style: italic">// Slice the slice to give it zero length.</span><span style="color: #bbbbbb"></span>
-s<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>s[:<span style="color: #666666">0</span>]<span style="color: #bbbbbb"></span>
-printSlice(s)<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// Slice the slice to give it zero length.</span>
+s<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>s[:<span style="color: #666666">0</span>]
+printSlice(s)
 
-<span style="color: #3D7B7B; font-style: italic">// Extend its length.</span><span style="color: #bbbbbb"></span>
-s<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>s[:<span style="color: #666666">4</span>]<span style="color: #bbbbbb"></span>
-printSlice(s)<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// Extend its length.</span>
+s<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>s[:<span style="color: #666666">4</span>]
+printSlice(s)
 
-<span style="color: #3D7B7B; font-style: italic">// Drop its first two values.</span><span style="color: #bbbbbb"></span>
-s<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>s[<span style="color: #666666">2</span>:]<span style="color: #bbbbbb"></span>
-printSlice(s)<span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic">// Drop its first two values.</span>
+s<span style="color: #bbbbbb"> </span>=<span style="color: #bbbbbb"> </span>s[<span style="color: #666666">2</span>:]
+printSlice(s)
 </code></pre></div>
 
 <h3 id="length-and-capacity-of-a-slice">Length and capacity of a slice<a class="headerlink" href="#length-and-capacity-of-a-slice" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>s<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span>{<span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">7</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">11</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">13</span>}<span style="color: #bbbbbb"></span>
-fmt.Printf(<span style="color: #BA2121">&quot;len=%d cap=%d %v\n&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000">len</span>(s),<span style="color: #bbbbbb"> </span><span style="color: #008000">cap</span>(s),<span style="color: #bbbbbb"> </span>s)<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>s<span style="color: #bbbbbb"> </span><span style="color: #666666">:=</span><span style="color: #bbbbbb"> </span>[]<span style="color: #B00040">int</span>{<span style="color: #666666">2</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">3</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">5</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">7</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">11</span>,<span style="color: #bbbbbb"> </span><span style="color: #666666">13</span>}
+fmt.Printf(<span style="color: #BA2121">&quot;len=%d cap=%d %v\n&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000">len</span>(s),<span style="color: #bbbbbb"> </span><span style="color: #008000">cap</span>(s),<span style="color: #bbbbbb"> </span>s)
 </code></pre></div>
 
   <hr>
@@ -4341,7 +4355,7 @@ fmt.Printf(<span style="color: #BA2121">&quot;len=%d cap=%d %v\n&quot;</span>,<s
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../Intro-To-Golang/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*" rel="prev">
+        <a href="../Intro-To-Golang/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -4350,20 +4364,20 @@ fmt.Printf(<span style="color: #BA2121">&quot;len=%d cap=%d %v\n&quot;</span>,<s
               <span class="md-footer__direction">
                 Previous
               </span>
-              Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+              Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs
             </div>
           </div>
         </a>
       
       
         
-        <a href="../intro-learning-notes/" class="md-footer__link md-footer__link--next" aria-label="Next: Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)" rel="next">
+        <a href="../intro-learning-notes/" class="md-footer__link md-footer__link--next" aria-label="Next: Learning notes from geektutu" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+              Learning notes from geektutu
             </div>
           </div>
           <div class="md-footer__button md-icon">

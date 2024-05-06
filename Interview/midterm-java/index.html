@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://peterchen.xyz/Interview/midterm-java/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.1">
     
     
       
@@ -3164,7 +3164,7 @@
   
     <li class="md-nav__item">
       <a href="../../Leetcode/topics/dp-patterns/distinct-ways/" class="md-nav__link">
-        Distinct ways
+        Distinct Ways
       </a>
     </li>
   
@@ -3530,7 +3530,21 @@
   
     <li class="md-nav__item">
       <a href="../../Reading%20notes/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
-        Book notes for `Design Data Intensive Apps`
+        Book notes for Design Data Intensive Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Streaming%20Systems/" class="md-nav__link">
+        Streaming Systems
       </a>
     </li>
   
@@ -3794,7 +3808,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/Intro-To-Golang/" class="md-nav__link">
-        Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+        Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs
       </a>
     </li>
   
@@ -3822,7 +3836,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/intro-learning-notes/" class="md-nav__link">
-        Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+        Learning notes from geektutu
       </a>
     </li>
   
@@ -4226,23 +4240,23 @@
 - Time: <span class="arithmatex"><span class="MathJax_Preview">O(N^N)</span><script type="math/tex">O(N^N)</script></span>
 - Space: <span class="arithmatex"><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span> <span style="color: #0000FF; font-weight: bold">test</span>;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">test</span>;
 
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.ArrayList</span>;
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.List</span>;
+<span style="color: #008000; font-weight: bold">import</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">java.util.ArrayList</span>;
+<span style="color: #008000; font-weight: bold">import</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">java.util.List</span>;
 
-<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">test</span> {
-    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">test</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic">     * convert int[] to List&lt;Integer&gt;: List can track the size of the container</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param array</span>
 <span style="color: #3D7B7B; font-style: italic">     * @return resulting List&lt;Integer&gt;</span>
 <span style="color: #3D7B7B; font-style: italic">     */</span>
-    <span style="color: #008000; font-weight: bold">private</span> List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> <span style="color: #0000FF">toList</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span> array) {
-        List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> list <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;</span>();
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> num : array) list.<span style="color: #687822">add</span>(num);
-        <span style="color: #008000; font-weight: bold">return</span> list;
-    }
-    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">toList</span>(<span style="color: #B00040">int</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>array)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>ArrayList<span style="color: #666666">&lt;&gt;</span>();
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>num<span style="color: #bbbbbb"> </span>:<span style="color: #bbbbbb"> </span>array)<span style="color: #bbbbbb"> </span>list.<span style="color: #687822">add</span>(num);
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>list;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic">     * check if the current placement is valid or not</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param n</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param row</span>
@@ -4252,11 +4266,11 @@
 <span style="color: #3D7B7B; font-style: italic">     * @param usedAntiDiagonals</span>
 <span style="color: #3D7B7B; font-style: italic">     * @return true: is valid, false: invalid</span>
 <span style="color: #3D7B7B; font-style: italic">     */</span>
-    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">boolean</span> <span style="color: #0000FF">valid</span>(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> column, 
-            <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedColumns, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedDiagonals, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedAntiDiagonals) {
-        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">!</span>usedColumns<span style="color: #666666">[</span>column<span style="color: #666666">]</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>usedDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">+</span> row<span style="color: #666666">]</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>usedAntiDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">-</span> row <span style="color: #666666">+</span> n <span style="color: #666666">-</span> <span style="color: #666666">1]</span>;
-    }
-    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">valid</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>row,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>column,<span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedColumns,<span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedDiagonals,<span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedAntiDiagonals)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>usedColumns<span style="color: #666666">[</span>column<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>usedDiagonals<span style="color: #666666">[</span>column<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>row<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>usedAntiDiagonals<span style="color: #666666">[</span>column<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>row<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1]</span>;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic">     * mark the current placement (if is valid)</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param n</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param row</span>
@@ -4265,13 +4279,13 @@
 <span style="color: #3D7B7B; font-style: italic">     * @param usedDiagonals</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param usedAntiDiagonals</span>
 <span style="color: #3D7B7B; font-style: italic">     */</span>
-    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">mark</span>(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> column, 
-            <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedColumns, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedDiagonals, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedAntiDiagonals) {
-        usedColumns<span style="color: #666666">[</span>column<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
-        usedDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">+</span> row<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
-        usedAntiDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">-</span> row <span style="color: #666666">+</span> n <span style="color: #666666">-</span> <span style="color: #666666">1]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
-    }
-    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">mark</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>row,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>column,<span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedColumns,<span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedDiagonals,<span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedAntiDiagonals)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>usedColumns<span style="color: #666666">[</span>column<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">true</span>;
+<span style="color: #bbbbbb">        </span>usedDiagonals<span style="color: #666666">[</span>column<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>row<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">true</span>;
+<span style="color: #bbbbbb">        </span>usedAntiDiagonals<span style="color: #666666">[</span>column<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>row<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">true</span>;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic">     * unmark the current placement</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param n</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param row</span>
@@ -4280,13 +4294,13 @@
 <span style="color: #3D7B7B; font-style: italic">     * @param usedDiagonals</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param usedAntiDiagonals</span>
 <span style="color: #3D7B7B; font-style: italic">     */</span>
-    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">unMark</span>(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span> column, 
-            <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedColumns, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedDiagonals, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedAntiDiagonals) {
-        usedColumns<span style="color: #666666">[</span>column<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>;
-        usedDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">+</span> row<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>;
-        usedAntiDiagonals<span style="color: #666666">[</span>column <span style="color: #666666">-</span> row <span style="color: #666666">+</span> n <span style="color: #666666">-</span> <span style="color: #666666">1]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span>;
-    }
-    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">unMark</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>row,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>column,<span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedColumns,<span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedDiagonals,<span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedAntiDiagonals)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>usedColumns<span style="color: #666666">[</span>column<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">false</span>;
+<span style="color: #bbbbbb">        </span>usedDiagonals<span style="color: #666666">[</span>column<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>row<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">false</span>;
+<span style="color: #bbbbbb">        </span>usedAntiDiagonals<span style="color: #666666">[</span>column<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>row<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">false</span>;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic">     * main DFS logic to iterate through all the rows and valid columns</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param n</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param row</span>
@@ -4296,50 +4310,50 @@
 <span style="color: #3D7B7B; font-style: italic">     * @param usedDiagonals</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param usedAntiDiagonals</span>
 <span style="color: #3D7B7B; font-style: italic">     */</span>
-    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">dfs</span>(<span style="color: #B00040">int</span> n, <span style="color: #B00040">int</span> row, <span style="color: #B00040">int</span><span style="color: #666666">[]</span> curr, List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> result, 
-            <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedColumns, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedDiagonals, <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedAntiDiagonals) {
-        <span style="color: #3D7B7B; font-style: italic">// base case: reach the last row, so we add the current configuration to the result</span>
-        <span style="color: #008000; font-weight: bold">if</span> (row <span style="color: #666666">==</span> n) {
-            result.<span style="color: #687822">add</span>(toList(curr));
-            <span style="color: #008000; font-weight: bold">return</span>;
-        }
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; <span style="color: #666666">++</span>i) {
-            <span style="color: #3D7B7B; font-style: italic">// first check if current placement is valid or not</span>
-            <span style="color: #008000; font-weight: bold">if</span> (valid(n, row, i, usedColumns, usedDiagonals, usedAntiDiagonals)) {
-                <span style="color: #3D7B7B; font-style: italic">// if is valid, mark it down</span>
-                mark(n, row, i, usedColumns, usedDiagonals, usedAntiDiagonals);
-                curr<span style="color: #666666">[</span>row<span style="color: #666666">]</span> <span style="color: #666666">=</span> i; <span style="color: #3D7B7B; font-style: italic">// place to current column</span>
-                dfs(n, row <span style="color: #666666">+</span> <span style="color: #666666">1</span>, curr, result, usedColumns, usedDiagonals, usedAntiDiagonals);
-                <span style="color: #3D7B7B; font-style: italic">// don&#39;t forget to unmark it so that it will go back to the previous stage</span>
-                unMark(n, row, i, usedColumns, usedDiagonals, usedAntiDiagonals);
-            }
-        }
-    }
-    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">dfs</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>row,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>curr,<span style="color: #bbbbbb"> </span>List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>result,<span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedColumns,<span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedDiagonals,<span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedAntiDiagonals)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">// base case: reach the last row, so we add the current configuration to the result</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(row<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>n)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>result.<span style="color: #687822">add</span>(toList(curr));
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span>;
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span><span style="color: #3D7B7B; font-style: italic">// first check if current placement is valid or not</span>
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(valid(n,<span style="color: #bbbbbb"> </span>row,<span style="color: #bbbbbb"> </span>i,<span style="color: #bbbbbb"> </span>usedColumns,<span style="color: #bbbbbb"> </span>usedDiagonals,<span style="color: #bbbbbb"> </span>usedAntiDiagonals))<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">                </span><span style="color: #3D7B7B; font-style: italic">// if is valid, mark it down</span>
+<span style="color: #bbbbbb">                </span>mark(n,<span style="color: #bbbbbb"> </span>row,<span style="color: #bbbbbb"> </span>i,<span style="color: #bbbbbb"> </span>usedColumns,<span style="color: #bbbbbb"> </span>usedDiagonals,<span style="color: #bbbbbb"> </span>usedAntiDiagonals);
+<span style="color: #bbbbbb">                </span>curr<span style="color: #666666">[</span>row<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// place to current column</span>
+<span style="color: #bbbbbb">                </span>dfs(n,<span style="color: #bbbbbb"> </span>row<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>curr,<span style="color: #bbbbbb"> </span>result,<span style="color: #bbbbbb"> </span>usedColumns,<span style="color: #bbbbbb"> </span>usedDiagonals,<span style="color: #bbbbbb"> </span>usedAntiDiagonals);
+<span style="color: #bbbbbb">                </span><span style="color: #3D7B7B; font-style: italic">// don&#39;t forget to unmark it so that it will go back to the previous stage</span>
+<span style="color: #bbbbbb">                </span>unMark(n,<span style="color: #bbbbbb"> </span>row,<span style="color: #bbbbbb"> </span>i,<span style="color: #bbbbbb"> </span>usedColumns,<span style="color: #bbbbbb"> </span>usedDiagonals,<span style="color: #bbbbbb"> </span>usedAntiDiagonals);
+<span style="color: #bbbbbb">            </span>}
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic">     * driver method: user input a n, and we should return all the configurations that it should have</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param n</span>
 <span style="color: #3D7B7B; font-style: italic">     * @return List&lt;List&lt;Integer&gt;&gt; result array (configurations)</span>
 <span style="color: #3D7B7B; font-style: italic">     */</span>
-    <span style="color: #008000; font-weight: bold">public</span> List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> <span style="color: #0000FF">nqueens</span>(<span style="color: #B00040">int</span> n) {
-        <span style="color: #B00040">int</span><span style="color: #666666">[]</span> curr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[</span>n<span style="color: #666666">]</span>;
-        List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> result <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span>();
-        <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedColumns <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">boolean</span><span style="color: #666666">[</span>n<span style="color: #666666">]</span>;
-        <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedDiagonals <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">boolean</span><span style="color: #666666">[2</span> <span style="color: #666666">*</span> n <span style="color: #666666">-</span> <span style="color: #666666">1]</span>;
-        <span style="color: #B00040">boolean</span><span style="color: #666666">[]</span> usedAntiDiagonals <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">boolean</span><span style="color: #666666">[2</span> <span style="color: #666666">*</span> n <span style="color: #666666">-</span> <span style="color: #666666">1]</span>;
-        dfs(n, <span style="color: #666666">0</span>, curr, result, usedColumns, usedDiagonals, usedAntiDiagonals);
-        <span style="color: #008000; font-weight: bold">return</span> result;
-    }
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
-        test s <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> test();
-        List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span> list <span style="color: #666666">=</span> s.<span style="color: #687822">nqueens</span>(<span style="color: #666666">4</span>);
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span>List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">nqueens</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>curr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">[</span>n<span style="color: #666666">]</span>;
+<span style="color: #bbbbbb">        </span>List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>result<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>ArrayList<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span>();
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedColumns<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[</span>n<span style="color: #666666">]</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedDiagonals<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1]</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">boolean</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>usedAntiDiagonals<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1]</span>;
+<span style="color: #bbbbbb">        </span>dfs(n,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>curr,<span style="color: #bbbbbb"> </span>result,<span style="color: #bbbbbb"> </span>usedColumns,<span style="color: #bbbbbb"> </span>usedDiagonals,<span style="color: #bbbbbb"> </span>usedAntiDiagonals);
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>result;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">static</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>args)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>test<span style="color: #bbbbbb"> </span>s<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>test();
+<span style="color: #bbbbbb">        </span>List<span style="color: #666666">&lt;</span>List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;&gt;</span><span style="color: #bbbbbb"> </span>list<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.<span style="color: #687822">nqueens</span>(<span style="color: #666666">4</span>);
 
-        <span style="color: #008000; font-weight: bold">for</span> (List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> l : list) {
-            <span style="color: #008000; font-weight: bold">for</span> (Integer i : l)
-                System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(i);
-            System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>();
-        }
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>l<span style="color: #bbbbbb"> </span>:<span style="color: #bbbbbb"> </span>list)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(Integer<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span>:<span style="color: #bbbbbb"> </span>l)
+<span style="color: #bbbbbb">                </span>System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(i);
+<span style="color: #bbbbbb">            </span>System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>();
+<span style="color: #bbbbbb">        </span>}
 
-    }
+<span style="color: #bbbbbb">    </span>}
 }
 </code></pre></div>
 
@@ -4379,28 +4393,28 @@
 <span style="color: #3D7B7B; font-style: italic"> *   }</span>
 <span style="color: #3D7B7B; font-style: italic"> * }</span>
 <span style="color: #3D7B7B; font-style: italic"> */</span>
-<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
-  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">postOrder</span>(TreeNode root, <span style="color: #B00040">int</span><span style="color: #666666">[]</span> result) {
-    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>;
-    <span style="color: #B00040">int</span> leftSum <span style="color: #666666">=</span> postOrder(root.<span style="color: #687822">left</span>, result);
-    <span style="color: #B00040">int</span> rightSum <span style="color: #666666">=</span> postOrder(root.<span style="color: #687822">right</span>, result);
-    <span style="color: #3D7B7B; font-style: italic">// case 1: if current root has both left and right child,</span>
-    <span style="color: #3D7B7B; font-style: italic">// then update the result and choose the bigger sum between the left and right children</span>
-    <span style="color: #008000; font-weight: bold">if</span> (root.<span style="color: #687822">left</span> <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> root.<span style="color: #687822">right</span> <span style="color: #666666">!=</span> <span style="color: #008000; font-weight: bold">null</span>) {
-      result<span style="color: #666666">[0]</span> <span style="color: #666666">=</span> Math.<span style="color: #687822">max</span>(root.<span style="color: #687822">key</span> <span style="color: #666666">+</span> leftSum <span style="color: #666666">+</span> rightSum, result<span style="color: #666666">[0]</span>);
-      <span style="color: #008000; font-weight: bold">return</span> Math.<span style="color: #687822">max</span>(root.<span style="color: #687822">key</span> <span style="color: #666666">+</span> leftSum, root.<span style="color: #687822">key</span> <span style="color: #666666">+</span> rightSum);
-    }
-    <span style="color: #3D7B7B; font-style: italic">// case 2: if only one child exist, return the one with leaf</span>
-    <span style="color: #008000; font-weight: bold">if</span> (root.<span style="color: #687822">left</span> <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) <span style="color: #008000; font-weight: bold">return</span> root.<span style="color: #687822">key</span> <span style="color: #666666">+</span> rightSum;
-    <span style="color: #008000; font-weight: bold">return</span> root.<span style="color: #687822">key</span> <span style="color: #666666">+</span> leftSum;
-  }
-  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">maxPathSum</span>(TreeNode root) {
-    <span style="color: #008000; font-weight: bold">if</span> (root <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> root.<span style="color: #687822">left</span> <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span> <span style="color: #666666">||</span> root.<span style="color: #687822">right</span> <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) 
-        <span style="color: #008000; font-weight: bold">return</span> Integer.<span style="color: #687822">MIN_VALUE</span>;
-    <span style="color: #B00040">int</span><span style="color: #666666">[]</span> result <span style="color: #666666">=</span> {Integer.<span style="color: #687822">MIN_VALUE</span>};
-    postOrder(root, result);
-    <span style="color: #008000; font-weight: bold">return</span> result<span style="color: #666666">[0]</span>;
-  }
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">postOrder</span>(TreeNode<span style="color: #bbbbbb"> </span>root,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>result)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(root<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">null</span>)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>leftSum<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>postOrder(root.<span style="color: #687822">left</span>,<span style="color: #bbbbbb"> </span>result);
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>rightSum<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>postOrder(root.<span style="color: #687822">right</span>,<span style="color: #bbbbbb"> </span>result);
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// case 1: if current root has both left and right child,</span>
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// then update the result and choose the bigger sum between the left and right children</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(root.<span style="color: #687822">left</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">null</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>root.<span style="color: #687822">right</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">null</span>)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span>result<span style="color: #666666">[0]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>Math.<span style="color: #687822">max</span>(root.<span style="color: #687822">key</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>leftSum<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>rightSum,<span style="color: #bbbbbb"> </span>result<span style="color: #666666">[0]</span>);
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>Math.<span style="color: #687822">max</span>(root.<span style="color: #687822">key</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>leftSum,<span style="color: #bbbbbb"> </span>root.<span style="color: #687822">key</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>rightSum);
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// case 2: if only one child exist, return the one with leaf</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(root.<span style="color: #687822">left</span><span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">null</span>)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>root.<span style="color: #687822">key</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>rightSum;
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>root.<span style="color: #687822">key</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>leftSum;
+<span style="color: #bbbbbb">  </span>}
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">maxPathSum</span>(TreeNode<span style="color: #bbbbbb"> </span>root)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(root<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">null</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>root.<span style="color: #687822">left</span><span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">null</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>root.<span style="color: #687822">right</span><span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">null</span>)<span style="color: #bbbbbb"> </span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>Integer.<span style="color: #687822">MIN_VALUE</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>result<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>{Integer.<span style="color: #687822">MIN_VALUE</span>};
+<span style="color: #bbbbbb">    </span>postOrder(root,<span style="color: #bbbbbb"> </span>result);
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>result<span style="color: #666666">[0]</span>;
+<span style="color: #bbbbbb">  </span>}
 }
 </code></pre></div>
 
@@ -4432,61 +4446,61 @@
 Time: <span class="arithmatex"><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">O(N^2)</script></span>
 Space: <span class="arithmatex"><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">O(N^2)</script></span></p>
 <h3 id="code-java">Code Java<a class="headerlink" href="#code-java" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span> <span style="color: #0000FF; font-weight: bold">test</span>;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">test</span>;
 
-<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MinimalCutsPalindrome</span> {
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">int</span> <span style="color: #0000FF">minCuts</span>(String s) {
-        <span style="color: #B00040">char</span><span style="color: #666666">[]</span> ch <span style="color: #666666">=</span> s.<span style="color: #687822">toCharArray</span>(); <span style="color: #3D7B7B; font-style: italic">// convert to char array so that there is no overhead of substring</span>
-        <span style="color: #B00040">int</span> n <span style="color: #666666">=</span> ch.<span style="color: #687822">length</span>;
-        <span style="color: #B00040">int</span><span style="color: #666666">[]</span> cut <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[</span>n<span style="color: #666666">]</span>; <span style="color: #3D7B7B; font-style: italic">// cut[i]: minimal cuts from 0-i in ch array</span>
-        <span style="color: #B00040">boolean</span><span style="color: #666666">[][]</span> pal <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">boolean</span><span style="color: #666666">[</span>n<span style="color: #666666">][</span>n<span style="color: #666666">]</span>; <span style="color: #3D7B7B; font-style: italic">// pal[i][j]: s[i-j] is a palindrome or not</span>
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> n; i<span style="color: #666666">++</span>) { <span style="color: #3D7B7B; font-style: italic">// grow 1 letter by 1 letter</span>
-            <span style="color: #B00040">int</span> min <span style="color: #666666">=</span> i;
-            <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">0</span>; j <span style="color: #666666">&lt;=</span> i; j<span style="color: #666666">++</span>) { <span style="color: #3D7B7B; font-style: italic">// j is the start index of the right section</span>
-                <span style="color: #008000; font-weight: bold">if</span> (ch<span style="color: #666666">[</span>j<span style="color: #666666">]</span> <span style="color: #666666">==</span> ch<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">&amp;&amp;</span> (j <span style="color: #666666">+</span> <span style="color: #666666">1</span> <span style="color: #666666">&gt;</span> i <span style="color: #666666">-</span> <span style="color: #666666">1</span> <span style="color: #666666">||</span> pal<span style="color: #666666">[</span>j <span style="color: #666666">+</span> <span style="color: #666666">1][</span>i <span style="color: #666666">-</span> <span style="color: #666666">1]</span>)) {
-                    pal<span style="color: #666666">[</span>j<span style="color: #666666">][</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span>;
-                    min <span style="color: #666666">=</span> j <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">?</span> <span style="color: #666666">0</span> : Math.<span style="color: #687822">min</span>(min, cut<span style="color: #666666">[</span>j <span style="color: #666666">-</span> <span style="color: #666666">1]</span> <span style="color: #666666">+</span> <span style="color: #666666">1</span>);
-                }
-            }
-            cut<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> min;
-            System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>();
-        }
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MinimalCutsPalindrome</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">minCuts</span>(String<span style="color: #bbbbbb"> </span>s)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">char</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>ch<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>s.<span style="color: #687822">toCharArray</span>();<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// convert to char array so that there is no overhead of substring</span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>ch.<span style="color: #687822">length</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>cut<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #666666">[</span>n<span style="color: #666666">]</span>;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// cut[i]: minimal cuts from 0-i in ch array</span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">boolean</span><span style="color: #666666">[][]</span><span style="color: #bbbbbb"> </span>pal<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">boolean</span><span style="color: #666666">[</span>n<span style="color: #666666">][</span>n<span style="color: #666666">]</span>;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// pal[i][j]: s[i-j] is a palindrome or not</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span>i<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// grow 1 letter by 1 letter</span>
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>min<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>i;
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"> </span>j<span style="color: #666666">++</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// j is the start index of the right section</span>
+<span style="color: #bbbbbb">                </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(ch<span style="color: #666666">[</span>j<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>ch<span style="color: #666666">[</span>i<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>pal<span style="color: #666666">[</span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1][</span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1]</span>))<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">                    </span>pal<span style="color: #666666">[</span>j<span style="color: #666666">][</span>i<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">true</span>;
+<span style="color: #bbbbbb">                    </span>min<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span><span style="color: #666666">?</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span>:<span style="color: #bbbbbb"> </span>Math.<span style="color: #687822">min</span>(min,<span style="color: #bbbbbb"> </span>cut<span style="color: #666666">[</span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);
+<span style="color: #bbbbbb">                </span>}
+<span style="color: #bbbbbb">            </span>}
+<span style="color: #bbbbbb">            </span>cut<span style="color: #666666">[</span>i<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>min;
+<span style="color: #bbbbbb">            </span>System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>();
+<span style="color: #bbbbbb">        </span>}
 
-        <span style="color: #008000; font-weight: bold">return</span> cut<span style="color: #666666">[</span>n <span style="color: #666666">-</span> <span style="color: #666666">1]</span>;
-    }
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>cut<span style="color: #666666">[</span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1]</span>;
+<span style="color: #bbbbbb">    </span>}
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> args) {
-        MinimalCutsPalindrome solution <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> MinimalCutsPalindrome();
-        System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(solution.<span style="color: #687822">minCuts</span>(<span style="color: #BA2121">&quot;abaacda&quot;</span>));
-    }
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">static</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>args)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>MinimalCutsPalindrome<span style="color: #bbbbbb"> </span>solution<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>MinimalCutsPalindrome();
+<span style="color: #bbbbbb">        </span>System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(solution.<span style="color: #687822">minCuts</span>(<span style="color: #BA2121">&quot;abaacda&quot;</span>));
+<span style="color: #bbbbbb">    </span>}
 }
 </code></pre></div>
 
 <h3 id="code-cpp">Code Cpp<a class="headerlink" href="#code-cpp" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>minCuts(string<span style="color: #bbbbbb"> </span>input)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>Solution<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb"> </span>public<span style="color: #666666">:</span>
+<span style="color: #bbbbbb">  </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>minCuts(string<span style="color: #bbbbbb"> </span>input)<span style="color: #bbbbbb"> </span>{
 <span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// write your solution here</span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>input.size(),<span style="color: #bbbbbb"> </span>inf<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0x3f3f3f3f</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>dp[n];<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span>pal[n][n];<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>memset(pal,<span style="color: #bbbbbb"> </span><span style="color: #008000">false</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>pal);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>memset(dp,<span style="color: #bbbbbb"> </span>inf,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>dp);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>dp[<span style="color: #666666">0</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>pal[i][i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">true</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>j)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(input[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>input[j]<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>pal[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]))<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>input.size(),<span style="color: #bbbbbb"> </span>inf<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0x3f3f3f3f</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>dp[n];
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span>pal[n][n];
+<span style="color: #bbbbbb">    </span>memset(pal,<span style="color: #bbbbbb"> </span><span style="color: #008000">false</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>pal);
+<span style="color: #bbbbbb">    </span>memset(dp,<span style="color: #bbbbbb"> </span>inf,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>dp);
+<span style="color: #bbbbbb">    </span>dp[<span style="color: #666666">0</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span>pal[i][i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">true</span>;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>j)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(input[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>input[j]<span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">||</span><span style="color: #bbbbbb"> </span>pal[i<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>][j<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]))<span style="color: #bbbbbb"> </span>{
 <span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(j<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>dp[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// </span>
-<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>dp[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>min(dp[i],<span style="color: #bbbbbb"> </span>dp[j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">          </span>pal[i][j]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">true</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">      </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>dp[n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>];<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">  </span>}<span style="color: #bbbbbb"></span>
-};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">          </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>dp[i]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>min(dp[i],<span style="color: #bbbbbb"> </span>dp[j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>]<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>);
+<span style="color: #bbbbbb">          </span>pal[i][j]<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">true</span>;
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">      </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>dp[n<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>];
+<span style="color: #bbbbbb">  </span>}
+};
 </code></pre></div>
 
 <h2 id="p4-print-all-the-if-and">P4: Print all the <code>if {</code> and <code>}</code><a class="headerlink" href="#p4-print-all-the-if-and" title="Permanent link">&para;</a></h2>
@@ -4518,75 +4532,75 @@ Space: <span class="arithmatex"><span class="MathJax_Preview">O(N^2)</span><scri
 Time: <span class="arithmatex"><span class="MathJax_Preview">O(2^n)</span><script type="math/tex">O(2^n)</script></span>
 Space: <span class="arithmatex"><span class="MathJax_Preview">O(2 \times N)</span><script type="math/tex">O(2 \times N)</script></span></p>
 <h3 id="code_2">Code<a class="headerlink" href="#code_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span> <span style="color: #0000FF; font-weight: bold">test</span>;
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">package</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">test</span>;
 
-<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">PrintAllBlock</span> {
-    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">PrintAllBlock</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic">     * dfs method that keep generate the valid string of { and }</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param leftRemain</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param rightRemain</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param index</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param curr</span>
 <span style="color: #3D7B7B; font-style: italic">     */</span>
-    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">helper</span>(<span style="color: #B00040">int</span> leftRemain, <span style="color: #B00040">int</span> rightRemain, <span style="color: #B00040">int</span> index, <span style="color: #B00040">char</span><span style="color: #666666">[]</span> curr) {
-        <span style="color: #3D7B7B; font-style: italic">// base case</span>
-        <span style="color: #008000; font-weight: bold">if</span> (leftRemain <span style="color: #666666">==</span> <span style="color: #666666">0</span> <span style="color: #666666">&amp;&amp;</span> rightRemain <span style="color: #666666">==</span> <span style="color: #666666">0</span>) {
-            printBlock(curr);
-            <span style="color: #008000; font-weight: bold">return</span>;
-        }
-        <span style="color: #008000; font-weight: bold">if</span> (leftRemain <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>) {
-            curr<span style="color: #666666">[</span>index<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;{&#39;</span>;
-            helper(leftRemain <span style="color: #666666">-</span> <span style="color: #666666">1</span>, rightRemain, index <span style="color: #666666">+</span> <span style="color: #666666">1</span>, curr);
-        }
-        <span style="color: #008000; font-weight: bold">if</span> (rightRemain <span style="color: #666666">&gt;</span> leftRemain) {
-            curr<span style="color: #666666">[</span>index<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;}&#39;</span>;
-            helper(leftRemain, rightRemain <span style="color: #666666">-</span> <span style="color: #666666">1</span>, index <span style="color: #666666">+</span> <span style="color: #666666">1</span>, curr);
-        }
-    }
-    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">helper</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>leftRemain,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>rightRemain,<span style="color: #bbbbbb"> </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>index,<span style="color: #bbbbbb"> </span><span style="color: #B00040">char</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>curr)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">// base case</span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(leftRemain<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span><span style="color: #bbbbbb"> </span><span style="color: #666666">&amp;&amp;</span><span style="color: #bbbbbb"> </span>rightRemain<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>printBlock(curr);
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span>;
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(leftRemain<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>curr<span style="color: #666666">[</span>index<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&#39;{&#39;</span>;
+<span style="color: #bbbbbb">            </span>helper(leftRemain<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>rightRemain,<span style="color: #bbbbbb"> </span>index<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>curr);
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(rightRemain<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>leftRemain)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>curr<span style="color: #666666">[</span>index<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&#39;}&#39;</span>;
+<span style="color: #bbbbbb">            </span>helper(leftRemain,<span style="color: #bbbbbb"> </span>rightRemain<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>index<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>,<span style="color: #bbbbbb"> </span>curr);
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic">     * print the space for indentation</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param n</span>
 <span style="color: #3D7B7B; font-style: italic">     */</span>
-    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">printSpace</span>(<span style="color: #B00040">int</span> n) {
-        <span style="color: #008000; font-weight: bold">while</span> (n <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>) {
-            System.<span style="color: #687822">out</span>.<span style="color: #687822">print</span>(<span style="color: #BA2121">&quot; &quot;</span>);
-            n<span style="color: #666666">--</span>;
-        }
-    }
-    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">printSpace</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(n<span style="color: #bbbbbb"> </span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>System.<span style="color: #687822">out</span>.<span style="color: #687822">print</span>(<span style="color: #BA2121">&quot; &quot;</span>);
+<span style="color: #bbbbbb">            </span>n<span style="color: #666666">--</span>;
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic">     * print the corrected format from valid { and } string</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param curr</span>
 <span style="color: #3D7B7B; font-style: italic">     */</span>
-    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">printBlock</span>(<span style="color: #B00040">char</span><span style="color: #666666">[]</span> curr) {
-        <span style="color: #B00040">int</span> space <span style="color: #666666">=</span> <span style="color: #666666">0</span>;
-        <span style="color: #008000; font-weight: bold">for</span> (<span style="color: #B00040">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">0</span>; i <span style="color: #666666">&lt;</span> curr.<span style="color: #687822">length</span>; <span style="color: #666666">++</span>i) {
-            <span style="color: #008000; font-weight: bold">if</span> (curr<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;{&#39;</span>) {
-                printSpace(space);
-                System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(<span style="color: #BA2121">&quot;if {&quot;</span>);
-                space <span style="color: #666666">+=</span> <span style="color: #666666">2</span>;
-            } <span style="color: #008000; font-weight: bold">else</span> {
-                space <span style="color: #666666">-=</span> <span style="color: #666666">2</span>;
-                printSpace(space);
-                System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(<span style="color: #BA2121">&quot;}&quot;</span>);
-            }
-        }
-        System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>();
-    }
-    <span style="color: #3D7B7B; font-style: italic">/**</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">printBlock</span>(<span style="color: #B00040">char</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>curr)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>space<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">for</span><span style="color: #bbbbbb"> </span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>curr.<span style="color: #687822">length</span>;<span style="color: #bbbbbb"> </span><span style="color: #666666">++</span>i)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(curr<span style="color: #666666">[</span>i<span style="color: #666666">]</span><span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&#39;{&#39;</span>)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">                </span>printSpace(space);
+<span style="color: #bbbbbb">                </span>System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(<span style="color: #BA2121">&quot;if {&quot;</span>);
+<span style="color: #bbbbbb">                </span>space<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>;
+<span style="color: #bbbbbb">            </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">                </span>space<span style="color: #bbbbbb"> </span><span style="color: #666666">-=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>;
+<span style="color: #bbbbbb">                </span>printSpace(space);
+<span style="color: #bbbbbb">                </span>System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>(<span style="color: #BA2121">&quot;}&quot;</span>);
+<span style="color: #bbbbbb">            </span>}
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span>System.<span style="color: #687822">out</span>.<span style="color: #687822">println</span>();
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic">     * driver method: takes in a number represents the number of if { and } that it will have</span>
 <span style="color: #3D7B7B; font-style: italic">     * @param n</span>
 <span style="color: #3D7B7B; font-style: italic">     */</span>
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">printBlocks</span>(<span style="color: #B00040">int</span> n) {
-        <span style="color: #008000; font-weight: bold">if</span> (n <span style="color: #666666">&lt;=</span> <span style="color: #666666">0</span>) <span style="color: #008000; font-weight: bold">return</span>;
-        <span style="color: #B00040">char</span><span style="color: #666666">[]</span> curr <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">char</span><span style="color: #666666">[2</span> <span style="color: #666666">*</span> n<span style="color: #666666">]</span>;
-        helper(n, n, <span style="color: #666666">0</span>, curr);
-    }
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">printBlocks</span>(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>n)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(n<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span>;
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">char</span><span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>curr<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">char</span><span style="color: #666666">[2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>n<span style="color: #666666">]</span>;
+<span style="color: #bbbbbb">        </span>helper(n,<span style="color: #bbbbbb"> </span>n,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>curr);
+<span style="color: #bbbbbb">    </span>}
 
 
-    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span> argc) {
-        PrintAllBlock s <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> PrintAllBlock();
-        s.<span style="color: #687822">printBlocks</span>(<span style="color: #666666">3</span>);
-    }
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">static</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">main</span>(String<span style="color: #666666">[]</span><span style="color: #bbbbbb"> </span>argc)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span>PrintAllBlock<span style="color: #bbbbbb"> </span>s<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>PrintAllBlock();
+<span style="color: #bbbbbb">        </span>s.<span style="color: #687822">printBlocks</span>(<span style="color: #666666">3</span>);
+<span style="color: #bbbbbb">    </span>}
 }
 </code></pre></div>
 

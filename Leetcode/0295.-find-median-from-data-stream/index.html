@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://peterchen.xyz/Leetcode/0295.-find-median-from-data-stream/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.1">
     
     
       
@@ -3104,7 +3104,7 @@
   
     <li class="md-nav__item">
       <a href="../topics/dp-patterns/distinct-ways/" class="md-nav__link">
-        Distinct ways
+        Distinct Ways
       </a>
     </li>
   
@@ -3470,7 +3470,21 @@
   
     <li class="md-nav__item">
       <a href="../../Reading%20notes/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
-        Book notes for `Design Data Intensive Apps`
+        Book notes for Design Data Intensive Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Streaming%20Systems/" class="md-nav__link">
+        Streaming Systems
       </a>
     </li>
   
@@ -3734,7 +3748,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/Intro-To-Golang/" class="md-nav__link">
-        Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+        Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs
       </a>
     </li>
   
@@ -3762,7 +3776,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/intro-learning-notes/" class="md-nav__link">
-        Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+        Learning notes from geektutu
       </a>
     </li>
   
@@ -4150,42 +4164,42 @@ else
 </code></pre></div>
 
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">MedianFinder</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>priority_queue<span style="color: #666666">&lt;</span><span style="color: #B00040">double</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>small,<span style="color: #bbbbbb"> </span>large;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span>even;<span style="color: #bbbbbb"></span>
-<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/** initialize your data structure here. */</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>MedianFinder()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF; font-weight: bold">MedianFinder</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #008000; font-weight: bold">private</span><span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span>priority_queue<span style="color: #666666">&lt;</span><span style="color: #B00040">double</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>small,<span style="color: #bbbbbb"> </span>large;
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">bool</span><span style="color: #bbbbbb"> </span>even;
+<span style="color: #008000; font-weight: bold">public</span><span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/** initialize your data structure here. */</span>
+<span style="color: #bbbbbb">    </span>MedianFinder()<span style="color: #bbbbbb"> </span>{
 <span style="color: #bbbbbb">        </span>even<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000">true</span>;<span style="color: #3D7B7B; font-style: italic">// 0 is even</span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>}
 
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>addNum(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>num)<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>addNum(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>num)
+<span style="color: #bbbbbb">    </span>{
 <span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(even)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// small.size() == large.size()</span>
-<span style="color: #bbbbbb">            </span>large.push(<span style="color: #666666">-</span>num);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>small.push(<span style="color: #666666">-</span>large.top());<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>large.push(<span style="color: #666666">-</span>num);
+<span style="color: #bbbbbb">            </span>small.push(<span style="color: #666666">-</span>large.top());
 <span style="color: #bbbbbb">            </span>large.pop();<span style="color: #bbbbbb"> </span>
 <span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// small.size() - large.size() == 1</span>
-<span style="color: #bbbbbb">            </span>small.push(num);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>large.push(<span style="color: #666666">-</span>small.top());<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">            </span>small.push(num);
+<span style="color: #bbbbbb">            </span>large.push(<span style="color: #666666">-</span>small.top());
 <span style="color: #bbbbbb">            </span>small.pop();<span style="color: #bbbbbb"> </span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>even<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>even;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">        </span>even<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>even;
+<span style="color: #bbbbbb">    </span>}
 
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">double</span><span style="color: #bbbbbb"> </span>findMedian()<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>even<span style="color: #bbbbbb"> </span><span style="color: #666666">?</span><span style="color: #bbbbbb"> </span>small.top()<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0.5</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>(small.top()<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>large.top());<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">double</span><span style="color: #bbbbbb"> </span>findMedian()
+<span style="color: #bbbbbb">    </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #666666">!</span>even<span style="color: #bbbbbb"> </span><span style="color: #666666">?</span><span style="color: #bbbbbb"> </span>small.top()<span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0.5</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>(small.top()<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>large.top());
+<span style="color: #bbbbbb">    </span>}
+};
 
 <span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic"> * Your MedianFinder object will be instantiated and called as such:</span>
 <span style="color: #3D7B7B; font-style: italic"> * MedianFinder* obj = new MedianFinder();</span>
 <span style="color: #3D7B7B; font-style: italic"> * obj-&gt;addNum(num);</span>
 <span style="color: #3D7B7B; font-style: italic"> * double param_2 = obj-&gt;findMedian();</span>
-<span style="color: #3D7B7B; font-style: italic"> */</span><span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic"> */</span>
 </code></pre></div>
 
 <h2 id="solution-2-without-even-boolean">Solution 2: without even boolean<a class="headerlink" href="#solution-2-without-even-boolean" title="Permanent link">&para;</a></h2>
@@ -4207,65 +4221,65 @@ median: 3
 </code></pre></div>
 
 <h2 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>MedianFinder<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-private<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>priority_queue<span style="color: #666666">&lt;</span><span style="color: #B00040">long</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>small,<span style="color: #bbbbbb"> </span>large;<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>MedianFinder<span style="color: #bbbbbb"> </span>{
+private<span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span>priority_queue<span style="color: #666666">&lt;</span><span style="color: #B00040">long</span><span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>small,<span style="color: #bbbbbb"> </span>large;
 
-public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/** initialize your data structure here. */</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>MedianFinder()<span style="color: #bbbbbb"> </span>{}<span style="color: #bbbbbb"></span>
+public<span style="color: #666666">:</span>
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">/** initialize your data structure here. */</span>
+<span style="color: #bbbbbb">    </span>MedianFinder()<span style="color: #bbbbbb"> </span>{}
 
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>addNum(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>num)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>addNum(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>num)<span style="color: #bbbbbb"> </span>{
 <span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">// blindly push in two pq</span>
-<span style="color: #bbbbbb">        </span>small.push(num);<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>large.push(<span style="color: #666666">-</span>small.top());<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>small.push(num);
+<span style="color: #bbbbbb">        </span>large.push(<span style="color: #666666">-</span>small.top());
 <span style="color: #bbbbbb">        </span><span style="color: #3D7B7B; font-style: italic">// small is always greater than large in size, at most greater by one, equal is fine</span>
 <span style="color: #bbbbbb">        </span>small.pop();<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// leave the new element in large</span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(small.size()<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>large.size())<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>small.push(<span style="color: #666666">-</span>large.top());<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(small.size()<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>large.size())<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>small.push(<span style="color: #666666">-</span>large.top());
 <span style="color: #bbbbbb">            </span>large.pop();<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// large has one more, so move it to small</span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span>}
+<span style="color: #bbbbbb">    </span>}
 
-<span style="color: #bbbbbb">    </span><span style="color: #B00040">double</span><span style="color: #bbbbbb"> </span>findMedian()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>small.size()<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>large.size()<span style="color: #bbbbbb"> </span><span style="color: #666666">?</span><span style="color: #bbbbbb"> </span>small.top()<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">                                           </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0.5</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>(small.top()<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>large.top());<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"></span>
-};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #B00040">double</span><span style="color: #bbbbbb"> </span>findMedian()<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">        </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>small.size()<span style="color: #bbbbbb"> </span><span style="color: #666666">!=</span><span style="color: #bbbbbb"> </span>large.size()<span style="color: #bbbbbb"> </span><span style="color: #666666">?</span><span style="color: #bbbbbb"> </span>small.top()
+<span style="color: #bbbbbb">                                           </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0.5</span><span style="color: #bbbbbb"> </span><span style="color: #666666">*</span><span style="color: #bbbbbb"> </span>(small.top()<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span>large.top());
+<span style="color: #bbbbbb">    </span>}
+};
 
 <span style="color: #3D7B7B; font-style: italic">/**</span>
 <span style="color: #3D7B7B; font-style: italic"> * Your MedianFinder object will be instantiated and called as such:</span>
 <span style="color: #3D7B7B; font-style: italic"> * MedianFinder* obj = new MedianFinder();</span>
 <span style="color: #3D7B7B; font-style: italic"> * obj-&gt;addNum(num);</span>
 <span style="color: #3D7B7B; font-style: italic"> * double param_2 = obj-&gt;findMedian();</span>
-<span style="color: #3D7B7B; font-style: italic"> */</span><span style="color: #bbbbbb"></span>
+<span style="color: #3D7B7B; font-style: italic"> */</span>
 </code></pre></div>
 
 <h2 id="followups">Followups<a class="headerlink" href="#followups" title="Permanent link">&para;</a></h2>
 <p>With all fall in between 0-100?</p>
 <h3 id="code-o100o100">Code <span class="arithmatex"><span class="MathJax_Preview">O(100)</span><script type="math/tex">O(100)</script></span><a class="headerlink" href="#code-o100o100" title="Permanent link">&para;</a></h3>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>MedianFinder<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">    </span>private<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>A[<span style="color: #666666">101</span>],<span style="color: #bbbbbb"> </span>n;<span style="color: #bbbbbb"></span>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #bbbbbb"> </span>MedianFinder<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>private<span style="color: #666666">:</span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>A[<span style="color: #666666">101</span>],<span style="color: #bbbbbb"> </span>n;
 
-<span style="color: #bbbbbb">    </span>public<span style="color: #666666">:</span><span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>MedianFinder()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>memset(A,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>A);<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span>public<span style="color: #666666">:</span>
+<span style="color: #bbbbbb">        </span>MedianFinder()<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>n<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;
+<span style="color: #bbbbbb">            </span>memset(A,<span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">sizeof</span><span style="color: #bbbbbb"> </span>A);
 <span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb">    </span>
-<span style="color: #bbbbbb">        </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>addNum(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>num)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>A[num]<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span>n<span style="color: #666666">++</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span>addNum(<span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>num)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span>A[num]<span style="color: #666666">++</span>;
+<span style="color: #bbbbbb">            </span>n<span style="color: #666666">++</span>;
+<span style="color: #bbbbbb">        </span>}
 
-<span style="color: #bbbbbb">        </span><span style="color: #B00040">double</span><span style="color: #bbbbbb"> </span>findMedian()<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>count<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(count<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n<span style="color: #666666">/2</span>)<span style="color: #bbbbbb"> </span>count<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>A[i<span style="color: #666666">++</span>];<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>i;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(count<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n<span style="color: #666666">/2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"> </span>count<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>A[j<span style="color: #666666">++</span>];<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>(n<span style="color: #bbbbbb"> </span><span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"> </span><span style="color: #666666">?</span><span style="color: #bbbbbb"> </span>j<span style="color: #666666">-1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>)<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2.0</span>;<span style="color: #bbbbbb"></span>
-<span style="color: #bbbbbb">        </span>}<span style="color: #bbbbbb"></span>
-};<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">        </span><span style="color: #B00040">double</span><span style="color: #bbbbbb"> </span>findMedian()<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>count<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>,<span style="color: #bbbbbb"> </span>i<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>;
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(count<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n<span style="color: #666666">/2</span>)<span style="color: #bbbbbb"> </span>count<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>A[i<span style="color: #666666">++</span>];
+<span style="color: #bbbbbb">            </span><span style="color: #B00040">int</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>i;
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">while</span><span style="color: #bbbbbb"> </span>(count<span style="color: #bbbbbb"> </span><span style="color: #666666">&lt;</span><span style="color: #bbbbbb"> </span>n<span style="color: #666666">/2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"> </span>count<span style="color: #bbbbbb"> </span><span style="color: #666666">+=</span><span style="color: #bbbbbb"> </span>A[j<span style="color: #666666">++</span>];
+<span style="color: #bbbbbb">            </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>(n<span style="color: #bbbbbb"> </span><span style="color: #666666">%</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span><span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1</span>)<span style="color: #bbbbbb"> </span><span style="color: #666666">?</span><span style="color: #bbbbbb"> </span>j<span style="color: #666666">-1</span><span style="color: #bbbbbb"> </span><span style="color: #666666">:</span><span style="color: #bbbbbb"> </span>(i<span style="color: #bbbbbb"> </span><span style="color: #666666">+</span><span style="color: #bbbbbb"> </span>j<span style="color: #bbbbbb"> </span><span style="color: #666666">-</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2</span>)<span style="color: #bbbbbb"> </span><span style="color: #666666">/</span><span style="color: #bbbbbb"> </span><span style="color: #666666">2.0</span>;
+<span style="color: #bbbbbb">        </span>}
+};
 </code></pre></div>
 
 <blockquote>

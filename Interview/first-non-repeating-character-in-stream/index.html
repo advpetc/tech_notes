@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://peterchen.xyz/Interview/first-non-repeating-character-in-stream/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.1">
     
     
       
@@ -3063,7 +3063,7 @@
   
     <li class="md-nav__item">
       <a href="../../Leetcode/topics/dp-patterns/distinct-ways/" class="md-nav__link">
-        Distinct ways
+        Distinct Ways
       </a>
     </li>
   
@@ -3429,7 +3429,21 @@
   
     <li class="md-nav__item">
       <a href="../../Reading%20notes/Design-Data-Intensive-Apps-Part-1/" class="md-nav__link">
-        Book notes for `Design Data Intensive Apps`
+        Book notes for Design Data Intensive Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reading%20notes/Streaming%20Systems/" class="md-nav__link">
+        Streaming Systems
       </a>
     </li>
   
@@ -3693,7 +3707,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/Intro-To-Golang/" class="md-nav__link">
-        Notes for reading *Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs*
+        Notes for reading Caleb Doxsey - Introducing Go_ Build Reliable, Scalable Programs
       </a>
     </li>
   
@@ -3721,7 +3735,7 @@
   
     <li class="md-nav__item">
       <a href="../../golang/intro-learning-notes/" class="md-nav__link">
-        Learning notes from [geektutu](https://geektutu.com/post/quick-golang.html)
+        Learning notes from geektutu
       </a>
     </li>
   
@@ -4026,64 +4040,64 @@ Examples:</p>
 </ol>
 <p><img alt="Screen Shot 2020-08-30 at 10.59.02 AM.png" src="../resources/08097DE902AD69A9177DF98B5C8E00B8.png" /></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span> {
-  <span style="color: #008000; font-weight: bold">static</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Node</span> {
-    Node prev;
-    Node next;
-    Character ch;
-    Node(Character ch) {
-      <span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">ch</span> <span style="color: #666666">=</span> ch;
-    }
-  }
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Solution</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">static</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Node</span><span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span>Node<span style="color: #bbbbbb"> </span>prev;
+<span style="color: #bbbbbb">    </span>Node<span style="color: #bbbbbb"> </span>next;
+<span style="color: #bbbbbb">    </span>Character<span style="color: #bbbbbb"> </span>ch;
+<span style="color: #bbbbbb">    </span>Node(Character<span style="color: #bbbbbb"> </span>ch)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">this</span>.<span style="color: #687822">ch</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>ch;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">  </span>}
 
-  <span style="color: #3D7B7B; font-style: italic">// only the char appears once can be appended to the linkedlist</span>
-  <span style="color: #008000; font-weight: bold">private</span> Node head, tail;
-  <span style="color: #008000; font-weight: bold">private</span> HashMap<span style="color: #666666">&lt;</span>Character, Node<span style="color: #666666">&gt;</span> singled;
-  <span style="color: #008000; font-weight: bold">private</span> HashSet<span style="color: #666666">&lt;</span>Character<span style="color: #666666">&gt;</span> repeated;
-  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #0000FF">Solution</span>() {
-    <span style="color: #3D7B7B; font-style: italic">// Initialize the class.</span>
-    tail <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Node(<span style="color: #008000; font-weight: bold">null</span>);
-    tail.<span style="color: #687822">next</span> <span style="color: #666666">=</span> tail.<span style="color: #687822">prev</span> <span style="color: #666666">=</span> tail;
-    head <span style="color: #666666">=</span> tail;
-    singled <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashMap<span style="color: #666666">&lt;</span>Character, Node<span style="color: #666666">&gt;</span>();
-    repeated <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashSet<span style="color: #666666">&lt;</span>Character<span style="color: #666666">&gt;</span>();
-  }
+<span style="color: #bbbbbb">  </span><span style="color: #3D7B7B; font-style: italic">// only the char appears once can be appended to the linkedlist</span>
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span>Node<span style="color: #bbbbbb"> </span>head,<span style="color: #bbbbbb"> </span>tail;
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span>HashMap<span style="color: #666666">&lt;</span>Character,<span style="color: #bbbbbb"> </span>Node<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>singled;
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span>HashSet<span style="color: #666666">&lt;</span>Character<span style="color: #666666">&gt;</span><span style="color: #bbbbbb"> </span>repeated;
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">Solution</span>()<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// Initialize the class.</span>
+<span style="color: #bbbbbb">    </span>tail<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Node(<span style="color: #008000; font-weight: bold">null</span>);
+<span style="color: #bbbbbb">    </span>tail.<span style="color: #687822">next</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>tail.<span style="color: #687822">prev</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>tail;
+<span style="color: #bbbbbb">    </span>head<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>tail;
+<span style="color: #bbbbbb">    </span>singled<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>HashMap<span style="color: #666666">&lt;</span>Character,<span style="color: #bbbbbb"> </span>Node<span style="color: #666666">&gt;</span>();
+<span style="color: #bbbbbb">    </span>repeated<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>HashSet<span style="color: #666666">&lt;</span>Character<span style="color: #666666">&gt;</span>();
+<span style="color: #bbbbbb">  </span>}
 
-  <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">read</span>(<span style="color: #B00040">char</span> ch) {
-    <span style="color: #3D7B7B; font-style: italic">// appears more than once</span>
-    <span style="color: #008000; font-weight: bold">if</span> (repeated.<span style="color: #687822">contains</span>(ch)) {
-      <span style="color: #008000; font-weight: bold">return</span> ;
-    }
-    Node node <span style="color: #666666">=</span> singled.<span style="color: #687822">get</span>(ch);
-    <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">==</span> <span style="color: #008000; font-weight: bold">null</span>) { <span style="color: #3D7B7B; font-style: italic">// doesn&#39;t exist in the map -&gt; never appear</span>
-      node <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Node(ch);
-      append(node);
-    } <span style="color: #008000; font-weight: bold">else</span> { <span style="color: #3D7B7B; font-style: italic">// appear once</span>
-      remove(node);
-    }
-  }
-  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">append</span>(Node node) { <span style="color: #3D7B7B; font-style: italic">// add to the linkedlist and the map</span>
-    singled.<span style="color: #687822">put</span>(node.<span style="color: #687822">ch</span>, node);
-    tail.<span style="color: #687822">next</span> <span style="color: #666666">=</span> node;
-    node.<span style="color: #687822">prev</span> <span style="color: #666666">=</span> tail;
-    node.<span style="color: #687822">next</span> <span style="color: #666666">=</span> head; <span style="color: #3D7B7B; font-style: italic">// circle Linkedlist</span>
-    tail <span style="color: #666666">=</span> tail.<span style="color: #687822">next</span>;
-  }
-  <span style="color: #008000; font-weight: bold">private</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">remove</span>(Node node) { <span style="color: #3D7B7B; font-style: italic">// remove from the linkedlist and the map and add to the set (in the future don&#39;t accept any)</span>
-    node.<span style="color: #687822">prev</span>.<span style="color: #687822">next</span> <span style="color: #666666">=</span> node.<span style="color: #687822">next</span>;
-    node.<span style="color: #687822">next</span>.<span style="color: #687822">prev</span> <span style="color: #666666">=</span> node.<span style="color: #687822">prev</span>;
-    <span style="color: #008000; font-weight: bold">if</span> (node <span style="color: #666666">==</span> tail) {
-      tail <span style="color: #666666">=</span> node.<span style="color: #687822">prev</span>;
-    }
-    node.<span style="color: #687822">prev</span> <span style="color: #666666">=</span> node.<span style="color: #687822">next</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">null</span>;
-    repeated.<span style="color: #687822">add</span>(node.<span style="color: #687822">ch</span>);
-    singled.<span style="color: #687822">remove</span>(node.<span style="color: #687822">ch</span>);
-  }
-  <span style="color: #008000; font-weight: bold">public</span> Character <span style="color: #0000FF">firstNonRepeating</span>() {
-    <span style="color: #3D7B7B; font-style: italic">// Implement this method here.</span>
-    <span style="color: #008000; font-weight: bold">if</span> (head <span style="color: #666666">==</span> tail) <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000; font-weight: bold">null</span>;
-    <span style="color: #008000; font-weight: bold">return</span> head.<span style="color: #687822">next</span>.<span style="color: #687822">ch</span>;
-  }
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">read</span>(<span style="color: #B00040">char</span><span style="color: #bbbbbb"> </span>ch)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// appears more than once</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(repeated.<span style="color: #687822">contains</span>(ch))<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span>Node<span style="color: #bbbbbb"> </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>singled.<span style="color: #687822">get</span>(ch);
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(node<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">null</span>)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// doesn&#39;t exist in the map -&gt; never appear</span>
+<span style="color: #bbbbbb">      </span>node<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">new</span><span style="color: #bbbbbb"> </span>Node(ch);
+<span style="color: #bbbbbb">      </span>append(node);
+<span style="color: #bbbbbb">    </span>}<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">else</span><span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// appear once</span>
+<span style="color: #bbbbbb">      </span>remove(node);
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">  </span>}
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">append</span>(Node<span style="color: #bbbbbb"> </span>node)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// add to the linkedlist and the map</span>
+<span style="color: #bbbbbb">    </span>singled.<span style="color: #687822">put</span>(node.<span style="color: #687822">ch</span>,<span style="color: #bbbbbb"> </span>node);
+<span style="color: #bbbbbb">    </span>tail.<span style="color: #687822">next</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node;
+<span style="color: #bbbbbb">    </span>node.<span style="color: #687822">prev</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>tail;
+<span style="color: #bbbbbb">    </span>node.<span style="color: #687822">next</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>head;<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// circle Linkedlist</span>
+<span style="color: #bbbbbb">    </span>tail<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>tail.<span style="color: #687822">next</span>;
+<span style="color: #bbbbbb">  </span>}
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">private</span><span style="color: #bbbbbb"> </span><span style="color: #B00040">void</span><span style="color: #bbbbbb"> </span><span style="color: #0000FF">remove</span>(Node<span style="color: #bbbbbb"> </span>node)<span style="color: #bbbbbb"> </span>{<span style="color: #bbbbbb"> </span><span style="color: #3D7B7B; font-style: italic">// remove from the linkedlist and the map and add to the set (in the future don&#39;t accept any)</span>
+<span style="color: #bbbbbb">    </span>node.<span style="color: #687822">prev</span>.<span style="color: #687822">next</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node.<span style="color: #687822">next</span>;
+<span style="color: #bbbbbb">    </span>node.<span style="color: #687822">next</span>.<span style="color: #687822">prev</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node.<span style="color: #687822">prev</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(node<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>tail)<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">      </span>tail<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node.<span style="color: #687822">prev</span>;
+<span style="color: #bbbbbb">    </span>}
+<span style="color: #bbbbbb">    </span>node.<span style="color: #687822">prev</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>node.<span style="color: #687822">next</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">null</span>;
+<span style="color: #bbbbbb">    </span>repeated.<span style="color: #687822">add</span>(node.<span style="color: #687822">ch</span>);
+<span style="color: #bbbbbb">    </span>singled.<span style="color: #687822">remove</span>(node.<span style="color: #687822">ch</span>);
+<span style="color: #bbbbbb">  </span>}
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">public</span><span style="color: #bbbbbb"> </span>Character<span style="color: #bbbbbb"> </span><span style="color: #0000FF">firstNonRepeating</span>()<span style="color: #bbbbbb"> </span>{
+<span style="color: #bbbbbb">    </span><span style="color: #3D7B7B; font-style: italic">// Implement this method here.</span>
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">if</span><span style="color: #bbbbbb"> </span>(head<span style="color: #bbbbbb"> </span><span style="color: #666666">==</span><span style="color: #bbbbbb"> </span>tail)<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">null</span>;
+<span style="color: #bbbbbb">    </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #bbbbbb"> </span>head.<span style="color: #687822">next</span>.<span style="color: #687822">ch</span>;
+<span style="color: #bbbbbb">  </span>}
 }
 </code></pre></div>
 
