@@ -8,7 +8,7 @@ You are given an integer array `cost` where `cost[i]` is the cost of `ith` step 
 
 You can either start from the step with index `0`, or the step with index `1`.
 
-Return *the minimum cost to reach the top of the floor*.
+Return _the minimum cost to reach the top of the floor_.
 
 **Example 1:**
 
@@ -35,8 +35,6 @@ Explanation: You will start at index 0.
 The total cost is 6.
 ```
 
- 
-
 **Constraints:**
 
 - `2 <= cost.length <= 1000`
@@ -46,8 +44,8 @@ The total cost is 6.
 
 ```c++
 for (int i = 2; i <= n; ++i) {
-  	// on last step, there is no need to proceed further. 
-   dp[i] = min(dp[i-1], dp[i-2]) + (i == n ? 0 : cost[i]); 
+  	// on last step, there is no need to proceed further.
+   dp[i] = min(dp[i-1], dp[i-2]) + (i == n ? 0 : cost[i]);
 }
 return dp[n]
 ```
@@ -70,8 +68,6 @@ Given a `m x n` `grid` filled with non-negative numbers, find a path from top le
 
 **Note:** You can only move either down or right at any point in time.
 
- 
-
 **Example 1:**
 
 ![img](https://assets.leetcode.com/uploads/2020/11/05/minpath.jpg)
@@ -89,8 +85,6 @@ Input: grid = [[1,2,3],[4,5,6]]
 Output: 12
 ```
 
- 
-
 **Constraints:**
 
 - `m == grid.length`
@@ -106,7 +100,7 @@ for (int i = 1; i < n; ++i) {
        grid[i][j] = min(grid[i-1][j], grid[i][j-1]) + grid[i][j];
    }
 }
- 
+
 return grid[n-1][m-1]
 ```
 
@@ -114,11 +108,9 @@ return grid[n-1][m-1]
 
 You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money.
 
-Return *the fewest number of coins that you need to make up that amount*. If that amount of money cannot be made up by any combination of the coins, return `-1`.
+Return _the fewest number of coins that you need to make up that amount_. If that amount of money cannot be made up by any combination of the coins, return `-1`.
 
 You may assume that you have an infinite number of each kind of coin.
-
- 
 
 **Example 1:**
 
@@ -142,8 +134,6 @@ Input: coins = [1], amount = 0
 Output: 0
 ```
 
- 
-
 **Constraints:**
 
 - `1 <= coins.length <= 12`
@@ -166,18 +156,17 @@ return dp[amount];
 #### Why this cannot be solved by greedy algorithm?
 
 Exception:
+
 > But for some coin sets, there are sums for which the greedy algorithm fails. For example, for the set {1, 15, 25} and the sum 30, the greedy algorithm first chooses 25, leaving a remainder of 5, and then five 1s for a total of six coins. But the solution with the minimal number of coins is to choose 15 twice.
 
 > In any case where there is no coin whose value, when added to the lowest denomination, is lower than twice that of the denomination immediately less than it, the greedy algorithm works.
-i.e. {1,2,3} works because [1,3] and [2,2] add to the same value however {1, 15, 25} doesn't work because (for the change 30) 15+15>25+1
+> i.e. {1,2,3} works because [1,3] and [2,2] add to the same value however {1, 15, 25} doesn't work because (for the change 30) 15+15>25+1
 
 ## 0931. Minimum Falling Path Sum
 
-Given an `n x n` array of integers `matrix`, return *the **minimum sum** of any **falling path** through* `matrix`.
+Given an `n x n` array of integers `matrix`, return _the **minimum sum** of any **falling path** through_ `matrix`.
 
 A **falling path** starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position `(row, col)` will be `(row + 1, col - 1)`, `(row + 1, col)`, or `(row + 1, col + 1)`.
-
- 
 
 **Example 1:**
 
@@ -198,8 +187,6 @@ Input: matrix = [[-19,57],[-40,-5]]
 Output: -59
 Explanation: The falling path with a minimum sum is shown.
 ```
-
- 
 
 **Constraints:**
 
@@ -238,9 +225,7 @@ The passes allow that many days of consecutive travel.
 
 - For example, if we get a **7-day** pass on day `2`, then we can travel for `7` days: `2`, `3`, `4`, `5`, `6`, `7`, and `8`.
 
-Return *the minimum number of dollars you need to travel every day in the given list of days*.
-
- 
+Return _the minimum number of dollars you need to travel every day in the given list of days_.
 
 **Example 1:**
 
@@ -264,8 +249,6 @@ On day 1, you bought a 30-day pass for costs[2] = $15 which covered days 1, 2, .
 On day 31, you bought a 1-day pass for costs[0] = $2 which covered day 31.
 In total, you spent $17 and covered all the days of your travel.
 ```
-
- 
 
 **Constraints:**
 
@@ -296,9 +279,7 @@ There is only one character `'A'` on the screen of a notepad. You can perform tw
 - Copy All: You can copy all the characters present on the screen (a partial copy is not allowed).
 - Paste: You can paste the characters which are copied last time.
 
-Given an integer `n`, return *the minimum number of operations to get the character* `'A'` *exactly* `n` *times on the screen*.
-
- 
+Given an integer `n`, return _the minimum number of operations to get the character_ `'A'` _exactly_ `n` _times on the screen_.
 
 **Example 1:**
 
@@ -317,8 +298,6 @@ In step 3, we use Paste operation to get 'AAA'.
 Input: n = 1
 Output: 0
 ```
-
- 
 
 **Constraints:**
 
@@ -356,11 +335,9 @@ return s;
 
 ## 0279. Perfect Squares
 
-Given an integer `n`, return *the least number of perfect square numbers that sum to* `n`.
+Given an integer `n`, return _the least number of perfect square numbers that sum to_ `n`.
 
 A **perfect square** is an integer that is the square of an integer; in other words, it is the product of some integer with itself. For example, `1`, `4`, `9`, and `16` are perfect squares while `3` and `11` are not.
-
- 
 
 **Example 1:**
 
@@ -377,8 +354,6 @@ Input: n = 13
 Output: 2
 Explanation: 13 = 4 + 9.
 ```
-
- 
 
 **Constraints:**
 
@@ -411,9 +386,7 @@ We are playing a game with the stones. On each turn, we choose any two stones an
 
 At the end of the game, there is **at most one** stone left.
 
-Return *the smallest possible weight of the left stone*. If there are no stones left, return `0`.
-
- 
+Return _the smallest possible weight of the left stone_. If there are no stones left, return `0`.
 
 **Example 1:**
 
@@ -433,8 +406,6 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that's the o
 Input: stones = [31,26,33,21,40]
 Output: 5
 ```
-
- 
 
 **Constraints:**
 
@@ -461,11 +432,9 @@ int lastStoneWeightII(vector<int>& stones) {
 
 ## 0120. Triangle
 
-Given a `triangle` array, return *the minimum path sum from top to bottom*.
+Given a `triangle` array, return _the minimum path sum from top to bottom_.
 
 For each step, you may move to an adjacent number of the row below. More formally, if you are on index `i` on the current row, you may move to either index `i` or index `i + 1` on the next row.
-
- 
 
 **Example 1:**
 
@@ -487,16 +456,12 @@ Input: triangle = [[-10]]
 Output: -10
 ```
 
- 
-
 **Constraints:**
 
 - `1 <= triangle.length <= 200`
 - `triangle[0].length == 1`
 - `triangle[i].length == triangle[i - 1].length + 1`
 - `-104 <= triangle[i][j] <= 104`
-
- 
 
 **Follow up:** Could you do this using only `O(n)` extra space, where `n` is the total number of rows in the triangle?
 
@@ -519,11 +484,9 @@ int minimumTotal(vector<vector<int>>& triangle) {
 
 You are given an array of binary strings `strs` and two integers `m` and `n`.
 
-Return *the size of the largest subset of `strs` such that there are **at most*** `m` `0`*'s and* `n` `1`*'s in the subset*.
+Return \*the size of the largest subset of `strs` such that there are **at most\*** `m` `0`_'s and_ `n` `1`_'s in the subset_.
 
 A set `x` is a **subset** of a set `y` if all elements of `x` are also elements of `y`.
-
- 
 
 **Example 1:**
 
@@ -543,8 +506,6 @@ Output: 2
 Explanation: The largest subset is {"0", "1"}, so the answer is 2.
 ```
 
- 
-
 **Constraints:**
 
 - `1 <= strs.length <= 600`
@@ -556,7 +517,7 @@ My dp[i][j] means with i zeros and j ones, what is the max strings to be chosen 
 
 1. choose current string means dp[i-# of zero for current string][j - # of one for current string] + 1.
 2. not choose current string means dp[i][j] which means there is nothing changed as previous state.
-Why it has to start from m, n and decrease to 1 (or making sure there is at least # of 0 or 1 spots left in our case)? Because it prevents invalid counting. As we can see, our dp[m][n] is going to be updated sz times, and before we calculate i - zero[k] and j - one[k], they has to be valid. If we start from 0 and increase to m, n, these values will never be updated beforehand.
+   Why it has to start from m, n and decrease to 1 (or making sure there is at least # of 0 or 1 spots left in our case)? Because it prevents invalid counting. As we can see, our dp[m][n] is going to be updated sz times, and before we calculate i - zero[k] and j - one[k], they has to be valid. If we start from 0 and increase to m, n, these values will never be updated beforehand.
 
 ```c
 int findMaxForm(vector<string>& strs, int m, int n) {
@@ -585,9 +546,7 @@ int findMaxForm(vector<string>& strs, int m, int n) {
 
 ## 0221. Maximal Square
 
-Given an `m x n` binary `matrix` filled with `0`'s and `1`'s, *find the largest square containing only* `1`'s *and return its area*.
-
- 
+Given an `m x n` binary `matrix` filled with `0`'s and `1`'s, _find the largest square containing only_ `1`'s _and return its area_.
 
 **Example 1:**
 
@@ -614,8 +573,6 @@ Input: matrix = [["0"]]
 Output: 0
 ```
 
- 
-
 **Constraints:**
 
 - `m == matrix.length`
@@ -623,16 +580,14 @@ Output: 0
 - `1 <= m, n <= 300`
 - `matrix[i][j]` is `'0'` or `'1'`.
 
-
-
 Here the`dp[i][j]`the same as `matrix[i][j]`, and it means the maximum width of the square that includes `matrix[i][j]` as the right down side of the resulting square. To expand the area to any directions (right, down), we check the `matrix[i][j-1]`, `matrix[i-1][j]` and `matrix[i-1][j-1]` and choose the minimal from them. The final answer is the maximum `matrix[i][j] * matrix[i][j]` from all the values we have filled.
 
 ```c++
 for (int i = 0; i < m; ++i) {
   for (int j = 0; j < n; ++j) {
     if (matrix[i][j] == '0' || i == 0 || j == 0) continue;
-    matrix[i][j] = min({matrix[i][j - 1] - '0', 
-                        matrix[i - 1][j] - '0', 
+    matrix[i][j] = min({matrix[i][j - 1] - '0',
+                        matrix[i - 1][j] - '0',
                         matrix[i - 1][j - 1] - '0'}) + '1';
     res = max(res, matrix[i][j] - '0');
   }
@@ -649,5 +604,5 @@ return res * res;
 [link](../../../0174.-Dungeon-Game)
 
 ## 0871. Minimum Number of Refueling Stops
-[link](../../../0871.-Minimum-Number-of-Refueling-Stops)
 
+[link](../../../0871.-Minimum-Number-of-Refueling-Stops)
