@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: ../assets/images
+---
+
 # Binomial Coefficient
 
 ## Definition
