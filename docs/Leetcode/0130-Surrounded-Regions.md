@@ -1,0 +1,88 @@
+# 0130. Surrounded Regions
+
+Given an `m x n` matrix `board` containing `'X'` and `'O'`, *capture all regions surrounded by* `'X'`.
+
+A region is **captured** by flipping all `'O'`s into `'X'`s in that surrounded region.
+
+ 
+
+**Example 1:**
+
+![img](resources/130.jpg)
+
+```
+Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+Explanation: Surrounded regions should not be on the border, which means that any 'O' on the border of the board are not flipped to 'X'. Any 'O' that is not on the border and it is not connected to an 'O' on the border will be flipped to 'X'. Two cells are connected if they are adjacent cells connected horizontally or vertically.
+```
+
+**Example 2:**
+
+```
+Input: board = [["X"]]
+Output: [["X"]]
+```
+
+ 
+
+**Constraints:**
+
+- `m == board.length`
+- `n == board[i].length`
+- `1 <= m, n <= 200`
+- `board[i][j]` is `'X'` or `'O'`.
+
+## Analysis
+
+We cannot just find all 'O's that aren't at the border and expand through dfs; consider the following case:
+
+```
+X X X X
+X O O X
+X O O X
+X O X X
+```
+
+This case will cause all the 'O's to not be able to be flipped, so our first step is to find all the 'O's that are on the border and mark all the connected 'O' as visited (either allocate a new set or special symbol other than 'O' or 'X'). This will take $O(n)$ time at worst. Step 2 would be to find all the 'O's remaining in the board and flip them.
+
+* Time: $O(N)$
+* Space: $O(N)$ if cannot modify the original board, or $O(1)$
+
+## Code
+
+```c++
+class Solution {
+public:
+    void solve(vector<vector<char>>& board) {
+        if (board.empty() || board[0].empty()) return;
+        int m = board.size(), n = board[0].size();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
+                    if (board[i][j] == 'O') dfs(board, i , j);
+                }
+            }   
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (board[i][j] == 'O') board[i][j] = 'X';
+                // recover
+                if (board[i][j] == '$') board[i][j] = 'O';
+            }
+        }
+    }
+    
+    // find all 'O's that are invalid -- from the border
+    void dfs(vector<vector<char>> &board, int x, int y) {
+        int m = board.size(), n = board[0].size();
+        vector<vector<int>> dir{{0,-1},{-1,0},{0,1},{1,0}};
+        board[x][y] = '$';
+        for (int i = 0; i < dir.size(); ++i) {
+            int dx = x + dir[i][0], dy = y + dir[i][1];
+            if (dx >= 0 && dx < m && dy > 0 && dy < n && board[dx][dy] == 'O') {
+                dfs(board, dx, dy);
+            }
+        }
+    }
+};
+```
