@@ -1,0 +1,85 @@
+# 1675. Minimize Deviation in Array
+
+You are given an array `nums` of `n` positive integers.
+
+You can perform two types of operations on any element of the array any number of times:
+
+-   If the element is **even**, **divide** it by `2`.
+    -   For example, if the array is `[1,2,3,4]`, then you can do this operation on the last element, and the array will be `[1,2,3,2].`
+-   If the element is **odd**, **multiply** it by `2`.
+    -   For example, if the array is `[1,2,3,4]`, then you can do this operation on the first element, and the array will be `[2,2,3,4].`
+
+The **deviation** of the array is the **maximum difference** between any two elements in the array.
+
+Return _the **minimum deviation** the array can have after performing some number of operations._
+
+**Example 1:**
+
+**Input:** nums = [1,2,3,4]
+**Output:** 1
+**Explanation:** You can transform the array to [1,2,3,2], then to [2,2,3,2], then the deviation will be 3 - 2 = 1.
+
+**Example 2:**
+
+**Input:** nums = [4,1,5,20,3]
+**Output:** 3
+**Explanation:** You can transform the array after two operations to [4,2,5,5,3], then the deviation will be 5 - 2 = 3.
+
+**Example 3:**
+
+**Input:** nums = [2,10,8]
+**Output:** 3
+
+**Constraints:**
+
+-   `n == nums.length`
+-   `2 <= n <= 105`
+-   `1 <= nums[i] <= 109`
+
+## Analysis
+
+For each odd element, we can only double it, and for each even element, we can only divide it by two. So odd elements can only get greater and even elements can only get smaller, which means to make the final array have the smallest deviation, **we need to make sure the biggest element is always odd**. We can prove it by contradiction: if the biggest element is even, we can always decrease it by half, and it replaces the previous biggest element, so it contradicts the previous statement that the biggest element is even.
+
+Right now the problem has been reduced to *minimize the largest odd element* from the array after all the transformations. After we find that element, we need to compare this element with the smallest element (no matter whether it's odd or even).
+
+So there are two steps:
+
+1. Make the largest element to be an odd number
+2. Minimize it
+
+To make our implementation easier, we can transform all the odd elements into even elements. This way, we can simply do one operation to generate the maximum odd element -- by dividing all even elements by two until the largest element is odd. In the meanwhile, we should also record the current minimal element to calculate the maximum deviation in our array.
+
+We can use a priority queue to do the division iteratively until we find the max element is odd.
+
+* Time: $O(N \times \log (N))$. We need to traverse the priority queue at most N times (each element), and each `pop`  requires $O(\log(N))$ complexity
+* Space: $O(N)$
+
+!!! tip
+	We need to calculate the deviation (or the difference between the largest value and the smallest value) each time we pop an element from the priority queue, because the final state doesn't necessarily mean we have checked the state where our maximum minimal element is, but rather the current minimal, which might not be the global max minimal.
+
+## Code
+```c++
+class Solution {
+public:
+    int minimumDeviation(vector<int>& nums) {
+        priority_queue<int> pq;
+        int min_e = INT_MAX, res = INT_MAX;
+        for (int a : nums) {
+            if (a % 2 == 1)
+                pq.push(a *= 2);
+            else
+                pq.push(a);
+            min_e = min(min_e, a);
+        }
+        while (pq.top() % 2 == 0) {
+            res = min(res, pq.top() - min_e);
+            int t = pq.top();
+            pq.pop();
+            t /= 2;
+            pq.push(t);
+            min_e = min(min_e, t);
+        }
+        return min(res, pq.top() - min_e);
+    }
+};
+```

@@ -1,0 +1,94 @@
+# 0093. Restore IP addresses
+
+Given a string `s` containing only digits, return all possible valid IP addresses that can be obtained from `s`. You can return them in **any** order.
+
+A **valid IP address** consists of exactly four integers, each integer is between `0` and `255`, separated by single dots and cannot have leading zeros. For example, "0.1.2.201" and "192.168.1.1" are **valid** IP addresses and "0.011.255.245", "192.168.1.312" and "192.168@1.1" are **invalid** IP addresses. 
+
+ 
+
+**Example 1:**
+
+```
+Input: s = "25525511135"
+Output: ["255.255.11.135","255.255.111.35"]
+```
+
+**Example 2:**
+
+```
+Input: s = "0000"
+Output: ["0.0.0.0"]
+```
+
+**Example 3:**
+
+```
+Input: s = "1111"
+Output: ["1.1.1.1"]
+```
+
+**Example 4:**
+
+```
+Input: s = "010010"
+Output: ["0.10.0.10","0.100.1.0"]
+```
+
+**Example 5:**
+
+```
+Input: s = "101023"
+Output: ["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"]
+```
+
+ 
+
+**Constraints:**
+
+- `0 <= s.length <= 3000`
+- `s` consists of digits only.
+
+## Analysis
+
+1. Find all the possible locations i for inserting '.'.
+2. Check if the resulting segment is valid.
+3. Insert the '.'.
+4. Try the next possible location.
+
+Time: $O(n^n)$ n branches (for loop) and n height (idx in [0, n])
+Space: $O(n)$ height of the recursion tree
+
+## Code
+
+```c
+class Solution {
+    public:
+    vector<string> res;
+
+    bool inline valid(string sub) {
+        int d = atoi(sub.c_str());
+        if (sub[0] == '0')
+            return d == 0 && sub.size() == 1; // only if '0'
+        else
+            return d < 256 && sub.size() <= 3; // only if less than 256 and has fewer than 3 digits
+    }
+
+    // idx: starting pos of the ip segment to try
+    void h(int idx, int part, string ip) {
+        if (part == 3) {
+            if (valid(ip.substr(idx))) res.push_back(ip);
+            return;
+        }
+        for (int i = 1; i <= 3 && idx + i < ip.size(); ++i) {
+            if (!valid(ip.substr(idx, i))) continue ;
+            ip.insert(idx + i, ".");
+            h(idx + i + 1, part + 1, ip);
+            ip.erase(idx + i, 1);
+        }
+    }
+    vector<string> restoreIpAddresses(string s) {
+        h(0, 0, s);
+        return res;
+    }
+};
+```

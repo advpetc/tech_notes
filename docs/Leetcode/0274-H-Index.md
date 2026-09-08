@@ -1,0 +1,104 @@
+# 0274. H-Index
+
+Given an array of integers `citations` where `citations[i]` is the number of citations a researcher received for their `ith` paper, return compute the researcher's `h`**-index**.
+
+According to the [definition of h-index on Wikipedia](https://en.wikipedia.org/wiki/H-index): A scientist has an index `h` if `h` of their `n` papers have at least `h` citations each, and the other `n − h` papers have no more than `h` citations each.
+
+If there are several possible values for `h`, the maximum one is taken as the `h`**-index**.
+
+ 
+
+**Example 1:**
+
+```
+Input: citations = [3,0,6,1,5]
+Output: 3
+Explanation: [3,0,6,1,5] means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively.
+Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, their h-index is 3.
+```
+
+**Example 2:**
+
+```
+Input: citations = [1,3,1]
+Output: 1
+```
+
+ 
+
+**Constraints:**
+
+- `n == citations.length`
+- `1 <= n <= 5000`
+- `0 <= citations[i] <= 1000`
+
+## Analysis: using sort + binary search
+
+Given the definition of "H-index", we can find out that `h` is just a measurement of the maximum number of papers that have the citation number greater than or equal to `h`. So in a sorted array, we just need to find the lower bound of any `h` that satisfies this criterion, because finding the lower bound in a sorted array is always $O(\log(n))$.
+
+!!! note
+    In Cpp, the `upper_bound` and `lower_bound` differ in the way of locating the first and last element of the same value with the target value. For `upper_bound`, it finds the first equal value, and `lower_bound` finds the last one.
+
+* Time: $O(n \times \log(n))$ sorting + finding
+* Space: $O(1)$ if we use quicksort without an auxiliary array
+
+## Code 1
+
+```c++
+class Solution {
+public:
+    int hIndex(vector<int>& a) {
+        //[3,0,6,1,5] h=3: 3, 6, 5
+        int n = a.size();
+        sort(a.begin(), a.end());
+      	// try all the possible H from large to small
+        for (int i = n; ~i; --i) {
+            if (n - (lower_bound(a.begin(), a.end(), i) - a.begin()) >= i)
+                return i;
+        }
+        return 0;
+    }
+};
+```
+
+## Analysis: using Bucket sort
+
+Since our data isn't large (the range is also small), we can use bucket sort to solve this particular problem with $O(n)$ complexity.
+
+Since we are only interested in the `h` in the range from 0 to n, we can create an array with a size of n. Each element in the array represents the frequency of that number of citations.
+
+!!! note
+    For all the citations that are greater than n, we put them into an n-th bucket, since that has the same effect as placing the paper into its citation's bucket.
+
+Then we start from n and keep a counter to record the current number of papers
+that fulfill the requirement, which is `counter >= h`. If this requirement is
+fulfilled, then we can return the value from here.
+
+* Time: $O(n)$
+* Space: $O(n)$
+
+## Code 2
+
+```c++
+class Solution {
+public:
+    int hIndex(vector<int>& a) {
+        //[3,0,6,1,5] h=3: 3, 6, 5
+        int n = a.size();
+        vector<int> b(n + 1);
+        for (int v : a) {
+            if (v >= n) b[n] ++;
+            else b[v] ++;
+        }
+        int counter = 0;
+        for (int i = n; ~i; --i) {
+            counter += b[i];
+            if (counter >= i) return i;
+        }
+        return 0;      
+    }
+};
+```
+
+
+

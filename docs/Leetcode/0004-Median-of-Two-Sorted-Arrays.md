@@ -1,0 +1,92 @@
+# 0004. Median of Two Sorted Arrays
+
+Given two sorted arrays `nums1` and `nums2` of size `m` and `n` respectively, return **the median** of the two sorted arrays.
+
+ 
+
+**Example 1:**
+
+```
+Input: nums1 = [1,3], nums2 = [2]
+Output: 2.00000
+Explanation: merged array = [1,2,3] and median is 2.
+```
+
+**Example 2:**
+
+```
+Input: nums1 = [1,2], nums2 = [3,4]
+Output: 2.50000
+Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+```
+
+**Example 3:**
+
+```
+Input: nums1 = [0,0], nums2 = [0,0]
+Output: 0.00000
+```
+
+**Example 4:**
+
+```
+Input: nums1 = [], nums2 = [1]
+Output: 1.00000
+```
+
+**Example 5:**
+
+```
+Input: nums1 = [2], nums2 = []
+Output: 2.00000
+```
+
+ 
+
+**Constraints:**
+
+- `nums1.length == m`
+- `nums2.length == n`
+- `0 <= m <= 1000`
+- `0 <= n <= 1000`
+- `1 <= m + n <= 2000`
+- `-106 <= nums1[i], nums2[i] <= 106`
+
+ 
+
+**Follow up:** The overall run time complexity should be `O(log (m+n))`.
+
+## Analysis
+
+Finding the median is basically finding the `(m + n) // 2`th element for the two sorted arrays. We can use binary search to find this element.
+
+We will use recursion to implement the binary search: `int findKth(vector<int>& nums1, vector<int>& nums2, int i, int j, int k)`. `i` is the iterator pointing at `nums1`, `j` is the iterator pointing at `nums2`, and `k` is the current k-th element we are interested in, starting from `nums[i]` and `nums[j]` (note that `i`, `j`, and `k` are all variables, and they will change in each iteration).
+
+Now we consider what we do for each iteration. If we have reached the end of `nums1`, which means `i == nums1.size()`, then we will give up on `nums1` and simply return the k-th element from `nums2`. In contrast, if we have reached the end of `nums2`, which means `j == nums2.size()`, then we will give up on `nums2` and simply return the k-th element from `nums1`. Don't forget there is another base case: `k == 1`, which means there is only one element we are interested in, and we should return the smaller one of `nums1[i]` and `nums2[j]`.
+
+Then we will eagerly grow our pointers as far as possible, and we decide to grow by half the size of k. If both `i + k/2 - 1` and `j + k/2 - 1` are in range, then we determine the smaller one. Since we are determining the k-th largest element, if we can be sure that all the elements from `i` to `i + k` are smaller than those from `j` to `j + k` (assume `nums1[i + k/2 - 1] < nums2[j + k/2 - 1]`), then we can safely discard all the elements from `i` to `i + k/2` (they will be used as a "placeholder", or 炮灰 in Chinese, from `i` to `i + k/2`). This logic applies to the case when `nums1[i + k/2 - 1] >= nums2[j + k/2 - 1]` as well.
+
+* Time: $O(\log_2{m + n})$
+* Space: $O(1)$
+
+## Code
+
+```c
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int m = nums1.size(), n = nums2.size();
+        return (findKth(nums1, nums2, 0, 0, (m + n + 1) >> 1) + findKth(nums1, nums2, 0, 0, (m + n + 2) >> 1)) / 2.0;
+    }
+    
+    int findKth(vector<int>& nums1, vector<int>& nums2, int i, int j, int k) {
+        if (i >= nums1.size()) return nums2[j + k - 1];
+        if (j >= nums2.size()) return nums1[i + k - 1];
+        if (k == 1) return min(nums1[i], nums2[j]);
+        int minVal1 = (i + k / 2 - 1 < nums1.size()) ? nums1[i + k / 2 - 1] : INT_MAX;
+        int minVal2 = (j + k / 2 - 1 < nums2.size()) ? nums2[j + k / 2 - 1] : INT_MAX;
+        if (minVal1 < minVal2) return findKth(nums1, nums2, i + k / 2, j, k - k / 2);
+        else return findKth(nums1, nums2, i, j + k / 2, k - k / 2);
+    }
+};
+```

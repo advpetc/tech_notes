@@ -1,0 +1,90 @@
+# 0222. Count Complete Tree Nodes
+
+Given the `root` of a **complete** binary tree, return the number of the nodes in the tree.
+
+According to **[Wikipedia](http://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees)**, every level, except possibly the last, is completely filled in a complete binary tree, and all nodes in the last level are as far left as possible. It can have between `1` and `2h` nodes inclusive at the last level `h`.
+
+ 
+
+**Example 1:**
+
+![img](resources/222.jpg)
+
+```
+Input: root = [1,2,3,4,5,6]
+Output: 6
+```
+
+**Example 2:**
+
+```
+Input: root = []
+Output: 0
+```
+
+**Example 3:**
+
+```
+Input: root = [1]
+Output: 1
+```
+
+ 
+
+**Constraints:**
+
+- The number of nodes in the tree is in the range `[0, 5 * 104]`.
+- `0 <= Node.val <= 5 * 104`
+- The tree is guaranteed to be **complete**.
+
+ 
+
+**Follow up:** Traversing the tree to count the number of nodes in the tree is an easy solution but with `O(n)` complexity. Could you find a faster algorithm?
+
+## Analysis
+
+A complete binary tree has the special property: at the last level of the binary tree, the nodes will be populated from left to right. There could be empty/null nodes at any point in the last level, but from the first empty/null node, all the rest to the right have to be empty/null as well.
+
+If we are given a perfect binary tree, we can use $2^{height} - 1$ to calculate the total number of nodes in the tree. The problem now breaks down to finding the position starting at which the rest of the leaf nodes become empty/null. We can use binary search to find the pivot node.
+
+1. start from left and right, and traverse $\log(n)$ levels to see the heights of left and right.
+2. if left and right heights are the same, it means we are already in a perfect binary tree -> we can use the formula to calculate the number of nodes in the current subtree.
+3. if left = right + 1, then the pivot should be somewhere between left and right, so we should recursively call both.
+
+* Time: $\log^2 (n)$
+* Space: $\log(n)$ -> it takes $\log(n)$ times to find the pivot, thus it will call the recursion $\log(n)$ times.
+
+## Code
+
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        if (!root) return 0;
+        int l = 0, r = 0;
+        TreeNode *a = root, *b = root;
+        while (a) {
+            a = a -> left;
+            l++;
+        }
+        while (b) {
+            b = b -> right;
+            r++;
+        }
+        if (l == r) return pow(2, l) - 1;
+        return countNodes(root -> left) + countNodes(root -> right) + 1;
+    }
+};
+```
+
