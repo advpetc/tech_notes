@@ -12,6 +12,8 @@ Note that multiple points can coincide with your location, and in such cases, th
 
 **Example 1:**
 
+![img](resources/1610-example1.svg)
+
 ```
 Input: points = [[2,1],[2,2],[3,3]], angle = 90, location = [1,1]
 Output: 3
@@ -27,6 +29,8 @@ Explanation: All points can be made visible in your field of view, including the
 ```
 
 **Example 3:**
+
+![img](resources/1610-example3.svg)
 
 ```
 Input: points = [[1,0],[2,1]], angle = 13, location = [1,1]

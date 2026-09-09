@@ -1,0 +1,80 @@
+<svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="800" height="320" fill="#ffffff"/>
+
+  <defs>
+    <clipPath id="clipPanel1"><rect x="0" y="0" width="400" height="320"/></clipPath>
+    <clipPath id="clipPanel2"><rect x="400" y="0" width="400" height="320"/></clipPath>
+  </defs>
+
+  <!-- panel 1: gazing east, angle = 13, sees (2,1) but not (1,0) -->
+  <g clip-path="url(#clipPanel1)">
+    <polygon points="105,225 601.77,168.4 601.77,281.6" fill="#bfe3fa" fill-opacity="0.9"/>
+    <line x1="50" y1="280" x2="303" y2="280" stroke="black" stroke-width="1.5"/>
+    <polygon points="303,280 296,276 296,284" fill="black"/>
+    <line x1="50" y1="280" x2="50" y2="27" stroke="black" stroke-width="1.5"/>
+    <polygon points="50,27 46,34 54,34" fill="black"/>
+    <g font-size="12" fill="#333">
+      <line x1="50" y1="280" x2="50" y2="284" stroke="black"/>
+      <text x="50" y="298" text-anchor="middle">0</text>
+      <line x1="105" y1="280" x2="105" y2="284" stroke="black"/>
+      <text x="105" y="298" text-anchor="middle">1</text>
+      <line x1="160" y1="280" x2="160" y2="284" stroke="black"/>
+      <text x="160" y="298" text-anchor="middle">2</text>
+      <line x1="215" y1="280" x2="215" y2="284" stroke="black"/>
+      <text x="215" y="298" text-anchor="middle">3</text>
+      <line x1="270" y1="280" x2="270" y2="284" stroke="black"/>
+      <text x="270" y="298" text-anchor="middle">4</text>
+      <line x1="46" y1="225" x2="50" y2="225" stroke="black"/>
+      <text x="38" y="229" text-anchor="middle">1</text>
+      <line x1="46" y1="170" x2="50" y2="170" stroke="black"/>
+      <text x="38" y="174" text-anchor="middle">2</text>
+      <line x1="46" y1="115" x2="50" y2="115" stroke="black"/>
+      <text x="38" y="119" text-anchor="middle">3</text>
+      <line x1="46" y1="60" x2="50" y2="60" stroke="black"/>
+      <text x="38" y="64" text-anchor="middle">4</text>
+    </g>
+    <!-- point (1,0), not visible -->
+    <circle cx="105" cy="280" r="5" fill="#e05a5a"/>
+    <!-- point (2,1), visible -->
+    <circle cx="160" cy="225" r="5" fill="#e05a5a"/>
+    <!-- location (1,1) -->
+    <circle cx="105" cy="225" r="7" fill="#f5a623" opacity="0.6"/>
+    <circle cx="105" cy="225" r="4.5" fill="#111111"/>
+  </g>
+
+  <!-- panel 2: gazing south, angle = 13, sees (1,0) but not (2,1) -->
+  <g clip-path="url(#clipPanel2)">
+    <polygon points="505,225 448.4,721.77 561.6,721.77" fill="#bfe3fa" fill-opacity="0.9"/>
+    <line x1="450" y1="280" x2="703" y2="280" stroke="black" stroke-width="1.5"/>
+    <polygon points="703,280 696,276 696,284" fill="black"/>
+    <line x1="450" y1="280" x2="450" y2="27" stroke="black" stroke-width="1.5"/>
+    <polygon points="450,27 446,34 454,34" fill="black"/>
+    <g font-size="12" fill="#333">
+      <line x1="450" y1="280" x2="450" y2="284" stroke="black"/>
+      <text x="450" y="298" text-anchor="middle">0</text>
+      <line x1="505" y1="280" x2="505" y2="284" stroke="black"/>
+      <text x="505" y="298" text-anchor="middle">1</text>
+      <line x1="560" y1="280" x2="560" y2="284" stroke="black"/>
+      <text x="560" y="298" text-anchor="middle">2</text>
+      <line x1="615" y1="280" x2="615" y2="284" stroke="black"/>
+      <text x="615" y="298" text-anchor="middle">3</text>
+      <line x1="670" y1="280" x2="670" y2="284" stroke="black"/>
+      <text x="670" y="298" text-anchor="middle">4</text>
+      <line x1="446" y1="225" x2="450" y2="225" stroke="black"/>
+      <text x="438" y="229" text-anchor="middle">1</text>
+      <line x1="446" y1="170" x2="450" y2="170" stroke="black"/>
+      <text x="438" y="174" text-anchor="middle">2</text>
+      <line x1="446" y1="115" x2="450" y2="115" stroke="black"/>
+      <text x="438" y="119" text-anchor="middle">3</text>
+      <line x1="446" y1="60" x2="450" y2="60" stroke="black"/>
+      <text x="438" y="64" text-anchor="middle">4</text>
+    </g>
+    <!-- point (1,0), visible -->
+    <circle cx="505" cy="280" r="5" fill="#e05a5a"/>
+    <!-- point (2,1), not visible -->
+    <circle cx="560" cy="225" r="5" fill="#e05a5a"/>
+    <!-- location (1,1) -->
+    <circle cx="505" cy="225" r="7" fill="#f5a623" opacity="0.6"/>
+    <circle cx="505" cy="225" r="4.5" fill="#111111"/>
+  </g>
+</svg>
