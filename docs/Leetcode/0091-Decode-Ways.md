@@ -106,6 +106,7 @@ int numDecodings(string s) {
 ```
 
 `dp[i] += dp[i+2]` if
+
 1. `s[i] == 1`, so that any `s[i+2]` is valid, `s[i:i+1]` is in range 10-19
 2. `s[i] == 2` and `s[i+1] < 7`, so that `s[i:i+1]` is in range 20-26
 If `s[i] == 0`, then `dp[i] = 0`, because 0 cannot be leading.
@@ -135,6 +136,7 @@ public:
 ```
 
 This only needs two more states from the current state, so:
+
 1. pre: `s[i:i+1]`
 2. prepre: `s[i:i+2]`
 

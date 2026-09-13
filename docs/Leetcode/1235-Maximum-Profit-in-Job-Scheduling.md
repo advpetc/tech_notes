@@ -50,6 +50,7 @@ job2:           ------
 ```
 
 Now we can define our dp[i] as the maximum profit from the (0, i] timestamp range. We can derive that for any dp[i]:
+
 * if we choose to take job x, dp[x.end] = dp[last job end before x.start] + job x's profit
 * if we choose not to take job x, dp[x.end] =  dp[last job's end]
 

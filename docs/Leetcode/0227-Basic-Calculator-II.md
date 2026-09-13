@@ -76,6 +76,7 @@ We can use a stack to hold the previous value just like what we did for *basic c
 For '+' and '-' it's fairly easy to do this with just a single variable to hold the resultant value, but for '*' and '/' we need to think about the operator precedence.
 
 Consider the case for: `1 + 2*10`:
+
 1. We first grab 1 when we hit the first whitespace after 1.
 2. We then find 2, and since we have seen '+' before, we should think about whether we should start doing the '+' operation right now. Since we are seeing another '\*' after 2, which has higher precedence than '+', we should **hold** our current value and possibly introduce another value just for calculating the compound for the '\*' operation.
 3. Now we have two values to hold: the resultant value as well as the compound value. Now we can do what we were previously supposed to do: the '+' operation for our resultant value and the compound value.

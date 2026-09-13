@@ -53,13 +53,16 @@ This question is basically asking for the largest connected component in a fores
 
 ---
 step 1 build the graph:
+
 * start with all the nodes themselves, they are "self-connected"
 ---
 step 2 find all the divisors of the current node
+
 * after we put the node value into the tree, we also need to group all the divisors >= 2 with the current root node.
 * this can be done in sqrt(n) time, since for any two divisors a * b < n, a has to be less than sqrt(n).
 ---
 step 3 check the root and do the counting
+
 * now we have built our tree, and we can easily find the root node (or id) for each node, we can just count the number of ids and find the max.
 
 ## Code

@@ -62,6 +62,7 @@ Output: 2
 ## Analysis
 
 Edge cases:
+
 1. k == 0, in this case, we need to return the pairs where the two elements are equal to each other.
 2. If k < 0, we should return 0.
 3. handling duplicate pairs: (i, j) = (j, i)

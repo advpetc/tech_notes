@@ -42,6 +42,7 @@ for i = 0 to n:
 
 
 To do so, there are two special cases to take into consideration:
+
 1. If two points are vertically aligned, then the slope would be 0.
 2. If two points are the same, we still need to update the result.
 

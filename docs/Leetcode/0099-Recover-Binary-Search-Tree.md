@@ -38,6 +38,7 @@ Explanation: 2 cannot be in the right subtree of 3 because 2 < 3. Swapping 2 and
 Using in-order tree traversal, we can find that all the left < root > right. If there are any invalid nodes, we should find left(prev) > root. We keep track of last level's root as prev where current root is its left child.
 
 There are two situations:
+
 1. first isn't populated, so the first two nodes to be swapped are prev and root.
 2. first is populated, then we traverse all the way down to find the last prev that is greater than root.
 

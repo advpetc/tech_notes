@@ -57,6 +57,7 @@ Invalid matching 2:
 ![Screen Shot 2020-10-08 at 4.44.10 PM.png](resources/5BA0BD7C21F50395D58764A09437CA62.png)
 
 To check if both cases are valid, we can keep two hash maps for storing the current mapping.
+
 1. if `ps[a] != b` return false else put {a,b} into ps.
 2. if `sp[b] != a` return false else put {b,a} into sp.
 
