@@ -31,6 +31,7 @@ The 14 integers less than or equal to 30 whose digit sums are even are
 ## Analysis
 
 We can use the bitwise operation to save some space for a big integer's sum (although a big integer's digit sum is always less than the big integer itself). We know:
+
 1. even + even = even
 2. odd + odd = even
 3. even + odd = odd

@@ -33,6 +33,7 @@ All worker and bike locations are distinct.
 ## Analysis
 
 Sort based on
+
 1. Manhattan distance between bike and worker
 2. Worker index
 3. Bike index
@@ -222,6 +223,7 @@ int main()
 > https://www.acwing.com/problem/content/259/
 
 Property of the max distance:
+
 - dis > max: can assign all the bikes and workers whose Manhattan distance is greater than max distance into other pairs (already assigned, so even if they have higher Manhattan distance, they can still get the bike)
 - dis < max: there is at least one bike and worker whose distance is greater than max distance that cannot be assigned
 

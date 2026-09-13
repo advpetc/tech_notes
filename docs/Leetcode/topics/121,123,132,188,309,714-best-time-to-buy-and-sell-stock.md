@@ -36,6 +36,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 **representation**
 dp[i][j][k]
+
 1. i: current day from day zero
 2. j: transections left
 3. k: {1,0} own (rest) or sold (sell)

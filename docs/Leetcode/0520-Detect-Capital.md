@@ -35,6 +35,7 @@ Output: False
 ## Analysis
 
 There are two cases (it's actually three but we can merge the first two together) to consider:
+
 1. If the first character is upper case, then the rest has to be **all** upper case **or** **all** lower case.
 2. If the first character is lower case, then the rest has to be **all** lower case.
 
