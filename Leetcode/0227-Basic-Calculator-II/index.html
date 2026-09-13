@@ -7872,10 +7872,12 @@ Output: 5
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>We can use a stack to hold the previous value just like what we did for <em>basic calculator I</em> with parentheses. However, we don't need to use a stack for this problem since we don't have parentheses.</p>
 <p>For '+' and '-' it's fairly easy to do this with just a single variable to hold the resultant value, but for '*' and '/' we need to think about the operator precedence.</p>
-<p>Consider the case for: <code>1 + 2*10</code>:
-1. We first grab 1 when we hit the first whitespace after 1.
-2. We then find 2, and since we have seen '+' before, we should think about whether we should start doing the '+' operation right now. Since we are seeing another '*' after 2, which has higher precedence than '+', we should <strong>hold</strong> our current value and possibly introduce another value just for calculating the compound for the '*' operation.
-3. Now we have two values to hold: the resultant value as well as the compound value. Now we can do what we were previously supposed to do: the '+' operation for our resultant value and the compound value.</p>
+<p>Consider the case for: <code>1 + 2*10</code>:</p>
+<ol>
+<li>We first grab 1 when we hit the first whitespace after 1.</li>
+<li>We then find 2, and since we have seen '+' before, we should think about whether we should start doing the '+' operation right now. Since we are seeing another '*' after 2, which has higher precedence than '+', we should <strong>hold</strong> our current value and possibly introduce another value just for calculating the compound for the '*' operation.</li>
+<li>Now we have two values to hold: the resultant value as well as the compound value. Now we can do what we were previously supposed to do: the '+' operation for our resultant value and the compound value.</li>
+</ol>
 <p>Another note: when we see '+' or '-' that means we can start calculating the result from the previous compound, and when we see '*' or '/', we should start calculating the compound. This means the operation is always defined by the previous iteration, and in the current iteration we update the future state of the compound.</p>
 <ul>
 <li>Time: <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></li>
@@ -7935,7 +7937,7 @@ Output: 5
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 8, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2026</span>
   </span>
 
     

@@ -7950,10 +7950,12 @@ Explanation: </p>
 All worker and bike locations are distinct.
 1 &lt;= workers.length &lt;= bikes.length &lt;= 1000</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>Sort based on
-1. Manhattan distance between bike and worker
-2. Worker index
-3. Bike index</p>
+<p>Sort based on</p>
+<ol>
+<li>Manhattan distance between bike and worker</li>
+<li>Worker index</li>
+<li>Bike index</li>
+</ol>
 <p>Using Priority Queue if the input is unbounded.</p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #3D7B7B; font-style: italic">/*</span>
@@ -8120,9 +8122,11 @@ using<span style="color: #BBB"> </span>namespace<span style="color: #BBB"> </spa
 <blockquote>
 <p><a href="https://www.acwing.com/problem/content/259/">https://www.acwing.com/problem/content/259/</a></p>
 </blockquote>
-<p>Property of the max distance:
-- dis &gt; max: can assign all the bikes and workers whose Manhattan distance is greater than max distance into other pairs (already assigned, so even if they have higher Manhattan distance, they can still get the bike)
-- dis &lt; max: there is at least one bike and worker whose distance is greater than max distance that cannot be assigned</p>
+<p>Property of the max distance:</p>
+<ul>
+<li>dis &gt; max: can assign all the bikes and workers whose Manhattan distance is greater than max distance into other pairs (already assigned, so even if they have higher Manhattan distance, they can still get the bike)</li>
+<li>dis &lt; max: there is at least one bike and worker whose distance is greater than max distance that cannot be assigned</li>
+</ul>
 <p>Use binary search for finding the biggest distance where the graph is still bipartite.
 Use dfs to check if all the others can have the coloring.</p>
 <p><strong>Now we have a different problem: find if the graph is bipartite when max = ?, and find the smallest max</strong></p>
@@ -8222,7 +8226,7 @@ using<span style="color: #BBB"> </span>namespace<span style="color: #BBB"> </spa
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 8, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2026</span>
   </span>
 
     

@@ -7862,9 +7862,11 @@ Output: false
 <img alt="Screen Shot 2020-10-08 at 4.43.20 PM.png" src="../resources/01958FDFEF3A4C6F4D5AF19BD43CD4EE.png" /></p>
 <p>Invalid matching 2:
 <img alt="Screen Shot 2020-10-08 at 4.44.10 PM.png" src="../resources/5BA0BD7C21F50395D58764A09437CA62.png" /></p>
-<p>To check if both cases are valid, we can keep two hash maps for storing the current mapping.
-1. if <code>ps[a] != b</code> return false else put {a,b} into ps.
-2. if <code>sp[b] != a</code> return false else put {b,a} into sp.</p>
+<p>To check if both cases are valid, we can keep two hash maps for storing the current mapping.</p>
+<ol>
+<li>if <code>ps[a] != b</code> return false else put {a,b} into ps.</li>
+<li>if <code>sp[b] != a</code> return false else put {b,a} into sp.</li>
+</ol>
 <p>Time: <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>
 Space: <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
@@ -7906,7 +7908,7 @@ Space: <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 8, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2026</span>
   </span>
 
     

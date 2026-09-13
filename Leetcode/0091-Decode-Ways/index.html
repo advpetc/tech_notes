@@ -7929,10 +7929,12 @@ Output: 1
 }
 </code></pre></div>
 
-<p><code>dp[i] += dp[i+2]</code> if
-1. <code>s[i] == 1</code>, so that any <code>s[i+2]</code> is valid, <code>s[i:i+1]</code> is in range 10-19
-2. <code>s[i] == 2</code> and <code>s[i+1] &lt; 7</code>, so that <code>s[i:i+1]</code> is in range 20-26
-If <code>s[i] == 0</code>, then <code>dp[i] = 0</code>, because 0 cannot be leading.</p>
+<p><code>dp[i] += dp[i+2]</code> if</p>
+<ol>
+<li><code>s[i] == 1</code>, so that any <code>s[i+2]</code> is valid, <code>s[i:i+1]</code> is in range 10-19</li>
+<li><code>s[i] == 2</code> and <code>s[i+1] &lt; 7</code>, so that <code>s[i:i+1]</code> is in range 20-26
+If <code>s[i] == 0</code>, then <code>dp[i] = 0</code>, because 0 cannot be leading.</li>
+</ol>
 <h2 id="optimize-with-constant-space">optimize with constant space<a class="headerlink" href="#optimize-with-constant-space" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000; font-weight: bold">class</span><span style="color: #BBB"> </span><span style="color: #00F; font-weight: bold">Solution</span><span style="color: #BBB"> </span>{
 <span style="color: #008000; font-weight: bold">public</span><span style="color: #666">:</span>
@@ -7955,9 +7957,11 @@ If <code>s[i] == 0</code>, then <code>dp[i] = 0</code>, because 0 cannot be lead
 };
 </code></pre></div>
 
-<p>This only needs two more states from the current state, so:
-1. pre: <code>s[i:i+1]</code>
-2. prepre: <code>s[i:i+2]</code></p>
+<p>This only needs two more states from the current state, so:</p>
+<ol>
+<li>pre: <code>s[i:i+1]</code></li>
+<li>prepre: <code>s[i:i+2]</code></li>
+</ol>
 
 
 
@@ -7978,7 +7982,7 @@ If <code>s[i] == 0</code>, then <code>dp[i] = 0</code>, because 0 cannot be lead
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 8, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2026</span>
   </span>
 
     

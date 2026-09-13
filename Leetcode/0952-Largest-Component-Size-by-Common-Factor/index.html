@@ -5061,6 +5061,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#start-with-all-the-nodes-themselves-they-are-self-connected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        * start with all the nodes themselves, they are "self-connected"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#code" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7815,6 +7826,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#start-with-all-the-nodes-themselves-they-are-self-connected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        * start with all the nodes themselves, they are "self-connected"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#code" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -7901,15 +7923,18 @@ Output: 8
 <p>tldr: By using map we can save the space from max(array) to sqrt(max(array)).</p>
 <p>This question is basically asking for the largest connected component in a forest. In order to do so, we need to find a way to "group" all the nodes whose common divisor (one by one, not among any two) is greater than 1 together to a single tree, and we need a "root" as an id to quantify how many kids this tree holds. This leads to Union-Find.</p>
 <hr />
-<p>step 1 build the graph:
-* start with all the nodes themselves, they are "self-connected"</p>
+<p>step 1 build the graph:</p>
+<h2 id="start-with-all-the-nodes-themselves-they-are-self-connected">* start with all the nodes themselves, they are "self-connected"<a class="headerlink" href="#start-with-all-the-nodes-themselves-they-are-self-connected" title="Permanent link">&para;</a></h2>
+<p>step 2 find all the divisors of the current node</p>
+<ul>
+<li>after we put the node value into the tree, we also need to group all the divisors &gt;= 2 with the current root node.</li>
+<li>this can be done in sqrt(n) time, since for any two divisors a * b &lt; n, a has to be less than sqrt(n).</li>
+</ul>
 <hr />
-<p>step 2 find all the divisors of the current node
-* after we put the node value into the tree, we also need to group all the divisors &gt;= 2 with the current root node.
-* this can be done in sqrt(n) time, since for any two divisors a * b &lt; n, a has to be less than sqrt(n).</p>
-<hr />
-<p>step 3 check the root and do the counting
-* now we have built our tree, and we can easily find the root node (or id) for each node, we can just count the number of ids and find the max.</p>
+<p>step 3 check the root and do the counting</p>
+<ul>
+<li>now we have built our tree, and we can easily find the root node (or id) for each node, we can just count the number of ids and find the max.</li>
+</ul>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>class<span style="color: #BBB"> </span>Solution<span style="color: #BBB"> </span>{
 public<span style="color: #666">:</span>
@@ -8065,7 +8090,7 @@ public<span style="color: #666">:</span>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 8, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2026</span>
   </span>
 
     
